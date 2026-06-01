@@ -30,9 +30,6 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         parent::tearDown();
     }
 
-
-
-
     // ── supports() ───────────────────────────────────────────────────────────
 
     public function testSupportsAllPhpVersions(): void
@@ -51,7 +48,7 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -66,7 +63,7 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         $reflClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -79,12 +76,12 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
 
     public function testClassWithNoMethodsSucceeds(): void
     {
-        $className   = '\MyClass';
-        $reflClass   = $this->createMockClassWithProperties($className);
-        $stubClass   = $this->createMockClassWithProperties($className);
+        $className = '\MyClass';
+        $reflClass = $this->createMockClassWithProperties($className);
+        $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -97,16 +94,22 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork')]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -118,16 +121,22 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -141,16 +150,22 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)]   // reflection: static
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create')]  // stub: non-static
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -166,16 +181,22 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork')]  // reflection: non-static
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', isStatic: true)]   // stub: static
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -188,21 +209,27 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
-        $result   = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
+        $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
         $failures = $result->getFailures();
-        $msg      = $failures[$className . '::create'];
+        $msg = $failures[$className . '::create'];
 
         $this->assertStringContainsString('static', $msg);
         $this->assertStringContainsString('non-static', $msg);
@@ -213,14 +240,20 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('doWork'),  // matches
-                $this->makeMethod('create',  isStatic: true),  // mismatch: refl=static, stub=non-static
+                $this->makeMethod('create', isStatic: true),  // mismatch: refl=static, stub=non-static
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('doWork'),
                 $this->makeMethod('create'), // wrong
@@ -228,7 +261,7 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -242,14 +275,20 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('methodA', isStatic: true),
                 $this->makeMethod('methodB'),
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('methodA'), // wrong
                 $this->makeMethod('methodB', isStatic: true),  // wrong
@@ -257,7 +296,7 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -274,13 +313,16 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('onlyInReflection', isStatic: true)]
         );
         $stubClass = $this->createMockClassWithProperties($className); // no methods
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -294,11 +336,17 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\SpecialClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)]  // mismatch
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create')]
         );
 
@@ -318,7 +366,7 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider, $registry))->run($stubs, $className, '8.0');
@@ -334,18 +382,24 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
 
     public function testMethodLevelKnownProblemSkipsSpecificMismatch(): void
     {
-        $className    = '\MyClass';
+        $className = '\MyClass';
         $mismatchedId = $className . '::create';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('doWork'), // matches
-                $this->makeMethod('create',  isStatic: true),  // mismatch — covered by known problem
+                $this->makeMethod('create', isStatic: true),  // mismatch — covered by known problem
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('doWork'),
                 $this->makeMethod('create'), // wrong, but known problem
@@ -368,13 +422,13 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider, $registry))->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Method-level skip', array_values($skipped)[0]);
     }
@@ -384,14 +438,20 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
-                $this->makeMethod('create',  isStatic: true),   // mismatch — known problem
+                $this->makeMethod('create', isStatic: true),   // mismatch — known problem
                 $this->makeMethod('doOther', isStatic: true),   // mismatch — NOT a known problem
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('create'),
                 $this->makeMethod('doOther'),
@@ -414,7 +474,7 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider, $registry))->run($stubs, $className, '8.0');
@@ -431,16 +491,22 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('newMethod', isStatic: true)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('newMethod', sinceVersion: '8.1')] // not available in 8.0
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -452,16 +518,22 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('oldMethod', isStatic: true)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('oldMethod', sinceVersion: '5.6', removedVersion: '7.4')] // removed before 8.0
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -473,16 +545,22 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)]   // reflection: static
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', sinceVersion: '7.0', removedVersion: '8.4')] // available in 8.0, but wrong
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -497,16 +575,22 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\Generator';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('throw', isStatic: true)]                         // reflection: static
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('PS_UNRESERVE_PREFIX_throw')]    // stub: non-static → mismatch
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -519,16 +603,22 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\Generator';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('throw')]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('PS_UNRESERVE_PREFIX_throw')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -540,11 +630,14 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
 
     public function testStaticMethodInheritedFromParentMismatchIsReported(): void
     {
-        $className       = '\ChildClass';
+        $className = '\ChildClass';
         $parentClassName = '\ParentClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)] // reflection sees static on child
         );
 
@@ -556,7 +649,7 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -567,11 +660,14 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
 
     public function testStaticMethodInheritedFromParentMatchIsSuccess(): void
     {
-        $className       = '\ChildClass';
+        $className = '\ChildClass';
         $parentClassName = '\ParentClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)]
         );
 
@@ -583,7 +679,7 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -595,11 +691,14 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         // Child re-declares 'create' as non-static; parent had it static.
         // Reflection reports non-static for child. Child stub wins.
-        $className       = '\ChildClass';
+        $className = '\ChildClass';
         $parentClassName = '\ParentClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create')] // child override: non-static
         );
 
@@ -608,13 +707,16 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         $parentStub->setMethods([$this->makeMethod('create', isStatic: true)]); // parent: static (must not win)
 
         $childStub = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create')] // child: non-static → matches reflection
         );
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -628,7 +730,10 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)]
         );
 
@@ -637,11 +742,17 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [$iface]
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [$iface]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -654,7 +765,10 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)]
         );
 
@@ -663,11 +777,17 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [$iface]
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [$iface]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -681,7 +801,10 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         // Class own definition must win.
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)] // reflection: static
         );
 
@@ -690,14 +813,17 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', isStatic: true)], // class own: static → matches
             null,
             [$iface]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassStaticMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -722,7 +848,7 @@ class ClassStaticMethodsCheckTest extends CheckTestCase
         $stubClass->setParentClass($parent);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         // Should complete without infinite loop

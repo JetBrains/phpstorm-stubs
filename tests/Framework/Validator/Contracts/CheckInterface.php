@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Validator\Contracts;
 
 use StubTests\Framework\Parsers\StubDataQueryInterface;
-use StubTests\Framework\Validator\Contracts\CheckResultSet;
 
 interface CheckInterface
 {

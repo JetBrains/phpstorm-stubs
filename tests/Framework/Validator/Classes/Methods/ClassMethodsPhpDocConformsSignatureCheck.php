@@ -39,7 +39,6 @@ use StubTests\Framework\Validator\Services\ReturnTypeResolver;
  */
 class ClassMethodsPhpDocConformsSignatureCheck extends AbstractClassCheck
 {
-
     private PhpDocConformanceService $conformanceService;
 
     public function __construct(

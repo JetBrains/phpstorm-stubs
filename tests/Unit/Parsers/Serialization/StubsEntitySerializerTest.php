@@ -3,7 +3,6 @@
 namespace StubTests\Unit\Parsers\Serialization;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-
 use StubTests\Framework\Parsers\Serializers\Stubs\StubsEntitySerializer;
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Parsers\Model\PHPClass;

@@ -48,7 +48,7 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider))->run($stubs, $className, '8.0');
@@ -63,7 +63,7 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
         $reflClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider))->run($stubs, $className, '8.0');
@@ -81,7 +81,7 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider))->run($stubs, $className, '8.0');
@@ -92,20 +92,26 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
 
     public function testMethodWithNoOptionalParamsSucceeds(): void
     {
-        $className  = '\MyClass';
-        $params     = [$this->makeParam('a'), $this->makeParam('b')];
+        $className = '\MyClass';
+        $params = [$this->makeParam('a'), $this->makeParam('b')];
 
-        $reflClass  = $this->createMockClassWithProperties(
-            $className, null, null, null,
+        $reflClass = $this->createMockClassWithProperties(
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $params)]
         );
-        $stubClass  = $this->createMockClassWithProperties(
-            $className, null, null, null,
+        $stubClass = $this->createMockClassWithProperties(
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $params)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider))->run($stubs, $className, '8.0');
@@ -116,21 +122,27 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
 
     public function testOptionalParamInReflectionAndStubsIsSuccess(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
         $stubParams = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('compute', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('compute', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider))->run($stubs, $className, '8.0');
@@ -143,21 +155,27 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
 
     public function testOptionalParamInReflectionButNotStubsIsFailure(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
         $stubParams = [$this->makeParam('a'), $this->makeParam('b')]; // not optional
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('compute', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('compute', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider))->run($stubs, $className, '8.0');
@@ -174,21 +192,27 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
     public function testOptionalInStubsButNotReflectionIsSuccess(): void
     {
         // One-directional: stubs can be more permissive
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('x')];
         $stubParams = [$this->makeParam('x', optional: true)]; // optional in stubs only
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doIt', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doIt', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider))->run($stubs, $className, '8.0');
@@ -199,21 +223,27 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
     public function testParamMissingFromStubMethodIsNotReportedAsOptionalMismatch(): void
     {
         // Missing params are ParametersCountCheck's responsibility
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
         $stubParams = [$this->makeParam('a')]; // 'b' absent
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider))->run($stubs, $className, '8.0');
@@ -224,17 +254,20 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
     public function testMethodMissingFromStubsIsNotReportedAsOptionalMismatch(): void
     {
         // Missing methods are ClassMethodsExistCheck's responsibility
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('b', optional: true)];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('onlyInRefl', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties($className); // no methods
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider))->run($stubs, $className, '8.0');
@@ -246,7 +279,7 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
 
     public function testVersionExcludedStubParamIsIgnored(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
         $stubParams = [
             $this->makeParam('a'),
@@ -254,16 +287,22 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
         ];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         // 'b' excluded → not in stub map → skipped
@@ -276,14 +315,17 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
 
     public function testOptionalParamMismatchInheritedFromParentIsChecked(): void
     {
-        $className       = '\Child';
+        $className = '\Child';
         $parentClassName = '\Parent';
 
         $reflParams = [$this->makeParam('x', optional: true)]; // optional in reflection
         $stubParams = [$this->makeParam('x')]; // not optional in stubs
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('inherited', $reflParams)]
         );
 
@@ -295,7 +337,7 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider))->run($stubs, $className, '8.0');
@@ -308,16 +350,22 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
 
     public function testClassLevelKnownProblemSkipsAllMethods(): void
     {
-        $className  = '\SpecialClass';
+        $className = '\SpecialClass';
         $reflParams = [$this->makeParam('x', optional: true)];
         $stubParams = [$this->makeParam('x')]; // mismatch
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $stubParams)]
         );
 
@@ -337,13 +385,13 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider, $registry))->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Class-level optional params skip', array_values($skipped)[0]);
     }
@@ -352,21 +400,27 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
 
     public function testMethodLevelKnownProblemSkipsSpecificMismatch(): void
     {
-        $className    = '\MyClass';
+        $className = '\MyClass';
         $mismatchedId = $className . '::badMethod';
 
         $reflParams = [$this->makeParam('x', optional: true)];
         $stubParams = [$this->makeParam('x')]; // mismatch
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->createMockMethod('badMethod', $reflParams),
                 $this->createMockMethod('goodMethod', []),
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->createMockMethod('badMethod', $stubParams),
                 $this->createMockMethod('goodMethod', []),
@@ -389,13 +443,13 @@ class ClassMethodsOptionalParametersCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsOptionalParametersCheck($provider, $registry))->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Method-level optional params skip', array_values($skipped)[0]);
     }

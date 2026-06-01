@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Runner;
 
 use Attribute;
-use StubTests\Framework\Runner\PhpVersions;
 
 #[Attribute(Attribute::TARGET_METHOD)]
 class PhpVersionRange
@@ -21,9 +20,7 @@ class PhpVersionRange
     private static function validateVersion(string $version): string
     {
         if (!preg_match('/^\d+\.\d+$/', $version)) {
-            throw new \InvalidArgumentException(
-                "Invalid PHP version format '{$version}'. Expected 'major.minor' (e.g. '8.0')."
-            );
+            throw new \InvalidArgumentException("Invalid PHP version format '{$version}'. Expected 'major.minor' (e.g. '8.0').");
         }
         return $version;
     }

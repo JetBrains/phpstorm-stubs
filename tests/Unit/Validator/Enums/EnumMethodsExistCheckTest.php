@@ -40,11 +40,11 @@ class EnumMethodsExistCheckTest extends CheckTestCase
 
     public function testEnumNotFoundInReflectionIsFailure(): void
     {
-        $enumId  = '\MissingEnum';
+        $enumId = '\MissingEnum';
         $stubEnum = $this->makeEnum($enumId);
 
         $provider = $this->createMockReflectionProviderWithEnums([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -58,11 +58,11 @@ class EnumMethodsExistCheckTest extends CheckTestCase
 
     public function testEnumNotFoundInStubsIsFailure(): void
     {
-        $enumId  = '\MissingEnum';
+        $enumId = '\MissingEnum';
         $reflEnum = $this->makeEnum($enumId);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -77,12 +77,12 @@ class EnumMethodsExistCheckTest extends CheckTestCase
 
     public function testEnumWithNoMethodsSucceeds(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $reflEnum = $this->makeEnum($enumId);
         $stubEnum = $this->makeEnum($enumId);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -93,12 +93,12 @@ class EnumMethodsExistCheckTest extends CheckTestCase
 
     public function testAllReflectionMethodsPresentInStubs(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -108,7 +108,7 @@ class EnumMethodsExistCheckTest extends CheckTestCase
 
     public function testMissingMethodInStubsIsReported(): void
     {
-        $enumId   = '\Dom\AdjacentPosition';
+        $enumId = '\Dom\AdjacentPosition';
         $reflEnum = $this->makeEnum($enumId, [
             $this->makeMethod('cases'),
             $this->makeMethod('from'),
@@ -119,7 +119,7 @@ class EnumMethodsExistCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -136,15 +136,15 @@ class EnumMethodsExistCheckTest extends CheckTestCase
     public function testMethodInheritedFromImplementedInterfaceIsCounted(): void
     {
         // UnitEnum has cases(). An enum implementing UnitEnum should provide cases() via the interface.
-        $enumId     = '\RoundingMode';
-        $reflEnum   = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
+        $enumId = '\RoundingMode';
+        $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
 
-        $unitEnum   = $this->makeInterface('\UnitEnum', [$this->makeMethod('cases')]);
-        $stubEnum   = $this->makeEnum($enumId);
+        $unitEnum = $this->makeInterface('\UnitEnum', [$this->makeMethod('cases')]);
+        $stubEnum = $this->makeEnum($enumId);
         $stubEnum->setImplementedInterfaces([$unitEnum]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -155,8 +155,8 @@ class EnumMethodsExistCheckTest extends CheckTestCase
     public function testMethodFromBackedEnumInterfaceIsCounted(): void
     {
         // BackedEnum has from() and tryFrom(). Dom\AdjacentPosition uses BackedEnum.
-        $enumId     = '\Dom\AdjacentPosition';
-        $reflEnum   = $this->makeEnum($enumId, [
+        $enumId = '\Dom\AdjacentPosition';
+        $reflEnum = $this->makeEnum($enumId, [
             $this->makeMethod('cases'),
             $this->makeMethod('from'),
             $this->makeMethod('tryFrom'),
@@ -166,12 +166,12 @@ class EnumMethodsExistCheckTest extends CheckTestCase
             $this->makeMethod('from'),
             $this->makeMethod('tryFrom'),
         ]);
-        $unitEnum   = $this->makeInterface('\UnitEnum', [$this->makeMethod('cases')]);
-        $stubEnum   = $this->makeEnum($enumId);
+        $unitEnum = $this->makeInterface('\UnitEnum', [$this->makeMethod('cases')]);
+        $stubEnum = $this->makeEnum($enumId);
         $stubEnum->setImplementedInterfaces([$backedEnum, $unitEnum]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -183,12 +183,12 @@ class EnumMethodsExistCheckTest extends CheckTestCase
 
     public function testPsUnreservePrefixIsStrippedToMatchReflectionName(): void
     {
-        $enumId   = '\MyEnum';
+        $enumId = '\MyEnum';
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('list')]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('PS_UNRESERVE_PREFIX_list')]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -200,7 +200,7 @@ class EnumMethodsExistCheckTest extends CheckTestCase
 
     public function testEnumLevelKnownProblemSkipsAllMethodChecks(): void
     {
-        $enumId   = '\SpecialEnum';
+        $enumId = '\SpecialEnum';
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('missingMethod')]);
         $stubEnum = $this->makeEnum($enumId);  // no methods
 
@@ -220,7 +220,7 @@ class EnumMethodsExistCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, knownProblemsRegistry: $registry, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -233,7 +233,7 @@ class EnumMethodsExistCheckTest extends CheckTestCase
 
     public function testMultipleMissingMethodsAreReported(): void
     {
-        $enumId   = '\Dom\AdjacentPosition';
+        $enumId = '\Dom\AdjacentPosition';
         $reflEnum = $this->makeEnum($enumId, [
             $this->makeMethod('cases'),
             $this->makeMethod('from'),
@@ -242,7 +242,7 @@ class EnumMethodsExistCheckTest extends CheckTestCase
         $stubEnum = $this->makeEnum($enumId);  // no methods
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');

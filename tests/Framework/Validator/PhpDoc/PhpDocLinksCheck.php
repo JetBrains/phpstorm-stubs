@@ -65,7 +65,6 @@ class PhpDocLinksCheck extends AbstractReflectionCheck
      * Useful in unit tests to avoid mutating process-wide state.
      */
     private ?bool $checkLiveness;
-
     private EntityLookupService $entityLookup;
 
     public function __construct(
@@ -76,9 +75,9 @@ class PhpDocLinksCheck extends AbstractReflectionCheck
         ?EntityLookupService $entityLookup = null
     ) {
         parent::__construct($reflectionProvider, $knownProblemsRegistry);
-        $this->urlFetcher    = $urlFetcher ?? [self::class, 'fetchUrl'];
+        $this->urlFetcher = $urlFetcher ?? [self::class, 'fetchUrl'];
         $this->checkLiveness = $checkLiveness;
-        $this->entityLookup  = $entityLookup ?? new EntityLookupService();
+        $this->entityLookup = $entityLookup ?? new EntityLookupService();
     }
 
     /**
@@ -96,19 +95,19 @@ class PhpDocLinksCheck extends AbstractReflectionCheck
 
         $ch = curl_init($url);
         curl_setopt_array($ch, [
-            CURLOPT_NOBODY         => true,
+            CURLOPT_NOBODY => true,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_MAXREDIRS      => 5,
-            CURLOPT_TIMEOUT        => 10,
+            CURLOPT_MAXREDIRS => 5,
+            CURLOPT_TIMEOUT => 10,
             CURLOPT_CONNECTTIMEOUT => 5,
-            CURLOPT_USERAGENT      => 'phpstorm-stubs-link-checker/1.0 (+https://github.com/JetBrains/phpstorm-stubs)',
+            CURLOPT_USERAGENT => 'phpstorm-stubs-link-checker/1.0 (+https://github.com/JetBrains/phpstorm-stubs)',
             CURLOPT_SSL_VERIFYPEER => true,
             CURLOPT_SSL_VERIFYHOST => 2,
         ]);
         curl_exec($ch);
         $code = curl_errno($ch) === CURLE_OK
-            ? (int) curl_getinfo($ch, CURLINFO_HTTP_CODE)
+            ? (int)curl_getinfo($ch, CURLINFO_HTTP_CODE)
             : 0;
         curl_close($ch);
 
@@ -233,5 +232,4 @@ class PhpDocLinksCheck extends AbstractReflectionCheck
 
         return $violations;
     }
-
 }

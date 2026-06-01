@@ -8,24 +8,12 @@ namespace StubTests\Framework\Parsers\Stubs\PhpDoc;
  */
 class ParsedPhpDoc
 {
-
     public ?string $rawPhpDoc = null;
-
-
     public ?string $returnType = null;
-
     public array $paramTypes = [];
-
-
     public ?string $varType = null;
-
-
     public ?string $sinceVersion = null;
-
-
     public ?string $removedVersion = null;
-
-
     public bool $isDeprecated = false;
 
     /**

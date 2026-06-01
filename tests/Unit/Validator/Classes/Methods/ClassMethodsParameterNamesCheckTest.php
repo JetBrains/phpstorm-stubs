@@ -51,7 +51,7 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterNamesCheck($provider))->run($stubs, $className, '8.0');
@@ -66,7 +66,7 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
         $reflClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([]);
 
         $result = (new ClassMethodsParameterNamesCheck($provider))->run($stubs, $className, '8.0');
@@ -79,21 +79,27 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
 
     public function testMatchingParameterNamesSucceed(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('callback'), $this->makeParam('array')];
         $stubParams = [$this->makeParam('callback'), $this->makeParam('array')];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterNamesCheck($provider))->run($stubs, $className, '8.0');
@@ -104,17 +110,20 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
 
     public function testMethodMissingFromStubsIsSkipped(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('x')];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('onlyInRefl', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterNamesCheck($provider))->run($stubs, $className, '8.0');
@@ -126,21 +135,27 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
 
     public function testParameterNameMismatchIsFailure(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('callback')];
         $stubParams = [$this->makeParam('fn')]; // wrong name
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('invoke', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('invoke', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterNamesCheck($provider))->run($stubs, $className, '8.0');
@@ -155,21 +170,27 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
 
     public function testMultipleNameMismatchesReportedTogether(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('a'), $this->makeParam('b')];
         $stubParams = [$this->makeParam('x'), $this->makeParam('y')]; // both wrong
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('compute', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('compute', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterNamesCheck($provider))->run($stubs, $className, '8.0');
@@ -185,21 +206,27 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
     public function testCountMismatchDoesNotProduceNameError(): void
     {
         // When count mismatches, ParametersCountCheck's responsibility; names check is skipped
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('a'), $this->makeParam('b')];
         $stubParams = [$this->makeParam('x')]; // count differs AND name wrong
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterNamesCheck($provider))->run($stubs, $className, '8.0');
@@ -212,7 +239,7 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
     public function testVersionFilteredParamIsExcluded(): void
     {
         // Stub param 'extra' only since 8.1; checking PHP 8.0 → excluded → count matches, name ok
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('value')];
         $stubParams = [
             $this->makeParam('value'),
@@ -220,16 +247,22 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
         ];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterNamesCheck($provider))->run($stubs, $className, '8.0');
@@ -242,7 +275,7 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
     public function testSameNamedVariadicDeduplication(): void
     {
         // Stub: placeholder removed in PHP 8.0 + variadic of same name
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('values')]; // single param in reflection
         $stubParams = [
             $this->makeParam('values', removedVersion: '7.4'), // removed after 7.4
@@ -250,16 +283,22 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
         ];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('collect', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('collect', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         // PHP 8.0: placeholder removed → only variadic 'values' remains → names match
@@ -272,14 +311,17 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
 
     public function testNameMismatchInheritedFromParentIsChecked(): void
     {
-        $className       = '\Child';
+        $className = '\Child';
         $parentClassName = '\Parent';
 
         $reflParams = [$this->makeParam('value')];
         $stubParams = [$this->makeParam('wrongName')]; // wrong name in parent stub
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('inherited', $reflParams)]
         );
 
@@ -291,7 +333,7 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassMethodsParameterNamesCheck($provider))->run($stubs, $className, '8.0');
@@ -304,16 +346,22 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
 
     public function testClassLevelKnownProblemSkipsAllMethods(): void
     {
-        $className  = '\SpecialClass';
+        $className = '\SpecialClass';
         $reflParams = [$this->makeParam('correct')];
         $stubParams = [$this->makeParam('wrong')]; // mismatch
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $stubParams)]
         );
 
@@ -333,13 +381,13 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterNamesCheck($provider, $registry))->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Class-level param names skip', array_values($skipped)[0]);
     }
@@ -348,21 +396,27 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
 
     public function testMethodLevelKnownProblemSkipsSpecificMismatch(): void
     {
-        $className    = '\MyClass';
+        $className = '\MyClass';
         $mismatchedId = $className . '::badMethod';
 
         $reflParams = [$this->makeParam('correct')];
         $stubParams = [$this->makeParam('wrong')]; // mismatch
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->createMockMethod('badMethod', $reflParams),
                 $this->createMockMethod('goodMethod', []),
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->createMockMethod('badMethod', $stubParams),
                 $this->createMockMethod('goodMethod', []),
@@ -385,13 +439,13 @@ class ClassMethodsParameterNamesCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterNamesCheck($provider, $registry))->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Method-level param names skip', array_values($skipped)[0]);
     }

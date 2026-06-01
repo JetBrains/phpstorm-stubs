@@ -60,7 +60,7 @@ class NikicAttributeNode implements AttributeNode
         }
 
         // Fallback: try to convert to string
-        return (string) $expr;
+        return (string)$expr;
     }
 
     /**

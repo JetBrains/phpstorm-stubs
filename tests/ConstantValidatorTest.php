@@ -8,7 +8,6 @@ use StubTests\Framework\Validator\Constants\ConstantExistsCheck;
 use StubTests\Framework\Validator\Constants\ConstantValueCheck;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
-use StubTests\ValidatorTestBase;
 
 /**
  * Validates that global constants from reflection exist in stubs.

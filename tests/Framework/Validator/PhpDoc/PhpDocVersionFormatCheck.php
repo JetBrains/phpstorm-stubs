@@ -155,5 +155,4 @@ class PhpDocVersionFormatCheck extends AbstractReflectionCheck
         }
         return array_values(array_unique($violations));
     }
-
 }

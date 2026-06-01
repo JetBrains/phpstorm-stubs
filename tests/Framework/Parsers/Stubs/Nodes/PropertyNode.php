@@ -2,10 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Stubs\Nodes;
 
-use StubTests\Framework\Parsers\Stubs\Nodes\AttributeNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\TypeNode;
-
 /**
  * Parser-agnostic interface for property AST nodes.
  * Exposes all property attributes needed for complete parsing.

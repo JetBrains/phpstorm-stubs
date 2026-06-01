@@ -43,10 +43,10 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInReflectionIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $stubIface   = $this->makeInterface($interfaceId);
+        $stubIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -62,10 +62,10 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInStubsIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $reflIface   = $this->makeInterface($interfaceId);
+        $reflIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -83,11 +83,11 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testInterfaceWithNoMethodsSucceeds(): void
     {
         $interfaceId = '\Countable';
-        $reflIface   = $this->makeInterface($interfaceId);
-        $stubIface   = $this->makeInterface($interfaceId);
+        $reflIface = $this->makeInterface($interfaceId);
+        $stubIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -99,14 +99,14 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testAllReflectionMethodsPresentInStubs(): void
     {
         $interfaceId = '\Iterator';
-        $reflIface   = $this->makeInterface($interfaceId, [
+        $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('current'),
             $this->makeMethod('key'),
             $this->makeMethod('next'),
             $this->makeMethod('rewind'),
             $this->makeMethod('valid'),
         ]);
-        $stubIface   = $this->makeInterface($interfaceId, [
+        $stubIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('current'),
             $this->makeMethod('key'),
             $this->makeMethod('next'),
@@ -115,7 +115,7 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -127,17 +127,17 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testMissingMethodInStubsIsReported(): void
     {
         $interfaceId = '\Iterator';
-        $reflIface   = $this->makeInterface($interfaceId, [
+        $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('current'),
             $this->makeMethod('next'),
         ]);
-        $stubIface   = $this->makeInterface($interfaceId, [
+        $stubIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('current'),
             // 'next' is missing
         ]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -154,18 +154,18 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testMethodInheritedFromParentInterfaceIsCounted(): void
     {
         // OuterIterator extends Iterator. Methods from Iterator must be found via traversal.
-        $outerIteratorId   = '\OuterIterator';
-        $reflIface         = $this->makeInterface($outerIteratorId, [
+        $outerIteratorId = '\OuterIterator';
+        $reflIface = $this->makeInterface($outerIteratorId, [
             $this->makeMethod('current'),
             $this->makeMethod('getInnerIterator'),
         ]);
 
-        $iteratorStub      = $this->makeInterface('\Iterator', [$this->makeMethod('current')]);
+        $iteratorStub = $this->makeInterface('\Iterator', [$this->makeMethod('current')]);
         $outerIteratorStub = $this->makeInterface($outerIteratorId, [$this->makeMethod('getInnerIterator')]);
         $outerIteratorStub->addParentInterface($iteratorStub);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$outerIteratorStub]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $outerIteratorId, '8.0');
@@ -187,7 +187,7 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
         $ifaceC->addParentInterface($ifaceB);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$ifaceC]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -200,14 +200,14 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testMethodNotYetAvailableIsExcludedFromStubs(): void
     {
         $interfaceId = '\MyInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod')]);
-        $stubIface   = $this->makeInterface($interfaceId, [
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod')]);
+        $stubIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('oldMethod'),
             $this->makeMethod('newMethod', sinceVersion: '8.1'),  // since 8.1, not available in 8.0
         ]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -218,14 +218,14 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testRemovedMethodIsExcludedFromStubs(): void
     {
         $interfaceId = '\MyInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('currentMethod')]);
-        $stubIface   = $this->makeInterface($interfaceId, [
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('currentMethod')]);
+        $stubIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('currentMethod'),
             $this->makeMethod('legacyMethod', removedVersion: '7.4'),  // removed before 8.0
         ]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -238,7 +238,7 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testCycleInParentInterfaceChainDoesNotCauseInfiniteLoop(): void
     {
         $interfaceId = '\IfaceA';
-        $reflIface   = $this->makeInterface($interfaceId, [
+        $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('methodA'),
             $this->makeMethod('methodB'),
         ]);
@@ -249,7 +249,7 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
         $ifaceB->addParentInterface($ifaceA);  // cycle!
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$ifaceA]);
 
         // Must complete without infinite recursion; both methods collected before guard fires.
@@ -263,11 +263,11 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testPsUnreservePrefixIsStrippedToMatchReflectionName(): void
     {
         $interfaceId = '\MyInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('list')]);
-        $stubIface   = $this->makeInterface($interfaceId, [$this->makeMethod('PS_UNRESERVE_PREFIX_list')]);
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('list')]);
+        $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('PS_UNRESERVE_PREFIX_list')]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -280,8 +280,8 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testInterfaceLevelKnownProblemSkipsAllMethodChecks(): void
     {
         $interfaceId = '\SpecialInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('missingMethod')]);
-        $stubIface   = $this->makeInterface($interfaceId);  // no methods
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('missingMethod')]);
+        $stubIface = $this->makeInterface($interfaceId);  // no methods
 
         $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
@@ -299,7 +299,7 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, knownProblemsRegistry: $registry, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -312,7 +312,7 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
 
     public function testMethodLevelKnownProblemSkipsSpecificMethod(): void
     {
-        $interfaceId     = '\MyInterface';
+        $interfaceId = '\MyInterface';
         $missingMethodId = $interfaceId . '::missingMethod';
 
         $reflIface = $this->makeInterface($interfaceId, [
@@ -340,13 +340,13 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, knownProblemsRegistry: $registry, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Method-level skip reason', array_values($skipped)[0]);
     }
@@ -354,15 +354,15 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
     public function testMultipleMissingMethodsAreReported(): void
     {
         $interfaceId = '\Iterator';
-        $reflIface   = $this->makeInterface($interfaceId, [
+        $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('valid'),
             $this->makeMethod('current'),
             $this->makeMethod('next'),
         ]);
-        $stubIface   = $this->makeInterface($interfaceId);  // no methods
+        $stubIface = $this->makeInterface($interfaceId);  // no methods
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsExistCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');

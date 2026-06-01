@@ -41,7 +41,7 @@ class ConstantExistsCheckTest extends CheckTestCase
     public function testConstantFoundInStubsPasses(): void
     {
         $constantId = '\\PHP_INT_MAX';
-        $stubs      = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([$this->makeGlobalConstant($constantId)]);
 
         $result = (new ConstantExistsCheck())->run($stubs, $constantId, PhpVersions::LATEST->value);
@@ -54,7 +54,7 @@ class ConstantExistsCheckTest extends CheckTestCase
     public function testConstantNotFoundInStubsFails(): void
     {
         $constantId = '\\SOME_MISSING_CONSTANT';
-        $stubs      = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([]);
 
         $result = (new ConstantExistsCheck())->run($stubs, $constantId, PhpVersions::LATEST->value);
@@ -68,7 +68,7 @@ class ConstantExistsCheckTest extends CheckTestCase
     public function testConstantNotFoundOnOlderVersionFails(): void
     {
         $constantId = '\\PHP_EOL';
-        $stubs      = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([]);
 
         $result = (new ConstantExistsCheck())->run($stubs, $constantId, PhpVersions::PHP_5_6->value);
@@ -81,7 +81,7 @@ class ConstantExistsCheckTest extends CheckTestCase
     public function testCorrectConstantAmongMultiplePasses(): void
     {
         $constantId = '\\PHP_MAJOR_VERSION';
-        $stubs      = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([
             $this->makeGlobalConstant('\\PHP_MINOR_VERSION'),
             $this->makeGlobalConstant($constantId),

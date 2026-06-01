@@ -2,10 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Reflection\Wrappers;
 
-use StubTests\Framework\Parsers\Reflection\Wrappers\AbstractReflectionAdapter;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionParameter;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionType;
-
 /**
  * Adapter wrapper around ReflectionFunction
  *
@@ -31,7 +27,7 @@ class AdaptedReflectionFunction extends AbstractReflectionAdapter
     protected function getAdditionalSkipMethods()
     {
         // All methods are now covered by global patterns
-        return array();
+        return [];
     }
 
     /**
@@ -50,7 +46,7 @@ class AdaptedReflectionFunction extends AbstractReflectionAdapter
         }
 
         // Extract parameters
-        $parameters = array();
+        $parameters = [];
         foreach ($reflectionObject->getParameters() as $parameter) {
             $parameters[] = new AdaptedReflectionParameter($parameter);
         }
@@ -63,19 +59,19 @@ class AdaptedReflectionFunction extends AbstractReflectionAdapter
         // Extract attributes (PHP 8.0+)
         if (method_exists($reflectionObject, 'getAttributes')) {
             try {
-                $attributes = array();
+                $attributes = [];
                 foreach ($reflectionObject->getAttributes() as $attribute) {
-                    $attributes[] = array(
+                    $attributes[] = [
                         'name' => $attribute->getName(),
                         'arguments' => $attribute->getArguments()
-                    );
+                    ];
                 }
                 $this->setData('getAttributes', $attributes);
             } catch (\Exception $e) {
-                $this->setData('getAttributes', array());
+                $this->setData('getAttributes', []);
             }
         } else {
-            $this->setData('getAttributes', array());
+            $this->setData('getAttributes', []);
         }
     }
 
@@ -112,7 +108,7 @@ class AdaptedReflectionFunction extends AbstractReflectionAdapter
 
     public function getParameters()
     {
-        return $this->getData('getParameters', array());
+        return $this->getData('getParameters', []);
     }
 
     public function getNumberOfParameters()
@@ -177,12 +173,12 @@ class AdaptedReflectionFunction extends AbstractReflectionAdapter
 
     public function getStaticVariables()
     {
-        return $this->getData('getStaticVariables', array());
+        return $this->getData('getStaticVariables', []);
     }
 
     public function getAttributes()
     {
-        return $this->getData('getAttributes', array());
+        return $this->getData('getAttributes', []);
     }
 
     public function hasTentativeReturnType()

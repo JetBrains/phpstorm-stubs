@@ -30,9 +30,7 @@ class EntityTypeFileRouter
         }
 
         if ($entity instanceof PHPMethod) {
-            throw new \InvalidArgumentException(
-                'PHPMethod cannot be stored as a top-level entity; it must be nested inside a class'
-            );
+            throw new \InvalidArgumentException('PHPMethod cannot be stored as a top-level entity; it must be nested inside a class');
         }
 
         if ($entity instanceof PHPFunction) {

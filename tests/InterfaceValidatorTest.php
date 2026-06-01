@@ -29,7 +29,6 @@ use StubTests\Framework\Validator\Classes\TypeForbidden\ClassMethodsScalarTypeFo
 use StubTests\Framework\Validator\Classes\TypeForbidden\ClassMethodsUnionTypeForbiddenCheck;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
-use StubTests\ValidatorTestBase;
 
 /**
  * Validates that interfaces from reflection exist in stubs and their methods are correct.

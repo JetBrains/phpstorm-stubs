@@ -3,7 +3,6 @@
 namespace StubTests\Unit\Validator\Enums;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Constants\ClassConstantsCheck;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
@@ -24,12 +23,12 @@ class EnumConstantsCheckTest extends CheckTestCase
 
     public function testMatchingConstantPasses(): void
     {
-        $enumId   = '\\RoundingMode';
+        $enumId = '\\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DefaultValue', 0)]);
         $stubEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DefaultValue', 0)]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -39,12 +38,12 @@ class EnumConstantsCheckTest extends CheckTestCase
 
     public function testNoConstantsPasses(): void
     {
-        $enumId   = '\\RoundingMode';
+        $enumId = '\\RoundingMode';
         $reflEnum = $this->makeEnum($enumId);
         $stubEnum = $this->makeEnum($enumId);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -56,12 +55,12 @@ class EnumConstantsCheckTest extends CheckTestCase
 
     public function testSpuriousConstantInStubsFails(): void
     {
-        $enumId   = '\\RoundingMode';
+        $enumId = '\\RoundingMode';
         $reflEnum = $this->makeEnum($enumId); // no constants in reflection
         $stubEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('Ghost', 0)]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -76,12 +75,12 @@ class EnumConstantsCheckTest extends CheckTestCase
     public function testConstantInReflectionOnlyPasses(): void
     {
         // Constant only in reflection (not stub) is fine — might be inherited in stubs
-        $enumId   = '\\RoundingMode';
+        $enumId = '\\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DefaultValue', 0)]);
         $stubEnum = $this->makeEnum($enumId);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -94,12 +93,12 @@ class EnumConstantsCheckTest extends CheckTestCase
     public function testVisibilityMismatchNotCheckedByThisCheck(): void
     {
         // Visibility is validated by EnumConstantsVisibilityCheck, not here.
-        $enumId   = '\\RoundingMode';
+        $enumId = '\\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DefaultValue', null, AccessModifier::PUBLIC)]);
         $stubEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DefaultValue', null, AccessModifier::PROTECTED)]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -112,12 +111,12 @@ class EnumConstantsCheckTest extends CheckTestCase
     public function testValueMismatchNotCheckedByThisCheck(): void
     {
         // Value comparison is handled by EnumConstantsValueCheck, not here.
-        $enumId   = '\\RoundingMode';
+        $enumId = '\\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DefaultValue', 0)]);
         $stubEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DefaultValue', 99)]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, PhpVersions::LATEST->value);

@@ -2,9 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Reflection\Wrappers;
 
-use StubTests\Framework\Parsers\Reflection\Wrappers\AbstractReflectionAdapter;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassReference;
-
 /**
  * Adapter wrapper around ReflectionClassConstant (PHP 7.1+)
  *
@@ -30,7 +27,7 @@ class AdaptedReflectionClassConstant extends AbstractReflectionAdapter
     protected function getAdditionalSkipMethods()
     {
         // All methods are now covered by global patterns
-        return array();
+        return [];
     }
 
     /**
@@ -49,19 +46,19 @@ class AdaptedReflectionClassConstant extends AbstractReflectionAdapter
         // Extract attributes (PHP 8.0+)
         if (method_exists($reflectionObject, 'getAttributes')) {
             try {
-                $attributes = array();
+                $attributes = [];
                 foreach ($reflectionObject->getAttributes() as $attribute) {
-                    $attributes[] = array(
+                    $attributes[] = [
                         'name' => $attribute->getName(),
                         'arguments' => $attribute->getArguments()
-                    );
+                    ];
                 }
                 $this->setData('getAttributes', $attributes);
             } catch (\Exception $e) {
-                $this->setData('getAttributes', array());
+                $this->setData('getAttributes', []);
             }
         } else {
-            $this->setData('getAttributes', array());
+            $this->setData('getAttributes', []);
         }
     }
 
@@ -114,6 +111,6 @@ class AdaptedReflectionClassConstant extends AbstractReflectionAdapter
 
     public function getAttributes()
     {
-        return $this->getData('getAttributes', array());
+        return $this->getData('getAttributes', []);
     }
 }

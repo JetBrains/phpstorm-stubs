@@ -4,7 +4,6 @@ namespace StubTests\Framework\Parsers\Model;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
 use StubTests\Framework\Parsers\Model\Types\IntersectionType;
-use StubTests\Framework\Parsers\Model\BasePHPElement;
 use StubTests\Framework\Parsers\Model\Types\NoType;
 use StubTests\Framework\Parsers\Model\Types\NullableType;
 use StubTests\Framework\Parsers\Model\Types\StandaloneType;
@@ -79,5 +78,4 @@ class PHPProperty extends BasePHPElement
     {
         $this->hasDefaultValue = $hasDefaultValue;
     }
-
 }

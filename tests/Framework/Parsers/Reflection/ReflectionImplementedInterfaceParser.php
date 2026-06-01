@@ -11,7 +11,6 @@ use StubTests\Framework\Parsers\Parser;
  */
 class ReflectionImplementedInterfaceParser implements Parser
 {
-
     public function canParse(mixed $object): bool
     {
         return false;

@@ -3,7 +3,6 @@
 namespace StubTests\Unit\Parsers\AST;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use StubTests\Framework\Parsers\Model\PHPClassConstant;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
@@ -104,20 +103,34 @@ class StubClassConstantParserTest extends BaseTestCase
         $constants = $this->getConstantsFromClass('complete_constant.txt');
         self::assertCount(7, $constants);
 
-        self::assertEquals('public', array_find($constants,
-            fn(PHPClassConstant $constant) => $constant->getName() == 'PUBLIC_CONST')->getValue());
-        self::assertEquals('protected', array_find($constants,
-            fn(PHPClassConstant $constant) => $constant->getName() == 'PROTECTED_CONST')->getValue());
-        self::assertEquals('private', array_find($constants,
-            fn(PHPClassConstant $constant) => $constant->getName() == 'PRIVATE_CONST')->getValue());
-        self::assertEquals('final', array_find($constants,
-            fn(PHPClassConstant $constant) => $constant->getName() == 'FINAL_CONST')->getValue());
-        self::assertEquals('first', array_find($constants,
-            fn(PHPClassConstant $constant) => $constant->getName() == 'FIRST_CONST')->getValue());
-        self::assertEquals('second', array_find($constants,
-            fn(PHPClassConstant $constant) => $constant->getName() == 'SECOND_CONST')->getValue());
-        self::assertEquals('third', array_find($constants,
-            fn(PHPClassConstant $constant) => $constant->getName() == 'THIRD_CONST')->getValue());
+        self::assertEquals('public', array_find(
+            $constants,
+            fn (PHPClassConstant $constant) => $constant->getName() == 'PUBLIC_CONST'
+        )->getValue());
+        self::assertEquals('protected', array_find(
+            $constants,
+            fn (PHPClassConstant $constant) => $constant->getName() == 'PROTECTED_CONST'
+        )->getValue());
+        self::assertEquals('private', array_find(
+            $constants,
+            fn (PHPClassConstant $constant) => $constant->getName() == 'PRIVATE_CONST'
+        )->getValue());
+        self::assertEquals('final', array_find(
+            $constants,
+            fn (PHPClassConstant $constant) => $constant->getName() == 'FINAL_CONST'
+        )->getValue());
+        self::assertEquals('first', array_find(
+            $constants,
+            fn (PHPClassConstant $constant) => $constant->getName() == 'FIRST_CONST'
+        )->getValue());
+        self::assertEquals('second', array_find(
+            $constants,
+            fn (PHPClassConstant $constant) => $constant->getName() == 'SECOND_CONST'
+        )->getValue());
+        self::assertEquals('third', array_find(
+            $constants,
+            fn (PHPClassConstant $constant) => $constant->getName() == 'THIRD_CONST'
+        )->getValue());
     }
 
     public function testItParsesVisibilityCorrectly()

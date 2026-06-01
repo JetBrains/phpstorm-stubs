@@ -6,11 +6,6 @@ use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassConst;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Property;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicAttributeNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicConstantNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicDocCommentNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicMethodNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicPropertyNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\ClassNode;
 
 /**

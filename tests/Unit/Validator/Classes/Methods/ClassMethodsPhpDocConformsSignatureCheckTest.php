@@ -2,7 +2,6 @@
 
 namespace StubTests\Unit\Validator\Classes\Methods;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\Model\PHPParameter;
 use StubTests\Framework\Parsers\Model\PHPProperty;
@@ -154,7 +153,14 @@ class ClassMethodsPhpDocConformsSignatureCheckTest extends CheckTestCase
         $property = $this->makePropertyWithPhpDoc('name', 'int', 'string');  // mismatch
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [], [$property]
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
+            [$property]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -175,7 +181,14 @@ class ClassMethodsPhpDocConformsSignatureCheckTest extends CheckTestCase
         $property = $this->makePropertyWithPhpDoc('count', 'int', 'int');
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [], [$property]
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
+            [$property]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -192,7 +205,14 @@ class ClassMethodsPhpDocConformsSignatureCheckTest extends CheckTestCase
         $property = $this->makePropertyWithPhpDoc('name', 'string', null);  // no PhpDoc
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [], [$property]
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
+            [$property]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -280,7 +300,7 @@ class ClassMethodsPhpDocConformsSignatureCheckTest extends CheckTestCase
         $result = (new ClassMethodsPhpDocConformsSignatureCheck(null, $registry))->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Class-level PhpDoc skip', array_values($skipped)[0]);
     }
@@ -289,10 +309,10 @@ class ClassMethodsPhpDocConformsSignatureCheckTest extends CheckTestCase
 
     public function testMethodLevelKnownProblemSkipsSpecificMismatch(): void
     {
-        $className    = '\MyClass';
+        $className = '\MyClass';
         $mismatchedId = $className . '::badMethod';
 
-        $badMethod  = $this->makeMethodWithPhpDoc('badMethod', 'string', 'int');  // mismatch
+        $badMethod = $this->makeMethodWithPhpDoc('badMethod', 'string', 'int');  // mismatch
         $goodMethod = $this->makeMethodWithPhpDoc('goodMethod', 'string', 'string');  // ok
 
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$badMethod, $goodMethod]);
@@ -318,7 +338,7 @@ class ClassMethodsPhpDocConformsSignatureCheckTest extends CheckTestCase
         $result = (new ClassMethodsPhpDocConformsSignatureCheck(null, $registry))->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Method-level PhpDoc skip', array_values($skipped)[0]);
     }

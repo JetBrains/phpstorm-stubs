@@ -3,9 +3,6 @@
 namespace StubTests\Framework\Parsers\Stubs\Adapters\Nikic;
 
 use PhpParser\Node\Param;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicAttributeNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicTypeNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\AttributeNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\ParameterNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\TypeNode;
 
@@ -65,7 +62,7 @@ class NikicParameterNode implements ParameterNode
         // Suppress E_DEPRECATED (and E_WARNING from undefined constants) for the duration
         // of the evaluation. Returning true from the handler prevents propagation to
         // PHPUnit's own set_error_handler, which cannot be silenced with @.
-        set_error_handler(fn() => true, E_DEPRECATED | E_WARNING);
+        set_error_handler(fn () => true, E_DEPRECATED|E_WARNING);
         try {
             return self::sharedEvaluator()->evaluateDirectly($this->param->default);
         } catch (\PhpParser\ConstExprEvaluationException $e) {
@@ -101,9 +98,7 @@ class NikicParameterNode implements ParameterNode
                             }
                         }
                     }
-                    throw new \PhpParser\ConstExprEvaluationException(
-                        'Expression of type ' . get_class($node) . ' cannot be evaluated'
-                    );
+                    throw new \PhpParser\ConstExprEvaluationException('Expression of type ' . get_class($node) . ' cannot be evaluated');
                 }
             );
         }

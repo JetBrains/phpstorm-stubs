@@ -52,7 +52,7 @@ class ClassPropertyReadonlyCheck extends AbstractPropertyFlagCheck
         }
 
         $expected = $reflIsReadonly ? 'readonly' : 'non-readonly';
-        $actual   = $stubIsReadonly ? 'readonly' : 'non-readonly';
+        $actual = $stubIsReadonly ? 'readonly' : 'non-readonly';
 
         return "Property {$propertyEntityId} is {$expected} in PHP {$phpVersion} but {$actual} in stubs";
     }

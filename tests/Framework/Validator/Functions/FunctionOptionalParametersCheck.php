@@ -2,7 +2,6 @@
 
 namespace StubTests\Framework\Validator\Functions;
 
-use StubTests\Framework\Validator\Functions\description;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractCallableCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
@@ -43,7 +42,7 @@ class FunctionOptionalParametersCheck extends AbstractCallableCheck
             return $results;
         }
 
-        $reflection   = $this->reflectionProvider->getReflection($phpVersion);
+        $reflection = $this->reflectionProvider->getReflection($phpVersion);
         $reflFunction = $this->findCallable($reflection, $entityId, $phpVersion);
 
         if ($reflFunction === null) {

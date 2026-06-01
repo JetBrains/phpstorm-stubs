@@ -47,16 +47,16 @@ DOC;
     public static function unqualifyProvider(): array
     {
         return [
-            'single'             => ['\TValue', ['TValue'], 'TValue'],
-            'inside generics'    => ['iterable<\TKey, \TValue>', ['TKey', 'TValue'], 'iterable<TKey, TValue>'],
-            'keeps real class'   => ['\Map<\TKey, \TValue>', ['TKey', 'TValue'], '\Map<TKey, TValue>'],
-            'class-string'       => ['class-string<\T>', ['T'], 'class-string<T>'],
-            'array shape'        => ['array{key: \TKey, value: \TValue}', ['TKey', 'TValue'], 'array{key: TKey, value: TValue}'],
-            'prefix boundary'    => ['\TValue|\TValue2', ['TValue', 'TValue2'], 'TValue|TValue2'],
-            'no false strip T'   => ['\Traversable<int, \TValue>', ['T', 'TValue'], '\Traversable<int, TValue>'],
-            'namespaced kept'    => ['\Foo\TValue', ['TValue'], '\Foo\TValue'],
-            'no templates'       => ['\TValue', [], '\TValue'],
-            'already bare'       => ['array<TKey, TValue>', ['TKey', 'TValue'], 'array<TKey, TValue>'],
+            'single' => ['\TValue', ['TValue'], 'TValue'],
+            'inside generics' => ['iterable<\TKey, \TValue>', ['TKey', 'TValue'], 'iterable<TKey, TValue>'],
+            'keeps real class' => ['\Map<\TKey, \TValue>', ['TKey', 'TValue'], '\Map<TKey, TValue>'],
+            'class-string' => ['class-string<\T>', ['T'], 'class-string<T>'],
+            'array shape' => ['array{key: \TKey, value: \TValue}', ['TKey', 'TValue'], 'array{key: TKey, value: TValue}'],
+            'prefix boundary' => ['\TValue|\TValue2', ['TValue', 'TValue2'], 'TValue|TValue2'],
+            'no false strip T' => ['\Traversable<int, \TValue>', ['T', 'TValue'], '\Traversable<int, TValue>'],
+            'namespaced kept' => ['\Foo\TValue', ['TValue'], '\Foo\TValue'],
+            'no templates' => ['\TValue', [], '\TValue'],
+            'already bare' => ['array<TKey, TValue>', ['TKey', 'TValue'], 'array<TKey, TValue>'],
         ];
     }
 

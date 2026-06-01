@@ -12,7 +12,6 @@ use StubTests\Framework\Parsers\Parser;
  */
 class ReflectionClassConstantParser implements Parser
 {
-
     public function canParse($object): bool
     {
         return false;
@@ -51,7 +50,7 @@ class ReflectionClassConstantParser implements Parser
             }
             $constantName = array_key_first($object);
             $constant = new PHPClassConstant();
-            $constant->setName((string) $constantName);
+            $constant->setName((string)$constantName);
             $constant->setValue($object[$constantName]);
         }
         return $constant;

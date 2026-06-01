@@ -5,7 +5,6 @@ namespace StubTests\Framework\Parsers\Serializers\Reflection;
 use StubTests\Framework\Parsers\Serializers\EntityTypeSerializerInterface;
 use StubTests\Framework\Parsers\Serializers\SubEntitySerializerTrait;
 use StubTests\Framework\Parsers\Storage\PhpDocStorage;
-
 use StubTests\Framework\Parsers\Model\PHPEnum;
 use StubTests\Framework\Parsers\Model\PHPInterface;
 

@@ -31,7 +31,6 @@ use StubTests\Framework\Validator\Services\TypeResolver;
  */
 class ClassMethodsReturnTypesCheck extends AbstractMethodFlagCheck
 {
-
     public function supports(string $phpVersion): bool
     {
         // Return type declarations were introduced in PHP 7.0

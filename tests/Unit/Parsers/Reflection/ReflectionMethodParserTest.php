@@ -59,7 +59,7 @@ class ReflectionMethodParserTest extends TestCase
         $reflectionMethodMock->method('getName')->willReturn('foo');
         $reflectionMethodMock->method('getDeclaringClass')->willReturn($parentClassMock);
         $basePHPElement = new ReflectionMethodParser()->parse($reflectionMethodMock);
-        self::assertEquals('\SomeNamespace\SubNamespace\SomeFooClass::foo',$basePHPElement->getId());
+        self::assertEquals('\SomeNamespace\SubNamespace\SomeFooClass::foo', $basePHPElement->getId());
     }
 
     public function testItCanParseIdIfNoNamespaceIsPresent()
@@ -77,7 +77,7 @@ class ReflectionMethodParserTest extends TestCase
         $reflectionMethodMock->method('getName')->willReturn('foo');
         $reflectionMethodMock->method('getDeclaringClass')->willReturn($parentClassMock);
         $basePHPElement = new ReflectionMethodParser()->parse($reflectionMethodMock);
-        self::assertEquals('\SomeFooClass::foo',$basePHPElement->getId());
+        self::assertEquals('\SomeFooClass::foo', $basePHPElement->getId());
     }
 
     public function testItCanParseVisibility() {
@@ -343,5 +343,4 @@ class ReflectionMethodParserTest extends TestCase
         $basePHPElement = new ReflectionMethodParser()->parse($reflectionMethodMock);
         self::assertEquals('string', $basePHPElement->getReturnTypeFromSignature()->toString());
     }
-
 }

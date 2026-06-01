@@ -105,8 +105,8 @@ class ParameterFilterHelperTest extends TestCase
 
     public function testMixedVersionFilteringKeepsOnlyAvailable(): void
     {
-        $oldParam   = $this->makeParam('old', removedVersion: '7.4');
-        $newParam   = $this->makeParam('new', sinceVersion: '8.0');
+        $oldParam = $this->makeParam('old', removedVersion: '7.4');
+        $newParam = $this->makeParam('new', sinceVersion: '8.0');
         $alwaysParam = $this->makeParam('always');
 
         $result = ParameterFilterHelper::filterAndDeduplicate(
@@ -115,7 +115,7 @@ class ParameterFilterHelperTest extends TestCase
         );
 
         $this->assertCount(2, $result);
-        $names = array_map(fn(PHPParameter $p) => $p->getName(), $result);
+        $names = array_map(fn (PHPParameter $p) => $p->getName(), $result);
         $this->assertContains('new', $names);
         $this->assertContains('always', $names);
         $this->assertNotContains('old', $names);
@@ -126,7 +126,7 @@ class ParameterFilterHelperTest extends TestCase
     public function testMergesConsecutiveSameNamedParamsWhereSecondIsVariadic(): void
     {
         // Simulates stubs like: f($a[to:'7.4'], ...$a)
-        $plain   = $this->makeParam('values');
+        $plain = $this->makeParam('values');
         $variadic = $this->makeParam('values', isVariadic: true);
 
         $result = ParameterFilterHelper::filterAndDeduplicate(
@@ -142,7 +142,7 @@ class ParameterFilterHelperTest extends TestCase
 
     public function testDoesNotMergeNonVariadicSameNamedParams(): void
     {
-        $first  = $this->makeParam('dup');
+        $first = $this->makeParam('dup');
         $second = $this->makeParam('dup'); // not variadic
 
         $result = ParameterFilterHelper::filterAndDeduplicate(
@@ -156,7 +156,7 @@ class ParameterFilterHelperTest extends TestCase
 
     public function testDoesNotMergeVariadicWhenNamesAreDifferent(): void
     {
-        $first    = $this->makeParam('alpha');
+        $first = $this->makeParam('alpha');
         $variadic = $this->makeParam('beta', isVariadic: true);
 
         $result = ParameterFilterHelper::filterAndDeduplicate(
@@ -176,7 +176,7 @@ class ParameterFilterHelperTest extends TestCase
         // $a is available until 7.4, ...$a is available from 8.0 onwards
         // In PHP 8.4: $a is filtered out, only ...$a remains — no merge needed (only one survives)
         $placeholder = $this->makeParam('data', removedVersion: '7.4');
-        $variadic    = $this->makeParam('data', sinceVersion: '8.0', isVariadic: true);
+        $variadic = $this->makeParam('data', sinceVersion: '8.0', isVariadic: true);
 
         $result = ParameterFilterHelper::filterAndDeduplicate(
             [$placeholder, $variadic],
@@ -190,7 +190,7 @@ class ParameterFilterHelperTest extends TestCase
     public function testDeduplicationAfterFilteringMergesCorrectly(): void
     {
         // Both params available at 7.0 — should merge
-        $plain   = $this->makeParam('args', sinceVersion: '5.6');
+        $plain = $this->makeParam('args', sinceVersion: '5.6');
         $variadic = $this->makeParam('args', sinceVersion: '5.6', isVariadic: true);
 
         $result = ParameterFilterHelper::filterAndDeduplicate(

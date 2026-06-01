@@ -2,11 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Reflection\Wrappers;
 
-use StubTests\Framework\Parsers\Reflection\Wrappers\AbstractReflectionAdapter;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassReference;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionParameter;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionType;
-
 /**
  * Adapter wrapper around ReflectionMethod
  *
@@ -32,9 +27,9 @@ class AdaptedReflectionMethod extends AbstractReflectionAdapter
     protected function getAdditionalSkipMethods()
     {
         // Only list methods specific to ReflectionMethod that aren't in global patterns
-        return array(
+        return [
             'getPrototype'  // Specific to ReflectionMethod
-        );
+        ];
     }
 
     /**
@@ -47,7 +42,7 @@ class AdaptedReflectionMethod extends AbstractReflectionAdapter
         $this->setData('declaringClassName', $declaringClass->getName());
 
         // Extract parameters
-        $parameters = array();
+        $parameters = [];
         foreach ($reflectionObject->getParameters() as $parameter) {
             $parameters[] = new AdaptedReflectionParameter($parameter);
         }
@@ -72,19 +67,19 @@ class AdaptedReflectionMethod extends AbstractReflectionAdapter
         // Extract attributes (PHP 8.0+)
         if (method_exists($reflectionObject, 'getAttributes')) {
             try {
-                $attributes = array();
+                $attributes = [];
                 foreach ($reflectionObject->getAttributes() as $attribute) {
-                    $attributes[] = array(
+                    $attributes[] = [
                         'name' => $attribute->getName(),
                         'arguments' => $attribute->getArguments()
-                    );
+                    ];
                 }
                 $this->setData('getAttributes', $attributes);
             } catch (\Exception $e) {
-                $this->setData('getAttributes', array());
+                $this->setData('getAttributes', []);
             }
         } else {
-            $this->setData('getAttributes', array());
+            $this->setData('getAttributes', []);
         }
     }
 
@@ -137,7 +132,7 @@ class AdaptedReflectionMethod extends AbstractReflectionAdapter
 
     public function getParameters()
     {
-        return $this->getData('getParameters', array());
+        return $this->getData('getParameters', []);
     }
 
     public function hasReturnType()
@@ -157,7 +152,7 @@ class AdaptedReflectionMethod extends AbstractReflectionAdapter
 
     public function getAttributes()
     {
-        return $this->getData('getAttributes', array());
+        return $this->getData('getAttributes', []);
     }
 
     public function hasTentativeReturnType()

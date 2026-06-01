@@ -41,7 +41,6 @@ class PhpDocTagsCheck extends AbstractReflectionCheck
         parent::__construct($reflectionProvider, $knownProblemsRegistry);
         $this->entityLookup = $entityLookup ?? new EntityLookupService();
     }
-
     private const VALID_TAGS = [
         // phpDocumentor v3 standard tags
         'api', 'author', 'category', 'copyright', 'deprecated', 'example',
@@ -187,5 +186,4 @@ class PhpDocTagsCheck extends AbstractReflectionCheck
 
         return array_unique($tags);
     }
-
 }

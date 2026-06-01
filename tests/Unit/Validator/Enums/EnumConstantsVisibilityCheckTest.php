@@ -3,7 +3,6 @@
 namespace StubTests\Unit\Validator\Enums;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Constants\ClassConstantsVisibilityCheck;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
@@ -15,11 +14,11 @@ class EnumConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testEnumNotFoundInReflectionFails(): void
     {
-        $enumId  = '\\Status';
+        $enumId = '\\Status';
         $stubEnum = $this->makeEnum($enumId);
 
         $provider = $this->createMockReflectionProviderWithEnums([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassConstantsVisibilityCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, PhpVersions::PHP_8_1->value);
@@ -31,11 +30,11 @@ class EnumConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testEnumNotFoundInStubsFails(): void
     {
-        $enumId   = '\\Status';
+        $enumId = '\\Status';
         $reflEnum = $this->makeEnum($enumId);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([]);
 
         $result = (new ClassConstantsVisibilityCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, PhpVersions::PHP_8_1->value);
@@ -48,12 +47,12 @@ class EnumConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testMatchingVisibilityPasses(): void
     {
-        $enumId   = '\\Status';
+        $enumId = '\\Status';
         $reflEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DEFAULT', visibility: AccessModifier::PUBLIC)]);
         $stubEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DEFAULT', visibility: AccessModifier::PUBLIC)]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassConstantsVisibilityCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, PhpVersions::PHP_8_1->value);
@@ -65,12 +64,12 @@ class EnumConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testVisibilityMismatchFails(): void
     {
-        $enumId   = '\\Status';
+        $enumId = '\\Status';
         $reflEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DEFAULT', visibility: AccessModifier::PUBLIC)]);
         $stubEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DEFAULT', visibility: AccessModifier::PROTECTED)]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassConstantsVisibilityCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, PhpVersions::PHP_8_1->value);
@@ -86,12 +85,12 @@ class EnumConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testConstantNotInReflectionIsSkipped(): void
     {
-        $enumId   = '\\Status';
+        $enumId = '\\Status';
         $reflEnum = $this->makeEnum($enumId); // no constants in reflection
         $stubEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('EXTRA', visibility: AccessModifier::PROTECTED)]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassConstantsVisibilityCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, PhpVersions::PHP_8_1->value);

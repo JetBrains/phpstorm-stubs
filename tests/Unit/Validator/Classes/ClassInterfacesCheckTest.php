@@ -2,7 +2,6 @@
 
 namespace StubTests\Unit\Validator\Classes;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
 use StubTests\Framework\Parsers\Model\PHPInterface;
 use StubTests\Framework\Validator\Classes\ClassInterfacesCheck;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
@@ -268,7 +267,13 @@ class ClassInterfacesCheckTest extends CheckTestCase
         $reflectionIface->setId('\Random\RandomEngine');     // full id
 
         $reflectionClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [$reflectionIface]
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [$reflectionIface]
         );
 
         $stubIface = new PHPInterface();
@@ -276,7 +281,13 @@ class ClassInterfacesCheckTest extends CheckTestCase
         $stubIface->setId('\Random\RandomEngine');
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [$stubIface]
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [$stubIface]
         );
 
         $reflectionProvider = $this->createMockReflectionProvider([], [$reflectionClass]);

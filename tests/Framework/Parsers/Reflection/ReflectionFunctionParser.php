@@ -3,16 +3,14 @@
 namespace StubTests\Framework\Parsers\Reflection;
 
 use StubTests\Framework\Parsers\Model\PHPFunction;
-use StubTests\Framework\Parsers\Reflection\ReflectionParameterParser;
-use StubTests\Framework\Parsers\Reflection\ReflectionTypeParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionFunction;
 use StubTests\Framework\Parsers\Parser;
 
 /**
  * @template-implements Parser<AdaptedReflectionFunction>
  */
-class ReflectionFunctionParser implements Parser {
-
+class ReflectionFunctionParser implements Parser
+{
     private ReflectionParameterParser $parameterParser;
     private ReflectionTypeParser $typeParser;
 
@@ -49,7 +47,7 @@ class ReflectionFunctionParser implements Parser {
         $returnType = null;
         if ($object->hasTentativeReturnType()) {
             $returnType = $object->getTentativeReturnType();
-        } elseif($object->hasReturnType()) {
+        } elseif ($object->hasReturnType()) {
             $returnType = $object->getReturnType();
         }
         $returnTypesFromSignature = $this->typeParser->parse($returnType);

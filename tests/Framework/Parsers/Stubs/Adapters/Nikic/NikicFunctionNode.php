@@ -3,14 +3,8 @@
 namespace StubTests\Framework\Parsers\Stubs\Adapters\Nikic;
 
 use PhpParser\Node\Stmt\Function_;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicAttributeNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicDocCommentNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicParameterNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicTypeNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\AttributeNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\FunctionNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\ParameterNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\TypeNode;
 
 /**

@@ -111,7 +111,7 @@ class ParsedDataJsonStorageManagerTest extends TestCase
         $classes = $newManager->getClasses();
         self::assertCount(2, $classes);
 
-        $classNames = array_map(fn($c) => $c->getName(), $classes);
+        $classNames = array_map(fn ($c) => $c->getName(), $classes);
         self::assertContains('StubClass1', $classNames);
         self::assertContains('StubClass2', $classNames);
     }
@@ -216,7 +216,7 @@ class ParsedDataJsonStorageManagerTest extends TestCase
         $classes = $manager3->getClasses();
         self::assertCount(2, $classes);
 
-        $classNames = array_map(fn($c) => $c->getName(), $classes);
+        $classNames = array_map(fn ($c) => $c->getName(), $classes);
         self::assertContains('FirstClass', $classNames);
         self::assertContains('SecondClass', $classNames);
     }

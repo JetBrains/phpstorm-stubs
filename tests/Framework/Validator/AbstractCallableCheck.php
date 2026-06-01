@@ -5,8 +5,6 @@ namespace StubTests\Framework\Validator;
 use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
-use StubTests\Framework\Validator\AbstractReflectionCheck;
-use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 
 /**

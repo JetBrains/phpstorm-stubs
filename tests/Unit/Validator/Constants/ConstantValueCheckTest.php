@@ -31,7 +31,7 @@ class ConstantValueCheckTest extends CheckTestCase
     private function createMockReflectionProviderWithConstants(array $constants = []): ReflectionProviderInterface
     {
         $provider = $this->createMock(ReflectionProviderInterface::class);
-        $manager  = $this->createMockStorageManager();
+        $manager = $this->createMockStorageManager();
         $manager->method('getConstants')->willReturn($constants);
         $provider->method('getReflection')->willReturn($manager);
         return $provider;
@@ -51,12 +51,12 @@ class ConstantValueCheckTest extends CheckTestCase
 
     public function testNonLatestVersionSkipsComparison(): void
     {
-        $constantId   = '\\PHP_INT_MAX';
+        $constantId = '\\PHP_INT_MAX';
         $reflConstant = $this->makeGlobalConstant($constantId, 42);
         $stubConstant = $this->makeGlobalConstant($constantId, 99); // different — would fail at LATEST
 
         $provider = $this->createMockReflectionProviderWithConstants([$reflConstant]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([$stubConstant]);
 
         $result = (new ConstantValueCheck($provider))->run($stubs, $constantId, PhpVersions::PHP_8_0->value);
@@ -68,12 +68,12 @@ class ConstantValueCheckTest extends CheckTestCase
 
     public function testMatchingIntegerValuePasses(): void
     {
-        $constantId   = '\\PHP_INT_MAX';
+        $constantId = '\\PHP_INT_MAX';
         $reflConstant = $this->makeGlobalConstant($constantId, 9223372036854775807);
         $stubConstant = $this->makeGlobalConstant($constantId, 9223372036854775807);
 
         $provider = $this->createMockReflectionProviderWithConstants([$reflConstant]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([$stubConstant]);
 
         $result = (new ConstantValueCheck($provider))->run($stubs, $constantId, PhpVersions::LATEST->value);
@@ -83,12 +83,12 @@ class ConstantValueCheckTest extends CheckTestCase
 
     public function testMatchingStringValuePasses(): void
     {
-        $constantId   = '\\DIRECTORY_SEPARATOR';
+        $constantId = '\\DIRECTORY_SEPARATOR';
         $reflConstant = $this->makeGlobalConstant($constantId, '/');
         $stubConstant = $this->makeGlobalConstant($constantId, '/');
 
         $provider = $this->createMockReflectionProviderWithConstants([$reflConstant]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([$stubConstant]);
 
         $result = (new ConstantValueCheck($provider))->run($stubs, $constantId, PhpVersions::LATEST->value);
@@ -100,12 +100,12 @@ class ConstantValueCheckTest extends CheckTestCase
 
     public function testValueMismatchFailsAtLatestVersion(): void
     {
-        $constantId   = '\\SOME_CONSTANT';
+        $constantId = '\\SOME_CONSTANT';
         $reflConstant = $this->makeGlobalConstant($constantId, 42);
         $stubConstant = $this->makeGlobalConstant($constantId, 0);
 
         $provider = $this->createMockReflectionProviderWithConstants([$reflConstant]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([$stubConstant]);
 
         $result = (new ConstantValueCheck($provider))->run($stubs, $constantId, PhpVersions::LATEST->value);
@@ -122,12 +122,12 @@ class ConstantValueCheckTest extends CheckTestCase
 
     public function testNullStubValueSkipsCheck(): void
     {
-        $constantId   = '\\SOME_CONSTANT';
+        $constantId = '\\SOME_CONSTANT';
         $reflConstant = $this->makeGlobalConstant($constantId, 42);
         $stubConstant = $this->makeGlobalConstant($constantId, null); // complex expression in stub
 
         $provider = $this->createMockReflectionProviderWithConstants([$reflConstant]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([$stubConstant]);
 
         $result = (new ConstantValueCheck($provider))->run($stubs, $constantId, PhpVersions::LATEST->value);
@@ -137,12 +137,12 @@ class ConstantValueCheckTest extends CheckTestCase
 
     public function testNullReflectionValueSkipsCheck(): void
     {
-        $constantId   = '\\SOME_CONSTANT';
+        $constantId = '\\SOME_CONSTANT';
         $reflConstant = $this->makeGlobalConstant($constantId, null);
         $stubConstant = $this->makeGlobalConstant($constantId, 42);
 
         $provider = $this->createMockReflectionProviderWithConstants([$reflConstant]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([$stubConstant]);
 
         $result = (new ConstantValueCheck($provider))->run($stubs, $constantId, PhpVersions::LATEST->value);
@@ -155,12 +155,12 @@ class ConstantValueCheckTest extends CheckTestCase
     public function testResourceValueSkipsCheck(): void
     {
         // Reflection stores resource constants as 'PHPSTORM_RESOURCE'
-        $constantId   = '\\STDIN';
+        $constantId = '\\STDIN';
         $reflConstant = $this->makeGlobalConstant($constantId, 'PHPSTORM_RESOURCE');
         $stubConstant = $this->makeGlobalConstant($constantId, null);
 
         $provider = $this->createMockReflectionProviderWithConstants([$reflConstant]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([$stubConstant]);
 
         $result = (new ConstantValueCheck($provider))->run($stubs, $constantId, PhpVersions::LATEST->value);
@@ -172,11 +172,11 @@ class ConstantValueCheckTest extends CheckTestCase
 
     public function testConstantNotFoundInReflectionPasses(): void
     {
-        $constantId   = '\\PHP_INT_MAX';
+        $constantId = '\\PHP_INT_MAX';
         $stubConstant = $this->makeGlobalConstant($constantId, 9223372036854775807);
 
         $provider = $this->createMockReflectionProviderWithConstants([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([$stubConstant]);
 
         $result = (new ConstantValueCheck($provider))->run($stubs, $constantId, PhpVersions::LATEST->value);
@@ -187,11 +187,11 @@ class ConstantValueCheckTest extends CheckTestCase
     public function testConstantNotFoundInStubsPasses(): void
     {
         // Existence is ConstantExistsCheck's responsibility; value check silently skips
-        $constantId   = '\\PHP_INT_MAX';
+        $constantId = '\\PHP_INT_MAX';
         $reflConstant = $this->makeGlobalConstant($constantId, 9223372036854775807);
 
         $provider = $this->createMockReflectionProviderWithConstants([$reflConstant]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([]);
 
         $result = (new ConstantValueCheck($provider))->run($stubs, $constantId, PhpVersions::LATEST->value);
@@ -203,7 +203,7 @@ class ConstantValueCheckTest extends CheckTestCase
 
     public function testKnownProblemSkipsCheck(): void
     {
-        $constantId   = '\\ICU_CONSTANT';
+        $constantId = '\\ICU_CONSTANT';
         $reflConstant = $this->makeGlobalConstant($constantId, 42);
         $stubConstant = $this->makeGlobalConstant($constantId, 0); // mismatch
 
@@ -223,7 +223,7 @@ class ConstantValueCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithConstants([$reflConstant]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([$stubConstant]);
 
         $result = (new ConstantValueCheck($provider, $registry))->run($stubs, $constantId, PhpVersions::LATEST->value);
@@ -235,7 +235,7 @@ class ConstantValueCheckTest extends CheckTestCase
 
     public function testKnownProblemOnlySkipsForVersionRange(): void
     {
-        $constantId   = '\\SOME_CONSTANT';
+        $constantId = '\\SOME_CONSTANT';
         $reflConstant = $this->makeGlobalConstant($constantId, 42);
         $stubConstant = $this->makeGlobalConstant($constantId, 0); // mismatch
 
@@ -255,7 +255,7 @@ class ConstantValueCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithConstants([$reflConstant]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getConstants')->willReturn([$stubConstant]);
 
         // Within the known-problem version range — skipped

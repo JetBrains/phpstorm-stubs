@@ -86,7 +86,7 @@ class PhpDocStorage
 
         $json = json_encode(
             $this->phpDocs,
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+            JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE
         );
 
         if ($json === false) {

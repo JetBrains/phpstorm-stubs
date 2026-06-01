@@ -12,7 +12,7 @@ class ClassFinalCheckTest extends CheckTestCase
     private function makeReflection(array $classes): ReflectionProviderInterface
     {
         $provider = $this->createMock(ReflectionProviderInterface::class);
-        $manager  = $this->createMockStorageManager();
+        $manager = $this->createMockStorageManager();
         $manager->method('getClasses')->willReturn($classes);
         $provider->method('getReflection')->willReturn($manager);
         return $provider;

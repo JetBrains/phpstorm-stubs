@@ -3,10 +3,8 @@
 namespace StubTests\Framework\Validator;
 
 use StubTests\Framework\Parsers\StubDataQueryInterface;
-use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
-use StubTests\Framework\Validator\AbstractClassCheck;
 
 /**
  * Base for entity-level final-flag checks.
@@ -40,7 +38,7 @@ abstract class AbstractFinalCheck extends AbstractClassCheck
             return $results;
         }
 
-        $label      = $this->getEntityLabel();
+        $label = $this->getEntityLabel();
         $reflection = $this->reflectionProvider->getReflection($phpVersion);
 
         $reflEntity = $this->lookupEntityById($reflection, $entityId);
@@ -62,7 +60,7 @@ abstract class AbstractFinalCheck extends AbstractClassCheck
             $results->addSuccess($entityId);
         } else {
             $expected = $reflIsFinal ? 'final' : 'non-final';
-            $actual   = $stubIsFinal ? 'final' : 'non-final';
+            $actual = $stubIsFinal ? 'final' : 'non-final';
             $results->addFailure(
                 $entityId,
                 "{$label} {$entityId} is {$expected} in PHP {$phpVersion} but {$actual} in stubs"

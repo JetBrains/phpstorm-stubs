@@ -90,8 +90,11 @@ class ClassHierarchyResolverTest extends TestCase
         $this->resolver->resolve([$rootException, $swooleException, $errorException]);
 
         // \ErrorException (in root namespace) must resolve to \Exception, not the Swoole one
-        $this->assertSame($rootException, $errorException->getParentClass(),
-            'ErrorException.parentClass must link to \\Exception, not a same-short-name class in another namespace');
+        $this->assertSame(
+            $rootException,
+            $errorException->getParentClass(),
+            'ErrorException.parentClass must link to \\Exception, not a same-short-name class in another namespace'
+        );
 
         // Swoole's Exception's parent stub (short name "Exception") also resolves to root \Exception
         $this->assertSame($rootException, $swooleException->getParentClass());

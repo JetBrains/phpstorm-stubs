@@ -22,12 +22,12 @@ class EnumFinalMethodsCheckTest extends CheckTestCase
 
     public function testNonFinalMethodMatchPasses(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassFinalMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -39,12 +39,12 @@ class EnumFinalMethodsCheckTest extends CheckTestCase
 
     public function testFinalMethodMismatchFails(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', isFinal: true)]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassFinalMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');

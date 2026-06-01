@@ -43,10 +43,10 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInReflectionIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $stubIface   = $this->makeInterface($interfaceId);
+        $stubIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParametersCountCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -59,10 +59,10 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInStubsIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $reflIface   = $this->makeInterface($interfaceId);
+        $reflIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([]);
 
         $result = (new ClassMethodsParametersCountCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -77,15 +77,15 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
     public function testMatchingParameterCountIsSuccess(): void
     {
         $interfaceId = '\Iterator';
-        $reflIface   = $this->makeInterface($interfaceId, [
+        $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('offsetGet', parameters: [$this->makeParam('offset')]),
         ]);
-        $stubIface   = $this->makeInterface($interfaceId, [
+        $stubIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('offsetGet', parameters: [$this->makeParam('offset')]),
         ]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParametersCountCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -96,7 +96,7 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
     public function testMismatchedParameterCountIsFailure(): void
     {
         $interfaceId = '\ArrayAccess';
-        $methodId    = $interfaceId . '::offsetGet';
+        $methodId = $interfaceId . '::offsetGet';
 
         $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('offsetGet', parameters: [$this->makeParam('offset')]),  // 1 param
@@ -106,7 +106,7 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParametersCountCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -120,11 +120,11 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
     public function testInterfaceWithNoMethodsSucceeds(): void
     {
         $interfaceId = '\Countable';
-        $reflIface   = $this->makeInterface($interfaceId);
-        $stubIface   = $this->makeInterface($interfaceId);
+        $reflIface = $this->makeInterface($interfaceId);
+        $stubIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParametersCountCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -138,10 +138,10 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
     public function testParameterRemovedBeforeVersionIsExcluded(): void
     {
         $interfaceId = '\MyInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [
+        $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('doSomething', parameters: [$this->makeParam('current')]),
         ]);
-        $stubIface   = $this->makeInterface($interfaceId, [
+        $stubIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('doSomething', parameters: [
                 $this->makeParam('current'),
                 $this->makeParam('legacy', removedVersion: '7.4'),  // removed before 8.0
@@ -149,7 +149,7 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParametersCountCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -161,7 +161,7 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
 
     public function testMethodParameterCountFromParentInterfaceIsCounted(): void
     {
-        $childId   = '\ChildInterface';
+        $childId = '\ChildInterface';
         $reflIface = $this->makeInterface($childId, [
             $this->makeMethod('offsetGet', parameters: [$this->makeParam('offset')]),
         ]);
@@ -169,11 +169,11 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
         $parentStub = $this->makeInterface('\ParentInterface', [
             $this->makeMethod('offsetGet', parameters: [$this->makeParam('offset')]),
         ]);
-        $childStub  = $this->makeInterface($childId);
+        $childStub = $this->makeInterface($childId);
         $childStub->addParentInterface($parentStub);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$childStub]);
 
         $result = (new ClassMethodsParametersCountCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $childId, '8.0');
@@ -186,10 +186,10 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
     public function testInterfaceLevelKnownProblemSkipsAllMethods(): void
     {
         $interfaceId = '\SpecialInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [
+        $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('method', parameters: [$this->makeParam('a'), $this->makeParam('b')]),
         ]);
-        $stubIface   = $this->makeInterface($interfaceId, [
+        $stubIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('method', parameters: []),  // count mismatch
         ]);
 
@@ -209,7 +209,7 @@ class InterfaceMethodsParametersCountCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParametersCountCheck(reflectionProvider: $provider, knownProblemsRegistry: $registry, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');

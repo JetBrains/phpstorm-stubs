@@ -4,11 +4,6 @@ namespace StubTests\Framework\Validator\KnownProblems;
 
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
-use StubTests\Framework\Validator\KnownProblems\CheckType;
-use StubTests\Framework\Validator\KnownProblems\EntityType;
-use StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider;
-use StubTests\Framework\Validator\KnownProblems\ProblemDefinition;
-use StubTests\Framework\Validator\KnownProblems\ProblemType;
 
 /**
  * Default implementation of KnownProblemsProvider.
@@ -1514,8 +1509,7 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
 
         return array_filter(
             $allProblems,
-            fn(ProblemDefinition $problem) =>
-                $problem->entityType === $entityType
+            fn (ProblemDefinition $problem) => $problem->entityType === $entityType
                 && (
                     $problem->entityId === $entityId
                     || (!empty($problem->entityIds) && in_array($entityId, $problem->entityIds, true))

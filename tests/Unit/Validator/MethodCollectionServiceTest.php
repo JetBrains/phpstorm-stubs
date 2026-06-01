@@ -2,7 +2,6 @@
 
 namespace StubTests\Unit\Validator;
 
-use StubTests\Unit\Validator\CheckTestCase;
 use StubTests\Framework\Parsers\Model\PHPClass;
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\Model\PHPProperty;
@@ -40,7 +39,7 @@ class MethodCollectionServiceTest extends CheckTestCase
     public function testCollectsMethodsFromClassItself(): void
     {
         $method = $this->makeMethod('format');
-        $class  = $this->makeClass('\\DateTime', [$method]);
+        $class = $this->makeClass('\\DateTime', [$method]);
 
         $result = $this->service->collectForClass($class, PhpVersions::LATEST->value);
 
@@ -50,8 +49,8 @@ class MethodCollectionServiceTest extends CheckTestCase
 
     public function testCollectsMultipleMethodsFromClass(): void
     {
-        $m1    = $this->makeMethod('getTimestamp');
-        $m2    = $this->makeMethod('format');
+        $m1 = $this->makeMethod('getTimestamp');
+        $m2 = $this->makeMethod('format');
         $class = $this->makeClass('\\DateTime', [$m1, $m2]);
 
         $result = $this->service->collectForClass($class, PhpVersions::LATEST->value);
@@ -66,9 +65,9 @@ class MethodCollectionServiceTest extends CheckTestCase
     public function testChildDefinitionWinsOverParentForSameMethodName(): void
     {
         $parentMethod = $this->makeMethod('format');
-        $childMethod  = $this->makeMethod('format');
+        $childMethod = $this->makeMethod('format');
         $parent = $this->makeClass('\\DateTimeBase', [$parentMethod]);
-        $child  = $this->makeClass('\\DateTime', [$childMethod], parentClass: $parent);
+        $child = $this->makeClass('\\DateTime', [$childMethod], parentClass: $parent);
 
         $result = $this->service->collectForClass($child, PhpVersions::LATEST->value);
 
@@ -80,9 +79,9 @@ class MethodCollectionServiceTest extends CheckTestCase
     public function testParentMethodIncludedWhenChildDoesNotOverride(): void
     {
         $parentMethod = $this->makeMethod('parentOnly');
-        $childMethod  = $this->makeMethod('childOnly');
+        $childMethod = $this->makeMethod('childOnly');
         $parent = $this->makeClass('\\Base', [$parentMethod]);
-        $child  = $this->makeClass('\\Derived', [$childMethod], parentClass: $parent);
+        $child = $this->makeClass('\\Derived', [$childMethod], parentClass: $parent);
 
         $result = $this->service->collectForClass($child, PhpVersions::LATEST->value);
 
@@ -114,7 +113,7 @@ class MethodCollectionServiceTest extends CheckTestCase
     public function testPsUnreservePrefixIsStrippedFromMethodName(): void
     {
         $method = $this->makeMethod('PS_UNRESERVE_PREFIX_throw');
-        $class  = $this->makeClass('\\Generator', [$method]);
+        $class = $this->makeClass('\\Generator', [$method]);
 
         $result = $this->service->collectForClass($class, PhpVersions::LATEST->value);
 
@@ -129,7 +128,7 @@ class MethodCollectionServiceTest extends CheckTestCase
     {
         // Method removed in 8.0, so asking for 8.0 should exclude it
         $removedMethod = $this->makeMethod('oldMethod', removedVersion: '8.0');
-        $activeMethod  = $this->makeMethod('activeMethod');
+        $activeMethod = $this->makeMethod('activeMethod');
         $class = $this->makeClass('\\MyClass', [$removedMethod, $activeMethod]);
 
         $result = $this->service->collectForClass($class, '8.0');
@@ -152,7 +151,7 @@ class MethodCollectionServiceTest extends CheckTestCase
     public function testVersionFilteringIncludesMethodWhenInRange(): void
     {
         $method = $this->makeMethod('rangeMethod', sinceVersion: '7.0', removedVersion: '9.0');
-        $class  = $this->makeClass('\\MyClass', [$method]);
+        $class = $this->makeClass('\\MyClass', [$method]);
 
         $result = $this->service->collectForClass($class, '8.0');
 
@@ -191,7 +190,7 @@ class MethodCollectionServiceTest extends CheckTestCase
     public function testCollectForEnumIncludesOwnMethods(): void
     {
         $method = $this->makeMethod('label');
-        $enum   = $this->makeEnum('\\Suit', [$method]);
+        $enum = $this->makeEnum('\\Suit', [$method]);
 
         $result = $this->service->collectForEnum($enum, PhpVersions::LATEST->value);
 
@@ -203,7 +202,7 @@ class MethodCollectionServiceTest extends CheckTestCase
     {
         $ifaceMethod = $this->makeMethod('jsonSerialize');
         $iface = $this->makeInterface('\\JsonSerializable', [$ifaceMethod]);
-        $enum  = $this->makeEnum('\\Suit', [], interfaces: [$iface]);
+        $enum = $this->makeEnum('\\Suit', [], interfaces: [$iface]);
 
         $result = $this->service->collectForEnum($enum, PhpVersions::LATEST->value);
 
@@ -212,10 +211,10 @@ class MethodCollectionServiceTest extends CheckTestCase
 
     public function testCollectForEnumOwnMethodWinsOverInterface(): void
     {
-        $enumMethod  = $this->makeMethod('jsonSerialize');
+        $enumMethod = $this->makeMethod('jsonSerialize');
         $ifaceMethod = $this->makeMethod('jsonSerialize');
         $iface = $this->makeInterface('\\JsonSerializable', [$ifaceMethod]);
-        $enum  = $this->makeEnum('\\Suit', [$enumMethod], interfaces: [$iface]);
+        $enum = $this->makeEnum('\\Suit', [$enumMethod], interfaces: [$iface]);
 
         $result = $this->service->collectForEnum($enum, PhpVersions::LATEST->value);
 
@@ -227,7 +226,7 @@ class MethodCollectionServiceTest extends CheckTestCase
     public function testCollectForInterfaceIncludesOwnMethods(): void
     {
         $method = $this->makeMethod('current');
-        $iface  = $this->makeInterface('\\Iterator', [$method]);
+        $iface = $this->makeInterface('\\Iterator', [$method]);
 
         $result = $this->service->collectForInterface($iface, PhpVersions::LATEST->value);
 
@@ -238,10 +237,10 @@ class MethodCollectionServiceTest extends CheckTestCase
     public function testCollectForInterfaceTraversesParentChain(): void
     {
         $parentMethod = $this->makeMethod('rewind');
-        $childMethod  = $this->makeMethod('current');
+        $childMethod = $this->makeMethod('current');
 
         $parentIface = $this->makeInterface('\\Traversable', [$parentMethod]);
-        $childIface  = $this->makeInterface('\\Iterator', [$childMethod], parentInterfaces: [$parentIface]);
+        $childIface = $this->makeInterface('\\Iterator', [$childMethod], parentInterfaces: [$parentIface]);
 
         $result = $this->service->collectForInterface($childIface, PhpVersions::LATEST->value);
 
@@ -253,10 +252,10 @@ class MethodCollectionServiceTest extends CheckTestCase
     public function testCollectForInterfaceChildWinsOverParent(): void
     {
         $parentMethod = $this->makeMethod('getIterator');
-        $childMethod  = $this->makeMethod('getIterator');
+        $childMethod = $this->makeMethod('getIterator');
 
         $parentIface = $this->makeInterface('\\Traversable', [$parentMethod]);
-        $childIface  = $this->makeInterface('\\IteratorAggregate', [$childMethod], parentInterfaces: [$parentIface]);
+        $childIface = $this->makeInterface('\\IteratorAggregate', [$childMethod], parentInterfaces: [$parentIface]);
 
         $result = $this->service->collectForInterface($childIface, PhpVersions::LATEST->value);
 
@@ -267,7 +266,7 @@ class MethodCollectionServiceTest extends CheckTestCase
 
     public function testCollectsPropertiesFromClassItself(): void
     {
-        $prop  = $this->makeProperty('timezone');
+        $prop = $this->makeProperty('timezone');
         $class = new PHPClass();
         $class->setId('\\DateTime');
         $class->setName('DateTime');
@@ -282,7 +281,7 @@ class MethodCollectionServiceTest extends CheckTestCase
     public function testCollectsPropertiesFromParentChain(): void
     {
         $parentProp = $this->makeProperty('parentProp');
-        $childProp  = $this->makeProperty('childProp');
+        $childProp = $this->makeProperty('childProp');
 
         $parent = new PHPClass();
         $parent->setId('\\Base');
@@ -305,7 +304,7 @@ class MethodCollectionServiceTest extends CheckTestCase
     public function testChildPropertyWinsOverParentProperty(): void
     {
         $parentProp = $this->makeProperty('shared');
-        $childProp  = $this->makeProperty('shared');
+        $childProp = $this->makeProperty('shared');
 
         $parent = new PHPClass();
         $parent->setId('\\Base');

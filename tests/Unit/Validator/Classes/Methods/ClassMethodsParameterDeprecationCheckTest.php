@@ -2,7 +2,6 @@
 
 namespace StubTests\Unit\Validator\Classes\Methods;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsParameterDeprecationCheck;
@@ -30,8 +29,6 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         parent::tearDown();
     }
 
-
-
     // ── supports() ────────────────────────────────────────────────────────────
 
     public function testSupportsAllPhpVersions(): void
@@ -50,7 +47,7 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.0');
@@ -65,7 +62,7 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $reflClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.0');
@@ -83,7 +80,7 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.0');
@@ -103,7 +100,7 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$stubMethod]);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.0');
@@ -122,7 +119,7 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$stubMethod]);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.0');
@@ -143,7 +140,7 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$stubMethod]);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.0');
@@ -167,7 +164,7 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$stubMethod]);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.0');
@@ -194,7 +191,7 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$stubMethod]);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.0');
@@ -215,7 +212,7 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.0');
@@ -240,7 +237,7 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$stubMethod]);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.0');
@@ -276,13 +273,13 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider, $registry))->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Class-level skip reason', array_values($skipped)[0]);
     }
@@ -291,7 +288,7 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
 
     public function testMethodLevelKnownProblemSkipsSpecificMismatch(): void
     {
-        $className    = '\MyClass';
+        $className = '\MyClass';
         $mismatchedId = $className . '::doWork';
 
         $reflMethod = $this->createMockMethod('doWork', [$this->makeParam('p', deprecated: true)]);
@@ -316,13 +313,13 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDeprecationCheck($provider, $registry))->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Method-level skip reason', array_values($skipped)[0]);
     }

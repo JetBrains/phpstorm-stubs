@@ -2,9 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Reflection\Wrappers;
 
-use StubTests\Framework\Parsers\Reflection\Wrappers\AbstractReflectionAdapter;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionNamedType;
-
 /**
  * Adapter wrapper around ReflectionType (ReflectionNamedType, ReflectionUnionType, etc.)
  *
@@ -30,10 +27,10 @@ class AdaptedReflectionType extends AbstractReflectionAdapter
     protected function getAdditionalSkipMethods()
     {
         // Skip methods that need special handling based on type variant
-        return array(
+        return [
             'getName',      // Handle specially based on union/intersection/named
             '__toString'    // Should not be auto-extracted
-        );
+        ];
     }
 
     /**
@@ -51,12 +48,12 @@ class AdaptedReflectionType extends AbstractReflectionAdapter
 
         // Handle composite types (union/intersection) - both have getTypes() method
         if ($isComposite) {
-            $types = array();
+            $types = [];
             foreach ($reflectionObject->getTypes() as $type) {
                 // PHP 8.2+ DNF types: a union can contain intersection sub-groups
                 // e.g. int|(Foo&Bar) → getTypes() yields [ReflectionNamedType, ReflectionIntersectionType]
                 if (class_exists('\ReflectionIntersectionType') && $type instanceof \ReflectionIntersectionType) {
-                    $parts = array();
+                    $parts = [];
                     foreach ($type->getTypes() as $innerType) {
                         $parts[] = $innerType->getName();
                     }
@@ -71,12 +68,12 @@ class AdaptedReflectionType extends AbstractReflectionAdapter
         // Handle named types and fallback - use getName() if available
         elseif (method_exists($reflectionObject, 'getName')) {
             $this->setData('getName', $reflectionObject->getName());
-            $this->setData('getTypes', array());
+            $this->setData('getTypes', []);
         }
         // Fallback for unknown types
         else {
             $this->setData('getName', null);
-            $this->setData('getTypes', array());
+            $this->setData('getTypes', []);
         }
     }
 
@@ -94,8 +91,8 @@ class AdaptedReflectionType extends AbstractReflectionAdapter
     public function getTypes()
     {
         // Return array of pseudo-ReflectionNamedType objects
-        $types = $this->getData('getTypes', array());
-        $result = array();
+        $types = $this->getData('getTypes', []);
+        $result = [];
         foreach ($types as $typeName) {
             $result[] = new AdaptedReflectionNamedType($typeName);
         }

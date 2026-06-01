@@ -59,7 +59,7 @@ class FunctionParametersCountCheckTest extends CheckTestCase
         $id = '\\missing_func';
 
         $provider = $this->createMockReflectionProvider([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id)]);
 
         $result = (new FunctionParametersCountCheck($provider))->run($stubs, $id, '8.0');
@@ -74,7 +74,7 @@ class FunctionParametersCountCheckTest extends CheckTestCase
         $id = '\\missing_func';
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([]);
 
         $result = (new FunctionParametersCountCheck($provider))->run($stubs, $id, '8.0');
@@ -87,11 +87,11 @@ class FunctionParametersCountCheckTest extends CheckTestCase
 
     public function testMatchingParameterCountIsSuccess(): void
     {
-        $id     = '\\my_func';
+        $id = '\\my_func';
         $params = [$this->makeParam('a'), $this->makeParam('b')];
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, $params)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, $params)]);
 
         $result = (new FunctionParametersCountCheck($provider))->run($stubs, $id, '8.0');
@@ -105,7 +105,7 @@ class FunctionParametersCountCheckTest extends CheckTestCase
         $id = '\\no_params_func';
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id)]);
 
         $result = (new FunctionParametersCountCheck($provider))->run($stubs, $id, '8.0');
@@ -279,7 +279,7 @@ class FunctionParametersCountCheckTest extends CheckTestCase
         //   PHP 7.0 → included (stub=2, refl=2 → ok)
         //   PHP 7.1 → included (stub=2, refl=2 → ok)
         //   PHP 7.2 → excluded (stub=1, refl=1 → ok)
-        $id        = '\\range_func';
+        $id = '\\range_func';
         $stubParam = $this->makeParam('b', sinceVersion: '7.0', removedVersion: '7.2');  // removedVersion='7.2': excluded from 7.2+
 
         foreach (['7.0', '7.1', '7.2'] as $version) {

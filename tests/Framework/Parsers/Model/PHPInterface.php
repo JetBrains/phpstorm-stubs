@@ -2,8 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Model;
 
-use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
-
 class PHPInterface extends PHPClassLikeObject
 {
     /** @var PHPInterface[] */
@@ -24,5 +22,4 @@ class PHPInterface extends PHPClassLikeObject
     {
         $this->parentInterfaces[] = $interface;
     }
-
 }

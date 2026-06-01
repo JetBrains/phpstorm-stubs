@@ -3,7 +3,6 @@
 namespace StubTests\Unit\Parsers\Reflection;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Parsers\Model\PHPClassConstant;
 use StubTests\Framework\Parsers\Reflection\ReflectionClassConstantParser;

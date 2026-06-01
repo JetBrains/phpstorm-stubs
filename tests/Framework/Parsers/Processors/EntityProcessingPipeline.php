@@ -2,8 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Processors;
 
-use StubTests\Framework\Parsers\Processors\EntityProcessor;
-
 class EntityProcessingPipeline
 {
     /** @var EntityProcessor[] */
@@ -31,7 +29,7 @@ class EntityProcessingPipeline
     {
         $this->processors = array_values(array_filter(
             $this->processors,
-            fn($p) => !($p instanceof $processorClass)
+            fn ($p) => !($p instanceof $processorClass)
         ));
         return $this;
     }

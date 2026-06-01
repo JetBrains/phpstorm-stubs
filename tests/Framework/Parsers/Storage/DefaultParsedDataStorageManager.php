@@ -9,16 +9,12 @@ use StubTests\Framework\Parsers\Model\PHPEnum;
 use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Parsers\Model\PHPInterface;
 use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Storage\ParsedDataPersistentStorageProvider;
-use StubTests\Framework\Parsers\Storage\ParsedDataStorageManager;
-use StubTests\Framework\Parsers\Storage\ParsedDataStorageProvider;
 
 class DefaultParsedDataStorageManager implements ParsedDataStorageManager
 {
     private ParsedDataStorageProvider $parsedDataStorageProvider;
     private EntityProcessingPipeline $pipeline;
     private array $rawEntities = [];
-
     private ?array $cachedClasses = null;
     private ?array $cachedFunctions = null;
     private ?array $cachedInterfaces = null;
@@ -159,7 +155,7 @@ class DefaultParsedDataStorageManager implements ParsedDataStorageManager
         if ($this->cachedClasses === null) {
             $allEntities = $this->parsedDataStorageProvider->getEntities();
             $this->cachedClasses = is_array($allEntities)
-                ? array_filter($allEntities, fn($e) => $e instanceof PHPClass)
+                ? array_filter($allEntities, fn ($e) => $e instanceof PHPClass)
                 : [];
         }
         return $this->cachedClasses;
@@ -181,7 +177,7 @@ class DefaultParsedDataStorageManager implements ParsedDataStorageManager
         if ($this->cachedFunctions === null) {
             $allEntities = $this->parsedDataStorageProvider->getEntities();
             $this->cachedFunctions = is_array($allEntities)
-                ? array_filter($allEntities, fn($e) => $e instanceof PHPFunction && !$e instanceof PHPMethod)
+                ? array_filter($allEntities, fn ($e) => $e instanceof PHPFunction && !$e instanceof PHPMethod)
                 : [];
         }
         return $this->cachedFunctions;
@@ -193,7 +189,7 @@ class DefaultParsedDataStorageManager implements ParsedDataStorageManager
         if ($this->cachedInterfaces === null) {
             $allEntities = $this->parsedDataStorageProvider->getEntities();
             $this->cachedInterfaces = is_array($allEntities)
-                ? array_filter($allEntities, fn($e) => $e instanceof PHPInterface)
+                ? array_filter($allEntities, fn ($e) => $e instanceof PHPInterface)
                 : [];
         }
         return $this->cachedInterfaces;
@@ -215,7 +211,7 @@ class DefaultParsedDataStorageManager implements ParsedDataStorageManager
         if ($this->cachedEnums === null) {
             $allEntities = $this->parsedDataStorageProvider->getEntities();
             $this->cachedEnums = is_array($allEntities)
-                ? array_filter($allEntities, fn($e) => $e instanceof PHPEnum)
+                ? array_filter($allEntities, fn ($e) => $e instanceof PHPEnum)
                 : [];
         }
         return $this->cachedEnums;
@@ -237,10 +233,9 @@ class DefaultParsedDataStorageManager implements ParsedDataStorageManager
         if ($this->cachedConstants === null) {
             $allEntities = $this->parsedDataStorageProvider->getEntities();
             $this->cachedConstants = is_array($allEntities)
-                ? array_filter($allEntities, fn($e) => $e instanceof PHPConstant)
+                ? array_filter($allEntities, fn ($e) => $e instanceof PHPConstant)
                 : [];
         }
         return $this->cachedConstants;
     }
 }
-

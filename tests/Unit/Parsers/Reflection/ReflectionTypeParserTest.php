@@ -119,20 +119,23 @@ class ReflectionTypeParserTest extends TestCase
 
     public function testItParsesUnionTypeWithDuckTyping()
     {
-        $namedType1 = new class {
+        $namedType1 = new class() {
             public function getName() { return 'object'; }
         };
 
-        $namedType2 = new class {
+        $namedType2 = new class() {
             public function getName() { return 'string'; }
         };
 
         $unionTypeMock = new class($namedType1, $namedType2) {
             private $types;
+
             public function __construct($type1, $type2) {
                 $this->types = [$type1, $type2];
             }
+
             public function isUnionType() { return true; }
+
             public function getTypes() { return $this->types; }
         };
 
@@ -165,20 +168,23 @@ class ReflectionTypeParserTest extends TestCase
 
     public function testItParsesIntersectionTypeWithDuckTyping()
     {
-        $namedType1 = new class {
+        $namedType1 = new class() {
             public function getName() { return 'Foo'; }
         };
 
-        $namedType2 = new class {
+        $namedType2 = new class() {
             public function getName() { return 'Bar'; }
         };
 
         $intersectionTypeMock = new class($namedType1, $namedType2) {
             private $types;
+
             public function __construct($type1, $type2) {
                 $this->types = [$type1, $type2];
             }
+
             public function isIntersectionType() { return true; }
+
             public function getTypes() { return $this->types; }
         };
 
@@ -187,5 +193,4 @@ class ReflectionTypeParserTest extends TestCase
         self::assertInstanceOf(\StubTests\Framework\Parsers\Model\Types\IntersectionType::class, $result);
         self::assertEquals('Foo&Bar', $result->toString());
     }
-
 }

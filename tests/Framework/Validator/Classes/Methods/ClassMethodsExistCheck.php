@@ -51,7 +51,7 @@ class ClassMethodsExistCheck extends AbstractClassCheck
         }
 
         $reflection = $this->reflectionProvider->getReflection($phpVersion);
-        $label      = $this->getEntityLabel();
+        $label = $this->getEntityLabel();
 
         $reflectionClass = $this->lookupEntityById($reflection, $entityId);
         if ($reflectionClass === null) {

@@ -5,8 +5,6 @@ namespace StubTests\Framework\Validator;
 use StubTests\Framework\Validator\Contracts\CheckInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
-use StubTests\Framework\Validator\KnownProblemsRegistry;
-use StubTests\Framework\Validator\RunnerReflectionProvider;
 
 abstract class AbstractReflectionCheck implements CheckInterface
 {

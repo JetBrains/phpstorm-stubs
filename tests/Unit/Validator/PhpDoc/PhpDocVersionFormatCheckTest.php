@@ -11,7 +11,6 @@ use StubTests\Framework\Validator\KnownProblems\ProblemDefinition;
 use StubTests\Framework\Validator\KnownProblems\ProblemType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\PhpDoc\PhpDocVersionFormatCheck;
-use StubTests\Unit\Validator\PhpDoc\PhpDocCheckTestCase;
 
 class PhpDocVersionFormatCheckTest extends PhpDocCheckTestCase
 {
@@ -31,8 +30,8 @@ class PhpDocVersionFormatCheckTest extends PhpDocCheckTestCase
     }
 
     private function runCheck(
-		\StubTests\Framework\Parsers\StubDataQueryInterface $stubs,
-	    string                                              $entityId
+        \StubTests\Framework\Parsers\StubDataQueryInterface $stubs,
+        string $entityId
     ): \StubTests\Framework\Validator\Contracts\CheckResultSet {
         return $this->check->run($stubs, $entityId, PhpVersions::LATEST->value);
     }
@@ -42,9 +41,9 @@ class PhpDocVersionFormatCheckTest extends PhpDocCheckTestCase
     public function testSupportsAllVersions(): void
     {
         $this->assertTrue($this->check->supports(PhpVersions::EARLIEST->value), 'PHP 5.6 must be supported');
-        $this->assertTrue($this->check->supports(PhpVersions::PHP_7_0->value),  'PHP 7.0 must be supported');
-        $this->assertTrue($this->check->supports(PhpVersions::PHP_8_0->value),  'PHP 8.0 must be supported');
-        $this->assertTrue($this->check->supports(PhpVersions::LATEST->value),   'PHP 8.4 must be supported');
+        $this->assertTrue($this->check->supports(PhpVersions::PHP_7_0->value), 'PHP 7.0 must be supported');
+        $this->assertTrue($this->check->supports(PhpVersions::PHP_8_0->value), 'PHP 8.0 must be supported');
+        $this->assertTrue($this->check->supports(PhpVersions::LATEST->value), 'PHP 8.4 must be supported');
     }
 
     // ── Entity not found ──────────────────────────────────────────────────────
@@ -86,14 +85,14 @@ class PhpDocVersionFormatCheckTest extends PhpDocCheckTestCase
     public static function validVersionProvider(): array
     {
         return [
-            '@since 5.6'      => ['since',      '5.6'],
-            '@since 7.0'      => ['since',      '7.0'],
-            '@since 8.0'      => ['since',      '8.0'],
-            '@since 8.4'      => ['since',      '8.4'],
-            '@since 0.4'      => ['since',      '0.4'],
-            '@since 1.2'      => ['since',      '1.2'],
+            '@since 5.6' => ['since',      '5.6'],
+            '@since 7.0' => ['since',      '7.0'],
+            '@since 8.0' => ['since',      '8.0'],
+            '@since 8.4' => ['since',      '8.4'],
+            '@since 0.4' => ['since',      '0.4'],
+            '@since 1.2' => ['since',      '1.2'],
             '@deprecated 5.4' => ['deprecated', '5.4'],
-            '@removed 8.0'    => ['removed',    '8.0'],
+            '@removed 8.0' => ['removed',    '8.0'],
         ];
     }
 
@@ -114,14 +113,14 @@ class PhpDocVersionFormatCheckTest extends PhpDocCheckTestCase
     public static function patchVersionProvider(): array
     {
         return [
-            '@since 5.1.2'      => ['since',      '5.1.2',      '5.1'],
-            '@since 7.0.7'      => ['since',      '7.0.7',      '7.0'],
-            '@since 8.0.1'      => ['since',      '8.0.1',      '8.0'],
-            '@since 5.6.1'      => ['since',      '5.6.1',      '5.6'],
+            '@since 5.1.2' => ['since',      '5.1.2',      '5.1'],
+            '@since 7.0.7' => ['since',      '7.0.7',      '7.0'],
+            '@since 8.0.1' => ['since',      '8.0.1',      '8.0'],
+            '@since 5.6.1' => ['since',      '5.6.1',      '5.6'],
             '@deprecated 5.1.3' => ['deprecated', '5.1.3',      '5.1'],
-            '@removed 8.1.2'    => ['removed',    '8.1.2',      '8.1'],
-            '@since 1.2.3'      => ['since',      '1.2.3',      '1.2'],
-            '@since 4.4.5.35'   => ['since',      '4.4.5.35',   '4.4'],
+            '@removed 8.1.2' => ['removed',    '8.1.2',      '8.1'],
+            '@since 1.2.3' => ['since',      '1.2.3',      '1.2'],
+            '@since 4.4.5.35' => ['since',      '4.4.5.35',   '4.4'],
         ];
     }
 

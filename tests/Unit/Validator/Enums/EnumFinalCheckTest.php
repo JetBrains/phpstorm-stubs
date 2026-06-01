@@ -22,9 +22,9 @@ class EnumFinalCheckTest extends CheckTestCase
 
     public function testFinalMatchPasses(): void
     {
-        $enumId  = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $provider = $this->createMockReflectionProviderWithEnums([$this->makeEnum($enumId, isFinal: true)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$this->makeEnum($enumId, isFinal: true)]);
 
         $result = (new ClassFinalCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -35,9 +35,9 @@ class EnumFinalCheckTest extends CheckTestCase
 
     public function testNonFinalMatchPasses(): void
     {
-        $enumId  = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $provider = $this->createMockReflectionProviderWithEnums([$this->makeEnum($enumId)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$this->makeEnum($enumId)]);
 
         $result = (new ClassFinalCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -47,9 +47,9 @@ class EnumFinalCheckTest extends CheckTestCase
 
     public function testAbsentFinalPropertyTreatedAsFalse(): void
     {
-        $enumId  = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $provider = $this->createMockReflectionProviderWithEnums([$this->makeEnum($enumId)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$this->makeEnum($enumId)]); // isFinal not set
 
         $result = (new ClassFinalCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -61,9 +61,9 @@ class EnumFinalCheckTest extends CheckTestCase
 
     public function testFinalInReflectionButNotStubsFails(): void
     {
-        $enumId  = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $provider = $this->createMockReflectionProviderWithEnums([$this->makeEnum($enumId, isFinal: true)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$this->makeEnum($enumId)]);
 
         $result = (new ClassFinalCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -77,9 +77,9 @@ class EnumFinalCheckTest extends CheckTestCase
 
     public function testNonFinalInReflectionButFinalInStubsFails(): void
     {
-        $enumId  = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $provider = $this->createMockReflectionProviderWithEnums([$this->makeEnum($enumId)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$this->makeEnum($enumId, isFinal: true)]);
 
         $result = (new ClassFinalCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -94,9 +94,9 @@ class EnumFinalCheckTest extends CheckTestCase
 
     public function testEnumNotFoundInReflectionFails(): void
     {
-        $enumId  = '\MissingEnum';
+        $enumId = '\MissingEnum';
         $provider = $this->createMockReflectionProviderWithEnums([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$this->makeEnum($enumId, isFinal: true)]);
 
         $result = (new ClassFinalCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -109,9 +109,9 @@ class EnumFinalCheckTest extends CheckTestCase
 
     public function testEnumNotFoundInStubsFails(): void
     {
-        $enumId  = '\MissingEnum';
+        $enumId = '\MissingEnum';
         $provider = $this->createMockReflectionProviderWithEnums([$this->makeEnum($enumId, isFinal: true)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([]);
 
         $result = (new ClassFinalCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');

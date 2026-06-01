@@ -91,7 +91,7 @@ class ReflectionEnumParserTest extends TestCase
         $reflectionMock->method('getName')->willReturn('SomeNamespace\SubNamespace\SomeFooClass');
         $reflectionMock->method('getNamespaceName')->willReturn('SomeNamespace\SubNamespace');
         $basePHPElement = new ReflectionEnumParser()->parse($reflectionMock);
-        self::assertEquals('\SomeNamespace\SubNamespace\SomeFooClass',$basePHPElement->getId());
+        self::assertEquals('\SomeNamespace\SubNamespace\SomeFooClass', $basePHPElement->getId());
     }
 
     public function testItCanParseIdWithRootNamespace()
@@ -101,7 +101,7 @@ class ReflectionEnumParserTest extends TestCase
         $reflectionMock->method('getName')->willReturn('SomeFooClass');
         $reflectionMock->method('getNamespaceName')->willReturn('');
         $basePHPElement = new ReflectionEnumParser()->parse($reflectionMock);
-        self::assertEquals('\SomeFooClass',$basePHPElement->getId());
+        self::assertEquals('\SomeFooClass', $basePHPElement->getId());
     }
 
     public function testItCanParseFinalEnum()

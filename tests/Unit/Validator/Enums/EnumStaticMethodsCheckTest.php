@@ -22,12 +22,12 @@ class EnumStaticMethodsCheckTest extends CheckTestCase
 
     public function testStaticMethodMatchPasses(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', isStatic: true)]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', isStatic: true)]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -39,13 +39,13 @@ class EnumStaticMethodsCheckTest extends CheckTestCase
 
     public function testStaticMethodMismatchFails(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         // Reflection says static, stub says non-static
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', isStatic: true)]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -58,18 +58,18 @@ class EnumStaticMethodsCheckTest extends CheckTestCase
 
     public function testErrorMessageContainsEnumNotClass(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', isStatic: true)]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
 
         $failures = $result->getFailures();
-        $message  = $failures[$enumId . '::cases'];
+        $message = $failures[$enumId . '::cases'];
         $this->assertStringNotContainsString('Class', $message);
     }
 }

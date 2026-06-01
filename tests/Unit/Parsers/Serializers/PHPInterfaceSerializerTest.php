@@ -48,7 +48,7 @@ class PHPInterfaceSerializerTest extends TestCase
     public function testSerializeInterfaceWithNoParentInterfaces(): void
     {
         $iface = $this->makeInterface('\Iterator');
-        $data  = $this->serializer->serialize($iface);
+        $data = $this->serializer->serialize($iface);
 
         $this->assertArrayHasKey('parentInterfaces', $data);
         $this->assertSame([], $data['parentInterfaces']);
@@ -95,9 +95,9 @@ class PHPInterfaceSerializerTest extends TestCase
     public function testDeserializeInterfaceWithNoParentInterfacesKey(): void
     {
         $data = [
-            '_type'     => 'PHPInterface',
-            'name'      => 'Iterator',
-            'id'        => '\Iterator',
+            '_type' => 'PHPInterface',
+            'name' => 'Iterator',
+            'id' => '\Iterator',
             'namespace' => '\\',
         ];
 
@@ -109,9 +109,9 @@ class PHPInterfaceSerializerTest extends TestCase
     public function testDeserializeInterfaceWithEmptyParentInterfacesArray(): void
     {
         $data = [
-            'name'             => 'Iterator',
-            'id'               => '\Iterator',
-            'namespace'        => '\\',
+            'name' => 'Iterator',
+            'id' => '\Iterator',
+            'namespace' => '\\',
             'parentInterfaces' => [],
         ];
 
@@ -123,13 +123,13 @@ class PHPInterfaceSerializerTest extends TestCase
     public function testDeserializeInterfaceRestoresParentInterfaceObjects(): void
     {
         $data = [
-            'name'             => 'OuterIterator',
-            'id'               => '\OuterIterator',
-            'namespace'        => '\\',
+            'name' => 'OuterIterator',
+            'id' => '\OuterIterator',
+            'namespace' => '\\',
             'parentInterfaces' => ['Iterator'],
         ];
 
-        $iface   = $this->serializer->deserialize($data);
+        $iface = $this->serializer->deserialize($data);
         $parents = $iface->getParentInterfaces();
 
         $this->assertCount(1, $parents);
@@ -140,13 +140,13 @@ class PHPInterfaceSerializerTest extends TestCase
     public function testDeserializeInterfaceRestoresMultipleParentInterfaces(): void
     {
         $data = [
-            'name'             => 'BackedEnum',
-            'id'               => '\BackedEnum',
-            'namespace'        => '\\',
+            'name' => 'BackedEnum',
+            'id' => '\BackedEnum',
+            'namespace' => '\\',
             'parentInterfaces' => ['UnitEnum', 'Stringable'],
         ];
 
-        $iface   = $this->serializer->deserialize($data);
+        $iface = $this->serializer->deserialize($data);
         $parents = $iface->getParentInterfaces();
 
         $this->assertCount(2, $parents);
@@ -157,13 +157,13 @@ class PHPInterfaceSerializerTest extends TestCase
     public function testDeserializeSkipsEmptyParentInterfaceName(): void
     {
         $data = [
-            'name'             => 'SomeInterface',
-            'id'               => '\SomeInterface',
-            'namespace'        => '\\',
+            'name' => 'SomeInterface',
+            'id' => '\SomeInterface',
+            'namespace' => '\\',
             'parentInterfaces' => ['', 'ValidParent', ''],
         ];
 
-        $iface   = $this->serializer->deserialize($data);
+        $iface = $this->serializer->deserialize($data);
         $parents = $iface->getParentInterfaces();
 
         $this->assertCount(1, $parents);
@@ -178,7 +178,7 @@ class PHPInterfaceSerializerTest extends TestCase
             $this->makeParentStub('Iterator'),
         ]);
 
-        $data     = $this->serializer->serialize($original);
+        $data = $this->serializer->serialize($original);
         $restored = $this->serializer->deserialize($data);
 
         $parents = $restored->getParentInterfaces();
@@ -190,7 +190,7 @@ class PHPInterfaceSerializerTest extends TestCase
     {
         $original = $this->makeInterface('\Countable');
 
-        $data     = $this->serializer->serialize($original);
+        $data = $this->serializer->serialize($original);
         $restored = $this->serializer->deserialize($data);
 
         $this->assertEmpty($restored->getParentInterfaces());
@@ -202,7 +202,7 @@ class PHPInterfaceSerializerTest extends TestCase
         $original->initStubsMetadata()->setSinceVersion('8.0');
         $original->initStubsMetadata()->setRemovedVersion(null);
 
-        $data     = $this->serializer->serialize($original);
+        $data = $this->serializer->serialize($original);
         $restored = $this->serializer->deserialize($data);
 
         $this->assertSame('\MyInterface', $restored->getId());

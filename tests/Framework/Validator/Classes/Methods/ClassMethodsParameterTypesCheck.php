@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Validator\Classes\Methods;
 
 use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Model\PHPParameter;
 use StubTests\Framework\Validator\AbstractMethodFlagCheck;
 use StubTests\Framework\Validator\Services\TypeResolver;
 
@@ -38,7 +37,6 @@ use StubTests\Framework\Validator\Services\TypeResolver;
  */
 class ClassMethodsParameterTypesCheck extends AbstractMethodFlagCheck
 {
-
     public function supports(string $phpVersion): bool
     {
         // Scalar type hints were introduced in PHP 7.0

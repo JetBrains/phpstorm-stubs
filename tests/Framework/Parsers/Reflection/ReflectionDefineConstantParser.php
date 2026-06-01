@@ -10,7 +10,6 @@ use StubTests\Framework\Parsers\Parser;
  */
 class ReflectionDefineConstantParser implements Parser
 {
-
     public function canParse(mixed $object): bool
     {
         return false;
@@ -29,5 +28,4 @@ class ReflectionDefineConstantParser implements Parser
         $parsedConstant->setId('\\' . $parsedConstant->getName());
         return $parsedConstant;
     }
-
 }

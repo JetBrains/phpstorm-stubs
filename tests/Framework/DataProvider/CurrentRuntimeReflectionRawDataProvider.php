@@ -2,14 +2,12 @@
 
 namespace StubTests\Framework\DataProvider;
 
-use StubTests\Framework\DataProvider\ReflectionDataProvider;
-
-class CurrentRuntimeReflectionRawDataProvider implements ReflectionDataProvider {
-
+class CurrentRuntimeReflectionRawDataProvider implements ReflectionDataProvider
+{
     public function getReflectionFunctions()
     {
         $definedFunctions = get_defined_functions();
-        return isset($definedFunctions['internal']) ? $definedFunctions['internal'] : array();
+        return isset($definedFunctions['internal']) ? $definedFunctions['internal'] : [];
     }
 
     public function getReflectionClasses()
@@ -43,7 +41,7 @@ class CurrentRuntimeReflectionRawDataProvider implements ReflectionDataProvider 
 
     public function getReflectionInterfaces()
     {
-        return array_values(array_filter(get_declared_interfaces(), function($interface) {
+        return array_values(array_filter(get_declared_interfaces(), function ($interface) {
             try {
                 $reflection = new \ReflectionClass($interface);
                 return $reflection->isInternal();
@@ -77,7 +75,7 @@ class CurrentRuntimeReflectionRawDataProvider implements ReflectionDataProvider 
         }
 
         // Flatten the array - PHP 5.6 compatible way
-        $result = array();
+        $result = [];
         foreach ($get_defined_constants as $category => $constants) {
             foreach ($constants as $name => $value) {
                 $result[$name] = $value;

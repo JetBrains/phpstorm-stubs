@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Validator\Services;
 
 use StubTests\Framework\Parsers\Model\PHPFunction;
-use StubTests\Framework\Validator\Services\TypeResolver;
 
 /**
  * Resolves return type strings from functions/methods with version-aware fallback.

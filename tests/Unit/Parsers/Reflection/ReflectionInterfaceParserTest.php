@@ -110,7 +110,7 @@ class ReflectionInterfaceParserTest extends TestCase
         $reflectionMock->method('getName')->willReturn('SomeFooClass');
         $reflectionMock->method('getNamespaceName')->willReturn('SomeNamespace\SubNamespace');
         $basePHPElement = new ReflectionInterfaceParser()->parse($reflectionMock);
-        self::assertEquals('\SomeNamespace\SubNamespace\SomeFooClass',$basePHPElement->getId());
+        self::assertEquals('\SomeNamespace\SubNamespace\SomeFooClass', $basePHPElement->getId());
     }
 
     public function testItCanParseIdWithRootNamespace()
@@ -120,7 +120,7 @@ class ReflectionInterfaceParserTest extends TestCase
         $reflectionMock->method('getName')->willReturn('SomeFooClass');
         $reflectionMock->method('getNamespaceName')->willReturn('');
         $basePHPElement = new ReflectionInterfaceParser()->parse($reflectionMock);
-        self::assertEquals('\SomeFooClass',$basePHPElement->getId());
+        self::assertEquals('\SomeFooClass', $basePHPElement->getId());
     }
 
     public function testItCanParseMethods()

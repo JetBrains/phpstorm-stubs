@@ -8,7 +8,6 @@ use StubTests\Framework\Parsers\Model\PHPEnum;
 use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Parsers\Model\PHPInterface;
 use StubTests\Framework\Parsers\Model\PHPNamespacedElement;
-use StubTests\Framework\Parsers\Processors\EntityProcessor;
 
 /**
  * Deduplication processor specifically for reflection data.

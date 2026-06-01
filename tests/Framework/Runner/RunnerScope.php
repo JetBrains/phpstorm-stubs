@@ -2,8 +2,6 @@
 
 namespace StubTests\Framework\Runner;
 
-use StubTests\Framework\Runner\Runner;
-
 /**
  * Manages the shared Runner instance lifecycle.
  *

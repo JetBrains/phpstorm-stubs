@@ -20,8 +20,8 @@ class AllReflectionParser
 
     public function __construct(
         CurrentRuntimeReflectionRawDataProvider $dataProvider,
-        ParsedDataStorageManager                $storageManager,
-        ?EntityReflectionObjectParsersRegistry  $parsersRegistry = null
+        ParsedDataStorageManager $storageManager,
+        ?EntityReflectionObjectParsersRegistry $parsersRegistry = null
     ) {
         $this->dataProvider = $dataProvider;
         $this->storageManager = $storageManager;
@@ -40,7 +40,7 @@ class AllReflectionParser
                 $this->dataProvider->getReflectionInterfaces(),
                 $this->dataProvider->getReflectionEnums()
             ),
-            function($name) {
+            function ($name) {
                 return new AdaptedReflectionClass(new \ReflectionClass($name));
             }
         );
@@ -48,7 +48,7 @@ class AllReflectionParser
         // Parse functions
         $this->parseEntities(
             $this->dataProvider->getReflectionFunctions(),
-            function($name) {
+            function ($name) {
                 return new AdaptedReflectionFunction(new \ReflectionFunction($name));
             }
         );
@@ -93,13 +93,13 @@ class AllReflectionParser
         // Check if ReflectionConstant class exists (PHP 8.1+)
         if (class_exists('\ReflectionConstant')) {
             // Filter to only defined constants and get their names
-            $constantNames = array_filter(array_keys($reflectionConstants), function($name) {
+            $constantNames = array_filter(array_keys($reflectionConstants), function ($name) {
                 return defined($name);
             });
 
             $this->parseEntities(
                 $constantNames,
-                function($name) {
+                function ($name) {
                     return new \ReflectionConstant($name);
                 }
             );
@@ -107,7 +107,7 @@ class AllReflectionParser
             // For PHP < 8.1, use array format
             // Convert associative array to list of [name => value] entries
             $constantEntries = array_map(
-                function($name, $value) {
+                function ($name, $value) {
                     return [$name => $value];
                 },
                 array_keys($reflectionConstants),
@@ -116,7 +116,7 @@ class AllReflectionParser
 
             $this->parseEntities(
                 $constantEntries,
-                function($entry) {
+                function ($entry) {
                     return $entry; // Already in array format expected by parser
                 }
             );

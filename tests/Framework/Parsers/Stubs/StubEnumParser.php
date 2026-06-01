@@ -3,15 +3,11 @@
 namespace StubTests\Framework\Parsers\Stubs;
 
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
-use StubTests\Framework\Parsers\Stubs\StubClassConstantParser;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Model\PHPEnum;
 use StubTests\Framework\Parsers\Model\PHPInterface;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicNodeExtractor;
 use StubTests\Framework\Parsers\Stubs\Nodes\EnumNode;
-use StubTests\Framework\Parsers\Stubs\EnumNodeExtractorInterface;
-use StubTests\Framework\Parsers\Stubs\MultiEntityStubParserInterface;
-use StubTests\Framework\Parsers\Stubs\StubMethodParser;
 
 /**
  * Parses PHP enum nodes from AST into PHPEnum domain objects.

@@ -11,13 +11,7 @@ use PhpParser\Node\Stmt\Interface_;
 use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\Node\Stmt\Use_;
 use PhpParser\ParserFactory;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicConstantDefinitionNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicFunctionNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicInterfaceNode;
 use StubTests\Framework\Parsers\Stubs\NodeExtractorInterface;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicClassNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicEnumNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicGlobalConstantNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\ClassNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\FunctionNode;
 
@@ -375,7 +369,6 @@ class NikicNodeExtractor implements NodeExtractorInterface
                 $stmt->expr instanceof FuncCall &&
                 $stmt->expr->name instanceof Name &&
                 $stmt->expr->name->toString() === 'define') {
-
                 $constantNode = new NikicConstantDefinitionNode($stmt->expr);
                 $constantNode->setNamespace($namespace);
                 $constants[] = $constantNode;

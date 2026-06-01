@@ -4,7 +4,6 @@ namespace StubTests\Framework\Parsers\Stubs\Versions;
 
 use StubTests\Framework\Parsers\Stubs\PhpDoc\ParsedPhpDoc;
 use StubTests\Framework\Parsers\Stubs\Nodes\AttributeNode;
-use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Runner\PhpVersions;
 
 /**
@@ -114,8 +113,8 @@ class DefaultAvailableVersionParser implements AvailableVersionParserInterface
      */
     private function nextPhpVersion(string $version): string
     {
-        $versions = array_map(fn(PhpVersions $v) => $v->value, PhpVersions::cases());
-        $idx      = array_search($version, $versions, true);
+        $versions = array_map(fn (PhpVersions $v) => $v->value, PhpVersions::cases());
+        $idx = array_search($version, $versions, true);
         if ($idx !== false && $idx < count($versions) - 1) {
             return $versions[$idx + 1];
         }

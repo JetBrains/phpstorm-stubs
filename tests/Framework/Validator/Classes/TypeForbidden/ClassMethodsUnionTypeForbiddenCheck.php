@@ -39,7 +39,7 @@ class ClassMethodsUnionTypeForbiddenCheck extends AbstractTypeForbiddenCheck
     protected function collectMethodIssues(string $entityId, string $methodName, PHPMethod $method, string $phpVersion): array
     {
         $methodEntityId = $entityId . '::' . $methodName;
-        $issues         = [];
+        $issues = [];
 
         // ── Check return type ─────────────────────────────────────────────────
         // Skip NullableType (?T) — nullable type hints are valid from PHP 7.1.
@@ -63,7 +63,7 @@ class ClassMethodsUnionTypeForbiddenCheck extends AbstractTypeForbiddenCheck
             }
             $paramType = $declaredType->toString();
             if ($paramType !== '' && str_contains($paramType, '|')) {
-                $paramEntityId          = $methodEntityId . '::$' . $param->getName();
+                $paramEntityId = $methodEntityId . '::$' . $param->getName();
                 $issues[$paramEntityId] =
                     "{$this->getEntityLabel()} method {$methodEntityId} parameter \${$param->getName()} " .
                     "has union type hint '{$paramType}' but the method is available before PHP 8.0 " .

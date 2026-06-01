@@ -36,11 +36,11 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
 
     public function testSupportsOnlyVersionsBeforePhp70(): void
     {
-        $this->assertTrue($this->check->supports(PhpVersions::EARLIEST->value),  'PHP 5.6 must be supported');
-        $this->assertFalse($this->check->supports(PhpVersions::PHP_7_0->value),  'PHP 7.0 must NOT be supported');
-        $this->assertFalse($this->check->supports(PhpVersions::PHP_7_1->value),  'PHP 7.1 must NOT be supported');
-        $this->assertFalse($this->check->supports(PhpVersions::PHP_8_0->value),  'PHP 8.0 must NOT be supported');
-        $this->assertFalse($this->check->supports(PhpVersions::LATEST->value),   'PHP 8.4 must NOT be supported');
+        $this->assertTrue($this->check->supports(PhpVersions::EARLIEST->value), 'PHP 5.6 must be supported');
+        $this->assertFalse($this->check->supports(PhpVersions::PHP_7_0->value), 'PHP 7.0 must NOT be supported');
+        $this->assertFalse($this->check->supports(PhpVersions::PHP_7_1->value), 'PHP 7.1 must NOT be supported');
+        $this->assertFalse($this->check->supports(PhpVersions::PHP_8_0->value), 'PHP 8.0 must NOT be supported');
+        $this->assertFalse($this->check->supports(PhpVersions::LATEST->value), 'PHP 8.4 must NOT be supported');
     }
 
     // ── Entity not found ──────────────────────────────────────────────────────
@@ -76,7 +76,10 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork')]
         );
 
@@ -94,7 +97,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     public function testScalarParamTypeIsFailure(string $scalarType): void
     {
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             parameters: [$this->makeParam('val', new StandaloneType($scalarType))]
         );
@@ -115,10 +118,10 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     public static function scalarTypeProvider(): array
     {
         return [
-            'int'   => ['int'],
+            'int' => ['int'],
             'float' => ['float'],
             'string' => ['string'],
-            'bool'  => ['bool'],
+            'bool' => ['bool'],
         ];
     }
 
@@ -128,7 +131,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     public function testAllowedParamTypeSucceeds(string $typeName): void
     {
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             parameters: [$this->makeParam('val', new StandaloneType($typeName))]
         );
@@ -145,11 +148,11 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     public static function allowedParamTypeProvider(): array
     {
         return [
-            'array'       => ['array'],
-            'callable'    => ['callable'],
-            'class name'  => ['DateTime'],
-            'self'        => ['self'],
-            'parent'      => ['parent'],
+            'array' => ['array'],
+            'callable' => ['callable'],
+            'class name' => ['DateTime'],
+            'self' => ['self'],
+            'parent' => ['parent'],
         ];
     }
 
@@ -160,7 +163,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
         // ?int in stub signature → NullableType wrapping int → must be flagged
         $className = '\MyClass';
         $nullableInt = $this->createNullableType('int');
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             parameters: [$this->makeParam('val', $nullableInt)]
         );
@@ -181,7 +184,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     {
         // ?array → NullableType wrapping array → array is not a scalar type → OK
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             parameters: [$this->makeParam('val', $this->createNullableType('array'))]
         );
@@ -204,7 +207,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
         $param = new PHPParameter('val');
         $param->initStubsMetadata()->setLanguageLevelTypes([]);
         $param->initStubsMetadata()->setDefaultType('int');
-        $method    = $this->makeMethod('doSomething', parameters: [$param]);
+        $method = $this->makeMethod('doSomething', parameters: [$param]);
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$method]);
 
         $stubs = $this->createMockStorageManager();
@@ -222,7 +225,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
         $param = new PHPParameter('val');
         $param->initStubsMetadata()->setLanguageLevelTypes(['7.0' => 'int']);
         $param->initStubsMetadata()->setDefaultType('');
-        $method    = $this->makeMethod('doSomething', parameters: [$param]);
+        $method = $this->makeMethod('doSomething', parameters: [$param]);
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$method]);
 
         $stubs = $this->createMockStorageManager();
@@ -239,7 +242,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     {
         // sinceVersion = '7.0' → method not available in PHP 5.6 → no check
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             sinceVersion: '7.0',
             parameters: [$this->makeParam('val', new StandaloneType('int'))]
@@ -260,10 +263,15 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
-            [$this->makeMethod('privateWork',
+            $className,
+            null,
+            null,
+            null,
+            [$this->makeMethod(
+                'privateWork',
                 access: 'private',
-                parameters: [$this->makeParam('val', new StandaloneType('int'))])]
+                parameters: [$this->makeParam('val', new StandaloneType('int'))]
+            )]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -278,10 +286,15 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
-            [$this->makeMethod('protectedWork',
+            $className,
+            null,
+            null,
+            null,
+            [$this->makeMethod(
+                'protectedWork',
                 access: 'protected',
-                parameters: [$this->makeParam('val', new StandaloneType('int'))])]
+                parameters: [$this->makeParam('val', new StandaloneType('int'))]
+            )]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -296,10 +309,15 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
-            [$this->makeMethod('finalWork',
+            $className,
+            null,
+            null,
+            null,
+            [$this->makeMethod(
+                'finalWork',
                 isFinal: true,
-                parameters: [$this->makeParam('val', new StandaloneType('int'))])]
+                parameters: [$this->makeParam('val', new StandaloneType('int'))]
+            )]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -314,9 +332,14 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\FinalClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
-            [$this->makeMethod('doWork',
-                parameters: [$this->makeParam('val', new StandaloneType('int'))])]
+            $className,
+            null,
+            null,
+            null,
+            [$this->makeMethod(
+                'doWork',
+                parameters: [$this->makeParam('val', new StandaloneType('int'))]
+            )]
         );
         $stubClass->setIsFinal(true);
 
@@ -331,7 +354,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     public function testMethodWithTentativeReturnTypeIsNotFlagged(): void
     {
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'tentativeWork',
             isTentative: true,
             parameters: [$this->makeParam('val', new StandaloneType('int'))]
@@ -351,7 +374,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     public function testMultipleScalarParamsAllReported(): void
     {
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             parameters: [
                 $this->makeParam('a', new StandaloneType('int')),
@@ -392,11 +415,16 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
         ]);
 
         KnownProblemsRegistry::reset();
-        $registry  = KnownProblemsRegistry::getInstance($knownProblemsProvider);
+        $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
-            [$this->makeMethod('doWork',
-                parameters: [$this->makeParam('val', new StandaloneType('int'))])]
+            $className,
+            null,
+            null,
+            null,
+            [$this->makeMethod(
+                'doWork',
+                parameters: [$this->makeParam('val', new StandaloneType('int'))]
+            )]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -410,7 +438,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
 
     public function testKnownProblemAtMethodLevelSkipsSpecificMethod(): void
     {
-        $className      = '\MyClass';
+        $className = '\MyClass';
         $methodEntityId = $className . '::doWork';
 
         $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
@@ -426,11 +454,16 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
         ]);
 
         KnownProblemsRegistry::reset();
-        $registry  = KnownProblemsRegistry::getInstance($knownProblemsProvider);
+        $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
-            [$this->makeMethod('doWork',
-                parameters: [$this->makeParam('val', new StandaloneType('int'))])]
+            $className,
+            null,
+            null,
+            null,
+            [$this->makeMethod(
+                'doWork',
+                parameters: [$this->makeParam('val', new StandaloneType('int'))]
+            )]
         );
 
         $stubs = $this->createMockStorageManager();

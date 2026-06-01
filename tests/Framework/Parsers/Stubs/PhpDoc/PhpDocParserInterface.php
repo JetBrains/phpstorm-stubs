@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Parsers\Stubs\PhpDoc;
 
 use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
-use StubTests\Framework\Parsers\Stubs\PhpDoc\ParsedPhpDoc;
 
 /**
  * Interface for PhpDoc parsers.

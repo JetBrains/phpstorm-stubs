@@ -2,7 +2,6 @@
 
 namespace StubTests\Framework\Validator\Contracts;
 
-use StubTests\Framework\Validator\Contracts\LookupKind;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**

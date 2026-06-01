@@ -5,8 +5,6 @@ namespace StubTests\Framework\Parsers\Stubs;
 use StubTests\Framework\Parsers\Model\PHPConstant;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicNodeExtractor;
 use StubTests\Framework\Parsers\Stubs\Nodes\ConstantDefinitionNode;
-use StubTests\Framework\Parsers\Stubs\ConstantNodeExtractorInterface;
-use StubTests\Framework\Parsers\Stubs\MultiEntityStubParserInterface;
 
 /**
  * Parses modern global const declarations from AST into PHPConstant domain objects.

@@ -7,11 +7,9 @@ use StubTests\Framework\Parsers\Model\Types\NoType;
 use StubTests\Framework\Parsers\Model\Types\NullableType;
 use StubTests\Framework\Parsers\Model\Types\StandaloneType;
 use StubTests\Framework\Parsers\Model\Types\UnionType;
-use StubTests\Framework\Parsers\Model\PHPNamespacedElement;
 
 class PHPFunction extends PHPNamespacedElement
 {
-
     protected StandaloneType|UnionType|NullableType|NoType|IntersectionType|null $returnTypesFromSignature = null;
     protected bool $isDeprecated = false;
     protected array $parameters = [];
@@ -56,5 +54,4 @@ class PHPFunction extends PHPNamespacedElement
     {
         return $this->hasTentativeReturnType;
     }
-
 }

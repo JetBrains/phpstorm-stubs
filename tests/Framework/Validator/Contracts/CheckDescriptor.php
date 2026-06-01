@@ -3,8 +3,6 @@
 namespace StubTests\Framework\Validator\Contracts;
 
 use StubTests\Framework\Runner\PhpVersions;
-use StubTests\Framework\Validator\Contracts\CheckInterface;
-use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\ValidatorTestBase;
 
 /**

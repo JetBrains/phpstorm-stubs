@@ -382,8 +382,7 @@ class ReflectionFunctionParserTest extends TestCase
         $parameterMock->method('getName')->willReturn('foo');
         $parameterMock->method('getPosition')->willReturn(0);
         $parameterMock->method('hasType')->willReturn(true);
-        $parameterMock->method('getType')->willReturn(new class extends \ReflectionNamedType
-        {
+        $parameterMock->method('getType')->willReturn(new class() extends \ReflectionNamedType {
             public function getName()
             {
                 return 'int';

@@ -16,7 +16,6 @@ use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionProperty;
 
 class ReflectionClassParserTest extends BaseTestCase
 {
-
     public function testItCanParseInternalClass()
     {
         $stubReflectionClass = $this->getMockBuilder(AdaptedReflectionClass::class)
@@ -786,5 +785,4 @@ class ReflectionClassParserTest extends BaseTestCase
         new ReflectionObjectClassParser()->parseAndAddToContainer(stdClass::class, $container);
         self::assertNotEmpty($container->getClasses());
     }*/
-
 }

@@ -2,9 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Reflection\Wrappers;
 
-use StubTests\Framework\Parsers\Reflection\Wrappers\AbstractReflectionAdapter;
-use StubTests\Framework\Parsers\Reflection\Wrappers\ReflectionTypeRegistry;
-
 /**
  * Automatic method extraction logic for Reflection objects
  *
@@ -23,19 +20,19 @@ class ReflectionMethodExtractor
      * @param array $config Configuration for extraction behavior
      * @return array Extracted data as associative array
      */
-    public static function extractData($reflectionObject, array $config = array())
+    public static function extractData($reflectionObject, array $config = [])
     {
-        $data = array();
+        $data = [];
         $reflectionClass = new \ReflectionClass($reflectionObject);
 
         // Default configuration
-        $defaultConfig = array(
-            'methodPrefixes' => array('is', 'has', 'get'),
+        $defaultConfig = [
+            'methodPrefixes' => ['is', 'has', 'get'],
             'includeNameMethod' => true,
-            'skipMethods' => array(),
-            'customHandlers' => array(),
+            'skipMethods' => [],
+            'customHandlers' => [],
             'maxDepth' => 3
-        );
+        ];
 
         $config = array_merge($defaultConfig, $config);
 
@@ -91,7 +88,6 @@ class ReflectionMethodExtractor
 
                 // Store the raw value or mark for later processing
                 $data[$methodName] = $value;
-
             } catch (\Exception $e) {
                 // If method call fails, skip it (don't store)
                 continue;
@@ -131,7 +127,7 @@ class ReflectionMethodExtractor
 
         // Handle arrays
         if (is_array($value)) {
-            $result = array();
+            $result = [];
             foreach ($value as $key => $item) {
                 $result[$key] = self::makeSerializable($item, $depth + 1, $maxDepth);
             }
@@ -166,9 +162,7 @@ class ReflectionMethodExtractor
             if (method_exists($value, 'name')) {
                 try {
                     return $className . '::' . $value->name;
-                } catch (\Throwable $e) {
-                    // Fall through to class name
-                }
+                } catch (\Throwable $e) {}
             }
 
             // Return just the class name as a safe fallback
@@ -178,6 +172,4 @@ class ReflectionMethodExtractor
         // Return primitives as-is
         return $value;
     }
-
-
 }

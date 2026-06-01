@@ -2,11 +2,8 @@
 
 namespace StubTests\Unit\Validator\Meta;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPConstant;
 use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Meta\FunctionReferencesExistsCheck;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 use StubTests\Unit\Validator\CheckTestCase;

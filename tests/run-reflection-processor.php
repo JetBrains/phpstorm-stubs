@@ -209,7 +209,6 @@ try {
     echo "          Output saved to: {$outputFile}\n\n";
 
     exit(0);
-
 } catch (Exception $e) {
     echo "\n✗ ERROR: " . $e->getMessage() . "\n";
     echo "  File: " . $e->getFile() . ":" . $e->getLine() . "\n";

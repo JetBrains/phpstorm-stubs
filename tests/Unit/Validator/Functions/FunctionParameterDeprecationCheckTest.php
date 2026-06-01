@@ -30,9 +30,6 @@ class FunctionParameterDeprecationCheckTest extends CheckTestCase
         parent::tearDown();
     }
 
-
-
-
     private function makeFunction(string $id, array $params = []): PHPFunction
     {
         $fn = new PHPFunction();
@@ -56,11 +53,11 @@ class FunctionParameterDeprecationCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInReflectionIsFailure(): void
     {
-        $id      = '\\missing_func';
-        $stubFn  = $this->makeFunction($id);
+        $id = '\\missing_func';
+        $stubFn = $this->makeFunction($id);
 
         $provider = $this->createMockReflectionProvider([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$stubFn]);
 
         $result = (new FunctionParameterDeprecationCheck($provider))->run($stubs, $id, '8.0');
@@ -71,11 +68,11 @@ class FunctionParameterDeprecationCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInStubsIsSuccess(): void
     {
-        $id     = '\\missing_func';
+        $id = '\\missing_func';
         $reflFn = $this->makeFunction($id, [$this->makeParam('p', deprecated: true)]);
 
         $provider = $this->createMockReflectionProvider([$reflFn]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([]);
 
         $result = (new FunctionParameterDeprecationCheck($provider))->run($stubs, $id, '8.0');

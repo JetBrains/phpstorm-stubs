@@ -44,8 +44,8 @@ class KnownProblemsRegistryTest extends TestCase
         $this->assertIsArray($problems);
         $this->assertNotEmpty($problems);
         $this->assertContainsOnlyInstancesOf(
-			\StubTests\Framework\Validator\KnownProblems\ProblemDefinition::class,
-	        $problems
+            \StubTests\Framework\Validator\KnownProblems\ProblemDefinition::class,
+            $problems
         );
     }
 

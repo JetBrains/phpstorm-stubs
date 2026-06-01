@@ -3,9 +3,6 @@
 namespace StubTests\Framework\Validator\KnownProblems;
 
 use StubTests\Framework\Runner\PhpVersionRange;
-use StubTests\Framework\Validator\KnownProblems\CheckType;
-use StubTests\Framework\Validator\KnownProblems\EntityType;
-use StubTests\Framework\Validator\KnownProblems\ProblemType;
 
 /**
  * Immutable value object representing a known validation problem.
@@ -41,9 +38,7 @@ readonly class ProblemDefinition
         // Validate that affectedChecks only contains CheckType instances
         foreach ($affectedChecks as $check) {
             if (!$check instanceof CheckType) {
-                throw new \InvalidArgumentException(
-                    'All affected checks must be instances of CheckType enum'
-                );
+                throw new \InvalidArgumentException('All affected checks must be instances of CheckType enum');
             }
         }
         foreach ($entityIds as $id) {

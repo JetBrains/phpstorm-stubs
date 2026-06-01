@@ -35,11 +35,11 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
 
     public function testSupportsOnlyVersionsBeforePhp71(): void
     {
-        $this->assertTrue($this->check->supports(PhpVersions::EARLIEST->value),  'PHP 5.6 must be supported');
-        $this->assertTrue($this->check->supports(PhpVersions::PHP_7_0->value),   'PHP 7.0 must be supported');
-        $this->assertFalse($this->check->supports(PhpVersions::PHP_7_1->value),  'PHP 7.1 must NOT be supported');
-        $this->assertFalse($this->check->supports(PhpVersions::PHP_8_0->value),  'PHP 8.0 must NOT be supported');
-        $this->assertFalse($this->check->supports(PhpVersions::LATEST->value),   'PHP 8.4 must NOT be supported');
+        $this->assertTrue($this->check->supports(PhpVersions::EARLIEST->value), 'PHP 5.6 must be supported');
+        $this->assertTrue($this->check->supports(PhpVersions::PHP_7_0->value), 'PHP 7.0 must be supported');
+        $this->assertFalse($this->check->supports(PhpVersions::PHP_7_1->value), 'PHP 7.1 must NOT be supported');
+        $this->assertFalse($this->check->supports(PhpVersions::PHP_8_0->value), 'PHP 8.0 must NOT be supported');
+        $this->assertFalse($this->check->supports(PhpVersions::LATEST->value), 'PHP 8.4 must NOT be supported');
     }
 
     // ── Entity not found ──────────────────────────────────────────────────────
@@ -76,7 +76,10 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doSomething')]  // no return type
         );
 
@@ -92,7 +95,10 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getString', new StandaloneType('string'))]
         );
 
@@ -111,7 +117,10 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
         // ?string in stub signature → NullableType → toString() = 'string|null' → flagged
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getStr', $this->createNullableType('string'))]
         );
 
@@ -132,7 +141,10 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
         // Check also triggers for PHP 5.6 — entities exclusive to PHP 5.6 must be covered.
         $className = '\LegacyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('get', $this->createNullableType('int'))]
         );
 
@@ -149,15 +161,19 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
     {
         // LanguageLevelTypeAware with default: '?string' — LLA is IDE metadata, not a PHP signature type.
         // The check must NOT flag this: no actual ?T in the PHP signature → no compatibility issue.
-        $className  = '\MyClass';
-        $method     = new PHPMethod();
+        $className = '\MyClass';
+        $method = new PHPMethod();
         $method->setName('getStr');
         $method->setAccess($this->createAccessModifier('public'));
         $method->initStubsMetadata()->setLanguageLevelTypes([]);    // no version-specific entries
         $method->initStubsMetadata()->setDefaultType('?string');    // LLA attribute default — IDE metadata only
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [$method]
+            $className,
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -172,14 +188,18 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
     {
         // #[LanguageLevelTypeAware(['7.1' => '?string'], default: '')] → for PHP 7.0 returns '' → OK
         $className = '\MyClass';
-        $method    = new PHPMethod();
+        $method = new PHPMethod();
         $method->setName('getStr');
         $method->setAccess($this->createAccessModifier('public'));
         $method->initStubsMetadata()->setLanguageLevelTypes(['7.1' => '?string']);
         $method->initStubsMetadata()->setDefaultType('');   // no type for pre-7.1
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [$method]
+            $className,
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -196,9 +216,13 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
     {
         // sinceVersion = '7.1' → not included when collecting for PHP 7.0
         $className = '\MyClass';
-        $method    = $this->makeMethod('getStr', $this->createNullableType('string'), sinceVersion: '7.1');
+        $method = $this->makeMethod('getStr', $this->createNullableType('string'), sinceVersion: '7.1');
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [$method]
+            $className,
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -217,7 +241,10 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
         // Private methods cannot be overridden, so nullable types are irrelevant.
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('privateGet', $this->createNullableType('string'), access: 'private')]
         );
 
@@ -234,7 +261,10 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
         // Protected methods CAN be overridden — must be checked.
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('protectedGet', $this->createNullableType('string'), access: 'protected')]
         );
 
@@ -251,7 +281,10 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
         // Final methods cannot be overridden, so nullable types are irrelevant.
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('finalGet', $this->createNullableType('string'), isFinal: true)]
         );
 
@@ -268,7 +301,10 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
         // Final classes cannot be extended — no child class can ever override any method.
         $className = '\FinalClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getStr', $this->createNullableType('string'))]
         );
         $stubClass->setIsFinal(true);
@@ -320,7 +356,10 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getStr', $this->createNullableType('string'))]
         );
 
@@ -338,7 +377,7 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
     public function testNullableParamTypeViaSignatureIsFailure(): void
     {
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             parameters: [$this->makeParam('val', $this->createNullableType('string'))]
         );
@@ -359,7 +398,7 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
     public function testNonNullableParamTypeSucceeds(): void
     {
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             parameters: [$this->makeParam('val', new StandaloneType('string'))]
         );
@@ -378,8 +417,8 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
         // LanguageLevelTypeAware with default: '?string' — LLA is IDE metadata, not a PHP signature type.
         // The check must NOT flag this: no actual ?T in the PHP signature → no compatibility issue.
         $className = '\MyClass';
-        $param     = $this->makeParam('val', languageLevelTypes: [], defaultType: '?string');
-        $method    = $this->makeMethod('doSomething', parameters: [$param]);
+        $param = $this->makeParam('val', languageLevelTypes: [], defaultType: '?string');
+        $method = $this->makeMethod('doSomething', parameters: [$param]);
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$method]);
 
         $stubs = $this->createMockStorageManager();
@@ -394,8 +433,8 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
     {
         // #[LanguageLevelTypeAware(['7.1' => '?string'], default: '')] → for PHP 7.0 returns '' → OK
         $className = '\MyClass';
-        $param     = $this->makeParam('val', languageLevelTypes: ['7.1' => '?string'], defaultType: '');
-        $method    = $this->makeMethod('doSomething', parameters: [$param]);
+        $param = $this->makeParam('val', languageLevelTypes: ['7.1' => '?string'], defaultType: '');
+        $method = $this->makeMethod('doSomething', parameters: [$param]);
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$method]);
 
         $stubs = $this->createMockStorageManager();
@@ -410,7 +449,7 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
     {
         // Both return type and parameter type are nullable → two separate failure entries.
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             $this->createNullableType('string'),        // nullable return
             parameters: [$this->makeParam('val', $this->createNullableType('int'))]   // nullable param
@@ -432,7 +471,7 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
 
     public function testKnownProblemAtMethodLevelSkipsSpecificMethod(): void
     {
-        $className      = '\MyClass';
+        $className = '\MyClass';
         $methodEntityId = $className . '::getStr';
 
         $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
@@ -451,7 +490,10 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getStr', $this->createNullableType('string'))]
         );
 

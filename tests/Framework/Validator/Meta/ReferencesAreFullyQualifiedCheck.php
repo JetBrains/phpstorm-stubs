@@ -10,14 +10,12 @@ use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name;
-use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt;
 use StubTests\Framework\Parsers\Meta\MetaFileWalkerTrait;
 
 final class ReferencesAreFullyQualifiedCheck
 {
     use MetaFileWalkerTrait;
-
     private const SKIP_CONST_NAMES = ['true', 'false', 'null', 'TRUE', 'FALSE', 'NULL'];
 
     /** Meta-internal function names that should not be checked */

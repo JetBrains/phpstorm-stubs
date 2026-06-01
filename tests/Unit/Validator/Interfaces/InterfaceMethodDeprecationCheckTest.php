@@ -43,10 +43,10 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInReflectionIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $stubIface   = $this->makeInterface($interfaceId);
+        $stubIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -59,10 +59,10 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInStubsIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $reflIface   = $this->makeInterface($interfaceId);
+        $reflIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([]);
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -77,11 +77,11 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
     public function testBothNotDeprecatedIsSuccess(): void
     {
         $interfaceId = '\Iterator';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('current', isDeprecated: false)]);
-        $stubIface   = $this->makeInterface($interfaceId, [$this->makeMethod('current', isDeprecated: false)]);
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('current', isDeprecated: false)]);
+        $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('current', isDeprecated: false)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -92,11 +92,11 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
     public function testBothDeprecatedIsSuccess(): void
     {
         $interfaceId = '\MyInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: true)]);
-        $stubIface   = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: true)]);
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: true)]);
+        $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: true)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -107,11 +107,11 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
     public function testReflectionDeprecatedStubNotIsFailure(): void
     {
         $interfaceId = '\MyInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: true)]);
-        $stubIface   = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: false)]);
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: true)]);
+        $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: false)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -126,11 +126,11 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
     {
         // One-directional: only reflection-deprecated → stub must be deprecated.
         $interfaceId = '\MyInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('method', isDeprecated: false)]);
-        $stubIface   = $this->makeInterface($interfaceId, [$this->makeMethod('method', isDeprecated: true)]);
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('method', isDeprecated: false)]);
+        $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('method', isDeprecated: true)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -142,15 +142,15 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
 
     public function testDeprecatedMethodInheritedFromParentInterfaceIsCounted(): void
     {
-        $childId   = '\ChildInterface';
+        $childId = '\ChildInterface';
         $reflIface = $this->makeInterface($childId, [$this->makeMethod('oldMethod', isDeprecated: true)]);
 
         $parentStub = $this->makeInterface('\ParentInterface', [$this->makeMethod('oldMethod', isDeprecated: true)]);
-        $childStub  = $this->makeInterface($childId);
+        $childStub = $this->makeInterface($childId);
         $childStub->addParentInterface($parentStub);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$childStub]);
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $childId, '8.0');
@@ -163,8 +163,8 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
     public function testInterfaceLevelKnownProblemSkipsAllMethods(): void
     {
         $interfaceId = '\SpecialInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: true)]);
-        $stubIface   = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: false)]);
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: true)]);
+        $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: false)]);
 
         $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
@@ -182,7 +182,7 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, knownProblemsRegistry: $registry, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');

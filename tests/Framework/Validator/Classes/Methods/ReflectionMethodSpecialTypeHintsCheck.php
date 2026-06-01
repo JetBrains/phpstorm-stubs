@@ -22,7 +22,6 @@ use StubTests\Framework\Validator\Services\TypeResolver;
  */
 class ReflectionMethodSpecialTypeHintsCheck extends AbstractClassCheck
 {
-
     /**
      * Required LanguageLevelTypeAware version-map entries for specific Reflection methods.
      *
@@ -131,8 +130,8 @@ class ReflectionMethodSpecialTypeHintsCheck extends AbstractClassCheck
                     continue;
                 }
 
-                $actualType         = $actualVersionMap[$requiredVersion];
-                $normalizedActual   = TypeResolver::normalizeType($actualType);
+                $actualType = $actualVersionMap[$requiredVersion];
+                $normalizedActual = TypeResolver::normalizeType($actualType);
                 $normalizedExpected = TypeResolver::normalizeType($requiredType);
 
                 if ($normalizedActual !== $normalizedExpected) {

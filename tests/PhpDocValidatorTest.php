@@ -12,7 +12,6 @@ use StubTests\Framework\Runner\RunnerScope;
 use StubTests\Framework\Validator\PhpDoc\PhpDocLinksCheck;
 use StubTests\Framework\Validator\PhpDoc\PhpDocTagsCheck;
 use StubTests\Framework\Validator\PhpDoc\PhpDocVersionFormatCheck;
-use StubTests\ValidatorTestBase;
 
 /**
  * Validates that PhpDoc comments in stubs contain only recognized tag names,
@@ -60,8 +59,8 @@ class PhpDocValidatorTest extends ValidatorTestBase
     public static function entityProvider(): iterable
     {
         $reflector = new ReflectionClass(static::class);
-        $version   = PhpVersions::LATEST->value;
-        $stubs     = RunnerScope::get()->getStubs();
+        $version = PhpVersions::LATEST->value;
+        $stubs = RunnerScope::get()->getStubs();
 
         foreach ($reflector->getMethods() as $method) {
             $attrs = $method->getAttributes(PhpVersionRange::class);
@@ -162,7 +161,7 @@ class PhpDocValidatorTest extends ValidatorTestBase
     public static function coreStubsProvider(): iterable
     {
         $version = PhpVersions::LATEST->value;
-        $stubs   = RunnerScope::get()->getStubs();
+        $stubs = RunnerScope::get()->getStubs();
         $seenIds = [];
 
         foreach (static::getAllStubEntities($stubs) as $entity) {

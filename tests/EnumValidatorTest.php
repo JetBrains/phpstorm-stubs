@@ -29,7 +29,6 @@ use StubTests\Framework\Validator\Classes\Constants\ClassConstantsVisibilityChec
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsPhpDocConformsSignatureCheck;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
-use StubTests\ValidatorTestBase;
 
 /**
  * Validates that enums from reflection exist in stubs and their methods are correct.

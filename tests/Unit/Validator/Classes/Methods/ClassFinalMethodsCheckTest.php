@@ -30,9 +30,6 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         parent::tearDown();
     }
 
-
-
-
     // ── Supports ──────────────────────────────────────────────────────────────
 
     public function testSupportsAllPhpVersions(): void
@@ -49,13 +46,13 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflectionClass = $this->createMockClassWithProperties($className);
-        $stubClass       = $this->createMockClassWithProperties($className);
+        $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflectionClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
-        $check  = new ClassFinalMethodsCheck($provider);
+        $check = new ClassFinalMethodsCheck($provider);
         $result = $check->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
@@ -67,16 +64,22 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork')]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -89,16 +92,22 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', isFinal: true)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', isFinal: true)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -114,16 +123,22 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
 
         // reflection says final=true, stubs say final=false
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', isFinal: true)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -141,16 +156,22 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
 
         // reflection says final=false, stubs say final=true
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork')]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', isFinal: true)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -164,14 +185,20 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('okMethod'), // matches
                 $this->makeMethod('badMethod', isFinal: true),  // mismatch: refl=final, stub=non-final
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('okMethod'),
                 $this->makeMethod('badMethod'), // wrong
@@ -179,7 +206,7 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -198,13 +225,16 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('onlyInReflection', isFinal: true)]
         );
         $stubClass = $this->createMockClassWithProperties($className); // no methods
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -220,7 +250,7 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -231,11 +261,11 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
 
     public function testClassNotFoundInStubsIsFailure(): void
     {
-        $className    = '\MissingClass';
-        $reflClass    = $this->createMockClassWithProperties($className);
+        $className = '\MissingClass';
+        $reflClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -251,11 +281,17 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $className = '\SpecialClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', isFinal: true)] // mismatch: stub is non-final
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork')]
         );
 
@@ -275,7 +311,7 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider, $registry))->run($stubs, $className, '8.0');
@@ -289,21 +325,27 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
 
     public function testMethodLevelKnownProblemSkipsSpecificMismatch(): void
     {
-        $className       = '\MyClass';
-        $mismatchedId    = $className . '::doWork';
+        $className = '\MyClass';
+        $mismatchedId = $className . '::doWork';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('okMethod'), // matches
-                $this->makeMethod('doWork',   isFinal: true),  // mismatch — covered by known problem
+                $this->makeMethod('doWork', isFinal: true),  // mismatch — covered by known problem
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('okMethod'),
-                $this->makeMethod('doWork',   isFinal: false), // wrong, but known problem
+                $this->makeMethod('doWork', isFinal: false), // wrong, but known problem
             ]
         );
 
@@ -323,13 +365,13 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider, $registry))->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Method-level skip', array_values($skipped)[0]);
     }
@@ -343,16 +385,22 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('newMethod', isFinal: true)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('newMethod', sinceVersion: '8.1')] // not available in 8.0
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -369,16 +417,22 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $className = '\Generator';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('throw', isFinal: true)] // reflection: final
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('PS_UNRESERVE_PREFIX_throw')] // stubs: non-final → mismatch
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -392,16 +446,22 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $className = '\Generator';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('throw', isFinal: true)] // reflection: final
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('PS_UNRESERVE_PREFIX_throw', isFinal: true)] // stubs: also final → ok
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -416,11 +476,14 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         // ParentClass declares doWork as final.
         // ChildClass inherits it; reflection reports it as final for ChildClass too.
         // The stub defines doWork (on parent) as non-final → mismatch.
-        $className       = '\ChildClass';
+        $className = '\ChildClass';
         $parentClassName = '\ParentClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', isFinal: true)] // reflection sees final on child
         );
 
@@ -432,7 +495,7 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -443,11 +506,14 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
 
     public function testFinalMethodInheritedFromParentClassMatchIsSuccess(): void
     {
-        $className       = '\ChildClass';
+        $className = '\ChildClass';
         $parentClassName = '\ParentClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', isFinal: true)]
         );
 
@@ -459,7 +525,7 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -473,7 +539,10 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('interfaceMethod', isFinal: true)]
         );
 
@@ -482,14 +551,17 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [],  // no own methods
             null,
             [$iface]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');
@@ -503,11 +575,14 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         // Child re-declares doWork as non-final; parent had it as final.
         // Reflection reports non-final for the child (since child overrides).
         // The child's stub definition (non-final) must win in the map.
-        $className       = '\ChildClass';
+        $className = '\ChildClass';
         $parentClassName = '\ParentClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork')] // child override: non-final
         );
 
@@ -516,13 +591,16 @@ class ClassFinalMethodsCheckTest extends CheckTestCase
         $parentStub->setMethods([$this->makeMethod('doWork', isFinal: true)]); // parent: final (should be overridden)
 
         $childStub = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork')] // child re-declares: non-final
         );
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassFinalMethodsCheck($provider))->run($stubs, $className, '8.0');

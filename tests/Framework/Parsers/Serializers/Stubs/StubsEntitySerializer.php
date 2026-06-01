@@ -2,15 +2,9 @@
 
 namespace StubTests\Framework\Parsers\Serializers\Stubs;
 
-use StubTests\Framework\Parsers\Serializers\Stubs\EntityTypeSerializerInterface;
-use StubTests\Framework\Parsers\Serializers\Stubs\PHPClassSerializer;
-use StubTests\Framework\Parsers\Serializers\Stubs\PHPConstantSerializer;
-use StubTests\Framework\Parsers\Serializers\Stubs\PHPInterfaceSerializer;
 use StubTests\Framework\Parsers\Storage\PhpDocStorage;
 use StubTests\Framework\Parsers\Registries\SerializerRegistry;
 use StubTests\Framework\Parsers\Serializers\EntitySerializerInterface;
-use StubTests\Framework\Parsers\Serializers\Stubs\PHPEnumSerializer;
-use StubTests\Framework\Parsers\Serializers\Stubs\PHPFunctionSerializer;
 
 /**
  * Serializer for stub entities that includes all stub-specific metadata:
@@ -36,10 +30,10 @@ class StubsEntitySerializer implements EntitySerializerInterface
         $this->registry = new SerializerRegistry();
 
         // Register all entity-specific serializers
-        $classSerializer    = new PHPClassSerializer();
+        $classSerializer = new PHPClassSerializer();
         $functionSerializer = new PHPFunctionSerializer();
         $interfaceSerializer = new PHPInterfaceSerializer();
-        $enumSerializer     = new PHPEnumSerializer();
+        $enumSerializer = new PHPEnumSerializer();
         $constantSerializer = new PHPConstantSerializer();
 
         $this->registry->register($classSerializer);
@@ -50,11 +44,11 @@ class StubsEntitySerializer implements EntitySerializerInterface
 
         // Explicit type → serializer map for deserialization (avoids fragile str_contains)
         $this->deserializerMap = [
-            'PHPClass'     => $classSerializer,
-            'PHPFunction'  => $functionSerializer,
+            'PHPClass' => $classSerializer,
+            'PHPFunction' => $functionSerializer,
             'PHPInterface' => $interfaceSerializer,
-            'PHPEnum'      => $enumSerializer,
-            'PHPConstant'  => $constantSerializer,
+            'PHPEnum' => $enumSerializer,
+            'PHPConstant' => $constantSerializer,
         ];
     }
 

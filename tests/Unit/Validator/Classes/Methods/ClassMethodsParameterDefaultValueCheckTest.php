@@ -47,7 +47,7 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -62,7 +62,7 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $reflClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -80,7 +80,7 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -90,21 +90,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testParameterWithNoDefaultIsSkipped(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('x')]; // no default
         $stubParams = [$this->makeParam('x')];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doWork', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -116,21 +122,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMatchingIntegerDefaultSucceeds(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 0, optional: true)];
         $stubParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 0, optional: true)];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('sort', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('sort', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -140,21 +152,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMatchingStringDefaultSucceeds(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('sep', hasDefaultValue: true, defaultValue: ',', optional: true)];
         $stubParams = [$this->makeParam('sep', hasDefaultValue: true, defaultValue: ',', optional: true)];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('join', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('join', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -164,21 +182,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMatchingBoolDefaultSucceeds(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('strict', hasDefaultValue: true, defaultValue: false, optional: true)];
         $stubParams = [$this->makeParam('strict', hasDefaultValue: true, defaultValue: false, optional: true)];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('search', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('search', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -190,21 +214,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMismatchedIntegerDefaultIsFailure(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 0, optional: true)];   // reflection: 0
         $stubParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 1, optional: true)];   // stub: 1 — wrong
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('sort', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('sort', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -220,21 +250,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMismatchedStringDefaultIsFailure(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('sep', hasDefaultValue: true, defaultValue: ',', optional: true)];
         $stubParams = [$this->makeParam('sep', hasDefaultValue: true, defaultValue: ';', optional: true)]; // wrong separator
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('join', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('join', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -245,21 +281,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMismatchedBoolDefaultIsFailure(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('strict', hasDefaultValue: true, defaultValue: true, optional: true)];
         $stubParams = [$this->makeParam('strict', hasDefaultValue: true, defaultValue: false, optional: true)]; // wrong bool
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('search', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('search', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -272,7 +314,7 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMultipleMismatchesReportedTogether(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [
             $this->makeParam('a', hasDefaultValue: true, defaultValue: 1, optional: true),
             $this->makeParam('b', hasDefaultValue: true, defaultValue: 'hello', optional: true),
@@ -283,16 +325,22 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
         ];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('run', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('run', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -308,21 +356,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
     public function testNullReflectionDefaultIsSkipped(): void
     {
         // When reflection default is null (actual null OR unavailable), skip comparison
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: null, optional: true)]; // reflection: null
         $stubParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)];   // stub: 42
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doIt', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doIt', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -333,21 +387,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
     public function testNullStubDefaultIsSkipped(): void
     {
         // Stub default is null: either actual null or failed constant evaluation — skip
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)];   // reflection: 42
         $stubParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: null, optional: true)]; // stub: null (unevaluable or actual null)
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doIt', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doIt', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -360,21 +420,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
     public function testStubHasNoDefaultIsSkipped(): void
     {
         // Stub parameter without default: OptionalParametersCheck handles this, not us
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)];  // reflection has default
         $stubParams = [$this->makeParam('x')];     // stub has no default
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doIt', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doIt', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -387,21 +453,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
     public function testMissingStubParameterIsSkipped(): void
     {
         // ParametersCountCheck is responsible for missing params
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)];
         $stubParams = []; // empty
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doIt', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('doIt', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -414,21 +486,27 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
     public function testIntegerZeroVsFalseIsMismatch(): void
     {
         // 0 !== false — uses strict comparison
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $reflParams = [$this->makeParam('mode', hasDefaultValue: true, defaultValue: 0, optional: true)];
         $stubParams = [$this->makeParam('mode', hasDefaultValue: true, defaultValue: false, optional: true)]; // wrong type
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('run', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('run', $stubParams)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -443,14 +521,17 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMismatchInheritedFromParentIsChecked(): void
     {
-        $className       = '\Child';
+        $className = '\Child';
         $parentClassName = '\Base';
 
         $reflParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 0, optional: true)];
         $stubParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 1, optional: true)]; // wrong value in parent stub
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('sort', $reflParams)]
         );
 
@@ -462,7 +543,7 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
@@ -475,16 +556,22 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testClassLevelKnownProblemSkipsAll(): void
     {
-        $className  = '\SpecialClass';
+        $className = '\SpecialClass';
         $reflParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 0, optional: true)];
         $stubParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 99, optional: true)]; // mismatch
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('run', $reflParams)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->createMockMethod('run', $stubParams)]
         );
 
@@ -504,34 +591,40 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider, $registry))->run($stubs, $className, PhpVersions::LATEST->value);
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Runtime-dependent default', array_values($skipped)[0]);
     }
 
     public function testMethodLevelKnownProblemSkipsSpecificMethod(): void
     {
-        $className    = '\MyClass';
+        $className = '\MyClass';
         $mismatchedId = $className . '::badMethod';
 
         $reflParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 0, optional: true)];
         $stubParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 99, optional: true)]; // mismatch
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->createMockMethod('badMethod', $reflParams),
                 $this->createMockMethod('goodMethod', []),
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->createMockMethod('badMethod', $stubParams),
                 $this->createMockMethod('goodMethod', []),
@@ -554,13 +647,13 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider, $registry))->run($stubs, $className, PhpVersions::LATEST->value);
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Platform-specific default', array_values($skipped)[0]);
     }

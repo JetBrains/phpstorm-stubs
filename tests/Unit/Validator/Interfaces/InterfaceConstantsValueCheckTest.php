@@ -22,11 +22,11 @@ class InterfaceConstantsValueCheckTest extends CheckTestCase
 
     public function testInterfaceNotFoundInReflectionFails(): void
     {
-        $ifaceId   = '\\Countable';
+        $ifaceId = '\\Countable';
         $stubIface = $this->makeInterface($ifaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassConstantsValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, PhpVersions::LATEST->value);
@@ -39,11 +39,11 @@ class InterfaceConstantsValueCheckTest extends CheckTestCase
 
     public function testInterfaceNotFoundInStubsFails(): void
     {
-        $ifaceId   = '\\Countable';
+        $ifaceId = '\\Countable';
         $reflIface = $this->makeInterface($ifaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([]);
 
         $result = (new ClassConstantsValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, PhpVersions::LATEST->value);
@@ -56,12 +56,12 @@ class InterfaceConstantsValueCheckTest extends CheckTestCase
 
     public function testMatchingValuesPasses(): void
     {
-        $ifaceId   = '\\MyInterface';
+        $ifaceId = '\\MyInterface';
         $reflIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('VERSION', 1)]);
         $stubIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('VERSION', 1)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassConstantsValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, PhpVersions::LATEST->value);
@@ -73,12 +73,12 @@ class InterfaceConstantsValueCheckTest extends CheckTestCase
 
     public function testValueMismatchFailsOnLatestPhp(): void
     {
-        $ifaceId   = '\\MyInterface';
+        $ifaceId = '\\MyInterface';
         $reflIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('VERSION', 1)]);
         $stubIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('VERSION', 99)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassConstantsValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, PhpVersions::LATEST->value);
@@ -92,12 +92,12 @@ class InterfaceConstantsValueCheckTest extends CheckTestCase
 
     public function testValueMismatchSkippedOnNonLatestPhp(): void
     {
-        $ifaceId   = '\\MyInterface';
+        $ifaceId = '\\MyInterface';
         $reflIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('VERSION', 1)]);
         $stubIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('VERSION', 99)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassConstantsValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, PhpVersions::PHP_8_0->value);
@@ -109,12 +109,12 @@ class InterfaceConstantsValueCheckTest extends CheckTestCase
 
     public function testConstantNotInReflectionIsSkipped(): void
     {
-        $ifaceId   = '\\MyInterface';
+        $ifaceId = '\\MyInterface';
         $reflIface = $this->makeInterface($ifaceId); // no constants in reflection
         $stubIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('VERSION', 99)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassConstantsValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, PhpVersions::LATEST->value);

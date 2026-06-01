@@ -38,7 +38,7 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
         $this->assertTrue($this->check->supports(PhpVersions::EARLIEST->value), 'PHP 5.6 must be supported');
         $this->assertFalse($this->check->supports(PhpVersions::PHP_7_0->value), 'PHP 7.0 must NOT be supported');
         $this->assertFalse($this->check->supports(PhpVersions::PHP_7_1->value), 'PHP 7.1 must NOT be supported');
-        $this->assertFalse($this->check->supports(PhpVersions::LATEST->value),  'PHP 8.4 must NOT be supported');
+        $this->assertFalse($this->check->supports(PhpVersions::LATEST->value), 'PHP 8.4 must NOT be supported');
     }
 
     // ── Entity not found ──────────────────────────────────────────────────────
@@ -74,7 +74,10 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doSomething')]  // no return type
         );
 
@@ -92,7 +95,10 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getString', new StandaloneType('string'))]
         );
 
@@ -112,14 +118,18 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
     {
         // LanguageLevelTypeAware with default: 'string' → flagged
         $className = '\MyClass';
-        $method    = new PHPMethod();
+        $method = new PHPMethod();
         $method->setName('getString');
         $method->setAccess($this->createAccessModifier('public'));
         $method->initStubsMetadata()->setLanguageLevelTypes([]);
         $method->initStubsMetadata()->setDefaultType('string');
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [$method]
+            $className,
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -135,14 +145,18 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
         // #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')] →
         // for PHP 5.6 resolves to '' → no return type → OK
         $className = '\MyClass';
-        $method    = new PHPMethod();
+        $method = new PHPMethod();
         $method->setName('getString');
         $method->setAccess($this->createAccessModifier('public'));
         $method->initStubsMetadata()->setLanguageLevelTypes(['7.0' => 'string']);
         $method->initStubsMetadata()->setDefaultType('');
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [$method]
+            $className,
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -159,9 +173,13 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
     {
         // sinceVersion = '7.0' → not included when collecting for PHP 5.6
         $className = '\MyClass';
-        $method    = $this->makeMethod('getString', new StandaloneType('string'), sinceVersion: '7.0');
+        $method = $this->makeMethod('getString', new StandaloneType('string'), sinceVersion: '7.0');
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [$method]
+            $className,
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -178,7 +196,10 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('privateGet', new StandaloneType('string'), access: 'private')]
         );
 
@@ -194,7 +215,10 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('protectedGet', new StandaloneType('string'), access: 'protected')]
         );
 
@@ -210,7 +234,10 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('finalGet', new StandaloneType('string'), isFinal: true)]
         );
 
@@ -226,7 +253,10 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\FinalClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getString', new StandaloneType('string'))]
         );
         $stubClass->setIsFinal(true);
@@ -242,7 +272,7 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
     public function testMethodWithTentativeReturnTypeIsNotFlagged(): void
     {
         $className = '\MyClass';
-        $method    = $this->makeMethod('tentativeGet', new StandaloneType('string'), isTentative: true);
+        $method = $this->makeMethod('tentativeGet', new StandaloneType('string'), isTentative: true);
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$method]);
 
         $stubs = $this->createMockStorageManager();
@@ -272,9 +302,12 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
         ]);
 
         KnownProblemsRegistry::reset();
-        $registry  = KnownProblemsRegistry::getInstance($knownProblemsProvider);
+        $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getString', new StandaloneType('string'))]
         );
 
@@ -289,7 +322,7 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
 
     public function testKnownProblemAtMethodLevelSkipsSpecificMethod(): void
     {
-        $className      = '\MyClass';
+        $className = '\MyClass';
         $methodEntityId = $className . '::getString';
 
         $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
@@ -305,9 +338,12 @@ class ClassMethodsReturnTypeForbiddenCheckTest extends CheckTestCase
         ]);
 
         KnownProblemsRegistry::reset();
-        $registry  = KnownProblemsRegistry::getInstance($knownProblemsProvider);
+        $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getString', new StandaloneType('string'))]
         );
 

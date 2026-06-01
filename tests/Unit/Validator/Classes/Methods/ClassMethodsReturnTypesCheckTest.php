@@ -49,7 +49,7 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -64,7 +64,7 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
         $reflClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -82,7 +82,7 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -93,20 +93,26 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
 
     public function testMatchingReturnTypeIsSuccess(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $returnType = new StandaloneType('string');
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', $returnType)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', $returnType)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -121,16 +127,22 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', new StandaloneType('string'))]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', new StandaloneType('int'))] // wrong type
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -151,16 +163,22 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', null)] // no type in reflection
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', new StandaloneType('string'))]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -173,16 +191,22 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', null)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', null)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -198,13 +222,16 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
 
         // Reflection has a method that stubs don't
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('missingMethod', new StandaloneType('string'))]
         );
         $stubClass = $this->createMockClassWithProperties($className); // no methods
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -227,16 +254,22 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
         $stubMethod->setReturnTypeFromSignature(new StandaloneType('static'));
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', new StandaloneType('MyClass'))]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$stubMethod]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -256,16 +289,22 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
         $stubMethod->initStubsMetadata()->setDefaultType('');
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getCurrent', new StandaloneType('MyClass|null'))]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$stubMethod]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -283,16 +322,22 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
         $stubMethod->setReturnTypeFromSignature(new StandaloneType('static'));
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('create', new StandaloneType('static'))]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$stubMethod]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -313,16 +358,22 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
 
         // Reflection reports the parent (declaring) class type, not the child class type.
         $reflClass = $this->createMockClassWithProperties(
-            $childClassName, null, null, null,
+            $childClassName,
+            null,
+            null,
+            null,
             [$this->makeMethod('children', new StandaloneType('ParentClass|null'))]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $childClassName, null, null, null,
+            $childClassName,
+            null,
+            null,
+            null,
             [$stubMethod]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $childClassName, '8.0');
@@ -340,16 +391,22 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
         $stubMethod->setReturnTypeFromSignature(new StandaloneType('static'));
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('compute', new StandaloneType('int'))]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$stubMethod]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider))->run($stubs, $className, '8.0');
@@ -372,16 +429,22 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
         $stubMethod->initStubsMetadata()->setDefaultType('bool');
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doSomething', new StandaloneType('bool'))]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$stubMethod]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         // On PHP 8.4: stub resolves to 'true', reflection has 'bool' — skip (subtype)
@@ -416,16 +479,22 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
 
         // Mismatch: different types — would normally fail
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', new StandaloneType('string'))]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', new StandaloneType('int'))]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider, $registry))->run($stubs, $className, '8.0');
@@ -438,7 +507,7 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
 
     public function testKnownProblemAtMethodLevelSkipsSpecificMethod(): void
     {
-        $className  = '\MyClass';
+        $className = '\MyClass';
         $methodEntityId = $className . '::getValue';
 
         $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
@@ -458,16 +527,22 @@ class ClassMethodsReturnTypesCheckTest extends CheckTestCase
 
         // Mismatch: different types — would normally fail
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', new StandaloneType('string'))]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', new StandaloneType('int'))]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsReturnTypesCheck($provider, $registry))->run($stubs, $className, '8.0');

@@ -44,10 +44,10 @@ class InterfaceMethodsReturnTypesCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInReflectionIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $stubIface   = $this->makeInterface($interfaceId);
+        $stubIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsReturnTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -60,10 +60,10 @@ class InterfaceMethodsReturnTypesCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInStubsIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $reflIface   = $this->makeInterface($interfaceId);
+        $reflIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([]);
 
         $result = (new ClassMethodsReturnTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -78,13 +78,13 @@ class InterfaceMethodsReturnTypesCheckTest extends CheckTestCase
     public function testMatchingReturnTypeIsSuccess(): void
     {
         $interfaceId = '\Iterator';
-        $returnType  = new StandaloneType('bool');
+        $returnType = new StandaloneType('bool');
 
         $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('valid', $returnType)]);
         $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('valid', $returnType)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsReturnTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -94,8 +94,8 @@ class InterfaceMethodsReturnTypesCheckTest extends CheckTestCase
 
     public function testMismatchedReturnTypeIsFailure(): void
     {
-        $interfaceId  = '\Iterator';
-        $methodId     = $interfaceId . '::valid';
+        $interfaceId = '\Iterator';
+        $methodId = $interfaceId . '::valid';
 
         $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('valid', new StandaloneType('bool')),
@@ -105,7 +105,7 @@ class InterfaceMethodsReturnTypesCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsReturnTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -119,11 +119,11 @@ class InterfaceMethodsReturnTypesCheckTest extends CheckTestCase
     public function testInterfaceWithNoMethodsSucceeds(): void
     {
         $interfaceId = '\Countable';
-        $reflIface   = $this->makeInterface($interfaceId);
-        $stubIface   = $this->makeInterface($interfaceId);
+        $reflIface = $this->makeInterface($interfaceId);
+        $stubIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsReturnTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -136,17 +136,17 @@ class InterfaceMethodsReturnTypesCheckTest extends CheckTestCase
 
     public function testReturnTypeFromParentInterfaceIsCounted(): void
     {
-        $childId    = '\ChildInterface';
+        $childId = '\ChildInterface';
         $returnType = new StandaloneType('bool');
 
-        $reflIface  = $this->makeInterface($childId, [$this->makeMethod('valid', $returnType)]);
+        $reflIface = $this->makeInterface($childId, [$this->makeMethod('valid', $returnType)]);
 
         $parentStub = $this->makeInterface('\ParentInterface', [$this->makeMethod('valid', $returnType)]);
-        $childStub  = $this->makeInterface($childId);
+        $childStub = $this->makeInterface($childId);
         $childStub->addParentInterface($parentStub);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$childStub]);
 
         $result = (new ClassMethodsReturnTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $childId, '8.0');
@@ -159,10 +159,10 @@ class InterfaceMethodsReturnTypesCheckTest extends CheckTestCase
     public function testInterfaceLevelKnownProblemSkipsAllMethods(): void
     {
         $interfaceId = '\SpecialInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [
+        $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('getValue', new StandaloneType('string')),
         ]);
-        $stubIface   = $this->makeInterface($interfaceId, [
+        $stubIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('getValue', new StandaloneType('int')),  // mismatch
         ]);
 
@@ -182,7 +182,7 @@ class InterfaceMethodsReturnTypesCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsReturnTypesCheck(reflectionProvider: $provider, knownProblemsRegistry: $registry, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');

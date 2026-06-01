@@ -3,13 +3,11 @@
 namespace StubTests\Framework\Parsers\Serializers;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-
 use StubTests\Framework\Parsers\Model\PHPClassConstant;
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\Model\PHPParameter;
 use StubTests\Framework\Parsers\Model\PHPProperty;
 use StubTests\Framework\Parsers\Storage\PhpDocStorage;
-use StubTests\Framework\Parsers\Serializers\SerializerUtilsTrait;
 
 /**
  * Shared sub-entity serialization logic for both Stubs and Reflection serializers.
@@ -219,12 +217,18 @@ trait SubEntitySerializerTrait
     // ── Hooks (no-op defaults, overridden by Stubs variant) ────────
 
     protected function enrichSerializedMethod(array &$data, PHPMethod $method, ?string $parentId, ?PhpDocStorage $phpDocStorage): void {}
+
     protected function enrichSerializedParameter(array &$data, PHPParameter $parameter): void {}
+
     protected function enrichSerializedProperty(array &$data, PHPProperty $property, ?string $parentId, ?PhpDocStorage $phpDocStorage): void {}
+
     protected function enrichSerializedClassConstant(array &$data, PHPClassConstant $constant): void {}
 
     protected function enrichDeserializedMethod(PHPMethod $method, array $data, ?string $parentId, ?PhpDocStorage $phpDocStorage): void {}
+
     protected function enrichDeserializedParameter(PHPParameter $parameter, array $data): void {}
+
     protected function enrichDeserializedProperty(PHPProperty $property, array $data, ?string $parentId, ?PhpDocStorage $phpDocStorage): void {}
+
     protected function enrichDeserializedClassConstant(PHPClassConstant $constant, array $data): void {}
 }

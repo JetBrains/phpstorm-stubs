@@ -112,5 +112,4 @@ class ClassPropertiesTypeCheck extends AbstractPropertyFlagCheck
         $s = $type->toString();
         return $s !== '' ? $s : null;
     }
-
 }

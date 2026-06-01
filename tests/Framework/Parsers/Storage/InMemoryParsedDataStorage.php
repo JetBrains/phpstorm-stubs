@@ -8,7 +8,6 @@ use StubTests\Framework\Parsers\Model\PHPEnum;
 use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Parsers\Model\PHPInterface;
 use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Storage\ParsedDataStorageProvider;
 
 class InMemoryParsedDataStorage implements ParsedDataStorageProvider
 {
@@ -19,10 +18,7 @@ class InMemoryParsedDataStorage implements ParsedDataStorageProvider
     private array $constants = [];
     private array $enums = [];
 
-    public function __construct()
-    {
-    }
-
+    public function __construct() {}
 
     public function getEntities(): array
     {
@@ -37,9 +33,7 @@ class InMemoryParsedDataStorage implements ParsedDataStorageProvider
         // PHPMethod extends PHPFunction, so check PHPMethod first to avoid misclassification
         if ($entity instanceof PHPClass) {
             $this->classes[] = $entity;
-        } elseif ($entity instanceof PHPMethod) {
-            // Methods are sub-entities of classes; do not categorize as standalone functions
-        } elseif ($entity instanceof PHPFunction) {
+        } elseif ($entity instanceof PHPMethod) {} elseif ($entity instanceof PHPFunction) {
             $this->functions[] = $entity;
         } elseif ($entity instanceof PHPInterface) {
             $this->interfaces[] = $entity;
@@ -74,5 +68,4 @@ class InMemoryParsedDataStorage implements ParsedDataStorageProvider
     {
         return $this->constants;
     }
-
 }

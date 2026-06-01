@@ -29,12 +29,12 @@ class EnumMethodsReturnTypesCheckTest extends CheckTestCase
 
     public function testMatchingReturnTypePasses(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', $this->createType('array'))]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', $this->createType('array'))]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsReturnTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -44,13 +44,13 @@ class EnumMethodsReturnTypesCheckTest extends CheckTestCase
 
     public function testReturnTypeMismatchFails(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         // Reflection says 'array', stub says 'int'
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', $this->createType('array'))]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', $this->createType('int'))]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsReturnTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -64,13 +64,13 @@ class EnumMethodsReturnTypesCheckTest extends CheckTestCase
 
     public function testNoReturnTypeInReflectionPasses(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         // Reflection has no return type → check passes regardless of stub
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', $this->createType('array'))]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsReturnTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');

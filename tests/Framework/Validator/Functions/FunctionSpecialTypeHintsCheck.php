@@ -2,7 +2,6 @@
 
 namespace StubTests\Framework\Validator\Functions;
 
-use StubTests\Framework\Validator\Functions\must;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractCallableCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
@@ -60,7 +59,7 @@ class FunctionSpecialTypeHintsCheck extends AbstractCallableCheck
         $results = new CheckResultSet();
 
         $isMixedFalse = in_array($entityId, self::MIXED_FALSE_RETURN_FUNCTIONS, true);
-        $isMixedNull  = in_array($entityId, self::MIXED_NULL_RETURN_FUNCTIONS, true);
+        $isMixedNull = in_array($entityId, self::MIXED_NULL_RETURN_FUNCTIONS, true);
 
         if (!$isMixedFalse && !$isMixedNull) {
             $results->addSuccess($entityId);
@@ -77,7 +76,7 @@ class FunctionSpecialTypeHintsCheck extends AbstractCallableCheck
 
         $docReturnType = $stubFunction->getStubsMetadata()?->getTypeFromPhpDoc();
 
-        $requiredSecond  = $isMixedFalse ? 'false' : 'null';
+        $requiredSecond = $isMixedFalse ? 'false' : 'null';
         $expectedPattern = "mixed|{$requiredSecond}";
 
         if ($docReturnType === null || $docReturnType === '') {
@@ -89,7 +88,7 @@ class FunctionSpecialTypeHintsCheck extends AbstractCallableCheck
             return $results;
         }
 
-        $parts    = array_map('trim', explode('|', $docReturnType));
+        $parts = array_map('trim', explode('|', $docReturnType));
         $hasMixed = in_array('mixed', $parts, true);
         $hasSecond = in_array($requiredSecond, $parts, true);
 

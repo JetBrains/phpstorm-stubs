@@ -2,9 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Reflection\Wrappers;
 
-use StubTests\Framework\Parsers\Reflection\Wrappers\ReflectionMethodExtractor;
-use StubTests\Framework\Parsers\Reflection\Wrappers\ReflectionTypeRegistry;
-
 /**
  * Abstract base class for Reflection adapter wrappers
  *
@@ -21,7 +18,7 @@ abstract class AbstractReflectionAdapter
      * Extracted data from the reflection object
      * @var array
      */
-    protected $data = array();
+    protected $data = [];
 
     /**
      * Extract configuration - override in subclasses if needed
@@ -36,12 +33,12 @@ abstract class AbstractReflectionAdapter
         // Start with global skip patterns from the registry
         $globalSkipPatterns = ReflectionTypeRegistry::getGlobalSkipPatterns();
 
-        return array(
-            'methodPrefixes' => array('allows', 'can', 'get', 'has', 'in', 'is', 'returns'),
+        return [
+            'methodPrefixes' => ['allows', 'can', 'get', 'has', 'in', 'is', 'returns'],
             'includeNameMethod' => true,
             'skipMethods' => $globalSkipPatterns,
-            'customHandlers' => array()
-        );
+            'customHandlers' => []
+        ];
     }
 
     /**
@@ -52,7 +49,7 @@ abstract class AbstractReflectionAdapter
      */
     protected function getAdditionalSkipMethods()
     {
-        return array();
+        return [];
     }
 
     /**
@@ -73,7 +70,7 @@ abstract class AbstractReflectionAdapter
         $rawData = ReflectionMethodExtractor::extractData($reflectionObject, $config);
 
         // Convert to adapted format
-        $this->data = array();
+        $this->data = [];
         foreach ($rawData as $methodName => $value) {
             $this->data[$methodName] = ReflectionMethodExtractor::makeSerializable($value);
         }
@@ -85,10 +82,7 @@ abstract class AbstractReflectionAdapter
      *
      * @param object $reflectionObject Original reflection object
      */
-    protected function postExtract($reflectionObject)
-    {
-        // Override in subclasses if custom processing is needed
-    }
+    protected function postExtract($reflectionObject) {}
 
     /**
      * Magic method to proxy method calls to stored data

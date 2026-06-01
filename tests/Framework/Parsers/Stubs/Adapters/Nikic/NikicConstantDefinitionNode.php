@@ -6,7 +6,6 @@ use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Scalar\String_;
 use StubTests\Framework\Parsers\Stubs\Nodes\ConstantDefinitionNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicExprValueResolverTrait;
 
 /**
  * Adapter for nikic/php-parser FuncCall nodes representing define() calls.
@@ -15,7 +14,6 @@ use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicExprValueResolverTrait
 class NikicConstantDefinitionNode implements ConstantDefinitionNode
 {
     use NikicExprValueResolverTrait;
-
     private FuncCall $funcCall;
     private string $namespace = '\\';
 

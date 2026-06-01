@@ -40,7 +40,7 @@ class ClassFinalMethodsCheck extends AbstractMethodFlagCheck
         }
 
         $expected = $reflIsFinal ? 'final' : 'non-final';
-        $actual   = $stubIsFinal ? 'final' : 'non-final';
+        $actual = $stubIsFinal ? 'final' : 'non-final';
 
         return "Method {$methodEntityId} is {$expected} in PHP {$phpVersion} but {$actual} in stubs";
     }

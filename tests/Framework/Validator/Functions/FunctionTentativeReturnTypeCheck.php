@@ -37,7 +37,7 @@ class FunctionTentativeReturnTypeCheck extends AbstractCallableCheck
             return $results;
         }
 
-        $reflection   = $this->reflectionProvider->getReflection($phpVersion);
+        $reflection = $this->reflectionProvider->getReflection($phpVersion);
         $reflCallable = $this->findCallable($reflection, $entityId, $phpVersion);
 
         if ($reflCallable === null) {

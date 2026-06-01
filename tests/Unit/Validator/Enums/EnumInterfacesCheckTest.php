@@ -39,11 +39,11 @@ class EnumInterfacesCheckTest extends CheckTestCase
 
     public function testEnumNotFoundInReflectionIsFailure(): void
     {
-        $enumId  = '\MissingEnum';
+        $enumId = '\MissingEnum';
         $stubEnum = $this->makeEnum($enumId);
 
         $provider = $this->createMockReflectionProviderWithEnums([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
@@ -54,11 +54,11 @@ class EnumInterfacesCheckTest extends CheckTestCase
 
     public function testEnumNotFoundInStubsIsFailure(): void
     {
-        $enumId   = '\MissingEnum';
+        $enumId = '\MissingEnum';
         $reflEnum = $this->makeEnum($enumId);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([]);
 
         $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
@@ -71,14 +71,14 @@ class EnumInterfacesCheckTest extends CheckTestCase
 
     public function testMatchingInterfacesPasses(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $unitEnum = $this->makeInterface('\UnitEnum');
 
         $reflEnum = $this->makeEnum($enumId, interfaces: [$unitEnum]);
         $stubEnum = $this->makeEnum($enumId, interfaces: [$unitEnum]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
@@ -89,12 +89,12 @@ class EnumInterfacesCheckTest extends CheckTestCase
 
     public function testEnumWithNoInterfacesPasses(): void
     {
-        $enumId   = '\MyEnum';
+        $enumId = '\MyEnum';
         $reflEnum = $this->makeEnum($enumId);
         $stubEnum = $this->makeEnum($enumId);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
@@ -105,7 +105,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
     public function testSpuriousInterfaceInStubsFails(): void
     {
         // Reflection says enum implements UnitEnum, stub also adds NonExistentIface (spurious)
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $unitEnum = $this->makeInterface('\UnitEnum');
         $spurious = $this->makeInterface('\NonExistentIface');
 
@@ -113,7 +113,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
         $stubEnum = $this->makeEnum($enumId, interfaces: [$unitEnum, $spurious]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
@@ -129,15 +129,15 @@ class EnumInterfacesCheckTest extends CheckTestCase
     {
         // Reflection reports UnitEnum and BackedEnum (transitively), stub only declares BackedEnum.
         // This is fine — we only check spurious stubs entries, not missing ones.
-        $enumId     = '\Dom\AdjacentPosition';
+        $enumId = '\Dom\AdjacentPosition';
         $backedEnum = $this->makeInterface('\BackedEnum');
-        $unitEnum   = $this->makeInterface('\UnitEnum');
+        $unitEnum = $this->makeInterface('\UnitEnum');
 
         $reflEnum = $this->makeEnum($enumId, interfaces: [$backedEnum, $unitEnum]);
         $stubEnum = $this->makeEnum($enumId, interfaces: [$backedEnum]);  // UnitEnum omitted (inherited transitively)
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
@@ -149,7 +149,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
 
     public function testEnumLevelKnownProblemSkipsInterfaceCheck(): void
     {
-        $enumId   = '\SpecialEnum';
+        $enumId = '\SpecialEnum';
         $spurious = $this->makeInterface('\SpuriousIface');
 
         $reflEnum = $this->makeEnum($enumId);
@@ -171,7 +171,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new EnumInterfacesCheck($provider, $registry))->run($stubs, $enumId, '8.1');

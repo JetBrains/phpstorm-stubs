@@ -5,7 +5,6 @@ namespace StubTests\Framework\Validator;
 use StubTests\Framework\Parsers\Model\PHPClassConstant;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
-use StubTests\Framework\Validator\AbstractClassCheck;
 
 /**
  * Base class for checks that compare a single attribute (e.g. visibility) on class/interface/enum
@@ -49,7 +48,7 @@ abstract class AbstractConstantFlagCheck extends AbstractClassCheck
         }
 
         $reflection = $this->reflectionProvider->getReflection($phpVersion);
-        $label      = $this->getEntityLabel();
+        $label = $this->getEntityLabel();
 
         $reflEntity = $this->lookupEntityById($reflection, $entityId);
         if ($reflEntity === null) {
@@ -75,7 +74,7 @@ abstract class AbstractConstantFlagCheck extends AbstractClassCheck
                 continue;
             }
 
-            $name       = $stubConstant->getName();
+            $name = $stubConstant->getName();
             $constantId = "{$entityId}::{$name}";
 
             if (!isset($reflMap[$name])) {

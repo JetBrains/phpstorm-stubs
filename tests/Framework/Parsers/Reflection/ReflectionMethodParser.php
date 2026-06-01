@@ -3,10 +3,7 @@
 namespace StubTests\Framework\Parsers\Reflection;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-
 use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Reflection\ReflectionParameterParser;
-use StubTests\Framework\Parsers\Reflection\ReflectionTypeParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionMethod;
 use StubTests\Framework\Parsers\Parser;
 
@@ -55,7 +52,7 @@ class ReflectionMethodParser implements Parser
         $returnType = null;
         if ($object->hasTentativeReturnType()) {
             $returnType = $object->getTentativeReturnType();
-        } elseif($object->hasReturnType()) {
+        } elseif ($object->hasReturnType()) {
             $returnType = $object->getReturnType();
         }
         $returnTypesFromSignature = $this->typeParser->parse($returnType);

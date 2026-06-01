@@ -11,15 +11,10 @@ use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name;
 use PhpParser\Node\Stmt;
-use StubTests\Framework\Parsers\Meta\MetaFileWalkerTrait;
-use StubTests\Framework\Parsers\Meta\MetaReference;
-use StubTests\Framework\Parsers\Meta\MetaReferenceRole;
-use StubTests\Framework\Parsers\Meta\MetaReferenceType;
 
 final class MetaFileReferenceExtractor
 {
     use MetaFileWalkerTrait;
-
     private const SKIP_NAMESPACES = [
         'Psr\\Log\\',
         'GuzzleHttp\\',
@@ -29,7 +24,6 @@ final class MetaFileReferenceExtractor
         'Mockery',
         'Pest\\',
     ];
-
     private const SKIP_FUNCTIONS = [
         '\\mock',
         '\\spy',
@@ -69,7 +63,7 @@ final class MetaFileReferenceExtractor
     {
         return array_values(array_filter(
             $this->extractAll($rootDir),
-            static fn(MetaReference $ref) => $ref->role === MetaReferenceRole::CALLABLE
+            static fn (MetaReference $ref) => $ref->role === MetaReferenceRole::CALLABLE
         ));
     }
 
@@ -82,7 +76,7 @@ final class MetaFileReferenceExtractor
     {
         return array_values(array_filter(
             $this->extractAll($rootDir),
-            static fn(MetaReference $ref) => $ref->role === MetaReferenceRole::VALUE
+            static fn (MetaReference $ref) => $ref->role === MetaReferenceRole::VALUE
         ));
     }
 
@@ -463,5 +457,4 @@ final class MetaFileReferenceExtractor
         }
         return $result;
     }
-
 }

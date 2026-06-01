@@ -10,7 +10,6 @@ use StubTests\Framework\Parsers\Model\Types\NullableType;
 use StubTests\Framework\Parsers\Model\Types\StandaloneType;
 use StubTests\Framework\Parsers\Model\Types\UnionType;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
-use StubTests\Unit\Parsers\AST\fixtures\FixtureStubsDataProvider;
 
 /**
  * Tests for DNF (Disjunctive Normal Form) type support: int|(Foo&Bar)
@@ -66,13 +65,13 @@ class DnfTypeParsingTest extends TestCase
     public static function dnfTypeStringProvider(): array
     {
         return [
-            'dnf int|(Foo&Bar)'              => ['int|(\\Foo&\\Bar)',     'int|(\\Foo&\\Bar)'],
-            'dnf null|(Foo&Bar)'             => ['null|(\\Foo&\\Bar)',    'null|(\\Foo&\\Bar)'],
-            'dnf int|(Foo&Bar)|null'         => ['int|(\\Foo&\\Bar)|null','int|(\\Foo&\\Bar)|null'],
-            'pure intersection (Foo&Bar)'    => ['(\\Foo&\\Bar)',         '\\Foo&\\Bar'],
-            'plain union string|int'         => ['string|int',            'string|int'],
-            'nullable string|null'           => ['string|null',           'string|null'],
-            'standalone int'                 => ['int',                   'int'],
+            'dnf int|(Foo&Bar)' => ['int|(\\Foo&\\Bar)',     'int|(\\Foo&\\Bar)'],
+            'dnf null|(Foo&Bar)' => ['null|(\\Foo&\\Bar)',    'null|(\\Foo&\\Bar)'],
+            'dnf int|(Foo&Bar)|null' => ['int|(\\Foo&\\Bar)|null', 'int|(\\Foo&\\Bar)|null'],
+            'pure intersection (Foo&Bar)' => ['(\\Foo&\\Bar)',         '\\Foo&\\Bar'],
+            'plain union string|int' => ['string|int',            'string|int'],
+            'nullable string|null' => ['string|null',           'string|null'],
+            'standalone int' => ['int',                   'int'],
         ];
     }
 
@@ -83,6 +82,7 @@ class DnfTypeParsingTest extends TestCase
         // by creating a stub TypeNode wrapper
         $typeNode = new class($typeStr) implements \StubTests\Framework\Parsers\Stubs\Nodes\TypeNode {
             public function __construct(private readonly string $str) {}
+
             public function toString(): string { return $this->str; }
         };
 

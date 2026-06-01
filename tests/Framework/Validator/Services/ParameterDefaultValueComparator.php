@@ -77,6 +77,6 @@ final class ParameterDefaultValueComparator
         if (is_array($value)) {
             return '[]';
         }
-        return (string) $value;
+        return (string)$value;
     }
 }

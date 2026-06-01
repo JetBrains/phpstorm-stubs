@@ -53,9 +53,9 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInReflectionIsFailure(): void
     {
-        $id       = '\\missing_func';
+        $id = '\\missing_func';
         $provider = $this->createMockReflectionProvider([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id)]);
 
         $result = (new FunctionOptionalParametersCheck($provider))->run($stubs, $id, '8.0');
@@ -67,9 +67,9 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
     public function testFunctionNotFoundInStubsIsSuccess(): void
     {
         // Absence from stubs is FunctionExistsCheck's responsibility — silently skip
-        $id       = '\\missing_func';
+        $id = '\\missing_func';
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([]);
 
         $result = (new FunctionOptionalParametersCheck($provider))->run($stubs, $id, '8.0');
@@ -82,9 +82,9 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
 
     public function testFunctionWithNoParametersSucceeds(): void
     {
-        $id       = '\\no_params';
+        $id = '\\no_params';
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id)]);
 
         $result = (new FunctionOptionalParametersCheck($provider))->run($stubs, $id, '8.0');
@@ -95,11 +95,11 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
 
     public function testAllParametersRequiredBothSidesSucceeds(): void
     {
-        $id     = '\\my_func';
+        $id = '\\my_func';
         $params = [$this->makeParam('a'), $this->makeParam('b')];
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, $params)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, $params)]);
 
         $result = (new FunctionOptionalParametersCheck($provider))->run($stubs, $id, '8.0');
@@ -110,12 +110,12 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
 
     public function testOptionalInReflectionAndOptionalInStubsIsSuccess(): void
     {
-        $id          = '\\my_func';
-        $reflParams  = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
-        $stubParams  = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
+        $id = '\\my_func';
+        $reflParams = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
+        $stubParams = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, $reflParams)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, $stubParams)]);
 
         $result = (new FunctionOptionalParametersCheck($provider))->run($stubs, $id, '8.0');
@@ -128,12 +128,12 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
 
     public function testOptionalInReflectionButNotInStubsIsFailure(): void
     {
-        $id         = '\\my_func';
+        $id = '\\my_func';
         $reflParams = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
         $stubParams = [$this->makeParam('a'), $this->makeParam('b')]; // not optional
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, $reflParams)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, $stubParams)]);
 
         $result = (new FunctionOptionalParametersCheck($provider))->run($stubs, $id, '8.0');
@@ -147,7 +147,7 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
 
     public function testMultipleOptionalParamsMissingInStubsReportedTogether(): void
     {
-        $id         = '\\my_func';
+        $id = '\\my_func';
         $reflParams = [
             $this->makeParam('a', optional: true),
             $this->makeParam('b', optional: true),
@@ -160,7 +160,7 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
         ];
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, $reflParams)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, $stubParams)]);
 
         $result = (new FunctionOptionalParametersCheck($provider))->run($stubs, $id, '8.0');
@@ -175,12 +175,12 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
     public function testOptionalInStubsButNotInReflectionIsSuccess(): void
     {
         // One-directional check: stubs can be more permissive
-        $id         = '\\my_func';
+        $id = '\\my_func';
         $reflParams = [$this->makeParam('a')];   // required in reflection
         $stubParams = [$this->makeParam('a', optional: true)];    // optional in stubs
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, $reflParams)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, $stubParams)]);
 
         $result = (new FunctionOptionalParametersCheck($provider))->run($stubs, $id, '8.0');
@@ -192,12 +192,12 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
     public function testParameterMissingFromStubsIsNotReported(): void
     {
         // Missing params are ParametersCountCheck's responsibility
-        $id         = '\\my_func';
+        $id = '\\my_func';
         $reflParams = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
         $stubParams = [$this->makeParam('a')]; // 'b' absent from stubs
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, $reflParams)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, $stubParams)]);
 
         $result = (new FunctionOptionalParametersCheck($provider))->run($stubs, $id, '8.0');
@@ -210,7 +210,7 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
     public function testVersionExcludedStubParamIsIgnored(): void
     {
         // Stub has 'b' only since 8.1; checking PHP 8.0 → not available → skip mismatch
-        $id         = '\\my_func';
+        $id = '\\my_func';
         $reflParams = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
         $stubParams = [
             $this->makeParam('a'),
@@ -218,7 +218,7 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
         ];
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, $reflParams)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, $stubParams)]);
 
         $result = (new FunctionOptionalParametersCheck($provider))->run($stubs, $id, '8.0');
@@ -230,7 +230,7 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
     public function testVersionRemovedStubParamIsIgnored(): void
     {
         // Stub has 'b' only until 7.4; checking PHP 8.0 → removed → skip
-        $id         = '\\my_func';
+        $id = '\\my_func';
         $reflParams = [$this->makeParam('a'), $this->makeParam('b', optional: true)];
         $stubParams = [
             $this->makeParam('a'),
@@ -238,7 +238,7 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
         ];
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, $reflParams)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, $stubParams)]);
 
         $result = (new FunctionOptionalParametersCheck($provider))->run($stubs, $id, '8.0');

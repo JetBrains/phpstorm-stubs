@@ -87,7 +87,7 @@ class ConstantValueCheck extends AbstractReflectionCheck
             return $results;
         }
 
-        if ((string) $reflConstant->getValue() !== (string) $stubConstant->getValue()) {
+        if ((string)$reflConstant->getValue() !== (string)$stubConstant->getValue()) {
             $results->addFailure(
                 $entityId,
                 "Constant {$entityId} value mismatch: reflection='{$reflConstant->getValue()}', stub='{$stubConstant->getValue()}'"

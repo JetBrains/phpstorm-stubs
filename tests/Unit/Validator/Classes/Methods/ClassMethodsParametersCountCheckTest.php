@@ -48,7 +48,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -63,7 +63,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $reflClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -81,7 +81,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -93,19 +93,25 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
     public function testMatchingParameterCountIsSuccess(): void
     {
         $className = '\MyClass';
-        $params    = [$this->makeParam('a'), $this->makeParam('b')];
+        $params = [$this->makeParam('a'), $this->makeParam('b')];
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', parameters: $params)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', parameters: $params)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -120,16 +126,22 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', parameters: [$this->makeParam('a'), $this->makeParam('b')])]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', parameters: [$this->makeParam('a')])] // one param fewer
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -145,14 +157,20 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('foo', parameters: [$this->makeParam('x'), $this->makeParam('y')]),
                 $this->makeMethod('bar', parameters: [$this->makeParam('z')]),
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('foo', parameters: [$this->makeParam('x')]),          // mismatch: stub has 1, refl has 2
                 $this->makeMethod('bar', parameters: [$this->makeParam('z')]),          // match
@@ -160,7 +178,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -177,13 +195,16 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('onlyInReflection', parameters: [$this->makeParam('x')])]
         );
         $stubClass = $this->createMockClassWithProperties($className); // no methods
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -199,11 +220,17 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('init', parameters: [$this->makeParam('a')])]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('init', parameters: [
                 $this->makeParam('a'),
                 $this->makeParam('b', sinceVersion: '8.1'),  // not yet available in 8.0
@@ -211,7 +238,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -225,11 +252,17 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('init', parameters: [$this->makeParam('a'), $this->makeParam('b')])]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('init', parameters: [
                 $this->makeParam('a'),
                 $this->makeParam('b', sinceVersion: '8.0'),  // exactly 8.0 → included
@@ -237,7 +270,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -253,11 +286,17 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('legacy', parameters: [$this->makeParam('a'), $this->makeParam('b')])]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('legacy', parameters: [
                 $this->makeParam('a'),
                 $this->makeParam('b', removedVersion: '7.2'),  // excluded from 7.2+, so available in 7.1
@@ -265,7 +304,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '7.1');
@@ -279,11 +318,17 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('legacy', parameters: [$this->makeParam('a')])]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('legacy', parameters: [
                 $this->makeParam('a'),
                 $this->makeParam('b', removedVersion: '7.1'),  // gone in 7.2+
@@ -291,7 +336,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '7.2');
@@ -314,16 +359,22 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         foreach (['7.0', '7.1', '7.2'] as $version) {
             $expected = $version === '7.2' ? 1 : 2;
             $reflClass = $this->createMockClassWithProperties(
-                $className, null, null, null,
+                $className,
+                null,
+                null,
+                null,
                 [$this->makeMethod('go', parameters: array_fill(0, $expected, $this->makeParam('_')))]
             );
             $stubClass = $this->createMockClassWithProperties(
-                $className, null, null, null,
+                $className,
+                null,
+                null,
+                null,
                 [$stubMethod]
             );
 
             $provider = $this->createMockReflectionProvider([], [$reflClass]);
-            $stubs    = $this->createMockStorageManager();
+            $stubs = $this->createMockStorageManager();
             $stubs->method('getClasses')->willReturn([$stubClass]);
 
             $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, $version);
@@ -341,11 +392,17 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('process', parameters: [$this->makeParam('x'), $this->makeParam('vals')])]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('process', parameters: [
                 $this->makeParam('x'),
                 $this->makeParam('vals', removedVersion: '7.5'), // placeholder: excluded from 7.5+, available in 7.4
@@ -354,7 +411,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '7.4');
@@ -369,11 +426,17 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('process', parameters: [$this->makeParam('x'), $this->makeParam('vals')])]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('process', parameters: [
                 $this->makeParam('x'),
                 $this->makeParam('vals', removedVersion: '7.5'), // excluded from 7.5+ (including PHP 8.0)
@@ -382,7 +445,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -394,11 +457,14 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
 
     public function testMethodInheritedFromParentIsChecked(): void
     {
-        $className       = '\Child';
+        $className = '\Child';
         $parentClassName = '\Parent';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', parameters: [$this->makeParam('a'), $this->makeParam('b')])]
         );
 
@@ -410,7 +476,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -421,11 +487,14 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
 
     public function testChildMethodOverridesParentForParameterCountCheck(): void
     {
-        $className       = '\Child';
+        $className = '\Child';
         $parentClassName = '\Parent';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', parameters: [$this->makeParam('a'), $this->makeParam('b')])]
         );
 
@@ -434,13 +503,16 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $parentStub->setMethods([$this->makeMethod('doWork', parameters: [$this->makeParam('a')])]); // wrong in parent
 
         $childStub = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', parameters: [$this->makeParam('a'), $this->makeParam('b')])] // correct in child
         );
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassMethodsParametersCountCheck($provider))->run($stubs, $className, '8.0');
@@ -455,11 +527,17 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $className = '\SpecialClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', parameters: [$this->makeParam('a'), $this->makeParam('b')])]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doWork', parameters: [$this->makeParam('a')])] // mismatch
         );
 
@@ -479,7 +557,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider, $registry))->run($stubs, $className, '8.0');
@@ -495,18 +573,24 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
 
     public function testMethodLevelKnownProblemSkipsSpecificMismatch(): void
     {
-        $className    = '\MyClass';
+        $className = '\MyClass';
         $mismatchedId = $className . '::doWork';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('doWork', parameters: [$this->makeParam('a'), $this->makeParam('b')]),
                 $this->makeMethod('other', parameters: [$this->makeParam('x')]),
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('doWork', parameters: [$this->makeParam('a')]),  // mismatch — known problem
                 $this->makeMethod('other', parameters: [$this->makeParam('x')]),  // match
@@ -529,13 +613,13 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider, $registry))->run($stubs, $className, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Method-level skip', array_values($skipped)[0]);
     }
@@ -545,14 +629,20 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('doWork', parameters: [$this->makeParam('a'), $this->makeParam('b')]),
                 $this->makeMethod('other', parameters: [$this->makeParam('x'), $this->makeParam('y')]),
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [
                 $this->makeMethod('doWork', parameters: [$this->makeParam('a')]),  // mismatch — known problem
                 $this->makeMethod('other', parameters: [$this->makeParam('x')]),  // mismatch — NOT a known problem
@@ -575,7 +665,7 @@ class ClassMethodsParametersCountCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassMethodsParametersCountCheck($provider, $registry))->run($stubs, $className, '8.0');

@@ -2,22 +2,17 @@
 
 namespace StubTests\Framework\Parsers\Stubs;
 
-use StubTests\Framework\Parsers\Stubs\ClassNodeExtractorInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
-use StubTests\Framework\Parsers\Stubs\StubClassConstantParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
 use StubTests\Framework\Parsers\Model\PHPClass;
 use StubTests\Framework\Parsers\Model\PHPInterface;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicNodeExtractor;
-use StubTests\Framework\Parsers\Stubs\MultiEntityStubParserInterface;
 use StubTests\Framework\Parsers\Stubs\Nodes\ClassNode;
-use StubTests\Framework\Parsers\Stubs\StubMethodParser;
-use StubTests\Framework\Parsers\Stubs\StubPropertyParser;
 
 /**
  * Parses PHP class nodes from AST into PHPClass domain objects.

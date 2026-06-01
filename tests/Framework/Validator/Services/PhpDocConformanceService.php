@@ -7,8 +7,6 @@ use phpDocumentor\Reflection\DocBlock\Tags\Template;
 use phpDocumentor\Reflection\DocBlock\Tags\TemplateCovariant;
 use StubTests\Framework\Parsers\Model\PHPParameter;
 use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Validator\Services\ParameterFilterHelper;
-use StubTests\Framework\Validator\Services\TypeResolver;
 
 /**
  * Service for PhpDoc-vs-signature conformance checks.
@@ -21,7 +19,6 @@ use StubTests\Framework\Validator\Services\TypeResolver;
  */
 final class PhpDocConformanceService
 {
-
     /**
      * PHP primitive types — used to distinguish class names from scalar/pseudo types.
      */
@@ -136,7 +133,7 @@ final class PhpDocConformanceService
 
         foreach ($docBlock->getTagsByName('template-covariant') as $tag) {
             if ($tag instanceof TemplateCovariant) {
-                $typeName = ltrim((string) $tag->getType(), '\\');
+                $typeName = ltrim((string)$tag->getType(), '\\');
                 if ($typeName !== '') {
                     $names[] = $typeName;
                 }
@@ -326,7 +323,7 @@ final class PhpDocConformanceService
         // Map remaining phpstan/psalm leaf tokens to the closest built-in type
         $type = preg_replace_callback(
             '/[A-Za-z_\\\\][\w\-\\\\]*/',
-            fn(array $m): string => self::PHPSTAN_LEAF_MAP[strtolower($m[0])] ?? $m[0],
+            fn (array $m): string => self::PHPSTAN_LEAF_MAP[strtolower($m[0])] ?? $m[0],
             $type
         );
 

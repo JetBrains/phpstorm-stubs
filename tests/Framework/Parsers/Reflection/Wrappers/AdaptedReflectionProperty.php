@@ -2,10 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Reflection\Wrappers;
 
-use StubTests\Framework\Parsers\Reflection\Wrappers\AbstractReflectionAdapter;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassReference;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionType;
-
 /**
  * Adapter wrapper around ReflectionProperty
  *
@@ -31,11 +27,11 @@ class AdaptedReflectionProperty extends AbstractReflectionAdapter
     protected function getAdditionalSkipMethods()
     {
         // getValue/setValue/isInitialized require object instance, so handle separately
-        return array(
+        return [
             'getValue',
             'setValue',
             'isInitialized'
-        );
+        ];
     }
 
     /**
@@ -78,19 +74,19 @@ class AdaptedReflectionProperty extends AbstractReflectionAdapter
         // Extract attributes (PHP 8.0+)
         if (method_exists($reflectionObject, 'getAttributes')) {
             try {
-                $attributes = array();
+                $attributes = [];
                 foreach ($reflectionObject->getAttributes() as $attribute) {
-                    $attributes[] = array(
+                    $attributes[] = [
                         'name' => $attribute->getName(),
                         'arguments' => $attribute->getArguments()
-                    );
+                    ];
                 }
                 $this->setData('getAttributes', $attributes);
             } catch (\Exception $e) {
-                $this->setData('getAttributes', array());
+                $this->setData('getAttributes', []);
             }
         } else {
-            $this->setData('getAttributes', array());
+            $this->setData('getAttributes', []);
         }
     }
 
@@ -164,6 +160,6 @@ class AdaptedReflectionProperty extends AbstractReflectionAdapter
 
     public function getAttributes()
     {
-        return $this->getData('getAttributes', array());
+        return $this->getData('getAttributes', []);
     }
 }

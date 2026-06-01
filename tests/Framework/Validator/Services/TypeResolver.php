@@ -21,21 +21,21 @@ final class TypeResolver
     public static function resolveVersionAwareType(BasePHPElement $entity, string $phpVersion): ?string
     {
         $languageLevelTypes = $entity->getStubsMetadata()?->getLanguageLevelTypes();
-        $defaultType        = $entity->getStubsMetadata()?->getDefaultType();
+        $defaultType = $entity->getStubsMetadata()?->getDefaultType();
 
         if ($languageLevelTypes === null && $defaultType === null) {
             return null;
         }
 
-        $applicableType           = null;
+        $applicableType = null;
         $highestApplicableVersion = null;
 
         if (is_array($languageLevelTypes)) {
             foreach ($languageLevelTypes as $version => $type) {
-                if (version_compare($phpVersion, (string) $version, '>=')) {
-                    if ($highestApplicableVersion === null || version_compare((string) $version, $highestApplicableVersion, '>')) {
-                        $highestApplicableVersion = (string) $version;
-                        $applicableType           = $type;
+                if (version_compare($phpVersion, (string)$version, '>=')) {
+                    if ($highestApplicableVersion === null || version_compare((string)$version, $highestApplicableVersion, '>')) {
+                        $highestApplicableVersion = (string)$version;
+                        $applicableType = $type;
                     }
                 }
             }
@@ -62,7 +62,7 @@ final class TypeResolver
 
         if (str_contains($type, '|')) {
             $parts = explode('|', $type);
-            $parts = array_map(fn($part) => ltrim(trim($part), '\\'), $parts);
+            $parts = array_map(fn ($part) => ltrim(trim($part), '\\'), $parts);
             $parts = array_unique($parts);
             sort($parts);
             $type = implode('|', $parts);

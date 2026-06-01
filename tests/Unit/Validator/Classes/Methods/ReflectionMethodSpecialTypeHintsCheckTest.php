@@ -77,7 +77,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionFunctionAbstract', null, null, null, [$method]
+            '\\ReflectionFunctionAbstract',
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -95,7 +99,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         $method = $this->makeMethodWithLanguageLevelTypes('getReturnType', null);
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionFunctionAbstract', null, null, null, [$method]
+            '\\ReflectionFunctionAbstract',
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -120,7 +128,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionFunctionAbstract', null, null, null, [$method]
+            '\\ReflectionFunctionAbstract',
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -145,7 +157,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionFunctionAbstract', null, null, null, [$method]
+            '\\ReflectionFunctionAbstract',
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -171,7 +187,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionFunctionAbstract', null, null, null, [$method]
+            '\\ReflectionFunctionAbstract',
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -193,7 +213,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionParameter', null, null, null, [$method]
+            '\\ReflectionParameter',
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -214,7 +238,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionProperty', null, null, null, [$method]
+            '\\ReflectionProperty',
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -234,7 +262,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionEnum', null, null, null, [$method]
+            '\\ReflectionEnum',
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -254,7 +286,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionEnum', null, null, null, [$method]
+            '\\ReflectionEnum',
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -274,7 +310,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
     {
         // No methods provided — getReturnType is absent from the class
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionFunctionAbstract', null, null, null, []
+            '\\ReflectionFunctionAbstract',
+            null,
+            null,
+            null,
+            []
         );
 
         $stubs = $this->createMockStorageManager();
@@ -292,7 +332,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         $method = $this->makeMethodWithLanguageLevelTypes('getReturnType', null);  // would fail
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionFunctionAbstract', null, null, null, [$method]
+            '\\ReflectionFunctionAbstract',
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $entityId = '\\ReflectionFunctionAbstract';
@@ -318,7 +362,7 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         $result = (new ReflectionMethodSpecialTypeHintsCheck(null, $registry))->run($stubs, $entityId, '8.1');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Test suppression', array_values($skipped)[0]);
     }
@@ -330,11 +374,15 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         $method = $this->makeMethodWithLanguageLevelTypes('getReturnType', null);  // would fail
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionFunctionAbstract', null, null, null, [$method]
+            '\\ReflectionFunctionAbstract',
+            null,
+            null,
+            null,
+            [$method]
         );
 
-        $classId    = '\\ReflectionFunctionAbstract';
-        $methodId   = $classId . '::getReturnType';
+        $classId = '\\ReflectionFunctionAbstract';
+        $methodId = $classId . '::getReturnType';
 
         $knownProblemsProvider = $this->createMock(KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
@@ -357,7 +405,7 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         $result = (new ReflectionMethodSpecialTypeHintsCheck(null, $registry))->run($stubs, $classId, '8.1');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Method-level suppression', array_values($skipped)[0]);
     }
@@ -373,7 +421,11 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            '\\ReflectionFunctionAbstract', null, null, null, [$method]
+            '\\ReflectionFunctionAbstract',
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();

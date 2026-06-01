@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Parsers\Stubs;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;

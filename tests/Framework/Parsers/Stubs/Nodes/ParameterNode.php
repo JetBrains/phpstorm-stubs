@@ -2,9 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Stubs\Nodes;
 
-use StubTests\Framework\Parsers\Stubs\Nodes\AttributeNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\TypeNode;
-
 /**
  * Parser-agnostic interface for parameter AST nodes.
  */

@@ -40,7 +40,7 @@ class ClassStaticMethodsCheck extends AbstractMethodFlagCheck
         }
 
         $expected = $reflIsStatic ? 'static' : 'non-static';
-        $actual   = $stubIsStatic ? 'static' : 'non-static';
+        $actual = $stubIsStatic ? 'static' : 'non-static';
 
         return "Method {$methodEntityId} is {$expected} in PHP {$phpVersion} but {$actual} in stubs";
     }

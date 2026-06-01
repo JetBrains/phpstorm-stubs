@@ -3,8 +3,6 @@
 namespace StubTests\Framework\Parsers\Storage;
 
 use StubTests\Framework\Parsers\Serializers\EntitySerializerInterface;
-use StubTests\Framework\Parsers\Storage\ParsedDataPersistentStorageProvider;
-use StubTests\Framework\Parsers\Storage\PhpDocStorage;
 
 /**
  * JSON storage for parsed entities.
@@ -81,7 +79,7 @@ class JsonParsedDataStorage implements ParsedDataPersistentStorageProvider
         // Use JSON_PARTIAL_OUTPUT_ON_ERROR to handle encoding errors gracefully
         $json = json_encode(
             $serializedData,
-            JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR | JSON_UNESCAPED_SLASHES
+            JSON_PRETTY_PRINT|JSON_PARTIAL_OUTPUT_ON_ERROR|JSON_UNESCAPED_SLASHES
         );
 
         if ($json === false || $json === 'null') {

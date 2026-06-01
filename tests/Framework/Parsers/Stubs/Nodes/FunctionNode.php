@@ -2,11 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Stubs\Nodes;
 
-use StubTests\Framework\Parsers\Stubs\Nodes\AttributeNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\ParameterNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\TypeNode;
-
 /**
  * Parser-agnostic interface for function AST nodes.
  * Implementations wrap specific parser library nodes (e.g., nikic/php-parser).

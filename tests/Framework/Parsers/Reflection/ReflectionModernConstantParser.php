@@ -11,7 +11,6 @@ use StubTests\Framework\Parsers\Parser;
  */
 class ReflectionModernConstantParser implements Parser
 {
-
     public function canParse($object): bool
     {
         return $object instanceof \ReflectionConstant || is_array($object);

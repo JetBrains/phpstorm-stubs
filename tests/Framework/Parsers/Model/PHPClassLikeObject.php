@@ -2,17 +2,14 @@
 
 namespace StubTests\Framework\Parsers\Model;
 
-use StubTests\Framework\Parsers\Model\PHPClassConstant;
-use StubTests\Framework\Parsers\Model\PHPInterface;
-use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Model\PHPNamespacedElement;
-
 class PHPClassLikeObject extends PHPNamespacedElement
 {
     /** @var PHPMethod[] */
     private array $methods = [];
+
     /** @var PHPClassConstant[] */
     private array $constants = [];
+
     /** @var PHPInterface[] */
     private array $interfaces = [];
     private bool $isFinal = false;

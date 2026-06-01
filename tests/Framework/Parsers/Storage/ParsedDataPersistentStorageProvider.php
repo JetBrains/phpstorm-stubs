@@ -2,8 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Storage;
 
-use StubTests\Framework\Parsers\Storage\ParsedDataStorageProvider;
-
 interface ParsedDataPersistentStorageProvider extends ParsedDataStorageProvider
 {
     /**

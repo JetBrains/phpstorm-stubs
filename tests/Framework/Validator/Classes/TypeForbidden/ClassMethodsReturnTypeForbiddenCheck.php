@@ -37,7 +37,7 @@ class ClassMethodsReturnTypeForbiddenCheck extends AbstractTypeForbiddenCheck
     protected function collectMethodIssues(string $entityId, string $methodName, PHPMethod $method, string $phpVersion): array
     {
         $signatureType = $method->getReturnTypeFromSignature();
-        $returnType    = $signatureType !== null ? $signatureType->toString() : '';
+        $returnType = $signatureType !== null ? $signatureType->toString() : '';
 
         if ($returnType === '') {
             return [];
@@ -46,8 +46,7 @@ class ClassMethodsReturnTypeForbiddenCheck extends AbstractTypeForbiddenCheck
         $methodEntityId = $entityId . '::' . $methodName;
 
         return [
-            $methodEntityId =>
-                "{$this->getEntityLabel()} method {$methodEntityId} has return type '{$returnType}' " .
+            $methodEntityId => "{$this->getEntityLabel()} method {$methodEntityId} has return type '{$returnType}' " .
                 "but is available before PHP 7.0 (return type hints were introduced in PHP 7.0). " .
                 "Use #[LanguageLevelTypeAware(['7.0' => '...'], default: '')] to restrict the return type to PHP 7.0+.",
         ];

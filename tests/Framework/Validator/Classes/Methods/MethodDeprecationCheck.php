@@ -39,7 +39,7 @@ class MethodDeprecationCheck extends AbstractMethodFlagCheck
         PHPMethod $stubMethod,
         string $phpVersion
     ): ?string {
-        $reflDeprecated = method_exists($reflMethod, 'isDeprecated') && (bool) $reflMethod->isDeprecated();
+        $reflDeprecated = method_exists($reflMethod, 'isDeprecated') && (bool)$reflMethod->isDeprecated();
         $stubDeprecated = $stubMethod->isDeprecated();
 
         if ($reflDeprecated && !$stubDeprecated) {

@@ -16,7 +16,6 @@ use StubTests\Framework\Validator\Services\TypeResolver;
  */
 class ParameterTypesCheck extends AbstractCallableCheck
 {
-
     public function supports(string $phpVersion): bool
     {
         return version_compare($phpVersion, '7.0', '>=');

@@ -8,7 +8,7 @@ use StubTests\Framework\Parsers\Model\PHPEnum;
 use StubTests\Framework\Parsers\Model\PHPInterface;
 
 /**
- * Resolves sinceVersion for methods whose PhpDoc contains {@inheritDoc} by
+ * Resolves sinceVersion for methods whose PhpDoc contains by
  * inheriting the version from the nearest parent interface or class that defines
  * the same method with an explicit @since tag.
  *

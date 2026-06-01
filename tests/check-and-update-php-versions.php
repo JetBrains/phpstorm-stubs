@@ -30,7 +30,6 @@
  * Usage:
  *   php tests/check-and-update-php-versions.php
  */
-
 const DOCKER_TAGS_ENDPOINT = 'https://hub.docker.com/v2/repositories/library/php/tags';
 const MAX_TAG_PAGES_PER_MINOR = 3;
 
@@ -56,7 +55,7 @@ echo 'Tracked PHP versions: ' . implode(', ', $tracked) . "\n";
 // --- Previously recorded patches -----------------------------------------------------------------
 $manifest = [];
 if (is_file($manifestFile)) {
-    $decoded = json_decode((string) file_get_contents($manifestFile), true);
+    $decoded = json_decode((string)file_get_contents($manifestFile), true);
     if (is_array($decoded)) {
         $manifest = $decoded;
     }
@@ -98,7 +97,7 @@ ksortByVersion($newManifest);
 if ($newManifest !== $manifest) {
     file_put_contents(
         $manifestFile,
-        json_encode($newManifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n"
+        json_encode($newManifest, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES) . "\n"
     );
     echo "Updated tests/cache/php-versions.json\n";
 }
@@ -140,7 +139,7 @@ function fetchLatestPatch(string $minor): ?string
         }
         foreach ($data['results'] as $tag) {
             $name = $tag['name'] ?? '';
-            if (preg_match('/^' . preg_quote($minor, '/') . '\.(\d+)-alpine$/', (string) $name, $mm)) {
+            if (preg_match('/^' . preg_quote($minor, '/') . '\.(\d+)-alpine$/', (string)$name, $mm)) {
                 $candidate = $minor . '.' . $mm[1];
                 if ($best === null || version_compare($candidate, $best, '>')) {
                     $best = $candidate;

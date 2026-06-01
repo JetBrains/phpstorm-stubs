@@ -6,7 +6,6 @@ use StubTests\Framework\Parsers\Model\PHPClass;
 use StubTests\Framework\Parsers\Model\PHPProperty;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
-use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**
@@ -53,7 +52,7 @@ abstract class AbstractPropertyFlagCheck extends AbstractClassCheck
             return $results;
         }
 
-        $label      = $this->getEntityLabel();
+        $label = $this->getEntityLabel();
         $reflection = $this->reflectionProvider->getReflection($phpVersion);
 
         $reflectionClass = $this->findEntity($reflection, $entityId);
@@ -79,7 +78,7 @@ abstract class AbstractPropertyFlagCheck extends AbstractClassCheck
             }
 
             $propertyEntityId = $entityId . '::$' . $name;
-            $mismatchMessage  = $this->describeMismatch($propertyEntityId, $reflProperty, $stubPropertyMap[$name], $phpVersion);
+            $mismatchMessage = $this->describeMismatch($propertyEntityId, $reflProperty, $stubPropertyMap[$name], $phpVersion);
 
             if ($mismatchMessage === null) {
                 continue;

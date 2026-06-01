@@ -5,6 +5,7 @@ namespace StubTests\Framework\Parsers\Model;
 final class StubsMetadata
 {
     private ?string $sourcePath = null;
+
     /** @var string[] */
     private array $duplicates = [];
     private ?string $phpDoc = null;

@@ -22,12 +22,12 @@ class EnumMethodDeprecationCheckTest extends CheckTestCase
 
     public function testNonDeprecatedMethodPassesWithNonDeprecatedStub(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -39,12 +39,12 @@ class EnumMethodDeprecationCheckTest extends CheckTestCase
 
     public function testDeprecatedReflectionMethodRequiresDeprecatedStub(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', isDeprecated: true)]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -58,13 +58,13 @@ class EnumMethodDeprecationCheckTest extends CheckTestCase
 
     public function testDeprecatedStubWithNonDeprecatedReflectionPasses(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         // Reflection says NOT deprecated, stub says deprecated → OK (one-directional)
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', isDeprecated: true)]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');

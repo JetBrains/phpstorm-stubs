@@ -9,6 +9,7 @@ use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
+
 class ClassInterfacesCheck extends AbstractClassCheck
 {
     private ClassInterfaceFqnsExtractor $fqnsExtractor;
@@ -36,7 +37,7 @@ class ClassInterfacesCheck extends AbstractClassCheck
         }
 
         $reflection = $this->reflectionProvider->getReflection($phpVersion);
-        $label      = $this->getEntityLabel();
+        $label = $this->getEntityLabel();
 
         $reflectionClass = $this->lookupEntityById($reflection, $entityId);
         if (!$reflectionClass instanceof PHPClass) {

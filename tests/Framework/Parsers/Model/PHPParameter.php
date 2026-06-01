@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Parsers\Model;
 
 use StubTests\Framework\Parsers\Model\Types\IntersectionType;
-use StubTests\Framework\Parsers\Model\BasePHPElement;
 use StubTests\Framework\Parsers\Model\Types\NoType;
 use StubTests\Framework\Parsers\Model\Types\NullableType;
 use StubTests\Framework\Parsers\Model\Types\StandaloneType;
@@ -11,7 +10,6 @@ use StubTests\Framework\Parsers\Model\Types\UnionType;
 
 class PHPParameter extends BasePHPElement
 {
-
     private StandaloneType|UnionType|NullableType|NoType|IntersectionType $type;
     private int $position;
     private bool $isOptional;
@@ -21,6 +19,7 @@ class PHPParameter extends BasePHPElement
     private mixed $defaultValue;
     private bool $hasDefaultValue;
     private ?\Closure $defaultValueEvaluator = null;
+
     public function __construct(?string $name)
     {
         parent::setName($name ?? '');
@@ -132,5 +131,4 @@ class PHPParameter extends BasePHPElement
     {
         $this->hasDefaultValue = $hasDefaultValue;
     }
-
 }

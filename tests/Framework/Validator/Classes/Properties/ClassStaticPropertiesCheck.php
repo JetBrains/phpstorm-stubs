@@ -44,7 +44,7 @@ class ClassStaticPropertiesCheck extends AbstractPropertyFlagCheck
         }
 
         $expected = $reflIsStatic ? 'static' : 'non-static';
-        $actual   = $stubIsStatic ? 'static' : 'non-static';
+        $actual = $stubIsStatic ? 'static' : 'non-static';
 
         return "Property {$propertyEntityId} is {$expected} in PHP {$phpVersion} but {$actual} in stubs";
     }

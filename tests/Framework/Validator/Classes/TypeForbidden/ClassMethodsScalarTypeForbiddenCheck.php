@@ -44,7 +44,7 @@ class ClassMethodsScalarTypeForbiddenCheck extends AbstractTypeForbiddenCheck
     protected function collectMethodIssues(string $entityId, string $methodName, PHPMethod $method, string $phpVersion): array
     {
         $methodEntityId = $entityId . '::' . $methodName;
-        $issues         = [];
+        $issues = [];
 
         foreach ($this->methodCollection->filterAndDeduplicateParams($method->getParameters(), $phpVersion) as $param) {
             $declaredType = $param->getDeclaredType();
@@ -54,8 +54,8 @@ class ClassMethodsScalarTypeForbiddenCheck extends AbstractTypeForbiddenCheck
                 : ($declaredType instanceof StandaloneType ? $declaredType->toString() : '');
 
             if ($scalarCandidate !== '' && in_array($scalarCandidate, self::SCALAR_TYPES, true)) {
-                $paramType              = $declaredType->toString();
-                $paramEntityId          = $methodEntityId . '::$' . $param->getName();
+                $paramType = $declaredType->toString();
+                $paramEntityId = $methodEntityId . '::$' . $param->getName();
                 $issues[$paramEntityId] =
                     "{$this->getEntityLabel()} method {$methodEntityId} parameter \${$param->getName()} " .
                     "has scalar type hint '{$paramType}' but the method is available before PHP 7.0 " .

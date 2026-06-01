@@ -44,10 +44,7 @@ class KnownProblemsRegistry
         if (self::$instance === null) {
             self::$instance = new self($provider ?? new DefaultKnownProblemsProvider());
         } elseif ($provider !== null && $provider !== self::$instance->provider) {
-            throw new \LogicException(
-                'KnownProblemsRegistry singleton already initialised with a different provider. '
-                . 'Call reset() first if you need to replace the provider.'
-            );
+            throw new \LogicException('KnownProblemsRegistry singleton already initialised with a different provider. ' . 'Call reset() first if you need to replace the provider.');
         }
         return self::$instance;
     }
@@ -190,7 +187,7 @@ class KnownProblemsRegistry
      * Get problems index (for debugging/reporting).
      *
      * @return ProblemDefinition
-	 */
+     */
     public function getProblemsIndex(): array
     {
         return $this->problemsIndex;

@@ -9,7 +9,6 @@ use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
 use StubTests\Framework\Parsers\Model\PHPParameter;
 use StubTests\Framework\Parsers\Stubs\Nodes\ParameterNode;
-use StubTests\Framework\Parsers\Stubs\AttributeDetectionTrait;
 
 /**
  * Parses ParameterNode AST nodes into PHPParameter domain objects.
@@ -18,7 +17,6 @@ use StubTests\Framework\Parsers\Stubs\AttributeDetectionTrait;
 class StubParameterParser
 {
     use AttributeDetectionTrait;
-
     private TypeParserInterface $typeParser;
     private AvailableVersionParserInterface $versionParser;
 
@@ -72,7 +70,7 @@ class StubParameterParser
         $parameter->setHasDefaultValue($hasDefault);
 
         if ($hasDefault) {
-            $parameter->setDefaultValueEvaluator(fn() => $node->getDefaultValue());
+            $parameter->setDefaultValueEvaluator(fn () => $node->getDefaultValue());
         }
 
         // A parameter is optional if it has a default value, is variadic,
@@ -94,5 +92,4 @@ class StubParameterParser
 
         return $parameter;
     }
-
 }

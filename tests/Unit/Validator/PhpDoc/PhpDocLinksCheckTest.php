@@ -11,7 +11,6 @@ use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\PhpDoc\PhpDocLinksCheck;
-use StubTests\Unit\Validator\PhpDoc\PhpDocCheckTestCase;
 
 class PhpDocLinksCheckTest extends PhpDocCheckTestCase
 {
@@ -43,9 +42,9 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
     }
 
     private function runCheck(
-		PhpDocLinksCheck                                    $check,
-	    \StubTests\Framework\Parsers\StubDataQueryInterface $stubs,
-	    string                                              $entityId
+        PhpDocLinksCheck $check,
+        \StubTests\Framework\Parsers\StubDataQueryInterface $stubs,
+        string $entityId
     ): \StubTests\Framework\Validator\Contracts\CheckResultSet {
         return $check->run($stubs, $entityId, PhpVersions::LATEST->value);
     }
@@ -56,9 +55,9 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
     {
         $check = $this->makeCheck();
         $this->assertTrue($check->supports(PhpVersions::EARLIEST->value), 'PHP 5.6 must be supported');
-        $this->assertTrue($check->supports(PhpVersions::PHP_7_0->value),  'PHP 7.0 must be supported');
-        $this->assertTrue($check->supports(PhpVersions::PHP_8_0->value),  'PHP 8.0 must be supported');
-        $this->assertTrue($check->supports(PhpVersions::LATEST->value),   'PHP 8.4 must be supported');
+        $this->assertTrue($check->supports(PhpVersions::PHP_7_0->value), 'PHP 7.0 must be supported');
+        $this->assertTrue($check->supports(PhpVersions::PHP_8_0->value), 'PHP 8.0 must be supported');
+        $this->assertTrue($check->supports(PhpVersions::LATEST->value), 'PHP 8.4 must be supported');
     }
 
     // ── Entity not found ──────────────────────────────────────────────────────
@@ -196,30 +195,30 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
         };
 
         $phpDoc = "/**\n * @link https://php.net/example\n */";
-        $class  = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
-        $check  = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: false);
+        $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
+        $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: false);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
         $this->assertFalse($result->hasFailures());
     }
 
     public function testLivenessCheckPassesFor200(): void
     {
-        $fetcher = fn(string $url): int => 200;
+        $fetcher = fn (string $url): int => 200;
 
         $phpDoc = "/**\n * @link https://php.net/example\n */";
-        $class  = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
-        $check  = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
+        $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
+        $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
         $this->assertFalse($result->hasFailures(), 'HTTP 200 should be alive');
     }
 
     public function testLivenessCheckFailsFor404(): void
     {
-        $fetcher = fn(string $url): int => 404;
+        $fetcher = fn (string $url): int => 404;
 
         $phpDoc = "/**\n * @link https://php.net/example\n */";
-        $class  = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
-        $check  = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
+        $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
+        $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
         $this->assertTrue($result->hasFailures(), 'HTTP 404 should be a dead link');
         $this->assertStringContainsString('dead link (HTTP 404)', implode(' ', $result->getFailures()));
@@ -227,11 +226,11 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
 
     public function testLivenessCheckFailsFor410(): void
     {
-        $fetcher = fn(string $url): int => 410;
+        $fetcher = fn (string $url): int => 410;
 
         $phpDoc = "/**\n * @link https://php.net/example\n */";
-        $class  = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
-        $check  = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
+        $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
+        $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
         $this->assertTrue($result->hasFailures(), 'HTTP 410 (Gone) should be a dead link');
         $this->assertStringContainsString('dead link (HTTP 410)', implode(' ', $result->getFailures()));
@@ -239,11 +238,11 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
 
     public function testLivenessCheckFailsOnConnectionFailure(): void
     {
-        $fetcher = fn(string $url): int => 0;  // 0 = curl connection failure
+        $fetcher = fn (string $url): int => 0;  // 0 = curl connection failure
 
         $phpDoc = "/**\n * @link https://php.net/example\n */";
-        $class  = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
-        $check  = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
+        $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
+        $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
         $this->assertTrue($result->hasFailures(), 'Connection failure should be reported');
         $this->assertStringContainsString('unreachable', implode(' ', $result->getFailures()));
@@ -252,11 +251,11 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
     public function testLivenessCheckPassesFor403(): void
     {
         // 403 means the server exists but won't serve — treated as alive
-        $fetcher = fn(string $url): int => 403;
+        $fetcher = fn (string $url): int => 403;
 
         $phpDoc = "/**\n * @link https://php.net/example\n */";
-        $class  = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
-        $check  = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
+        $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
+        $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
         $this->assertFalse($result->hasFailures(), 'HTTP 403 should not be treated as dead');
     }
@@ -265,11 +264,11 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
     {
         // curl follows redirects by default; fetchUrl would get the final code.
         // Even if 301 is returned directly it should be treated as alive.
-        $fetcher = fn(string $url): int => 301;
+        $fetcher = fn (string $url): int => 301;
 
         $phpDoc = "/**\n * @link https://php.net/example\n */";
-        $class  = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
-        $check  = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
+        $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
+        $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
         $this->assertFalse($result->hasFailures(), 'HTTP 301 should not be treated as dead');
     }
@@ -284,8 +283,8 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
         };
 
         $phpDoc = "/**\n * @link http://php.net/example\n */";
-        $class  = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
-        $check  = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
+        $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
+        $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
         $this->assertFalse($called, 'http:// links must not be checked for liveness');
     }
@@ -309,8 +308,8 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
         KnownProblemsRegistry::getInstance($provider);
 
         $phpDoc = "/**\n * @link http://example.com/dead\n */";
-        $class  = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
-        $check  = new PhpDocLinksCheck();
+        $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
+        $check = new PhpDocLinksCheck();
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
         $this->assertFalse($result->hasFailures(), 'Known problem should suppress the failure');
     }

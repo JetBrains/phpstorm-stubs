@@ -2,8 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Model;
 
-use StubTests\Framework\Parsers\Model\BasePHPElement;
-
 class PHPNamespacedElement extends BasePHPElement
 {
     private ?string $namespace = null;

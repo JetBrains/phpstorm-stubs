@@ -28,13 +28,13 @@ class EnumCasesCheckTest extends CheckTestCase
 
     public function testMatchingCasesPasses(): void
     {
-        $enumId   = '\\RoundingMode';
-        $cases    = ['HalfAwayFromZero', 'HalfTowardsZero'];
+        $enumId = '\\RoundingMode';
+        $cases = ['HalfAwayFromZero', 'HalfTowardsZero'];
         $reflEnum = $this->makeEnum($enumId, cases: $cases);
         $stubEnum = $this->makeEnum($enumId, cases: $cases);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new EnumCasesCheck($provider))->run($stubs, $enumId, PhpVersions::PHP_8_1->value);
@@ -46,12 +46,12 @@ class EnumCasesCheckTest extends CheckTestCase
 
     public function testNoCasesPasses(): void
     {
-        $enumId   = '\\Empty_';
+        $enumId = '\\Empty_';
         $reflEnum = $this->makeEnum($enumId);
         $stubEnum = $this->makeEnum($enumId);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new EnumCasesCheck($provider))->run($stubs, $enumId, PhpVersions::PHP_8_1->value);
@@ -63,12 +63,12 @@ class EnumCasesCheckTest extends CheckTestCase
 
     public function testMissingCaseInStubsFails(): void
     {
-        $enumId   = '\\RoundingMode';
+        $enumId = '\\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, cases: ['HalfAwayFromZero', 'HalfTowardsZero']);
         $stubEnum = $this->makeEnum($enumId, cases: ['HalfAwayFromZero']); // missing HalfTowardsZero
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new EnumCasesCheck($provider))->run($stubs, $enumId, PhpVersions::PHP_8_1->value);
@@ -85,12 +85,12 @@ class EnumCasesCheckTest extends CheckTestCase
     public function testExtraCaseInStubsNotReported(): void
     {
         // Extra stubs cases are not this check's concern
-        $enumId   = '\\RoundingMode';
+        $enumId = '\\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, cases: ['HalfAwayFromZero']);
         $stubEnum = $this->makeEnum($enumId, cases: ['HalfAwayFromZero', 'Extra']);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new EnumCasesCheck($provider))->run($stubs, $enumId, PhpVersions::PHP_8_1->value);
@@ -102,8 +102,8 @@ class EnumCasesCheckTest extends CheckTestCase
 
     public function testEnumNotInReflectionFails(): void
     {
-        $enumId  = '\\Ghost';
-        $stubs   = $this->createMockStorageManager();
+        $enumId = '\\Ghost';
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$this->makeEnum($enumId)]);
 
         $provider = $this->createMockReflectionProviderWithEnums([]); // empty reflection
@@ -118,11 +118,11 @@ class EnumCasesCheckTest extends CheckTestCase
 
     public function testEnumNotInStubsFails(): void
     {
-        $enumId   = '\\RoundingMode';
+        $enumId = '\\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, cases: ['HalfAwayFromZero']);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([]); // enum absent from stubs
 
         $result = (new EnumCasesCheck($provider))->run($stubs, $enumId, PhpVersions::PHP_8_1->value);
@@ -135,12 +135,12 @@ class EnumCasesCheckTest extends CheckTestCase
 
     public function testKnownProblemSkipsEnum(): void
     {
-        $enumId   = '\\RoundingMode';
+        $enumId = '\\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, cases: ['HalfAwayFromZero']);
         $stubEnum = $this->makeEnum($enumId); // would fail without known problem
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $knownProblemsProvider = $this->createMock(KnownProblemsProvider::class);

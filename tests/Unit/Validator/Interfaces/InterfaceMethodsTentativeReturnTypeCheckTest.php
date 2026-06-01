@@ -33,7 +33,7 @@ class InterfaceMethodsTentativeReturnTypeCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInReflectionIsFailure(): void
     {
         $ifaceId = '\Iterator';
-        $stubs   = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$this->makeInterface($ifaceId, [$this->makeMethod('current', isTentative: false)])]);
 
         $result = (new ClassMethodsTentativeReturnTypeCheck(
@@ -48,7 +48,7 @@ class InterfaceMethodsTentativeReturnTypeCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInStubsIsFailure(): void
     {
         $ifaceId = '\Iterator';
-        $stubs   = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([]);
 
         $result = (new ClassMethodsTentativeReturnTypeCheck(
@@ -63,7 +63,7 @@ class InterfaceMethodsTentativeReturnTypeCheckTest extends CheckTestCase
     public function testMatchingTentativeFlagsSucceed(): void
     {
         $ifaceId = '\Iterator';
-        $stubs   = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$this->makeInterface($ifaceId, [$this->makeMethod('current', isTentative: true)])]);
 
         $result = (new ClassMethodsTentativeReturnTypeCheck(
@@ -77,7 +77,7 @@ class InterfaceMethodsTentativeReturnTypeCheckTest extends CheckTestCase
     public function testMismatchedTentativeFlagsFailure(): void
     {
         $ifaceId = '\Iterator';
-        $stubs   = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$this->makeInterface($ifaceId, [$this->makeMethod('current', isTentative: false)])]);
 
         $result = (new ClassMethodsTentativeReturnTypeCheck(
@@ -93,14 +93,14 @@ class InterfaceMethodsTentativeReturnTypeCheckTest extends CheckTestCase
     public function testParentInterfaceTentativeMethodMismatchIsReported(): void
     {
         $parentId = '\Iterator';
-        $childId  = '\RecursiveIterator';
+        $childId = '\RecursiveIterator';
 
         // Reflection reports 'current' as tentative for RecursiveIterator
         $reflChild = $this->makeInterface($childId, [$this->makeMethod('current', isTentative: true)]);
 
         // Stubs: RecursiveIterator has no methods but extends Iterator (stub)
         $parentStub = $this->makeInterface($parentId, [$this->makeMethod('current', isTentative: false)]);
-        $childStub  = $this->makeInterface($childId, parentInterfaces: [$parentStub]);
+        $childStub = $this->makeInterface($childId, parentInterfaces: [$parentStub]);
 
         $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$childStub]);

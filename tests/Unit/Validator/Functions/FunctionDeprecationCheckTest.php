@@ -56,11 +56,11 @@ class FunctionDeprecationCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInReflectionIsFailure(): void
     {
-        $id      = '\\missing_func';
-        $stubFn  = $this->makeFunction($id);
+        $id = '\\missing_func';
+        $stubFn = $this->makeFunction($id);
 
         $provider = $this->createMockReflectionProvider([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$stubFn]);
 
         $result = (new FunctionDeprecationCheck($provider))->run($stubs, $id, '8.0');
@@ -71,11 +71,11 @@ class FunctionDeprecationCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInStubsIsFailure(): void
     {
-        $id     = '\\missing_func';
+        $id = '\\missing_func';
         $reflFn = $this->makeFunction($id);
 
         $provider = $this->createMockReflectionProvider([$reflFn]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([]);
 
         $result = (new FunctionDeprecationCheck($provider))->run($stubs, $id, '8.0');
@@ -91,7 +91,7 @@ class FunctionDeprecationCheckTest extends CheckTestCase
         $id = '\\active_func';
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, false)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, false)]);
 
         $result = (new FunctionDeprecationCheck($provider))->run($stubs, $id, '8.0');
@@ -105,7 +105,7 @@ class FunctionDeprecationCheckTest extends CheckTestCase
         $id = '\\old_func';
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, true)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, true)]);
 
         $result = (new FunctionDeprecationCheck($provider))->run($stubs, $id, '8.1');
@@ -121,7 +121,7 @@ class FunctionDeprecationCheckTest extends CheckTestCase
         $id = '\\strftime';
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, true)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, false)]);
 
         $result = (new FunctionDeprecationCheck($provider))->run($stubs, $id, '8.1');
@@ -138,7 +138,7 @@ class FunctionDeprecationCheckTest extends CheckTestCase
         $id = '\\legacy_func';
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, false)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, true)]);
 
         $result = (new FunctionDeprecationCheck($provider))->run($stubs, $id, '8.0');
@@ -170,7 +170,7 @@ class FunctionDeprecationCheckTest extends CheckTestCase
 
         // Mismatch: deprecated in reflection but not in stubs — would normally fail
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id, true)]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, false)]);
 
         $result = (new FunctionDeprecationCheck($provider, $registry))->run($stubs, $id, '8.0');

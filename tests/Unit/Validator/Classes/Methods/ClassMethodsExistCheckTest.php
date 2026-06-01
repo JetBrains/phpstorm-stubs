@@ -31,9 +31,6 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         parent::tearDown();
     }
 
-
-
-
     public function testSupportsAllPhpVersions(): void
     {
         $this->assertTrue($this->check->supports(PhpVersions::EARLIEST->value));
@@ -320,9 +317,6 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         $this->assertStringContainsString('Class-level skip reason', $successes[0]);
     }
 
-
-
-
     public function testMethodLevelKnownProblemSkipsSpecificMethod(): void
     {
         $className = '\MyClass';
@@ -366,7 +360,7 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         $successes = $result->getSuccesses();
         // Only the skipped missingMethod entry is recorded; presentMethod (found in stubs) produces no result entry.
         $this->assertEquals(1, $result->getSuccessCount());
-        $skippedEntry = array_filter($successes, fn($s) => str_contains($s, 'skipped'));
+        $skippedEntry = array_filter($successes, fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skippedEntry);
         $this->assertStringContainsString('Method-level skip reason', array_values($skippedEntry)[0]);
     }
@@ -434,7 +428,10 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         $interface = $this->makeInterface('\MyInterface', [$this->makeMethod('interfaceMethod')]);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('classMethod')],
             null,
             [$interface]
@@ -463,7 +460,13 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         ]);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [$interface]
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [$interface]
         );
 
         $reflectionProvider = $this->createMockReflectionProvider([], [$reflectionClass]);
@@ -490,7 +493,13 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         $childIface->addParentInterface($parentIface);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [$childIface]
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [$childIface]
         );
 
         $reflectionProvider = $this->createMockReflectionProvider([], [$reflectionClass]);
@@ -527,7 +536,11 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         $parent->setParentClass($grandparent);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [$this->makeMethod('childMethod')]
+            $className,
+            null,
+            null,
+            null,
+            [$this->makeMethod('childMethod')]
         );
         $stubClass->setParentClass($parent);
 
@@ -594,7 +607,13 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         $iface2->addParentInterface($iface1);  // cycle!
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [$iface1]
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [$iface1]
         );
 
         $reflectionProvider = $this->createMockReflectionProvider([], [$reflectionClass]);
@@ -653,7 +672,10 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         $methodWithNullName = new PHPMethod();  // name never set → getName() returns null
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('realMethod'), $methodWithNullName]
         );
 
@@ -683,7 +705,13 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         $interface = $this->makeInterface('\SharedInterface', [$this->makeMethod('sharedMethod')]);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [$interface]
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [$interface]
         );
         $stubClass->setParentClass($parentClass);
 

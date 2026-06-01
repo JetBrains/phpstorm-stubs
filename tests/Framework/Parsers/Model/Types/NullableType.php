@@ -2,8 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Model\Types;
 
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
-
 class NullableType
 {
     private StandaloneType $basicType;
@@ -24,7 +22,7 @@ class NullableType
         return [$this->basicType->toString(), 'null'];
     }
 
-	public function hasBasicType(string $type): bool
+    public function hasBasicType(string $type): bool
     {
         return $this->basicType->toString() === $type;
     }

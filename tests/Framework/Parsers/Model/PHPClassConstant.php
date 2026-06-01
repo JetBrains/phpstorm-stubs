@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Parsers\Model;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-use StubTests\Framework\Parsers\Model\BasePHPElement;
 
 class PHPClassConstant extends BasePHPElement
 {

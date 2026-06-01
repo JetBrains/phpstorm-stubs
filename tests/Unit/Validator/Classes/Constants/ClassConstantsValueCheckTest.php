@@ -10,7 +10,6 @@ use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblems\ProblemDefinition;
 use StubTests\Framework\Validator\KnownProblems\ProblemType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
-use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 use StubTests\Unit\Validator\CheckTestCase;
 
 class ClassConstantsValueCheckTest extends CheckTestCase
@@ -27,8 +26,6 @@ class ClassConstantsValueCheckTest extends CheckTestCase
         parent::tearDown();
     }
 
-
-
     // ── supports() ────────────────────────────────────────────────────────────
 
     public function testSupportsAllVersions(): void
@@ -43,11 +40,11 @@ class ClassConstantsValueCheckTest extends CheckTestCase
 
     public function testClassNotFoundInReflectionFails(): void
     {
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $stubClass = $this->makeClass($classId);
 
         $provider = $this->createMockReflectionProviderWithClasses([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsValueCheck($provider))->run($stubs, $classId, PhpVersions::LATEST->value);
@@ -59,11 +56,11 @@ class ClassConstantsValueCheckTest extends CheckTestCase
 
     public function testClassNotFoundInStubsFails(): void
     {
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([]);
 
         $result = (new ClassConstantsValueCheck($provider))->run($stubs, $classId, PhpVersions::LATEST->value);
@@ -76,12 +73,12 @@ class ClassConstantsValueCheckTest extends CheckTestCase
 
     public function testMatchingValuesPasses(): void
     {
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('ATOM', 'Y-m-d\\TH:i:sP')]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('ATOM', 'Y-m-d\\TH:i:sP')]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsValueCheck($provider))->run($stubs, $classId, PhpVersions::LATEST->value);
@@ -91,12 +88,12 @@ class ClassConstantsValueCheckTest extends CheckTestCase
 
     public function testNoConstantsPasses(): void
     {
-        $classId   = '\\stdClass';
+        $classId = '\\stdClass';
         $reflClass = $this->makeClass($classId);
         $stubClass = $this->makeClass($classId);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsValueCheck($provider))->run($stubs, $classId, PhpVersions::LATEST->value);
@@ -108,12 +105,12 @@ class ClassConstantsValueCheckTest extends CheckTestCase
 
     public function testValueMismatchFailsOnLatestPhp(): void
     {
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', 42)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', 0)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsValueCheck($provider))->run($stubs, $classId, PhpVersions::LATEST->value);
@@ -129,12 +126,12 @@ class ClassConstantsValueCheckTest extends CheckTestCase
     public function testValueMismatchSkippedOnNonLatestPhp(): void
     {
         // Value comparison is intentionally skipped on non-latest PHP versions
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', 42)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', 0)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsValueCheck($provider))->run($stubs, $classId, PhpVersions::PHP_8_0->value);
@@ -145,12 +142,12 @@ class ClassConstantsValueCheckTest extends CheckTestCase
     public function testNullStubValueSkipsValueCheck(): void
     {
         // Stub has null value (complex expression) — value check is skipped
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', 42)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', null)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsValueCheck($provider))->run($stubs, $classId, PhpVersions::LATEST->value);
@@ -161,12 +158,12 @@ class ClassConstantsValueCheckTest extends CheckTestCase
     public function testNullReflectionValueSkipsValueCheck(): void
     {
         // Reflection has null value — value check is skipped
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', null)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', 99)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsValueCheck($provider))->run($stubs, $classId, PhpVersions::LATEST->value);
@@ -179,12 +176,12 @@ class ClassConstantsValueCheckTest extends CheckTestCase
     public function testConstantNotInReflectionIsSkipped(): void
     {
         // Existence is ClassConstantsCheck's responsibility; value check silently skips
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId); // no constants in reflection
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('GHOST', 42)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsValueCheck($provider))->run($stubs, $classId, PhpVersions::LATEST->value);
@@ -196,7 +193,7 @@ class ClassConstantsValueCheckTest extends CheckTestCase
 
     public function testClassLevelKnownProblemSkipsEntireCheck(): void
     {
-        $classId   = '\\SpecialClass';
+        $classId = '\\SpecialClass';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('FOO', 1)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('FOO', 99)]);
 
@@ -216,7 +213,7 @@ class ClassConstantsValueCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsValueCheck($provider, $registry))->run($stubs, $classId, PhpVersions::LATEST->value);
@@ -229,7 +226,7 @@ class ClassConstantsValueCheckTest extends CheckTestCase
 
     public function testConstantLevelKnownProblemSkipsSpecificConstant(): void
     {
-        $classId   = '\\SpecialClass';
+        $classId = '\\SpecialClass';
         $reflClass = $this->makeClass($classId, constants: [
             $this->makeClassConstant('STABLE', 10),
             $this->makeClassConstant('ICU_DEPENDENT', 1),
@@ -255,7 +252,7 @@ class ClassConstantsValueCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsValueCheck($provider, $registry))->run($stubs, $classId, PhpVersions::LATEST->value);

@@ -22,12 +22,12 @@ class InterfaceConstantsCheckTest extends CheckTestCase
 
     public function testMatchingConstantPasses(): void
     {
-        $ifaceId   = '\\Countable';
+        $ifaceId = '\\Countable';
         $reflIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('MODE', 1)]);
         $stubIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('MODE', 1)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, '8.0');
@@ -39,12 +39,12 @@ class InterfaceConstantsCheckTest extends CheckTestCase
 
     public function testSpuriousConstantInStubsFails(): void
     {
-        $ifaceId   = '\\Countable';
+        $ifaceId = '\\Countable';
         $reflIface = $this->makeInterface($ifaceId); // no constants in reflection
         $stubIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('GHOST', 1)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, '8.0');
@@ -59,12 +59,12 @@ class InterfaceConstantsCheckTest extends CheckTestCase
     public function testConstantInReflectionOnlyPasses(): void
     {
         // Constant only in reflection (not stub) is fine — might be inherited in stubs
-        $ifaceId   = '\\Countable';
+        $ifaceId = '\\Countable';
         $reflIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('MODE', 1)]);
         $stubIface = $this->makeInterface($ifaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, '8.0');
@@ -77,12 +77,12 @@ class InterfaceConstantsCheckTest extends CheckTestCase
     public function testValueMismatchNotCheckedByThisCheck(): void
     {
         // Value comparison is handled by InterfaceConstantsValueCheck, not here.
-        $ifaceId   = '\\Countable';
+        $ifaceId = '\\Countable';
         $reflIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('MODE', 1)]);
         $stubIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('MODE', 2)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, PhpVersions::LATEST->value);

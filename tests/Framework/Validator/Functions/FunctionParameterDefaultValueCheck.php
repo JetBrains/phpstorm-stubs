@@ -43,7 +43,7 @@ class FunctionParameterDefaultValueCheck extends AbstractCallableCheck
             return $results;
         }
 
-        $reflection   = $this->reflectionProvider->getReflection($phpVersion);
+        $reflection = $this->reflectionProvider->getReflection($phpVersion);
         $reflFunction = $this->findCallable($reflection, $entityId, $phpVersion);
 
         if ($reflFunction === null) {

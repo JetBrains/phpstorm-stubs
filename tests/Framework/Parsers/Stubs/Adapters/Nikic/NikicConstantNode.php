@@ -4,11 +4,8 @@ namespace StubTests\Framework\Parsers\Stubs\Adapters\Nikic;
 
 use PhpParser\Node\Const_;
 use PhpParser\Node\Stmt\ClassConst;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicDocCommentNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\ConstantNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicExprValueResolverTrait;
 use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicAttributeNode;
 
 /**
  * Adapter for nikic/php-parser Const_ nodes.

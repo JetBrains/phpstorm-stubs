@@ -6,15 +6,9 @@ use PhpParser\Node\Stmt\ClassConst;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Enum_;
 use PhpParser\Node\Stmt\EnumCase;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicDocCommentNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\ConstantNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicTypeNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\EnumNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicConstantNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\MethodNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\TypeNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicMethodNode;
 
 /**
  * Adapter for nikic/php-parser Enum_ nodes.

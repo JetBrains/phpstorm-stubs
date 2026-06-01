@@ -3,18 +3,15 @@
 namespace StubTests\Framework\Parsers\Stubs;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
-use StubTests\Framework\Parsers\Stubs\StubParameterParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\Stubs\Nodes\MethodNode;
-use StubTests\Framework\Parsers\Stubs\AttributeDetectionTrait;
 
 /**
  * Parses MethodNode AST nodes into PHPMethod domain objects.
@@ -23,7 +20,6 @@ use StubTests\Framework\Parsers\Stubs\AttributeDetectionTrait;
 class StubMethodParser
 {
     use AttributeDetectionTrait;
-
     private PhpDocParserInterface $phpDocParser;
     private TypeParserInterface $typeParser;
     private AvailableVersionParserInterface $versionParser;
@@ -145,5 +141,4 @@ class StubMethodParser
             }
         }
     }
-
 }

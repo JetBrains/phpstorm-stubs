@@ -22,7 +22,7 @@ class EnumMethodsParametersCountCheckTest extends CheckTestCase
 
     public function testMatchingParameterCountPasses(): void
     {
-        $enumId   = '\Dom\AdjacentPosition';
+        $enumId = '\Dom\AdjacentPosition';
         $reflEnum = $this->makeEnum($enumId, [
             $this->makeMethod('from', parameters: [$this->makeParam('value')]),
         ]);
@@ -31,7 +31,7 @@ class EnumMethodsParametersCountCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsParametersCountCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -41,7 +41,7 @@ class EnumMethodsParametersCountCheckTest extends CheckTestCase
 
     public function testParameterCountMismatchFails(): void
     {
-        $enumId   = '\Dom\AdjacentPosition';
+        $enumId = '\Dom\AdjacentPosition';
         // Reflection has 1 param, stub has 0
         $reflEnum = $this->makeEnum($enumId, [
             $this->makeMethod('from', parameters: [$this->makeParam('value')]),
@@ -51,7 +51,7 @@ class EnumMethodsParametersCountCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsParametersCountCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -65,12 +65,12 @@ class EnumMethodsParametersCountCheckTest extends CheckTestCase
 
     public function testNoParamMethodPasses(): void
     {
-        $enumId   = '\RoundingMode';
+        $enumId = '\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsParametersCountCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');

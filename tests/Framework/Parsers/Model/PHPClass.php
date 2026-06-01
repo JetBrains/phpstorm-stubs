@@ -2,9 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Model;
 
-use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
-use StubTests\Framework\Parsers\Model\PHPProperty;
-
 class PHPClass extends PHPClassLikeObject
 {
     /** @var PHPProperty[] */

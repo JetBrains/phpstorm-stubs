@@ -407,7 +407,7 @@ PHP;
         $this->assertNotEmpty($refs, 'Should extract references from actual meta files');
 
         // Verify some well-known references exist
-        $fqns = array_map(fn(MetaReference $r) => $r->type->value . ':' . $r->fqn, $refs);
+        $fqns = array_map(fn (MetaReference $r) => $r->type->value . ':' . $r->fqn, $refs);
 
         $this->assertContains('function:\\array_shift', $fqns);
         $this->assertContains('function:\\curl_setopt', $fqns);
@@ -429,7 +429,7 @@ PHP;
         // Within a single file, duplicates stay (dedup is in extractAll)
         // But extractAll deduplicates
         $allRefs = $this->extractor->extractAll(dirname($file));
-        $fqns = array_map(fn(MetaReference $r) => $r->toEntityId(), $allRefs);
+        $fqns = array_map(fn (MetaReference $r) => $r->toEntityId(), $allRefs);
         $this->assertCount(count(array_unique($fqns)), $fqns, 'extractAll should deduplicate');
     }
 
@@ -457,7 +457,7 @@ PHP;
                 return;
             }
         }
-        $actual = array_map(fn(MetaReference $r) => $r->type->value . ':' . $r->fqn, $refs);
+        $actual = array_map(fn (MetaReference $r) => $r->type->value . ':' . $r->fqn, $refs);
         $this->fail("Expected {$type->value}:{$fqn} not found in refs: " . implode(', ', $actual));
     }
 

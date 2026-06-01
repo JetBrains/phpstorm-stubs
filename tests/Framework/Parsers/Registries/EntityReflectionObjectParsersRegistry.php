@@ -8,7 +8,8 @@ use StubTests\Framework\Parsers\Reflection\ReflectionFunctionParser;
 use StubTests\Framework\Parsers\Reflection\ReflectionInterfaceParser;
 use StubTests\Framework\Parsers\Reflection\ReflectionModernConstantParser;
 
-class EntityReflectionObjectParsersRegistry {
+class EntityReflectionObjectParsersRegistry
+{
     private ReflectionClassParser $classParser;
     private ReflectionModernConstantParser $constantParser;
     private ReflectionFunctionParser $functionParser;

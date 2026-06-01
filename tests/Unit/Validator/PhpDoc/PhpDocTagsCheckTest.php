@@ -11,7 +11,6 @@ use StubTests\Framework\Validator\KnownProblems\ProblemDefinition;
 use StubTests\Framework\Validator\KnownProblems\ProblemType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\PhpDoc\PhpDocTagsCheck;
-use StubTests\Unit\Validator\PhpDoc\PhpDocCheckTestCase;
 
 class PhpDocTagsCheckTest extends PhpDocCheckTestCase
 {
@@ -31,8 +30,8 @@ class PhpDocTagsCheckTest extends PhpDocCheckTestCase
     }
 
     private function runCheck(
-		\StubTests\Framework\Parsers\StubDataQueryInterface $stubs,
-	    string                                              $entityId
+        \StubTests\Framework\Parsers\StubDataQueryInterface $stubs,
+        string $entityId
     ): \StubTests\Framework\Validator\Contracts\CheckResultSet {
         return $this->check->run($stubs, $entityId, PhpVersions::LATEST->value);
     }
@@ -42,9 +41,9 @@ class PhpDocTagsCheckTest extends PhpDocCheckTestCase
     public function testSupportsAllVersions(): void
     {
         $this->assertTrue($this->check->supports(PhpVersions::EARLIEST->value), 'PHP 5.6 must be supported');
-        $this->assertTrue($this->check->supports(PhpVersions::PHP_7_0->value),  'PHP 7.0 must be supported');
-        $this->assertTrue($this->check->supports(PhpVersions::PHP_8_0->value),  'PHP 8.0 must be supported');
-        $this->assertTrue($this->check->supports(PhpVersions::LATEST->value),   'PHP 8.4 must be supported');
+        $this->assertTrue($this->check->supports(PhpVersions::PHP_7_0->value), 'PHP 7.0 must be supported');
+        $this->assertTrue($this->check->supports(PhpVersions::PHP_8_0->value), 'PHP 8.0 must be supported');
+        $this->assertTrue($this->check->supports(PhpVersions::LATEST->value), 'PHP 8.4 must be supported');
     }
 
     // ── Entity not found ──────────────────────────────────────────────────────
@@ -86,24 +85,24 @@ class PhpDocTagsCheckTest extends PhpDocCheckTestCase
     public static function validTagProvider(): array
     {
         return [
-            'param'           => ['param'],
-            'return'          => ['return'],
-            'throws'          => ['throws'],
-            'since'           => ['since'],
-            'deprecated'      => ['deprecated'],
-            'var'             => ['var'],
-            'see'             => ['see'],
-            'link'            => ['link'],
-            'internal'        => ['internal'],
-            'template'        => ['template'],
+            'param' => ['param'],
+            'return' => ['return'],
+            'throws' => ['throws'],
+            'since' => ['since'],
+            'deprecated' => ['deprecated'],
+            'var' => ['var'],
+            'see' => ['see'],
+            'link' => ['link'],
+            'internal' => ['internal'],
+            'template' => ['template'],
             'template-covariant' => ['template-covariant'],
-            'extends'         => ['extends'],
-            'implements'      => ['implements'],
-            'immutable'       => ['immutable'],
-            'readonly'        => ['readonly'],
-            'removed'         => ['removed'],
-            'xglobal'         => ['xglobal'],
-            'inheritdoc'      => ['inheritdoc'],
+            'extends' => ['extends'],
+            'implements' => ['implements'],
+            'immutable' => ['immutable'],
+            'readonly' => ['readonly'],
+            'removed' => ['removed'],
+            'xglobal' => ['xglobal'],
+            'inheritdoc' => ['inheritdoc'],
             'no-named-arguments' => ['no-named-arguments'],
         ];
     }
@@ -125,22 +124,22 @@ class PhpDocTagsCheckTest extends PhpDocCheckTestCase
     public static function invalidTagProvider(): array
     {
         return [
-            'phpstan-type'           => ['phpstan-type'],
-            'phpstan-param'          => ['phpstan-param'],
-            'phpstan-return'         => ['phpstan-return'],
-            'phpstan-assert'         => ['phpstan-assert'],
+            'phpstan-type' => ['phpstan-type'],
+            'phpstan-param' => ['phpstan-param'],
+            'phpstan-return' => ['phpstan-return'],
+            'phpstan-assert' => ['phpstan-assert'],
             'phpstan-assert-if-true' => ['phpstan-assert-if-true'],
-            'phpstan-import-type'    => ['phpstan-import-type'],
-            'phpstan-ignore'         => ['phpstan-ignore'],
-            'phpstan-impure'         => ['phpstan-impure'],
-            'psalm-pure'             => ['psalm-pure'],
-            'psalm-assert'           => ['psalm-assert'],
-            'psalm-immutable'        => ['psalm-immutable'],
-            'psalm-param'            => ['psalm-param'],
-            'psalm-return'           => ['psalm-return'],
-            'psalm-var'              => ['psalm-var'],
-            'phan-type'              => ['phan-type'],
-            'unknown-tag'            => ['unknown-tag'],
+            'phpstan-import-type' => ['phpstan-import-type'],
+            'phpstan-ignore' => ['phpstan-ignore'],
+            'phpstan-impure' => ['phpstan-impure'],
+            'psalm-pure' => ['psalm-pure'],
+            'psalm-assert' => ['psalm-assert'],
+            'psalm-immutable' => ['psalm-immutable'],
+            'psalm-param' => ['psalm-param'],
+            'psalm-return' => ['psalm-return'],
+            'psalm-var' => ['psalm-var'],
+            'phan-type' => ['phan-type'],
+            'unknown-tag' => ['unknown-tag'],
         ];
     }
 

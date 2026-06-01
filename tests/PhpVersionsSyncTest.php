@@ -35,8 +35,8 @@ class PhpVersionsSyncTest extends TestCase
 
     public function testNoOrphanedReflectionCacheFiles(): void
     {
-        $enumVersions = array_map(fn(PhpVersions $v) => $v->value, PhpVersions::cases());
-        $cacheFiles   = glob($this->cacheDir . '/Reflection*.json') ?: [];
+        $enumVersions = array_map(fn (PhpVersions $v) => $v->value, PhpVersions::cases());
+        $cacheFiles = glob($this->cacheDir . '/Reflection*.json') ?: [];
 
         foreach ($cacheFiles as $file) {
             $version = substr(basename($file, '.json'), strlen('Reflection'));

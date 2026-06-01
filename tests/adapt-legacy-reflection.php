@@ -64,7 +64,7 @@ try {
     // Extract and wrap classes
     echo "[2/7] Extracting and wrapping classes...\n";
     $classNames = $dataProvider->getReflectionClasses();
-    $wrappedClasses = array();
+    $wrappedClasses = [];
     foreach ($classNames as $className) {
         try {
             $reflection = new ReflectionClass($className);
@@ -79,7 +79,7 @@ try {
     // Extract and wrap interfaces
     echo "[3/7] Extracting and wrapping interfaces...\n";
     $interfaceNames = $dataProvider->getReflectionInterfaces();
-    $wrappedInterfaces = array();
+    $wrappedInterfaces = [];
     foreach ($interfaceNames as $interfaceName) {
         try {
             $reflection = new ReflectionClass($interfaceName);
@@ -93,7 +93,7 @@ try {
     // Extract and wrap enums
     echo "[4/7] Extracting and wrapping enums...\n";
     $enumNames = $dataProvider->getReflectionEnums();
-    $wrappedEnums = array();
+    $wrappedEnums = [];
     foreach ($enumNames as $enumName) {
         try {
             $reflection = new ReflectionClass($enumName);
@@ -107,7 +107,7 @@ try {
     // Extract and wrap functions
     echo "[5/7] Extracting and wrapping functions...\n";
     $functionNames = $dataProvider->getReflectionFunctions();
-    $wrappedFunctions = array();
+    $wrappedFunctions = [];
     foreach ($functionNames as $functionName) {
         try {
             $reflection = new ReflectionFunction($functionName);
@@ -124,7 +124,7 @@ try {
     echo "      ✓ Extracted " . count($constants) . " constants\n\n";
 
     // Package all data
-    $extractedData = array(
+    $extractedData = [
         'phpVersion' => $phpVersion,
         'runtimeVersion' => PHP_VERSION,
         'classes' => $wrappedClasses,
@@ -132,7 +132,7 @@ try {
         'enums' => $wrappedEnums,
         'functions' => $wrappedFunctions,
         'constants' => $constants
-    );
+    ];
 
     // Save extracted data
     echo "[7/7] Saving wrapped reflection data...\n";
@@ -171,7 +171,6 @@ try {
     echo "          Output saved to: {$outputFile}\n\n";
 
     exit(0);
-
 } catch (Exception $e) {
     echo "\n✗ ERROR: " . $e->getMessage() . "\n";
     echo "  File: " . $e->getFile() . ":" . $e->getLine() . "\n";

@@ -44,10 +44,10 @@ class InterfaceMethodsParameterTypesCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInReflectionIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $stubIface   = $this->makeInterface($interfaceId);
+        $stubIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParameterTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -60,10 +60,10 @@ class InterfaceMethodsParameterTypesCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInStubsIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $reflIface   = $this->makeInterface($interfaceId);
+        $reflIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([]);
 
         $result = (new ClassMethodsParameterTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -78,11 +78,11 @@ class InterfaceMethodsParameterTypesCheckTest extends CheckTestCase
     public function testInterfaceWithNoMethodsSucceeds(): void
     {
         $interfaceId = '\Countable';
-        $reflIface   = $this->makeInterface($interfaceId);
-        $stubIface   = $this->makeInterface($interfaceId);
+        $reflIface = $this->makeInterface($interfaceId);
+        $stubIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParameterTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -94,7 +94,7 @@ class InterfaceMethodsParameterTypesCheckTest extends CheckTestCase
     public function testMatchingParameterTypeIsSuccess(): void
     {
         $interfaceId = '\Iterator';
-        $stringType  = $this->createType('string');
+        $stringType = $this->createType('string');
 
         $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('offsetGet', parameters: [$this->makeParam('offset', $stringType)]),
@@ -104,7 +104,7 @@ class InterfaceMethodsParameterTypesCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParameterTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -115,7 +115,7 @@ class InterfaceMethodsParameterTypesCheckTest extends CheckTestCase
     public function testMismatchedParameterTypeIsFailure(): void
     {
         $interfaceId = '\Iterator';
-        $methodId    = $interfaceId . '::offsetGet';
+        $methodId = $interfaceId . '::offsetGet';
 
         $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('offsetGet', parameters: [$this->makeParam('offset', $this->createType('string'))]),
@@ -125,7 +125,7 @@ class InterfaceMethodsParameterTypesCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParameterTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -140,21 +140,21 @@ class InterfaceMethodsParameterTypesCheckTest extends CheckTestCase
 
     public function testParameterTypeFromParentInterfaceIsCounted(): void
     {
-        $childId    = '\ChildInterface';
+        $childId = '\ChildInterface';
         $stringType = $this->createType('string');
 
-        $reflIface  = $this->makeInterface($childId, [
+        $reflIface = $this->makeInterface($childId, [
             $this->makeMethod('offsetGet', parameters: [$this->makeParam('offset', $stringType)]),
         ]);
 
         $parentStub = $this->makeInterface('\ParentInterface', [
             $this->makeMethod('offsetGet', parameters: [$this->makeParam('offset', $stringType)]),
         ]);
-        $childStub  = $this->makeInterface($childId);
+        $childStub = $this->makeInterface($childId);
         $childStub->addParentInterface($parentStub);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$childStub]);
 
         $result = (new ClassMethodsParameterTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $childId, '8.0');
@@ -167,10 +167,10 @@ class InterfaceMethodsParameterTypesCheckTest extends CheckTestCase
     public function testInterfaceLevelKnownProblemSkipsAllMethods(): void
     {
         $interfaceId = '\SpecialInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [
+        $reflIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('doWork', parameters: [$this->makeParam('value', $this->createType('string'))]),
         ]);
-        $stubIface   = $this->makeInterface($interfaceId, [
+        $stubIface = $this->makeInterface($interfaceId, [
             $this->makeMethod('doWork', parameters: [$this->makeParam('value', $this->createType('int'))]),  // mismatch
         ]);
 
@@ -190,7 +190,7 @@ class InterfaceMethodsParameterTypesCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParameterTypesCheck(reflectionProvider: $provider, knownProblemsRegistry: $registry, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');

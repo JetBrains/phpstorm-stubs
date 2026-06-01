@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Parsers\Reflection;
 
 use StubTests\Framework\Parsers\Model\PHPParameter;
-use StubTests\Framework\Parsers\Reflection\ReflectionTypeParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionParameter;
 use StubTests\Framework\Parsers\Parser;
 
@@ -64,7 +63,7 @@ class ReflectionParameterParser implements Parser
         }
 
         // Detect deprecation via method_exists guard (future PHP) or attributes check
-        $deprecated = method_exists($object, 'isDeprecated') && (bool) $object->isDeprecated();
+        $deprecated = method_exists($object, 'isDeprecated') && (bool)$object->isDeprecated();
         if (!$deprecated && method_exists($object, 'getAttributes')) {
             foreach ($object->getAttributes() as $attr) {
                 $attrName = is_array($attr) ? ($attr['name'] ?? '') : (method_exists($attr, 'getName') ? $attr->getName() : '');

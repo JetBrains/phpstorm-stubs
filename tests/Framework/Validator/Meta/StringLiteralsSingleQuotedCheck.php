@@ -4,7 +4,6 @@ namespace StubTests\Framework\Validator\Meta;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
-use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt;
 use StubTests\Framework\Parsers\Meta\MetaFileWalkerTrait;

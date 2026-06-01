@@ -40,7 +40,6 @@ use StubTests\Framework\Validator\Classes\Methods\ClassMethodsPhpDocConformsSign
 use StubTests\Framework\Validator\Classes\Methods\ReflectionMethodSpecialTypeHintsCheck;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
-use StubTests\ValidatorTestBase;
 
 /**
  * Validates that classes from reflection exist in stubs.

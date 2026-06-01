@@ -48,7 +48,7 @@ class ClassMethodsTentativeReturnTypeCheck extends AbstractMethodFlagCheck
         string $phpVersion
     ): ?string {
         $reflTentative = method_exists($reflMethod, 'hasTentativeReturnType')
-            && (bool) $reflMethod->hasTentativeReturnType();
+            && (bool)$reflMethod->hasTentativeReturnType();
         $stubTentative = $stubMethod->hasTentativeReturnType();
 
         if ($reflTentative === $stubTentative) {

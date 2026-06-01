@@ -6,7 +6,6 @@ use StubTests\Framework\Parsers\Model\Access\AccessModifier;
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
-use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**
@@ -76,7 +75,7 @@ abstract class AbstractTypeForbiddenCheck extends AbstractClassCheck
                 continue;
             }
 
-            $hasMismatch    = true;
+            $hasMismatch = true;
             $methodEntityId = $entityId . '::' . $methodName;
 
             if (!$this->skipWithKnownProblem($results, EntityType::METHOD->value, $methodEntityId, $this->getCheckName(), $phpVersion)) {

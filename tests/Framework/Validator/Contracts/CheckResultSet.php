@@ -26,7 +26,7 @@ class CheckResultSet
     public function getFailures(): array
     {
         return array_map(
-            static fn(array $messages): string => implode("\n", $messages),
+            static fn (array $messages): string => implode("\n", $messages),
             $this->failures
         );
     }

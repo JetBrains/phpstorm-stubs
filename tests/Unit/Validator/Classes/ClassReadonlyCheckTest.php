@@ -4,7 +4,6 @@ namespace StubTests\Unit\Validator\Classes;
 
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\ClassReadonlyCheck;
-use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 use StubTests\Unit\Validator\CheckTestCase;
 
 class ClassReadonlyCheckTest extends CheckTestCase

@@ -40,11 +40,11 @@ class InterfaceMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testInterfaceNotFoundInReflectionIsFailure(): void
     {
-        $ifaceId   = '\MyInterface';
+        $ifaceId = '\MyInterface';
         $stubIface = $this->createMockInterface($ifaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, PhpVersions::LATEST->value);
@@ -56,7 +56,7 @@ class InterfaceMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMatchingDefaultsSucceed(): void
     {
-        $ifaceId    = '\MyInterface';
+        $ifaceId = '\MyInterface';
         $reflParams = [$this->makeParam('mode', hasDefaultValue: true, defaultValue: 1, optional: true)];
         $stubParams = [$this->makeParam('mode', hasDefaultValue: true, defaultValue: 1, optional: true)];
 
@@ -64,7 +64,7 @@ class InterfaceMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $stubIface = $this->createMockInterface($ifaceId, [$this->createMockMethod('execute', $stubParams)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, PhpVersions::LATEST->value);
@@ -74,7 +74,7 @@ class InterfaceMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMismatchedDefaultIsFailure(): void
     {
-        $ifaceId    = '\MyInterface';
+        $ifaceId = '\MyInterface';
         $reflParams = [$this->makeParam('mode', hasDefaultValue: true, defaultValue: 1, optional: true)];
         $stubParams = [$this->makeParam('mode', hasDefaultValue: true, defaultValue: 2, optional: true)]; // wrong
 
@@ -82,7 +82,7 @@ class InterfaceMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $stubIface = $this->createMockInterface($ifaceId, [$this->createMockMethod('execute', $stubParams)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, PhpVersions::LATEST->value);
@@ -97,7 +97,7 @@ class InterfaceMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $ifaceId = '\NoSuchInterface';
 
         $provider = $this->createMockReflectionProviderWithInterfaces([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, PhpVersions::LATEST->value);

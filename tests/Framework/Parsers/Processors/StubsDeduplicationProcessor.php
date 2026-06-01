@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Parsers\Processors;
 
 use StubTests\Framework\Parsers\Model\PHPNamespacedElement;
-use StubTests\Framework\Parsers\Processors\EntityProcessor;
 
 class StubsDeduplicationProcessor implements EntityProcessor
 {

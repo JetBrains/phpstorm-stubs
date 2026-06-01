@@ -18,7 +18,6 @@ use StubTests\Framework\Validator\Functions\FunctionPhpDocConformsSignatureCheck
 use StubTests\Framework\Validator\Functions\FunctionSpecialTypeHintsCheck;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
-use StubTests\ValidatorTestBase;
 
 /**
  * Validates that functions from reflection match stubs.

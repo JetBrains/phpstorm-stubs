@@ -3,7 +3,6 @@
 namespace StubTests\Unit\DataProviders;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Processors\EntityProcessingPipeline;
 use StubTests\Framework\DataProvider\AllStubsDataProvider;
 use StubTests\Framework\DataProvider\CoreStubsDataProvider;
 use StubTests\Framework\DataProvider\StubCategory;

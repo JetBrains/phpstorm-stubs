@@ -9,7 +9,6 @@ use StubTests\Framework\Parsers\Model\PHPInterface;
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\Model\PHPParameter;
 use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Validator\Services\ParameterFilterHelper;
 
 /**
  * Service for collecting methods and properties from entity hierarchies.
@@ -27,7 +26,7 @@ class MethodCollectionService
     public function collectPropertiesForClass(PHPClass $class, string $phpVersion): array
     {
         $propertyMap = [];
-        $visited     = [];
+        $visited = [];
 
         $current = $class;
         while ($current !== null) {
@@ -69,7 +68,7 @@ class MethodCollectionService
     public function collectForClass(PHPClass $class, string $phpVersion): array
     {
         $methodMap = [];
-        $visited   = [];
+        $visited = [];
 
         $current = $class;
         while ($current !== null) {
@@ -101,7 +100,7 @@ class MethodCollectionService
     public function collectForEnum(PHPEnum $enum, string $phpVersion): array
     {
         $methodMap = [];
-        $visited   = [];
+        $visited = [];
 
         $this->collectMethodsFromClassLike($enum, $phpVersion, $methodMap);
 
@@ -120,7 +119,7 @@ class MethodCollectionService
     public function collectForInterface(PHPInterface $interface, string $phpVersion): array
     {
         $methodMap = [];
-        $visited   = [];
+        $visited = [];
         $this->collectMethodsFromInterfaceHierarchy($interface, $phpVersion, $methodMap, $visited);
         return $methodMap;
     }

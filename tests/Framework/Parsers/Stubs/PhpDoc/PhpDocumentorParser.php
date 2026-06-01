@@ -10,8 +10,6 @@ use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use phpDocumentor\Reflection\DocBlockFactory;
 use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
-use StubTests\Framework\Parsers\Stubs\PhpDoc\ParsedPhpDoc;
-use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 
 /**
  * PhpDoc parser implementation using phpDocumentor library.
@@ -192,7 +190,7 @@ class PhpDocumentorParser implements PhpDocParserInterface
         $returnTag = $returnTags[0];
         if ($returnTag instanceof Return_) {
             $type = $returnTag->getType();
-            return $type !== null ? (string) $type : null;
+            return $type !== null ? (string)$type : null;
         }
 
         return null;
@@ -211,7 +209,7 @@ class PhpDocumentorParser implements PhpDocParserInterface
                 if ($varName !== null && $type !== null) {
                     // Remove $ prefix if present
                     $varName = ltrim($varName, '$');
-                    $paramTypesMap[$varName] = (string) $type;
+                    $paramTypesMap[$varName] = (string)$type;
                 }
             }
         }
@@ -235,7 +233,7 @@ class PhpDocumentorParser implements PhpDocParserInterface
         foreach ($paramTags as $paramTag) {
             if ($paramTag instanceof Param) {
                 $varName = $paramTag->getVariableName();
-                $description = (string) $paramTag->getDescription();
+                $description = (string)$paramTag->getDescription();
 
                 if ($varName !== null && str_contains($description, '[optional]')) {
                     $optionalParams[] = ltrim($varName, '$');
@@ -256,7 +254,7 @@ class PhpDocumentorParser implements PhpDocParserInterface
         $varTag = $varTags[0];
         if ($varTag instanceof Var_) {
             $type = $varTag->getType();
-            return $type !== null ? (string) $type : null;
+            return $type !== null ? (string)$type : null;
         }
 
         return null;
@@ -286,7 +284,7 @@ class PhpDocumentorParser implements PhpDocParserInterface
 
         $removedTag = $removedTags[0];
         if ($removedTag instanceof Generic) {
-            return (string) $removedTag->getDescription();
+            return (string)$removedTag->getDescription();
         }
 
         return null;

@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Parsers\Processors;
 
 use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Processors\EntityProcessor;
 
 class IdGeneratorProcessor implements EntityProcessor
 {

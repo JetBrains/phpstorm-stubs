@@ -2,8 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Model;
 
-use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
-
 class PHPEnum extends PHPClassLikeObject
 {
     /** @var string[] */

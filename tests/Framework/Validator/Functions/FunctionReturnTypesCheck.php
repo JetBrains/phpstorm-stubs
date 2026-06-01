@@ -30,7 +30,6 @@ use StubTests\Framework\Validator\Services\TypeResolver;
  */
 class FunctionReturnTypesCheck extends AbstractCallableCheck
 {
-
     public function supports(string $phpVersion): bool
     {
         // Return type declarations were introduced in PHP 7.0
@@ -62,7 +61,7 @@ class FunctionReturnTypesCheck extends AbstractCallableCheck
         }
 
         $reflectionReturnType = ReturnTypeResolver::getReturnTypeString($reflectionCallable, $phpVersion);
-        $stubReturnType       = ReturnTypeResolver::getReturnTypeString($stubCallable, $phpVersion);
+        $stubReturnType = ReturnTypeResolver::getReturnTypeString($stubCallable, $phpVersion);
 
         // When reflection has no type info but stub documents one, the stub is
         // providing additional documentation beyond what the Reflection API exposes.
@@ -78,7 +77,7 @@ class FunctionReturnTypesCheck extends AbstractCallableCheck
         }
 
         $normalizedReflectionType = TypeResolver::normalizeType($reflectionReturnType);
-        $normalizedStubType       = TypeResolver::normalizeType($stubReturnType);
+        $normalizedStubType = TypeResolver::normalizeType($stubReturnType);
 
         if ($normalizedReflectionType !== $normalizedStubType) {
             $results->addFailure(

@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Parsers\Stubs\Types;
 
 use StubTests\Framework\Parsers\Stubs\Nodes\TypeNode;
-use StubTests\Framework\Parsers\Stubs\Types\ParsedType;
 
 /**
  * Interface for parsing type information from multiple sources.

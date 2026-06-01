@@ -21,7 +21,7 @@ trait AttributeDetectionTrait
     private function hasTentativeTypeAttribute(array $attributes, array $imports): bool
     {
         foreach ($attributes as $attribute) {
-            $name     = $attribute->getName();
+            $name = $attribute->getName();
             $fullName = $imports[$name] ?? $name;
             if ($fullName === 'JetBrains\\PhpStorm\\Internal\\TentativeType'
                 || $fullName === 'TentativeType'
@@ -43,7 +43,7 @@ trait AttributeDetectionTrait
     private function hasDeprecatedAttribute(array $attributes, array $imports): bool
     {
         foreach ($attributes as $attribute) {
-            $name     = $attribute->getName();
+            $name = $attribute->getName();
             $fullName = $imports[$name] ?? $name;
             if ($fullName === 'JetBrains\\PhpStorm\\Deprecated'
                 || str_ends_with($fullName, '\\PhpStorm\\Deprecated')

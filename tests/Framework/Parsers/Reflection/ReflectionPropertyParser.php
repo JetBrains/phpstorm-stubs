@@ -3,9 +3,7 @@
 namespace StubTests\Framework\Parsers\Reflection;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-
 use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Parsers\Reflection\ReflectionTypeParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionProperty;
 use StubTests\Framework\Parsers\Parser;
 
@@ -14,7 +12,6 @@ use StubTests\Framework\Parsers\Parser;
  */
 class ReflectionPropertyParser implements Parser
 {
-
     private ReflectionTypeParser $typeParser;
 
     public function __construct(?ReflectionTypeParser $typeParser = null)

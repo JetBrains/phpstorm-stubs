@@ -2,10 +2,6 @@
 
 namespace StubTests\Framework\DataProvider;
 
-use StubTests\Framework\DataProvider\AllStubsDataProvider;
-use StubTests\Framework\DataProvider\StubCategory;
-use StubTests\Framework\DataProvider\StubsDataProvider;
-
 /**
  * Data provider that filters stub files by category (Core, Bundled, External, PECL).
  *
@@ -29,7 +25,7 @@ class CoreStubsDataProvider implements StubsDataProvider
         StubCategory|array $categories,
         ?StubsDataProvider $innerProvider = null,
     ) {
-        $this->categories    = is_array($categories) ? $categories : [$categories];
+        $this->categories = is_array($categories) ? $categories : [$categories];
         $this->innerProvider = $innerProvider ?? new AllStubsDataProvider();
     }
 
@@ -39,10 +35,10 @@ class CoreStubsDataProvider implements StubsDataProvider
             return $this->cachedStubFiles;
         }
 
-        $allowedDirectories    = $this->getAllowedDirectories();
+        $allowedDirectories = $this->getAllowedDirectories();
         $this->cachedStubFiles = array_values(array_filter(
             $this->innerProvider->getAllStubFiles(),
-            fn(string $path) => $this->isPathAllowed($path, $allowedDirectories)
+            fn (string $path) => $this->isPathAllowed($path, $allowedDirectories)
         ));
 
         return $this->cachedStubFiles;
@@ -67,7 +63,7 @@ class CoreStubsDataProvider implements StubsDataProvider
     private function isPathAllowed(string $absolutePath, array $allowedDirectories): bool
     {
         $stubsRootPath = $this->getStubsRootPath();
-        $relative      = ltrim(substr($absolutePath, strlen($stubsRootPath)), '/');
+        $relative = ltrim(substr($absolutePath, strlen($stubsRootPath)), '/');
         $topLevelDir = explode('/', $relative)[0];
         return $this->isDirectoryAllowed($topLevelDir, $allowedDirectories);
     }

@@ -43,10 +43,10 @@ class InterfaceStaticMethodsCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInReflectionIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $stubIface   = $this->makeInterface($interfaceId);
+        $stubIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -59,10 +59,10 @@ class InterfaceStaticMethodsCheckTest extends CheckTestCase
     public function testInterfaceNotFoundInStubsIsFailure(): void
     {
         $interfaceId = '\MissingInterface';
-        $reflIface   = $this->makeInterface($interfaceId);
+        $reflIface = $this->makeInterface($interfaceId);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -78,11 +78,11 @@ class InterfaceStaticMethodsCheckTest extends CheckTestCase
     {
         // UnitEnum::cases() is a real-world example of a static interface method.
         $interfaceId = '\UnitEnum';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('cases', isStatic: true)]);
-        $stubIface   = $this->makeInterface($interfaceId, [$this->makeMethod('cases', isStatic: true)]);
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('cases', isStatic: true)]);
+        $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('cases', isStatic: true)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.1');
@@ -93,11 +93,11 @@ class InterfaceStaticMethodsCheckTest extends CheckTestCase
     public function testBothNonStaticIsSuccess(): void
     {
         $interfaceId = '\Iterator';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('current', isStatic: false)]);
-        $stubIface   = $this->makeInterface($interfaceId, [$this->makeMethod('current', isStatic: false)]);
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('current', isStatic: false)]);
+        $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('current', isStatic: false)]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -108,11 +108,11 @@ class InterfaceStaticMethodsCheckTest extends CheckTestCase
     public function testReflectionStaticStubNonStaticIsFailure(): void
     {
         $interfaceId = '\UnitEnum';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('cases', isStatic: true)]);
-        $stubIface   = $this->makeInterface($interfaceId, [$this->makeMethod('cases', isStatic: false)]);  // mismatch
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('cases', isStatic: true)]);
+        $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('cases', isStatic: false)]);  // mismatch
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.1');
@@ -126,11 +126,11 @@ class InterfaceStaticMethodsCheckTest extends CheckTestCase
     public function testReflectionNonStaticStubStaticIsFailure(): void
     {
         $interfaceId = '\Iterator';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('current', isStatic: false)]);
-        $stubIface   = $this->makeInterface($interfaceId, [$this->makeMethod('current', isStatic: true)]);  // mismatch
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('current', isStatic: false)]);
+        $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('current', isStatic: true)]);  // mismatch
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
@@ -144,18 +144,18 @@ class InterfaceStaticMethodsCheckTest extends CheckTestCase
     public function testStaticMethodFromParentInterfaceIsCounted(): void
     {
         // BackedEnum extends UnitEnum. cases() is declared static in UnitEnum.
-        $backedEnumId   = '\BackedEnum';
-        $reflIface      = $this->makeInterface($backedEnumId, [
+        $backedEnumId = '\BackedEnum';
+        $reflIface = $this->makeInterface($backedEnumId, [
             $this->makeMethod('cases', isStatic: true),  // inherited from UnitEnum
             $this->makeMethod('from', isStatic: true),
         ]);
 
-        $unitEnumStub   = $this->makeInterface('\UnitEnum', [$this->makeMethod('cases', isStatic: true)]);
+        $unitEnumStub = $this->makeInterface('\UnitEnum', [$this->makeMethod('cases', isStatic: true)]);
         $backedEnumStub = $this->makeInterface($backedEnumId, [$this->makeMethod('from', isStatic: true)]);
         $backedEnumStub->addParentInterface($unitEnumStub);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$backedEnumStub]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $backedEnumId, '8.1');
@@ -165,19 +165,19 @@ class InterfaceStaticMethodsCheckTest extends CheckTestCase
 
     public function testStaticMismatchInParentInterfaceIsReported(): void
     {
-        $backedEnumId   = '\BackedEnum';
-        $reflIface      = $this->makeInterface($backedEnumId, [
+        $backedEnumId = '\BackedEnum';
+        $reflIface = $this->makeInterface($backedEnumId, [
             $this->makeMethod('cases', isStatic: true),  // reflection: static
         ]);
 
-        $unitEnumStub   = $this->makeInterface('\UnitEnum', [
+        $unitEnumStub = $this->makeInterface('\UnitEnum', [
             $this->makeMethod('cases', isStatic: false),  // stub: non-static → mismatch
         ]);
         $backedEnumStub = $this->makeInterface($backedEnumId);
         $backedEnumStub->addParentInterface($unitEnumStub);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$backedEnumStub]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $backedEnumId, '8.1');
@@ -191,8 +191,8 @@ class InterfaceStaticMethodsCheckTest extends CheckTestCase
     public function testInterfaceLevelKnownProblemSkipsAllMethods(): void
     {
         $interfaceId = '\SpecialInterface';
-        $reflIface   = $this->makeInterface($interfaceId, [$this->makeMethod('create', isStatic: true)]);
-        $stubIface   = $this->makeInterface($interfaceId, [$this->makeMethod('create', isStatic: false)]);
+        $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('create', isStatic: true)]);
+        $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('create', isStatic: false)]);
 
         $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
@@ -210,7 +210,7 @@ class InterfaceStaticMethodsCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$stubIface]);
 
         $result = (new ClassStaticMethodsCheck(reflectionProvider: $provider, knownProblemsRegistry: $registry, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');

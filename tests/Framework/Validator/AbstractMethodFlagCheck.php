@@ -5,7 +5,6 @@ namespace StubTests\Framework\Validator;
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
-use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**
@@ -47,7 +46,7 @@ abstract class AbstractMethodFlagCheck extends AbstractClassCheck
         }
 
         $reflection = $this->reflectionProvider->getReflection($phpVersion);
-        $label      = $this->getEntityLabel();
+        $label = $this->getEntityLabel();
 
         $reflectionClass = $this->lookupEntityById($reflection, $entityId);
         if ($reflectionClass === null) {
@@ -90,5 +89,4 @@ abstract class AbstractMethodFlagCheck extends AbstractClassCheck
 
         return $results;
     }
-
 }

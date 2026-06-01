@@ -2,8 +2,6 @@
 
 namespace StubTests\Unit\Validator\Meta;
 
-use StubTests\Framework\Parsers\Model\PHPClassConstant;
-use StubTests\Framework\Parsers\Model\PHPConstant;
 use StubTests\Framework\Validator\Meta\ConstantsReferenceExistsCheck;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 use StubTests\Unit\Validator\CheckTestCase;

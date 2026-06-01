@@ -2,11 +2,8 @@
 
 namespace StubTests\Framework\Parsers\Model;
 
-use StubTests\Framework\Parsers\Model\StubsMetadata;
-
 class BasePHPElement
 {
-
     private ?string $name = null;
     private ?string $id = null;
     private ?StubsMetadata $stubsMetadata = null;

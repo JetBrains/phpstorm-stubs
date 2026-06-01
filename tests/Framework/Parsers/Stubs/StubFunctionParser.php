@@ -2,20 +2,16 @@
 
 namespace StubTests\Framework\Parsers\Stubs;
 
-use StubTests\Framework\Parsers\Stubs\FunctionNodeExtractorInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
-use StubTests\Framework\Parsers\Stubs\StubParameterParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
 use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicNodeExtractor;
 use StubTests\Framework\Parsers\Stubs\Nodes\FunctionNode;
-use StubTests\Framework\Parsers\Stubs\AttributeDetectionTrait;
-use StubTests\Framework\Parsers\Stubs\MultiEntityStubParserInterface;
 
 /**
  * Parses PHP function nodes from AST into PHPFunction domain objects.
@@ -25,7 +21,6 @@ use StubTests\Framework\Parsers\Stubs\MultiEntityStubParserInterface;
 class StubFunctionParser implements MultiEntityStubParserInterface
 {
     use AttributeDetectionTrait;
-
     private FunctionNodeExtractorInterface $nodeExtractor;
     private PhpDocParserInterface $phpDocParser;
     private TypeParserInterface $typeParser;

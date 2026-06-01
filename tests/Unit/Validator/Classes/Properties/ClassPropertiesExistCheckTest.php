@@ -2,7 +2,6 @@
 
 namespace StubTests\Unit\Validator\Classes\Properties;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
 use StubTests\Framework\Parsers\Model\PHPProperty;
 use StubTests\Framework\Validator\Classes\Properties\ClassPropertiesExistCheck;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
@@ -340,7 +339,7 @@ class ClassPropertiesExistCheckTest extends CheckTestCase
 
         $this->assertFalse($result->hasFailures());
         $successes = $result->getSuccesses();
-        $skippedEntry = array_filter($successes, fn($s) => str_contains($s, 'skipped'));
+        $skippedEntry = array_filter($successes, fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skippedEntry);
         $this->assertStringContainsString('Property-level skip reason', array_values($skippedEntry)[0]);
     }

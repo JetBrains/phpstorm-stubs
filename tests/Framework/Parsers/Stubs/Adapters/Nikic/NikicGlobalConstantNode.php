@@ -4,7 +4,6 @@ namespace StubTests\Framework\Parsers\Stubs\Adapters\Nikic;
 
 use PhpParser\Node\Const_;
 use StubTests\Framework\Parsers\Stubs\Nodes\ConstantDefinitionNode;
-use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicExprValueResolverTrait;
 
 /**
  * Adapter for nikic/php-parser Const_ nodes representing global const declarations.
@@ -14,7 +13,6 @@ use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicExprValueResolverTrait
 class NikicGlobalConstantNode implements ConstantDefinitionNode
 {
     use NikicExprValueResolverTrait;
-
     private Const_ $const;
     private string $namespace = '\\';
 

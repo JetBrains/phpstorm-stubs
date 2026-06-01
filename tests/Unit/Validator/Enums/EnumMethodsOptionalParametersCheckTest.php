@@ -22,7 +22,7 @@ class EnumMethodsOptionalParametersCheckTest extends CheckTestCase
 
     public function testRequiredParamOnBothSidesPasses(): void
     {
-        $enumId   = '\Dom\AdjacentPosition';
+        $enumId = '\Dom\AdjacentPosition';
         $reflEnum = $this->makeEnum($enumId, [
             $this->makeMethod('from', parameters: [$this->makeParam('value')]),
         ]);
@@ -31,7 +31,7 @@ class EnumMethodsOptionalParametersCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsOptionalParametersCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -41,7 +41,7 @@ class EnumMethodsOptionalParametersCheckTest extends CheckTestCase
 
     public function testOptionalInReflectionButRequiredInStubFails(): void
     {
-        $enumId   = '\MyEnum';
+        $enumId = '\MyEnum';
         // Reflection says optional, stub says required
         $reflEnum = $this->makeEnum($enumId, [
             $this->makeMethod('doSomething', parameters: [$this->makeParam('value', optional: true)]),
@@ -51,7 +51,7 @@ class EnumMethodsOptionalParametersCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsOptionalParametersCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');

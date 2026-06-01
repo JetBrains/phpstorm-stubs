@@ -2,9 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Meta;
 
-use StubTests\Framework\Parsers\Meta\MetaReferenceRole;
-use StubTests\Framework\Parsers\Meta\MetaReferenceType;
-
 final class MetaReference
 {
     private const ENTITY_ID_SEPARATOR = '|';
@@ -15,8 +12,7 @@ final class MetaReference
         public readonly string $sourceFile,
         public readonly int $line,
         public readonly MetaReferenceRole $role = MetaReferenceRole::VALUE,
-    ) {
-    }
+    ) {}
 
     public function toEntityId(): string
     {

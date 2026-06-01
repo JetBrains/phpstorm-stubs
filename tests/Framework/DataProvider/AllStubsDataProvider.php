@@ -5,7 +5,6 @@ namespace StubTests\Framework\DataProvider;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RuntimeException;
-use StubTests\Framework\DataProvider\StubsDataProvider;
 
 class AllStubsDataProvider implements StubsDataProvider
 {

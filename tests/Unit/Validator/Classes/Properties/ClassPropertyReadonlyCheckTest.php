@@ -72,7 +72,7 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -87,7 +87,7 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
         $reflClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -105,7 +105,7 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
         $stubClass = $this->createMockClassWithProperties($className);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -118,16 +118,28 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', false)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', false)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -139,16 +151,28 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', true)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', true)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -162,16 +186,28 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', true)]   // reflection: readonly
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', false)]  // stub: non-readonly
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -187,16 +223,28 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', false)]  // reflection: non-readonly
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', true)]   // stub: readonly
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -209,21 +257,33 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', true)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', false)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
-        $result   = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
+        $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
         $failures = $result->getFailures();
-        $msg      = $failures[$className . '::$name'];
+        $msg = $failures[$className . '::$name'];
 
         $this->assertStringContainsString('readonly', $msg);
         $this->assertStringContainsString('non-readonly', $msg);
@@ -234,22 +294,34 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [
-                $this->makeProperty('name',  false), // matches
+                $this->makeProperty('name', false), // matches
                 $this->makeProperty('value', true),  // mismatch: refl=readonly, stub=non-readonly
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [
-                $this->makeProperty('name',  false),
+                $this->makeProperty('name', false),
                 $this->makeProperty('value', false), // wrong
             ]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -265,13 +337,19 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('onlyInReflection', true)]
         );
         $stubClass = $this->createMockClassWithProperties($className); // no properties
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -285,11 +363,23 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
     {
         $className = '\SpecialClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', true)]  // mismatch
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', false)]
         );
 
@@ -309,7 +399,7 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider, $registry))->run($stubs, $className, '8.1');
@@ -325,21 +415,33 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
 
     public function testPropertyLevelKnownProblemSkipsSpecificMismatch(): void
     {
-        $className    = '\MyClass';
+        $className = '\MyClass';
         $mismatchedId = $className . '::$name';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [
                 $this->makeProperty('value', false), // matches
-                $this->makeProperty('name',  true),  // mismatch — covered by known problem
+                $this->makeProperty('name', true),  // mismatch — covered by known problem
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [
                 $this->makeProperty('value', false),
-                $this->makeProperty('name',  false), // wrong, but known problem
+                $this->makeProperty('name', false), // wrong, but known problem
             ]
         );
 
@@ -359,13 +461,13 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider, $registry))->run($stubs, $className, '8.1');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Property-level skip', array_values($skipped)[0]);
     }
@@ -375,16 +477,28 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [
-                $this->makeProperty('name',  true),  // mismatch — known problem
+                $this->makeProperty('name', true),  // mismatch — known problem
                 $this->makeProperty('value', true),  // mismatch — NOT a known problem
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [
-                $this->makeProperty('name',  false),
+                $this->makeProperty('name', false),
                 $this->makeProperty('value', false),
             ]
         );
@@ -405,7 +519,7 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider, $registry))->run($stubs, $className, '8.1');
@@ -422,16 +536,28 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', true)]
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', false, '8.2')] // not available in 8.1
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -443,16 +569,28 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', true)]   // reflection: readonly
         );
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', false, '8.1', '8.4')] // available in 8.1, but wrong
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -465,11 +603,17 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
 
     public function testReadonlyPropertyInheritedFromParentMismatchIsReported(): void
     {
-        $className       = '\ChildClass';
+        $className = '\ChildClass';
         $parentClassName = '\ParentClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', true)] // reflection sees readonly on child
         );
 
@@ -481,7 +625,7 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -492,11 +636,17 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
 
     public function testReadonlyPropertyInheritedFromParentMatchIsSuccess(): void
     {
-        $className       = '\ChildClass';
+        $className = '\ChildClass';
         $parentClassName = '\ParentClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', true)]
         );
 
@@ -508,7 +658,7 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -518,11 +668,17 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
 
     public function testChildPropertyOverridesParentForReadonlyCheck(): void
     {
-        $className       = '\ChildClass';
+        $className = '\ChildClass';
         $parentClassName = '\ParentClass';
 
         $reflClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', false)] // child override: non-readonly
         );
 
@@ -531,13 +687,19 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
         $parentStub->setProperties([$this->makeProperty('name', true)]); // parent: readonly (must not win)
 
         $childStub = $this->createMockClassWithProperties(
-            $className, null, null, null, [], null, [],
+            $className,
+            null,
+            null,
+            null,
+            [],
+            null,
+            [],
             [$this->makeProperty('name', false)] // child: non-readonly → matches reflection
         );
         $childStub->setParentClass($parentStub);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$childStub]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');
@@ -559,7 +721,7 @@ class ClassPropertyReadonlyCheckTest extends CheckTestCase
         $stubClass->setParentClass($parent);
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertyReadonlyCheck($provider))->run($stubs, $className, '8.1');

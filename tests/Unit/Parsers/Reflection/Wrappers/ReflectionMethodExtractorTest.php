@@ -12,10 +12,13 @@ class ReflectionMethodExtractorTest extends TestCase
 
     public function testItExtractsMethodsWithCorrectPrefixes()
     {
-        $mockObject = new class {
+        $mockObject = new class() {
             public function getName(): string { return 'TestName'; }
+
             public function isActive(): bool { return true; }
+
             public function hasItems(): bool { return false; }
+
             public function getCount(): int { return 5; }
         };
 
@@ -34,10 +37,13 @@ class ReflectionMethodExtractorTest extends TestCase
 
     public function testItExtractsMethodsWithAllConfiguredPrefixes()
     {
-        $mockObject = new class {
+        $mockObject = new class() {
             public function allowsNull(): bool { return true; }
+
             public function canExecute(): bool { return false; }
+
             public function inNamespace(): bool { return true; }
+
             public function returnsReference(): bool { return false; }
         };
 
@@ -82,8 +88,9 @@ class ReflectionMethodExtractorTest extends TestCase
 
     public function testItRespectsSkipMethodsConfiguration()
     {
-        $mockObject = new class {
+        $mockObject = new class() {
             public function getName(): string { return 'TestName'; }
+
             public function getValue(): string { return 'TestValue'; }
         };
 
@@ -99,7 +106,7 @@ class ReflectionMethodExtractorTest extends TestCase
 
     public function testItHandlesCustomHandlers()
     {
-        $mockObject = new class {
+        $mockObject = new class() {
             public function getName(): string { return 'OriginalName'; }
         };
 
@@ -118,8 +125,9 @@ class ReflectionMethodExtractorTest extends TestCase
 
     public function testItCatchesExceptionsGracefully()
     {
-        $mockObject = new class {
+        $mockObject = new class() {
             public function getName(): string { return 'ValidName'; }
+
             public function getError(): string { throw new \Exception('Test exception'); }
         };
 
@@ -197,7 +205,7 @@ class ReflectionMethodExtractorTest extends TestCase
 
     public function testItConvertsObjectsWithToStringToString()
     {
-        $obj = new class {
+        $obj = new class() {
             public function __toString()
             {
                 return 'StringRepresentation';

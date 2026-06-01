@@ -2,9 +2,6 @@
 
 namespace StubTests\Framework\Validator\KnownProblems;
 
-use StubTests\Framework\Validator\KnownProblems\EntityType;
-use StubTests\Framework\Validator\KnownProblems\ProblemDefinition;
-
 /**
  * Interface for providing known validation problems.
  *

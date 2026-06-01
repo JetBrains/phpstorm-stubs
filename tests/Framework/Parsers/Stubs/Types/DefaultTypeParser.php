@@ -3,9 +3,6 @@
 namespace StubTests\Framework\Parsers\Stubs\Types;
 
 use StubTests\Framework\Parsers\Stubs\Nodes\TypeNode;
-use StubTests\Framework\Parsers\Stubs\Types\ParsedType;
-use StubTests\Framework\Parsers\Stubs\Types\TypeNodeConverter;
-use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 
 /**
  * Default implementation of TypeParserInterface.
@@ -13,10 +10,7 @@ use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
  */
 class DefaultTypeParser implements TypeParserInterface
 {
-    public function __construct()
-    {
-        // TypeNodeConverter is now instantiated per parseType() call with imports
-    }
+    public function __construct() {}
 
     /**
      * Parse type information from all available sources.

@@ -2,8 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Reflection\Wrappers;
 
-use StubTests\Framework\Parsers\Reflection\Wrappers\AbstractReflectionAdapter;
-
 /**
  * Minimal reference to a class (just the name)
  * Used to avoid infinite recursion when serializing class relationships
@@ -43,6 +41,6 @@ class AdaptedReflectionClassReference extends AbstractReflectionAdapter
 
     protected function getAdditionalSkipMethods()
     {
-        return array();
+        return [];
     }
 }

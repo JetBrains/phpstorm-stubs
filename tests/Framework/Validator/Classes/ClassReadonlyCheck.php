@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Classes;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+
 /**
  * Validates that the `readonly` modifier on a class in stubs matches reflection.
  */
@@ -25,7 +26,7 @@ class ClassReadonlyCheck extends AbstractClassCheck
         }
 
         $reflection = $this->reflectionProvider->getReflection($phpVersion);
-        $label      = $this->getEntityLabel();
+        $label = $this->getEntityLabel();
 
         $reflClass = $this->lookupEntityById($reflection, $entityId);
         if ($reflClass === null) {
@@ -46,7 +47,7 @@ class ClassReadonlyCheck extends AbstractClassCheck
             $results->addSuccess($entityId);
         } else {
             $expected = $reflIsReadonly ? 'readonly' : 'non-readonly';
-            $actual   = $stubIsReadonly ? 'readonly' : 'non-readonly';
+            $actual = $stubIsReadonly ? 'readonly' : 'non-readonly';
             $results->addFailure(
                 $entityId,
                 "{$label} {$entityId} is {$expected} in PHP {$phpVersion} but {$actual} in stubs"

@@ -4,7 +4,6 @@ namespace StubTests\Framework\Parsers\Stubs;
 
 use StubTests\Framework\DataProvider\StubsDataProvider;
 use StubTests\Framework\Parsers\Storage\ParsedDataStorageManager;
-use StubTests\Framework\Parsers\Stubs\MultiEntityStubParserInterface;
 
 class AllStubsParser
 {
@@ -21,7 +20,7 @@ class AllStubsParser
 
     public function parseAll(): void
     {
-        $files     = $this->dataProvider->getAllStubFiles();
+        $files = $this->dataProvider->getAllStubFiles();
         $stubsRoot = $this->dataProvider->getStubsRootPath();
 
         // PHASE 1: Collect all entities (deferred processing)

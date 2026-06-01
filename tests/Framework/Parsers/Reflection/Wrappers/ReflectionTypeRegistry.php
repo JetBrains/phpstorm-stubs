@@ -3,14 +3,6 @@
 namespace StubTests\Framework\Parsers\Reflection\Wrappers;
 
 // Use statements for all adapter classes - enables ::class references
-use StubTests\Framework\Parsers\Reflection\Wrappers\AbstractReflectionAdapter;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClass;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionMethod;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionFunction;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionParameter;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionProperty;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassConstant;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionType;
 
 /**
  * Centralized registry for Reflection type to Adapter class mappings
@@ -33,7 +25,7 @@ class ReflectionTypeRegistry
      *
      * @var array
      */
-    private static $typeMapping = array(
+    private static $typeMapping = [
         'ReflectionClass' => AdaptedReflectionClass::class,
         'ReflectionMethod' => AdaptedReflectionMethod::class,
         'ReflectionFunction' => AdaptedReflectionFunction::class,
@@ -41,7 +33,7 @@ class ReflectionTypeRegistry
         'ReflectionProperty' => AdaptedReflectionProperty::class,
         'ReflectionClassConstant' => AdaptedReflectionClassConstant::class,
         'ReflectionType' => AdaptedReflectionType::class,
-    );
+    ];
 
     /**
      * Global method patterns that should be skipped during automatic extraction
@@ -49,7 +41,7 @@ class ReflectionTypeRegistry
      *
      * @var array
      */
-    private static $globalSkipPatterns = array(
+    private static $globalSkipPatterns = [
         // Methods that return closures or invoke functionality
         'getClosure',
         'getClosureThis',
@@ -95,7 +87,7 @@ class ReflectionTypeRegistry
 
         // Constructor
         'getConstructor',
-    );
+    ];
 
     /**
      * Get the adapter class for a given Reflection object

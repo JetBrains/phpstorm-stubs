@@ -2,9 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Model\Types;
 
-use StubTests\Framework\Parsers\Model\Types\IntersectionType;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
-
 class UnionType
 {
     /** @var array<StandaloneType|IntersectionType> */
@@ -18,7 +15,7 @@ class UnionType
     public function toString(): string
     {
         return implode('|', array_map(
-            fn(StandaloneType|IntersectionType $type) => $type instanceof IntersectionType
+            fn (StandaloneType|IntersectionType $type) => $type instanceof IntersectionType
                 ? '(' . $type->toString() . ')'
                 : $type->toString(),
             $this->types
@@ -29,7 +26,7 @@ class UnionType
     {
         $standaloneNames = array_filter(
             array_map(
-                fn($t) => $t instanceof StandaloneType ? $t->toString() : null,
+                fn ($t) => $t instanceof StandaloneType ? $t->toString() : null,
                 $this->types
             )
         );

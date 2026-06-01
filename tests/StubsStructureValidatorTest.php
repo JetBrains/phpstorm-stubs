@@ -91,9 +91,9 @@ class StubsStructureValidatorTest extends TestCase
     public function checkGenerateStubsMapScript(): void
     {
         $projectRoot = dirname(__DIR__);
-        $scriptPath  = $projectRoot . '/tests/Framework/Tools/generate-stubs-map.php';
+        $scriptPath = $projectRoot . '/tests/Framework/Tools/generate-stubs-map.php';
         $existingMap = $projectRoot . '/PhpStormStubsMap.php';
-        $tempOutput  = sys_get_temp_dir() . '/phpstorm-stubs-map-' . uniqid() . '.php';
+        $tempOutput = sys_get_temp_dir() . '/phpstorm-stubs-map-' . uniqid() . '.php';
 
         self::assertFileExists($scriptPath, 'Generator script missing: tests/Framework/Tools/generate-stubs-map.php');
         self::assertFileExists($existingMap, 'PhpStormStubsMap.php must exist in the project root');
@@ -155,9 +155,9 @@ class StubsStructureValidatorTest extends TestCase
     public function checkStubMapIsUpToDate(): void
     {
         $projectRoot = dirname(__DIR__);
-        $scriptPath  = $projectRoot . '/tests/Framework/Tools/generate-stubs-map.php';
+        $scriptPath = $projectRoot . '/tests/Framework/Tools/generate-stubs-map.php';
         $existingMap = $projectRoot . '/PhpStormStubsMap.php';
-        $tempOutput  = sys_get_temp_dir() . '/phpstorm-stubs-map-' . uniqid() . '.php';
+        $tempOutput = sys_get_temp_dir() . '/phpstorm-stubs-map-' . uniqid() . '.php';
 
         exec(
             sprintf('php %s %s 2>&1', escapeshellarg($scriptPath), escapeshellarg($tempOutput)),

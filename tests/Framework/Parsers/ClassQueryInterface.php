@@ -8,5 +8,6 @@ interface ClassQueryInterface
 {
     /** @return PHPClass[] */
     public function getClasses(): array;
+
     public function hasClass(string $id): bool;
 }

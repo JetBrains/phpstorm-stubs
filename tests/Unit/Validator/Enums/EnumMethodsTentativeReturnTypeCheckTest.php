@@ -40,7 +40,7 @@ class EnumMethodsTentativeReturnTypeCheckTest extends CheckTestCase
     private function makeReflection(array $enums): \StubTests\Framework\Validator\Contracts\ReflectionProviderInterface
     {
         $provider = $this->createMock(\StubTests\Framework\Validator\Contracts\ReflectionProviderInterface::class);
-        $manager  = $this->createMockStorageManager();
+        $manager = $this->createMockStorageManager();
         $manager->method('getEnums')->willReturn($enums);
         $provider->method('getReflection')->willReturn($manager);
         return $provider;
@@ -56,8 +56,8 @@ class EnumMethodsTentativeReturnTypeCheckTest extends CheckTestCase
 
     public function testEnumNotFoundInReflectionIsFailure(): void
     {
-        $enumId  = '\MyEnum';
-        $stubs   = $this->createMockStorageManager();
+        $enumId = '\MyEnum';
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$this->makeEnumWithMethod($enumId, 'cases', false)]);
 
         $result = (new ClassMethodsTentativeReturnTypeCheck(reflectionProvider: $this->makeReflection([]), entityTypeConfig: EntityTypeConfig::forEnum()))
@@ -70,7 +70,7 @@ class EnumMethodsTentativeReturnTypeCheckTest extends CheckTestCase
     public function testEnumNotFoundInStubsIsFailure(): void
     {
         $enumId = '\MyEnum';
-        $stubs  = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([]);
 
         $result = (new ClassMethodsTentativeReturnTypeCheck(reflectionProvider: $this->makeReflection([$this->makeEnumWithMethod($enumId, 'cases', false)]), entityTypeConfig: EntityTypeConfig::forEnum()))

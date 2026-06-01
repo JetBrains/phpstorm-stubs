@@ -2,12 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Reflection\Wrappers;
 
-use StubTests\Framework\Parsers\Reflection\Wrappers\AbstractReflectionAdapter;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassConstant;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassReference;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionMethod;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionProperty;
-
 /**
  * Adapter wrapper around ReflectionClass
  *
@@ -34,11 +28,11 @@ class AdaptedReflectionClass extends AbstractReflectionAdapter
     protected function getAdditionalSkipMethods()
     {
         // Only list methods specific to ReflectionClass that aren't in global patterns
-        return array(
+        return [
             'getTraitAliases',
             'getTraitNames',
             'getInterfaceNames'
-        );
+        ];
     }
 
     /**
@@ -47,14 +41,14 @@ class AdaptedReflectionClass extends AbstractReflectionAdapter
     protected function postExtract($reflectionObject)
     {
         // Extract methods
-        $methods = array();
+        $methods = [];
         foreach ($reflectionObject->getMethods() as $method) {
             $methods[] = new AdaptedReflectionMethod($method);
         }
         $this->setData('getMethods', $methods);
 
         // Extract properties
-        $properties = array();
+        $properties = [];
         foreach ($reflectionObject->getProperties() as $property) {
             $properties[] = new AdaptedReflectionProperty($property);
         }
@@ -64,14 +58,14 @@ class AdaptedReflectionClass extends AbstractReflectionAdapter
         $hasReflectionConstantsMethod = method_exists($reflectionObject, 'getReflectionConstants');
 
         if ($hasReflectionConstantsMethod) {
-            $reflectionConstants = array();
+            $reflectionConstants = [];
             foreach ($reflectionObject->getReflectionConstants() as $constant) {
                 $reflectionConstants[] = new AdaptedReflectionClassConstant($constant);
             }
             $this->setData('getReflectionConstants', $reflectionConstants);
-            $this->setData('getConstants', array());
+            $this->setData('getConstants', []);
         } else {
-            $this->setData('getReflectionConstants', array());
+            $this->setData('getReflectionConstants', []);
             $this->setData('getConstants', $reflectionObject->getConstants());
         }
 
@@ -80,7 +74,7 @@ class AdaptedReflectionClass extends AbstractReflectionAdapter
         $this->setData('getParentClass', $parentClass !== false ? new AdaptedReflectionClassReference($parentClass->getName()) : false);
 
         // Extract interfaces
-        $interfaces = array();
+        $interfaces = [];
         foreach ($reflectionObject->getInterfaces() as $interface) {
             $interfaces[] = new AdaptedReflectionClassReference($interface->getName());
         }
@@ -99,32 +93,32 @@ class AdaptedReflectionClass extends AbstractReflectionAdapter
             $staticProperties = $reflectionObject->getStaticProperties();
             $this->setData('getStaticProperties', $staticProperties);
         } catch (\Exception $e) {
-            $this->setData('getStaticProperties', array());
+            $this->setData('getStaticProperties', []);
         }
 
         // Extract traits (PHP 5.4+)
         if (method_exists($reflectionObject, 'getTraits')) {
-            $traits = array();
+            $traits = [];
             foreach ($reflectionObject->getTraits() as $trait) {
                 $traits[] = new AdaptedReflectionClassReference($trait->getName());
             }
             $this->setData('getTraits', $traits);
         } else {
-            $this->setData('getTraits', array());
+            $this->setData('getTraits', []);
         }
 
         // Extract trait aliases (PHP 5.4+)
         if (method_exists($reflectionObject, 'getTraitAliases')) {
             $this->setData('getTraitAliases', $reflectionObject->getTraitAliases());
         } else {
-            $this->setData('getTraitAliases', array());
+            $this->setData('getTraitAliases', []);
         }
 
         // Extract trait names (PHP 5.4+)
         if (method_exists($reflectionObject, 'getTraitNames')) {
             $this->setData('getTraitNames', $reflectionObject->getTraitNames());
         } else {
-            $this->setData('getTraitNames', array());
+            $this->setData('getTraitNames', []);
         }
 
         // Extract interface names
@@ -135,19 +129,19 @@ class AdaptedReflectionClass extends AbstractReflectionAdapter
             try {
                 // Store attributes as serializable array (name + arguments)
                 // since ReflectionAttribute objects can't be easily serialized
-                $attributes = array();
+                $attributes = [];
                 foreach ($reflectionObject->getAttributes() as $attribute) {
-                    $attributes[] = array(
+                    $attributes[] = [
                         'name' => $attribute->getName(),
                         'arguments' => $attribute->getArguments()
-                    );
+                    ];
                 }
                 $this->setData('getAttributes', $attributes);
             } catch (\Exception $e) {
-                $this->setData('getAttributes', array());
+                $this->setData('getAttributes', []);
             }
         } else {
-            $this->setData('getAttributes', array());
+            $this->setData('getAttributes', []);
         }
     }
 
@@ -199,28 +193,28 @@ class AdaptedReflectionClass extends AbstractReflectionAdapter
 
     public function getMethods()
     {
-        return $this->getData('getMethods', array());
+        return $this->getData('getMethods', []);
     }
 
     public function getProperties()
     {
-        return $this->getData('getProperties', array());
+        return $this->getData('getProperties', []);
     }
 
     public function hasReflectionConstants()
     {
-        $constants = $this->getData('getReflectionConstants', array());
+        $constants = $this->getData('getReflectionConstants', []);
         return !empty($constants);
     }
 
     public function getReflectionConstants()
     {
-        return $this->getData('getReflectionConstants', array());
+        return $this->getData('getReflectionConstants', []);
     }
 
     public function getConstants()
     {
-        return $this->getData('getConstants', array());
+        return $this->getData('getConstants', []);
     }
 
     public function getParentClass()
@@ -230,7 +224,7 @@ class AdaptedReflectionClass extends AbstractReflectionAdapter
 
     public function getInterfaces()
     {
-        return $this->getData('getInterfaces', array());
+        return $this->getData('getInterfaces', []);
     }
 
     public function getConstructor()
@@ -245,31 +239,31 @@ class AdaptedReflectionClass extends AbstractReflectionAdapter
 
     public function getStaticProperties()
     {
-        return $this->getData('getStaticProperties', array());
+        return $this->getData('getStaticProperties', []);
     }
 
     public function getTraits()
     {
-        return $this->getData('getTraits', array());
+        return $this->getData('getTraits', []);
     }
 
     public function getTraitAliases()
     {
-        return $this->getData('getTraitAliases', array());
+        return $this->getData('getTraitAliases', []);
     }
 
     public function getTraitNames()
     {
-        return $this->getData('getTraitNames', array());
+        return $this->getData('getTraitNames', []);
     }
 
     public function getInterfaceNames()
     {
-        return $this->getData('getInterfaceNames', array());
+        return $this->getData('getInterfaceNames', []);
     }
 
     public function getAttributes()
     {
-        return $this->getData('getAttributes', array());
+        return $this->getData('getAttributes', []);
     }
 }

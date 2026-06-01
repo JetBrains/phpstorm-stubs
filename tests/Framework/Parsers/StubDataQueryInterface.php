@@ -2,12 +2,6 @@
 
 namespace StubTests\Framework\Parsers;
 
-use StubTests\Framework\Parsers\ClassQueryInterface;
-use StubTests\Framework\Parsers\ConstantQueryInterface;
-use StubTests\Framework\Parsers\EnumQueryInterface;
-use StubTests\Framework\Parsers\FunctionQueryInterface;
-use StubTests\Framework\Parsers\InterfaceQueryInterface;
-
 /**
  * Composed read-only query interface for accessing parsed stub/reflection data.
  *
@@ -18,11 +12,4 @@ use StubTests\Framework\Parsers\InterfaceQueryInterface;
  * interface; validators that only need one type can depend on the narrower
  * interface (e.g. ConstantQueryInterface).
  */
-interface StubDataQueryInterface extends
-    ClassQueryInterface,
-    FunctionQueryInterface,
-    InterfaceQueryInterface,
-    EnumQueryInterface,
-    ConstantQueryInterface
-{
-}
+interface StubDataQueryInterface extends ClassQueryInterface, FunctionQueryInterface, InterfaceQueryInterface, EnumQueryInterface, ConstantQueryInterface {}

@@ -3,7 +3,6 @@
 namespace StubTests\Unit\Validator\Classes\Constants;
 
 use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Constants\ClassConstantsVisibilityCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
@@ -12,7 +11,6 @@ use StubTests\Framework\Validator\KnownProblems\ProblemDefinition;
 use StubTests\Framework\Validator\KnownProblems\ProblemType;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
-use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 use StubTests\Unit\Validator\CheckTestCase;
 
 class ClassConstantsVisibilityCheckTest extends CheckTestCase
@@ -29,8 +27,6 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
         parent::tearDown();
     }
 
-
-
     // ── supports() ────────────────────────────────────────────────────────────
 
     public function testSupportsAllVersions(): void
@@ -45,11 +41,11 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testClassNotFoundInReflectionFails(): void
     {
-        $classId  = '\\DateTime';
+        $classId = '\\DateTime';
         $stubClass = $this->makeClass($classId);
 
         $provider = $this->createMockReflectionProviderWithClasses([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -60,11 +56,11 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testClassNotFoundInStubsFails(): void
     {
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -77,12 +73,12 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testNoConstantsPasses(): void
     {
-        $classId   = '\\stdClass';
+        $classId = '\\stdClass';
         $reflClass = $this->makeClass($classId);
         $stubClass = $this->makeClass($classId);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -92,12 +88,12 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testMatchingPublicVisibilityPasses(): void
     {
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('ATOM', visibility: AccessModifier::PUBLIC)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('ATOM', visibility: AccessModifier::PUBLIC)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -107,12 +103,12 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testMatchingProtectedVisibilityPasses(): void
     {
-        $classId   = '\\MyClass';
+        $classId = '\\MyClass';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('SECRET', visibility: AccessModifier::PROTECTED)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('SECRET', visibility: AccessModifier::PROTECTED)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -122,12 +118,12 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testMatchingPrivateVisibilityPasses(): void
     {
-        $classId   = '\\MyClass';
+        $classId = '\\MyClass';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('INTERNAL', visibility: AccessModifier::PRIVATE)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('INTERNAL', visibility: AccessModifier::PRIVATE)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -139,12 +135,12 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testPublicInReflectionProtectedInStubFails(): void
     {
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('ATOM', visibility: AccessModifier::PUBLIC)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('ATOM', visibility: AccessModifier::PROTECTED)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -158,12 +154,12 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testProtectedInReflectionPublicInStubFails(): void
     {
-        $classId   = '\\MyClass';
+        $classId = '\\MyClass';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('SECRET', visibility: AccessModifier::PROTECTED)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('SECRET', visibility: AccessModifier::PUBLIC)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -174,12 +170,12 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testPublicInReflectionPrivateInStubFails(): void
     {
-        $classId   = '\\MyClass';
+        $classId = '\\MyClass';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VALUE', visibility: AccessModifier::PUBLIC)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VALUE', visibility: AccessModifier::PRIVATE)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -190,7 +186,7 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testMultipleConstantsMixedResultsReportedSeparately(): void
     {
-        $classId   = '\\MyClass';
+        $classId = '\\MyClass';
         $reflClass = $this->makeClass($classId, constants: [
             $this->makeClassConstant('OK', visibility: AccessModifier::PUBLIC),
             $this->makeClassConstant('BAD', visibility: AccessModifier::PUBLIC),
@@ -201,7 +197,7 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -217,12 +213,12 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
     public function testConstantNotInReflectionIsSkipped(): void
     {
         // Stub declares a constant absent from reflection — ClassConstantsCheck handles this.
-        $classId   = '\\DateTime';
+        $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId); // no constants in reflection
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('GHOST', visibility: AccessModifier::PROTECTED)]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -234,13 +230,13 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testVersionFilteredConstantIsSkipped(): void
     {
-        $classId   = '\\MyClass';
+        $classId = '\\MyClass';
         // Stub constant only available from 8.1 — checking at 8.0 should skip it
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('NEW_CONST', visibility: AccessModifier::PUBLIC)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('NEW_CONST', visibility: AccessModifier::PROTECTED, sinceVersion: '8.1')]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -250,13 +246,13 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testVersionFilteredRemovedConstantIsSkipped(): void
     {
-        $classId   = '\\MyClass';
+        $classId = '\\MyClass';
         // Stub constant removed before current version — should be skipped
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('OLD_CONST', visibility: AccessModifier::PUBLIC)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('OLD_CONST', visibility: AccessModifier::PROTECTED, removedVersion: '8.0')]);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider))->run($stubs, $classId, '8.0');
@@ -268,7 +264,7 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testClassLevelKnownProblemSkipsEntireCheck(): void
     {
-        $classId   = '\\SpecialClass';
+        $classId = '\\SpecialClass';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('FLAG', visibility: AccessModifier::PUBLIC)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('FLAG', visibility: AccessModifier::PROTECTED)]);
 
@@ -288,7 +284,7 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider, $registry))->run($stubs, $classId, '8.0');
@@ -301,13 +297,13 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
 
     public function testConstantLevelKnownProblemSkipsSpecificConstant(): void
     {
-        $classId   = '\\SpecialClass';
+        $classId = '\\SpecialClass';
         $reflClass = $this->makeClass($classId, constants: [
             $this->makeClassConstant('GOOD', visibility: AccessModifier::PUBLIC),
             $this->makeClassConstant('LEGACY', visibility: AccessModifier::PUBLIC),
         ]);
         $stubClass = $this->makeClass($classId, constants: [
-            $this->makeClassConstant('GOOD',   visibility: AccessModifier::PUBLIC),     // matches → passes
+            $this->makeClassConstant('GOOD', visibility: AccessModifier::PUBLIC),     // matches → passes
             $this->makeClassConstant('LEGACY', visibility: AccessModifier::PROTECTED),  // mismatch, but has known problem
         ]);
 
@@ -327,7 +323,7 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsVisibilityCheck($provider, $registry))->run($stubs, $classId, '8.0');

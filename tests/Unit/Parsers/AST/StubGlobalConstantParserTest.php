@@ -51,7 +51,7 @@ class StubGlobalConstantParserTest extends BaseTestCase
         $constants = $this->getModernConstants('global_constants.txt');
 
         // Should find const ANOTHER_CONSTANT = 2
-        $found = array_filter($constants, fn($c) => $c->getName() === 'ANOTHER_CONSTANT');
+        $found = array_filter($constants, fn ($c) => $c->getName() === 'ANOTHER_CONSTANT');
         self::assertCount(1, $found);
 
         $constant = array_values($found)[0];

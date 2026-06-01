@@ -238,7 +238,7 @@ class ParameterNamesCheckTest extends CheckTestCase
         $functionName = 'imagerotate';
 
         $reflParams = array_map(
-            fn($n) => $this->createMockParameter($n),
+            fn ($n) => $this->createMockParameter($n),
             ['image', 'angle', 'background_color', 'ignore_transparent']
         );
         $reflectionFunction = $this->createMockFunction($functionName, $reflParams);
@@ -270,7 +270,7 @@ class ParameterNamesCheckTest extends CheckTestCase
         $functionName = 'imagerotate';
 
         $reflParams = array_map(
-            fn($n) => $this->createMockParameter($n),
+            fn ($n) => $this->createMockParameter($n),
             ['image', 'angle', 'background_color']
         );
         $reflectionFunction = $this->createMockFunction($functionName, $reflParams);

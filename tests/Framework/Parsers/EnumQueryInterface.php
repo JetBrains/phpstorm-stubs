@@ -8,5 +8,6 @@ interface EnumQueryInterface
 {
     /** @return PHPEnum[] */
     public function getEnums(): array;
+
     public function hasEnum(string $id): bool;
 }

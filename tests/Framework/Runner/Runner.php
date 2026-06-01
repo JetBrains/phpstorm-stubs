@@ -23,14 +23,12 @@ use StubTests\Framework\Parsers\Storage\JsonParsedDataStorage;
 use StubTests\Framework\Parsers\Storage\MultiFileJsonStorage;
 use StubTests\Framework\Parsers\Storage\ParsedDataStorageManager;
 use StubTests\Framework\Parsers\Storage\PhpDocStorage;
-use StubTests\Framework\Runner\PhpVersions;
 
 class Runner
 {
     /** @var array<string, ParsedDataStorageManager> */
     private array $reflectionCache = [];
     private ?ParsedDataStorageManager $stubsCache = null;
-
     private readonly string $cacheDir;
     private readonly ClassHierarchyResolver $hierarchyResolver;
     private readonly InheritDocVersionResolver $inheritDocResolver;
@@ -48,10 +46,7 @@ class Runner
     public function getReflection(string $phpVersion): ParsedDataStorageManager
     {
         if (PhpVersions::tryFrom($phpVersion) === null) {
-            throw new \InvalidArgumentException(
-                "Unknown PHP version '{$phpVersion}'. Valid versions: "
-                . implode(', ', array_map(fn(PhpVersions $v) => $v->value, PhpVersions::cases()))
-            );
+            throw new \InvalidArgumentException("Unknown PHP version '{$phpVersion}'. Valid versions: " . implode(', ', array_map(fn (PhpVersions $v) => $v->value, PhpVersions::cases())));
         }
 
         if (isset($this->reflectionCache[$phpVersion])) {
@@ -68,11 +63,7 @@ class Runner
         } else {
             $runtimeVersion = PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION;
             if ($runtimeVersion !== $phpVersion) {
-                throw new \RuntimeException(
-                    "Reflection cache file not found: $cacheFilePath. "
-                    . "Cannot generate cache for PHP $phpVersion on runtime PHP $runtimeVersion. "
-                    . "Run the reflection cache generation script for PHP $phpVersion first."
-                );
+                throw new \RuntimeException("Reflection cache file not found: $cacheFilePath. " . "Cannot generate cache for PHP $phpVersion on runtime PHP $runtimeVersion. " . "Run the reflection cache generation script for PHP $phpVersion first.");
             }
 
             $parsedReflectionDataStorageManager = new DefaultParsedDataStorageManager(

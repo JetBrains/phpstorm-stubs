@@ -266,7 +266,7 @@ class FunctionPhpDocConformsSignatureCheckTest extends CheckTestCase
         $result = (new FunctionPhpDocConformsSignatureCheck(null, $registry))->run($stubs, $functionId, '8.0');
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('intentional PhpDoc/sig divergence', array_values($skipped)[0]);
     }

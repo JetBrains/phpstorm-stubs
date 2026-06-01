@@ -35,12 +35,12 @@ class ClassMethodsNullableTypeForbiddenCheck extends AbstractTypeForbiddenCheck
     protected function collectMethodIssues(string $entityId, string $methodName, PHPMethod $method, string $phpVersion): array
     {
         $methodEntityId = $entityId . '::' . $methodName;
-        $issues         = [];
+        $issues = [];
 
         // ── Check return type ─────────────────────────────────────────────────
         $signatureReturnType = $method->getReturnTypeFromSignature();
         if ($signatureReturnType instanceof NullableType) {
-            $returnType             = $signatureReturnType->toString();
+            $returnType = $signatureReturnType->toString();
             $issues[$methodEntityId] =
                 "{$this->getEntityLabel()} method {$methodEntityId} has nullable return type '{$returnType}' " .
                 "but is available before PHP 7.1 (nullable type hints were introduced in PHP 7.1). " .
@@ -51,8 +51,8 @@ class ClassMethodsNullableTypeForbiddenCheck extends AbstractTypeForbiddenCheck
         foreach ($this->methodCollection->filterAndDeduplicateParams($method->getParameters(), $phpVersion) as $param) {
             $declaredType = $param->getDeclaredType();
             if ($declaredType instanceof NullableType) {
-                $paramType              = $declaredType->toString();
-                $paramEntityId          = $methodEntityId . '::$' . $param->getName();
+                $paramType = $declaredType->toString();
+                $paramEntityId = $methodEntityId . '::$' . $param->getName();
                 $issues[$paramEntityId] =
                     "{$this->getEntityLabel()} method {$methodEntityId} parameter \${$param->getName()} " .
                     "has nullable type hint '{$paramType}' but the method is available before PHP 7.1 " .

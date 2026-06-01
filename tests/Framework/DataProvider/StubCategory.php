@@ -51,7 +51,7 @@ enum StubCategory: string
      */
     public function getDirectories(): array
     {
-        return match($this) {
+        return match ($this) {
             self::CORE => [
                 'Core',
                 'date',

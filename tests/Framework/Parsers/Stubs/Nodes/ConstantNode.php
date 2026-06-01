@@ -2,9 +2,6 @@
 
 namespace StubTests\Framework\Parsers\Stubs\Nodes;
 
-use StubTests\Framework\Parsers\Stubs\Nodes\AttributeNode;
-use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
-
 /**
  * Parser-agnostic interface for constant AST nodes.
  * Exposes all constant properties needed for complete parsing.

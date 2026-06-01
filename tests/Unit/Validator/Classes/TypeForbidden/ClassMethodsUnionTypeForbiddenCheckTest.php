@@ -36,10 +36,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     public function testSupportsOnlyVersionsBeforePhp80(): void
     {
         $this->assertTrue($this->check->supports(PhpVersions::EARLIEST->value), 'PHP 5.6 must be supported');
-        $this->assertTrue($this->check->supports(PhpVersions::PHP_7_0->value),  'PHP 7.0 must be supported');
-        $this->assertTrue($this->check->supports(PhpVersions::PHP_7_4->value),  'PHP 7.4 must be supported');
+        $this->assertTrue($this->check->supports(PhpVersions::PHP_7_0->value), 'PHP 7.0 must be supported');
+        $this->assertTrue($this->check->supports(PhpVersions::PHP_7_4->value), 'PHP 7.4 must be supported');
         $this->assertFalse($this->check->supports(PhpVersions::PHP_8_0->value), 'PHP 8.0 must NOT be supported');
-        $this->assertFalse($this->check->supports(PhpVersions::LATEST->value),  'PHP 8.4 must NOT be supported');
+        $this->assertFalse($this->check->supports(PhpVersions::LATEST->value), 'PHP 8.4 must NOT be supported');
     }
 
     // ── Entity not found ──────────────────────────────────────────────────────
@@ -75,7 +75,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('doSomething')]  // no return type
         );
 
@@ -91,7 +94,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getString', new StandaloneType('string'))]
         );
 
@@ -111,7 +117,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
         // valid from PHP 7.1 and must NOT be flagged by the union type check.
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getStr', $this->createNullableType('string'))]
         );
 
@@ -127,7 +136,7 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     {
         // ?string on a parameter serialises to 'string|null' but is valid from PHP 7.1.
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             parameters: [$this->makeParam('val', $this->createNullableType('string'))]
         );
@@ -148,7 +157,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
         // string|int in stub signature → UnionType → toString() = 'string|int' → flagged
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', $this->createUnionType('string', 'int'))]
         );
 
@@ -169,7 +181,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
         // Check also triggers for PHP 5.6 — entities exclusive to PHP 5.6 must be covered.
         $className = '\LegacyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('get', $this->createUnionType('string', 'int'))]
         );
 
@@ -186,14 +201,18 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     {
         // LanguageLevelTypeAware with default: 'string|int' → flagged
         $className = '\MyClass';
-        $method    = new PHPMethod();
+        $method = new PHPMethod();
         $method->setName('getValue');
         $method->setAccess($this->createAccessModifier('public'));
         $method->initStubsMetadata()->setLanguageLevelTypes([]);
         $method->initStubsMetadata()->setDefaultType('string|int');
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [$method]
+            $className,
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -209,14 +228,18 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
         // #[LanguageLevelTypeAware(['8.0' => 'string|int'], default: 'string')] →
         // for PHP 7.4 resolves to 'string' → no union → OK
         $className = '\MyClass';
-        $method    = new PHPMethod();
+        $method = new PHPMethod();
         $method->setName('getValue');
         $method->setAccess($this->createAccessModifier('public'));
         $method->initStubsMetadata()->setLanguageLevelTypes(['8.0' => 'string|int']);
         $method->initStubsMetadata()->setDefaultType('string');
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [$method]
+            $className,
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -233,9 +256,13 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     {
         // sinceVersion = '8.0' → not included when collecting for PHP 7.4
         $className = '\MyClass';
-        $method    = $this->makeMethod('getValue', $this->createUnionType('string', 'int'), sinceVersion: '8.0');
+        $method = $this->makeMethod('getValue', $this->createUnionType('string', 'int'), sinceVersion: '8.0');
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null, [$method]
+            $className,
+            null,
+            null,
+            null,
+            [$method]
         );
 
         $stubs = $this->createMockStorageManager();
@@ -252,7 +279,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('privateGet', $this->createUnionType('string', 'int'), access: 'private')]
         );
 
@@ -268,7 +298,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('protectedGet', $this->createUnionType('string', 'int'), access: 'protected')]
         );
 
@@ -284,7 +317,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\MyClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('finalGet', $this->createUnionType('string', 'int'), isFinal: true)]
         );
 
@@ -300,7 +336,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\FinalClass';
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', $this->createUnionType('string', 'int'))]
         );
         $stubClass->setIsFinal(true);
@@ -333,7 +372,7 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     public function testUnionParamTypeViaSignatureIsFailure(): void
     {
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             parameters: [$this->makeParam('val', $this->createUnionType('string', 'int'))]
         );
@@ -354,7 +393,7 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     public function testNonUnionParamTypeSucceeds(): void
     {
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             parameters: [$this->makeParam('val', new StandaloneType('string'))]
         );
@@ -372,8 +411,8 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     {
         // LanguageLevelTypeAware with default: 'string|int' → flagged
         $className = '\MyClass';
-        $param     = $this->makeParam('val', languageLevelTypes: [], defaultType: 'string|int');
-        $method    = $this->makeMethod('doSomething', parameters: [$param]);
+        $param = $this->makeParam('val', languageLevelTypes: [], defaultType: 'string|int');
+        $method = $this->makeMethod('doSomething', parameters: [$param]);
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$method]);
 
         $stubs = $this->createMockStorageManager();
@@ -389,8 +428,8 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
         // #[LanguageLevelTypeAware(['8.0' => 'string|int'], default: 'string')] →
         // for PHP 7.4 resolves to 'string' → no union → OK
         $className = '\MyClass';
-        $param     = $this->makeParam('val', languageLevelTypes: ['8.0' => 'string|int'], defaultType: 'string');
-        $method    = $this->makeMethod('doSomething', parameters: [$param]);
+        $param = $this->makeParam('val', languageLevelTypes: ['8.0' => 'string|int'], defaultType: 'string');
+        $method = $this->makeMethod('doSomething', parameters: [$param]);
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$method]);
 
         $stubs = $this->createMockStorageManager();
@@ -405,7 +444,7 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
     {
         // Both return type and parameter type are union types → two separate failure entries.
         $className = '\MyClass';
-        $method    = $this->makeMethod(
+        $method = $this->makeMethod(
             'doSomething',
             $this->createUnionType('string', 'int'),    // union return
             parameters: [$this->makeParam('val', $this->createUnionType('bool', 'float'))]  // union param
@@ -445,7 +484,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', $this->createUnionType('string', 'int'))]
         );
 
@@ -460,7 +502,7 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
 
     public function testKnownProblemAtMethodLevelSkipsSpecificMethod(): void
     {
-        $className      = '\MyClass';
+        $className = '\MyClass';
         $methodEntityId = $className . '::getValue';
 
         $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
@@ -479,7 +521,10 @@ class ClassMethodsUnionTypeForbiddenCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $stubClass = $this->createMockClassWithProperties(
-            $className, null, null, null,
+            $className,
+            null,
+            null,
+            null,
             [$this->makeMethod('getValue', $this->createUnionType('string', 'int'))]
         );
 

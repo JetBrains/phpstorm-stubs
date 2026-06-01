@@ -4,7 +4,6 @@ namespace StubTests\Framework\Parsers\Serializers\Stubs;
 
 use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Serializers\Stubs\SerializerHelperTrait;
 use StubTests\Framework\Parsers\Storage\PhpDocStorage;
 use StubTests\Framework\Parsers\Serializers\EntityTypeSerializerInterface;
 

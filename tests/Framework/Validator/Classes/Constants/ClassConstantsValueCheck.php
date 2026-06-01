@@ -49,10 +49,9 @@ class ClassConstantsValueCheck extends AbstractConstantFlagCheck
             return null;
         }
 
-        if ((string) $reflConstant->getValue() !== (string) $stubConstant->getValue()) {
+        if ((string)$reflConstant->getValue() !== (string)$stubConstant->getValue()) {
             return "Constant {$constantEntityId} value mismatch: "
                 . "reflection='{$reflConstant->getValue()}', stub='{$stubConstant->getValue()}'";
-
         }
 
         return null;

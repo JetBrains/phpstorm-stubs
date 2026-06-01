@@ -29,7 +29,7 @@ class EnumMethodsParameterTypesCheckTest extends CheckTestCase
 
     public function testMatchingParameterTypePasses(): void
     {
-        $enumId   = '\Dom\AdjacentPosition';
+        $enumId = '\Dom\AdjacentPosition';
         $reflEnum = $this->makeEnum($enumId, [
             $this->makeMethod('from', parameters: [$this->makeParam('value', $this->createType('int'))]),
         ]);
@@ -38,7 +38,7 @@ class EnumMethodsParameterTypesCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsParameterTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
@@ -48,7 +48,7 @@ class EnumMethodsParameterTypesCheckTest extends CheckTestCase
 
     public function testParameterTypeMismatchFails(): void
     {
-        $enumId   = '\Dom\AdjacentPosition';
+        $enumId = '\Dom\AdjacentPosition';
         $reflEnum = $this->makeEnum($enumId, [
             $this->makeMethod('from', parameters: [$this->makeParam('value', $this->createType('int'))]),
         ]);
@@ -57,7 +57,7 @@ class EnumMethodsParameterTypesCheckTest extends CheckTestCase
         ]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsParameterTypesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');

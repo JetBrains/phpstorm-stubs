@@ -59,7 +59,7 @@ class AllStubsParserTest extends BaseTestCase
         $multipleClassesEntities = array_values($multipleClassesEntities);
 
         // Verify the three classes are User, Product, Order
-        $classNames = array_map(fn($c) => $c->getName(), $multipleClassesEntities);
+        $classNames = array_map(fn ($c) => $c->getName(), $multipleClassesEntities);
         self::assertContains('User', $classNames);
         self::assertContains('Product', $classNames);
         self::assertContains('Order', $classNames);
@@ -163,7 +163,7 @@ class AllStubsParserTest extends BaseTestCase
         $multipleFunctionsEntities = array_values($multipleFunctionsEntities);
 
         // Verify the four functions
-        $functionNames = array_map(fn($f) => $f->getName(), $multipleFunctionsEntities);
+        $functionNames = array_map(fn ($f) => $f->getName(), $multipleFunctionsEntities);
         self::assertContains('calculateSum', $functionNames);
         self::assertContains('getUserName', $functionNames);
         self::assertContains('validateEmail', $functionNames);
@@ -336,9 +336,9 @@ class AllStubsParserTest extends BaseTestCase
         self::assertCount(4, $coreClasses);
 
         // Verify class names - should have 2 Database and 2 Cache
-        $classNames = array_map(fn($c) => $c->getName(), $coreClasses);
-        self::assertCount(2, array_filter($classNames, fn($n) => $n === 'Database'));
-        self::assertCount(2, array_filter($classNames, fn($n) => $n === 'Cache'));
+        $classNames = array_map(fn ($c) => $c->getName(), $coreClasses);
+        self::assertCount(2, array_filter($classNames, fn ($n) => $n === 'Database'));
+        self::assertCount(2, array_filter($classNames, fn ($n) => $n === 'Cache'));
 
         // Verify that duplicates are tracked with source paths
         foreach ($coreClasses as $class) {
@@ -379,9 +379,9 @@ class AllStubsParserTest extends BaseTestCase
         self::assertCount(4, $coreFunctions);
 
         // Verify function names - should have 2 initialize and 2 configure
-        $functionNames = array_map(fn($f) => $f->getName(), $coreFunctions);
-        self::assertCount(2, array_filter($functionNames, fn($n) => $n === 'initialize'));
-        self::assertCount(2, array_filter($functionNames, fn($n) => $n === 'configure'));
+        $functionNames = array_map(fn ($f) => $f->getName(), $coreFunctions);
+        self::assertCount(2, array_filter($functionNames, fn ($n) => $n === 'initialize'));
+        self::assertCount(2, array_filter($functionNames, fn ($n) => $n === 'configure'));
 
         // Verify that duplicates are tracked with source paths
         foreach ($coreFunctions as $function) {
@@ -436,13 +436,13 @@ class AllStubsParserTest extends BaseTestCase
         self::assertNotNull($v2Database, 'v2 Database should be present');
 
         // Verify v1 has correct methods
-        $v1MethodNames = array_map(fn($m) => $m->getName(), $v1Database->getMethods());
+        $v1MethodNames = array_map(fn ($m) => $m->getName(), $v1Database->getMethods());
         self::assertContains('connect', $v1MethodNames);
         self::assertContains('query', $v1MethodNames);
         self::assertNotContains('disconnect', $v1MethodNames);
 
         // Verify v2 has correct methods
-        $v2MethodNames = array_map(fn($m) => $m->getName(), $v2Database->getMethods());
+        $v2MethodNames = array_map(fn ($m) => $m->getName(), $v2Database->getMethods());
         self::assertContains('connect', $v2MethodNames);
         self::assertContains('query', $v2MethodNames);
         self::assertContains('disconnect', $v2MethodNames);

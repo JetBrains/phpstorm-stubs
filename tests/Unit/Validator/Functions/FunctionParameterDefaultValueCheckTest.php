@@ -42,11 +42,11 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInReflectionIsFailure(): void
     {
-        $fnId       = '\\missingFunc';
-        $stubFunc   = $this->createMockFunction($fnId);
+        $fnId = '\\missingFunc';
+        $stubFunc = $this->createMockFunction($fnId);
 
         $provider = $this->createMockReflectionProvider([], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$stubFunc]);
 
         $result = (new FunctionParameterDefaultValueCheck($provider))->run($stubs, $fnId, PhpVersions::LATEST->value);
@@ -58,11 +58,11 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
     public function testFunctionNotFoundInStubsSucceeds(): void
     {
         // FunctionExistsCheck handles missing stubs; we succeed silently
-        $fnId      = '\\missingFunc';
-        $reflFunc  = $this->createMockFunction($fnId);
+        $fnId = '\\missingFunc';
+        $reflFunc = $this->createMockFunction($fnId);
 
         $provider = $this->createMockReflectionProvider([$reflFunc], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([]);
 
         $result = (new FunctionParameterDefaultValueCheck($provider))->run($stubs, $fnId, PhpVersions::LATEST->value);
@@ -74,7 +74,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMatchingIntegerDefaultSucceeds(): void
     {
-        $fnId       = '\\sort';
+        $fnId = '\\sort';
         $reflParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 0, optional: true)];
         $stubParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 0, optional: true)];
 
@@ -82,7 +82,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
         $stubFunc = $this->createMockFunction($fnId, $stubParams);
 
         $provider = $this->createMockReflectionProvider([$reflFunc], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$stubFunc]);
 
         $result = (new FunctionParameterDefaultValueCheck($provider))->run($stubs, $fnId, PhpVersions::LATEST->value);
@@ -92,7 +92,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMatchingStringDefaultSucceeds(): void
     {
-        $fnId       = '\\implode';
+        $fnId = '\\implode';
         $reflParams = [$this->makeParam('separator', hasDefaultValue: true, defaultValue: '', optional: true)];
         $stubParams = [$this->makeParam('separator', hasDefaultValue: true, defaultValue: '', optional: true)];
 
@@ -100,7 +100,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
         $stubFunc = $this->createMockFunction($fnId, $stubParams);
 
         $provider = $this->createMockReflectionProvider([$reflFunc], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$stubFunc]);
 
         $result = (new FunctionParameterDefaultValueCheck($provider))->run($stubs, $fnId, PhpVersions::LATEST->value);
@@ -112,7 +112,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMismatchedDefaultIsFailure(): void
     {
-        $fnId       = '\\sort';
+        $fnId = '\\sort';
         $reflParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 0, optional: true)];  // reflection: 0
         $stubParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 4, optional: true)];  // stub: 4 — wrong
 
@@ -120,7 +120,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
         $stubFunc = $this->createMockFunction($fnId, $stubParams);
 
         $provider = $this->createMockReflectionProvider([$reflFunc], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$stubFunc]);
 
         $result = (new FunctionParameterDefaultValueCheck($provider))->run($stubs, $fnId, PhpVersions::LATEST->value);
@@ -135,7 +135,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMultipleMismatchesReportedTogether(): void
     {
-        $fnId       = '\\func';
+        $fnId = '\\func';
         $reflParams = [
             $this->makeParam('a', hasDefaultValue: true, defaultValue: 1, optional: true),
             $this->makeParam('b', hasDefaultValue: true, defaultValue: 'x', optional: true),
@@ -149,7 +149,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
         $stubFunc = $this->createMockFunction($fnId, $stubParams);
 
         $provider = $this->createMockReflectionProvider([$reflFunc], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$stubFunc]);
 
         $result = (new FunctionParameterDefaultValueCheck($provider))->run($stubs, $fnId, PhpVersions::LATEST->value);
@@ -164,7 +164,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testNullReflectionDefaultIsSkipped(): void
     {
-        $fnId       = '\\func';
+        $fnId = '\\func';
         $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: null, optional: true)]; // null reflection default
         $stubParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)];   // stub has 42
 
@@ -172,7 +172,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
         $stubFunc = $this->createMockFunction($fnId, $stubParams);
 
         $provider = $this->createMockReflectionProvider([$reflFunc], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$stubFunc]);
 
         $result = (new FunctionParameterDefaultValueCheck($provider))->run($stubs, $fnId, PhpVersions::LATEST->value);
@@ -182,7 +182,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testNullStubDefaultIsSkipped(): void
     {
-        $fnId       = '\\func';
+        $fnId = '\\func';
         $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)];   // reflection: 42
         $stubParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: null, optional: true)]; // stub: null (unevaluable or actual null)
 
@@ -190,7 +190,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
         $stubFunc = $this->createMockFunction($fnId, $stubParams);
 
         $provider = $this->createMockReflectionProvider([$reflFunc], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$stubFunc]);
 
         $result = (new FunctionParameterDefaultValueCheck($provider))->run($stubs, $fnId, PhpVersions::LATEST->value);
@@ -202,7 +202,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testNoReflectionDefaultIsSkipped(): void
     {
-        $fnId       = '\\func';
+        $fnId = '\\func';
         $reflParams = [$this->makeParam('x')];    // no default in reflection
         $stubParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)]; // stub has one
 
@@ -210,7 +210,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
         $stubFunc = $this->createMockFunction($fnId, $stubParams);
 
         $provider = $this->createMockReflectionProvider([$reflFunc], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$stubFunc]);
 
         $result = (new FunctionParameterDefaultValueCheck($provider))->run($stubs, $fnId, PhpVersions::LATEST->value);
@@ -222,7 +222,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testKnownProblemSkipsFunction(): void
     {
-        $fnId       = '\\problematic';
+        $fnId = '\\problematic';
         $reflParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 0, optional: true)];
         $stubParams = [$this->makeParam('flags', hasDefaultValue: true, defaultValue: 99, optional: true)]; // mismatch
 
@@ -245,13 +245,13 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         $provider = $this->createMockReflectionProvider([$reflFunc], []);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$stubFunc]);
 
         $result = (new FunctionParameterDefaultValueCheck($provider, $registry))->run($stubs, $fnId, PhpVersions::LATEST->value);
 
         $this->assertFalse($result->hasFailures());
-        $skipped = array_filter($result->getSuccesses(), fn($s) => str_contains($s, 'skipped'));
+        $skipped = array_filter($result->getSuccesses(), fn ($s) => str_contains($s, 'skipped'));
         $this->assertNotEmpty($skipped);
         $this->assertStringContainsString('Platform-specific default value', array_values($skipped)[0]);
     }

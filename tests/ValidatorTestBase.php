@@ -42,6 +42,7 @@ abstract class ValidatorTestBase extends TestCase
         parent::setUp();
         $this->stubsProvider = new RunnerStubsProvider();
     }
+
     /**
      * Return check descriptors for declarative test registration.
      *
@@ -191,7 +192,7 @@ abstract class ValidatorTestBase extends TestCase
             return $entity->getName();
         }
 
-        return (string) $entity;
+        return (string)$entity;
     }
 
     /**
@@ -240,5 +241,4 @@ abstract class ValidatorTestBase extends TestCase
             $message . "\n" . implode("\n", $failures)
         );
     }
-
 }

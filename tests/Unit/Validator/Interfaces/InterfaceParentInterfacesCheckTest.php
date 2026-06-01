@@ -85,7 +85,7 @@ class InterfaceParentInterfacesCheckTest extends CheckTestCase
     public function testInterfaceWithResolvedParentSucceeds(): void
     {
         // OuterIterator extends Iterator. Both are in stubs → parent is resolved.
-        $iteratorStub      = $this->makeInterface('\Iterator');
+        $iteratorStub = $this->makeInterface('\Iterator');
         $outerIteratorStub = $this->makeInterface('\OuterIterator', parentInterfaces: [$iteratorStub]);
 
         $stubs = $this->createMockStorageManager();
@@ -99,9 +99,9 @@ class InterfaceParentInterfacesCheckTest extends CheckTestCase
 
     public function testInterfaceWithMultipleResolvedParentsSucceeds(): void
     {
-        $unitEnumStub    = $this->makeInterface('\UnitEnum');
-        $stringableStub  = $this->makeInterface('\Stringable');
-        $backedEnumStub  = $this->makeInterface('\BackedEnum', parentInterfaces: [$unitEnumStub, $stringableStub]);
+        $unitEnumStub = $this->makeInterface('\UnitEnum');
+        $stringableStub = $this->makeInterface('\Stringable');
+        $backedEnumStub = $this->makeInterface('\BackedEnum', parentInterfaces: [$unitEnumStub, $stringableStub]);
 
         $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$backedEnumStub, $unitEnumStub, $stringableStub]);
@@ -116,7 +116,7 @@ class InterfaceParentInterfacesCheckTest extends CheckTestCase
     public function testMissingDirectParentIsFailure(): void
     {
         // OuterIterator's parent 'Iterator' was not found in stubs → unresolved placeholder.
-        $missingParent     = $this->makeUnresolvedParent('Iterator');
+        $missingParent = $this->makeUnresolvedParent('Iterator');
         $outerIteratorStub = $this->makeInterface('\OuterIterator', parentInterfaces: [$missingParent]);
 
         $stubs = $this->createMockStorageManager();
@@ -135,7 +135,7 @@ class InterfaceParentInterfacesCheckTest extends CheckTestCase
     {
         $missingA = $this->makeUnresolvedParent('InterfaceA');
         $missingB = $this->makeUnresolvedParent('InterfaceB');
-        $iface    = $this->makeInterface('\MyInterface', parentInterfaces: [$missingA, $missingB]);
+        $iface = $this->makeInterface('\MyInterface', parentInterfaces: [$missingA, $missingB]);
 
         $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$iface]);
@@ -152,8 +152,8 @@ class InterfaceParentInterfacesCheckTest extends CheckTestCase
     {
         // SeekableIterator → Iterator → Traversable (Traversable missing in stubs).
         $missingTraversable = $this->makeUnresolvedParent('Traversable');
-        $iteratorStub       = $this->makeInterface('\Iterator', parentInterfaces: [$missingTraversable]);
-        $seekableStub       = $this->makeInterface('\SeekableIterator', parentInterfaces: [$iteratorStub]);
+        $iteratorStub = $this->makeInterface('\Iterator', parentInterfaces: [$missingTraversable]);
+        $seekableStub = $this->makeInterface('\SeekableIterator', parentInterfaces: [$iteratorStub]);
 
         $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$seekableStub, $iteratorStub]);
@@ -183,8 +183,8 @@ class InterfaceParentInterfacesCheckTest extends CheckTestCase
     {
         // InterfaceC → InterfaceB → InterfaceA (InterfaceA missing)
         $missingA = $this->makeUnresolvedParent('InterfaceA');
-        $ifaceB   = $this->makeInterface('\InterfaceB', parentInterfaces: [$missingA]);
-        $ifaceC   = $this->makeInterface('\InterfaceC', parentInterfaces: [$ifaceB]);
+        $ifaceB = $this->makeInterface('\InterfaceB', parentInterfaces: [$missingA]);
+        $ifaceC = $this->makeInterface('\InterfaceC', parentInterfaces: [$ifaceB]);
 
         $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$ifaceC, $ifaceB]);
@@ -220,7 +220,7 @@ class InterfaceParentInterfacesCheckTest extends CheckTestCase
         // Both direct parents reference the same unresolved name
         $missingA1 = $this->makeUnresolvedParent('SharedParent');
         $missingA2 = $this->makeUnresolvedParent('SharedParent');
-        $iface     = $this->makeInterface('\MyInterface', parentInterfaces: [$missingA1, $missingA2]);
+        $iface = $this->makeInterface('\MyInterface', parentInterfaces: [$missingA1, $missingA2]);
 
         $stubs = $this->createMockStorageManager();
         $stubs->method('getInterfaces')->willReturn([$iface]);
@@ -237,9 +237,9 @@ class InterfaceParentInterfacesCheckTest extends CheckTestCase
 
     public function testInterfaceLevelKnownProblemSkipsCheck(): void
     {
-        $interfaceId   = '\SpecialInterface';
+        $interfaceId = '\SpecialInterface';
         $missingParent = $this->makeUnresolvedParent('MissingParent');
-        $iface         = $this->makeInterface($interfaceId, parentInterfaces: [$missingParent]);
+        $iface = $this->makeInterface($interfaceId, parentInterfaces: [$missingParent]);
 
         $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([

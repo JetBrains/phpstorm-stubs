@@ -2,7 +2,6 @@
 
 namespace StubTests\Unit\Validator;
 
-use StubTests\Unit\Validator\CheckTestCase;
 use StubTests\Framework\Parsers\Model\PHPClass;
 use StubTests\Framework\Parsers\Model\PHPConstant;
 use StubTests\Framework\Parsers\Model\PHPFunction;
@@ -50,7 +49,7 @@ class EntityLookupServiceTest extends CheckTestCase
 
     public function testFindClassByIdReturnsEntityWhenFound(): void
     {
-        $class   = $this->makeClass('\\DateTime');
+        $class = $this->makeClass('\\DateTime');
         $storage = $this->createMockStorage(classes: [$class]);
 
         $result = $this->service->findClassById($storage, '\\DateTime');
@@ -71,7 +70,7 @@ class EntityLookupServiceTest extends CheckTestCase
 
     public function testFindEnumByIdReturnsEntityWhenFound(): void
     {
-        $enum    = $this->makeEnum('\\Suit');
+        $enum = $this->makeEnum('\\Suit');
         $storage = $this->createMockStorage(enums: [$enum]);
 
         $result = $this->service->findEnumById($storage, '\\Suit');
@@ -90,7 +89,7 @@ class EntityLookupServiceTest extends CheckTestCase
 
     public function testFindInterfaceByIdReturnsEntityWhenFound(): void
     {
-        $iface   = $this->makeInterface('\\Countable');
+        $iface = $this->makeInterface('\\Countable');
         $storage = $this->createMockStorage(interfaces: [$iface]);
 
         $this->assertSame($iface, $this->service->findInterfaceById($storage, '\\Countable'));
@@ -128,7 +127,7 @@ class EntityLookupServiceTest extends CheckTestCase
 
     public function testFindFunctionByIdReturnsEntityWhenFound(): void
     {
-        $fn      = $this->makeFunction('\\strlen');
+        $fn = $this->makeFunction('\\strlen');
         $storage = $this->createMockStorage(functions: [$fn]);
 
         $this->assertSame($fn, $this->service->findFunctionById($storage, '\\strlen'));
@@ -145,11 +144,11 @@ class EntityLookupServiceTest extends CheckTestCase
 
     public function testSecondCallWithSameStorageUsesCachedIndex(): void
     {
-        $class   = $this->makeClass('\\DateTime');
+        $class = $this->makeClass('\\DateTime');
         $storage = $this->createMockStorage(classes: [$class]);
 
         // Call twice — both should return the same entity object
-        $first  = $this->service->findClassById($storage, '\\DateTime');
+        $first = $this->service->findClassById($storage, '\\DateTime');
         $second = $this->service->findClassById($storage, '\\DateTime');
 
         $this->assertSame($first, $second);
@@ -160,8 +159,8 @@ class EntityLookupServiceTest extends CheckTestCase
 
     public function testDifferentStorageObjectsGetSeparateIndexes(): void
     {
-        $classA   = $this->makeClass('\\ClassA');
-        $classB   = $this->makeClass('\\ClassB');
+        $classA = $this->makeClass('\\ClassA');
+        $classB = $this->makeClass('\\ClassB');
         $storageA = $this->createMockStorage(classes: [$classA]);
         $storageB = $this->createMockStorage(classes: [$classB]);
 
@@ -193,7 +192,7 @@ class EntityLookupServiceTest extends CheckTestCase
 
     public function testFindAnyEntityByIdReturnsClassWithCorrectType(): void
     {
-        $class   = $this->makeClass('\\DateTime');
+        $class = $this->makeClass('\\DateTime');
         $storage = $this->createMockStorage(classes: [$class]);
 
         $result = $this->service->findAnyEntityById($storage, '\\DateTime');
@@ -205,7 +204,7 @@ class EntityLookupServiceTest extends CheckTestCase
 
     public function testFindAnyEntityByIdReturnsInterfaceWithCorrectType(): void
     {
-        $iface   = $this->makeInterface('\\Countable');
+        $iface = $this->makeInterface('\\Countable');
         $storage = $this->createMockStorage(interfaces: [$iface]);
 
         $result = $this->service->findAnyEntityById($storage, '\\Countable');
@@ -217,7 +216,7 @@ class EntityLookupServiceTest extends CheckTestCase
 
     public function testFindAnyEntityByIdReturnsEnumWithCorrectType(): void
     {
-        $enum    = $this->makeEnum('\\Suit');
+        $enum = $this->makeEnum('\\Suit');
         $storage = $this->createMockStorage(enums: [$enum]);
 
         $result = $this->service->findAnyEntityById($storage, '\\Suit');
@@ -229,7 +228,7 @@ class EntityLookupServiceTest extends CheckTestCase
 
     public function testFindAnyEntityByIdReturnsFunctionWithCorrectType(): void
     {
-        $fn      = $this->makeFunction('\\strlen');
+        $fn = $this->makeFunction('\\strlen');
         $storage = $this->createMockStorage(functions: [$fn]);
 
         $result = $this->service->findAnyEntityById($storage, '\\strlen');
@@ -253,8 +252,8 @@ class EntityLookupServiceTest extends CheckTestCase
         // Same ID across all collections — class should win
         $class = $this->makeClass('\\Shared');
         $iface = $this->makeInterface('\\Shared');
-        $enum  = $this->makeEnum('\\Shared');
-        $fn    = $this->makeFunction('\\Shared');
+        $enum = $this->makeEnum('\\Shared');
+        $fn = $this->makeFunction('\\Shared');
 
         $storage = $this->createMockStorage(
             classes: [$class],

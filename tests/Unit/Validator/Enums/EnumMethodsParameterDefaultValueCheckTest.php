@@ -26,7 +26,7 @@ class EnumMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testEnumNotFoundInReflectionIsFailure(): void
     {
-        $enumId   = '\MyEnum';
+        $enumId = '\MyEnum';
         $stubEnum = $this->getMockBuilder(PHPEnum::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['getId', 'getName', 'getMethods', 'getImplementedInterfaces'])
@@ -36,7 +36,7 @@ class EnumMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $stubEnum->method('getImplementedInterfaces')->willReturn([]);
 
         $provider = $this->createMockReflectionProviderWithEnums([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, PhpVersions::LATEST->value);
@@ -48,7 +48,7 @@ class EnumMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMatchingDefaultsSucceed(): void
     {
-        $enumId     = '\MyEnum';
+        $enumId = '\MyEnum';
         $reflParams = [$this->makeParam('flags', optional: true, hasDefaultValue: true, defaultValue: 0)];
         $stubParams = [$this->makeParam('flags', optional: true, hasDefaultValue: true, defaultValue: 0)];
 
@@ -72,7 +72,7 @@ class EnumMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $stubEnum->method('getImplementedInterfaces')->willReturn([]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, PhpVersions::LATEST->value);
@@ -82,7 +82,7 @@ class EnumMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testMismatchedDefaultIsFailure(): void
     {
-        $enumId     = '\MyEnum';
+        $enumId = '\MyEnum';
         $reflParams = [$this->makeParam('flags', optional: true, hasDefaultValue: true, defaultValue: 0)];
         $stubParams = [$this->makeParam('flags', optional: true, hasDefaultValue: true, defaultValue: 5)]; // wrong
 
@@ -106,7 +106,7 @@ class EnumMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $stubEnum->method('getImplementedInterfaces')->willReturn([]);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, PhpVersions::LATEST->value);
@@ -122,7 +122,7 @@ class EnumMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $enumId = '\NoSuchEnum';
 
         $provider = $this->createMockReflectionProviderWithEnums([]);
-        $stubs    = $this->createMockStorageManager();
+        $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([]);
 
         $result = (new ClassMethodsParameterDefaultValueCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, PhpVersions::LATEST->value);

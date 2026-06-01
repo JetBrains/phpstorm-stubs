@@ -13,7 +13,6 @@ use StubTests\Framework\Parsers\Model\PHPInterface;
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\Model\PHPParameter;
 use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Parsers\Model\Types\NoType;
 use StubTests\Framework\Parsers\Model\Types\NullableType;
 use StubTests\Framework\Parsers\Model\Types\StandaloneType;
 use StubTests\Framework\Parsers\Model\Types\UnionType;
@@ -191,7 +190,9 @@ abstract class CheckTestCase extends TestCase
     {
         return new class($typeString) {
             public function __construct(private readonly string $typeName) {}
+
             public function __toString(): string { return $this->typeName; }
+
             public function getTypeName(): string { return $this->typeName; }
         };
     }
@@ -258,7 +259,7 @@ abstract class CheckTestCase extends TestCase
     protected function createMockReflectionProviderWithClasses(array $classes = []): ReflectionProviderInterface
     {
         $provider = $this->createMock(ReflectionProviderInterface::class);
-        $manager  = $this->createMockStorageManager();
+        $manager = $this->createMockStorageManager();
         $manager->method('getClasses')->willReturn($classes);
         $provider->method('getReflection')->willReturn($manager);
         return $provider;
@@ -270,7 +271,7 @@ abstract class CheckTestCase extends TestCase
     protected function createMockReflectionProviderWithInterfaces(array $interfaces = []): ReflectionProviderInterface
     {
         $provider = $this->createMock(ReflectionProviderInterface::class);
-        $manager  = $this->createMockStorageManager();
+        $manager = $this->createMockStorageManager();
         $manager->method('getInterfaces')->willReturn($interfaces);
         $provider->method('getReflection')->willReturn($manager);
         return $provider;
@@ -282,7 +283,7 @@ abstract class CheckTestCase extends TestCase
     protected function createMockReflectionProviderWithEnums(array $enums = []): ReflectionProviderInterface
     {
         $provider = $this->createMock(ReflectionProviderInterface::class);
-        $manager  = $this->createMockStorageManager();
+        $manager = $this->createMockStorageManager();
         $manager->method('getEnums')->willReturn($enums);
         $provider->method('getReflection')->willReturn($manager);
         return $provider;

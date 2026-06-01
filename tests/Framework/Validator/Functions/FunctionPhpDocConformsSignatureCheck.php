@@ -32,7 +32,6 @@ use StubTests\Framework\Validator\Services\ReturnTypeResolver;
  */
 class FunctionPhpDocConformsSignatureCheck extends AbstractCallableCheck
 {
-
     private PhpDocConformanceService $conformanceService;
 
     public function __construct(

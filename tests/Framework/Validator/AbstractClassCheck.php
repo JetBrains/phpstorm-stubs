@@ -12,9 +12,7 @@ use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\Framework\Validator\Contracts\LookupKind;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
-use StubTests\Framework\Validator\AbstractReflectionCheck;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
-use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 use StubTests\Framework\Validator\Services\MethodCollectionService;
 
