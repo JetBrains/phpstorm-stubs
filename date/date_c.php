@@ -1021,7 +1021,7 @@ class DateTimeZone
     public static function listIdentifiers(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timezoneGroup = DateTimeZone::ALL,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $countryCode = null
-    ): array {}
+    ) {}
 
     /**
      * @link https://php.net/manual/en/datetime.wakeup.php

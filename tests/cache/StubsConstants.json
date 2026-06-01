@@ -29149,6 +29149,18 @@
     },
     {
         "_type": "PHPConstant",
+        "name": "PDO_ODBC_TYPE",
+        "id": "\\PDO_ODBC_TYPE",
+        "value": "unixODBC",
+        "sourcePath": "PDO/PDO.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null
+    },
+    {
+        "_type": "PHPConstant",
         "name": "GEOIP_COUNTRY_EDITION",
         "id": "\\GEOIP_COUNTRY_EDITION",
         "value": 1,

@@ -1,6 +1,9 @@
 <?php
 
 namespace {
+
+    const PDO_ODBC_TYPE = 'unixODBC';
+
     use JetBrains\PhpStorm\ArrayShape;
     use JetBrains\PhpStorm\Deprecated;
     use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;

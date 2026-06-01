@@ -28,7 +28,6 @@ final class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    #[TentativeType]
     public function getExecutingLine(): int {}
 
     /**
@@ -40,7 +39,6 @@ final class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    #[TentativeType]
     public function getExecutingFile(): string {}
 
     /**
@@ -60,7 +58,6 @@ final class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    #[TentativeType]
     public function getTrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT): array {}
 
     /**
@@ -73,7 +70,6 @@ final class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    #[TentativeType]
     public function getFunction(): ReflectionFunctionAbstract {}
 
     /**
@@ -85,7 +81,6 @@ final class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    #[TentativeType]
     public function getThis(): ?object {}
 
     /**
@@ -96,7 +91,6 @@ final class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    #[TentativeType]
     public function getExecutingGenerator(): Generator {}
 
     /**

@@ -12,7 +12,7 @@ use JetBrains\PhpStorm\Pure;
  */
 class IntlChar
 {
-    public const UNICODE_VERSION = 16.0;
+    public const UNICODE_VERSION = '16.0';
     public const CODEPOINT_MIN = 0;
     public const CODEPOINT_MAX = 1114111;
     public const FOLD_CASE_DEFAULT = 0;

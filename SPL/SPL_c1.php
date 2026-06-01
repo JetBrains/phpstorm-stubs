@@ -320,7 +320,6 @@ class SplFileInfo implements Stringable
     /**
      * @deprecated 8.2
      */
-    #[TentativeType]
     final public function _bad_state_ex(): void {}
 
     public function __wakeup() {}

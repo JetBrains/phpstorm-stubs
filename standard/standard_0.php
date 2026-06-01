@@ -137,8 +137,8 @@ class Directory
      * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.close.php
      */
-    #[TentativeType]
-    public function close(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): void {}
+    #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
+    public function close(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
 
     /**
      * Rewind directory handle.
@@ -146,8 +146,8 @@ class Directory
      * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.rewind.php
      */
-    #[TentativeType]
-    public function rewind(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): void {}
+    #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
+    public function rewind(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
 
     /**
      * Read entry from directory handle.
@@ -156,8 +156,8 @@ class Directory
      * @return string|false
      * @link https://secure.php.net/manual/en/directory.read.php
      */
-    #[TentativeType]
-    public function read(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): string|false {}
+    #[LanguageLevelTypeAware(['8.0' => 'string|false'], default: '')]
+    public function read(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
 }
 
 /**
