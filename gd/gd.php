@@ -2284,7 +2284,7 @@ function imageconvolution(GdImage $image, array $matrix, float $divisor, float $
  * @since 7.2
  */
 #[LanguageLevelTypeAware(['8.5' => 'array|true'], default: 'array|bool')]
-function imageresolution(GdImage $image, ?int $resolution_x = null, ?int $resolution_y = null){}
+function imageresolution(GdImage $image, ?int $resolution_x = null, ?int $resolution_y = null) {}
 
 /**
  * <b>imagesetclip()</b> sets the current clipping rectangle, i.e. the area beyond which no pixels will be drawn.

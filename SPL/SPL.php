@@ -1400,7 +1400,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @param int $mode [optional] Flags to affect the behavior of the {@see RecursiveIteratorIterator} used internally.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.5'=> 'RecursiveIterator|IteratorAggregate', '7.1' => 'Traversable'], default: '')] $iterator,
+        #[LanguageLevelTypeAware(['8.5' => 'RecursiveIterator|IteratorAggregate', '7.1' => 'Traversable'], default: '')] $iterator,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = self::BYPASS_KEY,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cachingIteratorFlags = CachingIterator::CATCH_GET_CHILD,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = RecursiveIteratorIterator::SELF_FIRST

@@ -1473,8 +1473,9 @@ class mysqli_stmt
      * @param mysqli $mysql
      * @param string $query [optional]
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'mysqli'], default: '')] $mysql,
-                                #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $query
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'mysqli'], default: '')] $mysql,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $query
     ) {}
 
     /**
@@ -1582,7 +1583,7 @@ class mysqli_stmt
      * @return bool true on success or false on failure.
      */
     #[TentativeType]
-    public function bind_param(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $types, mixed &$var1, mixed &...$_): bool {}
+    public function bind_param(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $types, mixed & $var1, mixed & ...$_): bool {}
 
     /**
      * Binds variables to a prepared statement for result storage

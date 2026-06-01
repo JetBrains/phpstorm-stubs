@@ -2152,20 +2152,28 @@ namespace Pdo {
         public const int ATTR_OPEN_FLAGS = 1000;
         public const int ATTR_READONLY_STATEMENT = 1001;
         public const int ATTR_EXTENDED_RESULT_CODES = 1002;
+
         /** @since 8.5 */
         public const IGNORE = 2;
+
         /** @since 8.5 */
         public const DENY = 1;
+
         /** @since 8.5 */
         public const OK = 0;
+
         /** @since 8.5 */
         public const EXPLAIN_MODE_EXPLAIN_QUERY_PLAN = 2;
+
         /** @since 8.5 */
         public const EXPLAIN_MODE_EXPLAIN = 1;
+
         /** @since 8.5 */
         public const EXPLAIN_MODE_PREPARED = 0;
+
         /** @since 8.5 */
         public const ATTR_EXPLAIN_STATEMENT = 1004;
+
         /** @since 8.5 */
         public const ATTR_BUSY_STATEMENT = 1003;
 
@@ -2230,12 +2238,15 @@ namespace Pdo {
         public const int ATTR_USE_BUFFERED_QUERY = 1000;
         public const int ATTR_LOCAL_INFILE = 1001;
         public const int ATTR_INIT_COMMAND = 1002;
+
         /**
          * @removed 8.4
          */
         public const int ATTR_READ_DEFAULT_FILE = 1003;
+
         /** @removed 8.4 */
         public const int ATTR_READ_DEFAULT_GROUP = 1004;
+
         /** @removed 8.4 */
         public const int ATTR_MAX_BUFFER_SIZE = 1005;
         public const int ATTR_COMPRESS = 1003;

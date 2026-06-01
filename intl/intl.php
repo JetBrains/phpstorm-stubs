@@ -932,26 +932,32 @@ class NumberFormatter
      * @since 8.4
      */
     public const ROUND_HALFODD = 8;
+
     /**
      * @since 8.5
      */
     public const DECIMAL_COMPACT_SHORT = 14;
+
     /**
      * @since 8.5
      */
     public const DECIMAL_COMPACT_LONG = 15;
+
     /**
      * @since 8.5
      */
     public const CURRENCY_ISO = 10;
+
     /**
      * @since 8.5
      */
     public const CURRENCY_PLURAL = 11;
+
     /**
      * @since 8.5
      */
     public const CASH_CURRENCY = 13;
+
     /**
      * @since 8.5
      */

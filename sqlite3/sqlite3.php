@@ -19,76 +19,112 @@ class SQLite3
 {
     /** @since 8.0 */
     public const OK = 0;
+
     /** @since 8.0 */
     public const DENY = 1;
+
     /** @since 8.0 */
     public const IGNORE = 2;
+
     /** @since 8.0 */
     public const CREATE_INDEX = 1;
+
     /** @since 8.0 */
     public const CREATE_TABLE = 2;
+
     /** @since 8.0 */
     public const CREATE_TEMP_INDEX = 3;
+
     /** @since 8.0 */
     public const CREATE_TEMP_TABLE = 4;
+
     /** @since 8.0 */
     public const CREATE_TEMP_TRIGGER = 5;
+
     /** @since 8.0 */
     public const CREATE_TEMP_VIEW = 6;
+
     /** @since 8.0 */
     public const CREATE_TRIGGER = 7;
+
     /** @since 8.0 */
     public const CREATE_VIEW = 8;
+
     /** @since 8.0 */
     public const DELETE = 9;
+
     /** @since 8.0 */
     public const DROP_INDEX = 10;
+
     /** @since 8.0 */
     public const DROP_TABLE = 11;
+
     /** @since 8.0 */
     public const DROP_TEMP_INDEX = 12;
+
     /** @since 8.0 */
     public const DROP_TEMP_TABLE = 13;
+
     /** @since 8.0 */
     public const DROP_TEMP_TRIGGER = 14;
+
     /** @since 8.0 */
     public const DROP_TEMP_VIEW = 15;
+
     /** @since 8.0 */
     public const DROP_TRIGGER = 16;
+
     /** @since 8.0 */
     public const DROP_VIEW = 17;
+
     /** @since 8.0 */
     public const INSERT = 18;
+
     /** @since 8.0 */
     public const PRAGMA = 19;
+
     /** @since 8.0 */
     public const READ = 20;
+
     /** @since 8.0 */
     public const SELECT = 21;
+
     /** @since 8.0 */
     public const TRANSACTION = 22;
+
     /** @since 8.0 */
     public const UPDATE = 23;
+
     /** @since 8.0 */
     public const ATTACH = 24;
+
     /** @since 8.0 */
     public const DETACH = 25;
+
     /** @since 8.0 */
     public const ALTER_TABLE = 26;
+
     /** @since 8.0 */
     public const REINDEX = 27;
+
     /** @since 8.0 */
     public const ANALYZE = 28;
+
     /** @since 8.0 */
     public const CREATE_VTABLE = 29;
+
     /** @since 8.0 */
     public const DROP_VTABLE = 30;
+
     /** @since 8.0 */
     public const FUNCTION = 31;
+
     /** @since 8.0 */
     public const SAVEPOINT = 32;
+
     /** @since 8.0 */
     public const COPY = 0;
+
     /** @since 8.0 */
     public const RECURSIVE = 33;
 
@@ -455,8 +491,10 @@ class SQLite3Stmt
 {
     /** @since 8.5 */
     public const EXPLAIN_MODE_EXPLAIN_QUERY_PLAN = 2;
+
     /** @since 8.5 */
     public const EXPLAIN_MODE_EXPLAIN = 1;
+
     /** @since 8.5 */
     public const EXPLAIN_MODE_PREPARED = 0;
 
