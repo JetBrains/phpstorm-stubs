@@ -138,46 +138,116 @@ class XMLReader
      */
     public const SUBST_ENTITIES = 4;
 
-    /** @since 8.1 */
+    /**
+     * The number of attributes on the node
+     * @var int
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public int $attributeCount;
 
-    /** @since 8.1 */
+    /**
+     * The base URI of the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public string $baseURI;
 
-    /** @since 8.1 */
+    /**
+     * Depth of the node in the tree, starting at 0
+     * @var int
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public int $depth;
 
-    /** @since 8.1 */
+    /**
+     * Indicates if node has attributes
+     * @var bool
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public bool $hasAttributes;
 
-    /** @since 8.1 */
+    /**
+     * Indicates if node has a text value
+     * @var bool
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public bool $hasValue;
 
-    /** @since 8.1 */
+    /**
+     * Indicates if attribute is defaulted from DTD
+     * @var bool
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public bool $isDefault;
 
-    /** @since 8.1 */
+    /**
+     * Indicates if node is an empty element tag
+     * @var bool
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public bool $isEmptyElement;
 
-    /** @since 8.1 */
+    /**
+     * The local name of the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public string $localName;
 
-    /** @since 8.1 */
+    /**
+     * The qualified name of the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public string $name;
 
-    /** @since 8.1 */
+    /**
+     * The URI of the namespace associated with the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public string $namespaceURI;
 
-    /** @since 8.1 */
+    /**
+     * The node type for the node
+     * @var int
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public int $nodeType;
 
-    /** @since 8.1 */
+    /**
+     * The prefix of the namespace associated with the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public string $prefix;
 
-    /** @since 8.1 */
+    /**
+     * The text value of the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public string $value;
 
-    /** @since 8.1 */
+    /**
+     * The xml:lang scope which the node resides
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public string $xmlLang;
 
     /**

@@ -12,7 +12,7 @@ RUN docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype
 RUN docker-php-ext-configure pdo_odbc --with-pdo-odbc=unixODBC,/usr
 
 RUN docker-php-ext-install gmp sockets intl gd ldap bz2 mysqli bcmath calendar dba  pcntl \
-    pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pgsql pdo_dblib pdo_odbc
+    pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pgsql pdo_pgsql pdo_dblib pdo_odbc
     # gettext exif opcache
 
 WORKDIR /opt/project/phpstorm-stubs

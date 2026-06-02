@@ -1416,10 +1416,11 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
 {
     /**
      * @var int The number of nodes in the map. The valid child node indices range from 0 to length - 1 inclusive.
+     * @readonly
      * @link https://php.net/manual/en/class.domnamednodemap.php#domnamednodemap.props.length
      */
-    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
-    public $length;
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public int $length;
 
     /**
      * Retrieves a node specified by name
