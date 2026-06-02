@@ -222,6 +222,162 @@ class StubGlobalConstantParserTest extends BaseTestCase
         self::assertEquals(3.14, $constants[2]->getValue());
     }
 
+    // PhpDoc / version availability tests (define())
+    public function testDefineItExtractsSinceVersionFromPhpDoc()
+    {
+        $stubCode = <<<'PHP'
+<?php
+/**
+ * @since 8.4
+ */
+define('PGSQL_TRACE_SUPPRESS_TIMESTAMPS', 1);
+PHP;
+        $constants = $this->defineParser->parse($stubCode);
+
+        self::assertCount(1, $constants);
+        self::assertEquals('PGSQL_TRACE_SUPPRESS_TIMESTAMPS', $constants[0]->getName());
+        self::assertEquals('8.4', $constants[0]->getStubsMetadata()->getSinceVersion());
+        self::assertNull($constants[0]->getStubsMetadata()->getRemovedVersion());
+    }
+
+    public function testDefineItStoresRawPhpDoc()
+    {
+        $stubCode = <<<'PHP'
+<?php
+/**
+ * @link https://php.net/manual/en/function.pg-last-notice.php
+ * @since 7.1
+ */
+define('PGSQL_NOTICE_ALL', 2);
+PHP;
+        $constants = $this->defineParser->parse($stubCode);
+
+        $phpDoc = $constants[0]->getStubsMetadata()->getPhpDoc();
+        self::assertNotNull($phpDoc);
+        self::assertStringContainsString('@since 7.1', $phpDoc);
+        self::assertStringContainsString('@link', $phpDoc);
+    }
+
+    public function testDefineItExtractsRemovedVersionFromPhpDoc()
+    {
+        $stubCode = <<<'PHP'
+<?php
+/**
+ * @since 7.0
+ * @removed 8.0
+ */
+define('OLD_DEFINE', 1);
+PHP;
+        $constants = $this->defineParser->parse($stubCode);
+
+        self::assertEquals('7.0', $constants[0]->getStubsMetadata()->getSinceVersion());
+        self::assertEquals('8.0', $constants[0]->getStubsMetadata()->getRemovedVersion());
+    }
+
+    public function testDefineItHasNullVersionsAndPhpDocWhenNoDocComment()
+    {
+        $stubCode = '<?php define("NO_DOC_DEFINE", 1);';
+        $constants = $this->defineParser->parse($stubCode);
+
+        self::assertNull($constants[0]->getStubsMetadata()->getPhpDoc());
+        self::assertNull($constants[0]->getStubsMetadata()->getSinceVersion());
+        self::assertNull($constants[0]->getStubsMetadata()->getRemovedVersion());
+    }
+
+    public function testDefineItOnlyAttachesPhpDocToTheDocumentedConstant()
+    {
+        $stubCode = <<<'PHP'
+<?php
+/**
+ * @since 8.4
+ */
+define('DOCUMENTED_DEFINE', 1);
+define('UNDOCUMENTED_DEFINE', 2);
+PHP;
+        $constants = $this->defineParser->parse($stubCode);
+
+        self::assertCount(2, $constants);
+        self::assertEquals('8.4', $constants[0]->getStubsMetadata()->getSinceVersion());
+        self::assertNull($constants[1]->getStubsMetadata()->getSinceVersion());
+        self::assertNull($constants[1]->getStubsMetadata()->getPhpDoc());
+    }
+
+    public function testDefineItExtractsSinceVersionForNamespacedConstant()
+    {
+        $stubCode = <<<'PHP'
+<?php
+namespace Foo;
+/**
+ * @since 8.1
+ */
+define('Foo\\NS_DEFINE', 1);
+PHP;
+        $constants = $this->defineParser->parse($stubCode);
+
+        self::assertCount(1, $constants);
+        self::assertEquals('8.1', $constants[0]->getStubsMetadata()->getSinceVersion());
+    }
+
+    // PhpDoc / version availability tests (modern const)
+    public function testModernItExtractsSinceVersionFromPhpDoc()
+    {
+        $stubCode = <<<'PHP'
+<?php
+/**
+ * @since 7.2
+ */
+const MODERN_SINCE = 5;
+PHP;
+        $constants = $this->modernParser->parse($stubCode);
+
+        self::assertCount(1, $constants);
+        self::assertEquals('7.2', $constants[0]->getStubsMetadata()->getSinceVersion());
+    }
+
+    public function testModernItExtractsRemovedVersionFromPhpDoc()
+    {
+        $stubCode = <<<'PHP'
+<?php
+/**
+ * @since 7.2
+ * @removed 8.0
+ */
+const MODERN_REMOVED = 5;
+PHP;
+        $constants = $this->modernParser->parse($stubCode);
+
+        self::assertEquals('7.2', $constants[0]->getStubsMetadata()->getSinceVersion());
+        self::assertEquals('8.0', $constants[0]->getStubsMetadata()->getRemovedVersion());
+    }
+
+    public function testModernItSharesPhpDocAcrossConstantsInOneStatement()
+    {
+        $stubCode = <<<'PHP'
+<?php
+/**
+ * @since 8.3
+ */
+const A = 1, B = 2, C = 3;
+PHP;
+        $constants = $this->modernParser->parse($stubCode);
+
+        self::assertCount(3, $constants);
+        foreach ($constants as $constant) {
+            self::assertEquals('8.3', $constant->getStubsMetadata()->getSinceVersion());
+            self::assertStringContainsString('@since 8.3', $constant->getStubsMetadata()->getPhpDoc());
+        }
+    }
+
+    public function testModernItHasNullVersionsAndPhpDocWhenNoDocComment()
+    {
+        $stubCode = '<?php const NO_DOC_CONST = 1;';
+        $constants = $this->modernParser->parse($stubCode);
+
+        self::assertNull($constants[0]->getStubsMetadata()->getPhpDoc());
+        self::assertNull($constants[0]->getStubsMetadata()->getSinceVersion());
+        self::assertNull($constants[0]->getStubsMetadata()->getRemovedVersion());
+    }
+
     // Integration test
     public function testItParsesGlobalConstantsFile()
     {

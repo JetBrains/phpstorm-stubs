@@ -1532,7 +1532,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -1544,7 +1544,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -11588,7 +11588,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -11600,7 +11600,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -11720,7 +11720,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -11744,7 +11744,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -12008,7 +12008,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -12020,7 +12020,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -12032,7 +12032,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -12044,7 +12044,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -12368,7 +12368,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.3",
         "removedVersion": null
     },
     {
@@ -12404,7 +12404,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -12416,7 +12416,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -14600,7 +14600,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -14756,7 +14756,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -17264,7 +17264,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -17312,7 +17312,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -17324,7 +17324,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -17336,7 +17336,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -17348,7 +17348,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -17360,7 +17360,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -17372,7 +17372,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -17384,7 +17384,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -17396,7 +17396,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -17408,7 +17408,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -17420,7 +17420,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -17432,7 +17432,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -17444,7 +17444,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -19160,7 +19160,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -19172,7 +19172,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19184,7 +19184,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19196,7 +19196,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19208,7 +19208,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19220,7 +19220,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19232,7 +19232,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19244,7 +19244,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19256,7 +19256,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19268,7 +19268,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19280,7 +19280,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19292,7 +19292,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19304,7 +19304,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19316,7 +19316,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19328,7 +19328,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19340,7 +19340,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19352,7 +19352,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19364,7 +19364,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19376,7 +19376,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19388,7 +19388,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19400,7 +19400,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19412,7 +19412,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19424,7 +19424,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19436,7 +19436,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19448,7 +19448,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19460,7 +19460,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19472,7 +19472,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19484,7 +19484,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -19496,7 +19496,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -19508,7 +19508,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19520,7 +19520,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -19532,7 +19532,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -19544,7 +19544,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -19556,7 +19556,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -19568,7 +19568,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -19580,7 +19580,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -19592,7 +19592,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.5",
         "removedVersion": null
     },
     {
@@ -22460,7 +22460,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -22472,7 +22472,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -22484,7 +22484,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -22496,7 +22496,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -22508,7 +22508,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -22520,7 +22520,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -22532,7 +22532,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -22544,7 +22544,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -22556,7 +22556,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -22568,7 +22568,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -22580,7 +22580,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -22592,7 +22592,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -23204,7 +23204,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -23576,7 +23576,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -23588,7 +23588,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -23600,7 +23600,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -23612,7 +23612,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -23624,7 +23624,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -23636,7 +23636,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -23648,7 +23648,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -24176,7 +24176,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -24188,7 +24188,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -24980,7 +24980,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
         "removedVersion": null
     },
     {
@@ -24992,7 +24992,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
         "removedVersion": null
     },
     {
@@ -25064,7 +25064,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25076,7 +25076,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25088,7 +25088,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25100,7 +25100,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25112,7 +25112,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25124,7 +25124,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25136,7 +25136,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25148,7 +25148,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25160,7 +25160,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25172,7 +25172,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25184,7 +25184,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25196,7 +25196,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25208,7 +25208,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25220,7 +25220,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25232,7 +25232,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25244,7 +25244,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25256,7 +25256,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25268,7 +25268,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25280,7 +25280,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25292,7 +25292,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25304,7 +25304,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25316,7 +25316,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25328,7 +25328,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25340,7 +25340,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -25412,7 +25412,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -25424,7 +25424,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -25436,7 +25436,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -25448,7 +25448,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -25760,7 +25760,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -26756,7 +26756,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -26936,7 +26936,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -26948,7 +26948,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -27140,7 +27140,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -27164,7 +27164,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -27176,7 +27176,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -27188,7 +27188,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -27200,7 +27200,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -27212,7 +27212,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -27224,7 +27224,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -27236,7 +27236,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -27249,7 +27249,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.0"
     },
     {
         "_type": "PHPConstant",
@@ -27260,7 +27260,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -27272,7 +27272,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -27284,7 +27284,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -27848,7 +27848,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -32180,7 +32180,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -32192,7 +32192,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -32204,7 +32204,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -32216,7 +32216,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -32888,7 +32888,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -33020,7 +33020,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "1.3.0",
         "removedVersion": null
     },
     {
@@ -33032,7 +33032,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "1.3.0",
         "removedVersion": null
     },
     {
@@ -33044,7 +33044,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "1.3.0",
         "removedVersion": null
     },
     {
@@ -33056,7 +33056,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "1.3.0",
         "removedVersion": null
     },
     {
@@ -33068,7 +33068,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "1.3.0",
         "removedVersion": null
     },
     {
@@ -33080,7 +33080,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "1.3.0",
         "removedVersion": null
     },
     {
@@ -35324,7 +35324,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.6",
         "removedVersion": null
     },
     {
@@ -36488,7 +36488,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -36500,7 +36500,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -36512,7 +36512,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -36788,7 +36788,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -36800,7 +36800,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -37976,7 +37976,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.0",
         "removedVersion": null
     },
     {
@@ -38085,7 +38085,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "8.0"
     },
     {
         "_type": "PHPConstant",
@@ -38540,7 +38540,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
         "removedVersion": null
     },
     {
@@ -38576,7 +38576,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -38828,7 +38828,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -38840,7 +38840,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -38852,7 +38852,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -38864,7 +38864,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -38876,7 +38876,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -38888,7 +38888,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -38900,7 +38900,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -38912,7 +38912,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -38924,7 +38924,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -38972,7 +38972,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -38984,7 +38984,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -39260,7 +39260,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -39272,7 +39272,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -39332,7 +39332,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -39344,7 +39344,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
         "removedVersion": null
     },
     {
@@ -39356,7 +39356,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
         "removedVersion": null
     },
     {
@@ -39764,7 +39764,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39776,7 +39776,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39788,7 +39788,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39800,7 +39800,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39812,7 +39812,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39824,7 +39824,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39836,7 +39836,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39848,7 +39848,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39860,7 +39860,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39872,7 +39872,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39884,7 +39884,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39896,7 +39896,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39908,7 +39908,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39920,7 +39920,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39932,7 +39932,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39944,7 +39944,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39956,7 +39956,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39968,7 +39968,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -39980,7 +39980,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -40004,7 +40004,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.6",
         "removedVersion": null
     },
     {
@@ -40052,7 +40052,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -40064,7 +40064,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -40076,7 +40076,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -40088,7 +40088,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -40100,7 +40100,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -40112,7 +40112,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -40184,7 +40184,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -42572,7 +42572,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -42584,7 +42584,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.3",
         "removedVersion": null
     },
     {
@@ -42596,7 +42596,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -42608,7 +42608,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -42620,7 +42620,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -42632,7 +42632,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -42644,7 +42644,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -42860,7 +42860,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.3",
         "removedVersion": null
     },
     {
@@ -42956,7 +42956,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.3",
         "removedVersion": null
     },
     {
@@ -42968,7 +42968,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.3",
         "removedVersion": null
     },
     {
@@ -43004,7 +43004,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -43016,7 +43016,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -43028,7 +43028,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -43040,7 +43040,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -43136,7 +43136,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -43436,7 +43436,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.6",
         "removedVersion": null
     },
     {
@@ -43448,7 +43448,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.6",
         "removedVersion": null
     },
     {
@@ -43460,7 +43460,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.6",
         "removedVersion": null
     },
     {
@@ -43677,7 +43677,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "5.6"
     },
     {
         "_type": "PHPConstant",
@@ -43748,7 +43748,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -44024,7 +44024,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -44192,7 +44192,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -44204,7 +44204,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44216,7 +44216,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44228,7 +44228,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44240,7 +44240,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44252,7 +44252,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44264,7 +44264,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44276,7 +44276,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44288,7 +44288,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44300,7 +44300,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44312,7 +44312,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44324,7 +44324,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44336,7 +44336,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44348,7 +44348,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44360,7 +44360,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44372,7 +44372,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44384,7 +44384,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -44397,7 +44397,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "5.6"
     },
     {
         "_type": "PHPConstant",
@@ -44409,7 +44409,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "5.6"
     },
     {
         "_type": "PHPConstant",
@@ -44421,7 +44421,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "5.6"
     },
     {
         "_type": "PHPConstant",
@@ -44433,7 +44433,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "5.6"
     },
     {
         "_type": "PHPConstant",
@@ -44445,7 +44445,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "5.6"
     },
     {
         "_type": "PHPConstant",
@@ -44696,7 +44696,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.1",
         "removedVersion": null
     },
     {
@@ -44708,7 +44708,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -44720,7 +44720,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -44732,7 +44732,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -44816,7 +44816,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -44828,7 +44828,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -44840,7 +44840,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -44852,7 +44852,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -44864,7 +44864,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -44876,7 +44876,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -45968,7 +45968,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.3",
         "removedVersion": null
     },
     {
@@ -45992,7 +45992,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -46196,7 +46196,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -46208,7 +46208,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -46292,7 +46292,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46304,7 +46304,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46316,7 +46316,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46328,7 +46328,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46340,7 +46340,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46352,7 +46352,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46364,7 +46364,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46376,7 +46376,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46388,7 +46388,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46400,7 +46400,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46412,7 +46412,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46424,7 +46424,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46436,7 +46436,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46448,7 +46448,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46460,7 +46460,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46472,7 +46472,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46484,7 +46484,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46496,7 +46496,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46508,7 +46508,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46520,7 +46520,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46532,7 +46532,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46544,7 +46544,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46556,7 +46556,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46568,7 +46568,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -46580,7 +46580,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -46592,7 +46592,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -46604,7 +46604,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -46616,7 +46616,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -46628,7 +46628,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -46640,7 +46640,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -46652,7 +46652,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46664,7 +46664,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46676,7 +46676,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46688,7 +46688,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46700,7 +46700,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46712,7 +46712,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46724,7 +46724,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46736,7 +46736,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46748,7 +46748,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46760,7 +46760,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46772,7 +46772,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46784,7 +46784,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46796,7 +46796,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46808,7 +46808,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46820,7 +46820,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46832,7 +46832,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46844,7 +46844,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46856,7 +46856,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46868,7 +46868,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46880,7 +46880,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46892,7 +46892,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46904,7 +46904,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46916,7 +46916,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
         "removedVersion": null
     },
     {
@@ -46928,7 +46928,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
         "removedVersion": null
     },
     {
@@ -46940,7 +46940,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
         "removedVersion": null
     },
     {
@@ -46952,7 +46952,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -46964,7 +46964,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -46976,7 +46976,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -46988,7 +46988,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47000,7 +47000,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47012,7 +47012,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47024,7 +47024,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47036,7 +47036,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47048,7 +47048,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47060,7 +47060,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47072,7 +47072,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47084,7 +47084,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47096,7 +47096,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47108,7 +47108,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47120,7 +47120,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47132,7 +47132,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47144,7 +47144,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47156,7 +47156,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47168,7 +47168,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47180,7 +47180,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47192,7 +47192,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47204,7 +47204,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47216,7 +47216,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47228,7 +47228,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47240,7 +47240,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47252,7 +47252,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47264,7 +47264,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47276,7 +47276,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47288,7 +47288,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47300,7 +47300,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47312,7 +47312,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47324,7 +47324,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47336,7 +47336,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47348,7 +47348,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47360,7 +47360,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47372,7 +47372,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47384,7 +47384,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47396,7 +47396,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47408,7 +47408,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47420,7 +47420,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -47432,7 +47432,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47444,7 +47444,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47456,7 +47456,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47468,7 +47468,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47480,7 +47480,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47492,7 +47492,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47504,7 +47504,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47516,7 +47516,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47528,7 +47528,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47540,7 +47540,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47552,7 +47552,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47564,7 +47564,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47576,7 +47576,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47588,7 +47588,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47600,7 +47600,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47612,7 +47612,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47624,7 +47624,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47636,7 +47636,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47648,7 +47648,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47660,7 +47660,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47672,7 +47672,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47684,7 +47684,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47696,7 +47696,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47708,7 +47708,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47720,7 +47720,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47732,7 +47732,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47744,7 +47744,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47756,7 +47756,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47768,7 +47768,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47780,7 +47780,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47792,7 +47792,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47804,7 +47804,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47816,7 +47816,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47828,7 +47828,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47840,7 +47840,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47852,7 +47852,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47864,7 +47864,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47876,7 +47876,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47888,7 +47888,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47900,7 +47900,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47912,7 +47912,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47924,7 +47924,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47936,7 +47936,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47948,7 +47948,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47960,7 +47960,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -47972,7 +47972,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48224,7 +48224,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48236,7 +48236,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48248,7 +48248,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48260,7 +48260,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48272,7 +48272,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48284,7 +48284,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48320,7 +48320,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48332,7 +48332,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48920,7 +48920,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.6",
         "removedVersion": null
     },
     {
@@ -48932,7 +48932,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48944,7 +48944,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48956,7 +48956,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48968,7 +48968,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.6",
         "removedVersion": null
     },
     {
@@ -48980,7 +48980,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -48992,7 +48992,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -49004,7 +49004,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -49016,7 +49016,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -49028,7 +49028,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -49040,7 +49040,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -49052,7 +49052,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -49064,7 +49064,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49076,7 +49076,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49088,7 +49088,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49100,7 +49100,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49112,7 +49112,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49124,7 +49124,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49136,7 +49136,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49148,7 +49148,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49160,7 +49160,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49172,7 +49172,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49184,7 +49184,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49196,7 +49196,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49208,7 +49208,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49220,7 +49220,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -49232,7 +49232,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49244,7 +49244,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49256,7 +49256,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49268,7 +49268,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49280,7 +49280,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49292,7 +49292,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49304,7 +49304,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49316,7 +49316,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49328,7 +49328,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49340,7 +49340,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49352,7 +49352,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49364,7 +49364,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49376,7 +49376,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49388,7 +49388,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49400,7 +49400,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49412,7 +49412,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49424,7 +49424,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49436,7 +49436,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49448,7 +49448,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49460,7 +49460,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49472,7 +49472,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49484,7 +49484,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49496,7 +49496,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49508,7 +49508,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49520,7 +49520,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49532,7 +49532,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -49544,7 +49544,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49556,7 +49556,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49568,7 +49568,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49580,7 +49580,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49592,7 +49592,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -49604,7 +49604,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -49616,7 +49616,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -49628,7 +49628,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -49640,7 +49640,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -49652,7 +49652,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -49664,7 +49664,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -49676,7 +49676,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -49688,7 +49688,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -49700,7 +49700,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49712,7 +49712,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49724,7 +49724,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49736,7 +49736,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49748,7 +49748,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49760,7 +49760,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49772,7 +49772,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49784,7 +49784,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49796,7 +49796,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49808,7 +49808,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49820,7 +49820,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49832,7 +49832,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49844,7 +49844,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49856,7 +49856,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49868,7 +49868,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49880,7 +49880,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49892,7 +49892,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49904,7 +49904,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49916,7 +49916,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49928,7 +49928,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49940,7 +49940,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49952,7 +49952,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49964,7 +49964,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49976,7 +49976,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -49988,7 +49988,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50000,7 +50000,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50012,7 +50012,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50024,7 +50024,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50036,7 +50036,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50048,7 +50048,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50060,7 +50060,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50072,7 +50072,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50084,7 +50084,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50096,7 +50096,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50108,7 +50108,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50120,7 +50120,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50132,7 +50132,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50144,7 +50144,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50156,7 +50156,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50168,7 +50168,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50180,7 +50180,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50192,7 +50192,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50204,7 +50204,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50216,7 +50216,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50228,7 +50228,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50240,7 +50240,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50252,7 +50252,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50264,7 +50264,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50276,7 +50276,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50288,7 +50288,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50300,7 +50300,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50312,7 +50312,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50324,7 +50324,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50336,7 +50336,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50348,7 +50348,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50360,7 +50360,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50372,7 +50372,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50384,7 +50384,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50396,7 +50396,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50408,7 +50408,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50420,7 +50420,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50432,7 +50432,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50444,7 +50444,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50456,7 +50456,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50468,7 +50468,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50480,7 +50480,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50492,7 +50492,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50504,7 +50504,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50516,7 +50516,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50528,7 +50528,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50540,7 +50540,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50552,7 +50552,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50564,7 +50564,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50576,7 +50576,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50588,7 +50588,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50600,7 +50600,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50612,7 +50612,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50624,7 +50624,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -50636,7 +50636,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50648,7 +50648,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50660,7 +50660,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50672,7 +50672,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50684,7 +50684,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50696,7 +50696,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50708,7 +50708,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50720,7 +50720,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50732,7 +50732,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50744,7 +50744,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50756,7 +50756,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50768,7 +50768,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50780,7 +50780,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50792,7 +50792,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -50804,7 +50804,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -51008,7 +51008,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.3",
         "removedVersion": null
     },
     {
@@ -51020,7 +51020,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -51032,7 +51032,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -51044,7 +51044,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -51176,7 +51176,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -51200,7 +51200,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.4",
         "removedVersion": null
     },
     {
@@ -51212,7 +51212,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.6",
         "removedVersion": null
     },
     {
@@ -51224,7 +51224,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
         "removedVersion": null
     },
     {
@@ -51236,7 +51236,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -51248,7 +51248,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -51260,7 +51260,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -51272,7 +51272,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -51284,7 +51284,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -51296,7 +51296,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -52736,7 +52736,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52748,7 +52748,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52760,7 +52760,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52772,7 +52772,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52784,7 +52784,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52796,7 +52796,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52808,7 +52808,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52820,7 +52820,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52832,7 +52832,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52844,7 +52844,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52856,7 +52856,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52868,7 +52868,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52880,7 +52880,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52892,7 +52892,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52904,7 +52904,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52916,7 +52916,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52928,7 +52928,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52940,7 +52940,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52952,7 +52952,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52964,7 +52964,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52976,7 +52976,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -52988,7 +52988,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -53000,7 +53000,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -53012,7 +53012,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -53024,7 +53024,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -53036,7 +53036,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -53048,7 +53048,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -53060,7 +53060,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -53348,7 +53348,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -53360,7 +53360,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -56996,7 +56996,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1.4",
         "removedVersion": null
     },
     {
@@ -57069,7 +57069,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.0"
     },
     {
         "_type": "PHPConstant",
@@ -57081,7 +57081,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.0"
     },
     {
         "_type": "PHPConstant",
@@ -57093,7 +57093,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.0"
     },
     {
         "_type": "PHPConstant",
@@ -57105,7 +57105,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.0"
     },
     {
         "_type": "PHPConstant",
@@ -57117,7 +57117,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.0"
     },
     {
         "_type": "PHPConstant",
@@ -57129,7 +57129,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.0"
     },
     {
         "_type": "PHPConstant",
@@ -57141,7 +57141,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.0"
     },
     {
         "_type": "PHPConstant",
@@ -57297,7 +57297,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57309,7 +57309,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57321,7 +57321,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57333,7 +57333,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57345,7 +57345,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57357,7 +57357,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57369,7 +57369,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57381,7 +57381,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57393,7 +57393,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57417,7 +57417,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57429,7 +57429,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57441,7 +57441,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57453,7 +57453,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57465,7 +57465,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57477,7 +57477,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57489,7 +57489,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57501,7 +57501,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57513,7 +57513,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57525,7 +57525,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57537,7 +57537,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57549,7 +57549,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57561,7 +57561,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57573,7 +57573,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57585,7 +57585,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57597,7 +57597,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57609,7 +57609,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57621,7 +57621,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57633,7 +57633,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57645,7 +57645,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57657,7 +57657,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57669,7 +57669,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57681,7 +57681,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57693,7 +57693,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57705,7 +57705,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57717,7 +57717,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57729,7 +57729,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57741,7 +57741,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57753,7 +57753,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57765,7 +57765,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57777,7 +57777,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57789,7 +57789,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57801,7 +57801,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57813,7 +57813,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57825,7 +57825,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57837,7 +57837,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57849,7 +57849,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57861,7 +57861,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57873,7 +57873,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "7.2"
     },
     {
         "_type": "PHPConstant",
@@ -57884,7 +57884,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -57896,7 +57896,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -57908,7 +57908,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -57920,7 +57920,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -57932,7 +57932,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -57944,7 +57944,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -57956,7 +57956,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -57968,7 +57968,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -60368,7 +60368,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -60380,7 +60380,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -60896,7 +60896,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "2.0.4",
         "removedVersion": null
     },
     {
@@ -63956,7 +63956,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
         "removedVersion": null
     },
     {
@@ -63968,7 +63968,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
         "removedVersion": null
     },
     {
@@ -63980,7 +63980,19 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.1",
+        "removedVersion": null
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "PGSQL_TRACE_SUPPRESS_TIMESTAMPS",
+        "id": "\\PGSQL_TRACE_SUPPRESS_TIMESTAMPS",
+        "value": 1,
+        "sourcePath": "pgsql/pgsql.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -64204,18 +64216,6 @@
         "name": "PGSQL_ERRORS_SQLSTATE",
         "id": "\\PGSQL_ERRORS_SQLSTATE",
         "value": 3,
-        "sourcePath": "pgsql/pgsql.php",
-        "duplicates": [],
-        "namespace": "\\",
-        "phpDoc": null,
-        "sinceVersion": null,
-        "removedVersion": null
-    },
-    {
-        "_type": "PHPConstant",
-        "name": "PGSQL_TRACE_SUPPRESS_TIMESTAMPS",
-        "id": "\\PGSQL_TRACE_SUPPRESS_TIMESTAMPS",
-        "value": 1,
         "sourcePath": "pgsql/pgsql.php",
         "duplicates": [],
         "namespace": "\\",
@@ -65180,7 +65180,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65192,7 +65192,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65204,7 +65204,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65216,7 +65216,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65228,7 +65228,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65240,7 +65240,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65252,7 +65252,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65264,7 +65264,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65276,7 +65276,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65288,7 +65288,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65300,7 +65300,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65312,7 +65312,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65324,7 +65324,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65336,7 +65336,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65348,7 +65348,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65360,7 +65360,7 @@
         "duplicates": [],
         "namespace": "\\Dom",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -65444,7 +65444,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.6",
         "removedVersion": null
     },
     {
@@ -65456,7 +65456,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -65660,7 +65660,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -65828,7 +65828,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -65840,7 +65840,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -65852,7 +65852,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -65864,7 +65864,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -65876,7 +65876,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -65888,7 +65888,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.2",
         "removedVersion": null
     },
     {
@@ -65984,7 +65984,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -65996,7 +65996,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66008,7 +66008,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66020,7 +66020,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66032,7 +66032,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66044,7 +66044,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66056,7 +66056,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66068,7 +66068,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66080,7 +66080,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66092,7 +66092,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66104,7 +66104,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66116,7 +66116,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66128,7 +66128,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66140,7 +66140,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66152,7 +66152,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66164,7 +66164,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66176,7 +66176,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66188,7 +66188,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66200,7 +66200,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66212,7 +66212,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66224,7 +66224,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66236,7 +66236,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66248,7 +66248,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66260,7 +66260,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66272,7 +66272,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66284,7 +66284,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66296,7 +66296,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66308,7 +66308,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66320,7 +66320,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66332,7 +66332,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66344,7 +66344,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66356,7 +66356,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66368,7 +66368,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66380,7 +66380,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66392,7 +66392,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "5.5",
         "removedVersion": null
     },
     {
@@ -66416,7 +66416,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -66428,7 +66428,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.1",
         "removedVersion": null
     },
     {
@@ -66596,7 +66596,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.0",
         "removedVersion": null
     },
     {
@@ -66752,7 +66752,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.2",
         "removedVersion": null
     },
     {
@@ -66776,7 +66776,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -66788,7 +66788,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -66800,7 +66800,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -68625,7 +68625,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "8.0"
     },
     {
         "_type": "PHPConstant",
@@ -68637,7 +68637,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "8.0"
     },
     {
         "_type": "PHPConstant",
@@ -68732,7 +68732,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -68840,7 +68840,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -68973,7 +68973,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "8.0"
     },
     {
         "_type": "PHPConstant",
@@ -69153,7 +69153,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "8.0"
     },
     {
         "_type": "PHPConstant",
@@ -69165,7 +69165,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "8.0"
     },
     {
         "_type": "PHPConstant",
@@ -69272,7 +69272,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.2",
         "removedVersion": null
     },
     {
@@ -70652,7 +70652,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -70664,7 +70664,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -70676,7 +70676,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -70688,7 +70688,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -70700,7 +70700,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -70712,7 +70712,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -70724,7 +70724,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -70736,7 +70736,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -70748,7 +70748,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {
@@ -70760,7 +70760,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -70772,7 +70772,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -70784,7 +70784,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -70796,7 +70796,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -70808,7 +70808,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -70820,7 +70820,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -70832,7 +70832,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -73508,7 +73508,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -73520,7 +73520,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -73748,7 +73748,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -73928,7 +73928,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -73940,7 +73940,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -73952,7 +73952,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -73964,7 +73964,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
@@ -74060,7 +74060,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -74072,7 +74072,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -74084,7 +74084,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -74096,7 +74096,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -74108,7 +74108,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -74120,7 +74120,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -74132,7 +74132,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -74144,7 +74144,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -74156,7 +74156,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -74168,7 +74168,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -74180,7 +74180,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.0",
         "removedVersion": null
     },
     {
@@ -74204,7 +74204,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -98241,7 +98241,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "8.0"
     },
     {
         "_type": "PHPConstant",
@@ -98253,7 +98253,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "8.0"
     },
     {
         "_type": "PHPConstant",
@@ -98265,7 +98265,7 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
-        "removedVersion": null
+        "removedVersion": "8.0"
     },
     {
         "_type": "PHPConstant",
@@ -98312,7 +98312,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -98324,7 +98324,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -98336,7 +98336,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -98348,7 +98348,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -98360,7 +98360,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.3",
         "removedVersion": null
     },
     {
@@ -98372,7 +98372,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "7.4",
         "removedVersion": null
     },
     {

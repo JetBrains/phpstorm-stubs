@@ -369,7 +369,8 @@ class NikicNodeExtractor implements NodeExtractorInterface
                 $stmt->expr instanceof FuncCall &&
                 $stmt->expr->name instanceof Name &&
                 $stmt->expr->name->toString() === 'define') {
-                $constantNode = new NikicConstantDefinitionNode($stmt->expr);
+                // The doc comment is attached to the Expression statement, not the FuncCall.
+                $constantNode = new NikicConstantDefinitionNode($stmt->expr, $stmt->getDocComment());
                 $constantNode->setNamespace($namespace);
                 $constants[] = $constantNode;
             }
@@ -381,8 +382,10 @@ class NikicNodeExtractor implements NodeExtractorInterface
         foreach ($stmts as $stmt) {
             if ($stmt instanceof \PhpParser\Node\Stmt\Const_) {
                 // Handle multiple constants in single statement: const A = 1, B = 2, C = 3
+                // The doc comment is attached to the Const_ statement and shared by all of them.
+                $docComment = $stmt->getDocComment();
                 foreach ($stmt->consts as $const) {
-                    $constantNode = new NikicGlobalConstantNode($const);
+                    $constantNode = new NikicGlobalConstantNode($const, $docComment);
                     $constantNode->setNamespace($namespace);
                     $constants[] = $constantNode;
                 }

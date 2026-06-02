@@ -2,10 +2,12 @@
 
 namespace StubTests\Framework\Parsers\Stubs\Adapters\Nikic;
 
+use PhpParser\Comment\Doc;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Scalar\String_;
 use StubTests\Framework\Parsers\Stubs\Nodes\ConstantDefinitionNode;
+use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
 
 /**
  * Adapter for nikic/php-parser FuncCall nodes representing define() calls.
@@ -15,11 +17,18 @@ class NikicConstantDefinitionNode implements ConstantDefinitionNode
 {
     use NikicExprValueResolverTrait;
     private FuncCall $funcCall;
+    private ?Doc $docComment;
     private string $namespace = '\\';
 
-    public function __construct(FuncCall $funcCall)
+    /**
+     * @param FuncCall $funcCall The define() call expression.
+     * @param Doc|null $docComment The doc comment, which nikic attaches to the wrapping
+     *                             Expression statement rather than to the FuncCall itself.
+     */
+    public function __construct(FuncCall $funcCall, ?Doc $docComment = null)
     {
         $this->funcCall = $funcCall;
+        $this->docComment = $docComment;
     }
 
     public function getName(): string
@@ -56,6 +65,15 @@ class NikicConstantDefinitionNode implements ConstantDefinitionNode
         }
 
         return self::resolveExprValue($arg->value);
+    }
+
+    public function getDocComment(): ?DocCommentNode
+    {
+        if ($this->docComment === null) {
+            return null;
+        }
+
+        return new NikicDocCommentNode($this->docComment);
     }
 
     public function getNamespace(): string

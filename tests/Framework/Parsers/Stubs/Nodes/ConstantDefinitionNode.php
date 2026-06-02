@@ -20,6 +20,11 @@ interface ConstantDefinitionNode
     public function getValue(): mixed;
 
     /**
+     * Get the doc comment node attached to this constant definition, or null if none.
+     */
+    public function getDocComment(): ?DocCommentNode;
+
+    /**
      * Get the namespace where this constant is defined.
      */
     public function getNamespace(): string;

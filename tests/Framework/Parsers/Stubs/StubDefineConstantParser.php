@@ -5,6 +5,10 @@ namespace StubTests\Framework\Parsers\Stubs;
 use StubTests\Framework\Parsers\Model\PHPConstant;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicNodeExtractor;
 use StubTests\Framework\Parsers\Stubs\Nodes\ConstantDefinitionNode;
+use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
+use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
+use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
+use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
 
 /**
  * Parses global define() constant nodes from AST into PHPConstant domain objects.
@@ -13,10 +17,17 @@ use StubTests\Framework\Parsers\Stubs\Nodes\ConstantDefinitionNode;
 class StubDefineConstantParser implements MultiEntityStubParserInterface
 {
     private ConstantNodeExtractorInterface $nodeExtractor;
+    private PhpDocParserInterface $phpDocParser;
+    private AvailableVersionParserInterface $versionParser;
 
-    public function __construct(?ConstantNodeExtractorInterface $nodeExtractor = null)
-    {
+    public function __construct(
+        ?ConstantNodeExtractorInterface $nodeExtractor = null,
+        ?PhpDocParserInterface $phpDocParser = null,
+        ?AvailableVersionParserInterface $versionParser = null
+    ) {
         $this->nodeExtractor = $nodeExtractor ?? new NikicNodeExtractor();
+        $this->phpDocParser = $phpDocParser ?? new PhpDocumentorParser();
+        $this->versionParser = $versionParser ?? new DefaultAvailableVersionParser();
     }
 
     /**
@@ -60,6 +71,13 @@ class StubDefineConstantParser implements MultiEntityStubParserInterface
 
         // Value is already extracted as a plain scalar by the adapter
         $phpConstant->setValue($node->getValue());
+
+        // Parse PhpDoc and version availability (@since/@removed)
+        $parsedPhpDoc = $this->phpDocParser->parseElementPhpDoc($node->getDocComment());
+        $phpConstant->initStubsMetadata()->setPhpDoc($parsedPhpDoc->rawPhpDoc);
+        $versions = $this->versionParser->parseAvailableVersion($parsedPhpDoc, [], []);
+        $phpConstant->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
+        $phpConstant->initStubsMetadata()->setRemovedVersion($versions['removedVersion']);
 
         return $phpConstant;
     }
