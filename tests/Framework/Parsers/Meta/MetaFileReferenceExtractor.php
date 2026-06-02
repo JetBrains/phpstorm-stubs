@@ -429,6 +429,13 @@ final class MetaFileReferenceExtractor
             // Strip leading backslash for namespace checking
             $name = ltrim($fqn, '\\');
 
+            // Skip constants declared inside the meta file's own PHPSTORM_META namespace
+            // (e.g. \PHPSTORM_META\ANY_ARGUMENT) — these are not real PHP symbols and will
+            // never exist in stubs, regardless of whether they are referenced qualified or not.
+            if (str_starts_with($name, 'PHPSTORM_META\\')) {
+                return false;
+            }
+
             // Skip known third-party namespaces
             foreach (self::SKIP_NAMESPACES as $prefix) {
                 if (str_starts_with($name, $prefix)) {

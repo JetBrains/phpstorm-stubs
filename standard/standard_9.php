@@ -743,6 +743,7 @@ function array_filter(array $array, ?callable $callback = null, int $mode = 0): 
  * @param array ...$arrays
  * @return array an array containing all the elements of arr1
  * after applying the callback function to each one.
+ * @meta
  */
 function array_map(
     ?callable $callback,

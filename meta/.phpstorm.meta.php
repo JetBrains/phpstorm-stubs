@@ -62,6 +62,7 @@ namespace PHPSTORM_META {
 
   override(\array_shift(0), elementType(0));
   override(\array_filter(0), type(0));
+  override(\array_map(0), type(1));
   override(\array_reverse(0), type(0));
   override(\array_pop(0), elementType(0));
   override(\array_reduce(0), type(2));
@@ -699,7 +700,7 @@ namespace PHPSTORM_META {
         return "exitPoint " . $functionReference;
     }
 
-    exitPoint(\trigger_error(\ANY_ARGUMENT, \E_USER_ERROR));
+    exitPoint(\trigger_error(\PHPSTORM_META\ANY_ARGUMENT, \E_USER_ERROR));
     exitPoint(\jexit());
     exitPoint(\wp_die());
     exitPoint(\dd());
