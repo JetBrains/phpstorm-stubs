@@ -5153,6 +5153,7 @@ const FUNCTIONS = array (
   'range' => 'standard/standard_8.php',
   'rawurldecode' => 'standard/standard_2.php',
   'rawurlencode' => 'standard/standard_2.php',
+  'rd_kafka_err2name' => 'rdkafka/functions.php',
   'rd_kafka_err2str' => 'rdkafka/functions.php',
   'rd_kafka_errno' => 'rdkafka/functions.php',
   'rd_kafka_errno2err' => 'rdkafka/functions.php',

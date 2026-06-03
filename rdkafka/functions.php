@@ -21,6 +21,8 @@ function rd_kafka_thread_cnt() {}
  */
 function rd_kafka_err2str($err) {}
 
+function rd_kafka_err2name(int $err): ?string {}
+
 /**
  * @param int $errnox A system errno
  *
