@@ -2,8 +2,25 @@
 
 namespace RdKafka;
 
+use JetBrains\PhpStorm\Internal\TentativeType;
+
 class KafkaConsumer
 {
+    /**
+     * @var callable|null
+     */
+    private $error_cb;
+
+    /**
+     * @var callable|null
+     */
+    private $rebalance_cb;
+
+    /**
+     * @var callable|null
+     */
+    private $dr_msg_cb;
+
     /**
      * @param Conf $conf
      */
@@ -16,6 +33,12 @@ class KafkaConsumer
      * @return void
      */
     public function assign($topic_partitions = null) {}
+
+    #[TentativeType]
+    public function incrementalAssign(array $topic_partitions): void {}
+
+    #[TentativeType]
+    public function incrementalUnassign(array $topic_partitions): void {}
 
     /**
      * @param null|Message|TopicPartition[] $message_or_offsets
@@ -116,6 +139,24 @@ class KafkaConsumer
      * @return KafkaConsumerTopic
      */
     public function newTopic($topic_name, $topic_conf = null) {}
+
+    #[TentativeType]
+    public function getControllerId(int $timeout_ms): int {}
+
+    #[TentativeType]
+    public function pausePartitions(array $topic_partitions): array {}
+
+    #[TentativeType]
+    public function resumePartitions(array $topic_partitions): array {}
+
+    #[TentativeType]
+    public function poll(int $timeout_ms): int {}
+
+    #[TentativeType]
+    public function oauthbearerSetToken(string $token_value, int $lifetime_ms, string $principal_name, array $extensions = []): void {}
+
+    #[TentativeType]
+    public function oauthbearerSetTokenFailure(string $error): void {}
 
     /**
      * @return void

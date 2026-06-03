@@ -7,6 +7,8 @@ use RdKafka\Metadata\Topic;
 
 class Metadata
 {
+    private function __construct() {}
+
     /**
      * @return Collection
      */

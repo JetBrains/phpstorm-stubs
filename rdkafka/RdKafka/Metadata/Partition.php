@@ -4,6 +4,8 @@ namespace RdKafka\Metadata;
 
 class Partition
 {
+    private function __construct() {}
+
     /**
      * @return int
      */

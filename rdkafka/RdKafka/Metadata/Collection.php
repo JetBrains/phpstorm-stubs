@@ -4,6 +4,8 @@ namespace RdKafka\Metadata;
 
 class Collection implements \Iterator, \Countable
 {
+    private function __construct() {}
+
     /**
      * @return mixed
      */

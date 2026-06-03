@@ -2,6 +2,8 @@
 
 namespace RdKafka;
 
+use JetBrains\PhpStorm\Internal\TentativeType;
+
 /**
  * Configuration reference: https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md
  */
@@ -77,4 +79,7 @@ class Conf
      * @return void
      */
     public function setLogCb($callback) {}
+
+    #[TentativeType]
+    public function setOauthbearerTokenRefreshCb(callable $callback): void {}
 }

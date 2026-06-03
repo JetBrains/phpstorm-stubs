@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Internal\TentativeType;
 use RdKafka\Exception;
 use RdKafka\Metadata;
 use RdKafka\Topic;
@@ -8,6 +9,18 @@ use RdKafka\TopicPartition;
 
 abstract class RdKafka
 {
+    /**
+     * @var callable|null
+     */
+    private $error_cb;
+
+    /**
+     * @var callable|null
+     */
+    private $dr_cb;
+
+    private function __construct() {}
+
     /**
      * @param string $broker_list
      *
@@ -24,6 +37,9 @@ abstract class RdKafka
      * @return Metadata
      */
     public function getMetadata($all_topics, $only_topic = null, $timeout_ms = 0) {}
+
+    #[TentativeType]
+    public function getControllerId(int $timeout_ms): int {}
 
     /**
      * @return int
@@ -90,4 +106,16 @@ abstract class RdKafka
     public function setLogger($logger) {}
 
     public function outqLen() {}
+
+    #[TentativeType]
+    public function pausePartitions(array $topic_partitions): array {}
+
+    #[TentativeType]
+    public function resumePartitions(array $topic_partitions): array {}
+
+    #[TentativeType]
+    public function oauthbearerSetToken(string $token_value, int|float|string $lifetime_ms, string $principal_name, array $extensions = []): void {}
+
+    #[TentativeType]
+    public function oauthbearerSetTokenFailure(string $error): void {}
 }
