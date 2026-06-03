@@ -65,48 +65,6 @@
     },
     {
         "_type": "PHPEnum",
-        "name": "IntervalBoundary",
-        "id": "\\Random\\IntervalBoundary",
-        "isFinal": false,
-        "isReadonly": false,
-        "sourcePath": "random/random.php",
-        "duplicates": [],
-        "namespace": "\\Random",
-        "phpDoc": null,
-        "sinceVersion": null,
-        "removedVersion": null,
-        "cases": [
-            "ClosedOpen",
-            "ClosedClosed",
-            "OpenClosed",
-            "OpenOpen"
-        ],
-        "constants": [],
-        "methods": [
-            {
-                "name": "cases",
-                "isStatic": true,
-                "isFinal": false,
-                "isAbstract": false,
-                "isDeprecated": false,
-                "accessModifier": "public",
-                "parameters": [],
-                "returnType": "array",
-                "hasTentativeReturnType": false,
-                "phpDoc": null,
-                "sinceVersion": null,
-                "removedVersion": null,
-                "returnTypeFromPhpDoc": null,
-                "languageLevelTypes": null,
-                "defaultType": null
-            }
-        ],
-        "interfaces": [
-            "UnitEnum"
-        ]
-    },
-    {
-        "_type": "PHPEnum",
         "name": "PropertyHookType",
         "id": "\\PropertyHookType",
         "isFinal": false,
@@ -211,6 +169,48 @@
         ],
         "interfaces": [
             "BackedEnum",
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "IntervalBoundary",
+        "id": "\\Random\\IntervalBoundary",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "random/random.php",
+        "duplicates": [],
+        "namespace": "\\Random",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "ClosedOpen",
+            "ClosedClosed",
+            "OpenClosed",
+            "OpenOpen"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
             "UnitEnum"
         ]
     },

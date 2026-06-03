@@ -85,9 +85,17 @@ class MultiFileJsonStorage implements ParsedDataPersistentStorageProvider
         foreach ($this->fileStorages as $fileId => $fileStorage) {
             $fileStorage->clearEntities();
 
-            // Add entities for this type
+            // Add entities for this type, sorted by their fully qualified id so the written
+            // JSON is deterministic regardless of parse/insertion order (stable VCS diffs).
             if (isset($entitiesByType[$fileId])) {
-                foreach ($entitiesByType[$fileId] as $entity) {
+                $entities = $entitiesByType[$fileId];
+                usort($entities, static function ($a, $b): int {
+                    return strcmp(
+                        self::sortKey($a),
+                        self::sortKey($b)
+                    );
+                });
+                foreach ($entities as $entity) {
                     $fileStorage->addEntity($entity);
                 }
             }
@@ -100,6 +108,19 @@ class MultiFileJsonStorage implements ParsedDataPersistentStorageProvider
 
         // Save PhpDocStorage once (children have ownsPhpDocStorage=false)
         $this->phpDocStorage?->save();
+    }
+
+    /**
+     * Build a stable, deterministic sort key for a top-level entity.
+     * Uses the fully qualified id (unique per file after deduplication), falling back to and
+     * tie-breaking on the name so ordering is fully defined even if an id is missing.
+     */
+    private static function sortKey(mixed $entity): string
+    {
+        $id = method_exists($entity, 'getId') ? ($entity->getId() ?? '') : '';
+        $name = method_exists($entity, 'getName') ? ($entity->getName() ?? '') : '';
+
+        return $id . "\0" . $name;
     }
 
     public function load(): void

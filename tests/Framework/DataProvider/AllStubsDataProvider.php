@@ -61,6 +61,11 @@ class AllStubsDataProvider implements StubsDataProvider
             }
         }
 
+        // RecursiveDirectoryIterator yields entries in filesystem-native order, which differs
+        // across machines/filesystems. Sort to make parsing deterministic so the generated
+        // Stubs*.json caches (and nested "duplicates" ordering) are reproducible in VCS.
+        sort($stubFiles, SORT_STRING);
+
         $this->cachedStubFiles = $stubFiles;
         return $stubFiles;
     }
