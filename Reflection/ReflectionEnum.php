@@ -21,17 +21,13 @@ class ReflectionEnum extends ReflectionClass
     public function hasCase(string $name): bool {}
 
     /**
-     * @phpstan-return (TReflectedClass is BackedEnum ? list<ReflectionEnumBackedCase<TReflectedClass>> : list<ReflectionEnumUnitCase<TReflectedClass>>)
-     * @psalm-return (TReflectedClass is BackedEnum ? list<ReflectionEnumBackedCase<TReflectedClass>> : list<ReflectionEnumUnitCase<TReflectedClass>>)
-     * @return list<ReflectionEnumBackedCase<TReflectedClass>>|list<ReflectionEnumUnitCase<TReflectedClass>>
+     * @return (TReflectedClass is BackedEnum ? list<ReflectionEnumBackedCase<TReflectedClass>> : list<ReflectionEnumUnitCase<TReflectedClass>>)
      */
     public function getCases(): array {}
 
     /**
      * @param non-empty-string $name
-     * @phpstan-return (TReflectedClass is BackedEnum ? ReflectionEnumBackedCase<TReflectedClass> : ReflectionEnumUnitCase<TReflectedClass>)
-     * @psalm-return (TReflectedClass is BackedEnum ? ReflectionEnumBackedCase<TReflectedClass> : ReflectionEnumUnitCase<TReflectedClass>)
-     * @return ReflectionEnumBackedCase<TReflectedClass>|ReflectionEnumUnitCase<TReflectedClass>
+     * @return (TReflectedClass is BackedEnum ? ReflectionEnumBackedCase<TReflectedClass> : ReflectionEnumUnitCase<TReflectedClass>)
      * @throws ReflectionException If no found single reflection object for the corresponding case
      */
     public function getCase(string $name): ReflectionEnumUnitCase {}
