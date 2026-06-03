@@ -9,7 +9,7 @@ Please check our [issue tracker] for issues corresponding to the problem you're 
 * Please avoid any unnecessary changes e.g., spacing, line endings, HTML formatting. Remember, these files are NOT for human consumption. We want to preserve meaningful history.
 * Please try to match existing style for any particular file - formatting, spacing, naming conventions.
 * Please add corresponding @since tags
-* Please run `docker-compose -f docker-compose.yml run test_runner composer cs` to check the code style and `docker-compose -f docker-compose.yml run test_runner composer cs-fix` to fix it
+* Please run `docker compose -f docker-compose.yml run --rm test_runner composer cs` to check the code style and `docker compose -f docker-compose.yml run --rm test_runner composer cs-fix` to fix it
 
 ## Typehints In Signature
 * Please ensure that typehints in signature match types returned by reflection. If reflection doesn't return any type please add such typehints via PhpDoc
@@ -30,8 +30,8 @@ function curl_copy_handle(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], defa
 ```
 
 ## Tests
- * Please make sure that tests pass for your Pull Request. 
- * If necessary, please include changes to *mutedProblems.json*.
+ * Please make sure that tests pass for your Pull Request.
+ * If a stub legitimately cannot match reflection (for example a runtime-dependent constant value, or an entity available only on certain PHP versions), register it in `tests/Framework/Validator/KnownProblems/DefaultKnownProblemsProvider.php`.
  
 ## Types of contribution
 As of 2017.1 Preview we gladly accept all "non-standard" extensions and IDE get a UI for per-project configuration.

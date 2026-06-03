@@ -139,6 +139,118 @@ class XMLReader
     public const SUBST_ENTITIES = 4;
 
     /**
+     * The number of attributes on the node
+     * @var int
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public int $attributeCount;
+
+    /**
+     * The base URI of the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public string $baseURI;
+
+    /**
+     * Depth of the node in the tree, starting at 0
+     * @var int
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public int $depth;
+
+    /**
+     * Indicates if node has attributes
+     * @var bool
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public bool $hasAttributes;
+
+    /**
+     * Indicates if node has a text value
+     * @var bool
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public bool $hasValue;
+
+    /**
+     * Indicates if attribute is defaulted from DTD
+     * @var bool
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public bool $isDefault;
+
+    /**
+     * Indicates if node is an empty element tag
+     * @var bool
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public bool $isEmptyElement;
+
+    /**
+     * The local name of the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public string $localName;
+
+    /**
+     * The qualified name of the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public string $name;
+
+    /**
+     * The URI of the namespace associated with the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public string $namespaceURI;
+
+    /**
+     * The node type for the node
+     * @var int
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public int $nodeType;
+
+    /**
+     * The prefix of the namespace associated with the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public string $prefix;
+
+    /**
+     * The text value of the node
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public string $value;
+
+    /**
+     * The xml:lang scope which the node resides
+     * @var string
+     * @readonly
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    public string $xmlLang;
+
+    /**
      * Close the XMLReader input
      * @link https://php.net/manual/en/xmlreader.close.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.

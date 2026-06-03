@@ -2,52 +2,56 @@ name: PhpStorm Stubs Tests
 
 on: [push, pull_request, workflow_dispatch]
 
+# The validator framework no longer runs PHPUnit on each PHP runtime.
+# Per-version reflection is captured offline into the committed
+# tests/cache/Reflection<version>.json files (see tests/run-all-reflection-parsers.sh),
+# and the validators iterate every PHP version from those caches while running on a
+# single modern PHP (the test_runner image). The stub cache is regenerated here so the
+# checks always validate the stub files as they are in this revision.
 jobs:
   general:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        php: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
-    name: Run tests against php ${{matrix.php}}
+    name: Validate stubs against reflection
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build Docker Container
-        run: docker compose -f docker-compose.yml build >/dev/null
-        env:
-          PHP_VERSION: ${{matrix.php}}
+      - name: Build test runner image
+        run: docker compose -f docker-compose.yml build test_runner >/dev/null
 
       - name: Composer Install
-        run: docker compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} test_runner composer install --no-progress
-        env:
-          PHP_VERSION: ${{matrix.php}}
+        run: docker compose -f docker-compose.yml run --rm test_runner composer install --no-progress
 
-      - name: Dump Reflection To File
-        run: docker compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.json
-        env:
-          PHP_VERSION: ${{matrix.php}}
+      - name: Regenerate stubs cache from current stub files
+        run: docker compose -f docker-compose.yml run --rm test_runner php tests/run-stubs-parser.php
 
-      - name: Run Tests
-        run: docker compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} test_runner vendor/bin/phpunit --no-progress --testsuite PHP_${{matrix.php}}
-        env:
-          PHP_VERSION: ${{matrix.php}}
+      - name: Run tests (General)
+        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite General
+
   additional:
     runs-on: ubuntu-latest
-    name: Run cs-fixer and stubs structure tests
+    name: Run PhpDoc, structure, unit and cs-fixer tests
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build test runner image
+        run: docker compose -f docker-compose.yml build test_runner >/dev/null
+
       - name: Composer Install
-        run: docker compose -f docker-compose.yml run test_runner composer install --no-progress
+        run: docker compose -f docker-compose.yml run --rm test_runner composer install --no-progress
+
+      - name: Regenerate stubs cache from current stub files
+        run: docker compose -f docker-compose.yml run --rm test_runner php tests/run-stubs-parser.php
 
       - name: Test PhpDoc
-        run: docker compose -f docker-compose.yml run test_runner vendor/bin/phpunit --no-progress --testsuite PhpDoc
+        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite PhpDoc
 
-      - name: Test Stubs Map, Structure and Reflection
-        run: docker compose -f docker-compose.yml run test_runner vendor/bin/phpunit --no-progress --testsuite Structure
+      - name: Test Stubs Map, Structure and PHP versions sync
+        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite Structure
+
+      - name: Framework unit tests
+        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite Unit
 
       - name: run cs fixer
-        run:  docker run --rm -e PHP_CS_FIXER_IGNORE_ENV=1 -v .:/opt/project -w /opt/project php:8.4-cli sh -c 'curl -sS https://getcomposer.org/installer | php && php composer.phar run cs'
+        run: docker compose -f docker-compose.yml run --rm test_runner composer cs

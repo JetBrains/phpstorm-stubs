@@ -1,0 +1,10 @@
+<?php
+namespace Test;
+
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
+class TestClass
+{
+    #[LanguageLevelTypeAware(['8.0' => 'string|null', '8.1' => 'string'], default: '')]
+    public $value;
+}

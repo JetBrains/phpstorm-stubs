@@ -1,0 +1,25 @@
+<?php
+
+namespace MyApp\Helpers;
+
+function calculateSum(int $a, int $b): int {
+    return $a + $b;
+}
+
+/**
+ * @deprecated Use formatUserName() instead
+ */
+function getUserName(string $firstName, string $lastName): string {
+    return $firstName . ' ' . $lastName;
+}
+
+function validateEmail(string $email): bool {
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
+
+function processData(array $data, ?string $format = null): array|string|null {
+    if ($format === 'json') {
+        return json_encode($data);
+    }
+    return $data;
+}

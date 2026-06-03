@@ -19,6 +19,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @var non-empty-string Function name, same as calling the {@see ReflectionFunction::getName()} method
      */
     #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
@@ -42,8 +43,8 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      *
      * @link https://php.net/manual/en/reflectionfunction.tostring.php
      */
-    #[TentativeType]
-    public function __toString(): string {}
+    #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
+    public function __toString() {}
 
     /**
      * Exports function

@@ -23,7 +23,7 @@ function spl_classes(): array {}
  * filename extensions .inc and .php.
  * </p>
  * @return void
- * @since 5.1.2
+ * @since 5.1
  */
 function spl_autoload(string $class, ?string $file_extensions = null): void {}
 
@@ -39,7 +39,7 @@ function spl_autoload(string $class, ?string $file_extensions = null): void {}
  * </p>
  * @return string A comma delimited list of default file extensions for
  * spl_autoload.
- * @since 5.1.2
+ * @since 5.1
  */
 function spl_autoload_extensions(?string $file_extensions = null): string {}
 
@@ -57,7 +57,7 @@ function spl_autoload_extensions(?string $file_extensions = null): string {}
  * appending it.
  * @return bool true on success or false on failure.
  * @throws TypeError Since 8.0.
- * @since 5.1.2
+ * @since 5.1
  */
 function spl_autoload_register(?callable $callback = null, bool $throw = true, bool $prepend = false): bool {}
 
@@ -68,7 +68,7 @@ function spl_autoload_register(?callable $callback = null, bool $throw = true, b
  * The autoload function being unregistered.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1.2
+ * @since 5.1
  */
 function spl_autoload_unregister(callable $callback): bool {}
 
@@ -78,7 +78,7 @@ function spl_autoload_unregister(callable $callback): bool {}
  * @return array|false An array of all registered __autoload functions.
  * If the autoload stack is not activated then the return value is false.
  * If no function is registered the return value will be an empty array.
- * @since 5.1.2
+ * @since 5.1
  */
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
 function spl_autoload_functions() {}
@@ -90,7 +90,7 @@ function spl_autoload_functions() {}
  * The class name being searched.
  * </p>
  * @return void
- * @since 5.1.2
+ * @since 5.1
  */
 function spl_autoload_call(string $class): void {}
 

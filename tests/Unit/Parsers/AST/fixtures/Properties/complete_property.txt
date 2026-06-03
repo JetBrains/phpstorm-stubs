@@ -1,0 +1,12 @@
+<?php
+
+class TestClass
+{
+    public string $publicTypedProperty;
+
+    protected static int $protectedStaticProperty;
+
+    private readonly bool $privateReadonlyProperty;
+
+    public static readonly array $publicStaticReadonly;
+}

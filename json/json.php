@@ -270,7 +270,7 @@ define('JSON_FORCE_OBJECT', 16);
 
 /**
  * Encodes numeric strings as numbers.
- * @since 5.3.3
+ * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define('JSON_NUMERIC_CHECK', 32);
@@ -395,7 +395,7 @@ define('JSON_BIGINT_AS_STRING', 2);
 
 /**
  * Ensures that float values are always encoded as a float value.
- * @since 5.6.6
+ * @since 5.6
  * @link https://php.net/manual/en/json.constants.php
  */
 define('JSON_PRESERVE_ZERO_FRACTION', 1024);

@@ -137,8 +137,8 @@ class Directory
      * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.close.php
      */
-    #[TentativeType]
-    public function close(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): void {}
+    #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
+    public function close(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
 
     /**
      * Rewind directory handle.
@@ -146,8 +146,8 @@ class Directory
      * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.rewind.php
      */
-    #[TentativeType]
-    public function rewind(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): void {}
+    #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
+    public function rewind(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
 
     /**
      * Read entry from directory handle.
@@ -156,8 +156,8 @@ class Directory
      * @return string|false
      * @link https://secure.php.net/manual/en/directory.read.php
      */
-    #[TentativeType]
-    public function read(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): string|false {}
+    #[LanguageLevelTypeAware(['8.0' => 'string|false'], default: '')]
+    public function read(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
 }
 
 /**
@@ -310,7 +310,6 @@ function time_sleep_until(float $timestamp): bool {}
  * </tr>
  * </table>
  * </p>
- * @deprecated 8.1
  */
 #[Pure(true)]
 #[Deprecated(since: '8.1')]
@@ -1137,7 +1136,7 @@ function image_type_to_extension(int $image_type, bool $include_dot = true): str
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function phpinfo(#[ExpectedValues(flags: [INFO_GENERAL, INFO_CREDITS, INFO_CONFIGURATION, INFO_MODULES, INFO_ENVIRONMENT, INFO_VARIABLES, INFO_LICENSE, INFO_ALL])] int $flags = INFO_ALL): bool {}
+function phpinfo(#[ExpectedValues(flags: [INFO_GENERAL, INFO_CREDITS, INFO_CONFIGURATION, INFO_MODULES, INFO_ENVIRONMENT, INFO_VARIABLES, INFO_LICENSE, INFO_ALL])] int $flags = INFO_ALL) {}
 
 /**
  * Gets the current PHP version
@@ -1217,7 +1216,7 @@ function phpversion(?string $extension = null): string|false {}
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function phpcredits(int $flags = CREDITS_ALL): bool {}
+function phpcredits(int $flags = CREDITS_ALL) {}
 
 /**
  * Gets the logo guid
@@ -1298,7 +1297,7 @@ function php_ini_scanned_files(): string|false {}
  * Retrieve a path to the loaded php.ini file
  * @link https://php.net/manual/en/function.php-ini-loaded-file.php
  * @return string|false The loaded "php.ini" path, or false if one is not loaded.
- * @since 5.2.4
+ * @since 5.2
  */
 #[Pure]
 function php_ini_loaded_file(): string|false {}

@@ -1,0 +1,10 @@
+<?php
+
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
+/**
+ * Initialize a cURL session
+ * @return resource|false Returns a cURL handle on success, false on errors
+ */
+#[LanguageLevelTypeAware(['8.0' => 'CurlHandle|false'], default: 'resource|false')]
+function curl_init(?string $url = null) {}

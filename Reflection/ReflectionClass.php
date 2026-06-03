@@ -51,12 +51,12 @@ class ReflectionClass implements Reflector
     /**
      * @since 8.4
      */
-    public const int SKIP_INITIALIZATION_ON_SERIALIZE = 0;
+    public const int SKIP_INITIALIZATION_ON_SERIALIZE = 8;
 
     /**
      * @since 8.4
      */
-    public const int SKIP_DESTRUCTOR = 0;
+    public const int SKIP_DESTRUCTOR = 16;
 
     /**
      * Constructs a ReflectionClass
@@ -88,8 +88,8 @@ class ReflectionClass implements Reflector
      * @link https://php.net/manual/en/reflectionclass.tostring.php
      * @return string A string representation of this {@see ReflectionClass} instance.
      */
-    #[TentativeType]
-    public function __toString(): string {}
+    #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
+    public function __toString() {}
 
     /**
      * Gets class name
@@ -474,7 +474,8 @@ class ReflectionClass implements Reflector
      * the class does not have a constructor and the $args parameter contains
      * one or more parameters.
      */
-    public function newInstance(...$args) {}
+    #[TentativeType]
+    public function newInstance(mixed ...$args): object {}
 
     /**
      * Creates a new class instance without invoking the constructor.
@@ -498,7 +499,7 @@ class ReflectionClass implements Reflector
      * @throws ReflectionException if the class constructor is not public or if
      * the class does not have a constructor and the $args parameter contains
      * one or more parameters.
-     * @since 5.1.3
+     * @since 5.1
      */
     #[TentativeType]
     public function newInstanceArgs(array $args = []): ?object {}

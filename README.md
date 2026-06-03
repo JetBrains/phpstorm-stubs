@@ -5,7 +5,6 @@
 [![Total Downloads](https://poser.pugx.org/jetbrains/phpstorm-stubs/downloads)](https://packagist.org/packages/jetbrains/phpstorm-stubs)
 
 [![PhpStorm Stubs Tests](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/main.yml/badge.svg)](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/main.yml)
-[![PhpStorm Stubs PECL Test](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/testPeclExtensions.yml/badge.svg)](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/testPeclExtensions.yml)
 [![PhpStorm Stubs Check Links](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/testLinks.yml/badge.svg)](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/testLinks.yml)
 
 STUBS are normal, syntactically correct PHP files that contain function & class signatures, constant definitions, etc. for all built-in PHP stuff and most standard extensions. Stubs need to include complete [PHPDOC], especially proper @return annotations.
@@ -30,11 +29,18 @@ Have a full copy of the .git repo within an IDE and provide its path in `Setting
 The set of extensions enabled by default in PhpStorm can change anytime without prior notice. To learn how to view the enabled extensions, look [here](https://blog.jetbrains.com/phpstorm/2017/03/per-project-php-extension-settings-in-phpstorm-2017-1/).
 
 ### How to run tests
-1. Execute `docker compose -f docker-compose.yml run test_runner composer install --ignore-platform-reqs`
-2. Execute `docker compose -f docker-compose.yml run -e PHP_VERSION=8.0 test_runner vendor/bin/phpunit --testsuite PHP_8.0`
+The validators run on a single PHP version (the `test_runner` image) and check every supported PHP
+version using the committed per-version reflection caches in `tests/cache/Reflection<version>.json`.
+
+1. Install dependencies: `docker compose -f docker-compose.yml run --rm test_runner composer install --no-progress`
+2. If you changed stub files, regenerate the stubs cache so the tests validate your changes: `docker compose -f docker-compose.yml run --rm test_runner php tests/run-stubs-parser.php`
+3. Run a test suite — one of `General`, `PhpDoc`, `Structure` or `Unit`: `docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --testsuite General`
+
+The reflection caches are generated offline from the per-version Docker images; see
+[tests/REFLECTION_PARSER_README.md](tests/REFLECTION_PARSER_README.md) for the regeneration pipeline.
 
 ### How to update stub map
-Execute `docker compose -f docker-compose.yml run test_runner /usr/local/bin/php tests/Tools/generate-stub-map` and commit the resulting `PhpStormStubsMap.php`
+Execute `docker compose -f docker-compose.yml run --rm test_runner php tests/Framework/Tools/generate-stubs-map.php` and commit the resulting `PhpStormStubsMap.php`
 
 ### License
 [Apache 2]

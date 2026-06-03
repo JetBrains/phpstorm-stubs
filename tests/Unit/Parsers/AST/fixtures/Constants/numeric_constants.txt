@@ -1,0 +1,11 @@
+<?php
+
+class NumericConstants
+{
+    public const POSITIVE_INT = 42;
+    public const NEGATIVE_INT = -42;
+    public const POSITIVE_FLOAT = 3.14;
+    public const NEGATIVE_FLOAT = -3.14;
+    public const ZERO = 0;
+    public const EXPLICIT_POSITIVE = +123;
+}

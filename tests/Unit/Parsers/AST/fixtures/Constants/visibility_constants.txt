@@ -1,0 +1,10 @@
+<?php
+
+class TestClass
+{
+    public const PUBLIC = 1;
+
+    protected const PROTECTED = 2;
+
+    private const PRIVATE = 3;
+}

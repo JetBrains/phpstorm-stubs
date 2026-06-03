@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
 /**
  * <b>Reflector</b> is an interface implemented by all
  * exportable Reflection classes.
@@ -25,5 +27,6 @@ interface Reflector extends Stringable
      *
      * @return string
      */
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString();
 }

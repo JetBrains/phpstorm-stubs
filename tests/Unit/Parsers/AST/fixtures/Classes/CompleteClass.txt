@@ -1,0 +1,17 @@
+<?php
+
+namespace MyNamespace\SubNamespace;
+
+final class CompleteClass extends ParentClass implements InterfaceOne, InterfaceTwo
+{
+    public const CONST_ONE = 'value1';
+    public const CONST_TWO = 'value2';
+
+    public string $publicProperty;
+    protected int $protectedProperty;
+    private bool $privateProperty;
+
+    public function publicMethod(): void {}
+    protected function protectedMethod(): string {}
+    private function privateMethod(): int {}
+}

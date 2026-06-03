@@ -1,0 +1,506 @@
+[
+    {
+        "_type": "PHPEnum",
+        "name": "VectorType",
+        "id": "\\MongoDB\\BSON\\VectorType",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "mongodb/BSON/VectorType.php",
+        "duplicates": [],
+        "namespace": "\\MongoDB\\BSON",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "Float32",
+            "Int8",
+            "PackedBit"
+        ],
+        "constants": [],
+        "methods": [],
+        "interfaces": []
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "RoundingMode",
+        "id": "\\RoundingMode",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "standard/standard_10.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "HalfAwayFromZero",
+            "HalfTowardsZero",
+            "HalfEven",
+            "HalfOdd",
+            "TowardsZero",
+            "AwayFromZero",
+            "NegativeInfinity",
+            "PositiveInfinity"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "AdjacentPosition",
+        "id": "\\Dom\\AdjacentPosition",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "dom/dom_n.php",
+        "duplicates": [],
+        "namespace": "\\Dom",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "BeforeBegin",
+            "AfterBegin",
+            "BeforeEnd",
+            "AfterEnd"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            },
+            {
+                "name": "from",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "value",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string|int",
+                        "defaultValue": null,
+                        "typeFromPhpDoc": null,
+                        "languageLevelTypes": null,
+                        "defaultType": null,
+                        "sinceVersion": null,
+                        "removedVersion": null
+                    }
+                ],
+                "returnType": "static",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            },
+            {
+                "name": "tryFrom",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "value",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string|int",
+                        "defaultValue": null,
+                        "typeFromPhpDoc": null,
+                        "languageLevelTypes": null,
+                        "defaultType": null,
+                        "sinceVersion": null,
+                        "removedVersion": null
+                    }
+                ],
+                "returnType": "static|null",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "BackedEnum",
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "IntervalBoundary",
+        "id": "\\Random\\IntervalBoundary",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "random/random.php",
+        "duplicates": [],
+        "namespace": "\\Random",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "ClosedOpen",
+            "ClosedClosed",
+            "OpenClosed",
+            "OpenOpen"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "QosClass",
+        "id": "\\Pcntl\\QosClass",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "pcntl/pcntl_c.php",
+        "duplicates": [],
+        "namespace": "\\Pcntl",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "Background",
+            "Utility",
+            "Default",
+            "UserInitiated",
+            "UserInteractive"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "KeyType",
+        "id": "\\Relay\\KeyType",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "relay/KeyType.php",
+        "duplicates": [],
+        "namespace": "\\Relay",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "NotFound",
+            "String",
+            "Set",
+            "List",
+            "Zset",
+            "Hash",
+            "Stream"
+        ],
+        "constants": [],
+        "methods": [],
+        "interfaces": []
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "UriComparisonMode",
+        "id": "\\Uri\\UriComparisonMode",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "uri/uri.php",
+        "duplicates": [],
+        "namespace": "\\Uri",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "IncludeFragment",
+            "ExcludeFragment"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "UrlValidationErrorType",
+        "id": "\\Uri\\WhatWg\\UrlValidationErrorType",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "uri/uri.php",
+        "duplicates": [],
+        "namespace": "\\Uri\\WhatWg",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "DomainToAscii",
+            "DomainToUnicode",
+            "DomainInvalidCodePoint",
+            "HostInvalidCodePoint",
+            "Ipv4EmptyPart",
+            "Ipv4TooManyParts",
+            "Ipv4NonNumericPart",
+            "Ipv4NonDecimalPart",
+            "Ipv4OutOfRangePart",
+            "Ipv6Unclosed",
+            "Ipv6InvalidCompression",
+            "Ipv6TooManyPieces",
+            "Ipv6MultipleCompression",
+            "Ipv6InvalidCodePoint",
+            "Ipv6TooFewPieces",
+            "Ipv4InIpv6TooManyPieces",
+            "Ipv4InIpv6InvalidCodePoint",
+            "Ipv4InIpv6OutOfRangePart",
+            "Ipv4InIpv6TooFewParts",
+            "InvalidUrlUnit",
+            "SpecialSchemeMissingFollowingSolidus",
+            "MissingSchemeNonRelativeUrl",
+            "InvalidReverseSoldius",
+            "InvalidCredentials",
+            "HostMissing",
+            "PortOutOfRange",
+            "PortInvalid",
+            "FileInvalidWindowsDriveLetter",
+            "FileInvalidWindowsDriveLetterHost"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "PropertyHookType",
+        "id": "\\PropertyHookType",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "Reflection/PropertyHookType.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "Get",
+            "Set"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            },
+            {
+                "name": "from",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "value",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int|string",
+                        "defaultValue": null,
+                        "typeFromPhpDoc": null,
+                        "languageLevelTypes": null,
+                        "defaultType": null,
+                        "sinceVersion": null,
+                        "removedVersion": null
+                    }
+                ],
+                "returnType": "static",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            },
+            {
+                "name": "tryFrom",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "value",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int|string",
+                        "defaultValue": null,
+                        "typeFromPhpDoc": null,
+                        "languageLevelTypes": null,
+                        "defaultType": null,
+                        "sinceVersion": null,
+                        "removedVersion": null
+                    }
+                ],
+                "returnType": "static|null",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "BackedEnum",
+            "UnitEnum"
+        ]
+    }
+]

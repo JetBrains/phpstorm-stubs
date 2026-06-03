@@ -114,7 +114,7 @@ interface SessionHandlerInterface
 /**
  * <b>SessionIdInterface</b>
  * @link https://php.net/manual/en/class.sessionidinterface.php
- * @since 5.5.1
+ * @since 5.5
  */
 interface SessionIdInterface
 {
@@ -199,7 +199,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * Return a new session ID
      * @link https://php.net/manual/en/sessionhandler.create-sid.php
      * @return string <p>A session ID valid for the default session handler.</p>
-     * @since 5.5.1
+     * @since 5.5
      */
     #[TentativeType]
     public function create_sid(): string {}

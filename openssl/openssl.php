@@ -442,7 +442,7 @@ function openssl_x509_verify(
  * </p>
  * @param array $options
  * @return bool true on success or false on failure.
- * @since 5.2.2
+ * @since 5.2
  */
 function openssl_pkcs12_export(
     #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
@@ -468,7 +468,7 @@ function openssl_pkcs12_export(
  * </p>
  * @param array $options
  * @return bool true on success or false on failure.
- * @since 5.2.2
+ * @since 5.2
  */
 function openssl_pkcs12_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, string $output_filename, $private_key, string $passphrase, array $options = []): bool {}
 
@@ -483,7 +483,7 @@ function openssl_pkcs12_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenS
  * Encryption password for unlocking the PKCS#12 file.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.2.2
+ * @since 5.2
  */
 function openssl_pkcs12_read(string $pkcs12, &$certificates, string $passphrase): bool {}
 

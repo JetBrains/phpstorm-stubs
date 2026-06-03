@@ -235,8 +235,8 @@ define('PHP_FLOAT_MAX', 1.7976931348623e+308);
 define('PHP_FLOAT_MIN', 2.2250738585072e-308);
 define('ZEND_MULTIBYTE', 0);
 define('PHP_OUTPUT_HANDLER_START', 1);
-define('PHP_OUTPUT_HANDLER_CONT', 2);
-define('PHP_OUTPUT_HANDLER_END', 4);
+define('PHP_OUTPUT_HANDLER_CONT', 0);
+define('PHP_OUTPUT_HANDLER_END', 8);
 define('UPLOAD_ERR_OK', 0);
 define('UPLOAD_ERR_INI_SIZE', 1);
 define('UPLOAD_ERR_FORM_SIZE', 2);
@@ -279,10 +279,10 @@ const PHP_SBINDIR = '/usr/local/sbin', PHP_OUTPUT_HANDLER_PROCESSED = 16384;
 
 /**
  * Specifies where the manpages were installed into.
- * @since 5.3.7
+ * @since 5.3
  * @link https://php.net/manual/en/reserved.constants.php
  */
 define('PHP_MANDIR', '/usr/local/php/php/man');
 
-define('PHP_BUILD_DATE', 'Aug 14 2025 22:21:58');
+define('PHP_BUILD_DATE', 'May  8 2026 16:43:53');
 define('PHP_BUILD_PROVIDER', 'https://github.com/docker-library/php');

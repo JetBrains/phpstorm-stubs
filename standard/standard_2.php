@@ -726,7 +726,7 @@ function escapeshellarg(string $arg): string {}
  * @return bool|null null on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'null|false'], default: 'null|bool')]
-function passthru(string $command, &$result_code = null): ?bool {}
+function passthru(string $command, &$result_code = null) {}
 
 /**
  * Execute command via shell and return the complete output as a string

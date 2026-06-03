@@ -53,8 +53,8 @@ class ReflectionExtension implements Reflector
      * @return string the exported extension as a string, in the same way as
      * the {@see ReflectionExtension::export()}.
      */
-    #[TentativeType]
-    public function __toString(): string {}
+    #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
+    public function __toString() {}
 
     /**
      * Gets extension name

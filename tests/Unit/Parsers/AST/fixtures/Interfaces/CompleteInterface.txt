@@ -1,0 +1,13 @@
+<?php
+
+namespace MyNamespace\SubNamespace;
+
+interface CompleteInterface extends Throwable, Runnable
+{
+    public const CONST_ONE = 'value1';
+    public const CONST_TWO = 'value2';
+
+    public function method1(): void {}
+    public function method2(): string {}
+
+}

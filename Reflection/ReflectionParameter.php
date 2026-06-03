@@ -54,8 +54,8 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.tostring.php
      * @return string
      */
-    #[TentativeType]
-    public function __toString(): string {}
+    #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
+    public function __toString() {}
 
     /**
      * Gets parameter name
@@ -92,7 +92,7 @@ class ReflectionParameter implements Reflector
      *
      * @link https://php.net/manual/en/reflectionparameter.getdeclaringfunction.php
      * @return ReflectionFunctionAbstract A {@see ReflectionFunctionAbstract} object.
-     * @since 5.2.3
+     * @since 5.2
      */
     #[Pure]
     #[TentativeType]
@@ -192,7 +192,7 @@ class ReflectionParameter implements Reflector
      *
      * @link https://php.net/manual/en/reflectionparameter.getposition.php
      * @return int The position of the parameter, left to right, starting at position #0.
-     * @since 5.2.3
+     * @since 5.2
      */
     #[Pure]
     #[TentativeType]
@@ -203,7 +203,7 @@ class ReflectionParameter implements Reflector
      *
      * @link https://php.net/manual/en/reflectionparameter.isoptional.php
      * @return bool Returns {@see true} if the parameter is optional, otherwise {@see false}
-     * @since 5.0.3
+     * @since 5.0
      */
     #[Pure]
     #[TentativeType]
@@ -214,7 +214,7 @@ class ReflectionParameter implements Reflector
      *
      * @link https://php.net/manual/en/reflectionparameter.isdefaultvalueavailable.php
      * @return bool Returns {@see true} if a default value is available, otherwise {@see false}
-     * @since 5.0.3
+     * @since 5.0
      */
     #[Pure]
     #[TentativeType]
@@ -226,7 +226,7 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.getdefaultvalue.php
      * @return mixed The parameters default value.
      * @throws ReflectionException if the parameter is not optional
-     * @since 5.0.3
+     * @since 5.0
      */
     #[Pure]
     #[TentativeType]
@@ -237,7 +237,7 @@ class ReflectionParameter implements Reflector
      *
      * @link https://php.net/manual/en/reflectionparameter.isdefaultvalueconstant.php
      * @return bool Returns {@see true} if the default value is constant, and {@see false} otherwise.
-     * @since 5.4.6
+     * @since 5.4
      */
     #[Pure]
     #[TentativeType]
@@ -249,7 +249,7 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.getdefaultvalueconstantname.php
      * @return string|null Returns string on success or {@see null} on failure.
      * @throws ReflectionException if the parameter is not optional
-     * @since 5.4.6
+     * @since 5.4
      */
     #[Pure]
     #[TentativeType]

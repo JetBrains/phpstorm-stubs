@@ -1,0 +1,10 @@
+<?php
+namespace Test;
+
+use Iterator;
+use Countable;
+
+class TestClass
+{
+    public int|(Iterator&Countable) $dnfProperty;
+}

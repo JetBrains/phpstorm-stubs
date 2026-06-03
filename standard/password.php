@@ -55,7 +55,7 @@ define("PASSWORD_DEFAULT", "2y");
  * </li>
  * </ul>
  */
-define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
+define("PASSWORD_BCRYPT_DEFAULT_COST", 12);
 
 /**
  * <p>

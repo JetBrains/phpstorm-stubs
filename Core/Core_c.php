@@ -269,6 +269,7 @@ interface Throwable extends Stringable
      * @return string <p>Returns the string representation of the thrown object.</p>
      * @since 7.0
      */
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString();
 }
 
@@ -295,6 +296,15 @@ class Exception implements Throwable
     /** The line where the error happened */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     protected $line;
+
+    /** Cached string representation of the exception (used by __toString) */
+    private string $string = '';
+
+    /** Internal storage for the exception stack trace */
+    private array $trace = [];
+
+    /** The previous throwable used for exception chaining */
+    private ?Throwable $previous = null;
 
     /**
      * Clone the exception
@@ -393,8 +403,8 @@ class Exception implements Throwable
      * @link https://php.net/manual/en/exception.tostring.php
      * @return string the string representation of the exception.
      */
-    #[TentativeType]
-    public function __toString(): string {}
+    #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
+    public function __toString() {}
 
     #[TentativeType]
     public function __wakeup(): void {}
@@ -420,6 +430,15 @@ class Error implements Throwable
     /** The line where the error happened */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     protected $line;
+
+    /** Cached string representation of the error (used by __toString) */
+    private string $string = '';
+
+    /** Internal storage for the error stack trace */
+    private array $trace = [];
+
+    /** The previous throwable used for error chaining */
+    private ?Throwable $previous = null;
 
     /**
      * Construct the error object.
@@ -894,7 +913,7 @@ final class Attribute
      * Marks that attribute declaration is allowed only in constants.
      * @since 8.5
      */
-    public const TARGET_CONSTANT = 32;
+    public const TARGET_CONSTANT = 64;
 
     /**
      * Marks that attribute declaration is allowed anywhere.
@@ -905,7 +924,7 @@ final class Attribute
      * Notes that an attribute declaration in the same place is
      * allowed multiple times.
      */
-    public const IS_REPEATABLE = 64;
+    public const IS_REPEATABLE = 128;
 
     /**
      * @param int $flags A value in the form of a bitmask indicating the places

@@ -1,0 +1,13 @@
+<?php
+
+class TestClass
+{
+    /**
+     * @deprecated
+     */
+    public static final function completeMethod() {}
+
+    protected abstract function abstractMethod();
+
+    private function privateMethod() {}
+}

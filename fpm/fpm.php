@@ -11,6 +11,6 @@ function fpm_get_status(): array|false {}
  * This allows for time consuming tasks to be performed without leaving the connection to the client open.
  * @return bool Returns TRUE on success or FALSE on failure.
  * @link https://php.net/manual/en/install.fpm.php
- * @since 5.3.3
+ * @since 5.3
  */
 function fastcgi_finish_request() {};

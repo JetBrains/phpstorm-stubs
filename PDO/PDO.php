@@ -1,6 +1,8 @@
 <?php
 
 namespace {
+    const PDO_ODBC_TYPE = 'unixODBC';
+
     use JetBrains\PhpStorm\ArrayShape;
     use JetBrains\PhpStorm\Deprecated;
     use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
@@ -86,7 +88,7 @@ namespace {
 
         /**
          * Specifies that a function created with PDO::sqliteCreateFunction() is deterministic, i.e. it always returns the same result given the same inputs within a single SQL statement.
-         * @since 7.1.4
+         * @since 7.1
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.sqlite-deterministic
          */
         #[Deprecated('use Pdo\Sqlite::DETERMINISTIC instead', since: '8.5')]
@@ -256,18 +258,18 @@ namespace {
          * <b>PDO::FETCH_KEY_PAIR</b>.
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-group
          */
-        public const FETCH_GROUP = 65536;
+        public const FETCH_GROUP = 32;
 
         /**
          * Fetch only the unique values.
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-unique
          */
-        public const FETCH_UNIQUE = 196608;
+        public const FETCH_UNIQUE = 64;
 
         /**
          * Fetch a two-column result into an array where the first column is a key and the second column
          * is the value.
-         * @since 5.2.3
+         * @since 5.2
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-key-pair
          */
         public const FETCH_KEY_PAIR = 12;
@@ -276,7 +278,7 @@ namespace {
          * Determine the class name from the value of first column.
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-classtype
          */
-        public const FETCH_CLASSTYPE = 262144;
+        public const FETCH_CLASSTYPE = 128;
 
         /**
          * As <b>PDO::FETCH_INTO</b> but object is provided as a serialized string.
@@ -284,14 +286,14 @@ namespace {
          * flag is set.
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-serialize
          */
-        public const FETCH_SERIALIZE = 524288;
+        public const FETCH_SERIALIZE = 512;
 
         /**
          * Call the constructor before setting properties.
          * @since 5.2
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-props-late
          */
-        public const FETCH_PROPS_LATE = 1048576;
+        public const FETCH_PROPS_LATE = 256;
 
         /**
          * Specifies that the fetch method shall return each row as an array indexed
@@ -442,7 +444,7 @@ namespace {
 
         /**
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.attr-emulate-prepares
-         * @since 5.1.3
+         * @since 5.1
          */
         public const ATTR_EMULATE_PREPARES = 20;
 
@@ -560,7 +562,7 @@ namespace {
 
         /**
          * Specifies that the default fetch mode shall be used.
-         * @since 8.0.7
+         * @since 8.0
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-default
          */
         public const FETCH_DEFAULT = 0;
@@ -679,7 +681,7 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-direct-query
          */
         #[Deprecated('use Pdo\Mysql::ATTR_DIRECT_QUERY instead', since: '8.5')]
-        public const MYSQL_ATTR_DIRECT_QUERY = 1004;
+        public const MYSQL_ATTR_DIRECT_QUERY = 20;
 
         /**
          * <p>
@@ -689,7 +691,7 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-found-rows
          */
         #[Deprecated('use Pdo\Mysql::ATTR_FOUND_ROWS instead', since: '8.5')]
-        public const MYSQL_ATTR_FOUND_ROWS = 1005;
+        public const MYSQL_ATTR_FOUND_ROWS = 1004;
 
         /**
          * <p>
@@ -699,51 +701,51 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ignore-space
          */
         #[Deprecated('use Pdo\Mysql::ATTR_IGNORE_SPACE instead', since: '8.5')]
-        public const MYSQL_ATTR_IGNORE_SPACE = 1006;
+        public const MYSQL_ATTR_IGNORE_SPACE = 1005;
 
         #[Deprecated('use Pdo\Mysql::ATTR_SERVER_PUBLIC_KEY instead', since: '8.5')]
-        public const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1012;
+        public const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1011;
 
         /**
          * <p>
          * The file path to the SSL key.
          * </p>
-         * @since 5.3.7
+         * @since 5.3
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-key
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_KEY instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_KEY = 1007;
+        public const MYSQL_ATTR_SSL_KEY = 1006;
 
         /**
          * <p>
          * The file path to the SSL certificate.
          * </p>
-         * @since 5.3.7
+         * @since 5.3
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-cert
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_CERT instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_CERT = 1008;
+        public const MYSQL_ATTR_SSL_CERT = 1007;
 
         /**
          * <p>
          * The file path to the SSL certificate authority.
          * </p>
-         * @since 5.3.7
+         * @since 5.3
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-ca
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_CA instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_CA = 1009;
+        public const MYSQL_ATTR_SSL_CA = 1008;
 
         /**
          * <p>
          * The file path to the directory that contains the trusted SSL
          * CA certificates, which are stored in PEM format.
          * </p>
-         * @since 5.3.7
+         * @since 5.3
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-capath
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_CAPATH instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_CAPATH = 1010;
+        public const MYSQL_ATTR_SSL_CAPATH = 1009;
 
         /**
          * <p>
@@ -751,11 +753,11 @@ namespace {
          * in a format understood by OpenSSL.
          * For example: DHE-RSA-AES256-SHA:AES128-SHA
          * </p>
-         * @since 5.3.7
+         * @since 5.3
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-cipher
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_CIPHER instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_CIPHER = 1011;
+        public const MYSQL_ATTR_SSL_CIPHER = 1010;
 
         /**
          * <p>
@@ -764,28 +766,28 @@ namespace {
          * <p>
          * Note, this constant can only be used in the driver_options array when constructing a new database handle.
          * </p>
-         * @since 5.5.21
+         * @since 5.5
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-multi-statements
          */
         #[Deprecated('use Pdo\Mysql::ATTR_MULTI_STATEMENTS instead', since: '8.5')]
-        public const MYSQL_ATTR_MULTI_STATEMENTS = 1013;
+        public const MYSQL_ATTR_MULTI_STATEMENTS = 1012;
 
         /**
          * <p>
          * Disables SSL peer verification when set to FALSE.
          * </p>
-         * @since 7.0.18
-         * @since 7.1.4
+         * @since 7.0
+         * @since 7.1
          * @link https://bugs.php.net/bug.php?id=71003
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1014;
+        public const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1013;
 
         /**
          * @since 8.1
          */
         #[Deprecated('use Pdo\Mysql::ATTR_LOCAL_INFILE_DIRECTORY instead', since: '8.5')]
-        public const MYSQL_ATTR_LOCAL_INFILE_DIRECTORY = 1015;
+        public const MYSQL_ATTR_LOCAL_INFILE_DIRECTORY = 1014;
 
         #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
         public const PGSQL_ASSOC = 1;
@@ -910,29 +912,29 @@ namespace {
 
         /**
          * Provides a way to specify the action on the database session.
-         * @since 7.2.16
-         * @since 7.3.3
+         * @since 7.2
+         * @since 7.3
          */
         public const OCI_ATTR_ACTION = 1000;
 
         /**
          * Provides a way to specify the client info on the database session.
-         * @since 7.2.16
-         * @since 7.3.3
+         * @since 7.2
+         * @since 7.3
          */
         public const OCI_ATTR_CLIENT_INFO = 1001;
 
         /**
          * Provides a way to specify the client identifier on the database session.
-         * @since 7.2.16
-         * @since 7.3.3
+         * @since 7.2
+         * @since 7.3
          */
         public const OCI_ATTR_CLIENT_IDENTIFIER = 1002;
 
         /**
          * Provides a way to specify the module on the database session.
-         * @since 7.2.16
-         * @since 7.3.3
+         * @since 7.2
+         * @since 7.3
          */
         public const OCI_ATTR_MODULE = 1003;
 
@@ -962,42 +964,49 @@ namespace {
 
         /**
          * Sets the connection timeout in seconds.
+         * @since 7.0
          */
         #[Deprecated('use Pdo\Dblib::ATTR_CONNECTION_TIMEOUT instead', since: '8.5')]
         public const DBLIB_ATTR_CONNECTION_TIMEOUT = 1000;
 
         /**
          * Sets the query timeout in seconds.
+         * @since 7.0
          */
         #[Deprecated('use Pdo\Dblib::ATTR_QUERY_TIMEOUT instead', since: '8.5')]
         public const DBLIB_ATTR_QUERY_TIMEOUT = 1001;
 
         /**
          * Returns uniqueidentifier values as strings.
+         * @since 7.0
          */
         #[Deprecated('use Pdo\Dblib::ATTR_STRINGIFY_UNIQUEIDENTIFIER instead', since: '8.5')]
         public const DBLIB_ATTR_STRINGIFY_UNIQUEIDENTIFIER = 1002;
 
         /**
          * Returns the version of the underlying DB-Library.
+         * @since 7.2
          */
         #[Deprecated('use Pdo\Dblib::ATTR_VERSION instead', since: '8.5')]
         public const DBLIB_ATTR_VERSION = 1003;
 
         /**
          * Returns the TDS version used by the connection.
+         * @since 7.3
          */
         #[Deprecated('use Pdo\Dblib::ATTR_TDS_VERSION instead', since: '8.5')]
         public const DBLIB_ATTR_TDS_VERSION = 1004;
 
         /**
          * Skips empty result sets returned by stored procedures.
+         * @since 7.3
          */
         #[Deprecated('use Pdo\Dblib::ATTR_SKIP_EMPTY_ROWSETS instead', since: '8.5')]
         public const DBLIB_ATTR_SKIP_EMPTY_ROWSETS = 1005;
 
         /**
          * Controls datetime conversion to strings.
+         * @since 7.3
          */
         #[Deprecated('use Pdo\Dblib::ATTR_DATETIME_CONVERT instead', since: '8.5')]
         public const DBLIB_ATTR_DATETIME_CONVERT = 1006;
@@ -1212,7 +1221,8 @@ namespace {
          * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
          */
         #[PhpStormStubsElementAvailable(to: '7.4')]
-        public function query($query, $fetchMode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, $ctorargs = []) {}
+        #[TentativeType]
+        public function query($query, $fetchMode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, $ctorargs = []): PDOStatement|false {}
 
         /**
          * (PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.2.0)<br/>
@@ -1237,11 +1247,12 @@ namespace {
          * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
          */
         #[PhpStormStubsElementAvailable('8.0')]
+        #[TentativeType]
         public function query(
             #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query,
             #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $fetchMode = null,
             #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$fetchModeArgs
-        ) {}
+        ): PDOStatement|false {}
 
         /**
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -2069,7 +2080,9 @@ namespace {
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
-        public function setFetchMode($mode, ...$args) {}
+        #[TentativeType]
+        #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+        public function setFetchMode(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode, mixed ...$args) {}
 
         /**
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
@@ -2141,21 +2154,37 @@ namespace Pdo {
      */
     class Sqlite extends PDO
     {
-        public const int DETERMINISTIC = 0;
+        public const int DETERMINISTIC = 2048;
         public const int OPEN_READONLY = 1;
-        public const int OPEN_READWRITE = 0;
-        public const int OPEN_CREATE = 0;
-        public const int ATTR_OPEN_FLAGS = 0;
-        public const int ATTR_READONLY_STATEMENT = 0;
-        public const int ATTR_EXTENDED_RESULT_CODES = 0;
-        public const IGNORE = 0;
-        public const DENY = 0;
+        public const int OPEN_READWRITE = 2;
+        public const int OPEN_CREATE = 4;
+        public const int ATTR_OPEN_FLAGS = 1000;
+        public const int ATTR_READONLY_STATEMENT = 1001;
+        public const int ATTR_EXTENDED_RESULT_CODES = 1002;
+
+        /** @since 8.5 */
+        public const IGNORE = 2;
+
+        /** @since 8.5 */
+        public const DENY = 1;
+
+        /** @since 8.5 */
         public const OK = 0;
-        public const EXPLAIN_MODE_EXPLAIN_QUERY_PLAN = 0;
-        public const EXPLAIN_MODE_EXPLAIN = 0;
+
+        /** @since 8.5 */
+        public const EXPLAIN_MODE_EXPLAIN_QUERY_PLAN = 2;
+
+        /** @since 8.5 */
+        public const EXPLAIN_MODE_EXPLAIN = 1;
+
+        /** @since 8.5 */
         public const EXPLAIN_MODE_PREPARED = 0;
-        public const ATTR_EXPLAIN_STATEMENT = 0;
-        public const ATTR_BUSY_STATEMENT = 0;
+
+        /** @since 8.5 */
+        public const ATTR_EXPLAIN_STATEMENT = 1004;
+
+        /** @since 8.5 */
+        public const ATTR_BUSY_STATEMENT = 1003;
 
         /**
          * @since 8.5
@@ -2218,22 +2247,30 @@ namespace Pdo {
         public const int ATTR_USE_BUFFERED_QUERY = 1000;
         public const int ATTR_LOCAL_INFILE = 1001;
         public const int ATTR_INIT_COMMAND = 1002;
+
+        /**
+         * @removed 8.4
+         */
         public const int ATTR_READ_DEFAULT_FILE = 1003;
+
+        /** @removed 8.4 */
         public const int ATTR_READ_DEFAULT_GROUP = 1004;
+
+        /** @removed 8.4 */
         public const int ATTR_MAX_BUFFER_SIZE = 1005;
         public const int ATTR_COMPRESS = 1003;
-        public const int ATTR_DIRECT_QUERY = 1004;
-        public const int ATTR_FOUND_ROWS = 1005;
-        public const int ATTR_IGNORE_SPACE = 1006;
-        public const int ATTR_SSL_KEY = 1007;
-        public const int ATTR_SSL_CERT = 1008;
-        public const int ATTR_SSL_CA = 1009;
-        public const int ATTR_SSL_CAPATH = 1010;
-        public const int ATTR_SSL_CIPHER = 1011;
-        public const int ATTR_SERVER_PUBLIC_KEY = 1012;
-        public const int ATTR_MULTI_STATEMENTS = 1013;
-        public const int ATTR_SSL_VERIFY_SERVER_CERT = 1014;
-        public const int ATTR_LOCAL_INFILE_DIRECTORY = 1015;
+        public const int ATTR_DIRECT_QUERY = 20;
+        public const int ATTR_FOUND_ROWS = 1004;
+        public const int ATTR_IGNORE_SPACE = 1005;
+        public const int ATTR_SSL_KEY = 1006;
+        public const int ATTR_SSL_CERT = 1007;
+        public const int ATTR_SSL_CA = 1008;
+        public const int ATTR_SSL_CAPATH = 1009;
+        public const int ATTR_SSL_CIPHER = 1010;
+        public const int ATTR_SERVER_PUBLIC_KEY = 1011;
+        public const int ATTR_MULTI_STATEMENTS = 1012;
+        public const int ATTR_SSL_VERIFY_SERVER_CERT = 1013;
+        public const int ATTR_LOCAL_INFILE_DIRECTORY = 1014;
 
         public function getWarningCount(): int {}
     }

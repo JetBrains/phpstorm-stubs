@@ -847,7 +847,7 @@ function chgrp(string $filename, string|int $group): bool {}
  * User name or number.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1.2
+ * @since 5.1
  */
 function lchown(string $filename, string|int $user): bool {}
 
@@ -861,7 +861,7 @@ function lchown(string $filename, string|int $user): bool {}
  * The group specified by name or number.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1.2
+ * @since 5.1
  */
 function lchgrp(string $filename, string|int $group): bool {}
 

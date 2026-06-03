@@ -520,7 +520,7 @@ function stream_socket_enable_crypto($stream, bool $enable, ?int $crypto_method 
  * transmissions).
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.2.1
+ * @since 5.2
  */
 function stream_socket_shutdown($stream, int $mode): bool {}
 
@@ -968,7 +968,7 @@ function stream_register_wrapper(string $protocol, string $class, int $flags = 0
  * @link https://php.net/manual/en/function.stream-resolve-include-path.php
  * @param string $filename The filename to resolve.
  * @return string|false containing the resolved absolute filename, or FALSE on failure.
- * @since 5.3.2
+ * @since 5.3
  */
 function stream_resolve_include_path(string $filename): string|false {}
 
@@ -1014,7 +1014,7 @@ function stream_get_transports(): array {}
  * The stream resource or URL to check.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.2.4
+ * @since 5.2
  */
 #[Pure]
 function stream_is_local($stream): bool {}

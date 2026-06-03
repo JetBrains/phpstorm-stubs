@@ -218,7 +218,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getnumberofparameters.php
      * @return int The number of parameters.
-     * @since 5.0.3
+     * @since 5.0
      */
     #[Pure]
     #[TentativeType]
@@ -229,7 +229,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getnumberofrequiredparameters.php
      * @return int The number of required parameters.
-     * @since 5.0.3
+     * @since 5.0
      */
     #[Pure]
     #[TentativeType]
@@ -344,5 +344,6 @@ abstract class ReflectionFunctionAbstract implements Reflector
     #[TentativeType]
     public function isStatic(): bool {}
 
+    #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
     public function __toString() {}
 }

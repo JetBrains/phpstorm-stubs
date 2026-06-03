@@ -132,7 +132,7 @@ const DBA_LMDB_NO_SUB_DIR = 0;
 function dba_open($path, $mode, $handler = null, ...$handler_params) {}
 
 #[PhpStormStubsElementAvailable(from: '8.2')]
-#[LanguageLevelTypeAware(["8.4" => "Dba\Connection|false"], default: "resource|false")]
+#[LanguageLevelTypeAware(["8.4" => "\Dba\Connection|false"], default: "resource|false")]
 function dba_open(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0, ?int $flags = null) {}
 
 /**
@@ -160,7 +160,7 @@ function dba_open(string $path, string $mode, ?string $handler = null, int $perm
 function dba_popen($path, $mode, $handler = null, ...$handler_params) {}
 
 #[PhpStormStubsElementAvailable(from: '8.2')]
-#[LanguageLevelTypeAware(["8.4" => "Dba\Connection|false"], default: "resource|false")]
+#[LanguageLevelTypeAware(["8.4" => "\Dba\Connection|false"], default: "resource|false")]
 function dba_popen(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0, ?int $flags = null) {}
 
 /**
@@ -172,7 +172,7 @@ function dba_popen(string $path, string $mode, ?string $handler = null, int $per
  * </p>
  * @return void No value is returned.
  */
-function dba_close(#[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], default: 'resource')] $dba): void {}
+function dba_close(#[LanguageLevelTypeAware(['8.4' => '\Dba\Connection'], default: 'resource')] $dba): void {}
 
 /**
  * Delete DBA entry specified by key
@@ -188,7 +188,7 @@ function dba_close(#[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], default
  */
 function dba_delete(
     #[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key,
-    #[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], default: 'resource')] $dba
+    #[LanguageLevelTypeAware(['8.4' => '\Dba\Connection'], default: 'resource')] $dba
 ): bool {}
 
 /**
@@ -205,7 +205,7 @@ function dba_delete(
  */
 function dba_exists(
     #[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key,
-    #[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], default: 'resource')] $dba
+    #[LanguageLevelTypeAware(['8.4' => '\Dba\Connection'], default: 'resource')] $dba
 ): bool {}
 
 /**
@@ -270,7 +270,7 @@ function dba_fetch($key, $skip, $dba): string|false {}
 function dba_insert(
     #[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key,
     string $value,
-    #[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], default: 'resource')] $dba
+    #[LanguageLevelTypeAware(['8.4' => '\Dba\Connection'], default: 'resource')] $dba
 ): bool {}
 
 /**
@@ -291,7 +291,7 @@ function dba_insert(
 function dba_replace(
     #[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key,
     string $value,
-    #[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], default: 'resource')] $dba
+    #[LanguageLevelTypeAware(['8.4' => '\Dba\Connection'], default: 'resource')] $dba
 ): bool {}
 
 /**
@@ -303,7 +303,7 @@ function dba_replace(
  * </p>
  * @return string|false the key on success or <b>FALSE</b> on failure.
  */
-function dba_firstkey(#[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], default: 'resource')] $dba): string|false {}
+function dba_firstkey(#[LanguageLevelTypeAware(['8.4' => '\Dba\Connection'], default: 'resource')] $dba): string|false {}
 
 /**
  * Fetch next key
@@ -314,7 +314,7 @@ function dba_firstkey(#[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], defa
  * </p>
  * @return string|false the key on success or <b>FALSE</b> on failure.
  */
-function dba_nextkey(#[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], default: 'resource')] $dba): string|false {}
+function dba_nextkey(#[LanguageLevelTypeAware(['8.4' => '\Dba\Connection'], default: 'resource')] $dba): string|false {}
 
 /**
  * Optimize database
@@ -325,7 +325,7 @@ function dba_nextkey(#[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], defau
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_optimize(#[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], default: 'resource')] $dba): bool {}
+function dba_optimize(#[LanguageLevelTypeAware(['8.4' => '\Dba\Connection'], default: 'resource')] $dba): bool {}
 
 /**
  * Synchronize database
@@ -336,7 +336,7 @@ function dba_optimize(#[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], defa
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_sync(#[LanguageLevelTypeAware(['8.4' => 'Dba\Connection'], default: 'resource')] $dba): bool {}
+function dba_sync(#[LanguageLevelTypeAware(['8.4' => '\Dba\Connection'], default: 'resource')] $dba): bool {}
 
 /**
  * List all the handlers available

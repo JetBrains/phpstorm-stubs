@@ -12,7 +12,7 @@ use JetBrains\PhpStorm\Pure;
  */
 class IntlChar
 {
-    public const UNICODE_VERSION = 13.0;
+    public const UNICODE_VERSION = '16.0';
     public const CODEPOINT_MIN = 0;
     public const CODEPOINT_MAX = 1114111;
     public const FOLD_CASE_DEFAULT = 0;
@@ -75,7 +75,7 @@ class IntlChar
     public const PROPERTY_CHANGES_WHEN_CASEFOLDED = 54;
     public const PROPERTY_CHANGES_WHEN_CASEMAPPED = 55;
     public const PROPERTY_CHANGES_WHEN_NFKC_CASEFOLDED = 56;
-    public const PROPERTY_BINARY_LIMIT = 65;
+    public const PROPERTY_BINARY_LIMIT = 76;
     public const PROPERTY_BIDI_CLASS = 4096;
     public const PROPERTY_INT_START = 4096;
     public const PROPERTY_BLOCK = 4097;
@@ -99,7 +99,7 @@ class IntlChar
     public const PROPERTY_SENTENCE_BREAK = 4115;
     public const PROPERTY_WORD_BREAK = 4116;
     public const PROPERTY_BIDI_PAIRED_BRACKET_TYPE = 4117;
-    public const PROPERTY_INT_LIMIT = 4121;
+    public const PROPERTY_INT_LIMIT = 4123;
     public const PROPERTY_GENERAL_CATEGORY_MASK = 8192;
     public const PROPERTY_MASK_START = 8192;
     public const PROPERTY_MASK_LIMIT = 8193;
@@ -124,7 +124,7 @@ class IntlChar
     public const PROPERTY_STRING_LIMIT = 16398;
     public const PROPERTY_SCRIPT_EXTENSIONS = 28672;
     public const PROPERTY_OTHER_PROPERTY_START = 28672;
-    public const PROPERTY_OTHER_PROPERTY_LIMIT = 28673;
+    public const PROPERTY_OTHER_PROPERTY_LIMIT = 28674;
     public const PROPERTY_INVALID_CODE = -1;
     public const CHAR_CATEGORY_UNASSIGNED = 0;
     public const CHAR_CATEGORY_GENERAL_OTHER_TYPES = 0;
@@ -437,7 +437,7 @@ class IntlChar
     public const BLOCK_CODE_SUPPLEMENTAL_ARROWS_C = 250;
     public const BLOCK_CODE_TIRHUTA = 251;
     public const BLOCK_CODE_WARANG_CITI = 252;
-    public const BLOCK_CODE_COUNT = 309;
+    public const BLOCK_CODE_COUNT = 339;
     public const BLOCK_CODE_INVALID_CODE = -1;
     public const BPT_NONE = 0;
     public const BPT_OPEN = 1;
@@ -571,7 +571,7 @@ class IntlChar
     public const JG_MANICHAEAN_YODH = 83;
     public const JG_MANICHAEAN_ZAYIN = 84;
     public const JG_STRAIGHT_WAW = 85;
-    public const JG_COUNT = 102;
+    public const JG_COUNT = 105;
     public const GCB_OTHER = 0;
     public const GCB_CONTROL = 1;
     public const GCB_CR = 2;
@@ -661,7 +661,7 @@ class IntlChar
     public const LB_CONDITIONAL_JAPANESE_STARTER = 37;
     public const LB_HEBREW_LETTER = 38;
     public const LB_REGIONAL_INDICATOR = 39;
-    public const LB_COUNT = 43;
+    public const LB_COUNT = 48;
     public const NT_NONE = 0;
     public const NT_DECIMAL = 1;
     public const NT_DIGIT = 2;

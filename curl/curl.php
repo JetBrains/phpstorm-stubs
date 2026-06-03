@@ -2138,7 +2138,7 @@ function curl_setopt(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 
  * @return bool true if all options were successfully set. If an option could
  * not be successfully set, false is immediately returned, ignoring any
  * future options in the options array.
- * @since 5.1.3
+ * @since 5.1
  */
 function curl_setopt_array(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle, array $options): bool {}
 
@@ -2789,7 +2789,7 @@ function curl_multi_errno(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'],
 
 /**
  * Return the last share curl error number
- * @param CurlMultiHandle|resource $share_handle
+ * @param CurlShareHandle|resource $share_handle
  * @return int
  * @since 7.1
  */

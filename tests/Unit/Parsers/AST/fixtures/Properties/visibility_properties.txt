@@ -1,0 +1,10 @@
+<?php
+
+class TestClass
+{
+    public $publicProperty;
+
+    protected $protectedProperty;
+
+    private $privateProperty;
+}

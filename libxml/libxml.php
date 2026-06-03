@@ -128,7 +128,7 @@ function libxml_get_errors(): array {}
  * and ) to load external entities.
  * </p>
  * @return bool the previous value.
- * @since 5.2.11
+ * @since 5.2
  */
 #[Deprecated(since: "8.0")]
 function libxml_disable_entity_loader(bool $disable = true): bool {}

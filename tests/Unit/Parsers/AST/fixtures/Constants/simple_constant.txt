@@ -1,0 +1,6 @@
+<?php
+
+class TestClass
+{
+    const SIMPLE_CONST = 'value';
+}

@@ -568,20 +568,21 @@ class XMLWriter
      * @param string $content <p>
      * The content of the entity.
      * </p>
-     * @param bool $pe
-     * @param string $pubid
-     * @param string $sysid
-     * @param string $ndataid
+     * @param bool $isParam
+     * @param string|null $publicId
+     * @param string|null $systemId
+     * @param string|null $notationData
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function writeDtdEntity(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $content,
-        $pe,
-        $pubid,
-        $sysid,
-        $ndataid
-    ) {}
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isParam = false,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $publicId = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $systemId = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $notationData = null
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>

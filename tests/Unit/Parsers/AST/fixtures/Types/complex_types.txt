@@ -1,0 +1,19 @@
+<?php
+namespace Test;
+
+class TestClass
+{
+    /**
+     * @var array<string, int>
+     */
+    public array $arrayProperty;
+
+    /**
+     * @var callable(string): void
+     */
+    public $callableProperty;
+
+    public ?string $nullableProperty;
+
+    public string|int $unionProperty;
+}

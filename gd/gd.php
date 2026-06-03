@@ -352,7 +352,7 @@ function imagecolorexact(GdImage $image, int $red, int $green, int $blue): int {
  * @return bool|null
  */
 #[LanguageLevelTypeAware(['8.2' => 'null|false'], default: 'null|bool')]
-function imagecolorset(GdImage $image, int $color, int $red, int $green, int $blue, int $alpha = 0): ?bool {}
+function imagecolorset(GdImage $image, int $color, int $red, int $green, int $blue, int $alpha = 0) {}
 
 /**
  * Define a color as transparent
@@ -2283,8 +2283,8 @@ function imageconvolution(GdImage $image, array $matrix, float $divisor, float $
  * @link https://php.net/manual/en/function.imageresolution.php
  * @since 7.2
  */
-#[LanguageLevelTypeAware(['8.2' => 'array|true'], default: 'array|bool')]
-function imageresolution(GdImage $image, ?int $resolution_x = null, ?int $resolution_y = null): array|bool {}
+#[LanguageLevelTypeAware(['8.5' => 'array|true'], default: 'array|bool')]
+function imageresolution(GdImage $image, ?int $resolution_x = null, ?int $resolution_y = null) {}
 
 /**
  * <b>imagesetclip()</b> sets the current clipping rectangle, i.e. the area beyond which no pixels will be drawn.
@@ -2448,8 +2448,8 @@ define('IMG_XPM', 16);
 
 /**
  * Used as a return value by {@see imagetypes()}
- * @since 5.6.25
- * @since 7.0.10
+ * @since 5.6
+ * @since 7.0
  * @link https://php.net/manual/en/image.constants.php#constant.img-webp
  */
 define('IMG_WEBP', 32);
@@ -2660,35 +2660,35 @@ define('IMG_FILTER_SCATTER', 12);
 
 /**
  * The GD version PHP was compiled against.
- * @since 5.2.4
+ * @since 5.2
  * @link https://php.net/manual/en/image.constants.php#constant.gd-version
  */
 define('GD_VERSION', "2.0.35");
 
 /**
  * The GD major version PHP was compiled against.
- * @since 5.2.4
+ * @since 5.2
  * @link https://php.net/manual/en/image.constants.php#constant.gd-major-version
  */
 define('GD_MAJOR_VERSION', 2);
 
 /**
  * The GD minor version PHP was compiled against.
- * @since 5.2.4
+ * @since 5.2
  * @link https://php.net/manual/en/image.constants.php#constant.gd-minor-version
  */
 define('GD_MINOR_VERSION', 0);
 
 /**
  * The GD release version PHP was compiled against.
- * @since 5.2.4
+ * @since 5.2
  * @link https://php.net/manual/en/image.constants.php#constant.gd-release-version
  */
 define('GD_RELEASE_VERSION', 35);
 
 /**
  * The GD "extra" version (beta/rc..) PHP was compiled against.
- * @since 5.2.4
+ * @since 5.2
  * @link https://php.net/manual/en/image.constants.php#constant.gd-extra-version
  */
 define('GD_EXTRA_VERSION', "");

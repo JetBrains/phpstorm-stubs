@@ -802,7 +802,6 @@ function strftime(string $format, ?int $timestamp = null): string|false {}
  * local time if no timestamp is given. Month and weekday names and
  * other language dependent strings respect the current locale set
  * with setlocale.
- * @deprecated 8.1
  */
 #[Deprecated(since: '8.1')]
 function gmstrftime(string $format, ?int $timestamp = null): string|false {}
@@ -1061,7 +1060,7 @@ function date_create_from_format(string $format, string $datetime, ?DateTimeZone
     "error_count" => "int",
     "errors" => "array"
 ])]
-function date_parse(string $datetime): false|array {}
+function date_parse(string $datetime) {}
 
 /**
  * Get info about given date formatted according to the specified format
@@ -1260,7 +1259,7 @@ function date_time_set(
  * </p>
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_date_set(DateTime $object, int $year, int $month, int $day): DateTime|false {}
+function date_date_set(DateTime $object, int $year, int $month, int $day) {}
 
 /**
  * Alias:
@@ -1290,7 +1289,7 @@ function date_isodate_set(DateTime $object, int $year, int $week, int $dayOfWeek
  * {@see DateTime} object for call chaining or <b>FALSE</b> on failure
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_timestamp_set(DateTime $object, int $timestamp): DateTime|false {}
+function date_timestamp_set(DateTime $object, int $timestamp) {}
 
 /**
  * Gets the unix timestamp
@@ -1344,7 +1343,7 @@ function timezone_name_get(DateTimeZone $object): string {}
  * offset and isdst.
  * </p>
  * @return string|false time zone name on success or false on failure.
- * @since 5.1.3
+ * @since 5.1
  */
 #[Pure(true)]
 function timezone_name_from_abbr(string $abbr, int $utcOffset = -1, int $isDST = -1): string|false {}
@@ -1377,7 +1376,7 @@ function timezone_offset_get(DateTimeZone $object, DateTimeInterface $datetime) 
  * @return array|false <p>Returns numerically indexed array containing associative array with all transitions on success or FALSE on failure.</p>
  */
 #[Pure(true)]
-function timezone_transitions_get(DateTimeZone $object, int $timestampBegin = PHP_INT_MIN, int $timestampEnd = PHP_INT_MAX): array|false {}
+function timezone_transitions_get(DateTimeZone $object, int $timestampBegin = PHP_INT_MIN, int $timestampEnd = 2147483647): array|false {}
 
 /**
  * Alias:
@@ -1521,8 +1520,6 @@ function date_default_timezone_get(): string {}
  * @param float|null $utcOffset [optional]
  * @return string|int|float|false the sunrise time in a specified format on
  * success or false on failure.
- * @deprecated 8.1
- * Use {@link date_sun_info} instead
  */
 #[Pure(true)]
 #[Deprecated(reason: 'in 8.1.  Use date_sun_info instead', since: '8.1')]
@@ -1616,7 +1613,7 @@ function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?f
  * The values of the array elements are either UNIX timestamps, <strong><code>false</code></strong> if the
  * sun is below the respective zenith for the whole day, or <strong><code>true</code></strong> if the sun is
  * above the respective zenith for the whole day.
- * @since 5.1.2
+ * @since 5.1
  */
 #[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
@@ -1631,6 +1628,6 @@ function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?f
     "astronomical_twilight_begin" => "int",
     "astronomical_twilight_end" => "int"
 ])]
-function date_sun_info(int $timestamp, float $latitude, float $longitude): array|false {}
+function date_sun_info(int $timestamp, float $latitude, float $longitude) {}
 
 // End of date v.5.3.2-0.dotdeb.1

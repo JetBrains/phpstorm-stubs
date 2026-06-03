@@ -1,0 +1,16 @@
+<?php
+
+abstract class TestClass
+{
+    public function publicMethod() {}
+
+    protected function protectedMethod() {}
+
+    private function privateMethod() {}
+
+    public static function staticMethod() {}
+
+    final public function finalMethod() {}
+
+    abstract public function abstractMethod();
+}

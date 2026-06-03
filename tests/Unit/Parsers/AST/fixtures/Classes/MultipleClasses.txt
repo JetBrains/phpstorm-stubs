@@ -1,0 +1,33 @@
+<?php
+
+namespace MyApp\Models;
+
+class User {
+    public string $name;
+    public string $email;
+
+    public function getName(): string {
+        return $this->name;
+    }
+}
+
+class Product {
+    public string $title;
+    public float $price;
+
+    public function getPrice(): float {
+        return $this->price;
+    }
+}
+
+class Order {
+    public int $id;
+    private array $items;
+
+    const STATUS_PENDING = 'pending';
+    const STATUS_COMPLETED = 'completed';
+
+    public function addItem($item): void {
+        $this->items[] = $item;
+    }
+}

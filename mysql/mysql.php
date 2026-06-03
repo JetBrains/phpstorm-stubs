@@ -749,7 +749,7 @@ function mysql_info($link_identifier = null) {}
  * </p>
  * @param resource $link_identifier [optional]
  * @return bool true on success or false on failure.
- * @since 5.2.3
+ * @since 5.2
  * @removed 7.0
  * @see mysqli_set_charset()
  */

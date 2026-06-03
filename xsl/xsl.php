@@ -121,7 +121,7 @@ class XSLTProcessor
      * Determine if PHP has EXSLT support
      * @link https://php.net/manual/en/xsltprocessor.hasexsltsupport.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.0.4
+     * @since 5.0
      */
     #[TentativeType]
     public function hasExsltSupport(): bool {}
@@ -138,7 +138,7 @@ class XSLTProcessor
      * functions.
      * </p>
      * @return void No value is returned.
-     * @since 5.0.4
+     * @since 5.0
      */
     #[TentativeType]
     public function registerPHPFunctions(#[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $functions = null): void {}

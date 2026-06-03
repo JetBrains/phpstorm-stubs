@@ -49,13 +49,13 @@ final class mysqli_driver
     public $client_info;
 
     /**
-     * @var string
+     * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $client_version;
 
     /**
-     * @var string
+     * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $driver_version;
@@ -404,6 +404,7 @@ class mysqli
      * Returns the MySQL client version as a string
      * @link https://php.net/manual/en/mysqli.get-client-info.php
      * @return string A string that represents the MySQL client library version
+     * @deprecated 8.1
      */
     #[TentativeType]
     public function get_client_info(): string {}
@@ -761,8 +762,8 @@ class mysqli
      */
     #[TentativeType]
     public static function poll(
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] &$read,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] &$error,
+        #[LanguageLevelTypeAware(['7.1' => 'array|null'], default: '')] &$read,
+        #[LanguageLevelTypeAware(['7.1' => 'array|null'], default: '')] &$error,
         #[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] &$reject,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $seconds,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $microseconds = 0
@@ -1462,7 +1463,7 @@ class mysqli_stmt
     public $sqlstate;
 
     /**
-     * @var string
+     * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $id;
@@ -1472,7 +1473,10 @@ class mysqli_stmt
      * @param mysqli $mysql
      * @param string $query [optional]
      */
-    public function __construct($mysql, $query = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'mysqli'], default: '')] $mysql,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $query
+    ) {}
 
     /**
      * Used to get the current value of a statement attribute
@@ -1578,7 +1582,8 @@ class mysqli_stmt
      * @param mixed &...$_ [optional]
      * @return bool true on success or false on failure.
      */
-    public function bind_param($types, &$var1, &...$_) {}
+    #[TentativeType]
+    public function bind_param(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $types, mixed & $var1, mixed & ...$_): bool {}
 
     /**
      * Binds variables to a prepared statement for result storage
@@ -1587,7 +1592,8 @@ class mysqli_stmt
      * @param mixed &...$_ The variables to be bound.
      * @return bool true on success or false on failure.
      */
-    public function bind_result(&$var1, &...$_) {}
+    #[TentativeType]
+    public function bind_result(mixed &$var1, mixed &...$_): bool {}
 
     /**
      * Closes a prepared statement
@@ -1812,7 +1818,7 @@ function mysqli_character_set_name(mysqli $mysql): string {}
  * @return bool
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function mysqli_close(mysqli $mysql): bool {}
+function mysqli_close(mysqli $mysql) {}
 
 /**
  * Commits the current transaction
@@ -1877,7 +1883,7 @@ function mysqli_dump_debug_info(mysqli $mysql): bool {}
  * @return bool
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function mysqli_debug(string $options): bool {}
+function mysqli_debug(string $options) {}
 
 /**
  * Returns the error code for the most recent function call
@@ -2575,7 +2581,7 @@ function mysqli_stmt_affected_rows(mysqli_stmt $statement): string|int {}
  * @return int|false Returns FALSE if the attribute is not found, otherwise returns the value of the attribute.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function mysqli_stmt_attr_get(mysqli_stmt $statement, int $attribute): false|int {}
+function mysqli_stmt_attr_get(mysqli_stmt $statement, int $attribute) {}
 
 /**
  * Used to modify the behavior of a prepared statement
@@ -2781,7 +2787,7 @@ function mysqli_ssl_set(
     #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $ca_certificate,
     #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $ca_path,
     #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $cipher_algos
-): bool {}
+) {}
 
 /**
  * Closes a prepared statement
@@ -2790,7 +2796,7 @@ function mysqli_ssl_set(
  * @return bool
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function mysqli_stmt_close(mysqli_stmt $statement): bool {}
+function mysqli_stmt_close(mysqli_stmt $statement) {}
 
 /**
  * Seeks to an arbitrary row in statement result set
