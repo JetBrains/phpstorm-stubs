@@ -1,0 +1,8 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <option name="AUTODETECT_INDENTS" value="false" />
+    <PHPCodeStyleSettings>
+      <option name="FORCE_EMPTY_METHODS_IN_ONE_LINE" value="true" />
+    </PHPCodeStyleSettings>
+  </code_scheme>
+</component>
