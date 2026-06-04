@@ -1,13 +1,22 @@
+# All services are pinned to linux/amd64 so the generated reflection caches
+# (tests/cache/Reflection*.json) are reproducible regardless of host CPU.
+# Reflection reads real runtime values that depend on the CPU ABI — e.g. CHAR_MAX
+# is 255 on arm64 (unsigned char) but 127 on amd64 (signed char). amd64 matches CI
+# (ubuntu-latest) and the committed baseline. On arm64 hosts (Apple Silicon) these
+# containers run under emulation, which is slower but keeps the output identical.
 services:
   php_under_test:
     build: tests/DockerImages/${PHP_VERSION}
+    platform: linux/amd64
     volumes:
       - .:/opt/project/phpstorm-stubs
   test_runner:
     build: tests/DockerImages/testRunner
+    platform: linux/amd64
     volumes:
       - .:/opt/project/phpstorm-stubs
   pecl_extensions:
     build: tests/DockerImages/peclExtensions
+    platform: linux/amd64
     volumes:
       - .:/opt/project/phpstorm-stubs
