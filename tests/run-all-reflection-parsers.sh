@@ -16,6 +16,13 @@
 
 set -e  # Exit on error
 
+# Force a single CPU architecture for all Docker work so reflection caches are
+# reproducible across hosts. Reflection reads real runtime values that depend on the
+# CPU ABI (e.g. CHAR_MAX is 255 on arm64 vs 127 on amd64). amd64 matches CI and the
+# committed Reflection*.json baseline; on arm64 hosts this runs under emulation.
+# Mirrors the platform pin in docker-compose.yml.
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'

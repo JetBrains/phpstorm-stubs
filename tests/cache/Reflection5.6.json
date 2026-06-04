@@ -117807,7 +117807,7 @@
         "_type": "PHPConstant",
         "name": "CHAR_MAX",
         "id": "\\CHAR_MAX",
-        "value": 255,
+        "value": 127,
         "namespace": "\\"
     },
     {
