@@ -1,6 +1,117 @@
 [
     {
         "_type": "PHPEnum",
+        "name": "AdjacentPosition",
+        "id": "\\Dom\\AdjacentPosition",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "dom/dom_n.php",
+        "duplicates": [],
+        "namespace": "\\Dom",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "BeforeBegin",
+            "AfterBegin",
+            "BeforeEnd",
+            "AfterEnd"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            },
+            {
+                "name": "from",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "value",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string|int",
+                        "defaultValue": null,
+                        "typeFromPhpDoc": null,
+                        "languageLevelTypes": null,
+                        "defaultType": null,
+                        "sinceVersion": null,
+                        "removedVersion": null
+                    }
+                ],
+                "returnType": "static",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            },
+            {
+                "name": "tryFrom",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "value",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string|int",
+                        "defaultValue": null,
+                        "typeFromPhpDoc": null,
+                        "languageLevelTypes": null,
+                        "defaultType": null,
+                        "sinceVersion": null,
+                        "removedVersion": null
+                    }
+                ],
+                "returnType": "static|null",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "BackedEnum",
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
         "name": "VectorType",
         "id": "\\MongoDB\\BSON\\VectorType",
         "isFinal": false,
