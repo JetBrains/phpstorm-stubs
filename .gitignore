@@ -1,5 +1,13 @@
 # IntelliJ IDEA / PhpStorm project files
-.idea/
+# Ignore everything in .idea by default
+.idea/*
+
+# Share only project-wide, environment-agnostic settings
+!.idea/codeStyles/
+!.idea/encodings.xml
+!.idea/vcs.xml
+!.idea/modules.xml
+!.idea/*.iml
 
 # Datasource local storage ignored files
 dataSources.local.xml
