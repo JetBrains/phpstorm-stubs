@@ -3,6 +3,7 @@
 namespace StubTests\Unit\Parsers\AST;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
+use RuntimeException;
 use StubTests\Framework\Parsers\Processors\EntityProcessingPipeline;
 use StubTests\Framework\DataProvider\StubsDataProvider;
 use StubTests\Framework\Parsers\Stubs\AllStubsParser;
@@ -454,5 +455,62 @@ class AllStubsParserTest extends BaseTestCase
         // Verify the cross-references point to each other
         self::assertStringContainsString('v2', $v1Database->getStubsMetadata()?->getDuplicates()[0], 'v1 should reference v2');
         self::assertStringContainsString('v1', $v2Database->getStubsMetadata()?->getDuplicates()[0], 'v2 should reference v1');
+    }
+
+    public function testItSkipsUnparsableFilesButKeepsParsingValidOnes()
+    {
+        // The Malformed fixtures contain one valid class and one file with a syntax error.
+        // A syntax error makes the parser throw \PhpParser\Error; the run must swallow it
+        // (with a warning) and still collect entities from the valid file, instead of
+        // dropping the whole batch.
+        $provider = new FixtureStubsDataProvider(__DIR__ . '/fixtures/Malformed');
+        $storage = new InMemoryParsedDataStorage();
+        $storageManager = new DefaultParsedDataStorageManager($storage);
+        $parser = new AllStubsParser($provider, $storageManager, [new StubClassParser()]);
+
+        // Emits "[stubs-parser] WARNING: parse error in BrokenClass.txt ..." to STDERR.
+        $parser->parseAll();
+
+        $classNames = array_map(fn ($c) => $c->getName(), array_values($storageManager->getClasses()));
+        self::assertContains('GoodClass', $classNames, 'Valid class must still be parsed');
+        self::assertNotContains('BrokenClass', $classNames, 'Malformed class must be skipped');
+    }
+
+    public function testItSkipsUnreadableFilesInsteadOfAborting()
+    {
+        // A file whose content cannot be read (e.g. the Windows absolute-path bug that made
+        // getStubFileContent() throw) used to abort the entire run because the read happened
+        // outside the try/catch. It must now be skipped with a warning while other files
+        // continue to be parsed.
+        $provider = new class () implements StubsDataProvider {
+            public function getAllStubFiles(): array
+            {
+                return ['unreadable.php', 'good.php'];
+            }
+
+            public function getStubFileContent(string $path): string
+            {
+                if ($path === 'unreadable.php') {
+                    throw new RuntimeException("Stub file not found: {$path}");
+                }
+
+                return "<?php\nnamespace MyApp\\Valid;\nclass SurvivingClass {}\n";
+            }
+
+            public function getStubsRootPath(): string
+            {
+                return '';
+            }
+        };
+
+        $storage = new InMemoryParsedDataStorage();
+        $storageManager = new DefaultParsedDataStorageManager($storage);
+        $parser = new AllStubsParser($provider, $storageManager, [new StubClassParser()]);
+
+        // Must not throw despite the unreadable file.
+        $parser->parseAll();
+
+        $classNames = array_map(fn ($c) => $c->getName(), array_values($storageManager->getClasses()));
+        self::assertContains('SurvivingClass', $classNames, 'Files after an unreadable one must still be parsed');
     }
 }
