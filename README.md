@@ -32,6 +32,20 @@ The set of extensions enabled by default in PhpStorm can change anytime without 
 The validators run on a single PHP version (the `test_runner` image) and check every supported PHP
 version using the committed per-version reflection caches in `tests/cache/Reflection<version>.json`.
 
+#### The easy way
+
+Run the bundled script — it installs dependencies, regenerates the stubs and reflection caches, and
+runs every test suite (`Unit`, `Structure`, `PhpDoc`, `General`) in order:
+
+* macOS / Linux: `./runTests.sh`
+* Windows: `runTests.bat`
+
+Both scripts require Docker (they use the `test_runner` image defined in `docker-compose.yml`).
+
+#### Running suites manually
+
+If you prefer to run individual steps:
+
 1. Install dependencies: `docker compose -f docker-compose.yml run --rm test_runner composer install --no-progress`
 2. If you changed stub files, regenerate the stubs cache so the tests validate your changes: `docker compose -f docker-compose.yml run --rm test_runner php tests/run-stubs-parser.php`
 3. Run a test suite — one of `General`, `PhpDoc`, `Structure` or `Unit`: `docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --testsuite General`
