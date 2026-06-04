@@ -2,8 +2,6 @@
 
 namespace StubTests\Framework\DataProvider;
 
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
 use RuntimeException;
 
 class AllStubsDataProvider implements StubsDataProvider
@@ -30,40 +28,24 @@ class AllStubsDataProvider implements StubsDataProvider
             return $this->cachedStubFiles;
         }
 
-        $stubFiles = [];
-        $iterator = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator(
-                $this->stubsRootPath,
-                RecursiveDirectoryIterator::SKIP_DOTS
-            )
+        // scandir-based traversal (see StubFileScanner) — RecursiveDirectoryIterator truncates
+        // listings over the Docker Desktop Windows bind mount and drops whole extensions.
+        $stubFiles = StubFileScanner::collect(
+            $this->stubsRootPath,
+            // Accept .php stub files, excluding the generated map, IDE metadata, and anything
+            // under an excluded directory (defensive — descend() already prunes those).
+            fn (string $path, string $name): bool =>
+                substr($name, -4) === '.php'
+                && $name !== 'PhpStormStubsMap.php'
+                && $name !== '.phpstorm.meta.php'
+                && !$this->shouldExclude($path),
+            // Prune excluded directories (vendor, tests, .git, .idea) before descending.
+            fn (string $path, string $name): bool => !in_array($name, $this->excludedPaths, true),
         );
 
-        foreach ($iterator as $file) {
-            if ($file->isFile() && $file->getExtension() === 'php') {
-                $filePath = $file->getPathname();
-
-                // Skip excluded paths
-                if ($this->shouldExclude($filePath)) {
-                    continue;
-                }
-
-                // Skip PhpStormStubsMap.php as it's generated
-                if (basename($filePath) === 'PhpStormStubsMap.php') {
-                    continue;
-                }
-
-                // Skip .phpstorm.meta.php files as they're IDE metadata, not stubs
-                if (basename($filePath) === '.phpstorm.meta.php') {
-                    continue;
-                }
-
-                $stubFiles[] = $filePath;
-            }
-        }
-
-        // RecursiveDirectoryIterator yields entries in filesystem-native order, which differs
-        // across machines/filesystems. Sort to make parsing deterministic so the generated
-        // Stubs*.json caches (and nested "duplicates" ordering) are reproducible in VCS.
+        // Traversal order is filesystem-native, which differs across machines/filesystems.
+        // Sort to make parsing deterministic so the generated Stubs*.json caches (and nested
+        // "duplicates" ordering) are reproducible in VCS.
         sort($stubFiles, SORT_STRING);
 
         $this->cachedStubFiles = $stubFiles;
@@ -79,8 +61,11 @@ class AllStubsDataProvider implements StubsDataProvider
      */
     public function getStubFileContent(string $path): string
     {
-        // If path is relative, make it absolute from stubs root
-        if (!str_starts_with($path, '/')) {
+        // If path is relative, make it absolute from stubs root. Absolute paths can be
+        // POSIX ("/foo"), Windows drive ("C:\foo" or "C:/foo") or UNC ("\\\\host\\share").
+        // The previous "/"-only check treated every Windows absolute path as relative and
+        // produced bogus lookups like "C:\stubs/C:\stubs\dom_n.php" (file not found).
+        if (!self::isAbsolutePath($path)) {
             $path = $this->stubsRootPath . '/' . $path;
         }
 
@@ -108,13 +93,31 @@ class AllStubsDataProvider implements StubsDataProvider
      */
     private function shouldExclude(string $filePath): bool
     {
+        // Normalize separators first: on Windows the iterator yields backslash paths, so a
+        // hard-coded "/vendor/" needle never matched and vendor/tests/.git were parsed too
+        // (pulling in thousands of non-stub files).
+        $normalizedPath = str_replace('\\', '/', $filePath);
+
         foreach ($this->excludedPaths as $excludedPath) {
-            if (str_contains($filePath, '/' . $excludedPath . '/')) {
+            if (str_contains($normalizedPath, '/' . $excludedPath . '/')) {
                 return true;
             }
         }
 
         return false;
+    }
+
+    /**
+     * Whether the given path is absolute on any supported platform.
+     *
+     * Recognizes POSIX paths ("/foo"), Windows drive-letter paths ("C:\foo", "C:/foo")
+     * and Windows UNC paths ("\\\\host\\share").
+     */
+    private static function isAbsolutePath(string $path): bool
+    {
+        return str_starts_with($path, '/')
+            || str_starts_with($path, '\\')
+            || (bool) preg_match('#^[A-Za-z]:[\\\\/]#', $path);
     }
 
     /**

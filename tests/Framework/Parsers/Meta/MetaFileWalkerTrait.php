@@ -4,8 +4,7 @@ namespace StubTests\Framework\Parsers\Meta;
 
 use PhpParser\Node\Stmt;
 use PhpParser\ParserFactory;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
+use StubTests\Framework\DataProvider\StubFileScanner;
 
 trait MetaFileWalkerTrait
 {
@@ -34,18 +33,15 @@ trait MetaFileWalkerTrait
      */
     private function findMetaFiles(string $rootDir): array
     {
-        $files = [];
-        $iterator = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($rootDir, RecursiveDirectoryIterator::SKIP_DOTS)
+        // scandir-based traversal (see StubFileScanner) — RecursiveDirectoryIterator truncates
+        // listings over the Docker Desktop Windows bind mount, dropping directories such as FFI/
+        // and with them the meta references they declare (\FFI::new, ...).
+        $files = StubFileScanner::collect(
+            $rootDir,
+            fn (string $path, string $name): bool => $name === '.phpstorm.meta.php',
+            // Meta files under tests/ and vendor/ are not project stubs.
+            fn (string $path, string $name): bool => $name !== 'tests' && $name !== 'vendor',
         );
-        foreach ($iterator as $file) {
-            if ($file->getFilename() === '.phpstorm.meta.php') {
-                $path = $file->getPathname();
-                if (!str_contains($path, '/tests/') && !str_contains($path, '/vendor/')) {
-                    $files[] = $path;
-                }
-            }
-        }
         sort($files);
         return $files;
     }

@@ -5,7 +5,6 @@ declare(strict_types=1);
 
 namespace StubTests\Framework\Tools;
 
-use DirectoryIterator;
 use Exception;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
@@ -13,17 +12,17 @@ use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\NodeVisitorAbstract;
 use PhpParser\ParserFactory;
 use PhpParser\PrettyPrinter\Standard;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
 use RuntimeException;
-use SplFileInfo;
+use StubTests\Framework\DataProvider\StubFileScanner;
 use function array_map;
 use function count;
 use function file_get_contents;
 use function file_put_contents;
 use function in_array;
+use function is_dir;
 use function ksort;
 use function preg_match;
+use function scandir;
 use function sprintf;
 use function str_replace;
 use function strlen;
@@ -197,48 +196,50 @@ use const PHP_EOL;
 
     $map = ['classes' => [], 'functions' => [], 'constants' => []];
 
-    foreach (new DirectoryIterator($phpStormStubsDirectory) as $directoryInfo) {
-        /** @var DirectoryIterator $directoryInfo */
-        if ($directoryInfo->isDot()) {
+    // $phpStormStubsDirectory ends with a separator, so top-level entries are appended directly
+    // (no extra separator) to keep the relative paths in the map identical to before.
+    foreach (scandir($phpStormStubsDirectory) as $topEntry) {
+        if ($topEntry === '.' || $topEntry === '..') {
             continue;
         }
 
-        if (!$directoryInfo->isDir()) {
+        $topPath = $phpStormStubsDirectory . $topEntry;
+
+        if (!is_dir($topPath)) {
             continue;
         }
 
-        if (in_array($directoryInfo->getBasename(), ['tests', 'meta', 'vendor', 'couchbase_v2'], true)) {
+        if (in_array($topEntry, ['tests', 'meta', 'vendor', 'couchbase_v2'], true)) {
             continue;
         }
 
-        $iterator = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($directoryInfo->getPathName(), RecursiveDirectoryIterator::SKIP_DOTS)
+        // scandir-based traversal (see StubFileScanner) — the SPL iterators truncate listings
+        // over the Docker Desktop Windows bind mount, dropping whole extensions from the map.
+        $phpFiles = StubFileScanner::collect(
+            $topPath,
+            static fn (string $path, string $name): bool => preg_match('/\.php$/', $name) === 1,
+            static fn (): bool => true,
         );
 
-        /** @var SplFileInfo $fileInfo */
-        foreach ($iterator as $fileInfo) {
-            if (!preg_match('/\.php$/', $fileInfo->getBasename())) {
-                continue;
-            }
+        foreach ($phpFiles as $filePath) {
+            assertReadableFile($filePath);
 
-            assertReadableFile($fileInfo->getPathname());
+            echo sprintf('Parsing "%s"', $filePath) . PHP_EOL;
 
-            echo sprintf('Parsing "%s"', $fileInfo->getPathname()) . PHP_EOL;
-
-            $ast = $phpParser->parse(file_get_contents($fileInfo->getPathname()));
+            $ast = $phpParser->parse(file_get_contents($filePath));
 
             $nodeTraverser->traverse($ast);
 
             foreach ($fileVisitor->getClassNames() as $className) {
-                $map['classes'][$className] = $fileInfo->getPathname();
+                $map['classes'][$className] = $filePath;
             }
 
             foreach ($fileVisitor->getFunctionNames() as $functionName) {
-                $map['functions'][$functionName] = $fileInfo->getPathname();
+                $map['functions'][$functionName] = $filePath;
             }
 
             foreach ($fileVisitor->getConstantNames() as $constantName) {
-                $map['constants'][$constantName] = $fileInfo->getPathname();
+                $map['constants'][$constantName] = $filePath;
             }
 
             $fileVisitor->clear();
