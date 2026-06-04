@@ -95,7 +95,7 @@ if not exist "%SCRIPT_DIR%\cache" mkdir "%SCRIPT_DIR%\cache"
 
 rem Build test_runner image once (used for Stage 2 processing with modern PHP).
 if "%SKIP_BUILD%"=="false" (
-    echo Building test_runner image (modern PHP for processing)...
+    echo Building test_runner image ^(modern PHP for processing^)...
     docker compose -f "%COMPOSE_FILE%" build test_runner
     if errorlevel 1 (
         echo [X] Failed to build test_runner image
@@ -186,11 +186,11 @@ if "%SKIP_BUILD%"=="false" (
     echo       [OK] Docker image built successfully
     set "PHP_VERSION="
 ) else (
-    echo [1/4] Skipping Docker build (--skip-build flag)
+    echo [1/4] Skipping Docker build ^(--skip-build flag^)
 )
 
 rem Stage 1 - Legacy PHP 5.6+ compatible reflection adapter.
-echo [2/4] Running reflection adapter for PHP %VERSION% (Stage 1)...
+echo [2/4] Running reflection adapter for PHP %VERSION% ^(Stage 1^)...
 set "TEMP_DATA_FILE=%SCRIPT_DIR%\cache\.tmp-reflection-%VERSION%.dat"
 set "PHP_VERSION=%VERSION%"
 docker compose -f "%COMPOSE_FILE%" run --rm php_under_test php tests/adapt-legacy-reflection.php %VERSION% "/opt/project/phpstorm-stubs/tests/cache/.tmp-reflection-%VERSION%.dat"
@@ -212,7 +212,7 @@ if not exist "%TEMP_DATA_FILE%" (
 )
 
 rem Stage 2 - Process extracted data with modern PHP.
-echo [3/4] Processing reflection data for PHP %VERSION% (Stage 2)...
+echo [3/4] Processing reflection data for PHP %VERSION% ^(Stage 2^)...
 docker compose -f "%COMPOSE_FILE%" run --rm test_runner php tests/run-reflection-processor.php "/opt/project/phpstorm-stubs/tests/cache/.tmp-reflection-%VERSION%.dat" "/opt/project/phpstorm-stubs/tests/cache/Reflection%VERSION%.json"
 if errorlevel 1 (
     echo [X] Failed to process reflection data for PHP %VERSION%
