@@ -1,0 +1,10 @@
+<?php
+
+namespace MyApp\Broken;
+
+// Deliberately malformed: unbalanced parenthesis in the method signature makes
+// nikic/php-parser throw a \PhpParser\Error for the whole file.
+class BrokenClass
+{
+    public function broken( {  }
+}
