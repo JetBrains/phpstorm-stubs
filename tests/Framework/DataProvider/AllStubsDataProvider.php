@@ -34,8 +34,7 @@ class AllStubsDataProvider implements StubsDataProvider
             $this->stubsRootPath,
             // Accept .php stub files, excluding the generated map, IDE metadata, and anything
             // under an excluded directory (defensive — descend() already prunes those).
-            fn (string $path, string $name): bool =>
-                substr($name, -4) === '.php'
+            fn (string $path, string $name): bool => substr($name, -4) === '.php'
                 && $name !== 'PhpStormStubsMap.php'
                 && $name !== '.phpstorm.meta.php'
                 && !$this->shouldExclude($path),
@@ -117,7 +116,7 @@ class AllStubsDataProvider implements StubsDataProvider
     {
         return str_starts_with($path, '/')
             || str_starts_with($path, '\\')
-            || (bool) preg_match('#^[A-Za-z]:[\\\\/]#', $path);
+            || (bool)preg_match('#^[A-Za-z]:[\\\\/]#', $path);
     }
 
     /**

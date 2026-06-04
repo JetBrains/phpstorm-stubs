@@ -330,10 +330,8 @@ class CoreStubsDataProviderTest extends TestCase
 
     private function fakeInnerProvider(string $root, array $files): StubsDataProvider
     {
-        return new class ($root, $files) implements StubsDataProvider {
-            public function __construct(private string $root, private array $files)
-            {
-            }
+        return new class($root, $files) implements StubsDataProvider {
+            public function __construct(private string $root, private array $files) {}
 
             public function getAllStubFiles(): array
             {

@@ -482,7 +482,7 @@ class AllStubsParserTest extends BaseTestCase
         // getStubFileContent() throw) used to abort the entire run because the read happened
         // outside the try/catch. It must now be skipped with a warning while other files
         // continue to be parsed.
-        $provider = new class () implements StubsDataProvider {
+        $provider = new class() implements StubsDataProvider {
             public function getAllStubFiles(): array
             {
                 return ['unreadable.php', 'good.php'];
