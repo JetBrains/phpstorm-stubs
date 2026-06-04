@@ -27,10 +27,13 @@ class StubsStructureValidatorTest extends TestCase
     public static function stubsDirectoryProvider(): iterable
     {
         $root = dirname(__DIR__);
+        $normalizedRoot = rtrim(str_replace('\\', '/', $root), '/');
         $directories = [];
 
         foreach ((new AllStubsDataProvider($root))->getAllStubFiles() as $file) {
-            $relativePath = str_replace($root . '/', '', $file);
+            // Normalize separators: on Windows getAllStubFiles() returns backslash paths, so a
+            // "/"-based strip/split left the whole path intact and yielded an empty data set.
+            $relativePath = ltrim(str_replace($normalizedRoot, '', str_replace('\\', '/', $file)), '/');
             if (!str_contains($relativePath, '/')) {
                 continue;
             }

@@ -139,8 +139,9 @@ class CoreStubsDataProviderUsageExampleTest extends TestCase
         self::assertNotEmpty($stubFiles);
 
         // Verify no PECL extensions are included
+        $normalizedRoot = rtrim(str_replace('\\', '/', $dataProvider->getStubsRootPath()), '/');
         foreach ($stubFiles as $file) {
-            $relativePath = str_replace($dataProvider->getStubsRootPath() . '/', '', $file);
+            $relativePath = ltrim(str_replace($normalizedRoot . '/', '', str_replace('\\', '/', $file)), '/');
             $topLevelDir = explode('/', $relativePath)[0];
 
             self::assertFalse(
