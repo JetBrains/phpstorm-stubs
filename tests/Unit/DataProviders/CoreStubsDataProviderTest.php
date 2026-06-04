@@ -5,6 +5,7 @@ namespace StubTests\Unit\DataProviders;
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\DataProvider\CoreStubsDataProvider;
 use StubTests\Framework\DataProvider\StubCategory;
+use StubTests\Framework\DataProvider\StubsDataProvider;
 
 class CoreStubsDataProviderTest extends TestCase
 {
@@ -289,11 +290,78 @@ class CoreStubsDataProviderTest extends TestCase
     }
 
     /**
-     * Get relative path from the stubs root.
+     * @return array{0: string, 1: string[]} [root, files] for a fake inner provider.
+     */
+    public static function separatorStyleProvider(): array
+    {
+        return [
+            'windows backslash paths' => [
+                'C:\\proj\\stubs',
+                [
+                    'C:\\proj\\stubs\\Core\\Core_c.php',
+                    'C:\\proj\\stubs\\curl\\curl.php',
+                ],
+            ],
+            'posix forward-slash paths' => [
+                '/proj/stubs',
+                [
+                    '/proj/stubs/Core/Core_c.php',
+                    '/proj/stubs/curl/curl.php',
+                ],
+            ],
+        ];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('separatorStyleProvider')]
+    public function testItDerivesTopLevelDirectoryRegardlessOfSeparatorStyle(string $root, array $files)
+    {
+        // Inject a fake inner provider so the test is independent of the host OS and the real
+        // stub tree: it exercises only CoreStubsDataProvider's category filtering / path math.
+        $inner = $this->fakeInnerProvider($root, $files);
+        $provider = new CoreStubsDataProvider(StubCategory::CORE, $inner);
+
+        $result = $provider->getAllStubFiles();
+
+        // Only the "Core/..." file belongs to CORE; the "curl/..." one (EXTERNAL) is filtered.
+        self::assertCount(1, $result);
+        self::assertStringContainsString('Core', $result[0]);
+        self::assertStringNotContainsString('curl', $result[0]);
+    }
+
+    private function fakeInnerProvider(string $root, array $files): StubsDataProvider
+    {
+        return new class ($root, $files) implements StubsDataProvider {
+            public function __construct(private string $root, private array $files)
+            {
+            }
+
+            public function getAllStubFiles(): array
+            {
+                return $this->files;
+            }
+
+            public function getStubFileContent(string $path): string
+            {
+                return '<?php';
+            }
+
+            public function getStubsRootPath(): string
+            {
+                return $this->root;
+            }
+        };
+    }
+
+    /**
+     * Get relative path from the stubs root. Normalizes separators so the assertions hold on
+     * Windows, where both the scanned path and the root use backslashes.
      */
     private function getRelativePath(string $fullPath, string $rootPath): string
     {
-        return str_replace($rootPath . '/', '', $fullPath);
+        $normalizedPath = str_replace('\\', '/', $fullPath);
+        $normalizedRoot = rtrim(str_replace('\\', '/', $rootPath), '/');
+
+        return ltrim(str_replace($normalizedRoot . '/', '', $normalizedPath), '/');
     }
 
     /**

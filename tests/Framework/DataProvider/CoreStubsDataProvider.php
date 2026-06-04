@@ -62,8 +62,14 @@ class CoreStubsDataProvider implements StubsDataProvider
 
     private function isPathAllowed(string $absolutePath, array $allowedDirectories): bool
     {
-        $stubsRootPath = $this->getStubsRootPath();
-        $relative = ltrim(substr($absolutePath, strlen($stubsRootPath)), '/');
+        // Normalize separators before deriving the top-level directory. On Windows both the
+        // scanned paths and the stubs root use backslashes, so the previous "/"-based ltrim
+        // and explode() left the entire relative path in $topLevelDir and matched nothing,
+        // filtering out every file. Mirrors AllStubsParser::relativizePath().
+        $normalizedPath = str_replace('\\', '/', $absolutePath);
+        $normalizedRoot = rtrim(str_replace('\\', '/', $this->getStubsRootPath()), '/');
+
+        $relative = ltrim(substr($normalizedPath, strlen($normalizedRoot)), '/');
         $topLevelDir = explode('/', $relative)[0];
         return $this->isDirectoryAllowed($topLevelDir, $allowedDirectories);
     }
