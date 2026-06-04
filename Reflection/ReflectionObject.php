@@ -8,6 +8,8 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * information about an object.
  *
  * @link https://php.net/manual/en/class.reflectionobject.php
+ * @template TReflectedClass of object
+ * @extends ReflectionClass<TReflectedClass>
  */
 class ReflectionObject extends ReflectionClass
 {
@@ -15,7 +17,7 @@ class ReflectionObject extends ReflectionClass
      * Constructs a ReflectionObject
      *
      * @link https://php.net/manual/en/reflectionobject.construct.php
-     * @param object $object An object instance.
+     * @param TReflectedClass $object An object instance.
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'object'], default: '')] $object) {}
 

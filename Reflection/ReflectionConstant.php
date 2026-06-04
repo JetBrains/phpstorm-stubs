@@ -36,6 +36,12 @@ class ReflectionConstant implements Reflector
     public function getExtensionName(): string|false {}
 
     /**
+     * Returns an array of extension attributes.
+     *
+     * @template TAttributeClass of object
+     * @param class-string<TAttributeClass>|null $name Name of an attribute class
+     * @param int $flags Сriteria by which the attribute is searched.
+     * @return list<ReflectionAttribute<TAttributeClass>>
      * @since 8.5
      */
     public function getAttributes(?string $name = null, int $flags = 0): array {}
