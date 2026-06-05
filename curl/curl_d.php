@@ -848,14 +848,14 @@ define('CURLAUTH_NTLM', 8);
  * @link https://www.php.net/manual/en/curl.constants.php
  * @link https://curl.haxx.se/libcurl/c/CURLOPT_HTTPAUTH.html
  */
-define('CURLAUTH_ANY', -17);
+define('CURLAUTH_ANY', 4294967279);
 /**
  * Value for the <b>CURLOPT_HTTPAUTH</b> option.
  * Is an alias for <b>CURLAUTH_DIGEST</b> | <b>CURLAUTH_GSSNEGOTIATE</b> | <b>CURLAUTH_NTLM</b>.
  * @link https://www.php.net/manual/en/curl.constants.php
  * @link https://curl.haxx.se/libcurl/c/CURLOPT_HTTPAUTH.html
  */
-define('CURLAUTH_ANYSAFE', -18);
+define('CURLAUTH_ANYSAFE', 4294967278);
 /**
  * The HTTP authentication method(s) to use for the proxy connection.
  * Use the same bitmasks as described in <b>CURLOPT_HTTPAUTH</b>.
@@ -1866,7 +1866,7 @@ define('CURLPROTO_TFTP', 2048);
  * Value for the <b>CURLOPT_PROTOCOLS</b> option.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
  */
-define('CURLPROTO_ALL', -1);
+define('CURLPROTO_ALL', 4294967295);
 
 /**
  * As of cURL 7.43.0, the value is a bitmask.
@@ -3189,12 +3189,12 @@ define("CURLPROXY_SOCKS5_HOSTNAME", 7);
  * Value for the <b>CURLOPT_SSH_AUTH_TYPES</b> option.
  * @link https://www.php.net/manual/en/curl.constants.php
  */
-define("CURLSSH_AUTH_ANY", -1);
+define("CURLSSH_AUTH_ANY", 4294967295);
 /**
  * Value for the <b>CURLOPT_SSH_AUTH_TYPES</b> option.
  * @link https://www.php.net/manual/en/curl.constants.php
  */
-define("CURLSSH_AUTH_DEFAULT", -1);
+define("CURLSSH_AUTH_DEFAULT", 4294967295);
 /**
  * Value for the <b>CURLOPT_SSH_AUTH_TYPES</b> option.
  * @link https://www.php.net/manual/en/curl.constants.php
