@@ -41,7 +41,7 @@ class ReflectionConstant implements Reflector
      * @template TAttributeClass of object
      * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return list<ReflectionAttribute<TAttributeClass>>
+     * @return ($name is null ? list<ReflectionAttribute<object>> : list<ReflectionAttribute<TAttributeClass>>)
      * @since 8.5
      */
     public function getAttributes(?string $name = null, int $flags = 0): array {}

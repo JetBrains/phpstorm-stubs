@@ -230,7 +230,7 @@ class ReflectionProperty implements Reflector
      * Gets declaring class
      *
      * @link https://php.net/manual/en/reflectionproperty.getdeclaringclass.php
-     * @return ReflectionClass A {@see ReflectionClass} object.
+     * @return ReflectionClass<TReflectedClass> A {@see ReflectionClass} object.
      */
     #[Pure]
     #[TentativeType]
@@ -359,7 +359,7 @@ class ReflectionProperty implements Reflector
      * @template TAttributeClass of object
      * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return list<ReflectionAttribute<TAttributeClass>>
+     * @return ($name is null ? list<ReflectionAttribute<object>> : list<ReflectionAttribute<TAttributeClass>>)
      * @since 8.0
      */
     #[Pure]

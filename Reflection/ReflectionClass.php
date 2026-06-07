@@ -11,7 +11,7 @@ use JetBrains\PhpStorm\Pure;
  * The <b>ReflectionClass</b> class reports information about a class.
  *
  * @link https://php.net/manual/en/class.reflectionclass.php
- * @template TReflectedClass of object
+ * @template-covariant TReflectedClass of object
  */
 class ReflectionClass implements Reflector
 {
@@ -62,7 +62,7 @@ class ReflectionClass implements Reflector
      * Constructs a ReflectionClass
      *
      * @link https://php.net/manual/en/reflectionclass.construct.php
-     * @param class-string<TReflectedClass>|TReflectedClass $objectOrClass Either a string containing the name of
+     * @param TReflectedClass|class-string<TReflectedClass> $objectOrClass Either a string containing the name of
      * the class to reflect, or an object.
      * @throws ReflectionException if the class does not exist.
      */
@@ -210,7 +210,7 @@ class ReflectionClass implements Reflector
      * Gets a <b>ReflectionMethod</b> for a class method.
      *
      * @link https://php.net/manual/en/reflectionclass.getmethod.php
-     * @param non-empty-string $name The method name to reflect.
+     * @param non-falsy-string $name The method name to reflect.
      * @return ReflectionMethod<TReflectedClass> A {@see ReflectionMethod}
      * @throws ReflectionException if the method does not exist.
      */
@@ -494,7 +494,7 @@ class ReflectionClass implements Reflector
      * Creates a new class instance from given arguments.
      *
      * @link https://php.net/manual/en/reflectionclass.newinstanceargs.php
-     * @param array $args The parameters to be passed to the class constructor as an array.
+     * @param array<int|string, mixed> $args The parameters to be passed to the class constructor as an array.
      * @return TReflectedClass|null a new instance of the class.
      * @throws ReflectionException if the class constructor is not public or if
      * the class does not have a constructor and the $args parameter contains
@@ -672,7 +672,7 @@ class ReflectionClass implements Reflector
      * @template TAttributeClass of object
      * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return list<ReflectionAttribute<TAttributeClass>>
+     * @return ($name is null ? list<ReflectionAttribute<object>> : list<ReflectionAttribute<TAttributeClass>>)
      * @since 8.0
      */
     #[Pure]
@@ -700,42 +700,56 @@ class ReflectionClass implements Reflector
     public function isEnum(): bool {}
 
     /**
+     * @param (callable(TReflectedClass): void) $initializer
+     * @return TReflectedClass
      * @since 8.4
      */
     public function newLazyGhost(callable $initializer, int $options = 0): object {}
 
     /**
+     * @param (callable(TReflectedClass): TReflectedClass) $factory
      * @return TReflectedClass
      * @since 8.4
      */
     public function newLazyProxy(callable $factory, int $options = 0): object {}
 
     /**
+     * @param TReflectedClass $object
+     * @param (callable(TReflectedClass): void) $initializer
      * @since 8.4
      */
     public function resetAsLazyGhost(object $object, callable $initializer, int $options = 0): void {}
 
     /**
+     * @param TReflectedClass $object
+     * @param (callable(TReflectedClass): TReflectedClass) $factory
      * @since 8.4
      */
     public function resetAsLazyProxy(object $object, callable $factory, int $options = 0): void {}
 
     /**
+     * @param TReflectedClass $object
+     * @return TReflectedClass
      * @since 8.4
      */
     public function initializeLazyObject(object $object): object {}
 
     /**
+     * @param TReflectedClass $object
+     * @return TReflectedClass
      * @since 8.4
      */
     public function isUninitializedLazyObject(object $object): bool {}
 
     /**
+     * @param TReflectedClass $object
      * @since 8.4
      */
     public function markLazyObjectAsInitialized(object $object): object {}
 
     /**
+     * @param TReflectedClass $object
+     * @return null|(callable(TReflectedClass): void)
      * @since 8.4
      */
     public function getLazyInitializer(object $object): ?callable {}

@@ -17,7 +17,7 @@ use JetBrains\PhpStorm\Pure;
 class ReflectionMethod extends ReflectionFunctionAbstract
 {
     /**
-     * @var string Name of the method, same as calling the {@see ReflectionMethod::getName()} method
+     * @var non-falsy-string Name of the method, same as calling the {@see ReflectionMethod::getName()} method
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -73,7 +73,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @param non-empty-string|class-string<TReflectedClass>|TReflectedClass $objectOrMethod Classname, object
      * (instance of the class) that contains the method or class name and
      * method name delimited by ::.
-     * @param non-empty-string|null $method Name of the method if the first argument is a
+     * @param non-falsy-string|null $method Name of the method if the first argument is a
      * classname or an object.
      * @throws ReflectionException if the class or method does not exist.
      */
@@ -264,7 +264,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * Gets declaring class for the reflected method.
      *
      * @link https://php.net/manual/en/reflectionmethod.getdeclaringclass.php
-     * @return ReflectionClass A {@see ReflectionClass} object of the class that the
+     * @return ReflectionClass<TReflectedClass> A {@see ReflectionClass} object of the class that the
      * reflected method is part of.
      */
     #[Pure]
@@ -275,7 +275,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * Gets the method prototype (if there is one).
      *
      * @link https://php.net/manual/en/reflectionmethod.getprototype.php
-     * @return ReflectionMethod A {@see ReflectionMethod} instance of the method prototype.
+     * @return ReflectionMethod<object> A {@see ReflectionMethod} instance of the method prototype.
      * @throws ReflectionException if the method does not have a prototype
      */
     #[Pure]

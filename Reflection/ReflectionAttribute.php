@@ -5,7 +5,7 @@ use JetBrains\PhpStorm\Pure;
 /**
  * @since 8.0
  *
- * @template TAttributeClass of object
+ * @template-covariant TAttributeClass of object
  */
 class ReflectionAttribute implements Reflector
 {
