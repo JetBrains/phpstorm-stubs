@@ -89,7 +89,7 @@ class ReflectionClassConstant implements Reflector
     /**
      * Gets declaring class
      *
-     * @return ReflectionClass
+     * @return ReflectionClass<TReflectedClass>
      * @link https://php.net/manual/en/reflectionclassconstant.getdeclaringclass.php
      * @since 7.1
      */
@@ -190,7 +190,7 @@ class ReflectionClassConstant implements Reflector
      * @template TAttributeClass of object
      * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return list<ReflectionAttribute<TAttributeClass>>
+     * @return ($name is null ? list<ReflectionAttribute<object>> : list<ReflectionAttribute<TAttributeClass>>)
      * @since 8.0
      */
     #[Pure]

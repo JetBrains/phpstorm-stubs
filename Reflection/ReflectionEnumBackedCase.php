@@ -6,6 +6,7 @@ use JetBrains\PhpStorm\Pure;
  * @link https://php.net/manual/en/class.reflectionenumbackedcase.php
  * @since 8.1
  * @template TReflectedClass of BackedEnum
+ * @extends ReflectionEnumUnitCase<TReflectedClass>
  */
 class ReflectionEnumBackedCase extends ReflectionEnumUnitCase
 {

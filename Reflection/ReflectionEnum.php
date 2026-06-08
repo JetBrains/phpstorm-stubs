@@ -5,7 +5,8 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 /**
  * @link https://php.net/manual/en/class.reflectionenum.php
  * @since 8.1
- * @template TReflectedClass of UnitEnum
+ * @template-covariant TReflectedClass of UnitEnum
+ * @extends ReflectionClass<TReflectedClass>
  */
 class ReflectionEnum extends ReflectionClass
 {

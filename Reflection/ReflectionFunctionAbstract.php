@@ -124,7 +124,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * Returns the scope associated to the closure
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getclosurescopeclass.php
-     * @return ReflectionClass|null Returns the class on success or {@see null}
+     * @return ReflectionClass<object>|null Returns the class on success or {@see null}
      * on failure.
      * @since 5.4
      */
@@ -133,7 +133,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function getClosureScopeClass(): ?ReflectionClass {}
 
     /**
-     * @return ReflectionClass|null Returns the class on success or {@see null}
+     * @return ReflectionClass<object>|null Returns the class on success or {@see null}
      * on failure.
      * @since 8.0
      */
@@ -321,7 +321,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @template TAttributeClass of object
      * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return list<ReflectionAttribute<TAttributeClass>>
+     * @return ($name is null ? list<ReflectionAttribute<object>> : list<ReflectionAttribute<TAttributeClass>>)
      * @since 8.0
      */
     #[Pure]

@@ -102,7 +102,7 @@ class ReflectionParameter implements Reflector
      * Gets declaring class
      *
      * @link https://php.net/manual/en/reflectionparameter.getdeclaringclass.php
-     * @return ReflectionClass|null A {@see ReflectionClass} object or {@see null} if
+     * @return ReflectionClass<object>|null A {@see ReflectionClass} object or {@see null} if
      * called on function.
      */
     #[Pure]
@@ -113,7 +113,7 @@ class ReflectionParameter implements Reflector
      * Gets the class type hinted for the parameter as a ReflectionClass object.
      *
      * @link https://php.net/manual/en/reflectionparameter.getclass.php
-     * @return ReflectionClass|null A {@see ReflectionClass} object.
+     * @return ReflectionClass<object>|null A {@see ReflectionClass} object.
      * @see ReflectionParameter::getType()
      */
     #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be used instead.", since: "8.0")]
@@ -281,7 +281,7 @@ class ReflectionParameter implements Reflector
      * @template TAttributeClass of object
      * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return list<ReflectionAttribute<TAttributeClass>>
+     * @return ($name is null ? list<ReflectionAttribute<object>> : list<ReflectionAttribute<TAttributeClass>>)
      * @since 8.0
      */
     #[Pure]

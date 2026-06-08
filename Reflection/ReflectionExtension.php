@@ -80,7 +80,7 @@ class ReflectionExtension implements Reflector
      * Gets extension functions
      *
      * @link https://php.net/manual/en/reflectionextension.getfunctions.php
-     * @return ReflectionFunction[] An associative array of {@see ReflectionFunction} objects,
+     * @return array<string, ReflectionFunction> An associative array of {@see ReflectionFunction} objects,
      * for each function defined in the extension with the keys being the function
      * names. If no function are defined, an empty array is returned.
      */
@@ -92,7 +92,7 @@ class ReflectionExtension implements Reflector
      * Gets constants
      *
      * @link https://php.net/manual/en/reflectionextension.getconstants.php
-     * @return array An associative array with constant names as keys.
+     * @return array<string, mixed> An associative array with constant names as keys.
      */
     #[Pure]
     #[TentativeType]
@@ -102,7 +102,7 @@ class ReflectionExtension implements Reflector
      * Gets extension ini entries
      *
      * @link https://php.net/manual/en/reflectionextension.getinientries.php
-     * @return array An associative array with the ini entries as keys,
+     * @return array<string, mixed> An associative array with the ini entries as keys,
      * with their defined values as values.
      */
     #[Pure]
@@ -113,7 +113,7 @@ class ReflectionExtension implements Reflector
      * Gets classes
      *
      * @link https://php.net/manual/en/reflectionextension.getclasses.php
-     * @return ReflectionClass[] An array of {@see ReflectionClass} objects, one
+     * @return array<string, ReflectionClass<object>> An array of {@see ReflectionClass} objects, one
      * for each class within the extension. If no classes are defined,
      * an empty array is returned.
      */
@@ -125,7 +125,7 @@ class ReflectionExtension implements Reflector
      * Gets class names
      *
      * @link https://php.net/manual/en/reflectionextension.getclassnames.php
-     * @return string[] An array of class names, as defined in the extension.
+     * @return list<class-string<object>> An array of class names, as defined in the extension.
      * If no classes are defined, an empty array is returned.
      */
     #[Pure]
@@ -136,7 +136,7 @@ class ReflectionExtension implements Reflector
      * Gets dependencies
      *
      * @link https://php.net/manual/en/reflectionextension.getdependencies.php
-     * @return string[] An associative array with dependencies as keys and
+     * @return array<string, 'Required'|'Optional'|'Conflicts'> An associative array with dependencies as keys and
      * either Required, Optional or Conflicts as the values.
      */
     #[Pure]
