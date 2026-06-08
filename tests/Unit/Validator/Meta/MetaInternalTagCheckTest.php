@@ -192,6 +192,28 @@ PHP;
         $this->assertStringContainsString('func_without_meta', $violationTexts);
     }
 
+    public function testSkipsKnownMetaTagWithoutOverride(): void
+    {
+        // array_map keeps a @meta tag but intentionally has no override() entry,
+        // because its return type depends on the callback, not on an argument type.
+        $stubCode = <<<'PHP'
+<?php
+/**
+ * @meta
+ */
+function array_map(?callable $callback, array $array): array {}
+PHP;
+
+        $metaCode = <<<'PHP'
+<?php
+namespace PHPSTORM_META {
+    //override(\array_map(0), type(1));
+}
+PHP;
+        $violations = $this->checkWithFiles($stubCode, $metaCode);
+        $this->assertEmpty($violations);
+    }
+
     public function testIgnoresFunctionsWithoutDocblock(): void
     {
         $stubCode = <<<'PHP'

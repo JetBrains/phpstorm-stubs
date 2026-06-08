@@ -36,6 +36,20 @@ final class MetaInternalTagCheck
     ];
 
     /**
+     * Stubs that intentionally carry a @meta tag but have no active override() entry.
+     *
+     * The @meta tag is kept on the stub for documentation, but the matching override()
+     * call is deliberately commented out in the meta file because the entity's return
+     * type cannot be expressed as a simple type()/elementType() of one argument.
+     */
+    private const KNOWN_META_WITHOUT_OVERRIDE = [
+        // array_map's return type depends on the callback's return value, not on the type
+        // of any single argument, so override(\array_map(0), type(1)) would be incorrect
+        // and is commented out in meta/.phpstorm.meta.php. The @meta tag is retained.
+        '\\array_map',
+    ];
+
+    /**
      * @return string[] violation messages
      */
     public function check(string $rootDir): array
@@ -47,6 +61,9 @@ final class MetaInternalTagCheck
 
         // Direction 1: @meta tag exists but no override() call
         foreach ($metaTaggedFqns as $fqn => $location) {
+            if (in_array($fqn, self::KNOWN_META_WITHOUT_OVERRIDE, true)) {
+                continue;
+            }
             if (!isset($overrideFqns[$fqn])) {
                 $violations[] = "{$location} — '{$fqn}' has @meta tag but no corresponding override() in any .phpstorm.meta.php file";
             }
