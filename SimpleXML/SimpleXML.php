@@ -318,7 +318,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     /**
      * Returns the current element
      * @link https://php.net/manual/en/simplexmliterator.current.php
-     * @return SimpleXMLElement the current element as a <b>SimpleXMLElement</b> object.
+     * @return static the current element as a <b>SimpleXMLElement</b> object.
      */
     #[Pure]
     #[TentativeType]
