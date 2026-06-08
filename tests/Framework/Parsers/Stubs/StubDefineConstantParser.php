@@ -72,6 +72,10 @@ class StubDefineConstantParser implements MultiEntityStubParserInterface
         // Value is already extracted as a plain scalar by the adapter
         $phpConstant->setValue($node->getValue());
 
+        // Make the value resolvable to parameter default-value evaluation, which would
+        // otherwise depend on the constant being defined in the host runtime.
+        StubConstantRegistry::register($phpConstant->getId(), $phpConstant->getValue());
+
         // Parse PhpDoc and version availability (@since/@removed)
         $parsedPhpDoc = $this->phpDocParser->parseElementPhpDoc($node->getDocComment());
         $phpConstant->initStubsMetadata()->setPhpDoc($parsedPhpDoc->rawPhpDoc);

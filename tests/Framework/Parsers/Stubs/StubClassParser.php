@@ -123,7 +123,9 @@ class StubClassParser implements MultiEntityStubParserInterface
 
         // Constants
         foreach ($node->getConstants() as $constantNode) {
-            $phpClass->addConstant($this->constantParser->parseNode($constantNode, $imports));
+            $constant = $this->constantParser->parseNode($constantNode, $imports);
+            $phpClass->addConstant($constant);
+            StubConstantRegistry::register($phpClass->getId() . '::' . $constant->getName(), $constant->getValue());
         }
 
         return $phpClass;

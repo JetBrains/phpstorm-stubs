@@ -83,6 +83,12 @@ class NikicParameterNode implements ParameterNode
                         if (defined($name)) {
                             return constant($name);
                         }
+                        // Runtime miss (e.g. the defining extension is not loaded): fall back
+                        // to the value parsed from the stub sources so the result is the same
+                        // regardless of which extensions the host process happens to have.
+                        if (\StubTests\Framework\Parsers\Stubs\StubConstantRegistry::has($name)) {
+                            return \StubTests\Framework\Parsers\Stubs\StubConstantRegistry::get($name);
+                        }
                     } elseif ($node instanceof \PhpParser\Node\Expr\ClassConstFetch) {
                         if ($node->class instanceof \PhpParser\Node\Name
                             && $node->name instanceof \PhpParser\Node\Identifier
@@ -95,6 +101,11 @@ class NikicParameterNode implements ParameterNode
                             $fqn = $class . '::' . $const;
                             if (defined($fqn)) {
                                 return constant($fqn);
+                            }
+                            // Runtime miss (e.g. ext-intl not loaded for IntlPartsIterator::KEY_*):
+                            // fall back to the value parsed from the stub sources.
+                            if (\StubTests\Framework\Parsers\Stubs\StubConstantRegistry::has($fqn)) {
+                                return \StubTests\Framework\Parsers\Stubs\StubConstantRegistry::get($fqn);
                             }
                         }
                     }
