@@ -27,8 +27,8 @@ class ReflectionParameter implements Reflector
      *
      * @link https://php.net/manual/en/reflectionparameter.construct.php
      * @param callable $function The function to reflect parameters from.
-     * @param non-empty-string|int $param Either an integer specifying the position
-     * of the parameter (starting with zero), or the parameter name as a string.
+     * @param string|int $param Either an integer specifying the position
+     * of the parameter (starting with zero), or a the parameter name as string.
      * @throws ReflectionException if the function or parameter does not exist.
      */
     public function __construct($function, #[LanguageLevelTypeAware(['8.0' => 'string|int'], default: '')] $param) {}
@@ -37,8 +37,8 @@ class ReflectionParameter implements Reflector
      * Exports
      *
      * @link https://php.net/manual/en/reflectionparameter.export.php
-     * @param non-empty-string $function The function name.
-     * @param non-empty-string $parameter The parameter name.
+     * @param string $function The function name.
+     * @param string $parameter The parameter name.
      * @param bool $return Setting to {@see true} will return the export,
      * as opposed to emitting it. Setting to {@see false} (the default) will do the
      * opposite.
@@ -61,7 +61,7 @@ class ReflectionParameter implements Reflector
      * Gets parameter name
      *
      * @link https://php.net/manual/en/reflectionparameter.getname.php
-     * @return non-empty-string The name of the reflected parameter.
+     * @return string The name of the reflected parameter.
      */
     #[Pure]
     #[TentativeType]
@@ -81,7 +81,8 @@ class ReflectionParameter implements Reflector
      * Returns whether this parameter can be passed by value
      *
      * @link https://php.net/manual/en/reflectionparameter.canbepassedbyvalue.php
-     * @return bool {@see true} if the parameter can be passed by value, {@see false} otherwise.
+     * @return bool|null {@see true} if the parameter can be passed by value, {@see false} otherwise.
+     * Returns {@see null} in case of an error.
      * @since 5.4
      */
     #[TentativeType]
@@ -276,12 +277,13 @@ class ReflectionParameter implements Reflector
     public function isPromoted(): bool {}
 
     /**
+     * @template T
+     *
      * Returns an array of parameter attributes.
      *
-     * @template TAttributeClass of object
-     * @param class-string<TAttributeClass>|null $name Name of an attribute class
+     * @param class-string<T>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return list<ReflectionAttribute<TAttributeClass>>
+     * @return ReflectionAttribute<T>[]
      * @since 8.0
      */
     #[Pure]

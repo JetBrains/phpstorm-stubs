@@ -12,7 +12,6 @@ use JetBrains\PhpStorm\Pure;
  * properties.
  *
  * @link https://php.net/manual/en/class.reflectionproperty.php
- * @template TReflectedClass of object
  */
 class ReflectionProperty implements Reflector
 {
@@ -34,7 +33,7 @@ class ReflectionProperty implements Reflector
     public $name;
 
     /**
-     * @var class-string<TReflectedClass> Fully qualified class name where this property was defined
+     * @var class-string Fully qualified class name where this property was defined
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -92,7 +91,7 @@ class ReflectionProperty implements Reflector
      * Construct a ReflectionProperty object
      *
      * @link https://php.net/manual/en/reflectionproperty.construct.php
-     * @param class-string<TReflectedClass>|TReflectedClass $class The class name, that contains the property.
+     * @param class-string|object $class The class name, that contains the property.
      * @param string $property The name of the property being reflected.
      * @throws ReflectionException if the class or property does not exist.
      */
@@ -354,12 +353,13 @@ class ReflectionProperty implements Reflector
     public function getDefaultValue(): mixed {}
 
     /**
+     * @template T
+     *
      * Returns an array of property attributes.
      *
-     * @template TAttributeClass of object
-     * @param class-string<TAttributeClass>|null $name Name of an attribute class
+     * @param class-string<T>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return list<ReflectionAttribute<TAttributeClass>>
+     * @return ReflectionAttribute<T>[]
      * @since 8.0
      */
     #[Pure]

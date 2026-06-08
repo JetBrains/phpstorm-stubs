@@ -197,7 +197,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * Gets function name
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getname.php
-     * @return non-empty-string The name of the function.
+     * @return string The name of the function.
      */
     #[Pure]
     #[TentativeType]
@@ -239,7 +239,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * Gets parameters
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getparameters.php
-     * @return list<ReflectionParameter> The parameters, as a ReflectionParameter objects.
+     * @return ReflectionParameter[] The parameters, as a ReflectionParameter objects.
      */
     #[Pure]
     #[TentativeType]
@@ -316,12 +316,13 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function hasReturnType(): bool {}
 
     /**
+     * @template T
+     *
      * Returns an array of function attributes.
      *
-     * @template TAttributeClass of object
-     * @param class-string<TAttributeClass>|null $name Name of an attribute class
+     * @param class-string<T>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return list<ReflectionAttribute<TAttributeClass>>
+     * @return ReflectionAttribute<T>[]
      * @since 8.0
      */
     #[Pure]
