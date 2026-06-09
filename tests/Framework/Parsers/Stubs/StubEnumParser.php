@@ -89,7 +89,21 @@ class StubEnumParser implements MultiEntityStubParserInterface
         }
 
         // Cases
-        $phpEnum->setCases($node->getCaseNames());
+        $caseNames = $node->getCaseNames();
+        $phpEnum->setCases($caseNames);
+
+        // Register each case so a parameter default that references one
+        // (e.g. `\Uri\UriComparisonMode::ExcludeFragment`) can still be resolved
+        // when the declaring extension is not loaded in the cache-generating
+        // process. A pure enum case has no scalar value, so we store a reference
+        // carrying the enum FQN; the serializer renders it identically to the
+        // runtime-resolved enum instance ("[object:Uri\UriComparisonMode]").
+        foreach ($caseNames as $caseName) {
+            StubConstantRegistry::register(
+                $phpEnum->getId() . '::' . $caseName,
+                new StubEnumCaseReference($phpEnum->getId())
+            );
+        }
 
         return $phpEnum;
     }
