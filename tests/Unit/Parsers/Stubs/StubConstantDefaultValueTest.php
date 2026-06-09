@@ -103,7 +103,7 @@ class StubConstantDefaultValueTest extends TestCase
     {
         // The cache must read identically whether or not ext-uri was loaded when
         // it was generated: "[object:Uri\UriComparisonMode]".
-        $serializer = new class {
+        $serializer = new class() {
             use SerializerUtilsTrait;
 
             public function expose(mixed $value): mixed
