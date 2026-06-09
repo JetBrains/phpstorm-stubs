@@ -8,13 +8,15 @@ use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name;
 use PhpParser\Node\Stmt;
 use PhpParser\ParserFactory;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
+use StubTests\Framework\DataProvider\StubFileScanner;
 use StubTests\Framework\Parsers\Meta\MetaFileWalkerTrait;
 
 final class MetaInternalTagCheck
 {
     use MetaFileWalkerTrait;
+
+    /** Directory names skipped when scanning for stub files (matched by name at any depth) */
+    private const SKIP_DIRS = ['tests', 'vendor', 'meta', '.idea', '.git', '.claude'];
 
     /** Third-party namespaces whose override() entries should be ignored */
     private const SKIP_NAMESPACES = [
@@ -239,30 +241,16 @@ final class MetaInternalTagCheck
      */
     private function findStubFiles(string $rootDir): array
     {
-        $files = [];
-        $skipDirs = ['/tests/', '/vendor/', '/meta/', '/.idea/', '/.git/', '/.claude/'];
-        $iterator = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($rootDir, RecursiveDirectoryIterator::SKIP_DOTS)
+        // scandir-based traversal (see StubFileScanner) — RecursiveDirectoryIterator truncates
+        // listings over the Docker Desktop Windows bind mount and silently fails to recurse into
+        // some directories (e.g. dom/, FFI/), which made this check miss their @meta tags and
+        // report false "override without @meta" failures.
+        $files = StubFileScanner::collect(
+            $rootDir,
+            fn (string $path, string $name): bool => str_ends_with($name, '.php')
+                && $name !== '.phpstorm.meta.php',
+            fn (string $path, string $name): bool => !in_array($name, self::SKIP_DIRS, true),
         );
-        foreach ($iterator as $file) {
-            if ($file->getExtension() !== 'php') {
-                continue;
-            }
-            if ($file->getFilename() === '.phpstorm.meta.php') {
-                continue;
-            }
-            $path = $file->getPathname();
-            $skip = false;
-            foreach ($skipDirs as $dir) {
-                if (str_contains($path, $dir)) {
-                    $skip = true;
-                    break;
-                }
-            }
-            if (!$skip) {
-                $files[] = $path;
-            }
-        }
         sort($files);
         return $files;
     }
