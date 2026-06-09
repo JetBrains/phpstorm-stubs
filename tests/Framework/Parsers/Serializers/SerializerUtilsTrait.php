@@ -26,6 +26,12 @@ trait SerializerUtilsTrait
             return '[closure]';
         }
 
+        // Enum-case default resolved from stub sources (declaring extension not
+        // loaded). Render it exactly as a runtime-resolved enum instance would be.
+        if ($value instanceof \StubTests\Framework\Parsers\Stubs\StubEnumCaseReference) {
+            return '[object:' . $value->getEnumFqn() . ']';
+        }
+
         if (is_object($value) && !($value instanceof \stdClass) && !($value instanceof \DateTimeInterface)) {
             // Check if object has toString() method (e.g., type objects)
             if (method_exists($value, 'toString')) {
