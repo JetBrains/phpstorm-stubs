@@ -6,8 +6,8 @@ use Attribute;
 
 /**
  * Marks a string parameter as a file or directory path.
- * The IDE injects file references into the passed string literals
- * (with completion, navigation, and rename support).
+ * The IDE injects file references into the passed string literals, enabling
+ * navigation, completion, and rename/move support. Path completion is provided only for relative paths.
  *
  * @since 8.0
  */
