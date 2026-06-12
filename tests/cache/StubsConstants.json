@@ -54951,7 +54951,7 @@
         "_type": "PHPConstant",
         "name": "PHP_BUILD_DATE",
         "id": "\\PHP_BUILD_DATE",
-        "value": "Jun  5 2026 01:14:21",
+        "value": "Jun 10 2026 20:55:34",
         "sourcePath": "Core/Core_d.php",
         "duplicates": [],
         "namespace": "\\",

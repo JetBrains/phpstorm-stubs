@@ -284,5 +284,5 @@ const PHP_SBINDIR = '/usr/local/sbin', PHP_OUTPUT_HANDLER_PROCESSED = 16384;
  */
 define('PHP_MANDIR', '/usr/local/php/php/man');
 
-define('PHP_BUILD_DATE', 'Jun  5 2026 01:14:21');
+define('PHP_BUILD_DATE', 'Jun 10 2026 20:55:34');
 define('PHP_BUILD_PROVIDER', 'https://github.com/docker-library/php');
