@@ -12,6 +12,22 @@ set "DOCKER_DEFAULT_PLATFORM=linux/amd64"
 
 set "COMPOSE_FILE=%SCRIPT_DIR%docker-compose.yml"
 
+rem Reflection caches (tests/cache/Reflection<version>.json) are committed ground truth, refreshed
+rem only by the update-reflection-cache.yml workflow. By default we validate against the committed
+rem caches - exactly what CI does - so a normal run never rewrites them. Pass --refresh-reflection
+rem to regenerate them locally (slow; requires the per-version Docker images).
+set "REFRESH_REFLECTION=false"
+for %%A in (%*) do (
+  if "%%~A"=="--refresh-reflection" (
+    set "REFRESH_REFLECTION=true"
+  ) else (
+    echo Unknown argument: %%~A
+    echo Usage: %~nx0 [--refresh-reflection]
+    endlocal
+    exit /b 1
+  )
+)
+
 echo Installing composer packages...
 call :dc run --rm test_runner composer install --ignore-platform-reqs
 if errorlevel 1 goto :fail
@@ -20,9 +36,13 @@ echo Generating stubs cache...
 call :dc run --rm test_runner php tests/run-stubs-parser.php
 if errorlevel 1 goto :fail
 
-echo Generating reflection caches...
-call "%SCRIPT_DIR%tests\run-all-reflection-parsers.bat"
-if errorlevel 1 goto :fail
+if "%REFRESH_REFLECTION%"=="true" (
+  echo Regenerating reflection caches...
+  call "%SCRIPT_DIR%tests\run-all-reflection-parsers.bat"
+  if errorlevel 1 goto :fail
+) else (
+  echo Using committed reflection caches ^(pass --refresh-reflection to regenerate them^).
+)
 
 echo Running unit tests...
 call :dc run --rm test_runner vendor/bin/phpunit --testsuite Unit

@@ -6,7 +6,13 @@
 # containers run under emulation, which is slower but keeps the output identical.
 services:
   php_under_test:
-    build: tests/DockerImages/${PHP_VERSION}
+    build:
+      context: tests/DockerImages/${PHP_VERSION}
+      # Pin the base image to the exact patch recorded in tests/cache/php-versions.json so the
+      # generated reflection caches are reproducible. run-all-reflection-parsers.sh exports PHP_PATCH
+      # from the manifest; the fallback to the minor line keeps manual builds working when it is unset.
+      args:
+        PHP_PATCH: ${PHP_PATCH:-${PHP_VERSION}}
     platform: linux/amd64
     volumes:
       - .:/opt/project/phpstorm-stubs

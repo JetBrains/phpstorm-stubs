@@ -1,4 +1,5 @@
-FROM php:5.6-alpine
+ARG PHP_PATCH=5.6
+FROM php:${PHP_PATCH}-alpine
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
     bash gcc g++ make autoconf pkgconfig git \

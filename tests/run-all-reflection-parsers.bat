@@ -171,6 +171,10 @@ if not exist "%DOCKERFILE_PATH%" (
     exit /b 0
 )
 
+rem Pin the base image to the patch recorded in the manifest (consumed by docker-compose.yml).
+call :get_patch "%VERSION%"
+echo Base image: php:%PHP_PATCH%-alpine
+
 rem Build Docker image for this specific PHP version.
 if "%SKIP_BUILD%"=="false" (
     echo [1/4] Building Docker image for PHP %VERSION%...
@@ -235,4 +239,18 @@ if exist "%OUTPUT_FILE%" (
     set "FAILED_VERSIONS=!FAILED_VERSIONS! %VERSION%"
     set /a FAILED_COUNT+=1
 )
+exit /b 0
+
+rem ---------------------------------------------------------------------------
+rem :get_patch <minor>
+rem Resolve the exact patch a minor line should build from, recorded in
+rem tests/cache/php-versions.json (e.g. "8.3" -> "8.3.31"), and expose it as
+rem PHP_PATCH for docker-compose.yml. Falls back to the minor line when the
+rem manifest has no entry, so the value is always a valid php:<tag>-alpine.
+rem ---------------------------------------------------------------------------
+:get_patch
+set "PHP_PATCH=%~1"
+set "PHP_VERSIONS_MANIFEST=%SCRIPT_DIR%\cache\php-versions.json"
+if not exist "%PHP_VERSIONS_MANIFEST%" exit /b 0
+for /f tokens^=4^ delims^=^" %%P in ('findstr /c:"\"%~1\":" "%PHP_VERSIONS_MANIFEST%"') do set "PHP_PATCH=%%P"
 exit /b 0

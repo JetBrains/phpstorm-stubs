@@ -48,6 +48,20 @@ if [ ${#PHP_VERSIONS[@]} -eq 0 ]; then
     exit 1
 fi
 
+# Resolve the exact patch a minor line should build from, recorded in tests/cache/php-versions.json
+# (e.g. "8.3" -> "8.3.31"). Pinning the base image to this patch keeps the generated reflection
+# caches reproducible: a rebuild produces the same PHP runtime the committed cache was generated from.
+# Falls back to the minor line (current floating behaviour) when the manifest has no entry, so the
+# value is always non-empty and never yields an invalid "php:-alpine" tag.
+PHP_VERSIONS_MANIFEST="$SCRIPT_DIR/cache/php-versions.json"
+get_patch() {
+    local minor="$1" patch=""
+    if [ -f "$PHP_VERSIONS_MANIFEST" ]; then
+        patch=$(sed -n "s/.*\"$minor\"[[:space:]]*:[[:space:]]*\"\([0-9][0-9.]*\)\".*/\1/p" "$PHP_VERSIONS_MANIFEST")
+    fi
+    echo "${patch:-$minor}"
+}
+
 # Parse arguments: optional --skip-build flag and an optional explicit list of versions.
 # When one or more versions are passed (e.g. `run-all-reflection-parsers.sh 8.4 8.5`), only those
 # are processed; otherwise every version from the enum is processed.
@@ -105,6 +119,10 @@ for VERSION in "${PHP_VERSIONS[@]}"; do
     echo -e "\n${YELLOW}========================================${NC}"
     echo -e "${YELLOW}Processing PHP $VERSION${NC}"
     echo -e "${YELLOW}========================================${NC}"
+
+    # Pin the base image to the patch recorded in the manifest (consumed by docker-compose.yml).
+    export PHP_PATCH="$(get_patch "$VERSION")"
+    echo -e "${BLUE}Base image: php:${PHP_PATCH}-alpine${NC}"
 
     # Check if Dockerfile exists
     DOCKERFILE_PATH="$SCRIPT_DIR/DockerImages/$VERSION/Dockerfile"

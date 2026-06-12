@@ -1,4 +1,5 @@
-FROM php:8.5-alpine
+ARG PHP_PATCH=8.5
+FROM php:${PHP_PATCH}-alpine
 
 RUN set -eux; \
     apk add --repository http://dl-cdn.alpinelinux.org/alpine/edge/community --no-cache --virtual .build-deps \

@@ -1,4 +1,5 @@
-FROM php:7.2-alpine
+ARG PHP_PATCH=7.2
+FROM php:${PHP_PATCH}-alpine
 
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \

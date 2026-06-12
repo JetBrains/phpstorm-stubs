@@ -3,6 +3,17 @@
 Scripts for generating the per-version PHP reflection cache files (`tests/cache/Reflection{version}.json`).
 These JSON files are the ground-truth used by validator tests.
 
+## Reproducibility: builds are pinned to `php-versions.json`
+
+The per-version Docker images build from an exact PHP patch (`FROM php:${PHP_PATCH}-alpine`), where
+`PHP_PATCH` is resolved from `tests/cache/php-versions.json` (e.g. `8.3` → `8.3.31`) by
+`run-all-reflection-parsers.sh` and forwarded as a build arg via `docker-compose.yml`. This makes
+`php-versions.json` the single source of truth for the PHP patch each cache was generated from, so a
+local rebuild reproduces the committed `Reflection{version}.json` byte-for-byte (the platform pin in
+`docker-compose.yml` covers CPU-ABI reproducibility). The pin only advances together with regenerated
+caches, in the same PR opened by `.github/workflows/update-reflection-cache.yml` — never edit it by
+hand or commit a locally-regenerated reflection cache on its own.
+
 ## Overview
 
 Generating reflection data is a two-stage pipeline:

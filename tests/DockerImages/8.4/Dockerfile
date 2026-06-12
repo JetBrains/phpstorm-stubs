@@ -1,4 +1,5 @@
-FROM php:8.4-alpine
+ARG PHP_PATCH=8.4
+FROM php:${PHP_PATCH}-alpine
 
 RUN echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 RUN set -eux; \

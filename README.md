@@ -34,11 +34,16 @@ version using the committed per-version reflection caches in `tests/cache/Reflec
 
 #### The easy way
 
-Run the bundled script — it installs dependencies, regenerates the stubs and reflection caches, and
-runs every test suite (`Unit`, `Structure`, `PhpDoc`, `General`) in order:
+Run the bundled script — it installs dependencies, regenerates the stubs cache from your stub edits,
+and runs every test suite (`Unit`, `Structure`, `PhpDoc`, `General`) in order:
 
 * macOS / Linux: `./runTests.sh`
 * Windows: `runTests.bat`
+
+By default the script validates against the **committed** reflection caches
+(`tests/cache/Reflection<version>.json`) — exactly what CI does — so a normal run never rewrites
+them. Pass `--refresh-reflection` (e.g. `./runTests.sh --refresh-reflection`) to regenerate them
+locally; this is slow and rarely needed, and the result should not be committed (see below).
 
 Both scripts require Docker (they use the `test_runner` image defined in `docker-compose.yml`).
 

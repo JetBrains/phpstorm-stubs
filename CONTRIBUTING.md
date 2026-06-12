@@ -36,6 +36,11 @@ function curl_copy_handle(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], defa
    * Windows: `runTests.bat`
  * To run suites manually instead, see [How to run tests](README.md#how-to-run-tests) in the README.
  * If a stub legitimately cannot match reflection (for example a runtime-dependent constant value, or an entity available only on certain PHP versions), register it in `tests/Framework/Validator/KnownProblems/DefaultKnownProblemsProvider.php`.
+
+## Cache files
+The test framework keeps two kinds of cache under `tests/cache/`:
+ * **Stubs caches** (`Stubs*.json`) are regenerated from the stub files on every test run (and by CI). If your stub edits change them, that is expected — they are derived from your changes.
+ * **Reflection caches** (`Reflection<version>.json`) are the per-PHP-version ground truth the validators check stubs against. **Do not commit changes to them.** They are pinned to the exact PHP patch recorded in `tests/cache/php-versions.json` and are refreshed only by the automated `update-reflection-cache.yml` workflow when a new PHP patch is released. `runTests.sh` validates against the committed copies by default and only regenerates them when you pass `--refresh-reflection` (a local convenience that should be reverted, not committed).
  
 ## Types of contribution
 As of 2017.1 Preview we gladly accept all "non-standard" extensions and IDE get a UI for per-project configuration.
