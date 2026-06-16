@@ -3179,10 +3179,3 @@ class Cluster
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zunionstore(mixed $dstkey, array $keys, array|null $weights = null, mixed $options = null): Cluster|int|false {}
 }
-
-namespace Relay\Cluster;
-
-/**
- * Cluster `fullscan()` generator class.
- */
-final class FullscanGenerator extends \Generator {}
