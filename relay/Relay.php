@@ -618,7 +618,7 @@ class Relay
      * Closes the current connection.
      *
      * @deprecated 0.12.1 Use `Relay::close()`
-     * @alias Relay\Relay::close
+     * @see Relay\Relay::close()
      *
      * @return bool
      */
