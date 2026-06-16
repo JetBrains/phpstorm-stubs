@@ -10,47 +10,151 @@ namespace Relay;
 class Cluster
 {
     /**
-     * Integer representing the failover option.
+     * Controls how readonly commands are distributed across cluster nodes.
      *
+     * @var int
+     */
+    public const OPT_DISTRIBUTE = 16;
+
+    /**
+     * Enabled by default. Readonly commands are sent to the primary node only.
+     *
+     * @see self::OPT_DISTRIBUTE
+     * @var int
+     */
+    public const DISTRIBUTE_NONE = 0;
+
+    /**
+     * Distribute readonly commands randomly between the primary and its replicas.
+     * Stops trying replicas after the first failed attempt.
+     *
+     * @see self::OPT_DISTRIBUTE
+     * @var int
+     */
+    public const DISTRIBUTE_RANDOM = 1;
+
+    /**
+     * Distribute readonly commands randomly among replicas only, never the primary.
+     * Stops trying replicas after the first failed attempt.
+     *
+     * @see self::OPT_DISTRIBUTE
+     * @var int
+     */
+    public const DISTRIBUTE_RANDOM_REPLICA = 2;
+
+    /**
+     * Distribute readonly commands randomly among replicas only, never the primary.
+     * Tries to iterate through all replicas until it finds a working one.
+     *
+     * @see self::OPT_DISTRIBUTE
+     * @var int
+     */
+    public const DISTRIBUTE_REPLICAS = 3;
+
+    /**
+     * Distribute readonly commands randomly between the primary and its replicas.
+     * Tries to iterate through all replicas until it finds a working one.
+     *
+     * @see self::OPT_DISTRIBUTE
+     * @var int
+     */
+    public const DISTRIBUTE_ALL = 4;
+
+    /**
+     * Legacy compatibility view for PhpRedis' `OPT_SLAVE_FAILOVER`.
+     *
+     * This option maps the legacy `FAILOVER_*` modes onto Relay's newer
+     * `OPT_DISTRIBUTE` and `OPT_FAILOVER` settings. It is not a true alias:
+     * some `OPT_DISTRIBUTE` and `OPT_FAILOVER` combinations have no legacy
+     * representation, and `getOption(OPT_SLAVE_FAILOVER)` returns `false` for
+     * those states.
+     *
+     * @see self::FAILOVER_NONE
+     * @see self::FAILOVER_ERROR
+     * @see self::FAILOVER_DISTRIBUTE
+     * @see self::FAILOVER_DISTRIBUTE_SLAVES
      * @var int
      */
     public const OPT_SLAVE_FAILOVER = 5;
 
     /**
-     * Integer representing no failover.
+     * Controls the retry strategy when a command fails on a node.
      *
+     * @see self::FAILOVER_NONE
+     * @see self::FAILOVER_PRIMARY
+     * @see self::FAILOVER_RANDOM_REPLICA
+     * @see self::FAILOVER_REPLICAS
+     * @see self::FAILOVER_ALL
+     * @var int
+     */
+    public const OPT_FAILOVER = 17;
+
+    /**
      * Enabled by default. Send commands to master nodes only.
      *
+     * @see self::OPT_FAILOVER
+     * @see self::OPT_SLAVE_FAILOVER
      * @var int
      */
     public const FAILOVER_NONE = 0;
 
     /**
-     * Integer representing error failover.
-     *
      * Send readonly commands to slave nodes if master is unreachable.
      *
+     * @see self::OPT_SLAVE_FAILOVER
      * @var int
      */
     public const FAILOVER_ERROR = 1;
 
     /**
-     * Integer representing distribute failover.
-     *
      * Always distribute readonly commands between master and slaves, at random.
      *
+     * @see self::OPT_SLAVE_FAILOVER
      * @var int
      */
     public const FAILOVER_DISTRIBUTE = 2;
 
     /**
-     * Integer representing distribute slaves failover.
-     *
      * Always distribute readonly commands to the slaves, at random.
      *
+     * @see self::OPT_SLAVE_FAILOVER
      * @var int
      */
     public const FAILOVER_DISTRIBUTE_SLAVES = 3;
+
+    /**
+     * On failure, retry the readonly command on a randomly selected replica.
+     *
+     * @see self::OPT_FAILOVER
+     * @var int
+     */
+    public const FAILOVER_RANDOM_REPLICA = 4;
+
+    /**
+     * On failure, retry the readonly command on the primary node.
+     * Only applicable when the failed node is a replica.
+     *
+     * @see self::OPT_FAILOVER
+     * @var int
+     */
+    public const FAILOVER_PRIMARY = 5;
+
+    /**
+     * On failure, retry the readonly command on all replicas, excluding the failed node.
+     *
+     * @see self::OPT_FAILOVER
+     * @var int
+     */
+    public const FAILOVER_REPLICAS = 6;
+
+    /**
+     * On failure, retry the readonly command on all other nodes (replicas and primary),
+     * excluding the failed node.
+     *
+     * @see self::OPT_FAILOVER
+     * @var int
+     */
+    public const FAILOVER_ALL = 7;
 
     /**
      * Integer representing the availability zone option.
@@ -101,7 +205,7 @@ class Cluster
     public function _compress(string $value): string {}
 
     /**
-     * Returns the number of milliseoconds since Relay has received a reply from the cluster.
+     * Returns the number of milliseconds since Relay has received a reply from the cluster.
      *
      * @return int
      */
@@ -132,6 +236,16 @@ class Cluster
      */
     #[Attributes\Local]
     public function _pack(mixed $value): string {}
+
+    /**
+     * Returns the XXH3 digest for a given value. This returns the same value
+     * Redis' `DIGEST` command would return.
+     *
+     * @param  mixed  $value
+     * @return string
+     */
+    #[Attributes\Local]
+    public function _digest(mixed $value): string {}
 
     /**
      * Returns the value with the prefix.
@@ -182,7 +296,7 @@ class Cluster
      * Interact with ACLs.
      *
      * @param  string  $operation
-     * @param  string  $args,...
+     * @param  string  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -191,7 +305,7 @@ class Cluster
     /**
      * Adds allow pattern(s). Only matching keys will be cached in memory.
      *
-     * @param  string  $pattern,...
+     * @param  string  ...$pattern
      * @return int
      */
     #[Attributes\Local]
@@ -200,7 +314,7 @@ class Cluster
     /**
      * Adds ignore pattern(s). Matching keys will not be cached in memory.
      *
-     * @param  string  $pattern,...
+     * @param  string  ...$pattern
      * @return int
      */
     #[Attributes\Local]
@@ -229,7 +343,19 @@ class Cluster
     public function bgrewriteaof(array|string $key_or_address): Cluster|bool {}
 
     /**
-     * Paus the client until sufficient local and/or remote AOF data has been flushed to disk.
+     * Wait for the synchronous replication of all the write
+     * commands sent in the context of the current connection.
+     *
+     * @param  array|string  $key_or_address
+     * @param  int  $replicas
+     * @param  int  $timeout
+     * @return Cluster|int|false
+     */
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    public function wait(array|string $key_or_address, int $replicas, $timeout): Cluster|int|false {}
+
+    /**
+     * Pause the client until sufficient local and/or remote AOF data has been flushed to disk.
      *
      * @param  array|string  $key_or_address
      * @param  int  $numlocal
@@ -267,7 +393,7 @@ class Cluster
      * @param  string  $operation
      * @param  string  $dstkey
      * @param  string  $srckey
-     * @param  string  $other_keys,...
+     * @param  string  ...$other_keys
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -278,8 +404,8 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  int  $bit
-     * @param  int  $start
-     * @param  int  $end
+     * @param  int|null  $start
+     * @param  int|null  $end
      * @param  bool  $by_bit
      * @return Cluster|int|false
      */
@@ -319,7 +445,7 @@ class Cluster
      *
      * @param  string|array  $key
      * @param  string|float  $timeout_or_key
-     * @param  array  $extra_args,...
+     * @param  array  ...$extra_args
      * @return Cluster|array|null|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -331,7 +457,7 @@ class Cluster
      *
      * @param  string|array  $key
      * @param  string|float  $timeout_or_key
-     * @param  array  $extra_args,...
+     * @param  array  ...$extra_args
      * @return Cluster|array|null|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -367,7 +493,7 @@ class Cluster
      *
      * @param  string|array  $key
      * @param  string|float  $timeout_or_key
-     * @param  array  $extra_args,...
+     * @param  array  ...$extra_args
      * @return Cluster|array|null|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -378,7 +504,7 @@ class Cluster
      *
      * @param  string|array  $key
      * @param  string|float  $timeout_or_key
-     * @param  array  $extra_args,...
+     * @param  array  ...$extra_args
      * @return Cluster|array|null|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -403,14 +529,17 @@ class Cluster
      *
      * @param  array|string  $key_or_address
      * @param  string  $operation
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function client(array|string $key_or_address, string $operation, mixed ...$args): mixed {}
 
     /**
-     * Closes the current connection, if it's persistent.
+     * Closes the current connection, even if it's persistent.
+     *
+     * Relay defaults to persistent connections and calling `close()` is not necessary
+     * because connections are stashed and reused automatically.
      *
      * @return bool
      */
@@ -422,18 +551,31 @@ class Cluster
      *
      * @param  array|string  $key_or_address
      * @param  string  $operation
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function cluster(array|string $key_or_address, string $operation, mixed ...$args): mixed {}
 
     /**
+     * Topology-aware keyspace scanning for matching keys.
+     *
+     * @param  mixed  $iterator
+     * @param  mixed  $match
+     * @param  int  $count
+     * @param  string|null  $type
+     * @param  int|null  $slot
+     * @return array|false
+     */
+    #[Attributes\ValkeyCommand]
+    public function clusterscan(mixed &$iterator, mixed $match = null, int $count = 0, string|null $type = null, int|null $slot = null): array|false {}
+
+    /**
      * This is a container command for runtime configuration commands.
      *
      * @param  array|string  $key_or_address
      * @param  string  $operation
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return Cluster|array|bool
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -442,7 +584,7 @@ class Cluster
     /**
      * Return an array with details about every Redis command.
      *
-     * @param  array  $args,...
+     * @param  array  ...$args
      * @return Cluster|array|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -490,11 +632,21 @@ class Cluster
     /**
      * Removes the specified keys.
      *
-     * @param  mixed  $keys,...
+     * @param  mixed  ...$keys
      * @return Cluster|int|bool
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function del(mixed ...$keys): Cluster|int|bool {}
+
+    /**
+     * Removes the key if it matches or does not match a value or hash.
+     *
+     * @param  mixed  $key
+     * @param  array  $options
+     * @return Cluster|int|false
+     */
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    public function delex(mixed $key, ?array $options = null): Cluster|int|false {}
 
     /**
      * Remove a key if it equals the provided value.
@@ -522,6 +674,15 @@ class Cluster
      */
     #[Attributes\Local]
     public function dispatchEvents(): int|false {}
+
+    /**
+     * Returns the XXH3 hash of a string key's value.
+     *
+     * @param  mixed  $key
+     * @return Cluster|string|null|false
+     */
+    #[Attributes\RedisCommand]
+    public function digest(mixed $key): Cluster|string|null|false {}
 
     /**
      * Serialize and return the value stored at key in a Redis-specific format.
@@ -611,7 +772,7 @@ class Cluster
     /**
      * Returns if key(s) exists.
      *
-     * @param  mixed  $keys,...
+     * @param  mixed  ...$keys
      * @return Cluster|int|bool
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -650,7 +811,7 @@ class Cluster
     public function expiretime(mixed $key): Cluster|int|false {}
 
     /**
-     * @see \Relay\Relay::flushMemory()
+     * @see Relay::flushMemory()
      *
      * @param  string|null  $endpointId
      * @param  int|null  $db
@@ -688,20 +849,20 @@ class Cluster
     public function flushSlotCache(): bool {}
 
     /**
-     * Add one or more members to a geospacial sorted set.
+     * Add one or more members to a geospatial sorted set.
      *
      * @param  mixed  $key
      * @param  float  $lng
      * @param  float  $lat
      * @param  string  $member
-     * @param  mixed  $other_triples_and_options,...
+     * @param  mixed  ...$other_triples_and_options
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function geoadd(mixed $key, float $lng, float $lat, string $member, mixed ...$other_triples_and_options): Cluster|int|false {}
 
     /**
-     * Get the distance between two members of a geospacially encoded sorted set.
+     * Get the distance between two members of a geospatially encoded sorted set.
      *
      * @param  mixed  $key
      * @param  string  $src
@@ -717,7 +878,7 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  string  $member
-     * @param  string  $other_members,...
+     * @param  string  ...$other_members
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -728,14 +889,14 @@ class Cluster
      * of the geospatial index represented by the sorted set at key.
      *
      * @param  mixed  $key
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function geopos(mixed $key, mixed ...$members): Cluster|array|false {}
 
     /**
-     * Retrieve members of a geospacially sorted set that are within a certain radius of a location.
+     * Retrieve members of a geospatially sorted set that are within a certain radius of a location.
      *
      * @param  mixed  $key
      * @param  float  $lng
@@ -749,7 +910,7 @@ class Cluster
     public function georadius(mixed $key, float $lng, float $lat, float $radius, string $unit, array $options = []): mixed {}
 
     /**
-     * Retrieve members of a geospacially sorted set that are within a certain radius of a location.
+     * Retrieve members of a geospatially sorted set that are within a certain radius of a location.
      *
      * @param  mixed  $key
      * @param  float  $lng
@@ -789,7 +950,7 @@ class Cluster
     public function georadiusbymember_ro(mixed $key, string $member, float $radius, string $unit, array $options = []): mixed {}
 
     /**
-     * Search a geospacial sorted set for members in various ways.
+     * Search a geospatial sorted set for members in various ways.
      *
      * @param  mixed  $key
      * @param  array|string  $position
@@ -802,7 +963,7 @@ class Cluster
     public function geosearch(mixed $key, array|string $position, array|int|float $shape, string $unit, array $options = []): Cluster|array|false {}
 
     /**
-     * Search a geospacial sorted set for members within a given area or range,
+     * Search a geospatial sorted set for members within a given area or range,
      * storing the results into a new set.
      *
      * @param  mixed  $dstkey
@@ -815,6 +976,25 @@ class Cluster
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function geosearchstore(mixed $dstkey, mixed $srckey, array|string $position, array|int|float $shape, string $unit, array $options = []): Cluster|int|false {}
+
+    /**
+     * Rate limit via GCRA (Generic Cell Rate Algorithm).
+     *
+     * @param  string  $key
+     * @param  int  $maxBurst
+     * @param  int  $requestsPerPeriod
+     * @param  int  $period
+     * @param  int  $tokens = 0
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function gcra(
+        string $key,
+        int $maxBurst,
+        int $requestsPerPeriod,
+        int $period,
+        int $tokens = 0
+    ): Cluster|array|false {}
 
     /**
      * Get the value of key.
@@ -931,7 +1111,7 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  mixed  $member
-     * @param  string  $members,...
+     * @param  string  ...$members
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -948,7 +1128,7 @@ class Cluster
     public function hexists(mixed $key, mixed $member): Cluster|bool {}
 
     /**
-     * Se an expiration for one or more hash fields.
+     * Set an expiration for one or more hash fields.
      *
      * @param  mixed  $hash
      * @param  int  $ttl
@@ -1065,6 +1245,18 @@ class Cluster
     public function hgetall(mixed $key): Cluster|array|false {}
 
     /**
+     * Returns the value associated with field in the hash stored at key.
+     *
+     * @see self::getWithMeta()
+     *
+     * @param  mixed  $hash
+     * @param  mixed  $member
+     * @return Cluster|array{0: mixed, 1: array{cached: bool, length: int}}|false
+     */
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
+    public function hgetWithMeta(mixed $hash, mixed $member): Cluster|array|false {}
+
+    /**
      * Increments the number stored at field in the hash stored at key by increment.
      *
      * @param  mixed  $key
@@ -1161,7 +1353,7 @@ class Cluster
      * Sets field in the hash stored at key to value.
      *
      * @param  mixed  $key
-     * @param  mixed  $keys_and_vals...
+     * @param  mixed  ...$keys_and_vals
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1249,20 +1441,30 @@ class Cluster
     public function incrbyfloat(mixed $key, float $value): Cluster|float|false {}
 
     /**
+     * Increment a key by an int or float with a whole host of options
+     *
+     * @param  mixed  $key
+     * @param  null|int|float  $value
+     * @param  array|null  $options
+     * @return Cluster|array|false
+     */
+    public function increx(mixed $key, null|int|float $value = null, ?array $options = null): Cluster|array|false {}
+
+    /**
      * The INFO command returns information and statistics about Redis in a format
      * that is simple to parse by computers and easy to read by humans.
      *
      * @see https://redis.io/commands/info
      *
      * @param  array|string  $key_or_address
-     * @param  string  $sections,...
+     * @param  string  ...$sections
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function info(array|string $key_or_address, string ...$sections): Cluster|array|false {}
 
     /**
-     * Invaalidate all slot caches for across all workers.
+     * Invalidate all slot caches across all workers.
      *
      * @return bool
      */
@@ -1279,7 +1481,7 @@ class Cluster
     public function keys(mixed $pattern): Cluster|array|false {}
 
     /**
-     * @see \Relay\Relay::flushMemory()
+     * @see Relay::flushMemory()
      *
      * @param  string|null  $endpointId
      * @param  int|null  $db
@@ -1398,7 +1600,7 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  mixed  $member
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1410,7 +1612,7 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  mixed  $member
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1567,7 +1769,7 @@ class Cluster
     public function pexpireat(mixed $key, int $timestamp_ms): Cluster|bool {}
 
     /**
-     * Semantic the same as EXPIRETIME, but returns the absolute Unix expiration
+     * Semantically the same as EXPIRETIME, but returns the absolute Unix expiration
      * timestamp in milliseconds instead of seconds.
      *
      * @param  mixed  $key
@@ -1660,7 +1862,7 @@ class Cluster
      *
      * @param  array|string  $key_or_address
      * @param  string  $operation
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1690,7 +1892,7 @@ class Cluster
      *
      * @param  array|string  $key_or_address
      * @param  string  $cmd
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -1763,7 +1965,7 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  mixed  $member
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1775,7 +1977,7 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  mixed  $member
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1786,7 +1988,7 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  mixed  $member
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1821,7 +2023,7 @@ class Cluster
      * @param  int  $count
      * @param  string|null  $type
      *
-     * @return \Generator|false
+     * @return \Generator<int, list<string>, void, void>
      */
     public function fullscan(mixed $match = null, int $count = 0, string|null $type = null): \Generator|false {}
 
@@ -1839,7 +2041,7 @@ class Cluster
      *
      * @param  array|string  $key_or_address
      * @param  string  $operation
-     * @param  string  $args,...
+     * @param  string  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1849,7 +2051,7 @@ class Cluster
      * Returns the members of the set resulting from the difference between the first set and all the successive sets.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -1860,7 +2062,7 @@ class Cluster
      * If destination already exists, it is overwritten.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1961,7 +2163,7 @@ class Cluster
      * Returns the members of the set resulting from the intersection of all the given sets.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -1982,7 +2184,7 @@ class Cluster
      * If destination already exists, it is overwritten.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2003,7 +2205,7 @@ class Cluster
      *
      * @param  array|string  $key_or_address
      * @param  string  $operation
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return Cluster|array|int|bool
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2022,7 +2224,7 @@ class Cluster
      * Returns whether each member is a member of the set stored at `$key`.
      *
      * @param  mixed  $key
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -2084,7 +2286,7 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  mixed  $member
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2115,7 +2317,7 @@ class Cluster
     /**
      * Returns statistics about Relay.
      *
-     * @see \Relay\Relay::stats()
+     * @see Relay::stats()
      * @return array
      */
     #[Attributes\Local]
@@ -2144,7 +2346,7 @@ class Cluster
      * Returns the members of the set resulting from the union of all the given sets.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -2155,7 +2357,7 @@ class Cluster
      * If destination already exists, it is overwritten.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2183,7 +2385,7 @@ class Cluster
      * Alters the last access time of a key(s).
      *
      * @param  array|string  $key_or_array
-     * @param  mixed  $more_keys,...
+     * @param  mixed  ...$more_keys
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2214,7 +2416,7 @@ class Cluster
     /**
      * Removes the specified keys without blocking Redis.
      *
-     * @param  mixed  $keys,...
+     * @param  mixed  ...$keys
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2300,7 +2502,7 @@ class Cluster
     public function vinfo(mixed $key): Cluster|array|false {}
 
     /**
-     * Returns whether or not the element is a member of a vectorset.
+     * Returns whether or not the element is a member of a vector set.
      *
      * @param  mixed  $key
      * @param  mixed  $element
@@ -2310,7 +2512,7 @@ class Cluster
     public function vismember(mixed $key, mixed $element): Cluster|bool {}
 
     /**
-     * Get neighbors for a given vector element optionally withscores.
+     * Get neighbors for a given vector element optionally with scores.
      *
      * @param  mixed  $key
      * @param  mixed  $element
@@ -2331,16 +2533,16 @@ class Cluster
     public function vrandmember(mixed $key, int $count = 0): Cluster|array|string|false {}
 
     /**
-     * Get a range of entries from a STREAM ke in reverse chronological order.
+     * Get a lexicographical range of elements from a vector set.
      *
-     * @param  string  $key
-     * @param  string  $end
-     * @param  string  $start
+     * @param  mixed  $key
+     * @param  string  $min
+     * @param  string  $max
      * @param  int  $count
-     * @return Cluster|array|bool
+     * @return Cluster|array|false
      */
     #[Attributes\RedisCommand]
-    public function vrange(string $key, string $end, string $start, int $count = -1): Cluster|array|bool {}
+    public function vrange(mixed $key, string $min, string $max, int $count = -1): Cluster|array|false {}
 
     /**
      * Remove an element from a vector set.
@@ -2378,7 +2580,7 @@ class Cluster
      * Marks the given keys to be watched for conditional execution of a transaction.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Cluster|bool
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2396,7 +2598,20 @@ class Cluster
     public function xack(mixed $key, string $group, array $ids): Cluster|int|false {}
 
     /**
-     * Awknowledge and delete one or more IDs in a stream.
+     * Negatively acknowledge one or more IDs in a stream.
+     *
+     * @param  string  $key
+     * @param  string  $group
+     * @param  string  $mode
+     * @param  array  $ids
+     * @param  array|null  $options
+     * @return Cluster|int|false
+     */
+    #[Attributes\RedisCommand]
+    public function xnack(string $key, string $group, string $mode, array $ids, ?array $options = null): Cluster|int|false {}
+
+    /**
+     * Acknowledge and delete one or more IDs in a stream.
      *
      * @param  string  $key
      * @param  string  $group
@@ -2475,8 +2690,8 @@ class Cluster
      *
      * @param  string  $operation
      * @param  mixed  $key
-     * @param  string  $group
-     * @param  string  $id_or_consumer
+     * @param  string|null  $group
+     * @param  string|null  $id_or_consumer
      * @param  bool  $mkstream
      * @param  int  $entries_read
      * @return mixed
@@ -2557,7 +2772,7 @@ class Cluster
     public function xreadgroup(mixed $key, string $consumer, array $streams, int $count = 1, int $block = 1): Cluster|array|bool|null {}
 
     /**
-     * Get a lexicographical range of elements from a vector set.
+     * Get a range of entries from a STREAM key in reverse chronological order.
      *
      * @param  mixed  $key
      * @param  string  $end
@@ -2585,7 +2800,7 @@ class Cluster
      * Adds all the specified members with the specified scores to the sorted set stored at key.
      *
      * @param  mixed  $key
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2708,7 +2923,7 @@ class Cluster
      * Returns the scores associated with the specified members in the sorted set stored at key.
      *
      * @param  mixed  $key
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2816,10 +3031,10 @@ class Cluster
 
     /**
      * Removes the specified members from the sorted set stored at key.
-     * Non existing members are ignored.
+     * Non-existing members are ignored.
      *
      * @param  mixed  $key
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2841,7 +3056,7 @@ class Cluster
 
     /**
      * Removes all elements in the sorted set stored at key with rank between
-     * start and stop. Both start and stop are 0 -based indexes with 0 being
+     * start and stop. Both start and stop are 0-based indexes with 0 being
      * the element with the lowest score.
      *
      * @param  mixed  $key

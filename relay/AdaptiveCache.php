@@ -20,7 +20,7 @@ class AdaptiveCache
      * The actual state of the adaptive cache. The user can request an adaptive
      * cache of a certain width and depth, but it is not actually created until
      * Relay attaches to an in-memory endpoint. This can fail if we are out of
-     * memory. This property will be ['inactive', 'active'].
+     * memory. This property will be either `'inactive'` or `'active'`.
      *
      * @readonly
      * @var string

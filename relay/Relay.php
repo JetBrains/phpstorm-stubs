@@ -12,14 +12,14 @@ class Relay
      *
      * @var string
      */
-    public const VERSION = "0.12.0";
+    public const VERSION = "0.30.0";
 
     /**
      * Relay's version.
      *
      * @var string
      */
-    public const Version = "0.12.0";
+    public const Version = "0.30.0";
 
     /**
      * Integer representing no compression algorithm.
@@ -110,8 +110,8 @@ class Relay
 
     /**
      * Integer representing we're SUBSCRIBED. Note that this constant can
-     * only really be accessed when `true` is passed to `getMask()` telling
-     * relay to return the complete bitmasked mode.
+     * only really be accessed when `true` is passed to `getMode()` telling
+     * Relay to return the complete bitmasked mode.
      *
      * @see Relay::getMode()
      * @var int
@@ -173,6 +173,34 @@ class Relay
      * @var int
      */
     public const BACKOFF_ALGORITHM_FULL_JITTER = 2;
+
+    /**
+     * Integer representing the equal jitter backoff algorithm.
+     *
+     * @var int
+     */
+    public const BACKOFF_ALGORITHM_EQUAL_JITTER = 3;
+
+    /**
+     * Integer representing the exponential backoff algorithm.
+     *
+     * @var int
+     */
+    public const BACKOFF_ALGORITHM_EXPONENTIAL = 4;
+
+    /**
+     * Integer representing the uniform backoff algorithm.
+     *
+     * @var int
+     */
+    public const BACKOFF_ALGORITHM_UNIFORM = 5;
+
+    /**
+     * Integer representing the constant backoff algorithm.
+     *
+     * @var int
+     */
+    public const BACKOFF_ALGORITHM_CONSTANT = 6;
 
     /**
      * Integer representing the base for backoff computation.
@@ -300,7 +328,7 @@ class Relay
     public const OPT_IGNORE_PATTERNS = 103;
 
     /**
-     * Whether use in-memory caching. Enabled by default.
+     * Whether to use in-memory caching. Enabled by default.
      *
      * @var int
      */
@@ -321,7 +349,7 @@ class Relay
     public const OPT_SCAN = 4;
 
     /**
-     * Whether client capable of handling redirect messages.
+     * Whether the client is capable of handling redirect messages.
      *
      * @var int
      */
@@ -458,7 +486,7 @@ class Relay
     public const REDIS_STREAM = 6;
 
     /**
-     * Integer representing Redis `vectorset` type.
+     * Integer representing Redis vector set type.
      *
      * @see Relay::type()
      * @var int
@@ -479,12 +507,12 @@ class Relay
      * @example $context array{
      *   use-cache: bool,                       // Whether to use in-memory caching
      *   adaptive-cache: array{
-     *     enabled: bool                        // Whether to disable adaptive caching
-     *     width: int                           // Number of horizontal cells in the adaptive cache (Supported values: 512 - (2^31)
-     *     depth: int                           // Number of vertical cells (Supported values: 1 - 8)
-     *     min_ratio: float                     // Minimum number of reads + writes before a key should be cached.
-     *     min_events: int                      // Minimum read-write ratio before a key is cached
-     *     formula: string                      // The formula used to calculate the read/write ratio for each key
+     *     enabled: bool,                       // Whether to disable adaptive caching
+     *     width: int,                          // Number of horizontal cells in the adaptive cache (Supported values: 512 - (2^31)
+     *     depth: int,                          // Number of vertical cells (Supported values: 1 - 8)
+     *     min_ratio: float,                    // Minimum read-write ratio before a key is cached
+     *     min_events: int,                     // Minimum number of reads + writes before a key should be cached
+     *     formula: string,                     // The formula used to calculate the read/write ratio for each key
      *   },
      *   client-tracking: bool,                 // Whether to disable Redis' client tracking (write to in-memory cache only)
      *   client-invalidations: bool,            // Whether to invalidate cached keys without waiting for client tracking
@@ -497,8 +525,8 @@ class Relay
      *   max-retries: int,                      // Number of reconnection attempts when a command or connection fails
      *   serializer: int,                       // The serializer to use (see `OPT_SERIALIZER_*` constants)
      *   compression: int,                      // The compression algorithm to use (see `OPT_COMPRESSION_*` constants)
-     *   compression-level: int                 // The compression level to use
-     *   stream: array,                         // TLS options (see https://www.php.net/manual/en/context.ssl.php)
+     *   compression-level: int,                // The compression level to use
+     *   stream: array<string, mixed>,          // TLS options (see https://www.php.net/manual/en/context.ssl.php)
      *   reply-literal: bool,                   // Whether to return reply literals like `OK` instead of `true`
      *   null-mbulk-as-null: bool,              // Whether to return multibulk as empty array or `null`
      *   capa-redirect: bool,                   // Whether to use CAPA redirects (https://valkey.io/commands/client-capa/)
@@ -576,7 +604,10 @@ class Relay
     ): bool {}
 
     /**
-     * Closes the current connection, unless it's persistent.
+     * Closes the current connection, even if it's persistent.
+     *
+     * Relay defaults to persistent connections and calling `close()` is not necessary
+     * because connections are stashed and reused automatically.
      *
      * @return bool
      */
@@ -584,7 +615,10 @@ class Relay
     public function close(): bool {}
 
     /**
-     * Closes the current connection, if it's persistent.
+     * Closes the current connection.
+     *
+     * @deprecated 0.12.1 Use `Relay::close()`
+     * @alias Relay\Relay::close
      *
      * @return bool
      */
@@ -681,7 +715,7 @@ class Relay
     /**
      * Adds ignore pattern(s). Matching keys will not be cached in memory.
      *
-     * @param  string  $pattern,...
+     * @param  string  ...$pattern
      * @return int
      */
     #[Attributes\Local]
@@ -690,7 +724,7 @@ class Relay
     /**
      * Adds allow pattern(s). Only matching keys will be cached in memory.
      *
-     * @param  string  $pattern,...
+     * @param  string  ...$pattern
      * @return int
      */
     #[Attributes\Local]
@@ -832,6 +866,16 @@ class Relay
     public function _pack(mixed $value): string {}
 
     /**
+     * Returns the XXH3 digest for a given value. This returns the same value
+     * Redis' `DIGEST` command would return.
+     *
+     * @param  mixed  $value
+     * @return string
+     */
+    #[Attributes\Local]
+    public function _digest(mixed $value): string {}
+
+    /**
      * Returns the unserialized and decompressed value.
      *
      * @param  mixed  $value
@@ -898,8 +942,7 @@ class Relay
      *
      * - `stats.requests`: The total number of requests the cache has received
      * - `stats.misses`: Requests where we had to ask Redis for a value
-     * - `stats.hits`: Requests where we did not have to ask redis for the value
-     * - `stats.dirty_skips`: The number of times Relay has skipped an entire database because it was dirty.
+     * - `stats.hits`: Requests where we did not have to ask Redis for the value
      * - `stats.errors`: How many times a 'severe' error occurs (presently this is only incremented if we get a `null` response from hiredis)
      * - `stats.empty`: How many times we've run out of free requests (indicating the size of the ring buffers should be increased)
      * - `stats.oom`: The number of times we've run out of memory
@@ -936,7 +979,7 @@ class Relay
     /**
      * Returns the number of bytes allocated, or `0` in client-only mode.
      *
-     * @deprecated 0.5.0 Use `Relay:maxMemory()`
+     * @deprecated 0.5.0 Use `Relay::maxMemory()`
      *
      * @return int
      */
@@ -948,7 +991,7 @@ class Relay
      * the prefix, compression and serialization.
      *
      * @param  string  $cmd
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -958,10 +1001,10 @@ class Relay
      * Select the Redis logical database having the specified zero-based numeric index.
      *
      * @param  int  $db
-     * @return Relay|bool
+     * @return Relay|bool|string
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function select(int $db): Relay|bool {}
+    public function select(int $db): Relay|bool|string {}
 
     /**
      * Authenticate the connection using a password or an ACL username and password.
@@ -978,7 +1021,7 @@ class Relay
      *
      * @see https://redis.io/commands/info
      *
-     * @param  string  $sections,...
+     * @param  string  ...$sections
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1030,7 +1073,7 @@ class Relay
      * Calls `FUNCTION` sub-command.
      *
      * @param  string  $op
-     * @param  string  $args,...
+     * @param  string  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1109,7 +1152,7 @@ class Relay
 
     /**
      * Add a new attribute to the index.
-     * Adding an attribute to the index causes any future doacument updates
+     * Adding an attribute to the index causes any future document updates
      * to use the new attribute when indexing and reindexing existing documents.
      *
      * @param  mixed  $index
@@ -1159,7 +1202,7 @@ class Relay
      *
      * @param  mixed  $dict
      * @param  mixed  $term
-     * @param  mixed  $other_terms,...
+     * @param  mixed  ...$other_terms
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1170,7 +1213,7 @@ class Relay
      *
      * @param  mixed  $dict
      * @param  mixed  $term
-     * @param  mixed  $other_terms,...
+     * @param  mixed  ...$other_terms
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1300,6 +1343,15 @@ class Relay
     public function dbsize(): Relay|int|false {}
 
     /**
+     * Returns the XXH3 hash of a string key's value.
+     *
+     * @param  mixed  $key
+     * @return Relay|string|null|false
+     */
+    #[Attributes\RedisCommand]
+    public function digest(mixed $key): Relay|string|null|false {}
+
+    /**
      * Serialize and return the value stored at key in a Redis-specific format.
      *
      * @param  mixed  $key
@@ -1388,14 +1440,14 @@ class Relay
     /**
      * Returns PONG if no argument is provided, otherwise return a copy of the argument as a bulk.
      *
-     * @param  string  $arg
+     * @param  string|null  $arg
      * @return Relay|bool|string
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function ping(?string $arg = null): Relay|bool|string {}
 
     /**
-     * Returns the number of milliseoconds since Relay has seen activity from the server.
+     * Returns the number of milliseconds since Relay has seen activity from the server.
      *
      * @return Relay|int|false
      */
@@ -1491,7 +1543,7 @@ class Relay
     /**
      * Returns if key(s) exists.
      *
-     * @param  mixed  $keys,...
+     * @param  mixed  ...$keys
      * @return Relay|bool|int
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -1552,20 +1604,20 @@ class Relay
      * Executes `CLIENT` command operations.
      *
      * @param  string  $operation
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function client(string $operation, mixed ...$args): mixed {}
 
     /**
-     * Add one or more members to a geospacial sorted set.
+     * Add one or more members to a geospatial sorted set.
      *
      * @param  string  $key
      * @param  float  $lng
      * @param  float  $lat
      * @param  string  $member
-     * @param  mixed  $other_triples_and_options,...
+     * @param  mixed  ...$other_triples_and_options
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1578,7 +1630,7 @@ class Relay
     ): Relay|int|false {}
 
     /**
-     * Get the distance between two members of a geospacially encoded sorted set.
+     * Get the distance between two members of a geospatially encoded sorted set.
      *
      * @param  string  $key
      * @param  string  $src
@@ -1594,14 +1646,14 @@ class Relay
      *
      * @param  string  $key
      * @param  string  $member
-     * @param  string  $other_members,...
+     * @param  string  ...$other_members
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function geohash(string $key, string $member, string ...$other_members): Relay|array|false {}
 
     /**
-     * Retrieve members of a geospacially sorted set that are within a certain radius of a location.
+     * Retrieve members of a geospatially sorted set that are within a certain radius of a location.
      *
      * @param  string  $key
      * @param  float  $lng
@@ -1641,7 +1693,7 @@ class Relay
     public function georadiusbymember_ro(string $key, string $member, float $radius, string $unit, array $options = []): mixed {}
 
     /**
-     * Retrieve members of a geospacially sorted set that are within a certain radius of a location.
+     * Retrieve members of a geospatially sorted set that are within a certain radius of a location.
      *
      * @param  string  $key
      * @param  float  $lng
@@ -1655,7 +1707,7 @@ class Relay
     public function georadius_ro(string $key, float $lng, float $lat, float $radius, string $unit, array $options = []): mixed {}
 
     /**
-     * Search a geospacial sorted set for members in various ways.
+     * Search a geospatial sorted set for members in various ways.
      *
      * @param  string  $key
      * @param  array|string  $position
@@ -1674,7 +1726,7 @@ class Relay
     ): Relay|array|false {}
 
     /**
-     * Search a geospacial sorted set for members within a given area or range,
+     * Search a geospatial sorted set for members within a given area or range,
      * storing the results into a new set.
      *
      * @param  string  $dst
@@ -1694,6 +1746,25 @@ class Relay
         string $unit,
         array $options = []
     ): Relay|int|false {}
+
+    /**
+     * Rate limit via GCRA (Generic Cell Rate Algorithm).
+     *
+     * @param  string  $key
+     * @param  int  $maxBurst
+     * @param  int  $requestsPerPeriod
+     * @param  int  $period
+     * @param  int  $tokens = 0
+     * @return Relay|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function gcra(
+        string $key,
+        int $maxBurst,
+        int $requestsPerPeriod,
+        int $period,
+        int $tokens = 0
+    ): Relay|array|false {}
 
     /**
      * Get the value of key.
@@ -1779,7 +1850,7 @@ class Relay
      * such as getting/setting bit ranges, incrementing, etc.
      *
      * @param  mixed  $key
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1799,7 +1870,7 @@ class Relay
     /**
      * Return an array with details about every Redis command.
      *
-     * @param  array  $args,...
+     * @param  array  ...$args
      * @return Relay|array|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1811,7 +1882,7 @@ class Relay
      * @param  string  $operation
      * @param  string  $dstkey
      * @param  string  $srckey
-     * @param  string  $other_keys,...
+     * @param  string  ...$other_keys
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1822,8 +1893,8 @@ class Relay
      *
      * @param  mixed  $key
      * @param  int  $bit
-     * @param  int  $start
-     * @param  int  $end
+     * @param  int|null  $start
+     * @param  int|null  $end
      * @param  bool  $bybit
      * @return Relay|int|false
      */
@@ -1845,7 +1916,7 @@ class Relay
      * Interact with ACLs.
      *
      * @param  string  $cmd
-     * @param  string  $args,...
+     * @param  string  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1963,7 +2034,7 @@ class Relay
      * A container command for Pub/Sub introspection commands.
      *
      * @param  string  $operation
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2021,6 +2092,17 @@ class Relay
     public function mset(array $kvals): Relay|bool {}
 
     /**
+     * Sets the given keys to their respective values with optional TTL
+     * information.
+     *
+     * @param  array  $kvals
+     * @param  int|float|array|null  $ttl
+     * @return Relay|int|false
+     */
+    #[Attributes\RedisCommand]
+    public function msetex(mixed $kvals, int|float|array|null $ttl = null): Relay|int|false {}
+
+    /**
      * Sets the given keys to their respective values.
      * MSETNX will not perform any operation at all even if just a single key already exists.
      *
@@ -2053,11 +2135,21 @@ class Relay
     /**
      * Removes the specified keys.
      *
-     * @param  mixed  $keys,...
+     * @param  mixed  ...$keys
      * @return Relay|int|bool
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function del(mixed ...$keys): Relay|int|bool {}
+
+    /**
+     * Removes the key if it matches or does not match a value or hash.
+     *
+     * @param  mixed  $key
+     * @param  array  $options
+     * @return Relay|int|false
+     */
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    public function delex(mixed $key, ?array $options = null): Relay|int|false {}
 
     /**
      * Remove a key if it equals the provided value.
@@ -2072,7 +2164,7 @@ class Relay
     /**
      * Removes the specified keys without blocking Redis.
      *
-     * @param  mixed  $keys,...
+     * @param  mixed  ...$keys
      * @return Relay|int
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2131,7 +2223,7 @@ class Relay
     public function pexpireat(mixed $key, int $timestamp_ms): Relay|bool {}
 
     /**
-     * Semantic the same as EXPIRETIME, but returns the absolute Unix expiration
+     * Semantically the same as EXPIRETIME, but returns the absolute Unix expiration
      * timestamp in milliseconds instead of seconds.
      *
      * @param  mixed  $key
@@ -2207,7 +2299,7 @@ class Relay
      *
      * @param  mixed  $key
      * @param  mixed  $mem
-     * @param  mixed  $mems,...
+     * @param  mixed  ...$mems
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2218,7 +2310,7 @@ class Relay
      *
      * @param  mixed  $key
      * @param  mixed  $mem
-     * @param  mixed  $mems,...
+     * @param  mixed  ...$mems
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2230,7 +2322,7 @@ class Relay
      *
      * @param  mixed  $key
      * @param  mixed  $mem
-     * @param  mixed  $mems,...
+     * @param  mixed  ...$mems
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2242,7 +2334,7 @@ class Relay
      *
      * @param  mixed  $key
      * @param  mixed  $mem
-     * @param  mixed  $mems,...
+     * @param  mixed  ...$mems
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2320,7 +2412,7 @@ class Relay
      *
      * @param  string|array  $key
      * @param  string|float  $timeout_or_key
-     * @param  array  $extra_args,...
+     * @param  array  ...$extra_args
      * @return Relay|array|null|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2379,7 +2471,7 @@ class Relay
      *
      * @param  string|array  $key
      * @param  string|float  $timeout_or_key
-     * @param  array  $extra_args,...
+     * @param  array  ...$extra_args
      * @return Relay|array|null|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2390,7 +2482,7 @@ class Relay
      *
      * @param  string|array  $key
      * @param  string|float  $timeout_or_key
-     * @param  array  $extra_args,...
+     * @param  array  ...$extra_args
      * @return Relay|array|null|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2401,7 +2493,7 @@ class Relay
      *
      * @param  string|array  $key
      * @param  string|float  $timeout_or_key
-     * @param  array  $extra_args,...
+     * @param  array  ...$extra_args
      * @return Relay|array|null|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2422,7 +2514,7 @@ class Relay
      * of the geospatial index represented by the sorted set at key.
      *
      * @param  mixed  $key
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2491,6 +2583,18 @@ class Relay
      * @return Relay|array|false
      */
     public function hgetex(mixed $hash, array $fields, mixed $expiry = null): Relay|array|false {}
+
+    /**
+     * Returns the value associated with field in the hash stored at key.
+     *
+     * @see self::getWithMeta()
+     *
+     * @param  mixed  $hash
+     * @param  mixed  $member
+     * @return Relay|array{0: mixed, 1: array{cached: bool, length: int}}|false
+     */
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
+    public function hgetWithMeta(mixed $hash, mixed $member): Relay|array|false {}
 
     /**
      * Returns the string length of the value associated with field in the hash stored at key.
@@ -2580,7 +2684,7 @@ class Relay
     public function hexists(mixed $hash, mixed $member): Relay|bool {}
 
     /**
-     * Se an expiration for one or more hash fields.
+     * Set an expiration for one or more hash fields.
      *
      * @param  mixed  $hash
      * @param  int  $ttl
@@ -2692,7 +2796,7 @@ class Relay
      * Sets field in the hash stored at key to value.
      *
      * @param  mixed  $key
-     * @param  mixed  $keys_and_vals...
+     * @param  mixed  ...$keys_and_vals
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2714,7 +2818,7 @@ class Relay
      *
      * @param  mixed  $key
      * @param  mixed  $mem
-     * @param  string  $mems,...
+     * @param  string  ...$mems
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2794,6 +2898,16 @@ class Relay
     public function incrbyfloat(mixed $key, float $value): Relay|float|false {}
 
     /**
+     * Increment a key by an int or float with a whole host of options
+     *
+     * @param  mixed  $key
+     * @param  null|int|float  $value
+     * @param  array|null  $options
+     * @return Relay|array|false
+     */
+    public function increx(mixed $key, null|int|float $value = null, ?array $options = null): Relay|array|false {}
+
+    /**
      * Append the json values into the array at path after the last element in it.
      *
      * @param  mixed  $key
@@ -2823,7 +2937,7 @@ class Relay
      * @param  string  $path
      * @param  int  $index
      * @param  mixed  $value
-     * @param  mixed  $other_values,...
+     * @param  mixed  ...$other_values
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -2904,7 +3018,7 @@ class Relay
      *
      * @param  mixed  $key
      * @param  array  $options
-     * @param  string  $paths,...
+     * @param  string  ...$paths
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -3014,10 +3128,11 @@ class Relay
      * @param  mixed  $key
      * @param  mixed  $value
      * @param  string|null  $path
+     * @param  string|null  $fpha
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function jsonStrAppend(mixed $key, mixed $value, ?string $path = null): Relay|array|false {}
+    public function jsonStrAppend(mixed $key, mixed $value, ?string $path = null, ?string $fpha = null): Relay|array|false {}
 
     /**
      * Report the length of the JSON String at path in key.
@@ -3054,7 +3169,7 @@ class Relay
      * between the first set and all the successive sets.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -3065,7 +3180,7 @@ class Relay
      * it is stored in destination. If destination already exists, it is overwritten.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -3075,7 +3190,7 @@ class Relay
      * Returns the members of the set resulting from the intersection of all the given sets.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -3096,7 +3211,7 @@ class Relay
      * it is stored in destination. If destination already exists, it is overwritten.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -3106,7 +3221,7 @@ class Relay
      * Returns the members of the set resulting from the union of all the given sets.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -3117,7 +3232,7 @@ class Relay
      * it is stored in destination. If destination already exists, it is overwritten.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
+     * @param  mixed  ...$other_keys
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -3184,7 +3299,7 @@ class Relay
      * Alters the last access time of a key(s).
      *
      * @param  array|string  $key_or_array
-     * @param  mixed  $more_keys,...
+     * @param  mixed  ...$more_keys
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -3232,20 +3347,20 @@ class Relay
      * Marks the given keys to be watched for conditional execution of a transaction.
      *
      * @param  mixed  $key
-     * @param  mixed  $other_keys,...
-     * @return Relay|bool
+     * @param  mixed  ...$other_keys
+     * @return Relay|bool|string
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function watch(mixed $key, mixed ...$other_keys): Relay|bool {}
+    public function watch(mixed $key, mixed ...$other_keys): Relay|bool|string {}
 
     /**
      * Flushes all the previously watched keys for a transaction.
      * If you call EXEC or DISCARD, there's no need to manually call UNWATCH.
      *
-     * @return Relay|bool
+     * @return Relay|bool|string
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function unwatch(): Relay|bool {}
+    public function unwatch(): Relay|bool|string {}
 
     /**
      * Flushes all previously queued commands in a transaction and restores the connection state to normal.
@@ -3351,7 +3466,7 @@ class Relay
      * Interact with Valkey's COMMANDLOG command.
      *
      * @param  string  $subcmd
-     * @param  mixed  $args...
+     * @param  mixed  ...$args
      * @return Relay|array|int|bool
      */
     #[Attributes\ValkeyCommand]
@@ -3361,11 +3476,21 @@ class Relay
      * Interact with the Redis slowlog.
      *
      * @param  string  $operation
-     * @param  string  $extra_args,...
+     * @param  string  ...$extra_args
      * @return Relay|array|int|bool
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function slowlog(string $operation, string ...$extra_args): Relay|array|int|bool {}
+    public function slowlog(string $operation, mixed ...$extra_args): Relay|array|int|bool {}
+
+    /**
+     * A container for hotkeys tracking commands.
+     *
+     * @param  string  $subcmd
+     * @param  array|null  $args
+     * @return Relay|array|bool
+     */
+    #[Attributes\RedisCommand]
+    public function hotkeys(string $subcmd, ?array $args = null): Relay|array|bool {}
 
     /**
      * Returns all the members of the set value stored at `$key`.
@@ -3390,7 +3515,7 @@ class Relay
      * Returns whether each member is a member of the set stored at `$key`.
      *
      * @param  mixed  $set
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
@@ -3401,7 +3526,7 @@ class Relay
      *
      * @param  mixed  $set
      * @param  mixed  $member
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -3412,7 +3537,7 @@ class Relay
      *
      * @param  mixed  $set
      * @param  mixed  $member
-     * @param  mixed  $members,...
+     * @param  mixed  ...$members
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -3482,7 +3607,7 @@ class Relay
      * Execute a script management command.
      *
      * @param  string  $command
-     * @param  string  $args,...
+     * @param  string  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -3589,7 +3714,7 @@ class Relay
     public function vinfo(mixed $key): Relay|array|false {}
 
     /**
-     * Returns whether or not the element is a member of a vectorset.
+     * Returns whether or not the element is a member of a vector set.
      *
      * @param  mixed  $key
      * @param  mixed  $element
@@ -3599,7 +3724,7 @@ class Relay
     public function vismember(mixed $key, mixed $element): Relay|bool {}
 
     /**
-     * Get neighbors for a given vector element optionally withscores.
+     * Get neighbors for a given vector element optionally with scores.
      *
      * @param  mixed  $key
      * @param  mixed  $element
@@ -3625,7 +3750,8 @@ class Relay
      * @param  mixed  $key
      * @param  string  $min
      * @param  string  $max
-     * @param  int  $count = 0
+     * @param  int  $count
+     * @return Relay|array|false
      */
     #[Attributes\RedisCommand]
     public function vrange(mixed $key, string $min, string $max, int $count = -1): Relay|array|false {}
@@ -3674,7 +3800,20 @@ class Relay
     public function xack(mixed $key, string $group, array $ids): Relay|int|false {}
 
     /**
-     * Awknowledge and delete one or more IDs in a stream.
+     * Negatively acknowledge one or more IDs in a stream.
+     *
+     * @param  string  $key
+     * @param  string  $group
+     * @param  string  $mode
+     * @param  array  $ids
+     * @param  array|null  $options
+     * @return Relay|int|false
+     */
+    #[Attributes\RedisCommand]
+    public function xnack(string $key, string $group, string $mode, array $ids, ?array $options = null): Relay|int|false {}
+
+    /**
+     * Acknowledge and delete one or more IDs in a stream.
      *
      * @param  string  $key
      * @param  string  $group
@@ -3762,8 +3901,8 @@ class Relay
      *
      * @param  string  $operation
      * @param  mixed  $key
-     * @param  string  $group
-     * @param  string  $id_or_consumer
+     * @param  string|null  $group
+     * @param  string|null  $id_or_consumer
      * @param  bool  $mkstream
      * @param  int  $entries_read
      * @return mixed
@@ -3847,7 +3986,7 @@ class Relay
     public function xrange(mixed $key, string $start, string $end, int $count = -1): Relay|array|false {}
 
     /**
-     * Get a range of entries from a STREAM ke in reverse chronological order.
+     * Get a range of entries from a STREAM key in reverse chronological order.
      *
      * @param  string  $key
      * @param  string  $end
@@ -3911,7 +4050,7 @@ class Relay
      * Adds all the specified members with the specified scores to the sorted set stored at key.
      *
      * @param  mixed  $key
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -4050,10 +4189,10 @@ class Relay
 
     /**
      * Removes the specified members from the sorted set stored at key.
-     * Non existing members are ignored.
+     * Non-existing members are ignored.
      *
      * @param  mixed  $key
-     * @param  mixed  $args,...
+     * @param  mixed  ...$args
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -4075,7 +4214,7 @@ class Relay
 
     /**
      * Removes all elements in the sorted set stored at key with rank between
-     * start and stop. Both start and stop are 0 -based indexes with 0 being
+     * start and stop. Both start and stop are 0-based indexes with 0 being
      * the element with the lowest score.
      *
      * @param  mixed  $key
@@ -4168,7 +4307,7 @@ class Relay
      * Returns the scores associated with the specified members in the sorted set stored at key.
      *
      * @param  mixed  $key
-     * @param  mixed  $mems,...
+     * @param  mixed  ...$mems
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -4303,11 +4442,11 @@ class Relay
      * @param  mixed  $key
      * @param  mixed  $field
      * @param  int  $value
-     * @param  mixed  $fields_and_falues,...
+     * @param  mixed  ...$fields_and_values
      * @return Relay|array
      */
     #[Attributes\RedisCommand]
-    public function cmsIncrBy(mixed $key, mixed $field, int $value, ...$fields_and_falues): Relay|array|false {}
+    public function cmsIncrBy(mixed $key, mixed $field, int $value, ...$fields_and_values): Relay|array|false {}
 
     /**
      * Merge one or more Count-Min Sketch keys with optional weights.
@@ -4322,7 +4461,7 @@ class Relay
      * Query a Count-Min Sketch key.
      *
      * @param  mixed  $key
-     * @param  mixed  $fields,...
+     * @param  mixed  ...$fields
      * @return Relay|array
      */
     #[Attributes\RedisCommand]

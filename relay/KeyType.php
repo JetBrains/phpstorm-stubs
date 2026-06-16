@@ -41,4 +41,9 @@ enum KeyType: int
      * @see Relay::REDIS_STREAM
      */
     case Stream = Relay::REDIS_STREAM;
+
+    /**
+     * @see Relay::REDIS_VECTORSET
+     */
+    case Vectorset = Relay::REDIS_VECTORSET;
 }

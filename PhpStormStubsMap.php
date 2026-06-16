@@ -940,7 +940,6 @@ const CLASSES = array (
   'RegexIterator' => 'SPL/SPL.php',
   'Relay\\AdaptiveCache' => 'relay/AdaptiveCache.php',
   'Relay\\Cluster' => 'relay/Cluster.php',
-  'Relay\\Cluster\\FullscanGenerator' => 'relay/Cluster.php',
   'Relay\\Event' => 'relay/Event.php',
   'Relay\\Event\\Flushed' => 'relay/Events.php',
   'Relay\\Event\\Invalidated' => 'relay/Events.php',
