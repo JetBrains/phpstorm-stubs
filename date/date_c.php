@@ -187,7 +187,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @link https://secure.php.net/manual/en/datetimeimmutable.construct.php
      * @param string $datetime [optional]
      * <p>A date/time string. Valid formats are explained in {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
-     * <p>Enter <b>NULL</b> here to obtain the current time when using the <em>$timezone</em> parameter.</p>
+     * <p>Enter <b>'now'</b> here to obtain the current time when using the <em>$timezone</em> parameter.</p>
      * @param null|DateTimeZone $timezone [optional] <p>
      * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone} object representing the timezone of <em>$datetime</em>.
      * </p>
@@ -209,7 +209,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @link https://secure.php.net/manual/en/datetimeimmutable.construct.php
      * @param string $datetime [optional]
      * <p>A date/time string. Valid formats are explained in {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
-     * <p>Enter <b>NULL</b> here to obtain the current time when using the <em>$timezone</em> parameter.</p>
+     * <p>Enter <b>'now'</b> here to obtain the current time when using the <em>$timezone</em> parameter.</p>
      * @param null|DateTimeZone $timezone [optional] <p>
      * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone} object representing the timezone of <em>$datetime</em>.
      * </p>
