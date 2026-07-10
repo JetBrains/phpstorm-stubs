@@ -299,7 +299,7 @@ function enchant_dict_is_added(EnchantDictionary $dictionary, string $word): boo
  * </p>
  * @return array Returns the details of the dictionary.
  */
-function enchant_dict_describe(EnchantDictionary $dictionary):array {}
+function enchant_dict_describe(EnchantDictionary $dictionary): array {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant:0.2.0-1.0.1)<br/>

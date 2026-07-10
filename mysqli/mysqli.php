@@ -964,6 +964,13 @@ class mysqli
     #[Deprecated("The function is deprecated", since: "8.4")]
     #[TentativeType]
     public function refresh(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags): bool {}
+
+    /**
+     * @param string $string
+     * @return string
+     * @since 8.6
+     */
+    public function quote_string(string $string): string {}
 }
 
 /**
@@ -3686,3 +3693,17 @@ define('MYSQLI_IS_MARIADB', 0);
  * @since 8.4
  */
 define('MYSQLI_TYPE_VECTOR', 242);
+
+/**
+ * @since 8.6
+ */
+define('MYSQLI_OPT_COMPRESS', 1);
+
+/**
+ * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
+ * @param mysqli $mysql
+ * @param string $string
+ * @return string
+ * @since 8.6
+ */
+function mysqli_quote_string(mysqli $mysql, string $string): string {}

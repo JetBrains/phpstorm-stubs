@@ -359,7 +359,8 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     /**
      * @since 8.3
      */
-    public function __debugInfo(): ?array {}
+    #[LanguageLevelTypeAware(['8.6' => 'array'], default: 'array|null')]
+    public function __debugInfo() {}
 }
 
 /**

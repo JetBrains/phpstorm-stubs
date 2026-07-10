@@ -80,6 +80,7 @@ enum StubCategory: string
                 'filter',
                 'fpm',
                 'hash',
+                'io',
                 'litespeed',
                 'meta',
                 'pcre',

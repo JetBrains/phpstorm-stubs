@@ -112,6 +112,106 @@
     },
     {
         "_type": "PHPEnum",
+        "name": "Backend",
+        "id": "\\Io\\Poll\\Backend",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "io/io.php",
+        "duplicates": [],
+        "namespace": "\\Io\\Poll",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "Epoll",
+            "Kqueue",
+            "Poll",
+            "Select"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "getAvailableBackends",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            },
+            {
+                "name": "isAvailable",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            },
+            {
+                "name": "supportsEdgeTriggering",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "Event",
+        "id": "\\Io\\Poll\\Event",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "io/io.php",
+        "duplicates": [],
+        "namespace": "\\Io\\Poll",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "Read",
+            "Write",
+            "Error",
+            "Hangup"
+        ],
+        "constants": [],
+        "methods": [],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
         "name": "VectorType",
         "id": "\\MongoDB\\BSON\\VectorType",
         "isFinal": false,
@@ -399,6 +499,144 @@
     },
     {
         "_type": "PHPEnum",
+        "name": "SortDirection",
+        "id": "\\SortDirection",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "standard/standard_9.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "Ascending",
+            "Descending"
+        ],
+        "constants": [],
+        "methods": [],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "StreamErrorCode",
+        "id": "\\StreamErrorCode",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "standard/streams.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "None",
+            "System",
+            "Wrapper",
+            "Timeout"
+        ],
+        "constants": [],
+        "methods": [],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "StreamErrorMode",
+        "id": "\\StreamErrorMode",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "standard/streams.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "Silent",
+            "Warning",
+            "Exception"
+        ],
+        "constants": [],
+        "methods": [],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "StreamErrorStore",
+        "id": "\\StreamErrorStore",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "standard/streams.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "None",
+            "Last",
+            "All"
+        ],
+        "constants": [],
+        "methods": [],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "UriHostType",
+        "id": "\\Uri\\Rfc3986\\UriHostType",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "uri/uri.php",
+        "duplicates": [],
+        "namespace": "\\Uri\\Rfc3986",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "RegName",
+            "Ipv4",
+            "Ipv6",
+            "IpvFuture"
+        ],
+        "constants": [],
+        "methods": [],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "UriType",
+        "id": "\\Uri\\Rfc3986\\UriType",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "uri/uri.php",
+        "duplicates": [],
+        "namespace": "\\Uri\\Rfc3986",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "Absolute",
+            "Relative"
+        ],
+        "constants": [],
+        "methods": [],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
         "name": "UriComparisonMode",
         "id": "\\Uri\\UriComparisonMode",
         "isFinal": false,
@@ -433,6 +671,31 @@
                 "defaultType": null
             }
         ],
+        "interfaces": [
+            "UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "UrlHostType",
+        "id": "\\Uri\\WhatWg\\UrlHostType",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "uri/uri.php",
+        "duplicates": [],
+        "namespace": "\\Uri\\WhatWg",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "cases": [
+            "Domain",
+            "Ipv4",
+            "Ipv6",
+            "Opaque",
+            "Empty"
+        ],
+        "constants": [],
+        "methods": [],
         "interfaces": [
             "UnitEnum"
         ]

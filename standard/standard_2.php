@@ -295,7 +295,7 @@ function str_pad(string $string, int $length, string $pad_string = " ", int $pad
  * @see rtrim()
  */
 #[Pure]
-function chop(string $string, string $characters = " \n\r\t\v\0"): string {}
+function chop(string $string, #[PhpStormStubsElementAvailable(to: '8.5')] string $characters = " \n\r\t\v\0", #[PhpStormStubsElementAvailable(from: '8.6')] string $characters = " \f\n\r\t\v\0"): string {}
 
 /**
  * Alias:

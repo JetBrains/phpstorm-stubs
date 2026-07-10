@@ -1,10 +1,10 @@
 name: Update Reflection Cache
 
-# Checks whether any tracked PHP line (5.6 - 8.5) has a new patch release and, if so, regenerates
+# Checks whether any tracked PHP line (5.6 - 8.6) has a new patch release and, if so, regenerates
 # the affected committed reflection caches (tests/cache/Reflection<version>.json) and opens a PR.
 #
 # Detection compares the patch versions recorded in tests/cache/php-versions.json against the
-# latest `php:<minor>.<patch>-alpine` images on Docker Hub. New minor lines (e.g. 8.6) are NOT
+# latest `php:<minor>.<patch>-alpine` images on Docker Hub. New minor lines (e.g. 8.7) are NOT
 # added automatically — that needs a hand-authored Dockerfile.
 
 on:

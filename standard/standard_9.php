@@ -1402,3 +1402,17 @@ function get_debug_type(mixed $value): string {}
  */
 #[Pure]
 function get_resource_id($resource): int {}
+
+/**
+ * @since 8.6
+ */
+define("ARRAY_FILTER_USE_VALUE", 0);
+
+/**
+ * @since 8.6
+ */
+enum SortDirection implements \UnitEnum
+{
+    case Ascending;
+    case Descending;
+}

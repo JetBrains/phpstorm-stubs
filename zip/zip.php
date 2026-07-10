@@ -3,6 +3,7 @@
 // Start of zip v.1.14.0
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
@@ -66,12 +67,40 @@ class ZipArchive implements Countable
      * @link https://php.net/manual/en/zip.constants.php
      */
     public const FL_UNCHANGED = 8;
+
+    /**
+     * @since 8.0
+     */
     public const FL_RECOMPRESS = 16;
+
+    /**
+     * @since 8.0
+     */
     public const FL_ENCRYPTED = 32;
+
+    /**
+     * @since 8.0
+     */
     public const FL_OVERWRITE = 8192;
+
+    /**
+     * @since 8.0
+     */
     public const FL_LOCAL = 256;
+
+    /**
+     * @since 8.0
+     */
     public const FL_CENTRAL = 512;
+
+    /**
+     * @since 8.0
+     */
     public const EM_TRAD_PKWARE = 1;
+
+    /**
+     * @since 8.0
+     */
     public const EM_UNKNOWN = 65535;
 
     /**
@@ -573,15 +602,55 @@ class ZipArchive implements Countable
      * @since 5.6
      */
     public const OPSYS_DEFAULT = 3;
+
+    /**
+     * @since 8.0
+     */
     public const FL_OPEN_FILE_NOW = 1073741824;
+
+    /**
+     * @since 8.0
+     */
     public const CM_ZSTD = 93;
+
+    /**
+     * @since 8.0
+     */
     public const ER_DATA_LENGTH = 33;
+
+    /**
+     * @since 8.0
+     */
     public const ER_NOT_ALLOWED = 34;
+
+    /**
+     * @since 8.0
+     */
     public const AFL_RDONLY = 2;
+
+    /**
+     * @since 8.0
+     */
     public const AFL_IS_TORRENTZIP = 4;
+
+    /**
+     * @since 8.0
+     */
     public const AFL_WANT_TORRENTZIP = 8;
+
+    /**
+     * @since 8.0
+     */
     public const AFL_CREATE_OR_KEEP_FILE_FOR_EMPTY_ARCHIVE = 16;
+
+    /**
+     * @since 8.0
+     */
     public const LENGTH_TO_END = 0;
+
+    /**
+     * @since 8.0
+     */
     public const LENGTH_UNCHECKED = -2;
 
     /**
@@ -747,7 +816,7 @@ class ZipArchive implements Countable
     #[TentativeType]
     public function addEmptyDir(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $dirname,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
+        #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): bool {}
 
     /**
@@ -768,7 +837,7 @@ class ZipArchive implements Countable
     public function addFromString(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $content,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 8192
+        #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 8192
     ): bool {}
 
     /**
@@ -796,7 +865,7 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $entryname = null,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $start = 0,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 8192
+        #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 8192
     ): bool {}
 
     /**
@@ -1435,6 +1504,33 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.2' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.2' => 'int'], default: '')] $flags = 0
     ) {}
+
+    /**
+     * @return array
+     * @since 8.6
+     */
+    public function __serialize(): array {}
+
+    /**
+     * @param array $data
+     * @return void
+     * @since 8.6
+     */
+    public function __unserialize(array $data): void {}
+
+    /**
+     * @return string|false
+     * @since 8.6
+     */
+    public function closeString(): string|false {}
+
+    /**
+     * @param string $data
+     * @param int $flags
+     * @return int|bool
+     * @since 8.6
+     */
+    public function openString(string $data = '', int $flags = 0): int|bool {}
 }
 
 /**

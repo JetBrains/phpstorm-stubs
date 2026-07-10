@@ -455,4 +455,20 @@ class ReflectionProperty implements Reflector
      * @since 8.5
      */
     public function getMangledName(): string {}
+
+    /**
+     * @param string|null $scope
+     * @param object|null $object
+     * @return bool
+     * @since 8.6
+     */
+    public function isReadable(?string $scope, ?object $object = null): bool {}
+
+    /**
+     * @param string|null $scope
+     * @param object|null $object
+     * @return bool
+     * @since 8.6
+     */
+    public function isWritable(?string $scope, ?object $object = null): bool {}
 }

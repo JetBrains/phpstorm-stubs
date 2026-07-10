@@ -9270,6 +9270,20 @@
     },
     {
         "_type": "PHPInterface",
+        "name": "Handle",
+        "id": "\\Io\\Poll\\Handle",
+        "sourcePath": "io/io.php",
+        "duplicates": [],
+        "namespace": "\\Io\\Poll",
+        "phpDoc": null,
+        "sinceVersion": "8.6",
+        "removedVersion": null,
+        "methods": [],
+        "constants": [],
+        "parentInterfaces": []
+    },
+    {
+        "_type": "PHPInterface",
         "name": "Iterator",
         "id": "\\Iterator",
         "sourcePath": "Core/Core_c.php",

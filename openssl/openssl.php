@@ -731,7 +731,7 @@ function openssl_encrypt(
     int $options = 0,
     string $iv = "",
     #[PhpStormStubsElementAvailable(from: '7.1')] &$tag = null,
-    #[PhpStormStubsElementAvailable(from: '7.1')] string $aad = "",
+    #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.6' => 'string|null'], default: 'string')] $aad = "",
     #[PhpStormStubsElementAvailable(from: '7.1')] int $tag_length = 16
 ): string|false {}
 
@@ -768,7 +768,7 @@ function openssl_decrypt(
     int $options = 0,
     string $iv = "",
     #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: 'string')] $tag = null,
-    #[PhpStormStubsElementAvailable(from: '7.1')] string $aad = ""
+    #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.6' => 'string|null'], default: 'string')] $aad = ""
 ): string|false {}
 
 /**

@@ -4,7 +4,7 @@
 # Run reflection parser across all PHP Docker versions
 #
 # This script:
-# 1. Builds Docker images for each PHP version (5.6 - 8.4)
+# 1. Builds Docker images for each PHP version (5.6 - 8.6)
 # 2. Runs legacy reflection adapter in each container (Stage 1)
 # 3. Processes adapted data with modern PHP (Stage 2)
 # 4. Outputs JSON files to tests/cache/Reflection{version}.json
@@ -57,9 +57,27 @@ PHP_VERSIONS_MANIFEST="$SCRIPT_DIR/cache/php-versions.json"
 get_patch() {
     local minor="$1" patch=""
     if [ -f "$PHP_VERSIONS_MANIFEST" ]; then
-        patch=$(sed -n "s/.*\"$minor\"[[:space:]]*:[[:space:]]*\"\([0-9][0-9.]*\)\".*/\1/p" "$PHP_VERSIONS_MANIFEST")
+        # Patch labels are usually numeric (e.g. "8.3.31") but pre-release lines record a floating
+        # channel tag such as "8.6-rc", so allow letters and hyphens too.
+        patch=$(sed -n "s/.*\"$minor\"[[:space:]]*:[[:space:]]*\"\([0-9][0-9A-Za-z.-]*\)\".*/\1/p" "$PHP_VERSIONS_MANIFEST")
     fi
     echo "${patch:-$minor}"
+}
+
+# Stage 2 (processing the serialized reflection data into JSON) runs on the test_runner image,
+# which is pinned to the newest *stable* PHP. That works for every line up to and including the
+# runner's own version, but a pre-release line that is NEWER than the runner (e.g. 8.6 while the
+# runner is 8.5) can contain classes/enums the runner lacks. Their serialized instances then fail
+# to unserialize there (enums in particular cannot degrade to __PHP_Incomplete_Class). For those
+# versions we process Stage 2 inside the version's own php_under_test container instead — it is the
+# only runtime that has the new symbols, and the framework runs fine on it.
+TEST_RUNNER_DOCKERFILE="$SCRIPT_DIR/DockerImages/testRunner/Dockerfile"
+TEST_RUNNER_VERSION="$(sed -n 's/^FROM php:\([0-9][0-9.]*\)-alpine.*/\1/p' "$TEST_RUNNER_DOCKERFILE" 2>/dev/null | head -n1)"
+TEST_RUNNER_VERSION="${TEST_RUNNER_VERSION:-8.5}"
+
+# version_gt A B -> true when A is a strictly higher version than B (numeric-aware).
+version_gt() {
+    [ "$1" != "$2" ] && [ "$(printf '%s\n%s\n' "$1" "$2" | sort -V | tail -n1)" = "$1" ]
 }
 
 # Parse arguments: optional --skip-build flag and an optional explicit list of versions.
@@ -179,9 +197,18 @@ for VERSION in "${PHP_VERSIONS[@]}"; do
 
     OUTPUT_FILE="$SCRIPT_DIR/cache/Reflection$VERSION.json"
 
-    # Run processor with test_runner container (latest stable PHP)
-    if docker compose -f "$PROJECT_ROOT/docker-compose.yml" run --rm \
-        test_runner \
+    # Default to the stable test_runner; for a version newer than the runner, self-process in the
+    # version's own container so its new symbols are available during unserialize (see note above).
+    if version_gt "$VERSION" "$TEST_RUNNER_VERSION"; then
+        STAGE2_SERVICE="php_under_test"
+        echo -e "${BLUE}      (PHP $VERSION is newer than test_runner $TEST_RUNNER_VERSION — processing in its own container)${NC}"
+    else
+        STAGE2_SERVICE="test_runner"
+    fi
+
+    # Run processor (test_runner = latest stable PHP; php_under_test = this version's runtime)
+    if PHP_VERSION=$VERSION docker compose -f "$PROJECT_ROOT/docker-compose.yml" run --rm \
+        "$STAGE2_SERVICE" \
         php tests/run-reflection-processor.php "/opt/project/phpstorm-stubs/tests/cache/.tmp-reflection-$VERSION.dat" "/opt/project/phpstorm-stubs/tests/cache/Reflection$VERSION.json"; then
         echo -e "${GREEN}      ✓ Reflection processing completed${NC}"
         # Clean up temp file

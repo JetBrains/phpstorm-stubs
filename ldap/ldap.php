@@ -417,10 +417,11 @@ function ldap_search(
  * @param resource|Result $result
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[PhpVersionAware(['8.6' => 'true'], default: 'bool')]
 function ldap_free_result(
     #[Available(from: '5.3', to: '8.0')] $ldap,
     #[Available(from: '8.1')] Result $result
-): bool {}
+) {}
 
 /**
  * Count the number of entries in a search

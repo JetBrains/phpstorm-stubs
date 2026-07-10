@@ -2513,3 +2513,8 @@ const PGSQL_SHOW_CONTEXT_ERRORS = 1;
 const PGSQL_SHOW_CONTEXT_ALWAYS = 2;
 const PGSQL_TUPLES_CHUNK = 12;
 // End of pgsql v.
+
+/**
+ * @since 8.6
+ */
+define('PGSQL_CONNECTION_SSL_STARTUP', 7);

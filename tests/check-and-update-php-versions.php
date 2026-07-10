@@ -3,10 +3,10 @@
 
 /**
  * Detect new PHP *patch* releases for the PHP versions this project already tracks
- * (PhpVersions enum, currently 5.6 - 8.5) and decide whether the reflection caches need
+ * (PhpVersions enum, currently 5.6 - 8.6) and decide whether the reflection caches need
  * to be regenerated.
  *
- * It does NOT add new minor versions (e.g. 8.6) — adding a new minor line requires a
+ * It does NOT add new minor versions (e.g. 8.7) — adding a new minor line requires a
  * hand-authored Dockerfile and is a deliberate, reviewed change. This script only watches the
  * lines we already build, so that a new patch (e.g. 8.5.0 -> 8.5.1) triggers a cache refresh.
  *

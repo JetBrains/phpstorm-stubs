@@ -39,4 +39,10 @@ class ReflectionConstant implements Reflector
      * @since 8.5
      */
     public function getAttributes(?string $name = null, int $flags = 0): array {}
+
+    /**
+     * @return bool
+     * @since 8.6
+     */
+    public function inNamespace(): bool {}
 }

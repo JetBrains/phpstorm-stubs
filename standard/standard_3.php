@@ -1109,3 +1109,13 @@ function import_request_variables(string $types, $prefix = null): bool {}
  * @return bool true on success or false on failure.
  */
 function error_log(string $message, int $message_type = 0, ?string $destination = null, ?string $additional_headers = null): bool {}
+
+/**
+ * Restrict a value to a given range
+ * @param mixed $value
+ * @param mixed $min
+ * @param mixed $max
+ * @return mixed
+ * @since 8.6
+ */
+function clamp(mixed $value, mixed $min, mixed $max): mixed {}

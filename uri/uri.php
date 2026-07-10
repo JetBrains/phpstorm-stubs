@@ -110,6 +110,68 @@ namespace Uri\Rfc3986 {
         public function __unserialize(array $data): void {}
 
         public function __debugInfo(): array {}
+
+        /**
+         * @since 8.6
+         */
+        public function getHostType(): ?UriHostType {}
+
+        /**
+         * @since 8.6
+         */
+        public function getUriType(): ?UriType {}
+    }
+
+    /**
+     * @since 8.6
+     */
+    enum UriHostType implements \UnitEnum
+    {
+        case RegName;
+        case Ipv4;
+        case Ipv6;
+        case IpvFuture;
+    }
+
+    /**
+     * @since 8.6
+     */
+    enum UriType implements \UnitEnum
+    {
+        case Absolute;
+        case Relative;
+    }
+
+    /**
+     * @since 8.6
+     */
+    final class UriBuilder
+    {
+        private ?string $scheme;
+        private ?string $userinfo;
+        private ?string $host;
+        private ?int $port;
+        private string $path;
+        private ?string $query;
+        private ?string $fragment;
+
+        public function reset(): static {}
+
+        public function setScheme(?string $scheme): static {}
+
+        public function setUserInfo(?string $userInfo): static {}
+
+        public function setHost(?string $host): static {}
+
+        public function setPort(?int $port): static {}
+
+        public function setPath(string $path): static {}
+
+        public function setQuery(?string $query): static {}
+
+        public function setFragment(?string $fragment): static {}
+
+        public function build(?Uri $baseUrl = null): Uri {}
     }
 }
 
@@ -251,5 +313,27 @@ namespace Uri\WhatWg {
         public function __unserialize(array $data): void {}
 
         public function __debugInfo(): array {}
+
+        /**
+         * @since 8.6
+         */
+        public function getHostType(): ?UrlHostType {}
+
+        /**
+         * @since 8.6
+         */
+        public function isSpecialScheme(): bool {}
+    }
+
+    /**
+     * @since 8.6
+     */
+    enum UrlHostType implements \UnitEnum
+    {
+        case Domain;
+        case Ipv4;
+        case Ipv6;
+        case Opaque;
+        case Empty;
     }
 }

@@ -90,6 +90,16 @@ class php_user_filter
      */
     #[TentativeType]
     public function onClose(): void {}
+
+    /**
+     * @param int $offset
+     * @param int $whence
+     * @param int $chain
+     * @return bool
+     * @since 8.6
+     */
+    #[TentativeType]
+    public function seek(int $offset, int $whence, int $chain): bool {}
 }
 /**
  * @since 8.4

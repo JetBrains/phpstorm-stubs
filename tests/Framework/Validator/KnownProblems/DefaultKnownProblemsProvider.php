@@ -1270,6 +1270,36 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 reason: 'MYSQLI_IS_MARIADB is a boolean/truthy constant reported as an empty string by some MySQL builds and as 0 by others; its value depends on the MySQL/MariaDB driver.',
             ),
 
+            // FFI::__BIGGEST_ALIGNMENT__ is CPU/ABI-dependent (8 on x86-64, 16 on some architectures)
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_CONSTANT,
+                entityId: '\\FFI::__BIGGEST_ALIGNMENT__',
+                type: ProblemType::RUNTIME_VALUE,
+                affectedChecks: [CheckType::CLASS_CONSTANTS_VALUE],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'FFI::__BIGGEST_ALIGNMENT__ reflects the largest alignment supported by the target CPU/ABI and therefore differs per architecture (e.g. 8 on x86-64, 16 elsewhere).',
+            ),
+
+            // ZipArchive::LIBZIP_VERSION reflects the bundled/system libzip version
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_CONSTANT,
+                entityId: '\\ZipArchive::LIBZIP_VERSION',
+                type: ProblemType::RUNTIME_VALUE,
+                affectedChecks: [CheckType::CLASS_CONSTANTS_VALUE],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'ZipArchive::LIBZIP_VERSION reports the version of the libzip library PHP was built against and therefore varies per system/build.',
+            ),
+
+            // LIBENCHANT_VERSION reflects the version of the libenchant system library PHP was built against
+            new ProblemDefinition(
+                entityType: EntityType::GLOBAL_CONSTANT,
+                entityId: '\\LIBENCHANT_VERSION',
+                type: ProblemType::RUNTIME_VALUE,
+                affectedChecks: [CheckType::CONSTANT_VALUE],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'LIBENCHANT_VERSION reports the version of the libenchant system library PHP was compiled against and therefore varies per system/build.',
+            ),
+
             // PHP version constants — always reflect the current runtime
             new ProblemDefinition(
                 entityType: EntityType::GLOBAL_CONSTANT,
@@ -1297,6 +1327,7 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
                 reason: 'PHP build-configuration path constants depend on where PHP was compiled and installed; they differ per system.',
                 entityIds: [
+                    '\\PHP_BUILD_DATE',
                     '\\PHP_BINARY',
                     '\\PHP_BINDIR',
                     '\\PHP_CONFIG_FILE_PATH',

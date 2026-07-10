@@ -98,6 +98,46 @@ const SODIUM_CRYPTO_CORE_RISTRETTO255_BYTES = 32;
 const SODIUM_CRYPTO_CORE_RISTRETTO255_HASHBYTES = 64;
 const SODIUM_CRYPTO_CORE_RISTRETTO255_SCALARBYTES = 32;
 const SODIUM_CRYPTO_CORE_RISTRETTO255_NONREDUCEDSCALARBYTES = 64;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_BYTES = 16;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_KEYBYTES = 16;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_ND_INPUTBYTES = 16;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_ND_KEYBYTES = 16;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_ND_OUTPUTBYTES = 24;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_ND_TWEAKBYTES = 8;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_NDX_INPUTBYTES = 16;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_NDX_KEYBYTES = 32;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_NDX_OUTPUTBYTES = 32;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_NDX_TWEAKBYTES = 16;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_PFX_BYTES = 16;
+/** @since 8.6 */
+const SODIUM_CRYPTO_IPCRYPT_PFX_KEYBYTES = 32;
+/** @since 8.6 */
+const SODIUM_CRYPTO_XOF_SHAKE128_BLOCKBYTES = 168;
+/** @since 8.6 */
+const SODIUM_CRYPTO_XOF_SHAKE128_STATEBYTES = 256;
+/** @since 8.6 */
+const SODIUM_CRYPTO_XOF_SHAKE256_BLOCKBYTES = 136;
+/** @since 8.6 */
+const SODIUM_CRYPTO_XOF_SHAKE256_STATEBYTES = 256;
+/** @since 8.6 */
+const SODIUM_CRYPTO_XOF_TURBOSHAKE128_BLOCKBYTES = 168;
+/** @since 8.6 */
+const SODIUM_CRYPTO_XOF_TURBOSHAKE128_STATEBYTES = 256;
+/** @since 8.6 */
+const SODIUM_CRYPTO_XOF_TURBOSHAKE256_BLOCKBYTES = 136;
+/** @since 8.6 */
+const SODIUM_CRYPTO_XOF_TURBOSHAKE256_STATEBYTES = 256;
 
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_add(string $p, string $q): string {}
@@ -1176,5 +1216,291 @@ function sodium_bin2base64(string $string, int $id): string {}
  * @return string
  */
 function sodium_base642bin(string $string, int $id, string $ignore = ''): string {}
+
+/**
+ * Convert a binary representation of an IP address to its string form.
+ * @param string $bin
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_bin2ip(string $bin): string {}
+
+/**
+ * Convert a string representation of an IP address to its binary form.
+ * @param string $ip
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_ip2bin(string $ip): string {}
+
+/**
+ * Encrypt an IP address using the deterministic ipcrypt construction.
+ * @param string $ip
+ * @param string $key
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_encrypt(string $ip, string $key): string {}
+
+/**
+ * Decrypt an IP address using the deterministic ipcrypt construction.
+ * @param string $encrypted_ip
+ * @param string $key
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_decrypt(string $encrypted_ip, string $key): string {}
+
+/**
+ * Generate a random key for the deterministic ipcrypt construction.
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_keygen(): string {}
+
+/**
+ * Encrypt an IP address using the non-deterministic ipcrypt-nd construction.
+ * @param string $ip
+ * @param string $key
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_nd_encrypt(string $ip, string $key): string {}
+
+/**
+ * Decrypt an IP address using the non-deterministic ipcrypt-nd construction.
+ * @param string $ciphertext_hex
+ * @param string $key
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_nd_decrypt(string $ciphertext_hex, string $key): string {}
+
+/**
+ * Generate a random key for the non-deterministic ipcrypt-nd construction.
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_nd_keygen(): string {}
+
+/**
+ * Encrypt an IP address using the non-deterministic ipcrypt-ndx construction.
+ * @param string $ip
+ * @param string $key
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_ndx_encrypt(string $ip, string $key): string {}
+
+/**
+ * Decrypt an IP address using the non-deterministic ipcrypt-ndx construction.
+ * @param string $ciphertext_hex
+ * @param string $key
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_ndx_decrypt(string $ciphertext_hex, string $key): string {}
+
+/**
+ * Generate a random key for the non-deterministic ipcrypt-ndx construction.
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_ndx_keygen(): string {}
+
+/**
+ * Encrypt an IP address using the prefix-preserving ipcrypt-pfx construction.
+ * @param string $ip
+ * @param string $key
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_pfx_encrypt(string $ip, string $key): string {}
+
+/**
+ * Decrypt an IP address using the prefix-preserving ipcrypt-pfx construction.
+ * @param string $encrypted_ip
+ * @param string $key
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_pfx_decrypt(string $encrypted_ip, string $key): string {}
+
+/**
+ * Generate a random key for the prefix-preserving ipcrypt-pfx construction.
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_ipcrypt_pfx_keygen(): string {}
+
+/**
+ * Compute a SHAKE128 extendable-output function digest of the given length.
+ * @param int $length
+ * @param string $message
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_shake128(int $length, string $message): string {}
+
+/**
+ * Initialize a SHAKE128 extendable-output function state.
+ * @param int|null $domain
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_shake128_init(?int $domain = null): string {}
+
+/**
+ * Squeeze output bytes from a SHAKE128 extendable-output function state.
+ * @param string &$state
+ * @param int $length
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_shake128_squeeze(string &$state, int $length): string {}
+
+/**
+ * Absorb a message into a SHAKE128 extendable-output function state.
+ * @param string &$state
+ * @param string $message
+ * @return true
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_shake128_update(string &$state, string $message): true {}
+
+/**
+ * Compute a SHAKE256 extendable-output function digest of the given length.
+ * @param int $length
+ * @param string $message
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_shake256(int $length, string $message): string {}
+
+/**
+ * Initialize a SHAKE256 extendable-output function state.
+ * @param int|null $domain
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_shake256_init(?int $domain = null): string {}
+
+/**
+ * Squeeze output bytes from a SHAKE256 extendable-output function state.
+ * @param string &$state
+ * @param int $length
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_shake256_squeeze(string &$state, int $length): string {}
+
+/**
+ * Absorb a message into a SHAKE256 extendable-output function state.
+ * @param string &$state
+ * @param string $message
+ * @return true
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_shake256_update(string &$state, string $message): true {}
+
+/**
+ * Compute a TurboSHAKE128 extendable-output function digest of the given length.
+ * @param int $length
+ * @param string $message
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_turboshake128(int $length, string $message): string {}
+
+/**
+ * Initialize a TurboSHAKE128 extendable-output function state.
+ * @param int|null $domain
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_turboshake128_init(?int $domain = null): string {}
+
+/**
+ * Squeeze output bytes from a TurboSHAKE128 extendable-output function state.
+ * @param string &$state
+ * @param int $length
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_turboshake128_squeeze(string &$state, int $length): string {}
+
+/**
+ * Absorb a message into a TurboSHAKE128 extendable-output function state.
+ * @param string &$state
+ * @param string $message
+ * @return true
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_turboshake128_update(string &$state, string $message): true {}
+
+/**
+ * Compute a TurboSHAKE256 extendable-output function digest of the given length.
+ * @param int $length
+ * @param string $message
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_turboshake256(int $length, string $message): string {}
+
+/**
+ * Initialize a TurboSHAKE256 extendable-output function state.
+ * @param int|null $domain
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_turboshake256_init(?int $domain = null): string {}
+
+/**
+ * Squeeze output bytes from a TurboSHAKE256 extendable-output function state.
+ * @param string &$state
+ * @param int $length
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_turboshake256_squeeze(string &$state, int $length): string {}
+
+/**
+ * Absorb a message into a TurboSHAKE256 extendable-output function state.
+ * @param string &$state
+ * @param string $message
+ * @return true
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_xof_turboshake256_update(string &$state, string $message): true {}
 
 class SodiumException extends Exception {}

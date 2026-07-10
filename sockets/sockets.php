@@ -20,7 +20,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * @return AddressInfo[]|false of AddrInfo resource handles that can be used with the other socket_addrinfo functions.
  * @since 7.2
  */
-function socket_addrinfo_lookup(string $host, ?string $service = null, array $hints = []): array|false {}
+function socket_addrinfo_lookup(string $host, ?string $service = null, array $hints = [], #[PhpStormStubsElementAvailable(from: '8.6')] &$error_code = null): array|false {}
 
 /**
  * Create a Socket resource, and connect it to the provided AddrInfo resource.<br/>
@@ -2441,3 +2441,80 @@ final class AddressInfo
      */
     private function __construct() {}
 }
+
+/**
+ * @since 8.6
+ */
+define('AF_UNSPEC', 0);
+/**
+ * @since 8.6
+ */
+define('TCP_USER_TIMEOUT', 18);
+/**
+ * @since 8.6
+ */
+define('EAI_ADDRFAMILY', -9);
+/**
+ * @since 8.6
+ */
+define('EAI_AGAIN', -3);
+/**
+ * @since 8.6
+ */
+define('EAI_ALLDONE', -103);
+/**
+ * @since 8.6
+ */
+define('EAI_BADFLAGS', -1);
+/**
+ * @since 8.6
+ */
+define('EAI_CANCELED', -101);
+/**
+ * @since 8.6
+ */
+define('EAI_FAIL', -4);
+/**
+ * @since 8.6
+ */
+define('EAI_FAMILY', -6);
+/**
+ * @since 8.6
+ */
+define('EAI_IDN_ENCODE', -105);
+/**
+ * @since 8.6
+ */
+define('EAI_INPROGRESS', -100);
+/**
+ * @since 8.6
+ */
+define('EAI_INTR', -104);
+/**
+ * @since 8.6
+ */
+define('EAI_NODATA', -5);
+/**
+ * @since 8.6
+ */
+define('EAI_NONAME', -2);
+/**
+ * @since 8.6
+ */
+define('EAI_NOTCANCELED', -102);
+/**
+ * @since 8.6
+ */
+define('EAI_OVERFLOW', -12);
+/**
+ * @since 8.6
+ */
+define('EAI_SERVICE', -8);
+/**
+ * @since 8.6
+ */
+define('EAI_SOCKTYPE', -7);
+/**
+ * @since 8.6
+ */
+define('EAI_SYSTEM', -11);

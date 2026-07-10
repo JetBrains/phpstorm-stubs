@@ -306,4 +306,10 @@ class ReflectionParameter implements Reflector
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]
     private function __clone(): void {}
+
+    /**
+     * @return string|false
+     * @since 8.6
+     */
+    public function getDocComment(): string|false {}
 }
