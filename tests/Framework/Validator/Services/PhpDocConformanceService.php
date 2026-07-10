@@ -320,6 +320,12 @@ final class PhpDocConformanceService
         // Typed-array suffix: string[], int[][], \Foo[] → array
         $type = preg_replace('/[\w\\\\]+(?:\[\])+/', 'array', $type);
 
+        // Class-constant value types (psalm/phpstan): Foo::BAR, Foo::BAR_*, \Foo\Bar::BAZ_*.
+        // These enumerate the values of one or more class constants — a value-level refinement
+        // the conformance check cannot evaluate. They refine, never contradict, the declared
+        // scalar signature, so collapse them to `mixed` (as value-of/scalar already do).
+        $type = preg_replace('/[\w\\\\]+::[A-Za-z_]\w*\*?/', 'mixed', $type);
+
         // Map remaining phpstan/psalm leaf tokens to the closest built-in type
         $type = preg_replace_callback(
             '/[A-Za-z_\\\\][\w\-\\\\]*/',
@@ -327,9 +333,9 @@ final class PhpDocConformanceService
             $type
         );
 
-        // mixed absorbs everything else
+        // mixed absorbs everything else (tolerate wrapping parens, e.g. psalm's `(mixed)`)
         foreach (preg_split('/[|&]/', $type) as $component) {
-            if (trim($component) === 'mixed') {
+            if (trim($component, " \t()") === 'mixed') {
                 return 'mixed';
             }
         }

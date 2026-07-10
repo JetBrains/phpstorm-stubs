@@ -14,6 +14,19 @@ use StubTests\Framework\Parsers\Model\Types\UnionType;
 trait SerializerUtilsTrait
 {
     /**
+     * Return the short (unqualified) form of a possibly-qualified class name.
+     * E.g. "\Foo\Bar" or "Foo\Bar" -> "Bar"; "Bar" -> "Bar".
+     */
+    protected function shortClassName(?string $name): ?string
+    {
+        if ($name === null || $name === '') {
+            return $name;
+        }
+        $pos = strrpos($name, '\\');
+        return $pos === false ? $name : substr($name, $pos + 1);
+    }
+
+    /**
      * Convert value to JSON-safe format, filtering out resources and closures
      */
     protected function toJsonSafe($value)

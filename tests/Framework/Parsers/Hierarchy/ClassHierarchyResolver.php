@@ -66,7 +66,7 @@ class ClassHierarchyResolver
         // Replace parentClass stub with the actual PHPClass from the collection.
         if ($class->getParentClass() !== null) {
             $class->setParentClass(
-                $this->lookupInMap($class->getParentClass()->getName(), $class->getNamespace(), $classMap)
+                $this->lookupEntity($class->getParentClass(), $class->getNamespace(), $classMap)
                 ?? $class->getParentClass()
             );
         }
@@ -74,7 +74,7 @@ class ClassHierarchyResolver
         // Replace interface stubs with actual PHPInterface objects from the collection.
         $interfaces = $class->getImplementedInterfaces();
         foreach ($interfaces as $idx => $iface) {
-            $resolved = $this->lookupInMap($iface->getName(), $class->getNamespace(), $interfaceMap);
+            $resolved = $this->lookupEntity($iface, $class->getNamespace(), $interfaceMap);
             if ($resolved !== null) {
                 $interfaces[$idx] = $resolved;
             }
@@ -89,7 +89,7 @@ class ClassHierarchyResolver
     {
         $parentInterfaces = $iface->getParentInterfaces();
         foreach ($parentInterfaces as $idx => $parent) {
-            $resolved = $this->lookupInMap($parent->getName(), $iface->getNamespace(), $interfaceMap);
+            $resolved = $this->lookupEntity($parent, $iface->getNamespace(), $interfaceMap);
             if ($resolved !== null) {
                 $parentInterfaces[$idx] = $resolved;
             }
@@ -101,12 +101,33 @@ class ClassHierarchyResolver
     {
         $interfaces = $enum->getImplementedInterfaces();
         foreach ($interfaces as $idx => $iface) {
-            $resolved = $this->lookupInMap($iface->getName(), $enum->getNamespace(), $interfaceMap);
+            $resolved = $this->lookupEntity($iface, $enum->getNamespace(), $interfaceMap);
             if ($resolved !== null) {
                 $interfaces[$idx] = $resolved;
             }
         }
         $enum->setImplementedInterfaces($interfaces);
+    }
+
+    /**
+     * Look up the actual object backing a parent/interface reference stub.
+     *
+     * The stub carries its fully qualified name in getId() (e.g. "\Foo\Bar") and only the
+     * short name in getName(). We resolve against the FQN first, which handles cross-namespace
+     * references correctly, then fall back to the short-name + owner-namespace heuristic for
+     * legacy stubs that lack an id.
+     */
+    private function lookupEntity(object $reference, ?string $ownerNamespace, array $map): mixed
+    {
+        $id = method_exists($reference, 'getId') ? $reference->getId() : null;
+        if ($id !== null && $id !== '') {
+            $key = ltrim($id, '\\');
+            if (isset($map[$key])) {
+                return $map[$key];
+            }
+        }
+
+        return $this->lookupInMap($reference->getName(), $ownerNamespace, $map);
     }
 
     /**

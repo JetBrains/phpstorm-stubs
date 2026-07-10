@@ -60,17 +60,20 @@ class PHPClassSerializer implements EntityTypeSerializerInterface
             $data['constants'][] = $this->serializeClassConstant($constant);
         }
 
-        // Serialize parent class (just store the name)
+        // Serialize parent class as its fully qualified name (getId). getName() only
+        // holds the short name, so we persist getId() to keep the FQN across the cache
+        // round-trip (falling back to the name for unresolved stubs).
         if ($entity->getParentClass() !== null) {
-            $data['parentClass'] = $entity->getParentClass()->getName();
+            $parent = $entity->getParentClass();
+            $data['parentClass'] = $parent->getId() ?? $parent->getName();
         } else {
             $data['parentClass'] = null;
         }
 
-        // Serialize interfaces (just store the names)
+        // Serialize interfaces as their fully qualified names (getId), same as parent.
         $data['interfaces'] = [];
         foreach ($entity->getImplementedInterfaces() as $interface) {
-            $data['interfaces'][] = $interface->getName();
+            $data['interfaces'][] = $interface->getId() ?? $interface->getName();
         }
 
         return $data;
@@ -114,19 +117,22 @@ class PHPClassSerializer implements EntityTypeSerializerInterface
             }
         }
 
-        // Restore parent class from stored name
+        // Restore parent class: stored value is the FQN, so it becomes the id while
+        // getName() keeps only the short name (consistent with the parser).
         if (!empty($data['parentClass'])) {
             $parentClass = new PHPClass();
-            $parentClass->setName($data['parentClass']);
+            $parentClass->setName($this->shortClassName($data['parentClass']));
+            $parentClass->setId($data['parentClass']);
             $class->setParentClass($parentClass);
         }
 
-        // Restore interfaces from stored names
+        // Restore interfaces from stored FQNs, same as the parent class.
         if (isset($data['interfaces']) && is_array($data['interfaces'])) {
             foreach ($data['interfaces'] as $interfaceName) {
                 if (!empty($interfaceName)) {
                     $interface = new PHPInterface();
-                    $interface->setName($interfaceName);
+                    $interface->setName($this->shortClassName($interfaceName));
+                    $interface->setId($interfaceName);
                     $class->addImplementedInterface($interface);
                 }
             }

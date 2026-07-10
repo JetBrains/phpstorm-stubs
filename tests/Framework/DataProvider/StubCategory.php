@@ -3,46 +3,67 @@
 namespace StubTests\Framework\DataProvider;
 
 /**
- * Defines categories of PHP stubs based on their bundling with PHP.
+ * Defines categories of PHP stubs based on how the corresponding extension is
+ * obtained.
  *
- * This categorization helps differentiate between:
- * - Core PHP functionality
- * - Extensions bundled with PHP
- * - External extensions typically compiled separately
- * - PECL extensions installed via pecl
+ * The five categories are mutually exclusive and, together, cover every
+ * top-level stub directory (enforced by StubsStructureValidatorTest):
+ *
+ * - {@see StubCategory::CORE}     Language core and the SAPIs shipped with PHP.
+ * - {@see StubCategory::BUNDLED}  Extensions compiled in and enabled by default
+ *                                 in a standard PHP build (e.g. json, mbstring).
+ * - {@see StubCategory::EXTERNAL} Extensions that ship in the PHP source tree or
+ *                                 build against a system library and are enabled
+ *                                 at compile time (docker-php-ext-install /
+ *                                 ./configure --with|--enable) but are NOT
+ *                                 distributed through PECL.
+ * - {@see StubCategory::PECL}     Extensions whose primary distribution channel
+ *                                 is PECL (`pecl install <ext>`).
+ * - {@see StubCategory::OTHERS}   Everything else: commercial/proprietary agents,
+ *                                 alternative runtimes and abandoned projects that
+ *                                 are installed neither via PECL nor as a bundled
+ *                                 PHP extension.
+ *
+ * Directory lists are kept sorted alphabetically (case-insensitive) for easy
+ * diffing and maintenance.
  */
 enum StubCategory: string
 {
     /**
-     * Core PHP functionality and essential extensions.
-     * Directories: Core, date, filter, fpm, hash, meta, pcre, random, Phar,
-     * Reflection, regex, session, SPL, standard, superglobals, tokenizer
+     * PHP language core and the SAPIs bundled with the PHP distribution.
+     * Includes the SAPIs apache, litespeed, fpm and phpdbg.
      */
     case CORE = 'core';
 
     /**
-     * Extensions bundled with PHP but can be disabled at compile time.
-     * Directories: apache, bcmath, calendar, ctype, dba, exif, fileinfo, ftp,
-     * gd, iconv, intl, json, litespeed, mbstring, pcntl, PDO, posix, shmop,
-     * sockets, sqlite3, sysvmsg, sysvsem, sysvshm, xmlrpc, zlib
+     * Extensions compiled in and enabled by default in a standard PHP build
+     * (present in the official php:* Docker images without docker-php-ext-install).
      */
     case BUNDLED = 'bundled';
 
     /**
-     * External extensions that are commonly available but require separate compilation.
-     * Directories: aerospike, bz2, curl, dom, enchant, gettext, gmp, imap, ldap,
-     * libxml, mcrypt, mssql, mysql, mysqli, oci8, odbc, openssl, pdo_ibm,
-     * pdo_mysql, pdo_pgsql, pdo_sqlite, pgsql, pspell, readline, recode,
-     * SimpleXML, snmp, soap, sodium, sybase, tidy, wddx, xml, xmlreader,
-     * xmlwriter, xsl, Zend OPcache, zip
+     * Extensions that ship in the PHP source tree or build against a system
+     * library and are enabled at compile time (docker-php-ext-install /
+     * ./configure), but are NOT distributed via PECL. Includes historically
+     * bundled extensions that were later removed (ereg/regex, wddx, recode, the
+     * old mysql/mssql/sybase/interbase drivers, xmlrpc).
      */
     case EXTERNAL = 'external';
 
     /**
-     * PECL extensions - third-party extensions not bundled with PHP.
-     * All directories not in CORE, BUNDLED, or EXTERNAL categories.
+     * Extensions whose primary distribution channel is PECL.
+     * All third-party extensions installable via `pecl install`.
      */
     case PECL = 'pecl';
+
+    /**
+     * Everything that is installed neither via PECL nor as a bundled PHP
+     * extension: commercial/proprietary agents (blackfire, newrelic, ddtrace,
+     * elastic_apm, pdflib, relay, SaxonC), Zend commercial products
+     * (ZendCache, ZendDebugger, ZendUtils, zend), alternative runtimes
+     * (frankenphp) and abandoned projects (suhosin, xcache, wincache, winbinder).
+     */
+    case OTHERS = 'others';
 
     /**
      * Get the list of directories for this category.
@@ -53,126 +74,112 @@ enum StubCategory: string
     {
         return match ($this) {
             self::CORE => [
+                'apache',
                 'Core',
                 'date',
                 'filter',
                 'fpm',
                 'hash',
+                'litespeed',
                 'meta',
                 'pcre',
-                'random',
                 'Phar',
+                'phpdbg',
+                'random',
                 'Reflection',
-                'regex',
                 'session',
                 'SPL',
                 'standard',
                 'superglobals',
                 'tokenizer',
-                'uri'
+                'uri',
             ],
             self::BUNDLED => [
-                'apache',
-                'bcmath',
-                'calendar',
                 'ctype',
-                'dba',
-                'exif',
-                'fileinfo',
-                'ftp',
-                'gd',
-                'iconv',
-                'intl',
-                'json',
-                'litespeed',
-                'mbstring',
-                'pcntl',
-                'PDO',
-                'posix',
-                'shmop',
-                'sockets',
-                'sqlite3',
-                'sysvmsg',
-                'sysvsem',
-                'sysvshm',
-                'xmlrpc',
-                'zlib'
-            ],
-            self::EXTERNAL => [
-                'aerospike',
-                'bz2',
                 'curl',
                 'dom',
+                'fileinfo',
+                'iconv',
+                'json',
+                'libxml',
+                'mbstring',
+                'openssl',
+                'PDO',
+                'posix',
+                'readline',
+                'SimpleXML',
+                'sodium',
+                'sqlite3',
+                'xml',
+                'xmlreader',
+                'xmlwriter',
+                'zlib',
+            ],
+            self::EXTERNAL => [
+                'bcmath',
+                'bz2',
+                'calendar',
+                'com_dotnet',
+                'dba',
                 'enchant',
+                'exif',
+                'FFI',
+                'ftp',
+                'gd',
                 'gettext',
                 'gmp',
                 'imap',
+                'interbase',
+                'intl',
                 'ldap',
-                'libxml',
                 'mcrypt',
                 'mssql',
                 'mysql',
                 'mysqli',
                 'oci8',
                 'odbc',
-                'openssl',
-                'pdo_ibm',
-                'pdo_mysql',
-                'pdo_pgsql',
-                'pdo_sqlite',
+                'pcntl',
                 'pgsql',
                 'pspell',
-                'readline',
                 'recode',
-                'SimpleXML',
+                'regex',
+                'shmop',
                 'snmp',
                 'soap',
-                'sodium',
+                'sockets',
                 'sybase',
+                'sysvmsg',
+                'sysvsem',
+                'sysvshm',
                 'tidy',
                 'wddx',
-                'xml',
-                'xmlreader',
-                'xmlwriter',
+                'xmlrpc',
                 'xsl',
                 'Zend OPcache',
-                'zip'
+                'zip',
             ],
             self::PECL => [
-                'Ev',
-                'FFI',
-                'LuaSandbox',
-                'Parle',
-                'SQLite',
-                'SaxonC',
-                'SplType',
-                'ZendCache',
-                'ZendDebugger',
-                'ZendUtils',
+                'aerospike',
                 'amqp',
                 'apcu',
                 'ast',
-                'blackfire',
                 'brotli',
                 'cassandra',
-                'com_dotnet',
                 'couchbase',
                 'couchbase_v2',
                 'crypto',
                 'cubrid',
                 'decimal',
-                'ddtrace',
                 'dio',
                 'ds',
                 'ds_v2',
                 'eio',
-                'elastic_apm',
+                'Ev',
                 'event',
                 'excimer',
                 'expect',
                 'fann',
                 'ffmpeg',
-                'frankenphp',
                 'gearman',
                 'geoip',
                 'geos',
@@ -184,7 +191,6 @@ enum StubCategory: string
                 'igbinary',
                 'imagick',
                 'inotify',
-                'interbase',
                 'jsonpath',
                 'judy',
                 'leveldb',
@@ -192,6 +198,7 @@ enum StubCategory: string
                 'libsodium',
                 'libvirt-php',
                 'lua',
+                'LuaSandbox',
                 'lzf',
                 'mailparse',
                 'mapscript',
@@ -207,32 +214,30 @@ enum StubCategory: string
                 'msgpack',
                 'mysql_xdevapi',
                 'ncurses',
-                'newrelic',
                 'oauth',
                 'opentelemetry',
                 'pam',
                 'parallel',
+                'Parle',
                 'pcov',
-                'pdflib',
-                'phpdbg',
                 'pq',
                 'pthreads',
                 'radius',
                 'rar',
                 'rdkafka',
                 'redis',
-                'relay',
                 'rpminfo',
                 'rrd',
                 'simdjson',
                 'simple_kafka_client',
                 'snappy',
                 'solr',
+                'SplType',
+                'SQLite',
                 'sqlsrv',
                 'ssh2',
                 'stats',
                 'stomp',
-                'suhosin',
                 'svm',
                 'svn',
                 'swoole',
@@ -243,9 +248,6 @@ enum StubCategory: string
                 'uv',
                 'v8js',
                 'win32service',
-                'winbinder',
-                'wincache',
-                'xcache',
                 'xdebug',
                 'xdiff',
                 'xhprof',
@@ -254,31 +256,44 @@ enum StubCategory: string
                 'yaf',
                 'yaml',
                 'yar',
-                'zend',
                 'zmq',
                 'zookeeper',
                 'zstd',
-            ]
+            ],
+            self::OTHERS => [
+                'blackfire',
+                'ddtrace',
+                'elastic_apm',
+                'frankenphp',
+                'newrelic',
+                'pdflib',
+                'relay',
+                'SaxonC',
+                'suhosin',
+                'winbinder',
+                'wincache',
+                'xcache',
+                'zend',
+                'ZendCache',
+                'ZendDebugger',
+                'ZendUtils',
+            ],
         };
     }
 
     /**
      * Check if a given directory path belongs to this category.
      *
-     * For PECL, uses exclusion logic: any directory NOT in CORE, BUNDLED, or EXTERNAL
-     * is considered PECL. This is consistent with CoreStubsDataProvider's filtering.
+     * Categories are explicit and mutually exclusive, so this is a plain
+     * membership test. A directory that is not listed in any category is
+     * intentionally reported as belonging to none — StubsStructureValidatorTest
+     * fails in that case so the new directory must be classified deliberately.
      *
      * @param string $directoryName The directory name (not full path)
      * @return bool
      */
     public function containsDirectory(string $directoryName): bool
     {
-        if ($this === self::PECL) {
-            return !self::CORE->containsDirectory($directoryName)
-                && !self::BUNDLED->containsDirectory($directoryName)
-                && !self::EXTERNAL->containsDirectory($directoryName);
-        }
-
         /** @var array<string, array<string, true>> $index */
         static $index = [];
 

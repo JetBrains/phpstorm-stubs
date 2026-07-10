@@ -48,15 +48,18 @@ class ReflectionClassSerializer implements EntityTypeSerializerInterface
             $data['constants'][] = $this->serializeClassConstant($constant);
         }
 
+        // Persist the fully qualified name (getId, falling back to getName) so the FQN
+        // survives the cache round-trip while getName() keeps only the short name.
         if ($entity->getParentClass() !== null) {
-            $data['parentClass'] = $entity->getParentClass()->getName();
+            $parent = $entity->getParentClass();
+            $data['parentClass'] = $parent->getId() ?? $parent->getName();
         } else {
             $data['parentClass'] = null;
         }
 
         $data['interfaces'] = [];
         foreach ($entity->getImplementedInterfaces() as $interface) {
-            $data['interfaces'][] = $interface->getName();
+            $data['interfaces'][] = $interface->getId() ?? $interface->getName();
         }
 
         return $data;
@@ -91,7 +94,8 @@ class ReflectionClassSerializer implements EntityTypeSerializerInterface
 
         if (!empty($data['parentClass'])) {
             $parentClass = new PHPClass();
-            $parentClass->setName($data['parentClass']);
+            $parentClass->setName($this->shortClassName($data['parentClass']));
+            $parentClass->setId($data['parentClass']);
             $class->setParentClass($parentClass);
         }
 
@@ -99,7 +103,8 @@ class ReflectionClassSerializer implements EntityTypeSerializerInterface
             foreach ($data['interfaces'] as $interfaceName) {
                 if (!empty($interfaceName)) {
                     $interface = new PHPInterface();
-                    $interface->setName($interfaceName);
+                    $interface->setName($this->shortClassName($interfaceName));
+                    $interface->setId($interfaceName);
                     $class->addImplementedInterface($interface);
                 }
             }

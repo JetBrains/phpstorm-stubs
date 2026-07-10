@@ -213,6 +213,11 @@ class PhpDocConformanceServiceTest extends TestCase
             'key-of' => ['key-of<array<int, string>>', 'int|string'],
             'value-of' => ['value-of<Foo>', 'mixed'],
             'scalar' => ['scalar', 'mixed'],
+            // class-constant value types (psalm/phpstan) → mixed
+            'const enumeration' => ['(CType::TYPE_*)', 'mixed'],
+            'const enumeration no parens' => ['CType::ABI_*', 'mixed'],
+            'const fetch' => ['\\FFI\\CType::TYPE_VOID', 'mixed'],
+            'const enumeration union' => ['int|CType::TYPE_*', 'mixed'],
             // conditional return type
             'conditional' => ['($foo is true ? int : string)', 'mixed'],
             // unions with pseudo-types

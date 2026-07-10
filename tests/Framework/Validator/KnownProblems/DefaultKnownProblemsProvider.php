@@ -388,6 +388,19 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 reason: 'XMLReader::XML was a non-static instance method in PHP 5.6–7.4 (though callable statically with a deprecation notice). It was made officially static in PHP 8.0. The stub declares it static to match the PHP 8.0+ signature; reflection for PHP 5.6–7.4 reports isStatic=false.'
             ),
 
+            // FFI::new / FFI::cast / FFI::type - declared static at the C level (reflection reports
+            // isStatic=true for all versions), but calling them statically is deprecated since PHP 8.3.
+            // The stubs declare them as instance methods to steer users toward `$ffi->new()` usage.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STATIC_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'FFI::new(), FFI::cast() and FFI::type() are declared static at the C level, so reflection reports isStatic=true for all versions. Calling them statically is deprecated since PHP 8.3, so the stubs declare them as instance methods to steer users toward instance usage ($ffi->new()).',
+                entityIds: ['\\FFI::new', '\\FFI::cast', '\\FFI::type']
+            ),
+
             // SplFixedArray - interfaces changed across PHP versions; stubs declare the union
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,

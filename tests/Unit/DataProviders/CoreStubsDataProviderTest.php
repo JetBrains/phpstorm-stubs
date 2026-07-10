@@ -256,7 +256,7 @@ class CoreStubsDataProviderTest extends TestCase
         }
 
         // Check for some expected bundled directories
-        $expectedDirs = ['json', 'PDO', 'mbstring', 'gd'];
+        $expectedDirs = ['json', 'PDO', 'mbstring', 'curl'];
         foreach ($expectedDirs as $dir) {
             self::assertArrayHasKey(
                 $dir,
@@ -279,7 +279,7 @@ class CoreStubsDataProviderTest extends TestCase
         }
 
         // Check for some expected external directories
-        $expectedDirs = ['curl', 'mysqli', 'openssl'];
+        $expectedDirs = ['mysqli', 'gd', 'gmp'];
         foreach ($expectedDirs as $dir) {
             self::assertArrayHasKey(
                 $dir,
@@ -322,7 +322,7 @@ class CoreStubsDataProviderTest extends TestCase
 
         $result = $provider->getAllStubFiles();
 
-        // Only the "Core/..." file belongs to CORE; the "curl/..." one (EXTERNAL) is filtered.
+        // Only the "Core/..." file belongs to CORE; the "curl/..." one (BUNDLED) is filtered.
         self::assertCount(1, $result);
         self::assertStringContainsString('Core', $result[0]);
         self::assertStringNotContainsString('curl', $result[0]);

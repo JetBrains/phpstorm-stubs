@@ -3,7 +3,7 @@
 namespace StubTests\Framework\DataProvider;
 
 /**
- * Data provider that filters stub files by category (Core, Bundled, External, PECL).
+ * Data provider that filters stub files by category (Core, Bundled, External, PECL, Others).
  *
  * Delegates file discovery to an inner StubsDataProvider (defaults to AllStubsDataProvider)
  * and applies a category filter on the returned paths. This keeps traversal logic in one
@@ -88,20 +88,8 @@ class CoreStubsDataProvider implements StubsDataProvider
 
     private function isDirectoryAllowed(string $directoryName, array $allowedDirectories): bool
     {
-        // PECL: any directory that is not claimed by CORE, BUNDLED, or EXTERNAL
-        if (in_array(StubCategory::PECL, $this->categories, true)) {
-            $isPecl = true;
-            foreach ([StubCategory::CORE, StubCategory::BUNDLED, StubCategory::EXTERNAL] as $category) {
-                if ($category->containsDirectory($directoryName)) {
-                    $isPecl = false;
-                    break;
-                }
-            }
-            if ($isPecl) {
-                return true;
-            }
-        }
-
+        // Every category (including PECL and OTHERS) enumerates its directories
+        // explicitly, so allow-listing is a plain membership test.
         return isset($allowedDirectories[$directoryName]);
     }
 }

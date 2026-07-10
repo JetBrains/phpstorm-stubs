@@ -27709,6 +27709,18 @@
     },
     {
         "_type": "PHPConstant",
+        "name": "LIBENCHANT_VERSION",
+        "id": "\\LIBENCHANT_VERSION",
+        "value": "1.6.0",
+        "sourcePath": "enchant/enchant_c.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null
+    },
+    {
+        "_type": "PHPConstant",
         "name": "LIBEXSLT_DOTTED_VERSION",
         "id": "\\LIBEXSLT_DOTTED_VERSION",
         "value": "1.1.28",

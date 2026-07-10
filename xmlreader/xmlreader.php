@@ -254,7 +254,7 @@ class XMLReader
      * Close the XMLReader input
      * @link https://php.net/manual/en/xmlreader.close.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -268,7 +268,7 @@ class XMLReader
      * </p>
      * @return string|null The value of the attribute, or <b>NULL</b> if no attribute with the given
      * <i>name</i> is found or not positioned on an element node.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getAttribute(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name): ?string {}
@@ -281,7 +281,7 @@ class XMLReader
      * </p>
      * @return string|null The value of the attribute, or <b>NULL</b> if no attribute exists
      * at <i>index</i> or not positioned of element.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getAttributeNo(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index): ?string {}
@@ -298,7 +298,7 @@ class XMLReader
      * @return string|null The value of the attribute, or <b>NULL</b> if no attribute with the
      * given <i>localName</i> and
      * <i>namespaceURI</i> is found or not positioned of element.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getAttributeNs(
@@ -314,7 +314,7 @@ class XMLReader
      * constants.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getParserProperty(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $property): bool {}
@@ -323,7 +323,7 @@ class XMLReader
      * Indicates if the parsed document is valid
      * @link https://php.net/manual/en/xmlreader.isvalid.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function isValid(): bool {}
@@ -335,7 +335,7 @@ class XMLReader
      * String containing the prefix.
      * </p>
      * @return string|null <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function lookupNamespace(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $prefix): ?string {}
@@ -347,7 +347,7 @@ class XMLReader
      * The position of the attribute.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function moveToAttributeNo(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index): bool {}
@@ -359,7 +359,7 @@ class XMLReader
      * The name of the attribute.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function moveToAttribute(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name): bool {}
@@ -374,7 +374,7 @@ class XMLReader
      * The namespace URI.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function moveToAttributeNs(
@@ -387,7 +387,7 @@ class XMLReader
      * @link https://php.net/manual/en/xmlreader.movetoelement.php
      * @return bool <b>TRUE</b> if successful and <b>FALSE</b> if it fails or not positioned on
      * Attribute when this method is called.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function moveToElement(): bool {}
@@ -396,7 +396,7 @@ class XMLReader
      * Position cursor on the first Attribute
      * @link https://php.net/manual/en/xmlreader.movetofirstattribute.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function moveToFirstAttribute(): bool {}
@@ -405,7 +405,7 @@ class XMLReader
      * Position cursor on the next Attribute
      * @link https://php.net/manual/en/xmlreader.movetonextattribute.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function moveToNextAttribute(): bool {}
@@ -425,7 +425,7 @@ class XMLReader
      * </p>
      * @return XMLReader|bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
      * <b>XMLReader</b> or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     public static function open(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $uri,
@@ -437,7 +437,7 @@ class XMLReader
      * Move to next node in document
      * @link https://php.net/manual/en/xmlreader.read.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function read(): bool {}
@@ -449,7 +449,7 @@ class XMLReader
      * The name of the next node to move to.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function next(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null): bool {}
@@ -502,7 +502,7 @@ class XMLReader
      * be disabled.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function setParserProperty(
@@ -528,7 +528,7 @@ class XMLReader
      * String containing the RelaxNG Schema.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function setRelaxNGSchemaSource(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $source): bool {}
@@ -548,7 +548,7 @@ class XMLReader
      * </p>
      * @return XMLReader|bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
      * <b>XMLReader</b> or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     public static function XML(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
@@ -561,7 +561,7 @@ class XMLReader
      * @link https://php.net/manual/en/xmlreader.expand.php
      * @param null|DOMNode $baseNode [optional]
      * @return DOMNode|false The resulting <b>DOMNode</b> or <b>FALSE</b> on error.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function expand(

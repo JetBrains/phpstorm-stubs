@@ -96,18 +96,24 @@ class StubClassParser implements MultiEntityStubParserInterface
         $phpClass->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
         $phpClass->initStubsMetadata()->setRemovedVersion($versions['removedVersion']);
 
-        // Parent class
+        // Parent class. getName() keeps the short name as written in the source, while
+        // getId() carries the fully qualified name resolved against the current namespace
+        // and use-imports (e.g. `extends Exception` inside `namespace FFI` -> \FFI\Exception).
+        // This mirrors how the class itself stores name vs. id and matches the FQN reported
+        // by reflection, which ClassHierarchyResolver / ClassParentClassCheck rely on.
         $parentClassName = $node->getParentClassName();
         if ($parentClassName) {
             $parentClass = new PHPClass();
-            $parentClass->setName($parentClassName);
+            $parentClass->setName($this->shortName($parentClassName));
+            $parentClass->setId($this->resolveClassName($parentClassName, $imports, $phpClass->getNamespace()));
             $phpClass->setParentClass($parentClass);
         }
 
-        // Interfaces
+        // Interfaces - name/id resolved the same way as the parent class.
         foreach ($node->getInterfaceNames() as $interfaceName) {
             $phpInterface = new PHPInterface();
-            $phpInterface->setName($interfaceName);
+            $phpInterface->setName($this->shortName($interfaceName));
+            $phpInterface->setId($this->resolveClassName($interfaceName, $imports, $phpClass->getNamespace()));
             $phpClass->addImplementedInterface($phpInterface);
         }
 
@@ -129,6 +135,51 @@ class StubClassParser implements MultiEntityStubParserInterface
         }
 
         return $phpClass;
+    }
+
+    /**
+     * Return the short (unqualified) form of a class-like name written in the stub source.
+     *
+     * @param string $name The name as written (may be qualified, e.g. `Foo\Bar` or `\Foo\Bar`)
+     * @return string The last name segment (e.g. `Bar`)
+     */
+    private function shortName(string $name): string
+    {
+        $pos = strrpos($name, '\\');
+        return $pos === false ? $name : substr($name, $pos + 1);
+    }
+
+    /**
+     * Resolve a class-like name (parent class or implemented interface) to a fully
+     * qualified name using PHP name-resolution rules, mirroring
+     * {@see TypeNodeConverter::resolveTypeName()} so class references and type hints
+     * resolve identically.
+     *
+     * @param string $name The name as written in the stub source
+     * @param array $imports Map of import aliases to fully qualified names
+     * @param string $namespace Current namespace context (e.g. '\FFI' or '\\' for global)
+     * @return string Fully qualified name (leading backslash)
+     */
+    private function resolveClassName(string $name, array $imports, string $namespace): string
+    {
+        // Already fully qualified.
+        if (str_starts_with($name, '\\')) {
+            return $name;
+        }
+
+        // Aliased/imported name (e.g. `use FFI\Exception;` then `extends Exception`).
+        if (isset($imports[$name])) {
+            $resolved = $imports[$name];
+            return str_starts_with($resolved, '\\') ? $resolved : '\\' . $resolved;
+        }
+
+        // Qualified but not imported (contains a separator) - treat as global-qualified.
+        if (str_contains($name, '\\')) {
+            return '\\' . $name;
+        }
+
+        // Unqualified name resolves relative to the current namespace.
+        return $namespace === '\\' ? '\\' . $name : $namespace . '\\' . $name;
     }
 
     /**

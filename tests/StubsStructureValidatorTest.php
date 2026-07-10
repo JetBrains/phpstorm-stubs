@@ -53,7 +53,7 @@ class StubsStructureValidatorTest extends TestCase
      * Assert that every top-level stubs directory is present in StubCategory::getDirectories().
      *
      * When a new extension directory is added to the stubs root it must also be registered
-     * in the appropriate StubCategory (CORE, BUNDLED, EXTERNAL, or PECL) so that
+     * in the appropriate StubCategory (CORE, BUNDLED, EXTERNAL, PECL, or OTHERS) so that
      * category-based data providers include it correctly.
      *
      * @param string $directoryName Top-level directory name (basename only, no path)
@@ -73,7 +73,7 @@ class StubsStructureValidatorTest extends TestCase
             $directoryName,
             $allCategoryDirs,
             "Directory '$directoryName' is not listed in any StubCategory::getDirectories(). " .
-            "Add it to the appropriate category (CORE, BUNDLED, EXTERNAL, or PECL) in " .
+            "Add it to the appropriate category (CORE, BUNDLED, EXTERNAL, PECL, or OTHERS) in " .
             "tests/Framework/DataProvider/StubCategory.php."
         );
     }
