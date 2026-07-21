@@ -2724,7 +2724,7 @@ class RedisCluster
      * @param   array  $args
      * @param   int    $num_keys
      *
-     * @return  mixed   @see eval()
+     * @return  mixed
      * @throws  RedisClusterException
      * @see     eval()
      * @link    https://redis.io/commands/evalsha
@@ -3650,155 +3650,1480 @@ class RedisCluster
      */
     public function georadiusbymember(string $key, string $member, float $radius, string $unit, array $options = []): mixed {}
 
+    /**
+     * Compress a value with the currently configured compressor as set with RedisCluster::setOption().
+     *
+     * @param string $value The value to be compressed.
+     *
+     * @return string The compressed result.
+     * @see _compress()
+     */
     public function _compress(string $value): string {}
 
+    /**
+     * Uncompress the provided value with the currently configured compressor as set with RedisCluster::setOption().
+     *
+     * @param string $value The compressed value to uncompress.
+     *
+     * @return string The uncompressed result.
+     * @see _uncompress()
+     */
     public function _uncompress(string $value): string {}
 
+    /**
+     * A utility method to pack a value with whatever serializer and compressor are configured.
+     *
+     * @param mixed $value The value to be packed.
+     *
+     * @return string The packed result (serialized and/or compressed depending on configuration).
+     * @see _pack()
+     */
     public function _pack(mixed $value): string {}
 
+    /**
+     * Compute the XXH3 digest of a PHP value after it has been `_pack`ed, producing
+     * the same digest Redis' DIGEST command would return for the stored value.
+     *
+     * @param mixed $value The value to compute the digest for.
+     *
+     * @return string The computed digest.
+     * @throws RedisClusterException If XXH3 is not supported.
+     * @see _digest()
+     *
+     * NOTE: This function requires PHP >= 8.1 which is the version PHP
+     *       added support for XXH3 hashing and made the hash extension
+     *       mandatory.
+     * @example $redisCluster->_digest(['token' => 'abc']);
+     */
+    public function _digest(mixed $value): string {}
+
+    /**
+     * A utility method to unpack a value that has been packed with the configured serializer and compressor.
+     *
+     * @param string $value The value which has been serialized and compressed.
+     *
+     * @return mixed The uncompressed and unserialized value.
+     * @see _unpack()
+     */
     public function _unpack(string $value): mixed {}
 
+    /**
+     * Return the last redirection that occurred while executing a command against the cluster.
+     *
+     * @return string|null The address of the node the last command was redirected to, or null.
+     * @see _redir()
+     */
     public function _redir(): string|null {}
 
+    /**
+     * Execute the Redis ACL command on the given node.
+     *
+     * @param string|array $key_or_address key or [host,port]
+     * @param string       $subcmd         The ACL subcommand to execute (e.g. 'LIST', 'GETUSER', 'WHOAMI', 'CAT').
+     * @param string       ...$args        Any additional arguments for the subcommand.
+     *
+     * @return mixed
+     * @throws RedisClusterException
+     * @see acl()
+     * @link https://redis.io/commands/acl
+     * @example $redisCluster->acl(['127.0.0.1', 6379], 'WHOAMI');
+     */
     public function acl(string|array $key_or_address, string $subcmd, string ...$args): mixed {}
 
+    /**
+     * Block the client up to the provided timeout until a certain number of replicas have confirmed
+     * receiving the write operations.
+     *
+     * @param string|array $key_or_address key or [host,port]
+     * @param int          $numreplicas    The number of replicas we want to confirm write operations.
+     * @param int          $timeout        How long to wait (zero meaning forever).
+     *
+     * @return RedisCluster|int|false The number of replicas that have confirmed or false on failure.
+     * @throws RedisClusterException
+     * @see wait()
+     * @link https://redis.io/commands/wait
+     * @example $redisCluster->wait(['127.0.0.1', 6379], 1, 1000);
+     */
+    public function wait(string|array $key_or_address, int $numreplicas, int $timeout): RedisCluster|int|false {}
+
+    /**
+     * Block the client until all previous write and AOF operations have been persisted to disk on
+     * the given number of local and replica AOFs.
+     *
+     * @param string|array $key_or_address key or [host,port]
+     * @param int          $numlocal       The number of local (master) AOFs that must confirm the write.
+     * @param int          $numreplicas    The number of replica AOFs that must confirm the write.
+     * @param int          $timeout        How long to wait (zero meaning forever).
+     *
+     * @return RedisCluster|array|false
+     * @throws RedisClusterException
+     * @see waitaof()
+     * @link https://redis.io/commands/waitaof
+     */
     public function waitaof(string|array $key_or_address, int $numlocal, int $numreplicas, int $timeout): RedisCluster|array|false {}
 
-    public function lMove(string $src, string $dst, string $wherefrom, string $whereto): Redis|string|false {}
+    /**
+     * Move an element from one list into another.
+     *
+     * @param string $src       The source list.
+     * @param string $dst       The destination list.
+     * @param string $wherefrom Where in the source list to retrieve the element (RedisCluster::LEFT or RedisCluster::RIGHT).
+     * @param string $whereto   Where in the destination list to put the element (RedisCluster::LEFT or RedisCluster::RIGHT).
+     *
+     * @return RedisCluster|string|false The element removed from the source list.
+     * @throws RedisClusterException
+     * @see lMove()
+     * @link https://redis.io/commands/lmove
+     * @example
+     * <pre>
+     * $redisCluster->rPush('numbers', 'one', 'two', 'three');
+     * $redisCluster->lMove('numbers', 'odds', RedisCluster::LEFT, RedisCluster::LEFT);
+     * </pre>
+     */
+    public function lMove(string $src, string $dst, string $wherefrom, string $whereto): RedisCluster|string|false {}
 
-    public function blmove(string $src, string $dst, string $wherefrom, string $whereto, float $timeout): Redis|string|false {}
+    /**
+     * Move one or more element from one list to another.
+     *
+     * @param string     $src       The source list.
+     * @param string     $dst       The destination list.
+     * @param string     $wherefrom Where in the source list to extract the element (RedisCluster::LEFT or RedisCluster::RIGHT).
+     * @param string     $whereto   Where in the destination list to put the element (RedisCluster::LEFT or RedisCluster::RIGHT).
+     * @param array|null $options   An array of options to modify how the command behaves.
+     *
+     * @return RedisCluster|array|false The element(s) removed from the source list.
+     * @throws RedisClusterException
+     * @see lMovem()
+     * @link https://redis.io/commands/lmovem
+     * @example
+     * <pre>
+     * $redisCluster->rPush('numbers', 'one', 'two', 'three');
+     * $redisCluster->lMovem('numbers', 'odds', RedisCluster::LEFT, RedisCluster::LEFT, ['COUNT' => [2, 'BULK']]);
+     * </pre>
+     */
+    public function lmovem(string $src, string $dst, string $wherefrom, string $whereto, ?array $options = null): RedisCluster|array|false {}
 
+    /**
+     * Move an element from one list to another, blocking up to a timeout until an element is available.
+     *
+     * @param string $src       The source list.
+     * @param string $dst       The destination list.
+     * @param string $wherefrom Where in the source list to extract the element (RedisCluster::LEFT or RedisCluster::RIGHT).
+     * @param string $whereto   Where in the destination list to put the element (RedisCluster::LEFT or RedisCluster::RIGHT).
+     * @param float  $timeout   How long to block for an element.
+     *
+     * @return RedisCluster|string|false
+     * @throws RedisClusterException
+     * @see blmove()
+     * @link https://redis.io/commands/blmove
+     */
+    public function blmove(string $src, string $dst, string $wherefrom, string $whereto, float $timeout): RedisCluster|string|false {}
+
+    /**
+     * Move one or more element from one list to another, blocking up to a timeout until an element is available.
+     *
+     * @param string     $src       The source list.
+     * @param string     $dst       The destination list.
+     * @param string     $wherefrom Where in the source list to extract the element (RedisCluster::LEFT or RedisCluster::RIGHT).
+     * @param string     $whereto   Where in the destination list to put the element (RedisCluster::LEFT or RedisCluster::RIGHT).
+     * @param float      $timeout   How long to block for an element.
+     * @param array|null $options   An array of options to modify how the command behaves.
+     *
+     * @return RedisCluster|array|false The element(s) removed from the source list.
+     * @throws RedisClusterException
+     * @see blmovem()
+     * @link https://redis.io/commands/blmovem
+     */
+    public function blmovem(string $src, string $dst, string $wherefrom, string $whereto, float $timeout, ?array $options = null): RedisCluster|array|false {}
+
+    /**
+     * Pop the highest scoring member(s) from one or more sorted sets, blocking until one is available.
+     *
+     * @param string|array $key            One or more sorted sets, or the first of several key arguments.
+     * @param string|int   $timeout_or_key Either a timeout, or an additional key, depending on how the command is invoked.
+     * @param mixed        ...$extra_args
+     *
+     * @return array A two element array with the key name and the popped member and its score.
+     * @throws RedisClusterException
+     * @see bzPopMax()
+     * @link https://redis.io/commands/bzpopmax
+     */
     public function bzPopMax(string|array $key, string|int $timeout_or_key, mixed ...$extra_args): array {}
 
+    /**
+     * Pop the lowest scoring member(s) from one or more sorted sets, blocking until one is available.
+     *
+     * @param string|array $key            One or more sorted sets, or the first of several key arguments.
+     * @param string|int   $timeout_or_key Either a timeout, or an additional key, depending on how the command is invoked.
+     * @param mixed        ...$extra_args
+     *
+     * @return array A two element array with the key name and the popped member and its score.
+     * @throws RedisClusterException
+     * @see bzPopMin()
+     * @link https://redis.io/commands/bzpopmin
+     */
     public function bzPopMin(string|array $key, string|int $timeout_or_key, mixed ...$extra_args): array {}
 
+    /**
+     * Pop one or more of the highest or lowest scoring members from one or more sorted sets, blocking
+     * up to the given timeout until an element is available.
+     *
+     * @param float  $timeout How long to block for an element.
+     * @param array  $keys    One or more sorted sets to pop from.
+     * @param string $from    The string 'MIN' or 'MAX' to pop the lowest or highest scoring members.
+     * @param int    $count   The maximum number of elements to pop.
+     *
+     * @return RedisCluster|array|null|false A two element array with the key name and the popped members.
+     * @throws RedisClusterException
+     * @see bzmpop()
+     * @link https://redis.io/commands/bzmpop
+     */
     public function bzmpop(float $timeout, array $keys, string $from, int $count = 1): RedisCluster|array|null|false {}
 
+    /**
+     * Pop one or more of the highest or lowest scoring members from one or more sorted sets.
+     *
+     * @param array  $keys  One or more sorted sets to pop from.
+     * @param string $from  The string 'MIN' or 'MAX' to pop the lowest or highest scoring members.
+     * @param int    $count The maximum number of elements to pop.
+     *
+     * @return RedisCluster|array|null|false A two element array with the key name and the popped members.
+     * @throws RedisClusterException
+     * @see zmpop()
+     * @link https://redis.io/commands/zmpop
+     */
     public function zmpop(array $keys, string $from, int $count = 1): RedisCluster|array|null|false {}
 
+    /**
+     * Pop one or more elements from the first non-empty list, blocking up to the given timeout until
+     * an element is available.
+     *
+     * @param float  $timeout How long to block for an element.
+     * @param array  $keys    One or more list keys to pop from.
+     * @param string $from    The string 'LEFT' or 'RIGHT' to pop from the head or tail of the list.
+     * @param int    $count   The maximum number of elements to pop.
+     *
+     * @return RedisCluster|array|null|false A two element array with the key name and the popped elements.
+     * @throws RedisClusterException
+     * @see blmpop()
+     * @link https://redis.io/commands/blmpop
+     */
     public function blmpop(float $timeout, array $keys, string $from, int $count = 1): RedisCluster|array|null|false {}
 
+    /**
+     * Pop one or more elements from the first non-empty list.
+     *
+     * @param array  $keys  One or more list keys to pop from.
+     * @param string $from  The string 'LEFT' or 'RIGHT' to pop from the head or tail of the list.
+     * @param int    $count The maximum number of elements to pop.
+     *
+     * @return RedisCluster|array|null|false A two element array with the key name and the popped elements.
+     * @throws RedisClusterException
+     * @see lmpop()
+     * @link https://redis.io/commands/lmpop
+     */
     public function lmpop(array $keys, string $from, int $count = 1): RedisCluster|array|null|false {}
 
+    /**
+     * Copy a key to another key. Note that in a cluster both keys must map to the same slot.
+     *
+     * @param string     $src     The key to copy.
+     * @param string     $dst     The destination key.
+     * @param array|null $options An array with options to modify how the command behaves (e.g. ['REPLACE' => true]).
+     *
+     * @return RedisCluster|bool True if the key was copied and false if not.
+     * @throws RedisClusterException
+     * @see copy()
+     * @link https://redis.io/commands/copy
+     */
     public function copy(string $src, string $dst, ?array $options = null): RedisCluster|bool {}
 
+    /**
+     * Delete a key conditionally based on its value or hash digest.
+     *
+     * @param string     $key     The key to delete.
+     * @param array|null $options An array with options to modify how DELX works.
+     *
+     * @return RedisCluster|int|false Returns 1 if the key was deleted, 0 if it was not.
+     * @throws RedisClusterException
+     * @see delex()
+     * @link https://redis.io/commands/delex
+     * @example $redisCluster->delex('session:42');
+     */
+    public function delex(string $key, ?array $options = null): RedisCluster|int|false {}
+
+    /**
+     * Delete a key if it's equal to the specified value. This command is specific to Valkey >= 9.0.
+     *
+     * @param string $key   The key to delete.
+     * @param mixed  $value The value to compare against the key's value.
+     *
+     * @return RedisCluster|int|false Returns 1 if the key was deleted, 0 if it was not.
+     * @throws RedisClusterException
+     * @see delifeq()
+     * @link https://valkey.io/commands/delifeq/
+     * @example $redisCluster->delifeq('session:42', 'token');
+     */
+    public function delifeq(string $key, mixed $value): RedisCluster|int|false {}
+
+    /**
+     * Set one or more keys and values with optional expiry information.
+     *
+     * @param array                 $key_vals An array of keys with their values.
+     * @param int|float|array|null  $expiry   An optional array with expiry information (e.g. ['EX' => 60]).
+     *
+     * @return RedisCluster|int|false 1 if all keys were set, 0 if none were.
+     * @throws RedisClusterException
+     * @see msetex()
+     * @link https://redis.io/commands/msetex
+     * @example $redisCluster->msetex(['foo' => 'bar', 'baz' => 'bop'], ['EX' => 60]);
+     */
+    public function msetex(array $key_vals, int|float|array|null $expiry = null): RedisCluster|int|false {}
+
+    /**
+     * Decrement a floating point value stored at a key by the provided amount.
+     *
+     * @param string $key   The key to decrement.
+     * @param float  $value How much to decrement the value.
+     *
+     * @return float The new value of the key after the decrement.
+     * @throws RedisClusterException
+     * @see decrbyfloat()
+     * @link https://redis.io/commands/incrbyfloat
+     */
     public function decrbyfloat(string $key, float $value): float {}
 
+    /**
+     * Evaluate a LUA script on the redis server.
+     *
+     * @param string $script   A string containing the LUA script.
+     * @param array  $args      Arguments to pass to the script. Note that keys must map to the same slot.
+     * @param int    $num_keys The number of arguments that are keys.
+     *
+     * @return mixed Whatever the LUA script returns.
+     * @throws RedisClusterException
+     * @see eval()
+     * @link https://redis.io/commands/eval
+     */
     public function eval(string $script, array $args = [], int $num_keys = 0): mixed {}
 
+    /**
+     * A read-only variant of EVAL that can be run against a replica.
+     *
+     * @param string $script   A string containing the LUA script.
+     * @param array  $args      Arguments to pass to the script. Note that keys must map to the same slot.
+     * @param int    $num_keys The number of arguments that are keys.
+     *
+     * @return mixed Whatever the LUA script returns.
+     * @throws RedisClusterException
+     * @see eval_ro()
+     * @link https://redis.io/commands/eval_ro
+     */
     public function eval_ro(string $script, array $args = [], int $num_keys = 0): mixed {}
 
+    /**
+     * A read-only variant of EVALSHA that can be run against a replica.
+     *
+     * @param string $script_sha The SHA1 hash of the LUA script.
+     * @param array  $args        Arguments to pass to the script. Note that keys must map to the same slot.
+     * @param int    $num_keys   The number of arguments that are keys.
+     *
+     * @return mixed Whatever the LUA script returns.
+     * @throws RedisClusterException
+     * @see evalsha_ro()
+     * @link https://redis.io/commands/evalsha_ro
+     */
     public function evalsha_ro(string $script_sha, array $args = [], int $num_keys = 0): mixed {}
 
+    /**
+     * Update one or more keys last modified metadata.
+     *
+     * @param mixed $key          Either the first key or an array of keys.
+     * @param mixed ...$other_keys One or more additional keys passed in a variadic fashion.
+     *
+     * @return RedisCluster|int|bool The number of keys that were touched.
+     * @throws RedisClusterException
+     * @see touch()
+     * @link https://redis.io/commands/touch
+     */
     public function touch(mixed $key, mixed ...$other_keys): RedisCluster|int|bool {}
 
+    /**
+     * Get the expiration of a key as a unix timestamp in seconds.
+     *
+     * @param string $key The key to check.
+     *
+     * @return RedisCluster|int|false The unix timestamp when the key expires, or a negative value on failure.
+     * @throws RedisClusterException
+     * @see expiretime()
+     * @link https://redis.io/commands/expiretime
+     */
     public function expiretime(string $key): RedisCluster|int|false {}
 
+    /**
+     * Get the expiration of a key as a unix timestamp in milliseconds.
+     *
+     * @param string $key The key to check.
+     *
+     * @return RedisCluster|int|false The unix timestamp (in milliseconds) when the key expires, or a negative value on failure.
+     * @throws RedisClusterException
+     * @see pexpiretime()
+     * @link https://redis.io/commands/pexpiretime
+     */
     public function pexpiretime(string $key): RedisCluster|int|false {}
 
+    /**
+     * A read-only variant of GEORADIUS that can be run against a replica.
+     *
+     * @param string $key    The key to query.
+     * @param float  $lng    The longitude of the center point.
+     * @param float  $lat    The latitude of the center point.
+     * @param float  $radius The radius to search within.
+     * @param string $unit   The unit of the radius ('m', 'km', 'mi', or 'ft').
+     * @param array  $options Options to modify how the command executes.
+     *
+     * @return mixed The members matching the query, depending on the options passed.
+     * @throws RedisClusterException
+     * @see georadius_ro()
+     * @link https://redis.io/commands/georadius_ro
+     */
     public function georadius_ro(string $key, float $lng, float $lat, float $radius, string $unit, array $options = []): mixed {}
 
+    /**
+     * A read-only variant of GEORADIUSBYMEMBER that can be run against a replica.
+     *
+     * @param string $key    The key to query.
+     * @param string $member The member from which to measure the radius.
+     * @param float  $radius The radius to search within.
+     * @param string $unit   The unit of the radius ('m', 'km', 'mi', or 'ft').
+     * @param array  $options Options to modify how the command executes.
+     *
+     * @return mixed The members matching the query, depending on the options passed.
+     * @throws RedisClusterException
+     * @see georadiusbymember_ro()
+     * @link https://redis.io/commands/georadiusbymember_ro
+     */
     public function georadiusbymember_ro(string $key, string $member, float $radius, string $unit, array $options = []): mixed {}
 
+    /**
+     * Search a geospatial index for members inside an area of a box or circle.
+     *
+     * @param string           $key      The key to query.
+     * @param array|string     $position Either a member name or a two element array with a longitude and latitude.
+     * @param array|int|float  $shape    The shape to search. A number for a radius, or a two element array for a box.
+     * @param string           $unit     The unit of the shape ('m', 'km', 'mi', or 'ft').
+     * @param array            $options  Options to modify how the command executes.
+     *
+     * @return RedisCluster|array The members matching the query.
+     * @throws RedisClusterException
+     * @see geosearch()
+     * @link https://redis.io/commands/geosearch
+     */
     public function geosearch(string $key, array|string $position, array|int|float $shape, string $unit, array $options = []): RedisCluster|array {}
 
+    /**
+     * Search a geospatial index for members inside an area of a box or circle, storing the result in a new set.
+     *
+     * @param string           $dst      The destination key where the result will be stored.
+     * @param string           $src      The key to query.
+     * @param array|string     $position Either a member name or a two element array with a longitude and latitude.
+     * @param array|int|float  $shape    The shape to search. A number for a radius, or a two element array for a box.
+     * @param string           $unit     The unit of the shape ('m', 'km', 'mi', or 'ft').
+     * @param array            $options  Options to modify how the command executes.
+     *
+     * @return RedisCluster|array|int|false The number of members stored in the destination set.
+     * @throws RedisClusterException
+     * @see geosearchstore()
+     * @link https://redis.io/commands/geosearchstore
+     */
     public function geosearchstore(string $dst, string $src, array|string $position, array|int|float $shape, string $unit, array $options = []): RedisCluster|array|int|false {}
 
+    /**
+     * Get the value of a key and delete it in one atomic operation.
+     *
+     * @param string $key The key to get and delete.
+     *
+     * @return mixed The value of the key, or false if it didn't exist.
+     * @throws RedisClusterException
+     * @see getDel()
+     * @link https://redis.io/commands/getdel
+     */
     public function getDel(string $key): mixed {}
 
+    /**
+     * Retrieve a value and metadata of a key.
+     *
+     * @param string $key The key to query.
+     *
+     * @return RedisCluster|array|false
+     * @throws RedisClusterException
+     * @see getWithMeta()
+     * @example $redisCluster->getWithMeta('foo');
+     */
     public function getWithMeta(string $key): RedisCluster|array|false {}
 
+    /**
+     * Get the value of a key and optionally set its expiration in one atomic operation.
+     *
+     * @param string $key     The key to query.
+     * @param array  $options Options to modify the expiry (e.g. ['EX' => 60] or ['PERSIST' => true]).
+     *
+     * @return RedisCluster|string|false The value of the key, or false on failure.
+     * @throws RedisClusterException
+     * @see getEx()
+     * @link https://redis.io/commands/getex
+     */
     public function getEx(string $key, array $options = []): RedisCluster|string|false {}
 
+    /**
+     * Find the longest common subsequence between two string keys. Note that both keys must map to the same slot.
+     *
+     * @param string     $key1    The first key to compare.
+     * @param string     $key2    The second key to compare.
+     * @param array|null $options Options to modify how the command executes (e.g. ['len'], ['idx'], ['minmatchlen' => n]).
+     *
+     * @return RedisCluster|string|array|int|false The longest common subsequence, its length, or match information.
+     * @throws RedisClusterException
+     * @see lcs()
+     * @link https://redis.io/commands/lcs
+     */
     public function lcs(string $key1, string $key2, ?array $options = null): RedisCluster|string|array|int|false {}
 
+    /**
+     * Retrieve the number of bytes sent and received on the connection.
+     *
+     * @return array|false A two element array with the number of bytes sent and received, or false on failure.
+     * @throws RedisClusterException
+     * @see getTransferredBytes()
+     */
     public function getTransferredBytes(): array|false {}
 
+    /**
+     * Reset the transferred bytes counters for the connection.
+     *
+     * @return void
+     * @throws RedisClusterException
+     * @see clearTransferredBytes()
+     */
     public function clearTransferredBytes(): void {}
 
-    public function expiremember(string $key, string $field, int $ttl, ?string $unit = null): Redis|int|false {}
+    /**
+     * Set an expiration on a specific hash field. This command is specific to KeyDB/Valkey.
+     *
+     * @param string      $key   The hash to modify.
+     * @param string      $field The field to set the expiration on.
+     * @param int         $ttl   The time to live for the field.
+     * @param string|null $unit  The unit for the TTL ('s' for seconds or 'ms' for milliseconds).
+     *
+     * @return RedisCluster|int|false 1 if the expiration was set, 0 if it was not.
+     * @throws RedisClusterException
+     * @see expiremember()
+     */
+    public function expiremember(string $key, string $field, int $ttl, ?string $unit = null): RedisCluster|int|false {}
 
-    public function expirememberat(string $key, string $field, int $timestamp): Redis|int|false {}
+    /**
+     * Set the expiration of a specific hash field to a unix timestamp. This command is specific to KeyDB/Valkey.
+     *
+     * @param string $key       The hash to modify.
+     * @param string $field     The field to set the expiration on.
+     * @param int    $timestamp The unix timestamp when the field should expire.
+     *
+     * @return RedisCluster|int|false 1 if the expiration was set, 0 if it was not.
+     * @throws RedisClusterException
+     * @see expirememberat()
+     */
+    public function expirememberat(string $key, string $field, int $timestamp): RedisCluster|int|false {}
 
+    /**
+     * Get one or more random fields from a hash.
+     *
+     * @param string     $key     The hash to query.
+     * @param array|null $options An array of options to modify how the command behaves (e.g. ['COUNT' => n, 'WITHVALUES' => true]).
+     *
+     * @return RedisCluster|string|array One or more random fields (and optionally values) from the hash.
+     * @throws RedisClusterException
+     * @see hRandField()
+     * @link https://redis.io/commands/hrandfield
+     */
     public function hRandField(string $key, ?array $options = null): RedisCluster|string|array {}
 
+    /**
+     * Get the string length of a hash field's value.
+     *
+     * @param string $key   The hash to query.
+     * @param string $field The field to check.
+     *
+     * @return RedisCluster|int|false The string length of the field's value, or 0 if the field does not exist.
+     * @throws RedisClusterException
+     * @see hStrLen()
+     * @link https://redis.io/commands/hstrlen
+     */
     public function hStrLen(string $key, string $field): RedisCluster|int|false {}
 
+    /**
+     * Retrieve a value and metadata of a hash field.
+     *
+     * @param string $key    The hash to query.
+     * @param string $member The field to query.
+     *
+     * @return mixed
+     * @throws RedisClusterException
+     * @see hGetWithMeta()
+     * @example $redisCluster->hgetWithMeta('foo', 'field');
+     */
+    public function hgetWithMeta(string $key, string $member): mixed {}
+
+    /**
+     * Get one or more fields from a hash with optional expiration information.
+     *
+     * @param string             $key    The hash to query.
+     * @param array              $fields One or more fields to retrieve.
+     * @param string|array|null  $expiry Optional expiry information to apply while reading (e.g. ['EX' => 60]).
+     *
+     * @return RedisCluster|array|false The fields and values or false if the key didn't exist.
+     * @throws RedisClusterException
+     * @see hgetex()
+     * @link https://redis.io/commands/hgetex
+     * @example $redisCluster->hgetex('profiles', ['name', 'email'], ['EX' => 60]);
+     */
+    public function hgetex(string $key, array $fields, string|array|null $expiry = null): RedisCluster|array|false {}
+
+    /**
+     * Set one or more fields in a hash with optional expiration information.
+     *
+     * @param string     $key    The hash to create/update.
+     * @param array      $fields An array with field values.
+     * @param array|null $expiry Info about the expiration (e.g. ['EX' => 60]).
+     *
+     * @return RedisCluster|int|false One if fields were set, zero if not.
+     * @throws RedisClusterException
+     * @see hsetex()
+     * @link https://redis.io/commands/hsetex
+     * @example $redisCluster->hsetex('profiles', ['token' => 'abc123'], ['EX' => 60]);
+     */
+    public function hsetex(string $key, array $fields, ?array $expiry = null): RedisCluster|int|false {}
+
+    /**
+     * Get one or more fields from a hash and delete them.
+     *
+     * @param string $key    The hash in question.
+     * @param array  $fields One or more fields.
+     *
+     * @return RedisCluster|array|false The field and values or false on failure.
+     * @throws RedisClusterException
+     * @see hgetdel()
+     * @link https://redis.io/commands/hgetdel
+     * @example $redisCluster->hgetdel('profiles', ['token']);
+     */
+    public function hgetdel(string $key, array $fields): RedisCluster|array|false {}
+
+    /**
+     * Set an expiration (in seconds) on one or more fields of a hash.
+     *
+     * @param string      $key    The hash to modify.
+     * @param int         $ttl    The time to live, in seconds.
+     * @param array       $fields One or more fields to set the expiration on.
+     * @param string|null $mode   An optional mode (NX, XX, GT, or LT) constraining when the TTL is applied.
+     *
+     * @return RedisCluster|array|false An array with a status for each field.
+     * @throws RedisClusterException
+     * @see hexpire()
+     * @link https://redis.io/commands/hexpire
+     */
     public function hexpire(string $key, int $ttl, array $fields, ?string $mode = null): RedisCluster|array|false {}
 
+    /**
+     * Set an expiration (in milliseconds) on one or more fields of a hash.
+     *
+     * @param string      $key    The hash to modify.
+     * @param int         $ttl    The time to live, in milliseconds.
+     * @param array       $fields One or more fields to set the expiration on.
+     * @param string|null $mode   An optional mode (NX, XX, GT, or LT) constraining when the TTL is applied.
+     *
+     * @return RedisCluster|array|false An array with a status for each field.
+     * @throws RedisClusterException
+     * @see hpexpire()
+     * @link https://redis.io/commands/hpexpire
+     */
     public function hpexpire(string $key, int $ttl, array $fields, ?string $mode = null): RedisCluster|array|false {}
 
+    /**
+     * Set the expiration of one or more fields of a hash to a unix timestamp in seconds.
+     *
+     * @param string      $key    The hash to modify.
+     * @param int         $time   The unix timestamp (in seconds) when the fields should expire.
+     * @param array       $fields One or more fields to set the expiration on.
+     * @param string|null $mode   An optional mode (NX, XX, GT, or LT) constraining when the TTL is applied.
+     *
+     * @return RedisCluster|array|false An array with a status for each field.
+     * @throws RedisClusterException
+     * @see hexpireat()
+     * @link https://redis.io/commands/hexpireat
+     */
     public function hexpireat(string $key, int $time, array $fields, ?string $mode = null): RedisCluster|array|false {}
 
+    /**
+     * Set the expiration of one or more fields of a hash to a unix timestamp in milliseconds.
+     *
+     * @param string      $key    The hash to modify.
+     * @param int         $mstime The unix timestamp (in milliseconds) when the fields should expire.
+     * @param array       $fields One or more fields to set the expiration on.
+     * @param string|null $mode   An optional mode (NX, XX, GT, or LT) constraining when the TTL is applied.
+     *
+     * @return RedisCluster|array|false An array with a status for each field.
+     * @throws RedisClusterException
+     * @see hpexpireat()
+     * @link https://redis.io/commands/hpexpireat
+     */
     public function hpexpireat(string $key, int $mstime, array $fields, ?string $mode = null): RedisCluster|array|false {}
 
+    /**
+     * Get the remaining time to live (in seconds) of one or more fields of a hash.
+     *
+     * @param string $key    The hash to query.
+     * @param array  $fields One or more fields to check.
+     *
+     * @return RedisCluster|array|false An array with the remaining TTL for each field.
+     * @throws RedisClusterException
+     * @see httl()
+     * @link https://redis.io/commands/httl
+     */
     public function httl(string $key, array $fields): RedisCluster|array|false {}
 
+    /**
+     * Get the remaining time to live (in milliseconds) of one or more fields of a hash.
+     *
+     * @param string $key    The hash to query.
+     * @param array  $fields One or more fields to check.
+     *
+     * @return RedisCluster|array|false An array with the remaining TTL (in milliseconds) for each field.
+     * @throws RedisClusterException
+     * @see hpttl()
+     * @link https://redis.io/commands/hpttl
+     */
     public function hpttl(string $key, array $fields): RedisCluster|array|false {}
 
+    /**
+     * Get the expiration of one or more fields of a hash as a unix timestamp in seconds.
+     *
+     * @param string $key    The hash to query.
+     * @param array  $fields One or more fields to check.
+     *
+     * @return RedisCluster|array|false An array with the expiration timestamp for each field.
+     * @throws RedisClusterException
+     * @see hexpiretime()
+     * @link https://redis.io/commands/hexpiretime
+     */
     public function hexpiretime(string $key, array $fields): RedisCluster|array|false {}
 
+    /**
+     * Get the expiration of one or more fields of a hash as a unix timestamp in milliseconds.
+     *
+     * @param string $key    The hash to query.
+     * @param array  $fields One or more fields to check.
+     *
+     * @return RedisCluster|array|false An array with the expiration timestamp (in milliseconds) for each field.
+     * @throws RedisClusterException
+     * @see hpexpiretime()
+     * @link https://redis.io/commands/hpexpiretime
+     */
     public function hpexpiretime(string $key, array $fields): RedisCluster|array|false {}
 
+    /**
+     * Remove the expiration from one or more fields of a hash.
+     *
+     * @param string $key    The hash to modify.
+     * @param array  $fields One or more fields to persist.
+     *
+     * @return RedisCluster|array|false An array with a status for each field.
+     * @throws RedisClusterException
+     * @see hpersist()
+     * @link https://redis.io/commands/hpersist
+     */
     public function hpersist(string $key, array $fields): RedisCluster|array|false {}
 
-    public function lPos(string $key, mixed $value, ?array $options = null): Redis|null|bool|int|array {}
+    /**
+     * Get the position(s) of an element in a list.
+     *
+     * @param string     $key     The list to query.
+     * @param mixed      $value   The value to search for.
+     * @param array|null $options An array of options to modify how the command behaves (e.g. ['RANK' => n, 'COUNT' => n]).
+     *
+     * @return RedisCluster|null|bool|int|array The matched index, an array of indexes, or false/null if not found.
+     * @throws RedisClusterException
+     * @see lPos()
+     * @link https://redis.io/commands/lpos
+     */
+    public function lPos(string $key, mixed $value, ?array $options = null): RedisCluster|null|bool|int|array {}
 
+    /**
+     * Compute the intersection of one or more sets and return the cardinality of the result.
+     *
+     * @param array $keys  One or more set key names.
+     * @param int   $limit A maximum cardinality to return. This puts an upper bound on the work Redis will do.
+     *
+     * @return RedisCluster|int|false The cardinality of the intersection of the sets.
+     * @throws RedisClusterException
+     * @see sintercard()
+     * @link https://redis.io/commands/sintercard
+     */
     public function sintercard(array $keys, int $limit = -1): RedisCluster|int|false {}
 
+    /**
+     * Compute the union of one or more sets and return the cardinality of the result.
+     *
+     * @param array      $keys    One or more set key names.
+     * @param array|null $options An optional array of options that modifies how the command works (e.g. ['LIMIT' => 2]).
+     *
+     * @return RedisCluster|int|false The cardinality of the union of the sets.
+     * @throws RedisClusterException
+     * @see sunioncard()
+     * @link https://redis.io/commands/sunioncard
+     */
+    public function sunioncard(array $keys, ?array $options = null): RedisCluster|int|false {}
+
+    /**
+     * Compute the difference of one or more sets and return the cardinality of the result.
+     *
+     * @param array      $keys    One or more set key names.
+     * @param array|null $options An optional array of options that modifies how the command works.
+     *
+     * @return RedisCluster|int|false The cardinality of the difference of the sets.
+     * @throws RedisClusterException
+     * @see sdiffcard()
+     * @link https://redis.io/commands/sdiffcard
+     */
+    public function sdiffcard(array $keys, ?array $options = null): RedisCluster|int|false {}
+
+    /**
+     * Check whether one or more values are members of a set.
+     *
+     * @param string $key            The set to query.
+     * @param string $member         The first member to check.
+     * @param string ...$other_members Any additional members to check.
+     *
+     * @return RedisCluster|array|false An array of booleans corresponding to the checked members.
+     * @throws RedisClusterException
+     * @see sMisMember()
+     * @link https://redis.io/commands/smismember
+     */
     public function sMisMember(string $key, string $member, string ...$other_members): RedisCluster|array|false {}
 
+    /**
+     * A read-only variant of SORT that can be run against a replica.
+     *
+     * @param string     $key     The key to sort.
+     * @param array|null $options An array of options to modify how the command behaves.
+     *
+     * @return RedisCluster|array|bool|int|string The sorted elements, depending on the options passed.
+     * @throws RedisClusterException
+     * @see sort_ro()
+     * @link https://redis.io/commands/sort_ro
+     */
     public function sort_ro(string $key, ?array $options = null): RedisCluster|array|bool|int|string {}
 
+    /**
+     * Delete one or more keys from the cluster without blocking, reclaiming memory in a background thread.
+     *
+     * @param array|string $key           Either an array with one or more key names or a string with the name of a key.
+     * @param string       ...$other_keys One or more additional keys passed in a variadic fashion.
+     *
+     * @return RedisCluster|int|false The number of keys that were unlinked.
+     * @throws RedisClusterException
+     * @see unlink()
+     * @link https://redis.io/commands/unlink
+     */
     public function unlink(array|string $key, string ...$other_keys): RedisCluster|int|false {}
 
+    /**
+     * Acknowledge one or more pending messages that were consumed with XREADGROUP.
+     *
+     * @param string $key   The stream to query.
+     * @param string $group The consumer group to use.
+     * @param array  $ids   An array of stream entry IDs.
+     *
+     * @return RedisCluster|int|false The number of acknowledged messages.
+     * @throws RedisClusterException
+     * @see xack()
+     * @link https://redis.io/commands/xack
+     */
     public function xack(string $key, string $group, array $ids): RedisCluster|int|false {}
 
+    /**
+     * Append a new message to a stream.
+     *
+     * @param string $key    The stream to add to.
+     * @param string $id     The ID for the new message, or '*' to have Redis generate one.
+     * @param array  $values An associative array of field => value pairs to store in the message.
+     * @param int    $maxlen An optional maximum length for the stream after adding the message.
+     * @param bool   $approx Whether redis is allowed to do an approximate trimming of the stream.
+     *
+     * @return RedisCluster|string|false The ID of the added message.
+     * @throws RedisClusterException
+     * @see xadd()
+     * @link https://redis.io/commands/xadd
+     */
     public function xadd(string $key, string $id, array $values, int $maxlen = 0, bool $approx = false): RedisCluster|string|false {}
 
+    /**
+     * Claim ownership of one or more pending stream messages for a given consumer.
+     *
+     * @param string $key       The stream to modify.
+     * @param string $group     The consumer group to use.
+     * @param string $consumer  The consumer that will take ownership of the messages.
+     * @param int    $min_iddle The minimum idle time (in milliseconds) a message must have before it can be claimed.
+     * @param array  $ids       One or more message IDs to claim.
+     * @param array  $options   Options to modify how the command behaves (e.g. ['IDLE' => n, 'JUSTID' => true]).
+     *
+     * @return RedisCluster|string|array|false The claimed messages, or their IDs if JUSTID is passed.
+     * @throws RedisClusterException
+     * @see xclaim()
+     * @link https://redis.io/commands/xclaim
+     */
     public function xclaim(string $key, string $group, string $consumer, int $min_iddle, array $ids, array $options): RedisCluster|string|array|false {}
 
+    /**
+     * Remove one or more messages from a stream.
+     *
+     * @param string $key The stream to modify.
+     * @param array  $ids One or more message IDs to remove.
+     *
+     * @return RedisCluster|int|false The number of messages removed.
+     * @throws RedisClusterException
+     * @see xdel()
+     * @link https://redis.io/commands/xdel
+     */
     public function xdel(string $key, array $ids): RedisCluster|int|false {}
 
+    /**
+     * Remove one or more IDs from a stream with extended options.
+     *
+     * @param string      $key  The stream to modify.
+     * @param array       $ids  One or more message IDs to remove.
+     * @param string|null $mode An optional mode argument. Valid modes are: KEEPREF | DELREF | ACKED.
+     *
+     * @return RedisCluster|array|false An array corresponding to IDs. 1 if the id was deleted and 0 if not.
+     * @throws RedisClusterException
+     * @see xdelex()
+     * @link https://redis.io/commands/xdelex
+     * @example
+     * <pre>
+     * $redisCluster->xadd('s', '*', ['field' => 'value1']);
+     * $redisCluster->xdelex('s', ['1-0'], 'KEEPREF');
+     * </pre>
+     */
+    public function xdelex(string $key, array $ids, ?string $mode = null): RedisCluster|array|false {}
+
+    /**
+     * Perform various operations on consumer groups for a particular stream.
+     *
+     * @param string      $operation      The subcommand to execute (e.g. 'CREATE', 'SETID', 'DESTROY', 'CREATECONSUMER', 'DELCONSUMER').
+     * @param string|null $key            The stream to operate on.
+     * @param string|null $group          The consumer group to operate on.
+     * @param string|null $id_or_consumer Either a message ID or a consumer name, depending on the subcommand.
+     * @param bool        $mkstream       Whether to create the stream if it does not exist (for CREATE).
+     * @param int         $entries_read   An optional entries-read counter for the group.
+     *
+     * @return mixed The result depends on the subcommand executed.
+     * @throws RedisClusterException
+     * @see xgroup()
+     * @link https://redis.io/commands/xgroup
+     */
     public function xgroup(string $operation, ?string $key = null, ?string $group = null, ?string $id_or_consumer = null, bool $mkstream = false, int $entries_read = -2): mixed {}
 
+    /**
+     * Automatically claim and transfer ownership of pending messages that have been idle for a given time.
+     *
+     * @param string $key      The stream to modify.
+     * @param string $group    The consumer group to use.
+     * @param string $consumer The consumer that will take ownership of the messages.
+     * @param int    $min_idle The minimum idle time (in milliseconds) a message must have before it can be claimed.
+     * @param string $start    The stream ID to start scanning from.
+     * @param int    $count    The maximum number of messages to claim in one call.
+     * @param bool   $justid   Whether to return only the IDs of the claimed messages.
+     *
+     * @return RedisCluster|bool|array The claimed messages (or just their IDs) and the next cursor.
+     * @throws RedisClusterException
+     * @see xautoclaim()
+     * @link https://redis.io/commands/xautoclaim
+     */
     public function xautoclaim(string $key, string $group, string $consumer, int $min_idle, string $start, int $count = -1, bool $justid = false): RedisCluster|bool|array {}
 
+    /**
+     * Retrieve information about a stream, its consumer groups, or its consumers.
+     *
+     * @param string      $operation The subcommand to execute ('STREAM', 'GROUPS', or 'CONSUMERS').
+     * @param string|null $arg1      The first argument, typically the stream key.
+     * @param string|null $arg2      The second argument, typically the group name.
+     * @param int         $count     An optional count used by some subcommands.
+     *
+     * @return mixed The requested information, depending on the subcommand.
+     * @throws RedisClusterException
+     * @see xinfo()
+     * @link https://redis.io/commands/xinfo
+     */
     public function xinfo(string $operation, ?string $arg1 = null, ?string $arg2 = null, int $count = -1): mixed {}
 
+    /**
+     * Get the number of messages in a stream.
+     *
+     * @param string $key The stream to query.
+     *
+     * @return RedisCluster|int|false The number of messages in the stream.
+     * @throws RedisClusterException
+     * @see xlen()
+     * @link https://redis.io/commands/xlen
+     */
     public function xlen(string $key): RedisCluster|int|false {}
 
+    /**
+     * Retrieve information about pending messages in a consumer group.
+     *
+     * @param string      $key      The stream to query.
+     * @param string      $group    The consumer group to inspect.
+     * @param string|null $start    The minimum message ID to include.
+     * @param string|null $end      The maximum message ID to include.
+     * @param int         $count    The maximum number of messages to return.
+     * @param string|null $consumer An optional consumer name to filter by.
+     *
+     * @return RedisCluster|array|false A summary or detailed list of pending messages.
+     * @throws RedisClusterException
+     * @see xpending()
+     * @link https://redis.io/commands/xpending
+     */
     public function xpending(string $key, string $group, ?string $start = null, ?string $end = null, int $count = -1, ?string $consumer = null): RedisCluster|array|false {}
 
+    /**
+     * Get a range of messages from a stream in chronological order.
+     *
+     * @param string $key   The stream to query.
+     * @param string $start The minimum message ID to include.
+     * @param string $end   The maximum message ID to include.
+     * @param int    $count An optional maximum number of messages to include.
+     *
+     * @return RedisCluster|bool|array The messages within the requested range.
+     * @throws RedisClusterException
+     * @see xrange()
+     * @link https://redis.io/commands/xrange
+     */
     public function xrange(string $key, string $start, string $end, int $count = -1): RedisCluster|bool|array {}
 
+    /**
+     * Read messages from one or more streams.
+     *
+     * @param array $streams An associative array of stream name => ID from which to read.
+     * @param int   $count   The maximum number of messages to return per stream.
+     * @param int   $block   How long to block (in milliseconds) if no messages are available.
+     *
+     * @return RedisCluster|bool|array The messages read from the requested streams.
+     * @throws RedisClusterException
+     * @see xread()
+     * @link https://redis.io/commands/xread
+     */
     public function xread(array $streams, int $count = -1, int $block = -1): RedisCluster|bool|array {}
 
+    /**
+     * Read messages from one or more streams as part of a consumer group.
+     *
+     * @param string $group    The consumer group to read as.
+     * @param string $consumer The consumer within the group to read as.
+     * @param array  $streams  An associative array of stream name => ID from which to read.
+     * @param int    $count    The maximum number of messages to return per stream.
+     * @param int    $block    How long to block (in milliseconds) if no messages are available.
+     *
+     * @return RedisCluster|bool|array The messages read from the requested streams.
+     * @throws RedisClusterException
+     * @see xreadgroup()
+     * @link https://redis.io/commands/xreadgroup
+     */
     public function xreadgroup(string $group, string $consumer, array $streams, int $count = 1, int $block = 1): RedisCluster|bool|array {}
 
+    /**
+     * Get a range of messages from a stream in reverse chronological order.
+     *
+     * @param string $key   The stream to query.
+     * @param string $start The maximum message ID to include.
+     * @param string $end   The minimum message ID to include.
+     * @param int    $count An optional maximum number of messages to include.
+     *
+     * @return RedisCluster|bool|array The messages within the requested range, from newest to oldest.
+     * @throws RedisClusterException
+     * @see xrevrange()
+     * @link https://redis.io/commands/xrevrange
+     */
     public function xrevrange(string $key, string $start, string $end, int $count = -1): RedisCluster|bool|array {}
 
+    /**
+     * Truncate a stream to a given maximum length or minimum ID.
+     *
+     * @param string $key    The stream to trim.
+     * @param int    $maxlen The maximum length (or minimum ID when $minid is true).
+     * @param bool   $approx Whether redis is allowed to do an approximate trimming of the stream.
+     * @param bool   $minid  When true, $maxlen is treated as a minimum ID rather than a maximum length.
+     * @param int    $limit  An optional upper bound on how many entries to trim during the command.
+     *
+     * @return RedisCluster|int|false The number of entries deleted from the stream.
+     * @throws RedisClusterException
+     * @see xtrim()
+     * @link https://redis.io/commands/xtrim
+     */
     public function xtrim(string $key, int $maxlen, bool $approx = false, bool $minid = false, int $limit = -1): RedisCluster|int|false {}
 
+    /**
+     * Compute the intersection of one or more sorted sets and return the cardinality of the result.
+     *
+     * @param array $keys  One or more sorted set key names.
+     * @param int   $limit A maximum cardinality to return. This puts an upper bound on the work Redis will do.
+     *
+     * @return RedisCluster|int|false The cardinality of the intersection of the sorted sets.
+     * @throws RedisClusterException
+     * @see zintercard()
+     * @link https://redis.io/commands/zintercard
+     */
     public function zintercard(array $keys, int $limit = -1): RedisCluster|int|false {}
 
+    /**
+     * Pop one or more of the highest scoring members from a sorted set.
+     *
+     * @param string   $key   The sorted set to pop from.
+     * @param int|null $value The number of members to pop.
+     *
+     * @return RedisCluster|bool|array The popped members and their scores.
+     * @throws RedisClusterException
+     * @see zPopMax()
+     * @link https://redis.io/commands/zpopmax
+     */
     public function zPopMax(string $key, ?int $value = null): RedisCluster|bool|array {}
 
+    /**
+     * Pop one or more of the lowest scoring members from a sorted set.
+     *
+     * @param string   $key   The sorted set to pop from.
+     * @param int|null $value The number of members to pop.
+     *
+     * @return RedisCluster|bool|array The popped members and their scores.
+     * @throws RedisClusterException
+     * @see zPopMin()
+     * @link https://redis.io/commands/zpopmin
+     */
     public function zPopMin(string $key, ?int $value = null): RedisCluster|bool|array {}
 
+    /**
+     * Store a range of a sorted set into a new sorted set. Note that both keys must map to the same slot.
+     *
+     * @param string          $dstkey  The destination sorted set.
+     * @param string          $srckey  The source sorted set.
+     * @param int             $start   The minimum index (or score/lex value depending on options).
+     * @param int             $end     The maximum index (or score/lex value depending on options).
+     * @param array|bool|null $options Options to modify how the range is selected (e.g. ['BYSCORE'], ['REV']).
+     *
+     * @return RedisCluster|int|false The number of elements stored in the destination set.
+     * @throws RedisClusterException
+     * @see zrangestore()
+     * @link https://redis.io/commands/zrangestore
+     */
     public function zrangestore(string $dstkey, string $srckey, int $start, int $end, array|bool|null $options = null): RedisCluster|int|false {}
 
+    /**
+     * Get one or more random members from a sorted set.
+     *
+     * @param string     $key     The sorted set to query.
+     * @param array|null $options An array of options to modify how the command behaves (e.g. ['COUNT' => n, 'WITHSCORES' => true]).
+     *
+     * @return RedisCluster|string|array One or more random members (and optionally their scores).
+     * @throws RedisClusterException
+     * @see zRandMember()
+     * @link https://redis.io/commands/zrandmember
+     */
     public function zRandMember(string $key, ?array $options = null): RedisCluster|string|array {}
 
-    public function zMscore(string $key, mixed $member, mixed ...$other_members): Redis|array|false {}
+    /**
+     * Get the scores of one or more members in a sorted set.
+     *
+     * @param string $key             The sorted set to query.
+     * @param mixed  $member          The first member to look up.
+     * @param mixed  ...$other_members Any additional members to look up.
+     *
+     * @return RedisCluster|array|false An array with the score for each member, or false for members that don't exist.
+     * @throws RedisClusterException
+     * @see zMscore()
+     * @link https://redis.io/commands/zmscore
+     */
+    public function zMscore(string $key, mixed $member, mixed ...$other_members): RedisCluster|array|false {}
 
+    /**
+     * Compute the intersection of one or more sorted sets and return the result.
+     *
+     * @param array      $keys    One or more sorted set key names.
+     * @param array|null $weights An optional array of weights to apply to each sorted set.
+     * @param array|null $options Options to modify how the command behaves (e.g. ['aggregate' => 'sum', 'withscores' => true]).
+     *
+     * @return RedisCluster|array|false The members resulting from the intersection.
+     * @throws RedisClusterException
+     * @see zinter()
+     * @link https://redis.io/commands/zinter
+     */
     public function zinter(array $keys, ?array $weights = null, ?array $options = null): RedisCluster|array|false {}
 
+    /**
+     * Compute the difference of one or more sorted sets and store the result in a new sorted set.
+     *
+     * @param string $dst  The destination sorted set.
+     * @param array  $keys One or more sorted set key names.
+     *
+     * @return RedisCluster|int|false The number of elements stored in the destination set.
+     * @throws RedisClusterException
+     * @see zdiffstore()
+     * @link https://redis.io/commands/zdiffstore
+     */
     public function zdiffstore(string $dst, array $keys): RedisCluster|int|false {}
 
+    /**
+     * Compute the union of one or more sorted sets and return the result.
+     *
+     * @param array      $keys    One or more sorted set key names.
+     * @param array|null $weights An optional array of weights to apply to each sorted set.
+     * @param array|null $options Options to modify how the command behaves (e.g. ['aggregate' => 'sum', 'withscores' => true]).
+     *
+     * @return RedisCluster|array|false The members resulting from the union.
+     * @throws RedisClusterException
+     * @see zunion()
+     * @link https://redis.io/commands/zunion
+     */
     public function zunion(array $keys, ?array $weights = null, ?array $options = null): RedisCluster|array|false {}
 
+    /**
+     * Compute the difference of one or more sorted sets and return the result.
+     *
+     * @param array      $keys    One or more sorted set key names.
+     * @param array|null $options Options to modify how the command behaves (e.g. ['withscores' => true]).
+     *
+     * @return RedisCluster|array|false The members resulting from the difference.
+     * @throws RedisClusterException
+     * @see zdiff()
+     * @link https://redis.io/commands/zdiff
+     */
     public function zdiff(array $keys, ?array $options = null): RedisCluster|array|false {}
+
+    /**
+     * Add an element to a vector set.
+     *
+     * @param string     $key     The vector set to add to.
+     * @param array      $values  A non-empty array of floating point values.
+     * @param mixed      $element The element to add to the vector set.
+     * @param array|null $options An optional options array.
+     *
+     * @return RedisCluster|int|false One if the element was added, zero if not.
+     * @throws RedisClusterException
+     * @see vadd()
+     * @link https://redis.io/commands/vadd
+     * @example $redisCluster->vadd('embeddings', [0.12, 0.04, 0.88], 'doc:1');
+     */
+    public function vadd(string $key, array $values, mixed $element, array|null $options = null): RedisCluster|int|false {}
+
+    /**
+     * Query similarity of a vector by element or scores.
+     *
+     * @param string     $key     The vector set to query.
+     * @param mixed      $member  Either an element or an array of scores. You may explicitly specify `ELE`,
+     *                            `VALUES`, or `FP32` in the options array to disambiguate.
+     * @param array|null $options An optional options array.
+     *
+     * @return RedisCluster|array|false An array of elements and their similarity scores, or false on failure.
+     * @throws RedisClusterException
+     * @see vsim()
+     * @link https://redis.io/commands/vsim
+     * @example $redisCluster->vsim('embeddings', 'doc:1', ['COUNT' => 3]);
+     */
+    public function vsim(string $key, mixed $member, array|null $options = null): RedisCluster|array|false {}
+
+    /**
+     * Get the number of elements in a vector set.
+     *
+     * @param string $key The vector set to query.
+     *
+     * @return RedisCluster|int|false The number of elements in the vector set or false on failure.
+     * @throws RedisClusterException
+     * @see vcard()
+     * @link https://redis.io/commands/vcard
+     * @example $redisCluster->vcard('embeddings');
+     */
+    public function vcard(string $key): RedisCluster|int|false {}
+
+    /**
+     * Get the number of dimensions in a vector set.
+     *
+     * @param string $key The vector set to query.
+     *
+     * @return RedisCluster|int|false The number of dimensions in the vector set or false on failure.
+     * @throws RedisClusterException
+     * @see vdim()
+     * @link https://redis.io/commands/vdim
+     * @example $redisCluster->vdim('embeddings');
+     */
+    public function vdim(string $key): RedisCluster|int|false {}
+
+    /**
+     * Get various bits of information about a vector set.
+     *
+     * @param string $key The vector set to query.
+     *
+     * @return RedisCluster|array|false An array of information about the vector set or false on failure.
+     * @throws RedisClusterException
+     * @see vinfo()
+     * @link https://redis.io/commands/vinfo
+     * @example $redisCluster->vinfo('embeddings');
+     */
+    public function vinfo(string $key): RedisCluster|array|false {}
+
+    /**
+     * Check if an element is a member of a vector set.
+     *
+     * @param string $key    The vector set to query.
+     * @param mixed  $member The member to check for.
+     *
+     * @return RedisCluster|bool True if the member exists, false if it does not.
+     * @throws RedisClusterException
+     * @see vismember()
+     * @link https://redis.io/commands/vismember
+     * @example $redisCluster->vismember('embeddings', 'doc:1');
+     */
+    public function vismember(string $key, mixed $member): RedisCluster|bool {}
+
+    /**
+     * Get the embeddings for a specific member of a vector set.
+     *
+     * @param string $key    The vector set to query.
+     * @param mixed  $member The member to query.
+     * @param bool   $raw    If set to `true`, the raw embeddings will be returned.
+     *
+     * @return RedisCluster|array|false An array of embeddings for the member or false on failure.
+     * @throws RedisClusterException
+     * @see vemb()
+     * @link https://redis.io/commands/vemb
+     * @example $redisCluster->vemb('embeddings', 'doc:1');
+     */
+    public function vemb(string $key, mixed $member, bool $raw = false): RedisCluster|array|false {}
+
+    /**
+     * Get one or more random members from a vector set.
+     *
+     * @param string $key   The vector set to query.
+     * @param int    $count The number of random members to return.
+     *
+     * @return RedisCluster|array|string|false One or more random members from the vector set.
+     * @throws RedisClusterException
+     * @see vrandmember()
+     * @link https://redis.io/commands/vrandmember
+     * @example $redisCluster->vrandmember('embeddings', 2);
+     */
+    public function vrandmember(string $key, int $count = 0): RedisCluster|array|string|false {}
+
+    /**
+     * Retrieve a lexicographical range of elements from a vector set.
+     *
+     * @param string $key   The vector set to query.
+     * @param string $min   The minimum element to return.
+     * @param string $max   The maximum element to return.
+     * @param int    $count An optional maximum number of elements to return.
+     *
+     * @return RedisCluster|array|false An array of elements in the requested range or false on failure.
+     * @throws RedisClusterException
+     * @see vrange()
+     * @link https://redis.io/commands/vrange
+     * @example $redisCluster->vrange('embeddings', '-', '+', 5);
+     */
+    public function vrange(string $key, string $min, string $max, int $count = -1): RedisCluster|array|false {}
+
+    /**
+     * Remove an element from a vector set.
+     *
+     * @param string $key    The vector set to remove from.
+     * @param mixed  $member The member to remove.
+     *
+     * @return RedisCluster|int|false 1 if the member was removed, 0 if it was not.
+     * @throws RedisClusterException
+     * @see vrem()
+     * @link https://redis.io/commands/vrem
+     * @example $redisCluster->vrem('embeddings', 'doc:1');
+     */
+    public function vrem(string $key, mixed $member): RedisCluster|int|false {}
+
+    /**
+     * Get any adjacent values for a member of a vector set.
+     *
+     * @param string $key        The vector set to query.
+     * @param mixed  $member     The member to query.
+     * @param bool   $withscores If set to `true`, the scores of the adjacent values will be returned.
+     *
+     * @return RedisCluster|array|false An array of adjacent values and their scores, or false on failure.
+     * @throws RedisClusterException
+     * @see vlinks()
+     * @link https://redis.io/commands/vlinks
+     * @example $redisCluster->vlinks('embeddings', 'doc:1', true);
+     */
+    public function vlinks(string $key, mixed $member, bool $withscores = false): RedisCluster|array|false {}
+
+    /**
+     * Get the attributes of a vector set element.
+     *
+     * @param string $key    The vector set to query.
+     * @param mixed  $member The member to query.
+     * @param bool   $decode Whether to automatically deserialize any returned json.
+     *
+     * @return RedisCluster|array|string|false An array of attributes for the member or false on failure.
+     * @throws RedisClusterException
+     * @see vgetattr()
+     * @link https://redis.io/commands/vgetattr
+     * @example $redisCluster->vgetattr('embeddings', 'doc:1');
+     */
+    public function vgetattr(string $key, mixed $member, bool $decode = true): RedisCluster|array|string|false {}
+
+    /**
+     * Set the attributes of a vector set element.
+     *
+     * @param string       $key        The vector set to modify.
+     * @param mixed        $member     The member to modify.
+     * @param array|string $attributes The attributes to set. Either a json encoded string or an array which
+     *                                 will be json encoded.
+     *
+     * @return RedisCluster|int|false 1 if the attributes were set, 0 if they were not.
+     * @throws RedisClusterException
+     * @see vsetattr()
+     * @link https://redis.io/commands/vsetattr
+     * @example $redisCluster->vsetattr('embeddings', 'doc:1', ['topic' => 'tech']);
+     */
+    public function vsetattr(string $key, mixed $member, array|string $attributes): RedisCluster|int|false {}
+
+    /**
+     * Get rate limiting information for a key using the GCRA (Generic Cell Rate Algorithm).
+     *
+     * @param string $key               The key to rate limit.
+     * @param int    $maxBurst          The maximum burst size allowed.
+     * @param int    $requestsPerPeriod The number of requests allowed per period.
+     * @param int    $period            The length of the period.
+     * @param int    $tokens            The number of tokens to consume.
+     *
+     * @return RedisCluster|array|false An array with rate limiting information, or false on failure.
+     * @throws RedisClusterException
+     * @see gcra()
+     * @link https://redis.io/commands/gcra
+     * @example $redisCluster->gcra('user:123', 10, 100, 3600);
+     */
+    public function gcra(string $key, int $maxBurst, int $requestsPerPeriod, int $period, int $tokens = 0): RedisCluster|array|false {}
+
+    /**
+     * Ask the server for the XXH3 digest of a given key's value.
+     *
+     * @param string $key The key to retrieve the digest for.
+     *
+     * @return RedisCluster|string|false The XXH3 digest as a string or false on failure.
+     * @throws RedisClusterException
+     * @see digest()
+     * @link https://redis.io/commands/digest
+     * @example $redisCluster->digest('session:42');
+     */
+    public function digest(string $key): RedisCluster|string|false {}
 }
 
 class RedisClusterException extends Exception {}

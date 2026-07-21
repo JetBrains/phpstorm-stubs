@@ -10,10 +10,10 @@ class RedisArray
     /**
      * Constructor
      *
-     * @param string|string[] $hosts Name of the redis array from redis.ini or array of hosts to construct the array with
-     * @param null|array      $opts  Array of options
+     * @param string|string[] $name_or_hosts Name of the redis array from redis.ini or array of hosts to construct the array with
+     * @param null|array      $options       Array of options
      */
-    public function __construct(string|array $hosts, ?array $opts = null) {}
+    public function __construct(string|array $name_or_hosts, ?array $options = null) {}
 
     /**
      * @return bool|array returns a list of points on continuum; may be useful with custom distributor function.
@@ -47,7 +47,7 @@ class RedisArray
      *
      * @return bool|null rehash result
      */
-    public function _rehash(callable $fn = null): bool|null {}
+    public function _rehash(?callable $fn = null): bool|null {}
 
     /**
      * @param string $key The key for which you want to lookup the host
@@ -205,6 +205,8 @@ class RedisArray
      * </pre>
      */
     public function info(): bool|array {}
+
+    public function __call(string $function_name, array $arguments): mixed {}
 
     public function bgsave(): array {}
 
