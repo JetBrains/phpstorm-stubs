@@ -37,47 +37,28 @@ class RedisSentinel
     /**
      * Creates a Redis Sentinel
      *
-     * @param string      $host          Sentinel IP address or hostname
-     * @param int         $port          Sentinel Port
-     * @param float       $timeout       Value in seconds (optional, default is 0 meaning unlimited)
-     * @param string|null $persistent    Persistent connection id (optional, default is null meaning not persistent)
-     * @param int         $retryInterval Value in milliseconds (optional, default is 0)
-     * @param float       $readTimeout   Value in seconds (optional, default is 0 meaning unlimited)
+     * You can either pass an array of options (recommended >= 6.0.0) or separate parameters (legacy).
      *
-     * @example
-     * // 1s timeout, 100ms delay between reconnection attempts.
-     * $sentinel = new RedisSentinel('127.0.0.1', 26379, 1, null, 100);
-     */
-    public function __construct(
-        string $host,
-        int $port,
-        float $timeout = 0,
-        ?string $persistent = null,
-        int $retryInterval = 0,
-        float $readTimeout = 0
-    ) {}
-
-    /**
-     * Creates a Redis Sentinel
-     *
-     * Accepts and array of options.
-     *
-     * Available options:
-     *   - 'host' => string, Sentinel IP address or hostname
-     *   - 'port' => int, Sentinel Port (optional, default is 26379)
+     * Available options for array:
+     *   - 'host'           => string, Sentinel IP address or hostname
+     *   - 'port'           => int, Sentinel Port (optional, default is 26379)
      *   - 'connectTimeout' => float, Value in seconds (optional, default is 0 meaning unlimited)
-     *   - 'persistent' => string, Persistent connection id (optional, default is NULL meaning not persistent)
-     *   - 'retryInterval' => int, Value in milliseconds (optional, default is 0)
-     *   - 'readTimeout' => float, Value in seconds (optional, default is 0 meaning unlimited)
-     *   - 'auth' => string|array, Authentication credentials (optional, default is NULL meaning NOAUTH)
+     *   - 'persistent'     => string, Persistent connection id (optional, default is NULL meaning not persistent)
+     *   - 'retryInterval'  => int, Value in milliseconds (optional, default is 0)
+     *   - 'readTimeout'    => float, Value in seconds (optional, default is 0 meaning unlimited)
+     *   - 'auth'           => string|array, Authentication credentials (optional, default is NULL meaning NOAUTH)
      *
-     * @param array $options Associative array of options
+     * @param array|string|null $options_or_host Associative array of options, or Sentinel IP address/hostname
+     * @param int               $port            Sentinel Port (ignored if $options_or_host is an array)
+     * @param float             $timeout         Value in seconds (optional, default is 0 meaning unlimited)
+     * @param string|null       $persistent      Persistent connection id (optional, default is null meaning not persistent)
+     * @param int               $retryInterval   Value in milliseconds (optional, default is 0)
+     * @param float             $readTimeout     Value in seconds (optional, default is 0 meaning unlimited)
      *
-     * @example $sentinel = new RedisSentinel(['host' => '127.0.0.1']); // default parameters
-     *
-     * @since >= 6.0.0
+     * @example $sentinel = new RedisSentinel(['host' => '127.0.0.1']); // Default parameters (>= 6.0.0)
+     * @example $sentinel = new RedisSentinel('127.0.0.1', 26379, 1, null, 100); // Legacy format
      */
-    public function __construct(?array $options = null) {}
+    public function __construct( array|string|null $options_or_host = null, int $port = 26379, float $timeout = 0.0, ?string $persistent = null, int $retryInterval = 0, float $readTimeout = 0.0) {}
 
     /**
      * Check if the current Sentinel configuration is able to reach the quorum needed to failover a master, and the
