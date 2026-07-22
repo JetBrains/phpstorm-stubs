@@ -323,4 +323,13 @@ enum CheckType: string
      * Used by FunctionParameterDeprecationCheck and ClassMethodsParameterDeprecationCheck.
      */
     case PARAMETER_DEPRECATION = 'ParameterDeprecationCheck';
+
+    /**
+     * Validates that the target flags of an attribute class declared via `#[Attribute(...)]`
+     * in stubs match reflection (e.g. that TARGET_CLASS_CONSTANT is present when the attribute
+     * may be applied to class constants). Attributes are declared without version awareness,
+     * so the comparison is limited to the latest PHP version.
+     * Used by ClassAttributeTargetsCheck.
+     */
+    case CLASS_ATTRIBUTE_TARGETS = 'ClassAttributeTargetsCheck';
 }

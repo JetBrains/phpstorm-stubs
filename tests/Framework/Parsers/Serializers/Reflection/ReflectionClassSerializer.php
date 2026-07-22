@@ -62,6 +62,8 @@ class ReflectionClassSerializer implements EntityTypeSerializerInterface
             $data['interfaces'][] = $interface->getId() ?? $interface->getName();
         }
 
+        $data['attributes'] = $entity->getAttributes();
+
         return $data;
     }
 
@@ -108,6 +110,10 @@ class ReflectionClassSerializer implements EntityTypeSerializerInterface
                     $class->addImplementedInterface($interface);
                 }
             }
+        }
+
+        if (isset($data['attributes']) && is_array($data['attributes'])) {
+            $class->setAttributes($data['attributes']);
         }
 
         return $class;

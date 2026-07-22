@@ -11,6 +11,7 @@ use StubTests\Framework\Validator\EntityNamespaceCheck;
 use StubTests\Framework\Validator\Classes\ClassParentClassCheck;
 use StubTests\Framework\Validator\Classes\ClassReadonlyCheck;
 use StubTests\Framework\Validator\Classes\ClassFinalCheck;
+use StubTests\Framework\Validator\Classes\ClassAttributeTargetsCheck;
 use StubTests\Framework\Validator\Classes\Methods\ClassFinalMethodsCheck;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsExistCheck;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsVisibilityCheck;
@@ -67,6 +68,9 @@ class ClassValidatorTest extends ValidatorTestBase
             'checkClassNamespace' => new CheckDescriptor(EntityNamespaceCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} namespace validation failed in PHP {phpVersion}', EntityTypeConfig::forClass()),
             'checkClassReadonly' => new CheckDescriptor(ClassReadonlyCheck::class, PhpVersions::PHP_8_2, PhpVersions::LATEST, 'Class {entityId} readonly validation failed in PHP {phpVersion}'),
             'checkClassFinal' => new CheckDescriptor(ClassFinalCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} final validation failed in PHP {phpVersion}'),
+            // Attribute target flags are declared without version awareness in stubs, so - like the
+            // constant-value checks - the comparison against reflection only runs at the latest version.
+            'checkClassAttributeTargets' => new CheckDescriptor(ClassAttributeTargetsCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Class {entityId} attribute targets validation failed in PHP {phpVersion}'),
             'checkParentClass' => new CheckDescriptor(ClassParentClassCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} parent class validation failed in PHP {phpVersion}'),
             'checkClassInterfaces' => new CheckDescriptor(ClassInterfacesCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} interfaces validation failed in PHP {phpVersion}'),
             'checkClassesMethodsExist' => new CheckDescriptor(ClassMethodsExistCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} methods check failed in PHP {phpVersion}'),

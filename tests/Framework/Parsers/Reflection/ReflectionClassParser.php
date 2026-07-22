@@ -78,6 +78,9 @@ class ReflectionClassParser implements Parser
                 $class->addImplementedInterface($this->interfaceParser->parse($interface));
             }
         }
+        // Class-level attributes (already captured as [name, evaluated arguments] by the
+        // adapter) so checks can validate e.g. the `#[Attribute(...)]` target flags.
+        $class->setAttributes($object->getAttributes() ?? []);
         return $class;
     }
 }

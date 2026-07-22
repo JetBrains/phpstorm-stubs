@@ -10,7 +10,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -229,7 +230,8 @@
         ],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -478,7 +480,8 @@
         ],
         "constants": [],
         "parentClass": "Exception",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -582,7 +585,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -711,7 +715,8 @@
         "interfaces": [
             "\\Iterator",
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -1246,7 +1251,8 @@
         "parentClass": null,
         "interfaces": [
             "\\DateTimeInterface"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -1737,7 +1743,8 @@
         "parentClass": null,
         "interfaces": [
             "\\DateTimeInterface"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -2005,7 +2012,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -2110,7 +2118,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -2233,7 +2242,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -2246,7 +2256,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -2802,7 +2813,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -2995,7 +3007,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -3122,7 +3135,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -3293,7 +3307,8 @@
         ],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -3491,7 +3506,8 @@
         ],
         "constants": [],
         "parentClass": "Exception",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -3528,7 +3544,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -3588,7 +3605,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -3625,7 +3643,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -3685,7 +3704,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -3834,7 +3854,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -4437,7 +4458,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -4450,7 +4472,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -5087,7 +5110,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMNode",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -6566,7 +6590,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMNode",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -6605,7 +6630,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -6804,7 +6830,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -7577,7 +7604,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMNode",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -8225,7 +8253,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMNode",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -9419,7 +9448,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMNode",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -10283,7 +10313,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMCharacterData",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -11079,7 +11110,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMCharacterData",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -11092,7 +11124,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -11117,7 +11150,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -11130,7 +11164,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -11167,7 +11202,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -11180,7 +11216,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -11285,7 +11322,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -12149,7 +12187,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMText",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -12752,7 +12791,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMNode",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -13355,7 +13395,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMNode",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -13958,7 +13999,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMNode",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -14584,7 +14626,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMNode",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -15221,7 +15264,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "DOMNode",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -15281,7 +15325,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -15453,7 +15498,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -15614,7 +15660,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -15812,7 +15859,8 @@
         ],
         "constants": [],
         "parentClass": "Exception",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -16010,7 +16058,8 @@
         ],
         "constants": [],
         "parentClass": "LogicException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -16208,7 +16257,8 @@
         ],
         "constants": [],
         "parentClass": "BadFunctionCallException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -16406,7 +16456,8 @@
         ],
         "constants": [],
         "parentClass": "LogicException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -16604,7 +16655,8 @@
         ],
         "constants": [],
         "parentClass": "LogicException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -16802,7 +16854,8 @@
         ],
         "constants": [],
         "parentClass": "LogicException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -17000,7 +17053,8 @@
         ],
         "constants": [],
         "parentClass": "LogicException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -17198,7 +17252,8 @@
         ],
         "constants": [],
         "parentClass": "Exception",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -17396,7 +17451,8 @@
         ],
         "constants": [],
         "parentClass": "RuntimeException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -17594,7 +17650,8 @@
         ],
         "constants": [],
         "parentClass": "RuntimeException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -17792,7 +17849,8 @@
         ],
         "constants": [],
         "parentClass": "RuntimeException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -17990,7 +18048,8 @@
         ],
         "constants": [],
         "parentClass": "RuntimeException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -18188,7 +18247,8 @@
         ],
         "constants": [],
         "parentClass": "RuntimeException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -18487,7 +18547,8 @@
             "\\Iterator",
             "\\Traversable",
             "\\OuterIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -18594,7 +18655,8 @@
             "\\Iterator",
             "\\Traversable",
             "\\OuterIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -18712,7 +18774,8 @@
             "\\OuterIterator",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -18853,7 +18916,8 @@
             "\\Traversable",
             "\\OuterIterator",
             "\\RecursiveIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -18982,7 +19046,8 @@
             "\\Iterator",
             "\\Traversable",
             "\\OuterIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -19134,7 +19199,8 @@
             "\\Traversable",
             "\\Iterator",
             "\\RecursiveIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -19275,7 +19341,8 @@
             "\\OuterIterator",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -19438,7 +19505,8 @@
             "\\OuterIterator",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -19776,7 +19844,8 @@
             "\\Iterator",
             "\\ArrayAccess",
             "\\Countable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -20137,7 +20206,8 @@
             "\\Traversable",
             "\\OuterIterator",
             "\\RecursiveIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -20244,7 +20314,8 @@
             "\\OuterIterator",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -20384,7 +20455,8 @@
             "\\OuterIterator",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -20491,7 +20563,8 @@
             "\\OuterIterator",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -20817,7 +20890,8 @@
             "\\Iterator",
             "\\Traversable",
             "\\OuterIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -21166,7 +21240,8 @@
             "\\Traversable",
             "\\Iterator",
             "\\RecursiveIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -21238,7 +21313,8 @@
         "interfaces": [
             "\\Iterator",
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -21674,7 +21750,8 @@
             "\\OuterIterator",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -22104,7 +22181,8 @@
             "\\ArrayAccess",
             "\\Serializable",
             "\\Countable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -22545,7 +22623,8 @@
             "\\SeekableIterator",
             "\\Serializable",
             "\\Countable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -23003,7 +23082,8 @@
             "\\Traversable",
             "\\Iterator",
             "\\RecursiveIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -23453,7 +23533,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -23996,7 +24077,8 @@
             "\\Iterator",
             "\\Traversable",
             "\\SeekableIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -24657,7 +24739,8 @@
             "\\SeekableIterator",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -25375,7 +25458,8 @@
             "\\Traversable",
             "\\SeekableIterator",
             "\\RecursiveIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -26048,7 +26132,8 @@
             "\\Traversable",
             "\\SeekableIterator",
             "\\Countable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -27179,7 +27264,8 @@
             "\\Traversable",
             "\\Iterator",
             "\\SeekableIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -28277,7 +28363,8 @@
             "\\Iterator",
             "\\Traversable",
             "\\RecursiveIterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -28705,7 +28792,8 @@
             "\\Countable",
             "\\ArrayAccess",
             "\\Serializable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -29167,7 +29255,8 @@
             "\\Countable",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -29595,7 +29684,8 @@
             "\\Countable",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -29757,7 +29847,8 @@
             "\\Iterator",
             "\\Traversable",
             "\\Countable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -29942,7 +30033,8 @@
             "\\Countable",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -30127,7 +30219,8 @@
             "\\Countable",
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -30365,7 +30458,8 @@
             "\\Iterator",
             "\\Traversable",
             "\\Countable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -30666,7 +30760,8 @@
             "\\Traversable",
             "\\ArrayAccess",
             "\\Countable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -31095,7 +31190,8 @@
             "\\Traversable",
             "\\Serializable",
             "\\ArrayAccess"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -31340,7 +31436,8 @@
         "interfaces": [
             "\\Iterator",
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -31545,7 +31642,8 @@
         ],
         "constants": [],
         "parentClass": "RuntimeException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -32431,7 +32529,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -33017,7 +33116,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -33030,7 +33130,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -33228,7 +33329,8 @@
         ],
         "constants": [],
         "parentClass": "Exception",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -33299,7 +33401,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -33598,7 +33701,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Reflector"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -34029,7 +34133,8 @@
         "parentClass": "ReflectionFunctionAbstract",
         "interfaces": [
             "\\Reflector"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -34330,7 +34435,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Reflector"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -34987,7 +35093,8 @@
         "parentClass": "ReflectionFunctionAbstract",
         "interfaces": [
             "\\Reflector"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -35817,7 +35924,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Reflector"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -36647,7 +36755,8 @@
         "parentClass": "ReflectionClass",
         "interfaces": [
             "\\Reflector"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -36983,7 +37092,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Reflector"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -37207,7 +37317,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Reflector"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -37365,7 +37476,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Reflector"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -37541,7 +37653,8 @@
         "interfaces": [
             "\\SessionHandlerInterface",
             "\\SessionIdInterface"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -37975,7 +38088,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -38489,7 +38603,8 @@
             "\\RecursiveIterator",
             "\\Iterator",
             "\\Countable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -38502,7 +38617,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -38609,7 +38725,8 @@
         ],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -38692,7 +38809,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -39371,7 +39489,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -40447,7 +40566,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -40645,7 +40765,8 @@
         ],
         "constants": [],
         "parentClass": "Exception",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -42725,7 +42846,8 @@
             "\\Iterator",
             "\\Countable",
             "\\ArrayAccess"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -44721,7 +44843,8 @@
             "\\Iterator",
             "\\Countable",
             "\\ArrayAccess"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -45373,7 +45496,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "SplFileInfo",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -45386,7 +45510,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -45897,7 +46022,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -46848,7 +46974,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -47007,7 +47134,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -47594,7 +47722,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -47879,7 +48008,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -48475,7 +48605,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -48671,7 +48802,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -48874,7 +49006,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -49439,7 +49572,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -50687,7 +50821,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -51824,7 +51959,8 @@
         "properties": [],
         "constants": [],
         "parentClass": "IntlCalendar",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -52017,7 +52153,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -52215,7 +52352,8 @@
         ],
         "constants": [],
         "parentClass": "Exception",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -52287,7 +52425,8 @@
         "interfaces": [
             "\\Iterator",
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -52793,7 +52932,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -53366,7 +53506,8 @@
         "parentClass": "IntlBreakIterator",
         "interfaces": [
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -53883,7 +54024,8 @@
         "parentClass": "IntlBreakIterator",
         "interfaces": [
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -53985,7 +54127,8 @@
         "interfaces": [
             "\\Traversable",
             "\\Iterator"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -54696,7 +54839,8 @@
             }
         ],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -54901,7 +55045,8 @@
         ],
         "constants": [],
         "parentClass": "RuntimeException",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -54957,7 +55102,8 @@
         ],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -56231,7 +56377,8 @@
         ],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -56289,7 +56436,8 @@
         ],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -56566,7 +56714,8 @@
         "parentClass": null,
         "interfaces": [
             "\\Traversable"
-        ]
+        ],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -56988,7 +57137,8 @@
         ],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -57361,7 +57511,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -57453,7 +57604,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -57728,7 +57880,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -58004,7 +58157,8 @@
         ],
         "constants": [],
         "parentClass": "Exception",
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -58052,7 +58206,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPClass",
@@ -58133,7 +58288,8 @@
         "properties": [],
         "constants": [],
         "parentClass": null,
-        "interfaces": []
+        "interfaces": [],
+        "attributes": []
     },
     {
         "_type": "PHPInterface",

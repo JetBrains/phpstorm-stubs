@@ -4426,3 +4426,20 @@ define('CURLINFO_QUEUE_TIME_T', 6291521);
 define('CURLINFO_USED_PROXY', 2097218);
 define('CURLINFO_CONN_ID', 6291520);
 define('CURLOPT_SSL_SIGNATURE_ALGORITHMS', 10328);
+
+/**
+ * @since 8.6
+ */
+define('CURLOPT_SEEKFUNCTION', 20167);
+/**
+ * @since 8.6
+ */
+define('CURL_SEEKFUNC_OK', 0);
+/**
+ * @since 8.6
+ */
+define('CURL_SEEKFUNC_FAIL', 1);
+/**
+ * @since 8.6
+ */
+define('CURL_SEEKFUNC_CANTSEEK', 2);

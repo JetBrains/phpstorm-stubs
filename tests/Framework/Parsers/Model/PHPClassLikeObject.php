@@ -15,6 +15,16 @@ class PHPClassLikeObject extends PHPNamespacedElement
     private bool $isFinal = false;
     private bool $isReadonly = false;
 
+    /**
+     * Attributes applied to this class-like element, kept as a parser-agnostic list.
+     * Each entry is ['name' => string, 'arguments' => array], where arguments are keyed
+     * by position (int) or by named-argument name (string) and hold already-evaluated
+     * scalar values (e.g. the `#[Attribute(...)]` flags bitmask is stored as an int).
+     *
+     * @var array<int, array{name: string, arguments: array}>
+     */
+    private array $attributes = [];
+
     /** @return PHPInterface[] */
     public function getImplementedInterfaces(): array
     {
@@ -81,5 +91,26 @@ class PHPClassLikeObject extends PHPNamespacedElement
     public function addMethod(PHPMethod $method): void
     {
         $this->methods[] = $method;
+    }
+
+    /**
+     * @return array<int, array{name: string, arguments: array}>
+     */
+    public function getAttributes(): array
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param array<int, array{name: string, arguments: array}> $attributes
+     */
+    public function setAttributes(array $attributes): void
+    {
+        $this->attributes = $attributes;
+    }
+
+    public function addAttribute(string $name, array $arguments = []): void
+    {
+        $this->attributes[] = ['name' => $name, 'arguments' => $arguments];
     }
 }

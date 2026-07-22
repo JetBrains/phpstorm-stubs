@@ -1215,7 +1215,7 @@ final class SensitiveParameterValue
 /**
  * @since 8.3
  */
-#[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_PROPERTY)]
+#[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_PROPERTY|Attribute::TARGET_CLASS_CONSTANT)]
 final class Override
 {
     public function __construct() {}

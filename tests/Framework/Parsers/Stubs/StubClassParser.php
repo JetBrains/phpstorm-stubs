@@ -92,9 +92,21 @@ class StubClassParser implements MultiEntityStubParserInterface
         $classTemplateNames = TemplateTypeNormalizer::extractTemplateNames($parsedPhpDoc->rawPhpDoc);
 
         // Parse and apply available version (from PhpDoc + attributes)
-        $versions = $this->versionParser->parseAvailableVersion($parsedPhpDoc, $node->getAttributes(), $imports);
+        $attributeNodes = $node->getAttributes();
+        $versions = $this->versionParser->parseAvailableVersion($parsedPhpDoc, $attributeNodes, $imports);
         $phpClass->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
         $phpClass->initStubsMetadata()->setRemovedVersion($versions['removedVersion']);
+
+        // Retain the class-level attributes (name + evaluated arguments) so checks can
+        // compare them against reflection - e.g. the `#[Attribute(...)]` target flags.
+        $attributes = [];
+        foreach ($attributeNodes as $attributeNode) {
+            $attributes[] = [
+                'name' => $attributeNode->getName(),
+                'arguments' => $attributeNode->getArguments(),
+            ];
+        }
+        $phpClass->setAttributes($attributes);
 
         // Parent class. getName() keeps the short name as written in the source, while
         // getId() carries the fully qualified name resolved against the current namespace

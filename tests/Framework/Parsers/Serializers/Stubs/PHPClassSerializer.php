@@ -76,6 +76,10 @@ class PHPClassSerializer implements EntityTypeSerializerInterface
             $data['interfaces'][] = $interface->getId() ?? $interface->getName();
         }
 
+        // Class-level attributes (name + evaluated arguments), e.g. the `#[Attribute(...)]`
+        // target flags, kept so validator checks can compare stubs against reflection.
+        $data['attributes'] = $entity->getAttributes();
+
         return $data;
     }
 
@@ -136,6 +140,10 @@ class PHPClassSerializer implements EntityTypeSerializerInterface
                     $class->addImplementedInterface($interface);
                 }
             }
+        }
+
+        if (isset($data['attributes']) && is_array($data['attributes'])) {
+            $class->setAttributes($data['attributes']);
         }
 
         return $class;

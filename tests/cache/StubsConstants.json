@@ -8593,6 +8593,18 @@
     },
     {
         "_type": "PHPConstant",
+        "name": "CURLOPT_SEEKFUNCTION",
+        "id": "\\CURLOPT_SEEKFUNCTION",
+        "value": 20167,
+        "sourcePath": "curl/curl_d.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": "8.6",
+        "removedVersion": null
+    },
+    {
+        "_type": "PHPConstant",
         "name": "CURLOPT_SERVER_RESPONSE_TIMEOUT",
         "id": "\\CURLOPT_SERVER_RESPONSE_TIMEOUT",
         "value": 112,
@@ -11277,6 +11289,42 @@
         "namespace": "\\",
         "phpDoc": null,
         "sinceVersion": null,
+        "removedVersion": null
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "CURL_SEEKFUNC_CANTSEEK",
+        "id": "\\CURL_SEEKFUNC_CANTSEEK",
+        "value": 2,
+        "sourcePath": "curl/curl_d.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": "8.6",
+        "removedVersion": null
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "CURL_SEEKFUNC_FAIL",
+        "id": "\\CURL_SEEKFUNC_FAIL",
+        "value": 1,
+        "sourcePath": "curl/curl_d.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": "8.6",
+        "removedVersion": null
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "CURL_SEEKFUNC_OK",
+        "id": "\\CURL_SEEKFUNC_OK",
+        "value": 0,
+        "sourcePath": "curl/curl_d.php",
+        "duplicates": [],
+        "namespace": "\\",
+        "phpDoc": null,
+        "sinceVersion": "8.6",
         "removedVersion": null
     },
     {
