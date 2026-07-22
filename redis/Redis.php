@@ -15,6 +15,7 @@ class Redis
     public const REDIS_ZSET = 4;
     public const REDIS_HASH = 5;
     public const REDIS_STREAM = 6;
+    public const REDIS_VECTORSET = 7;
     public const ATOMIC = 0;
     public const MULTI = 1;
     public const PIPELINE = 2;
@@ -28,6 +29,7 @@ class Redis
     public const OPT_REPLY_LITERAL = 8;
     public const OPT_COMPRESSION_LEVEL = 9;
     public const OPT_NULL_MULTIBULK_AS_NULL = 10;
+    public const OPT_PACK_IGNORE_NUMBERS = 15;
     public const SERIALIZER_NONE = 0;
     public const SERIALIZER_PHP = 1;
     public const SERIALIZER_IGBINARY = 2;
@@ -37,6 +39,7 @@ class Redis
     public const COMPRESSION_LZF = 1;
     public const COMPRESSION_ZSTD = 2;
     public const COMPRESSION_ZSTD_DEFAULT = 3;
+    public const COMPRESSION_ZSTD_MIN = -131072;
     public const COMPRESSION_ZSTD_MAX = 22;
     public const COMPRESSION_LZ4 = 3;
     public const SCAN_RETRY = 1;
