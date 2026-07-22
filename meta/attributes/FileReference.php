@@ -5,13 +5,11 @@ namespace JetBrains\PhpStorm;
 use Attribute;
 
 /**
- * Marks a string parameter as a file or directory path.
- * The IDE injects file references into the passed string literals, enabling
- * navigation, rename/move support, and completion for paths inside the project.
- *
- * @since 8.0
+ * Marks a string parameter or a constant as a file or directory path.
+ * The IDE injects file references into the string literals passed into parameter or concatenated with a constant,
+ * and enables navigation, rename/move support, and completion for paths inside the project.
  */
-#[Attribute(Attribute::TARGET_PARAMETER)]
+#[Attribute(Attribute::TARGET_PARAMETER|Attribute::TARGET_CONSTANT|Attribute::TARGET_CLASS_CONSTANT)]
 class FileReference
 {
     /**
