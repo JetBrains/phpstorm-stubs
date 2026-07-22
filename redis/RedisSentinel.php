@@ -58,7 +58,14 @@ class RedisSentinel
      * @example $sentinel = new RedisSentinel(['host' => '127.0.0.1']); // Default parameters (>= 6.0.0)
      * @example $sentinel = new RedisSentinel('127.0.0.1', 26379, 1, null, 100); // Legacy format
      */
-    public function __construct( array|string|null $options_or_host = null, int $port = 26379, float $timeout = 0.0, ?string $persistent = null, int $retryInterval = 0, float $readTimeout = 0.0) {}
+    public function __construct(
+        array|string|null $options_or_host = null,
+        int $port = 26379,
+        float $timeout = 0.0,
+        ?string $persistent = null,
+        int $retryInterval = 0,
+        float $readTimeout = 0.0
+    ) {}
 
     /**
      * Check if the current Sentinel configuration is able to reach the quorum needed to failover a master, and the
