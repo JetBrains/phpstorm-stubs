@@ -2,6 +2,9 @@
 
 namespace MaxMind\Db;
 
+use MaxMind\Db\Reader\InvalidDatabaseException;
+use MaxMind\Db\Reader\Metadata;
+
 /**
  * Instances of this class provide a reader for the MaxMind DB format. IP
  * addresses can be looked up using the get method.
@@ -26,13 +29,13 @@ class Reader
      *
      * @param string $ipAddress the IP address to look up
      *
-     * @return mixed the record for the IP address
+     * @throws \BadMethodCallException   if this method is called on a closed database
      * @throws \InvalidArgumentException if something other than a single IP address is passed to the method
      * @throws InvalidDatabaseException
      *                                   if the database is invalid or there is an error reading
      *                                   from it
      *
-     * @throws \BadMethodCallException   if this method is called on a closed database
+     * @return mixed the record for the IP address
      */
     public function get(string $ipAddress): mixed {}
 
@@ -41,22 +44,22 @@ class Reader
      *
      * @param string $ipAddress the IP address to look up
      *
-     * @return array{0:mixed, 1:int} an array where the first element is the record and the
-     *                               second the network prefix length for the record
+     * @throws \BadMethodCallException   if this method is called on a closed database
      * @throws \InvalidArgumentException if something other than a single IP address is passed to the method
      * @throws InvalidDatabaseException
      *                                   if the database is invalid or there is an error reading
      *                                   from it
      *
-     * @throws \BadMethodCallException   if this method is called on a closed database
+     * @return array{0:mixed, 1:int} an array where the first element is the record and the
+     *                               second the network prefix length for the record
      */
     public function getWithPrefixLen(string $ipAddress): array {}
 
     /**
-     * @return Metadata object for the database
+     * @throws \InvalidArgumentException if arguments are passed to the method
      * @throws \BadMethodCallException   if the database has been closed
      *
-     * @throws \InvalidArgumentException if arguments are passed to the method
+     * @return Metadata object for the database
      */
     public function metadata(): Metadata {}
 
@@ -68,6 +71,8 @@ class Reader
      */
     public function close(): void {}
 }
+
+namespace MaxMind\Db\Reader;
 
 /**
  * This class should be thrown when unexpected data is found in the database.
@@ -164,4 +169,9 @@ class Metadata
      * @var int
      */
     public int $searchTreeSize;
+
+    /**
+     * @param array<string, mixed> $metadata
+     */
+    public function __construct(array $metadata) {}
 }
