@@ -4,7 +4,7 @@
 
 /**
  * The COM class allows you to instantiate an OLE compatible COM object and call its methods and access its properties.
- * @link https://php.net/manual/en/class.com.php
+ * @link https://www.php.net/manual/en/class.com.php
  */
 class COM
 {
@@ -27,7 +27,7 @@ class COM
 
 /**
  * The DOTNET class allows you to instantiate a class from a .Net assembly and call its methods and access its properties.
- * @link https://php.net/manual/en/class.dotnet.php
+ * @link https://www.php.net/manual/en/class.dotnet.php
  */
 class DOTNET
 {
@@ -49,7 +49,7 @@ class DOTNET
 
 /**
  * The VARIANT is COM's equivalent of the PHP zval; it is a structure that can contain a value with a range of different possible types. The VARIANT class provided by the COM extension allows you to have more control over the way that PHP passes values to and from COM.
- * @link https://php.net/manual/en/class.variant.php
+ * @link https://www.php.net/manual/en/class.variant.php
  */
 class VARIANT
 {
@@ -71,14 +71,14 @@ class VARIANT
 
 /**
  * This extension will throw instances of the class com_exception whenever there is a potentially fatal error reported by COM. All COM exceptions have a well-defined code property that corresponds to the HRESULT return value from the various COM operations. You may use this code to make programmatic decisions on how to handle the exception.
- * @link https://php.net/manual/en/com.error-handling.php
+ * @link https://www.php.net/manual/en/com.error-handling.php
  */
 class com_exception extends \Exception {}
 
 /**
  * (PHP 5, PHP 7)<br/>
  * Generate a globally unique identifier (GUID)
- * @link https://php.net/manual/en/function.com-create-guid.php
+ * @link https://www.php.net/manual/en/function.com-create-guid.php
  * @return string
  */
 function com_create_guid() {}
@@ -86,7 +86,7 @@ function com_create_guid() {}
 /**
  * (PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)<br/>
  * Connect events from a COM object to a PHP object
- * @link https://php.net/manual/en/function.com-event-sink.php
+ * @link https://www.php.net/manual/en/function.com-event-sink.php
  * @param \VARIANT $comobject
  * @param object $sinkobject
  * @param string $sinkinterface [optional]
@@ -97,7 +97,7 @@ function com_event_sink($comobject, $sinkobject, $sinkinterface = null) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Returns a handle to an already running instance of a COM object
- * @link https://php.net/manual/en/function.com-get-active-object.php
+ * @link https://www.php.net/manual/en/function.com-get-active-object.php
  * @param string $progid
  * @param int $code_page [optional]
  * @return \VARIANT
@@ -107,7 +107,7 @@ function com_get_active_object($progid, $code_page = CP_ACP) {}
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)<br/>
  * Loads a Typelib
- * @link https://php.net/manual/en/function.com-get-active-object.php
+ * @link https://www.php.net/manual/en/function.com-get-active-object.php
  * @param string $typelib_name
  * @param bool $case_insensitive [optional]
  * @return bool
@@ -117,7 +117,7 @@ function com_load_typelib($typelib_name, $case_insensitive = true) {}
 /**
  * (PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)<br/>
  * Process COM messages, sleeping for up to timeoutms milliseconds
- * @link https://php.net/manual/en/function.com-message-pump.php
+ * @link https://www.php.net/manual/en/function.com-message-pump.php
  * @param int $timeoutms [optional]
  * @return bool
  */
@@ -126,7 +126,7 @@ function com_message_pump($timeoutms = 0) {}
 /**
  * (PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)<br/>
  * Print out a PHP class definition for a dispatchable interface
- * @link https://php.net/manual/en/function.com-print-typeinfo.php
+ * @link https://www.php.net/manual/en/function.com-print-typeinfo.php
  * @param object $comobject
  * @param string $dispinterface [optional]
  * @param bool $wantsink [optional]
@@ -137,7 +137,7 @@ function com_print_typeinfo($comobject, $dispinterface = null, $wantsink = false
 /**
  * (PHP 5, PHP 7)<br/>
  * Returns the absolute value of a variant
- * @link https://php.net/manual/en/function.variant-abs.php
+ * @link https://www.php.net/manual/en/function.variant-abs.php
  * @param mixed $val
  * @return mixed
  */
@@ -146,7 +146,7 @@ function variant_abs($val) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * "Adds" two variant values together and returns the result
- * @link https://php.net/manual/en/function.variant-abs.php
+ * @link https://www.php.net/manual/en/function.variant-abs.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -156,7 +156,7 @@ function variant_add($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Performs a bitwise AND operation between two variants
- * @link https://php.net/manual/en/function.variant-and.php
+ * @link https://www.php.net/manual/en/function.variant-and.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -166,7 +166,7 @@ function variant_and($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Convert a variant into a new variant object of another type
- * @link https://php.net/manual/en/function.variant-cast.php
+ * @link https://www.php.net/manual/en/function.variant-cast.php
  * @param \VARIANT $variant
  * @param int $type
  * @return \VARIANT
@@ -176,7 +176,7 @@ function variant_cast($variant, $type) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Concatenates two variant values together and returns the result
- * @link https://php.net/manual/en/function.variant-cat.php
+ * @link https://www.php.net/manual/en/function.variant-cat.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -186,7 +186,7 @@ function variant_cat($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Compares two variants
- * @link https://php.net/manual/en/function.variant-cmp.php
+ * @link https://www.php.net/manual/en/function.variant-cmp.php
  * @param mixed $left
  * @param mixed $right
  * @param int $lcid [optional]
@@ -198,7 +198,7 @@ function variant_cmp($left, $right, $lcid = null, $flags = null) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Returns a variant date representation of a Unix timestamp
- * @link https://php.net/manual/en/function.variant-date-from-timestamp.php
+ * @link https://www.php.net/manual/en/function.variant-date-from-timestamp.php
  * @param int $timestamp
  * @return \VARIANT
  */
@@ -207,7 +207,7 @@ function variant_date_from_timestamp($timestamp) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Converts a variant date/time value to Unix timestamp
- * @link https://php.net/manual/en/function.variant-date-to-timestamp.php
+ * @link https://www.php.net/manual/en/function.variant-date-to-timestamp.php
  * @param \VARIANT $variant
  * @return int
  */
@@ -216,7 +216,7 @@ function variant_date_to_timestamp($variant) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Returns the result from dividing two variants
- * @link https://php.net/manual/en/function.variant-div.php
+ * @link https://www.php.net/manual/en/function.variant-div.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -226,7 +226,7 @@ function variant_div($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Performs a bitwise equivalence on two variants
- * @link https://php.net/manual/en/function.variant-eqv.php
+ * @link https://www.php.net/manual/en/function.variant-eqv.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -236,7 +236,7 @@ function variant_eqv($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Returns the integer portion of a variant
- * @link https://php.net/manual/en/function.variant-fix.php
+ * @link https://www.php.net/manual/en/function.variant-fix.php
  * @param mixed $variant
  * @return mixed
  */
@@ -245,7 +245,7 @@ function variant_fix($variant) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Returns the type of a variant object
- * @link https://php.net/manual/en/function.variant-get-type.php
+ * @link https://www.php.net/manual/en/function.variant-get-type.php
  * @param VARIANT $variant
  * @return int
  */
@@ -254,7 +254,7 @@ function variant_get_type($variant) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Converts variants to integers and then returns the result from dividing them
- * @link https://php.net/manual/en/function.variant-idiv.php
+ * @link https://www.php.net/manual/en/function.variant-idiv.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -264,7 +264,7 @@ function variant_idiv($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Performs a bitwise implication on two variants
- * @link https://php.net/manual/en/function.variant-imp.php
+ * @link https://www.php.net/manual/en/function.variant-imp.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -274,7 +274,7 @@ function variant_imp($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Returns the integer portion of a variant
- * @link https://php.net/manual/en/function.variant-int.php
+ * @link https://www.php.net/manual/en/function.variant-int.php
  * @param mixed $variant
  * @return mixed
  */
@@ -283,7 +283,7 @@ function variant_int($variant) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Divides two variants and returns only the remainder
- * @link https://php.net/manual/en/function.variant-mod.php
+ * @link https://www.php.net/manual/en/function.variant-mod.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -293,7 +293,7 @@ function variant_mod($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Multiplies the values of the two variants
- * @link https://php.net/manual/en/function.variant-mul.php
+ * @link https://www.php.net/manual/en/function.variant-mul.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -303,7 +303,7 @@ function variant_mul($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Performs logical negation on a variant
- * @link https://php.net/manual/en/function.variant-neg.php
+ * @link https://www.php.net/manual/en/function.variant-neg.php
  * @param mixed $variant
  * @return mixed
  */
@@ -312,7 +312,7 @@ function variant_neg($variant) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Performs bitwise not negation on a variant
- * @link https://php.net/manual/en/function.variant-not.php
+ * @link https://www.php.net/manual/en/function.variant-not.php
  * @param mixed $variant
  * @return mixed
  */
@@ -321,7 +321,7 @@ function variant_not($variant) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Performs a logical disjunction on two variants
- * @link https://php.net/manual/en/function.variant-or.php
+ * @link https://www.php.net/manual/en/function.variant-or.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -331,7 +331,7 @@ function variant_or($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Returns the result of performing the power function with two variants
- * @link https://php.net/manual/en/function.variant-pow.php
+ * @link https://www.php.net/manual/en/function.variant-pow.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -341,7 +341,7 @@ function variant_pow($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Rounds a variant to the specified number of decimal places
- * @link https://php.net/manual/en/function.variant-round.php
+ * @link https://www.php.net/manual/en/function.variant-round.php
  * @param mixed $variant
  * @param int $decimals
  * @return mixed
@@ -351,7 +351,7 @@ function variant_round($variant, $decimals) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Convert a variant into another type "in-place"
- * @link https://php.net/manual/en/function.variant-set-type.php
+ * @link https://www.php.net/manual/en/function.variant-set-type.php
  * @param VARIANT $variant
  * @param int $type
  * @return void
@@ -361,7 +361,7 @@ function variant_set_type($variant, $type) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Assigns a new value for a variant object
- * @link https://php.net/manual/en/function.variant-set.php
+ * @link https://www.php.net/manual/en/function.variant-set.php
  * @param VARIANT $variant
  * @param mixed $value
  * @return void
@@ -371,7 +371,7 @@ function variant_set($variant, $value) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Subtracts the value of the right variant from the left variant value
- * @link https://php.net/manual/en/function.variant-sub.php
+ * @link https://www.php.net/manual/en/function.variant-sub.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed
@@ -381,7 +381,7 @@ function variant_sub($left, $right) {}
 /**
  * (PHP 5, PHP 7)<br/>
  * Performs a logical exclusion on two variants
- * @link https://php.net/manual/en/function.variant-xor.php
+ * @link https://www.php.net/manual/en/function.variant-xor.php
  * @param mixed $left
  * @param mixed $right
  * @return mixed

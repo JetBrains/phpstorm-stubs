@@ -7,7 +7,7 @@ use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
  * An HTML node in an HTML file, as detected by tidy.
- * @link https://php.net/manual/en/class.tidy.php
+ * @link https://www.php.net/manual/en/class.tidy.php
  */
 class tidy
 {
@@ -20,7 +20,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Returns the value of the specified configuration option for the tidy document
-     * @link https://php.net/manual/en/tidy.getopt.php
+     * @link https://www.php.net/manual/en/tidy.getopt.php
      * @param string $option <p>
      * You will find a list with each configuration option and their types
      * at: http://tidy.sourceforge.net/docs/quickref.html.
@@ -34,7 +34,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Execute configured cleanup and repair operations on parsed markup
-     * @link https://php.net/manual/en/tidy.cleanrepair.php
+     * @link https://www.php.net/manual/en/tidy.cleanrepair.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
@@ -43,7 +43,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Parse markup in file or URI
-     * @link https://php.net/manual/en/tidy.parsefile.php
+     * @link https://www.php.net/manual/en/tidy.parsefile.php
      * @param string $filename <p>
      * If the <i>filename</i> parameter is given, this function
      * will also read that file and initialize the object with the file,
@@ -84,7 +84,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Parse a document stored in a string
-     * @link https://php.net/manual/en/tidy.parsestring.php
+     * @link https://www.php.net/manual/en/tidy.parsestring.php
      * @param string $string <p>
      * The data to be parsed.
      * </p>
@@ -118,7 +118,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.7.0)<br/>
      * Repair a string using an optionally provided configuration file
-     * @link https://php.net/manual/en/tidy.repairstring.php
+     * @link https://www.php.net/manual/en/tidy.repairstring.php
      * @param string $string <p>
      * The data to be repaired.
      * </p>
@@ -153,7 +153,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.7.0)<br/>
      * Repair a file and return it as a string
-     * @link https://php.net/manual/en/tidy.repairfile.php
+     * @link https://www.php.net/manual/en/tidy.repairfile.php
      * @param string $filename <p>
      * The file to be repaired.
      * </p>
@@ -192,7 +192,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Run configured diagnostics on parsed and repaired markup
-     * @link https://php.net/manual/en/tidy.diagnose.php
+     * @link https://www.php.net/manual/en/tidy.diagnose.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
@@ -201,7 +201,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Get release date (version) for Tidy library
-     * @link https://php.net/manual/en/tidy.getrelease.php
+     * @link https://www.php.net/manual/en/tidy.getrelease.php
      * @return string a string with the release date of the Tidy library.
      */
     #[TentativeType]
@@ -210,7 +210,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.7.0)<br/>
      * Get current Tidy configuration
-     * @link https://php.net/manual/en/tidy.getconfig.php
+     * @link https://www.php.net/manual/en/tidy.getconfig.php
      * @return array an array of configuration options.
      * </p>
      * <p>
@@ -222,7 +222,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Get status of specified document
-     * @link https://php.net/manual/en/tidy.getstatus.php
+     * @link https://www.php.net/manual/en/tidy.getstatus.php
      * @return int 0 if no error/warning was raised, 1 for warnings or accessibility
      * errors, or 2 for errors.
      */
@@ -232,7 +232,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Get the Detected HTML version for the specified document
-     * @link https://php.net/manual/en/tidy.gethtmlver.php
+     * @link https://www.php.net/manual/en/tidy.gethtmlver.php
      * @return int the detected HTML version.
      * </p>
      * <p>
@@ -244,7 +244,7 @@ class tidy
 
     /**
      * Returns the documentation for the given option name
-     * @link https://php.net/manual/en/tidy.getoptdoc.php
+     * @link https://www.php.net/manual/en/tidy.getoptdoc.php
      * @param string $option <p>
      * The option name
      * </p>
@@ -257,7 +257,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Indicates if the document is a XHTML document
-     * @link https://php.net/manual/en/tidy.isxhtml.php
+     * @link https://www.php.net/manual/en/tidy.isxhtml.php
      * @return bool This function returns <b>TRUE</b> if the specified tidy
      * <i>object</i> is a XHTML document, or <b>FALSE</b> otherwise.
      * </p>
@@ -271,7 +271,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Indicates if the document is a generic (non HTML/XHTML) XML document
-     * @link https://php.net/manual/en/tidy.isxml.php
+     * @link https://www.php.net/manual/en/tidy.isxml.php
      * @return bool This function returns <b>TRUE</b> if the specified tidy
      * <i>object</i> is a generic XML document (non HTML/XHTML),
      * or <b>FALSE</b> otherwise.
@@ -286,7 +286,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
      * Returns a <b>tidyNode</b> object representing the root of the tidy parse tree
-     * @link https://php.net/manual/en/tidy.root.php
+     * @link https://www.php.net/manual/en/tidy.root.php
      * @return tidyNode|null the <b>tidyNode</b> object.
      */
     #[TentativeType]
@@ -295,7 +295,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
      * Returns a <b>tidyNode</b> object starting from the &lt;head&gt; tag of the tidy parse tree
-     * @link https://php.net/manual/en/tidy.head.php
+     * @link https://www.php.net/manual/en/tidy.head.php
      * @return tidyNode|null the <b>tidyNode</b> object.
      */
     #[TentativeType]
@@ -304,7 +304,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
      * Returns a <b>tidyNode</b> object starting from the &lt;html&gt; tag of the tidy parse tree
-     * @link https://php.net/manual/en/tidy.html.php
+     * @link https://www.php.net/manual/en/tidy.html.php
      * @return tidyNode|null the <b>tidyNode</b> object.
      */
     #[TentativeType]
@@ -313,7 +313,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy 0.5.2-1.0)<br/>
      * Returns a <b>tidyNode</b> object starting from the &lt;body&gt; tag of the tidy parse tree
-     * @link https://php.net/manual/en/tidy.body.php
+     * @link https://www.php.net/manual/en/tidy.body.php
      * @return tidyNode|null a <b>tidyNode</b> object starting from the
      * &lt;body&gt; tag of the tidy parse tree.
      */
@@ -323,7 +323,7 @@ class tidy
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Constructs a new <b>tidy</b> object
-     * @link https://php.net/manual/en/tidy.construct.php
+     * @link https://www.php.net/manual/en/tidy.construct.php
      * @param string $filename [optional] <p>
      * If the <i>filename</i> parameter is given, this function
      * will also read that file and initialize the object with the file,
@@ -361,7 +361,7 @@ class tidy
 
 /**
  * An HTML node in an HTML file, as detected by tidy.
- * @link https://php.net/manual/en/class.tidynode.php
+ * @link https://www.php.net/manual/en/class.tidynode.php
  */
 final class tidyNode
 {
@@ -427,7 +427,7 @@ final class tidyNode
 
     /**
      * Checks if a node has children
-     * @link https://php.net/manual/en/tidynode.haschildren.php
+     * @link https://www.php.net/manual/en/tidynode.haschildren.php
      * @return bool <b>TRUE</b> if the node has children, <b>FALSE</b> otherwise.
      * @since 5.0
      */
@@ -435,7 +435,7 @@ final class tidyNode
 
     /**
      * Checks if a node has siblings
-     * @link https://php.net/manual/en/tidynode.hassiblings.php
+     * @link https://www.php.net/manual/en/tidynode.hassiblings.php
      * @return bool <b>TRUE</b> if the node has siblings, <b>FALSE</b> otherwise.
      * @since 5.0
      */
@@ -443,7 +443,7 @@ final class tidyNode
 
     /**
      * Checks if a node represents a comment
-     * @link https://php.net/manual/en/tidynode.iscomment.php
+     * @link https://www.php.net/manual/en/tidynode.iscomment.php
      * @return bool <b>TRUE</b> if the node is a comment, <b>FALSE</b> otherwise.
      * @since 5.0
      */
@@ -451,7 +451,7 @@ final class tidyNode
 
     /**
      * Checks if a node is part of a HTML document
-     * @link https://php.net/manual/en/tidynode.ishtml.php
+     * @link https://www.php.net/manual/en/tidynode.ishtml.php
      * @return bool <b>TRUE</b> if the node is part of a HTML document, <b>FALSE</b> otherwise.
      * @since 5.0
      */
@@ -459,7 +459,7 @@ final class tidyNode
 
     /**
      * Checks if a node represents text (no markup)
-     * @link https://php.net/manual/en/tidynode.istext.php
+     * @link https://www.php.net/manual/en/tidynode.istext.php
      * @return bool <b>TRUE</b> if the node represent a text, <b>FALSE</b> otherwise.
      * @since 5.0
      */
@@ -467,7 +467,7 @@ final class tidyNode
 
     /**
      * Checks if this node is JSTE
-     * @link https://php.net/manual/en/tidynode.isjste.php
+     * @link https://www.php.net/manual/en/tidynode.isjste.php
      * @return bool <b>TRUE</b> if the node is JSTE, <b>FALSE</b> otherwise.
      * @since 5.0
      */
@@ -475,7 +475,7 @@ final class tidyNode
 
     /**
      * Checks if this node is ASP
-     * @link https://php.net/manual/en/tidynode.isasp.php
+     * @link https://www.php.net/manual/en/tidynode.isasp.php
      * @return bool <b>TRUE</b> if the node is ASP, <b>FALSE</b> otherwise.
      * @since 5.0
      */
@@ -483,7 +483,7 @@ final class tidyNode
 
     /**
      * Checks if a node is PHP
-     * @link https://php.net/manual/en/tidynode.isphp.php
+     * @link https://www.php.net/manual/en/tidynode.isphp.php
      * @return bool <b>TRUE</b> if the current node is PHP code, <b>FALSE</b> otherwise.
      * @since 5.0
      */
@@ -491,7 +491,7 @@ final class tidyNode
 
     /**
      * Returns the parent node of the current node
-     * @link https://php.net/manual/en/tidynode.getparent.php
+     * @link https://www.php.net/manual/en/tidynode.getparent.php
      * @return tidyNode|null a tidyNode if the node has a parent, or <b>NULL</b>
      * otherwise.
      * @since 5.2
@@ -504,7 +504,7 @@ final class tidyNode
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Returns the value of the specified configuration option for the tidy document
- * @link https://php.net/manual/en/tidy.getopt.php
+ * @link https://www.php.net/manual/en/tidy.getopt.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -520,7 +520,7 @@ function tidy_getopt(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy, s
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Parse a document stored in a string
- * @link https://php.net/manual/en/tidy.parsestring.php
+ * @link https://www.php.net/manual/en/tidy.parsestring.php
  * @param string $string <p>
  * The data to be parsed.
  * </p>
@@ -549,7 +549,7 @@ function tidy_parse_string(string $string, array|string|null $config = null, nul
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Parse markup in file or URI
- * @link https://php.net/manual/en/tidy.parsefile.php
+ * @link https://www.php.net/manual/en/tidy.parsefile.php
  * @param string $filename <p>
  * If the <i>filename</i> parameter is given, this function
  * will also read that file and initialize the object with the file,
@@ -584,7 +584,7 @@ function tidy_parse_file(string $filename, array|string|null $config = null, nul
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Return a string representing the parsed tidy markup
- * @link https://php.net/manual/en/function.tidy-get-output.php
+ * @link https://www.php.net/manual/en/function.tidy-get-output.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -595,7 +595,7 @@ function tidy_get_output(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tid
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Return warnings and errors which occurred parsing the specified document
- * @link https://php.net/manual/en/tidy.props.errorbuffer.php
+ * @link https://www.php.net/manual/en/tidy.props.errorbuffer.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -606,7 +606,7 @@ function tidy_get_error_buffer(#[PhpStormStubsElementAvailable(from: '8.0')] tid
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Execute configured cleanup and repair operations on parsed markup
- * @link https://php.net/manual/en/tidy.cleanrepair.php
+ * @link https://www.php.net/manual/en/tidy.cleanrepair.php
  * @param tidy $tidy The Tidy object.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -615,7 +615,7 @@ function tidy_clean_repair(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $t
 /**
  * (PHP 5, PECL tidy &gt;= 0.7.0)<br/>
  * Repair a string using an optionally provided configuration file
- * @link https://php.net/manual/en/tidy.repairstring.php
+ * @link https://www.php.net/manual/en/tidy.repairstring.php
  * @param string $string <p>
  * The data to be repaired.
  * </p>
@@ -645,7 +645,7 @@ function tidy_repair_string(string $string, array|string|null $config = null, nu
 /**
  * (PHP 5, PECL tidy &gt;= 0.7.0)<br/>
  * Repair a file and return it as a string
- * @link https://php.net/manual/en/tidy.repairfile.php
+ * @link https://www.php.net/manual/en/tidy.repairfile.php
  * @param string $filename <p>
  * The file to be repaired.
  * </p>
@@ -678,7 +678,7 @@ function tidy_repair_file(string $filename, array|string|null $config = null, nu
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Run configured diagnostics on parsed and repaired markup
- * @link https://php.net/manual/en/tidy.diagnose.php
+ * @link https://www.php.net/manual/en/tidy.diagnose.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -689,7 +689,7 @@ function tidy_diagnose(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy)
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Get release date (version) for Tidy library
- * @link https://php.net/manual/en/tidy.getrelease.php
+ * @link https://www.php.net/manual/en/tidy.getrelease.php
  * @return string a string with the release date of the Tidy library.
  */
 function tidy_get_release(): string {}
@@ -697,7 +697,7 @@ function tidy_get_release(): string {}
 /**
  * (PHP 5, PECL tidy &gt;= 0.7.0)<br/>
  * Get current Tidy configuration
- * @link https://php.net/manual/en/tidy.getconfig.php
+ * @link https://www.php.net/manual/en/tidy.getconfig.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -711,7 +711,7 @@ function tidy_get_config(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tid
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Get status of specified document
- * @link https://php.net/manual/en/tidy.getstatus.php
+ * @link https://www.php.net/manual/en/tidy.getstatus.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -723,7 +723,7 @@ function tidy_get_status(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tid
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Get the Detected HTML version for the specified document
- * @link https://php.net/manual/en/tidy.gethtmlver.php
+ * @link https://www.php.net/manual/en/tidy.gethtmlver.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -738,7 +738,7 @@ function tidy_get_html_ver(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $t
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Indicates if the document is a XHTML document
- * @link https://php.net/manual/en/tidy.isxhtml.php
+ * @link https://www.php.net/manual/en/tidy.isxhtml.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -754,7 +754,7 @@ function tidy_is_xhtml(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy)
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Indicates if the document is a generic (non HTML/XHTML) XML document
- * @link https://php.net/manual/en/tidy.isxml.php
+ * @link https://www.php.net/manual/en/tidy.isxml.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -771,7 +771,7 @@ function tidy_is_xml(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Returns the Number of Tidy errors encountered for specified document
- * @link https://php.net/manual/en/function.tidy-error-count.php
+ * @link https://www.php.net/manual/en/function.tidy-error-count.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -782,7 +782,7 @@ function tidy_error_count(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $ti
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Returns the Number of Tidy warnings encountered for specified document
- * @link https://php.net/manual/en/function.tidy-warning-count.php
+ * @link https://www.php.net/manual/en/function.tidy-warning-count.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -793,7 +793,7 @@ function tidy_warning_count(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Returns the Number of Tidy accessibility warnings encountered for specified document
- * @link https://php.net/manual/en/function.tidy-access-count.php
+ * @link https://www.php.net/manual/en/function.tidy-access-count.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -804,7 +804,7 @@ function tidy_access_count(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $t
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Returns the Number of Tidy configuration errors encountered for specified document
- * @link https://php.net/manual/en/function.tidy-config-count.php
+ * @link https://www.php.net/manual/en/function.tidy-config-count.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -814,7 +814,7 @@ function tidy_config_count(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $t
 
 /**
  * Returns the documentation for the given option name
- * @link https://php.net/manual/en/tidy.getoptdoc.php
+ * @link https://www.php.net/manual/en/tidy.getoptdoc.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -829,7 +829,7 @@ function tidy_get_opt_doc(tidy $tidy, string $option): string|false {}
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
  * Returns a <b>tidyNode</b> object representing the root of the tidy parse tree
- * @link https://php.net/manual/en/tidy.root.php
+ * @link https://www.php.net/manual/en/tidy.root.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -840,7 +840,7 @@ function tidy_get_root(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy)
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
  * Returns a <b>tidyNode</b> object starting from the &lt;head&gt; tag of the tidy parse tree
- * @link https://php.net/manual/en/tidy.head.php
+ * @link https://www.php.net/manual/en/tidy.head.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -851,7 +851,7 @@ function tidy_get_head(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy)
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
  * Returns a <b>tidyNode</b> object starting from the &lt;html&gt; tag of the tidy parse tree
- * @link https://php.net/manual/en/tidy.html.php
+ * @link https://www.php.net/manual/en/tidy.html.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -862,7 +862,7 @@ function tidy_get_html(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy)
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0)<br/>
  * Returns a <b>tidyNode</b> object starting from the &lt;body&gt; tag of the tidy parse tree
- * @link https://php.net/manual/en/tidy.body.php
+ * @link https://www.php.net/manual/en/tidy.body.php
  * @param tidy $tidy <p>
  * The <b>Tidy</b> object.
  * </p>
@@ -873,7 +873,7 @@ function tidy_get_body(tidy $tidy): ?tidyNode {}
 
 /**
  * ob_start callback function to repair the buffer
- * @link https://php.net/manual/en/function.ob-tidyhandler.php
+ * @link https://www.php.net/manual/en/function.ob-tidyhandler.php
  * @param string $input <p>
  * The buffer.
  * </p>
@@ -886,7 +886,7 @@ function ob_tidyhandler($input, $mode = null) {}
 
 /**
  * description
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_TAG_UNKNOWN', 0);
 define('TIDY_TAG_A', 1);
@@ -1122,85 +1122,85 @@ define('TIDY_TAG_VIDEO', 150);
 
 /**
  * root node
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_ROOT', 0);
 
 /**
  * doctype
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_DOCTYPE', 1);
 
 /**
  * HTML comment
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_COMMENT', 2);
 
 /**
  * Processing Instruction
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_PROCINS', 3);
 
 /**
  * Text
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_TEXT', 4);
 
 /**
  * start tag
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_START', 5);
 
 /**
  * end tag
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_END', 6);
 
 /**
  * empty tag
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_STARTEND', 7);
 
 /**
  * CDATA
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_CDATA', 8);
 
 /**
  * XML section
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_SECTION', 9);
 
 /**
  * ASP code
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_ASP', 10);
 
 /**
  * JSTE code
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_JSTE', 11);
 
 /**
  * PHP code
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_PHP', 12);
 
 /**
  * XML declaration
- * @link https://php.net/manual/en/tidy.constants.php
+ * @link https://www.php.net/manual/en/tidy.constants.php
  */
 define('TIDY_NODETYPE_XMLDECL', 13);
 

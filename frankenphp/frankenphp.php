@@ -40,7 +40,7 @@ function frankenphp_finish_request(): bool {}
  *
  * Alias of <b>apache_request_headers</b>.
  *
- * @link https://php.net/manual/en/function.apache-request-headers.php
+ * @link https://www.php.net/manual/en/function.apache-request-headers.php
  *
  * @return array An associative array of all the HTTP headers in the current request.
  */
@@ -51,7 +51,7 @@ function frankenphp_request_headers(): array {}
  *
  * Alias of <b>apache_response_headers</b>.
  *
- * @link https://php.net/manual/en/function.apache-response-headers.php
+ * @link https://www.php.net/manual/en/function.apache-response-headers.php
  *
  * @return array|false An array of all FrankenPHP response headers on success or <b>FALSE</b> on failure.
  */

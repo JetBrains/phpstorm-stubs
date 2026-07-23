@@ -7,7 +7,7 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Opens a bzip2 compressed file
- * @link https://php.net/manual/en/function.bzopen.php
+ * @link https://www.php.net/manual/en/function.bzopen.php
  * @param string $file <p>
  * The name of the file to open, or an existing stream resource.
  * </p>
@@ -24,7 +24,7 @@ function bzopen($file, string $mode) {}
 
 /**
  * Binary safe bzip2 file read
- * @link https://php.net/manual/en/function.bzread.php
+ * @link https://www.php.net/manual/en/function.bzread.php
  * @param resource $bz <p>
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
@@ -40,7 +40,7 @@ function bzread($bz, int $length = 1024): string|false {}
 
 /**
  * Binary safe bzip2 file write
- * @link https://php.net/manual/en/function.bzwrite.php
+ * @link https://www.php.net/manual/en/function.bzwrite.php
  * @param resource $bz <p>
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
@@ -59,7 +59,7 @@ function bzwrite($bz, string $data, ?int $length = null): int|false {}
 
 /**
  * Force a write of all buffered data
- * @link https://php.net/manual/en/function.bzflush.php
+ * @link https://www.php.net/manual/en/function.bzflush.php
  * @param resource $bz <p>
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
@@ -70,7 +70,7 @@ function bzflush($bz): bool {}
 
 /**
  * Close a bzip2 file
- * @link https://php.net/manual/en/function.bzclose.php
+ * @link https://www.php.net/manual/en/function.bzclose.php
  * @param resource $bz <p>
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
@@ -81,7 +81,7 @@ function bzclose($bz): bool {}
 
 /**
  * Returns a bzip2 error number
- * @link https://php.net/manual/en/function.bzerrno.php
+ * @link https://www.php.net/manual/en/function.bzerrno.php
  * @param resource $bz <p>
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
@@ -94,7 +94,7 @@ function bzerrno($bz) {}
 
 /**
  * Returns a bzip2 error string
- * @link https://php.net/manual/en/function.bzerrstr.php
+ * @link https://www.php.net/manual/en/function.bzerrstr.php
  * @param resource $bz <p>
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
@@ -107,7 +107,7 @@ function bzerrstr($bz) {}
 
 /**
  * Returns the bzip2 error number and error string in an array
- * @link https://php.net/manual/en/function.bzerror.php
+ * @link https://www.php.net/manual/en/function.bzerror.php
  * @param resource $bz <p>
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
@@ -123,7 +123,7 @@ function bzerror($bz) {}
 
 /**
  * Compress a string into bzip2 encoded data
- * @link https://php.net/manual/en/function.bzcompress.php
+ * @link https://www.php.net/manual/en/function.bzcompress.php
  * @param string $data <p>
  * The string to compress.
  * </p>
@@ -153,7 +153,7 @@ function bzcompress(
 
 /**
  * Decompresses bzip2 encoded data
- * @link https://php.net/manual/en/function.bzdecompress.php
+ * @link https://www.php.net/manual/en/function.bzdecompress.php
  * @param string $data <p>
  * The string to decompress.
  * </p>

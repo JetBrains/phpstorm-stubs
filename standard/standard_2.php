@@ -9,7 +9,7 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Query language and locale information
- * @link https://php.net/manual/en/function.nl-langinfo.php
+ * @link https://www.php.net/manual/en/function.nl-langinfo.php
  * @param int $item <p>
  * item may be an integer value of the element or the
  * constant name of the element. The following is a list of constant names
@@ -157,7 +157,7 @@ function nl_langinfo(int $item): string|false {}
 
 /**
  * Calculate the soundex key of a string
- * @link https://php.net/manual/en/function.soundex.php
+ * @link https://www.php.net/manual/en/function.soundex.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -168,7 +168,7 @@ function soundex(string $string): string {}
 
 /**
  * Calculate Levenshtein distance between two strings
- * @link https://php.net/manual/en/function.levenshtein.php
+ * @link https://www.php.net/manual/en/function.levenshtein.php
  * Note: In its simplest form the function will take only the two strings
  * as parameter and will calculate just the number of insert, replace and
  * delete operations needed to transform str1 into str2.
@@ -198,7 +198,7 @@ function levenshtein(string $string1, string $string2, int $insertion_cost = 1, 
 
 /**
  * Generate a single-byte string from a number
- * @link https://php.net/manual/en/function.chr.php
+ * @link https://www.php.net/manual/en/function.chr.php
  * @param int $codepoint <p>
  * The ascii code.
  * </p>
@@ -209,7 +209,7 @@ function chr(int $codepoint): string {}
 
 /**
  * Convert the first byte of a string to a value between 0 and 255
- * @link https://php.net/manual/en/function.ord.php
+ * @link https://www.php.net/manual/en/function.ord.php
  * @param string $character <p>
  * A character.
  * </p>
@@ -220,7 +220,7 @@ function ord(string $character): int {}
 
 /**
  * Parses the string into variables
- * @link https://php.net/manual/en/function.parse-str.php
+ * @link https://www.php.net/manual/en/function.parse-str.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -239,7 +239,7 @@ function parse_str(
 
 /**
  * Parse a CSV string into an array
- * @link https://php.net/manual/en/function.str-getcsv.php
+ * @link https://www.php.net/manual/en/function.str-getcsv.php
  * @param string $string <p>
  * The string to parse.
  * </p>
@@ -260,7 +260,7 @@ function str_getcsv(string $string, string $separator = ",", string $enclosure =
 
 /**
  * Pad a string to a certain length with another string
- * @link https://php.net/manual/en/function.str-pad.php
+ * @link https://www.php.net/manual/en/function.str-pad.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -292,7 +292,7 @@ function str_pad(string $string, int $length, string $pad_string = " ", int $pad
  * @param string $string The input string.
  * @param string $characters [optional]
  * @return string the modified string.
- * @link https://php.net/manual/en/function.chop.php
+ * @link https://www.php.net/manual/en/function.chop.php
  * @see rtrim()
  */
 #[Pure]
@@ -301,7 +301,7 @@ function chop(string $string, #[PhpStormStubsElementAvailable(to: '8.5')] string
 /**
  * Alias:
  * {@see strstr}
- * @link https://php.net/manual/en/function.strchr.php
+ * @link https://www.php.net/manual/en/function.strchr.php
  * Note: This function is case-sensitive. For case-insensitive searches, use stristr().
  * Note: If you only want to determine if a particular needle occurs within haystack,
  * use the faster and less memory intensive function strpos() instead.
@@ -316,7 +316,7 @@ function strchr(string $haystack, string $needle, bool $before_needle = false): 
 
 /**
  * Return a formatted string
- * @link https://php.net/manual/en/function.sprintf.php
+ * @link https://www.php.net/manual/en/function.sprintf.php
  * @param string $format <p>
  * The format string is composed of zero or more directives:
  * ordinary characters (excluding %) that are
@@ -347,7 +347,7 @@ function sprintf(
 
 /**
  * Output a formatted string
- * @link https://php.net/manual/en/function.printf.php
+ * @link https://www.php.net/manual/en/function.printf.php
  * @param string $format <p>
  * See sprintf for a description of
  * format.
@@ -360,7 +360,7 @@ function printf(string $format, mixed ...$values): int {}
 
 /**
  * Output a formatted string
- * @link https://php.net/manual/en/function.vprintf.php
+ * @link https://www.php.net/manual/en/function.vprintf.php
  * @param string $format <p>
  * See sprintf for a description of
  * format.
@@ -373,7 +373,7 @@ function vprintf(string $format, array $values): int {}
 
 /**
  * Return a formatted string
- * @link https://php.net/manual/en/function.vsprintf.php
+ * @link https://www.php.net/manual/en/function.vsprintf.php
  * @param string $format <p>
  * See sprintf for a description of
  * format.
@@ -389,7 +389,7 @@ function vsprintf(string $format, array $values): string {}
 
 /**
  * Write a formatted string to a stream
- * @link https://php.net/manual/en/function.fprintf.php
+ * @link https://www.php.net/manual/en/function.fprintf.php
  * @param resource $stream &fs.file.pointer;
  * @param string $format <p>
  * See sprintf for a description of
@@ -403,7 +403,7 @@ function fprintf($stream, string $format, mixed ...$values): int {}
 
 /**
  * Write a formatted string to a stream
- * @link https://php.net/manual/en/function.vfprintf.php
+ * @link https://www.php.net/manual/en/function.vfprintf.php
  * @param resource $stream <p>
  * </p>
  * @param string $format <p>
@@ -418,7 +418,7 @@ function vfprintf($stream, string $format, array $values): int {}
 
 /**
  * Parses input from a string according to a format
- * @link https://php.net/manual/en/function.sscanf.php
+ * @link https://www.php.net/manual/en/function.sscanf.php
  * @param string $string <p>
  * The input string being parsed.
  * </p>
@@ -444,7 +444,7 @@ function sscanf(string $string, string $format, #[TypeContract(exists: "int|null
 
 /**
  * Parses input from a file according to a format
- * @link https://php.net/manual/en/function.fscanf.php
+ * @link https://www.php.net/manual/en/function.fscanf.php
  * @param resource $stream &fs.file.pointer;
  * @param string $format <p>
  * The specified format as described in the
@@ -460,7 +460,7 @@ function fscanf($stream, string $format, #[TypeContract(exists: "int|false|null"
 
 /**
  * Parse a URL and return its components
- * @link https://php.net/manual/en/function.parse-url.php
+ * @link https://www.php.net/manual/en/function.parse-url.php
  * @param string $url <p>
  * The URL to parse. Invalid characters are replaced by
  * _.
@@ -495,7 +495,7 @@ function parse_url(string $url, int $component = -1): array|string|int|false|nul
 
 /**
  * URL-encodes string
- * @link https://php.net/manual/en/function.urlencode.php
+ * @link https://www.php.net/manual/en/function.urlencode.php
  * @param string $string <p>
  * The string to be encoded.
  * </p>
@@ -514,7 +514,7 @@ function urlencode(string $string): string {}
 
 /**
  * Decodes URL-encoded string
- * @link https://php.net/manual/en/function.urldecode.php
+ * @link https://www.php.net/manual/en/function.urldecode.php
  * @param string $string <p>
  * The string to be decoded.
  * </p>
@@ -525,7 +525,7 @@ function urldecode(string $string): string {}
 
 /**
  * URL-encode according to RFC 3986
- * @link https://php.net/manual/en/function.rawurlencode.php
+ * @link https://www.php.net/manual/en/function.rawurlencode.php
  * @param string $string <p>
  * The URL to be encoded.
  * </p>
@@ -542,7 +542,7 @@ function rawurlencode(string $string): string {}
 
 /**
  * Decode URL-encoded strings
- * @link https://php.net/manual/en/function.rawurldecode.php
+ * @link https://www.php.net/manual/en/function.rawurldecode.php
  * @param string $string <p>
  * The URL to be decoded.
  * </p>
@@ -553,7 +553,7 @@ function rawurldecode(string $string): string {}
 
 /**
  * Generate URL-encoded query string
- * @link https://php.net/manual/en/function.http-build-query.php
+ * @link https://www.php.net/manual/en/function.http-build-query.php
  * @param object|array $data <p>
  * May be an array or object containing properties.
  * </p>
@@ -589,7 +589,7 @@ function http_build_query(object|array $data, string $numeric_prefix = "", ?stri
 
 /**
  * Returns the target of a symbolic link
- * @link https://php.net/manual/en/function.readlink.php
+ * @link https://www.php.net/manual/en/function.readlink.php
  * @param string $path <p>
  * The symbolic link path.
  * </p>
@@ -600,7 +600,7 @@ function readlink(#[FileReference] string $path): string|false {}
 
 /**
  * Gets information about a link
- * @link https://php.net/manual/en/function.linkinfo.php
+ * @link https://www.php.net/manual/en/function.linkinfo.php
  * @param string $path <p>
  * Path to the link.
  * </p>
@@ -613,7 +613,7 @@ function linkinfo(#[FileReference] string $path): int|false {}
 
 /**
  * Creates a symbolic link
- * @link https://php.net/manual/en/function.symlink.php
+ * @link https://www.php.net/manual/en/function.symlink.php
  * @param string $target <p>
  * Target of the link.
  * </p>
@@ -626,7 +626,7 @@ function symlink(#[FileReference] string $target, #[FileReference] string $link)
 
 /**
  * Create a hard link
- * @link https://php.net/manual/en/function.link.php
+ * @link https://www.php.net/manual/en/function.link.php
  * @param string $target Target of the link.
  * @param string $link The link name.
  * @return bool true on success or false on failure.
@@ -635,7 +635,7 @@ function link(#[FileReference] string $target, #[FileReference] string $link): b
 
 /**
  * Deletes a file
- * @link https://php.net/manual/en/function.unlink.php
+ * @link https://www.php.net/manual/en/function.unlink.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -646,7 +646,7 @@ function unlink(#[FileReference] string $filename, $context = null): bool {}
 
 /**
  * Execute an external program
- * @link https://php.net/manual/en/function.exec.php
+ * @link https://www.php.net/manual/en/function.exec.php
  * @param string $command <p>
  * The command that will be executed.
  * </p>
@@ -678,7 +678,7 @@ function exec(string $command, &$output = null, &$result_code = null): string|fa
 
 /**
  * Execute an external program and display the output
- * @link https://php.net/manual/en/function.system.php
+ * @link https://www.php.net/manual/en/function.system.php
  * @param string $command <p>
  * The command that will be executed.
  * </p>
@@ -694,7 +694,7 @@ function system(string $command, &$result_code = null): string|false {}
 
 /**
  * Escape shell metacharacters
- * @link https://php.net/manual/en/function.escapeshellcmd.php
+ * @link https://www.php.net/manual/en/function.escapeshellcmd.php
  * @param string $command <p>
  * The command that will be escaped.
  * </p>
@@ -705,7 +705,7 @@ function escapeshellcmd(string $command): string {}
 
 /**
  * Escape a string to be used as a shell argument
- * @link https://php.net/manual/en/function.escapeshellarg.php
+ * @link https://www.php.net/manual/en/function.escapeshellarg.php
  * @param string $arg <p>
  * The argument that will be escaped.
  * </p>
@@ -716,7 +716,7 @@ function escapeshellarg(string $arg): string {}
 
 /**
  * Execute an external program and display raw output
- * @link https://php.net/manual/en/function.passthru.php
+ * @link https://www.php.net/manual/en/function.passthru.php
  * @param string $command <p>
  * The command that will be executed.
  * </p>
@@ -731,7 +731,7 @@ function passthru(string $command, &$result_code = null) {}
 
 /**
  * Execute command via shell and return the complete output as a string
- * @link https://php.net/manual/en/function.shell-exec.php
+ * @link https://www.php.net/manual/en/function.shell-exec.php
  * @param string $command <p>
  * The command that will be executed.
  * </p>
@@ -741,7 +741,7 @@ function shell_exec(string $command): string|false|null {}
 
 /**
  * Execute a command and open file pointers for input/output
- * @link https://php.net/manual/en/function.proc-open.php
+ * @link https://www.php.net/manual/en/function.proc-open.php
  * @param array|string $command <p>
  * Execute a command and open file pointers for input/output
  * </p>
@@ -813,7 +813,7 @@ function proc_open(array|string $command, array $descriptor_spec, &$pipes, ?stri
 
 /**
  * Close a process opened by {@see proc_open} and return the exit code of that process
- * @link https://php.net/manual/en/function.proc-close.php
+ * @link https://www.php.net/manual/en/function.proc-close.php
  * @param resource $process <p>
  * The proc_open resource that will
  * be closed.
@@ -824,7 +824,7 @@ function proc_close($process): int {}
 
 /**
  * Kills a process opened by proc_open
- * @link https://php.net/manual/en/function.proc-terminate.php
+ * @link https://www.php.net/manual/en/function.proc-terminate.php
  * @param resource $process <p>
  * The proc_open resource that will
  * be closed.
@@ -841,7 +841,7 @@ function proc_terminate($process, int $signal = 15): bool {}
 
 /**
  * Get information about a process opened by {@see proc_open}
- * @link https://php.net/manual/en/function.proc-get-status.php
+ * @link https://www.php.net/manual/en/function.proc-get-status.php
  * @param resource $process <p>
  * The proc_open resource that will
  * be evaluated.
@@ -921,7 +921,7 @@ function proc_get_status($process) {}
 /**
  * Change the priority of the current process. <br/>
  * Since 7.2.0 supported on Windows platforms.
- * @link https://php.net/manual/en/function.proc-nice.php
+ * @link https://www.php.net/manual/en/function.proc-nice.php
  * @param int $priority <p>
  * The increment value of the priority change.
  * </p>
@@ -933,7 +933,7 @@ function proc_nice(int $priority): bool {}
 
 /**
  * Get port number associated with an Internet service and protocol
- * @link https://php.net/manual/en/function.getservbyname.php
+ * @link https://www.php.net/manual/en/function.getservbyname.php
  * @param string $service <p>
  * The Internet service name, as a string.
  * </p>
@@ -949,7 +949,7 @@ function getservbyname(string $service, string $protocol): int|false {}
 
 /**
  * Get Internet service which corresponds to port and protocol
- * @link https://php.net/manual/en/function.getservbyport.php
+ * @link https://www.php.net/manual/en/function.getservbyport.php
  * @param int $port <p>
  * The port number.
  * </p>
@@ -964,7 +964,7 @@ function getservbyport(int $port, string $protocol): string|false {}
 
 /**
  * Get protocol number associated with protocol name
- * @link https://php.net/manual/en/function.getprotobyname.php
+ * @link https://www.php.net/manual/en/function.getprotobyname.php
  * @param string $protocol <p>
  * The protocol name.
  * </p>
@@ -975,7 +975,7 @@ function getprotobyname(string $protocol): int|false {}
 
 /**
  * Get protocol name associated with protocol number
- * @link https://php.net/manual/en/function.getprotobynumber.php
+ * @link https://www.php.net/manual/en/function.getprotobynumber.php
  * @param int $protocol <p>
  * The protocol number.
  * </p>
@@ -986,7 +986,7 @@ function getprotobynumber(int $protocol): string|false {}
 
 /**
  * Gets PHP script owner's UID
- * @link https://php.net/manual/en/function.getmyuid.php
+ * @link https://www.php.net/manual/en/function.getmyuid.php
  * @return int|false the user ID of the current script, or false on error.
  */
 #[Pure]
@@ -994,7 +994,7 @@ function getmyuid(): int|false {}
 
 /**
  * Get PHP script owner's GID
- * @link https://php.net/manual/en/function.getmygid.php
+ * @link https://www.php.net/manual/en/function.getmygid.php
  * @return int|false the group ID of the current script, or false on error.
  */
 #[Pure]
@@ -1002,7 +1002,7 @@ function getmygid(): int|false {}
 
 /**
  * Gets PHP's process ID
- * @link https://php.net/manual/en/function.getmypid.php
+ * @link https://www.php.net/manual/en/function.getmypid.php
  * @return int|false the current PHP process ID, or false on error.
  */
 #[Pure]
@@ -1010,7 +1010,7 @@ function getmypid(): int|false {}
 
 /**
  * Gets the inode of the current script
- * @link https://php.net/manual/en/function.getmyinode.php
+ * @link https://www.php.net/manual/en/function.getmyinode.php
  * @return int|false the current script's inode as an integer, or false on error.
  */
 #[Pure]

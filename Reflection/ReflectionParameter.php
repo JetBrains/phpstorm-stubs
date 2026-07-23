@@ -11,7 +11,7 @@ use JetBrains\PhpStorm\Pure;
  * The <b>ReflectionParameter</b> class retrieves
  * information about function's or method's parameters.
  *
- * @link https://php.net/manual/en/class.reflectionparameter.php
+ * @link https://www.php.net/manual/en/class.reflectionparameter.php
  */
 class ReflectionParameter implements Reflector
 {
@@ -25,7 +25,7 @@ class ReflectionParameter implements Reflector
     /**
      * Construct
      *
-     * @link https://php.net/manual/en/reflectionparameter.construct.php
+     * @link https://www.php.net/manual/en/reflectionparameter.construct.php
      * @param callable $function The function to reflect parameters from.
      * @param string|int $param Either an integer specifying the position
      * of the parameter (starting with zero), or a the parameter name as string.
@@ -36,7 +36,7 @@ class ReflectionParameter implements Reflector
     /**
      * Exports
      *
-     * @link https://php.net/manual/en/reflectionparameter.export.php
+     * @link https://www.php.net/manual/en/reflectionparameter.export.php
      * @param string $function The function name.
      * @param string $parameter The parameter name.
      * @param bool $return Setting to {@see true} will return the export,
@@ -51,7 +51,7 @@ class ReflectionParameter implements Reflector
     /**
      * Returns the string representation of the ReflectionParameter object.
      *
-     * @link https://php.net/manual/en/reflectionparameter.tostring.php
+     * @link https://www.php.net/manual/en/reflectionparameter.tostring.php
      * @return string
      */
     #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
@@ -60,7 +60,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets parameter name
      *
-     * @link https://php.net/manual/en/reflectionparameter.getname.php
+     * @link https://www.php.net/manual/en/reflectionparameter.getname.php
      * @return string The name of the reflected parameter.
      */
     #[Pure]
@@ -70,7 +70,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if passed by reference
      *
-     * @link https://php.net/manual/en/reflectionparameter.ispassedbyreference.php
+     * @link https://www.php.net/manual/en/reflectionparameter.ispassedbyreference.php
      * @return bool {@see true} if the parameter is passed in by reference, otherwise {@see false}
      */
     #[Pure]
@@ -80,7 +80,7 @@ class ReflectionParameter implements Reflector
     /**
      * Returns whether this parameter can be passed by value
      *
-     * @link https://php.net/manual/en/reflectionparameter.canbepassedbyvalue.php
+     * @link https://www.php.net/manual/en/reflectionparameter.canbepassedbyvalue.php
      * @return bool|null {@see true} if the parameter can be passed by value, {@see false} otherwise.
      * Returns {@see null} in case of an error.
      * @since 5.4
@@ -91,7 +91,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets declaring function
      *
-     * @link https://php.net/manual/en/reflectionparameter.getdeclaringfunction.php
+     * @link https://www.php.net/manual/en/reflectionparameter.getdeclaringfunction.php
      * @return ReflectionFunctionAbstract A {@see ReflectionFunctionAbstract} object.
      * @since 5.2
      */
@@ -102,7 +102,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets declaring class
      *
-     * @link https://php.net/manual/en/reflectionparameter.getdeclaringclass.php
+     * @link https://www.php.net/manual/en/reflectionparameter.getdeclaringclass.php
      * @return ReflectionClass|null A {@see ReflectionClass} object or {@see null} if
      * called on function.
      */
@@ -113,7 +113,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets the class type hinted for the parameter as a ReflectionClass object.
      *
-     * @link https://php.net/manual/en/reflectionparameter.getclass.php
+     * @link https://www.php.net/manual/en/reflectionparameter.getclass.php
      * @return ReflectionClass|null A {@see ReflectionClass} object.
      * @see ReflectionParameter::getType()
      */
@@ -125,7 +125,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if the parameter has a type associated with it.
      *
-     * @link https://php.net/manual/en/reflectionparameter.hastype.php
+     * @link https://www.php.net/manual/en/reflectionparameter.hastype.php
      * @return bool {@see true} if a type is specified, {@see false} otherwise.
      * @since 7.0
      */
@@ -135,7 +135,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets a parameter's type
      *
-     * @link https://php.net/manual/en/reflectionparameter.gettype.php
+     * @link https://www.php.net/manual/en/reflectionparameter.gettype.php
      * @return ReflectionType|null Returns a {@see ReflectionType} object if a
      * parameter type is specified, {@see null} otherwise.
      * @since 7.0
@@ -155,7 +155,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if parameter expects an array
      *
-     * @link https://php.net/manual/en/reflectionparameter.isarray.php
+     * @link https://www.php.net/manual/en/reflectionparameter.isarray.php
      * @return bool {@see true} if an array is expected, {@see false} otherwise.
      * @see ReflectionParameter::getType()
      */
@@ -167,7 +167,7 @@ class ReflectionParameter implements Reflector
     /**
      * Returns whether parameter MUST be callable
      *
-     * @link https://php.net/manual/en/reflectionparameter.iscallable.php
+     * @link https://www.php.net/manual/en/reflectionparameter.iscallable.php
      * @return bool|null Returns {@see true} if the parameter is callable, {@see false}
      * if it is not or {@see null} on failure.
      * @since 5.4
@@ -181,7 +181,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if null is allowed
      *
-     * @link https://php.net/manual/en/reflectionparameter.allowsnull.php
+     * @link https://www.php.net/manual/en/reflectionparameter.allowsnull.php
      * @return bool Returns {@see true} if {@see null} is allowed,
      * otherwise {@see false}
      */
@@ -191,7 +191,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets parameter position
      *
-     * @link https://php.net/manual/en/reflectionparameter.getposition.php
+     * @link https://www.php.net/manual/en/reflectionparameter.getposition.php
      * @return int The position of the parameter, left to right, starting at position #0.
      * @since 5.2
      */
@@ -202,7 +202,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if optional
      *
-     * @link https://php.net/manual/en/reflectionparameter.isoptional.php
+     * @link https://www.php.net/manual/en/reflectionparameter.isoptional.php
      * @return bool Returns {@see true} if the parameter is optional, otherwise {@see false}
      * @since 5.0
      */
@@ -213,7 +213,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if a default value is available
      *
-     * @link https://php.net/manual/en/reflectionparameter.isdefaultvalueavailable.php
+     * @link https://www.php.net/manual/en/reflectionparameter.isdefaultvalueavailable.php
      * @return bool Returns {@see true} if a default value is available, otherwise {@see false}
      * @since 5.0
      */
@@ -224,7 +224,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets default parameter value
      *
-     * @link https://php.net/manual/en/reflectionparameter.getdefaultvalue.php
+     * @link https://www.php.net/manual/en/reflectionparameter.getdefaultvalue.php
      * @return mixed The parameters default value.
      * @throws ReflectionException if the parameter is not optional
      * @since 5.0
@@ -236,7 +236,7 @@ class ReflectionParameter implements Reflector
     /**
      * Returns whether the default value of this parameter is constant
      *
-     * @link https://php.net/manual/en/reflectionparameter.isdefaultvalueconstant.php
+     * @link https://www.php.net/manual/en/reflectionparameter.isdefaultvalueconstant.php
      * @return bool Returns {@see true} if the default value is constant, and {@see false} otherwise.
      * @since 5.4
      */
@@ -247,7 +247,7 @@ class ReflectionParameter implements Reflector
     /**
      * Returns the default value's constant name if default value is constant or null
      *
-     * @link https://php.net/manual/en/reflectionparameter.getdefaultvalueconstantname.php
+     * @link https://www.php.net/manual/en/reflectionparameter.getdefaultvalueconstantname.php
      * @return string|null Returns string on success or {@see null} on failure.
      * @throws ReflectionException if the parameter is not optional
      * @since 5.4
@@ -259,7 +259,7 @@ class ReflectionParameter implements Reflector
     /**
      * Returns whether this function is variadic
      *
-     * @link https://php.net/manual/en/reflectionparameter.isvariadic.php
+     * @link https://www.php.net/manual/en/reflectionparameter.isvariadic.php
      * @return bool Returns {@see true} if the function is variadic, otherwise {@see false}
      * @since 5.6
      */
@@ -292,7 +292,7 @@ class ReflectionParameter implements Reflector
     /**
      * Clone
      *
-     * @link https://php.net/manual/en/reflectionparameter.clone.php
+     * @link https://www.php.net/manual/en/reflectionparameter.clone.php
      * @return void
      */
     #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
@@ -301,7 +301,7 @@ class ReflectionParameter implements Reflector
     /**
      * Clone
      *
-     * @link https://php.net/manual/en/reflectionparameter.clone.php
+     * @link https://www.php.net/manual/en/reflectionparameter.clone.php
      * @return void
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]

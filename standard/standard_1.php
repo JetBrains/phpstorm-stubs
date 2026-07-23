@@ -9,7 +9,7 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Make a string uppercase
- * @link https://php.net/manual/en/function.strtoupper.php
+ * @link https://www.php.net/manual/en/function.strtoupper.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -20,7 +20,7 @@ function strtoupper(string $string): string {}
 
 /**
  * Make a string lowercase
- * @link https://php.net/manual/en/function.strtolower.php
+ * @link https://www.php.net/manual/en/function.strtolower.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -31,7 +31,7 @@ function strtolower(string $string): string {}
 
 /**
  * Find the position of the first occurrence of a substring in a string
- * @link https://php.net/manual/en/function.strpos.php
+ * @link https://www.php.net/manual/en/function.strpos.php
  * @param string $haystack <p>
  * The string to search in
  * </p>
@@ -58,7 +58,7 @@ function strpos(string $haystack, string $needle, int $offset = 0): int|false {}
 
 /**
  * Find position of first occurrence of a case-insensitive string
- * @link https://php.net/manual/en/function.stripos.php
+ * @link https://www.php.net/manual/en/function.stripos.php
  * @param string $haystack <p>
  * The string to search in
  * </p>
@@ -84,7 +84,7 @@ function stripos(string $haystack, string $needle, int $offset = 0): int|false {
 
 /**
  * Find the position of the last occurrence of a substring in a string
- * @link https://php.net/manual/en/function.strrpos.php
+ * @link https://www.php.net/manual/en/function.strrpos.php
  * @param string $haystack <p>
  * The string to search in.
  * </p>
@@ -109,7 +109,7 @@ function strrpos(string $haystack, string $needle, int $offset = 0): int|false {
 
 /**
  * Find position of last occurrence of a case-insensitive string in a string
- * @link https://php.net/manual/en/function.strripos.php
+ * @link https://www.php.net/manual/en/function.strripos.php
  * @param string $haystack <p>
  * The string to search in
  * </p>
@@ -138,7 +138,7 @@ function strripos(string $haystack, string $needle, int $offset = 0): int|false 
 
 /**
  * Reverse a string
- * @link https://php.net/manual/en/function.strrev.php
+ * @link https://www.php.net/manual/en/function.strrev.php
  * @param string $string <p>
  * The string to be reversed.
  * </p>
@@ -149,7 +149,7 @@ function strrev(string $string): string {}
 
 /**
  * Convert logical Hebrew text to visual text
- * @link https://php.net/manual/en/function.hebrev.php
+ * @link https://www.php.net/manual/en/function.hebrev.php
  * @param string $string <p>
  * A Hebrew input string.
  * </p>
@@ -164,7 +164,7 @@ function hebrev(string $string, int $max_chars_per_line = 0): string {}
 
 /**
  * Convert logical Hebrew text to visual text with newline conversion
- * @link https://php.net/manual/en/function.hebrevc.php
+ * @link https://www.php.net/manual/en/function.hebrevc.php
  * @param string $hebrew_text <p>
  * A Hebrew input string.
  * </p>
@@ -180,7 +180,7 @@ function hebrevc(string $hebrew_text, $max_chars_per_line = 0): string {}
 
 /**
  * Inserts HTML line breaks before all newlines in a string
- * @link https://php.net/manual/en/function.nl2br.php
+ * @link https://www.php.net/manual/en/function.nl2br.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -194,7 +194,7 @@ function nl2br(string $string, bool $use_xhtml = true): string {}
 
 /**
  * Returns trailing name component of path
- * @link https://php.net/manual/en/function.basename.php
+ * @link https://www.php.net/manual/en/function.basename.php
  * @param string $path <p>
  * A path.
  * </p>
@@ -214,7 +214,7 @@ function basename(string $path, string $suffix = ''): string {}
 
 /**
  * Returns a parent directory's path
- * @link https://php.net/manual/en/function.dirname.php
+ * @link https://www.php.net/manual/en/function.dirname.php
  * @param string $path <p>
  * A path.
  * </p>
@@ -238,7 +238,7 @@ function dirname(string $path, #[PhpStormStubsElementAvailable(from: '7.0')] int
 
 /**
  * Returns information about a file path
- * @link https://php.net/manual/en/function.pathinfo.php
+ * @link https://www.php.net/manual/en/function.pathinfo.php
  * @param string $path <p>
  * The path being checked.
  * </p>
@@ -270,7 +270,7 @@ function pathinfo(string $path, #[ExpectedValues(flags: [
 
 /**
  * Un-quotes a quoted string
- * @link https://php.net/manual/en/function.stripslashes.php
+ * @link https://www.php.net/manual/en/function.stripslashes.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -284,7 +284,7 @@ function stripslashes(string $string): string {}
 
 /**
  * Un-quote string quoted with <function>addcslashes</function>
- * @link https://php.net/manual/en/function.stripcslashes.php
+ * @link https://www.php.net/manual/en/function.stripcslashes.php
  * @param string $string <p>
  * The string to be unescaped.
  * </p>
@@ -295,7 +295,7 @@ function stripcslashes(string $string): string {}
 
 /**
  * Find the first occurrence of a string
- * @link https://php.net/manual/en/function.strstr.php
+ * @link https://www.php.net/manual/en/function.strstr.php
  * @param string $haystack <p>
  * The input string.
  * </p>
@@ -316,7 +316,7 @@ function strstr(string $haystack, string $needle, bool $before_needle = false): 
 
 /**
  * Case-insensitive <function>strstr</function>
- * @link https://php.net/manual/en/function.stristr.php
+ * @link https://www.php.net/manual/en/function.stristr.php
  * @param string $haystack <p>
  * The string to search in
  * </p>
@@ -337,7 +337,7 @@ function stristr(string $haystack, string $needle, bool $before_needle = false):
 
 /**
  * Find the last occurrence of a character in a string
- * @link https://php.net/manual/en/function.strrchr.php
+ * @link https://www.php.net/manual/en/function.strrchr.php
  * @param string $haystack <p>
  * The string to search in
  * </p>
@@ -361,7 +361,7 @@ function strrchr(string $haystack, string $needle, #[PhpStormStubsElementAvailab
 
 /**
  * Randomly shuffles a string
- * @link https://php.net/manual/en/function.str-shuffle.php
+ * @link https://www.php.net/manual/en/function.str-shuffle.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -371,7 +371,7 @@ function str_shuffle(string $string): string {}
 
 /**
  * Return information about words used in a string
- * @link https://php.net/manual/en/function.str-word-count.php
+ * @link https://www.php.net/manual/en/function.str-word-count.php
  * @param string $string <p>
  * The string
  * </p>
@@ -391,7 +391,7 @@ function str_word_count(string $string, int $format = 0, ?string $characters = n
 
 /**
  * Convert a string to an array
- * @link https://php.net/manual/en/function.str-split.php
+ * @link https://www.php.net/manual/en/function.str-split.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -416,7 +416,7 @@ function str_split(string $string, int $length = 1) {}
 
 /**
  * Search a string for any of a set of characters
- * @link https://php.net/manual/en/function.strpbrk.php
+ * @link https://www.php.net/manual/en/function.strpbrk.php
  * @param string $string <p>
  * The string where char_list is looked for.
  * </p>
@@ -435,7 +435,7 @@ function strpbrk(
 
 /**
  * Binary safe comparison of two strings from an offset, up to length characters
- * @link https://php.net/manual/en/function.substr-compare.php
+ * @link https://www.php.net/manual/en/function.substr-compare.php
  * @param string $haystack <p>
  * The main string being compared.
  * </p>
@@ -466,7 +466,7 @@ function substr_compare(string $haystack, string $needle, int $offset, ?int $len
 
 /**
  * Locale based string comparison
- * @link https://php.net/manual/en/function.strcoll.php
+ * @link https://www.php.net/manual/en/function.strcoll.php
  * @param string $string1 <p>
  * The first string.
  * </p>
@@ -483,7 +483,7 @@ function strcoll(string $string1, string $string2): int {}
 
 /**
  * Formats a number as a currency string
- * @link https://php.net/manual/en/function.money-format.php
+ * @link https://www.php.net/manual/en/function.money-format.php
  * @param string $format <p>
  * The format specification consists of the following sequence:<br>
  * a % character</p>
@@ -502,7 +502,7 @@ function money_format(string $format, float $number): ?string {}
 
 /**
  * Returns the portion of string specified by the offset and length parameters.
- * @link https://php.net/manual/en/function.substr.php
+ * @link https://www.php.net/manual/en/function.substr.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -577,7 +577,7 @@ function substr(string $string, int $offset, ?int $length = null) {}
 
 /**
  * Replace text within a portion of a string
- * @link https://php.net/manual/en/function.substr-replace.php
+ * @link https://www.php.net/manual/en/function.substr-replace.php
  * @param string[]|string $string <p>
  * The input string.
  * </p>
@@ -615,7 +615,7 @@ function substr_replace(array|string $string, array|string $replace, array|int $
 
 /**
  * Quote meta characters
- * @link https://php.net/manual/en/function.quotemeta.php
+ * @link https://www.php.net/manual/en/function.quotemeta.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -626,7 +626,7 @@ function quotemeta(string $string): string {}
 
 /**
  * Make a string's first character uppercase
- * @link https://php.net/manual/en/function.ucfirst.php
+ * @link https://www.php.net/manual/en/function.ucfirst.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -637,7 +637,7 @@ function ucfirst(string $string): string {}
 
 /**
  * Make a string's first character lowercase
- * @link https://php.net/manual/en/function.lcfirst.php
+ * @link https://www.php.net/manual/en/function.lcfirst.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -648,7 +648,7 @@ function lcfirst(string $string): string {}
 
 /**
  * Uppercase the first character of each word in a string
- * @link https://php.net/manual/en/function.ucwords.php
+ * @link https://www.php.net/manual/en/function.ucwords.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -662,7 +662,7 @@ function ucwords(string $string, string $separators = " \t\r\n\f\v"): string {}
 
 /**
  * Translate characters or replace substrings
- * @link https://php.net/manual/en/function.strtr.php
+ * @link https://www.php.net/manual/en/function.strtr.php
  * @param string $string <p>
  * The string being translated.
  * </p>
@@ -682,7 +682,7 @@ function strtr(string $string, string $from, string $to): string {}
 
 /**
  * Translate certain characters
- * @link https://php.net/manual/en/function.strtr.php
+ * @link https://www.php.net/manual/en/function.strtr.php
  * @param string $str The string being translated.
  * @param array $replace_pairs The replace_pairs parameter may be used as a substitute for to and from in which case it's an array in the form array('from' => 'to', ...).
  * @return string A copy of str, translating all occurrences of each character in from to the corresponding character in to.
@@ -692,7 +692,7 @@ function strtr(string $str, array $replace_pairs): string {}
 
 /**
  * Quote string with slashes
- * @link https://php.net/manual/en/function.addslashes.php
+ * @link https://www.php.net/manual/en/function.addslashes.php
  * @param string $string <p>
  * The string to be escaped.
  * </p>
@@ -703,7 +703,7 @@ function addslashes(string $string): string {}
 
 /**
  * Quote string with slashes in a C style
- * @link https://php.net/manual/en/function.addcslashes.php
+ * @link https://www.php.net/manual/en/function.addcslashes.php
  * @param string $string <p>
  * The string to be escaped.
  * </p>
@@ -769,7 +769,7 @@ function addcslashes(string $string, string $characters): string {}
  * <li>"\0" (ASCII 0 (0x00)), the NUL-byte.
  * <li>"\x0B" (ASCII 11 (0x0B)), a vertical tab.
  * </ul>
- * @link https://php.net/manual/en/function.rtrim.php
+ * @link https://www.php.net/manual/en/function.rtrim.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -786,7 +786,7 @@ function rtrim(string $string, #[PhpStormStubsElementAvailable(to: '8.5')] strin
 
 /**
  * Replace all occurrences of the search string with the replacement string
- * @link https://php.net/manual/en/function.str-replace.php
+ * @link https://www.php.net/manual/en/function.str-replace.php
  * @param string|string[] $search <p>
  * The value being searched for, otherwise known as the needle.
  * An array may be used to designate multiple needles.
@@ -813,7 +813,7 @@ function str_replace(array|string $search, array|string $replace, array|string $
 
 /**
  * Case-insensitive version of <function>str_replace</function>.
- * @link https://php.net/manual/en/function.str-ireplace.php
+ * @link https://www.php.net/manual/en/function.str-ireplace.php
  * @param mixed $search <p>
  * Every replacement with search array is
  * performed on the result of previous replacement.
@@ -837,7 +837,7 @@ function str_ireplace(array|string $search, array|string $replace, array|string 
 
 /**
  * Repeat a string
- * @link https://php.net/manual/en/function.str-repeat.php
+ * @link https://www.php.net/manual/en/function.str-repeat.php
  * @param string $string <p>
  * The string to be repeated.
  * </p>
@@ -857,7 +857,7 @@ function str_repeat(string $string, int $times): string {}
 
 /**
  * Return information about characters used in a string
- * @link https://php.net/manual/en/function.count-chars.php
+ * @link https://www.php.net/manual/en/function.count-chars.php
  * @param string $string <p>
  * The examined string.
  * </p>
@@ -880,7 +880,7 @@ function count_chars(string $string, int $mode = 0): array|string {}
 
 /**
  * Split a string into smaller chunks
- * @link https://php.net/manual/en/function.chunk-split.php
+ * @link https://www.php.net/manual/en/function.chunk-split.php
  * @param string $string <p>
  * The string to be chunked.
  * </p>
@@ -897,7 +897,7 @@ function chunk_split(string $string, int $length = 76, string $separator = "\r\n
 
 /**
  * Strip whitespace (or other characters) from the beginning and end of a string
- * @link https://php.net/manual/en/function.trim.php
+ * @link https://www.php.net/manual/en/function.trim.php
  * @param string $string <p>
  * The string that will be trimmed.
  * </p>
@@ -914,7 +914,7 @@ function trim(string $string, #[PhpStormStubsElementAvailable(to: '8.5')] string
 
 /**
  * Strip whitespace (or other characters) from the beginning of a string
- * @link https://php.net/manual/en/function.ltrim.php
+ * @link https://www.php.net/manual/en/function.ltrim.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -946,7 +946,7 @@ function ltrim(string $string, #[PhpStormStubsElementAvailable(to: '8.5')] strin
 
 /**
  * Strip HTML and PHP tags from a string
- * @link https://php.net/manual/en/function.strip-tags.php
+ * @link https://www.php.net/manual/en/function.strip-tags.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -965,7 +965,7 @@ function strip_tags(string $string, #[LanguageLevelTypeAware(["7.4" => "string[]
 
 /**
  * Calculate the similarity between two strings
- * @link https://php.net/manual/en/function.similar-text.php
+ * @link https://www.php.net/manual/en/function.similar-text.php
  * @param string $string1 <p>
  * The first string.
  * </p>
@@ -983,7 +983,7 @@ function similar_text(string $string1, string $string2, &$percent = null): int {
 
 /**
  * Split a string by a string
- * @link https://php.net/manual/en/function.explode.php
+ * @link https://www.php.net/manual/en/function.explode.php
  * @param string $separator <p>
  * The boundary string.
  * </p>
@@ -1016,7 +1016,7 @@ function explode(string $separator, string $string, int $limit = PHP_INT_MAX) {}
 
 /**
  * Join array elements with a string
- * @link https://php.net/manual/en/function.implode.php
+ * @link https://www.php.net/manual/en/function.implode.php
  * @param array|string  $separator [optional]<p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
@@ -1034,7 +1034,7 @@ function implode(array|string $separator = "", ?array $array = null): string {}
 /**
  * Alias:
  * {@see implode}
- * @link https://php.net/manual/en/function.join.php
+ * @link https://www.php.net/manual/en/function.join.php
  * @param array|string  $separator [optional] <p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
@@ -1051,7 +1051,7 @@ function join(array|string $separator = "", ?array $array = null): string {}
 
 /**
  * Set locale information
- * @link https://php.net/manual/en/function.setlocale.php
+ * @link https://www.php.net/manual/en/function.setlocale.php
  * @param int $category <p>
  * <em>category</em> is a named constant specifying the
  * category of the functions affected by the locale setting:
@@ -1127,7 +1127,7 @@ function setlocale(
 
 /**
  * Get numeric formatting information
- * @link https://php.net/manual/en/function.localeconv.php
+ * @link https://www.php.net/manual/en/function.localeconv.php
  * @return array localeconv returns data based upon the current locale
  * as set by setlocale. The associative array that is
  * returned contains the following fields:

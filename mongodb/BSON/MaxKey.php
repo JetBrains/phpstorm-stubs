@@ -7,7 +7,7 @@ use MongoDB\Driver\Exception\InvalidArgumentException;
 
 /**
  * Class MaxKey
- * @link https://php.net/manual/en/class.mongodb-bson-maxkey.php
+ * @link https://www.php.net/manual/en/class.mongodb-bson-maxkey.php
  */
 final class MaxKey implements Type, MaxKeyInterface, JsonSerializable
 {

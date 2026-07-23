@@ -245,7 +245,7 @@ PHP;
         $stubCode = <<<'PHP'
 <?php
 /**
- * @link https://php.net/manual/en/function.pg-last-notice.php
+ * @link https://www.php.net/manual/en/function.pg-last-notice.php
  * @since 7.1
  */
 define('PGSQL_NOTICE_ALL', 2);

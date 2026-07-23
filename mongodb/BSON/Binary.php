@@ -8,7 +8,7 @@ use Stringable;
 
 /**
  * Class Binary
- * @link https://php.net/manual/en/class.mongodb-bson-binary.php
+ * @link https://www.php.net/manual/en/class.mongodb-bson-binary.php
  */
 final class Binary implements Type, BinaryInterface, JsonSerializable, Stringable
 {
@@ -41,37 +41,37 @@ final class Binary implements Type, BinaryInterface, JsonSerializable, Stringabl
 
     /**
      * Binary constructor.
-     * @link https://php.net/manual/en/mongodb-bson-binary.construct.php
+     * @link https://www.php.net/manual/en/mongodb-bson-binary.construct.php
      */
     final public function __construct(string $data, int $type = Binary::TYPE_GENERIC) {}
 
     /**
      * Create a binary from a given vector and vector type.
-     * @link https://php.net/manual/en/mongodb-bson-binary.fromvector.php
+     * @link https://www.php.net/manual/en/mongodb-bson-binary.fromvector.php
      */
     final public static function fromVector(array $vector, VectorType $vectorType): self {}
 
     /**
      * Returns the Binary's data
-     * @link https://php.net/manual/en/mongodb-bson-binary.getdata.php
+     * @link https://www.php.net/manual/en/mongodb-bson-binary.getdata.php
      */
     final public function getData(): string {}
 
     /**
      * Returns the Binary's type
-     * @link https://php.net/manual/en/mongodb-bson-binary.gettype.php
+     * @link https://www.php.net/manual/en/mongodb-bson-binary.gettype.php
      */
     final public function getType(): int {}
 
     /**
      * Returns the Binary's vector type
-     * @link https://php.net/manual/en/mongodb-bson-binary.getvectortype.php
+     * @link https://www.php.net/manual/en/mongodb-bson-binary.getvectortype.php
      */
     final public function getVectorType(): VectorType {}
 
     /**
      * Converts a binary vector to an array
-     * @link https://php.net/manual/en/mongodb-bson-binary.toarray.php
+     * @link https://www.php.net/manual/en/mongodb-bson-binary.toarray.php
      */
     final public function toArray(): array {}
 

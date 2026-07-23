@@ -33,7 +33,7 @@ function ftp_mlsd(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default
 
 /**
  * Opens an FTP connection
- * @link https://php.net/manual/en/function.ftp-connect.php
+ * @link https://www.php.net/manual/en/function.ftp-connect.php
  * @param string $hostname <p>
  * The FTP server address. This parameter shouldn't have any trailing
  * slashes and shouldn't be prefixed with ftp://.
@@ -55,7 +55,7 @@ function ftp_connect(string $hostname, int $port = 21, int $timeout = 90) {}
 
 /**
  * Opens a Secure SSL-FTP connection
- * @link https://php.net/manual/en/function.ftp-ssl-connect.php
+ * @link https://www.php.net/manual/en/function.ftp-ssl-connect.php
  * @param string $hostname <p>
  * The FTP server address. This parameter shouldn't have any trailing
  * slashes and shouldn't be prefixed with ftp://.
@@ -77,7 +77,7 @@ function ftp_ssl_connect(string $hostname, int $port = 21, int $timeout = 90) {}
 
 /**
  * Logs in to an FTP connection
- * @link https://php.net/manual/en/function.ftp-login.php
+ * @link https://www.php.net/manual/en/function.ftp-login.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -94,7 +94,7 @@ function ftp_login(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defaul
 
 /**
  * Returns the current directory name
- * @link https://php.net/manual/en/function.ftp-pwd.php
+ * @link https://www.php.net/manual/en/function.ftp-pwd.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -104,7 +104,7 @@ function ftp_pwd(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default:
 
 /**
  * Changes to the parent directory
- * @link https://php.net/manual/en/function.ftp-cdup.php
+ * @link https://www.php.net/manual/en/function.ftp-cdup.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -114,7 +114,7 @@ function ftp_cdup(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default
 
 /**
  * Changes the current directory on a FTP server
- * @link https://php.net/manual/en/function.ftp-chdir.php
+ * @link https://www.php.net/manual/en/function.ftp-chdir.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -128,7 +128,7 @@ function ftp_chdir(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defaul
 
 /**
  * Requests execution of a command on the FTP server
- * @link https://php.net/manual/en/function.ftp-exec.php
+ * @link https://www.php.net/manual/en/function.ftp-exec.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -142,7 +142,7 @@ function ftp_exec(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default
 
 /**
  * Sends an arbitrary command to an FTP server
- * @link https://php.net/manual/en/function.ftp-raw.php
+ * @link https://www.php.net/manual/en/function.ftp-raw.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -158,7 +158,7 @@ function ftp_raw(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default:
 
 /**
  * Creates a directory
- * @link https://php.net/manual/en/function.ftp-mkdir.php
+ * @link https://www.php.net/manual/en/function.ftp-mkdir.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -171,7 +171,7 @@ function ftp_mkdir(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defaul
 
 /**
  * Removes a directory
- * @link https://php.net/manual/en/function.ftp-rmdir.php
+ * @link https://www.php.net/manual/en/function.ftp-rmdir.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -185,7 +185,7 @@ function ftp_rmdir(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defaul
 
 /**
  * Set permissions on a file via FTP
- * @link https://php.net/manual/en/function.ftp-chmod.php
+ * @link https://www.php.net/manual/en/function.ftp-chmod.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -201,7 +201,7 @@ function ftp_chmod(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defaul
 
 /**
  * Allocates space for a file to be uploaded
- * @link https://php.net/manual/en/function.ftp-alloc.php
+ * @link https://www.php.net/manual/en/function.ftp-alloc.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -218,7 +218,7 @@ function ftp_alloc(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defaul
 
 /**
  * Returns a list of files in the given directory
- * @link https://php.net/manual/en/function.ftp-nlist.php
+ * @link https://www.php.net/manual/en/function.ftp-nlist.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -235,7 +235,7 @@ function ftp_nlist(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defaul
 
 /**
  * Returns a detailed list of files in the given directory
- * @link https://php.net/manual/en/function.ftp-rawlist.php
+ * @link https://www.php.net/manual/en/function.ftp-rawlist.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -257,7 +257,7 @@ function ftp_rawlist(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defa
 
 /**
  * Returns the system type identifier of the remote FTP server
- * @link https://php.net/manual/en/function.ftp-systype.php
+ * @link https://www.php.net/manual/en/function.ftp-systype.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -267,7 +267,7 @@ function ftp_systype(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defa
 
 /**
  * Turns passive mode on or off
- * @link https://php.net/manual/en/function.ftp-pasv.php
+ * @link https://www.php.net/manual/en/function.ftp-pasv.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -280,7 +280,7 @@ function ftp_pasv(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default
 
 /**
  * Downloads a file from the FTP server
- * @link https://php.net/manual/en/function.ftp-get.php
+ * @link https://www.php.net/manual/en/function.ftp-get.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -309,7 +309,7 @@ function ftp_get(
 
 /**
  * Downloads a file from the FTP server and saves to an open file
- * @link https://php.net/manual/en/function.ftp-fget.php
+ * @link https://www.php.net/manual/en/function.ftp-fget.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -338,7 +338,7 @@ function ftp_fget(
 
 /**
  * Uploads a file to the FTP server
- * @link https://php.net/manual/en/function.ftp-put.php
+ * @link https://www.php.net/manual/en/function.ftp-put.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -365,7 +365,7 @@ function ftp_put(
 
 /**
  * Uploads from an open file to the FTP server
- * @link https://php.net/manual/en/function.ftp-fput.php
+ * @link https://www.php.net/manual/en/function.ftp-fput.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -392,7 +392,7 @@ function ftp_fput(
 
 /**
  * Returns the size of the given file
- * @link https://php.net/manual/en/function.ftp-size.php
+ * @link https://www.php.net/manual/en/function.ftp-size.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -405,7 +405,7 @@ function ftp_size(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default
 
 /**
  * Returns the last modified time of the given file
- * @link https://php.net/manual/en/function.ftp-mdtm.php
+ * @link https://www.php.net/manual/en/function.ftp-mdtm.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -419,7 +419,7 @@ function ftp_mdtm(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default
 
 /**
  * Renames a file or a directory on the FTP server
- * @link https://php.net/manual/en/function.ftp-rename.php
+ * @link https://www.php.net/manual/en/function.ftp-rename.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -435,7 +435,7 @@ function ftp_rename(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defau
 
 /**
  * Deletes a file on the FTP server
- * @link https://php.net/manual/en/function.ftp-delete.php
+ * @link https://www.php.net/manual/en/function.ftp-delete.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -448,7 +448,7 @@ function ftp_delete(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defau
 
 /**
  * Sends a SITE command to the server
- * @link https://php.net/manual/en/function.ftp-site.php
+ * @link https://www.php.net/manual/en/function.ftp-site.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -462,7 +462,7 @@ function ftp_site(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default
 
 /**
  * Closes an FTP connection
- * @link https://php.net/manual/en/function.ftp-close.php
+ * @link https://www.php.net/manual/en/function.ftp-close.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -472,7 +472,7 @@ function ftp_close(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defaul
 
 /**
  * Set miscellaneous runtime FTP options
- * @link https://php.net/manual/en/function.ftp-set-option.php
+ * @link https://www.php.net/manual/en/function.ftp-set-option.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -512,7 +512,7 @@ function ftp_set_option(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], d
 
 /**
  * Retrieves various runtime behaviours of the current FTP stream
- * @link https://php.net/manual/en/function.ftp-get-option.php
+ * @link https://www.php.net/manual/en/function.ftp-get-option.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -542,7 +542,7 @@ function ftp_get_option(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], d
 
 /**
  * Retrieves a file from the FTP server and writes it to an open file (non-blocking)
- * @link https://php.net/manual/en/function.ftp-nb-fget.php
+ * @link https://www.php.net/manual/en/function.ftp-nb-fget.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -571,7 +571,7 @@ function ftp_nb_fget(
 
 /**
  * Retrieves a file from the FTP server and writes it to a local file (non-blocking)
- * @link https://php.net/manual/en/function.ftp-nb-get.php
+ * @link https://www.php.net/manual/en/function.ftp-nb-get.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -601,7 +601,7 @@ function ftp_nb_get(
 
 /**
  * Continues retrieving/sending a file (non-blocking)
- * @link https://php.net/manual/en/function.ftp-nb-continue.php
+ * @link https://www.php.net/manual/en/function.ftp-nb-continue.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -613,7 +613,7 @@ function ftp_nb_continue(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], 
 
 /**
  * Stores a file on the FTP server (non-blocking)
- * @link https://php.net/manual/en/function.ftp-nb-put.php
+ * @link https://www.php.net/manual/en/function.ftp-nb-put.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -642,7 +642,7 @@ function ftp_nb_put(
 
 /**
  * Stores a file from an open file to the FTP server (non-blocking)
- * @link https://php.net/manual/en/function.ftp-nb-fput.php
+ * @link https://www.php.net/manual/en/function.ftp-nb-fput.php
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
@@ -671,7 +671,7 @@ function ftp_nb_fput(
 
 /**
  * Alias of <b>ftp_close</b>
- * @link https://php.net/manual/en/function.ftp-quit.php
+ * @link https://www.php.net/manual/en/function.ftp-quit.php
  * @param resource $ftp
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -679,25 +679,25 @@ function ftp_quit(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default
 
 /**
  * <p></p>
- * @link https://php.net/manual/en/ftp.constants.php
+ * @link https://www.php.net/manual/en/ftp.constants.php
  */
 define('FTP_ASCII', 1);
 
 /**
  * <p></p>
- * @link https://php.net/manual/en/ftp.constants.php
+ * @link https://www.php.net/manual/en/ftp.constants.php
  */
 define('FTP_TEXT', 1);
 
 /**
  * <p></p>
- * @link https://php.net/manual/en/ftp.constants.php
+ * @link https://www.php.net/manual/en/ftp.constants.php
  */
 define('FTP_BINARY', 2);
 
 /**
  * <p></p>
- * @link https://php.net/manual/en/ftp.constants.php
+ * @link https://www.php.net/manual/en/ftp.constants.php
  */
 define('FTP_IMAGE', 2);
 
@@ -706,7 +706,7 @@ define('FTP_IMAGE', 2);
  * Automatically determine resume position and start position for GET and PUT requests
  * (only works if FTP_AUTOSEEK is enabled)
  * </p>
- * @link https://php.net/manual/en/ftp.constants.php
+ * @link https://www.php.net/manual/en/ftp.constants.php
  */
 define('FTP_AUTORESUME', -1);
 
@@ -714,7 +714,7 @@ define('FTP_AUTORESUME', -1);
  * <p>
  * See <b>ftp_set_option</b> for information.
  * </p>
- * @link https://php.net/manual/en/ftp.constants.php
+ * @link https://www.php.net/manual/en/ftp.constants.php
  */
 define('FTP_TIMEOUT_SEC', 0);
 
@@ -722,7 +722,7 @@ define('FTP_TIMEOUT_SEC', 0);
  * <p>
  * See <b>ftp_set_option</b> for information.
  * </p>
- * @link https://php.net/manual/en/ftp.constants.php
+ * @link https://www.php.net/manual/en/ftp.constants.php
  */
 define('FTP_AUTOSEEK', 1);
 
@@ -732,7 +732,7 @@ define('FTP_USEPASVADDRESS', 2);
  * <p>
  * Asynchronous transfer has failed
  * </p>
- * @link https://php.net/manual/en/ftp.constants.php
+ * @link https://www.php.net/manual/en/ftp.constants.php
  */
 define('FTP_FAILED', 0);
 
@@ -740,7 +740,7 @@ define('FTP_FAILED', 0);
  * <p>
  * Asynchronous transfer has finished
  * </p>
- * @link https://php.net/manual/en/ftp.constants.php
+ * @link https://www.php.net/manual/en/ftp.constants.php
  */
 define('FTP_FINISHED', 1);
 
@@ -748,7 +748,7 @@ define('FTP_FINISHED', 1);
  * <p>
  * Asynchronous transfer is still active
  * </p>
- * @link https://php.net/manual/en/ftp.constants.php
+ * @link https://www.php.net/manual/en/ftp.constants.php
  */
 define('FTP_MOREDATA', 2);
 

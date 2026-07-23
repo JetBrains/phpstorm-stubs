@@ -6,7 +6,7 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Return available SPL classes
- * @link https://php.net/manual/en/function.spl-classes.php
+ * @link https://www.php.net/manual/en/function.spl-classes.php
  * @return array
  */
 #[Pure]
@@ -14,7 +14,7 @@ function spl_classes(): array {}
 
 /**
  * Default implementation for __autoload()
- * @link https://php.net/manual/en/function.spl-autoload.php
+ * @link https://www.php.net/manual/en/function.spl-autoload.php
  * @param string $class <p>
  * </p>
  * @param string|null $file_extensions [optional] <p>
@@ -29,7 +29,7 @@ function spl_autoload(string $class, ?string $file_extensions = null): void {}
 
 /**
  * Register and return default file extensions for spl_autoload
- * @link https://php.net/manual/en/function.spl-autoload-extensions.php
+ * @link https://www.php.net/manual/en/function.spl-autoload-extensions.php
  * @param string|null $file_extensions [optional] <p>
  * When calling without an argument, it simply returns the current list
  * of extensions each separated by comma. To modify the list of file
@@ -45,7 +45,7 @@ function spl_autoload_extensions(?string $file_extensions = null): string {}
 
 /**
  * Register given function as __autoload() implementation
- * @link https://php.net/manual/en/function.spl-autoload-register.php
+ * @link https://www.php.net/manual/en/function.spl-autoload-register.php
  * @param callable|null $callback [optional] <p>
  * The autoload function being registered.
  * If no parameter is provided, then the default implementation of
@@ -63,7 +63,7 @@ function spl_autoload_register(?callable $callback = null, bool $throw = true, b
 
 /**
  * Unregister given function as __autoload() implementation
- * @link https://php.net/manual/en/function.spl-autoload-unregister.php
+ * @link https://www.php.net/manual/en/function.spl-autoload-unregister.php
  * @param callable $callback <p>
  * The autoload function being unregistered.
  * </p>
@@ -74,7 +74,7 @@ function spl_autoload_unregister(callable $callback): bool {}
 
 /**
  * Return all registered __autoload() functions
- * @link https://php.net/manual/en/function.spl-autoload-functions.php
+ * @link https://www.php.net/manual/en/function.spl-autoload-functions.php
  * @return array|false An array of all registered __autoload functions.
  * If the autoload stack is not activated then the return value is false.
  * If no function is registered the return value will be an empty array.
@@ -85,7 +85,7 @@ function spl_autoload_functions() {}
 
 /**
  * Try all registered __autoload() functions to load the requested class
- * @link https://php.net/manual/en/function.spl-autoload-call.php
+ * @link https://www.php.net/manual/en/function.spl-autoload-call.php
  * @param string $class <p>
  * The class name being searched.
  * </p>
@@ -96,7 +96,7 @@ function spl_autoload_call(string $class): void {}
 
 /**
  * Return the parent classes of the given class
- * @link https://php.net/manual/en/function.class-parents.php
+ * @link https://www.php.net/manual/en/function.class-parents.php
  * @param object|string $object_or_class <p>
  * An object (class instance) or a string (class name).
  * </p>
@@ -112,7 +112,7 @@ function class_parents($object_or_class, bool $autoload = true): array|false {}
 
 /**
  * Return the interfaces which are implemented by the given class
- * @link https://php.net/manual/en/function.class-implements.php
+ * @link https://www.php.net/manual/en/function.class-implements.php
  * @param object|string $object_or_class <p>
  * An object (class instance) or a string (class name).
  * </p>
@@ -128,7 +128,7 @@ function class_implements($object_or_class, bool $autoload = true): array|false 
 
 /**
  * Return hash id for given object
- * @link https://php.net/manual/en/function.spl-object-hash.php
+ * @link https://www.php.net/manual/en/function.spl-object-hash.php
  * @param object $object
  * @return string A string that is unique for each object and is always the same for
  * the same object.
@@ -138,7 +138,7 @@ function spl_object_hash(object $object): string {}
 
 /**
  * Copy the iterator into an array
- * @link https://php.net/manual/en/function.iterator-to-array.php
+ * @link https://www.php.net/manual/en/function.iterator-to-array.php
  * @template TKey of int|string
  * @template TValue
  * @param Traversable<TKey, TValue>|array<TKey, TValue> $iterator <p>
@@ -157,7 +157,7 @@ function iterator_to_array(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array
 
 /**
  * Count the elements in an iterator
- * @link https://php.net/manual/en/function.iterator-count.php
+ * @link https://www.php.net/manual/en/function.iterator-count.php
  * @param Traversable $iterator <p>
  * The iterator being counted.
  * </p>
@@ -168,7 +168,7 @@ function iterator_count(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'],
 
 /**
  * Call a function for every element in an iterator
- * @link https://php.net/manual/en/function.iterator-apply.php
+ * @link https://www.php.net/manual/en/function.iterator-apply.php
  * @param Traversable $iterator <p>
  * The class to iterate over.
  * </p>
@@ -191,7 +191,7 @@ function iterator_apply(Traversable $iterator, callable $callback, ?array $args 
  * @param object|string $object_or_class An object (class instance) or a string (class name).
  * @param bool $autoload Whether to allow this function to load the class automatically through the __autoload() magic method.
  * @return string[]|false An array on success, or false on error.
- * @link https://php.net/manual/en/function.class-uses.php
+ * @link https://www.php.net/manual/en/function.class-uses.php
  * @see class_parents()
  * @see get_declared_traits()
  * @since 5.4

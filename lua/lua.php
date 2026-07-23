@@ -4,25 +4,25 @@
 // The actual lua version is different from the PECL package version
 
 /**
- * @link https://secure.php.net/manual/en/class.lua.php
+ * @link https://www.php.net/manual/en/class.lua.php
  */
 class Lua
 {
     /**
      * @var string
      *
-     * @link https://secure.php.net/manual/en/class.lua.php#lua.constants.lua-version
+     * @link https://www.php.net/manual/en/class.lua.php#lua.constants.lua-version
      */
     public const LUA_VERSION = '5.1.4';
 
     /**
      * @param null|string $lua_script_file
-     * @link https://secure.php.net/manual/en/lua.construct.php
+     * @link https://www.php.net/manual/en/lua.construct.php
      */
     public function __construct(?string $lua_script_file = null) {}
 
     /**
-     * @link https://secure.php.net/manual/en/lua.assign.php
+     * @link https://www.php.net/manual/en/lua.assign.php
      *
      * @param string $name
      * @param mixed $value
@@ -32,7 +32,7 @@ class Lua
     public function assign(string $name, $value) {}
 
     /**
-     * @link https://secure.php.net/manual/en/lua.call.php
+     * @link https://www.php.net/manual/en/lua.call.php
      *
      * @param callable $lua_func Function name in lua
      * @param array $args Arguments passed to the Lua function
@@ -43,7 +43,7 @@ class Lua
     public function call(callable $lua_func, array $args = [], bool $use_self = false) {}
 
     /**
-     * @link https://secure.php.net/manual/en/lua.eval.php
+     * @link https://www.php.net/manual/en/lua.eval.php
      *
      * @param string $statements
      *
@@ -52,7 +52,7 @@ class Lua
     public function eval(string $statements) {}
 
     /**
-     * @link https://secure.php.net/manual/en/lua.include.php
+     * @link https://www.php.net/manual/en/lua.include.php
      *
      * @param string $file
      *
@@ -61,14 +61,14 @@ class Lua
     public function include(string $file) {}
 
     /**
-     * @link https://secure.php.net/manual/en/lua.getversion.php
+     * @link https://www.php.net/manual/en/lua.getversion.php
      *
      * @return string Returns Lua::LUA_VERSION
      */
     public function getVersion(): string {}
 
     /**
-     * @link https://secure.php.net/manual/en/lua.registercallback.php
+     * @link https://www.php.net/manual/en/lua.registercallback.php
      *
      * @param string $name
      * @param callable $function A valid PHP function callback

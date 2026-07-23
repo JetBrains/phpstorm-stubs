@@ -9,7 +9,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 /**
  * Get and/or set the current session name.<br/>
  * Before 7.2.0 checked cookie status and since 7.2.0 checks both cookie and session status to avoid PHP crash.
- * @link https://php.net/manual/en/function.session-name.php
+ * @link https://www.php.net/manual/en/function.session-name.php
  * @param string|null $name [optional] <p>
  * The session name references the name of the session, which is
  * used in cookies and URLs (e.g. PHPSESSID). It
@@ -32,7 +32,7 @@ function session_name(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default
 /**
  * Get and/or set the current session module.<br/>
  * Since 7.2.0 it is forbidden to set the module name to "user".
- * @link https://php.net/manual/en/function.session-module-name.php
+ * @link https://www.php.net/manual/en/function.session-module-name.php
  * @param string|null $module [optional] <p>
  * If <i>module</i> is specified, that module will be
  * used instead.
@@ -44,7 +44,7 @@ function session_module_name(#[LanguageLevelTypeAware(['8.0' => 'null|string'], 
 
 /**
  * Get and/or set the current session save path
- * @link https://php.net/manual/en/function.session-save-path.php
+ * @link https://www.php.net/manual/en/function.session-save-path.php
  * @param string|null $path [optional] <p>
  * Session data path. If specified, the path to which data is saved will
  * be changed. <b>session_save_path</b> needs to be called
@@ -64,7 +64,7 @@ function session_save_path(#[LanguageLevelTypeAware(['8.0' => 'null|string'], de
 
 /**
  * Get and/or set the current session id
- * @link https://php.net/manual/en/function.session-id.php
+ * @link https://www.php.net/manual/en/function.session-id.php
  * @param string|null $id [optional] <p>
  * If <i>id</i> is specified, it will replace the current
  * session id. <b>session_id</b> needs to be called before
@@ -86,7 +86,7 @@ function session_id(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default: 
 
 /**
  * Update the current session id with a newly generated one
- * @link https://php.net/manual/en/function.session-regenerate-id.php
+ * @link https://www.php.net/manual/en/function.session-regenerate-id.php
  * @param bool $delete_old_session [optional] <p>
  * Whether to delete the old associated session file or not.
  * </p>
@@ -97,14 +97,14 @@ function session_regenerate_id(bool $delete_old_session = false): bool {}
 /**
  * PHP > 5.4.0 <br/>
  * Session shutdown function
- * @link https://secure.php.net/manual/en/function.session-register-shutdown.php
+ * @link https://www.php.net/manual/en/function.session-register-shutdown.php
  * @return void
  */
 function session_register_shutdown(): void {}
 
 /**
  * Decodes session data from a string
- * @link https://php.net/manual/en/function.session-decode.php
+ * @link https://www.php.net/manual/en/function.session-decode.php
  * @param string $data <p>
  * The encoded data to be stored.
  * </p>
@@ -114,7 +114,7 @@ function session_decode(string $data): bool {}
 
 /**
  * Register one or more global variables with the current session
- * @link https://php.net/manual/en/function.session-register.php
+ * @link https://www.php.net/manual/en/function.session-register.php
  * @param mixed $name <p>
  * A string holding the name of a variable or an array consisting of
  * variable names or other arrays.
@@ -128,7 +128,7 @@ function session_register(mixed $name, ...$_): bool {}
 
 /**
  * Unregister a global variable from the current session
- * @link https://php.net/manual/en/function.session-unregister.php
+ * @link https://www.php.net/manual/en/function.session-unregister.php
  * @param string $name <p>
  * The variable name.
  * </p>
@@ -140,7 +140,7 @@ function session_unregister(string $name): bool {}
 
 /**
  * Find out whether a global variable is registered in a session
- * @link https://php.net/manual/en/function.session-is-registered.php
+ * @link https://www.php.net/manual/en/function.session-is-registered.php
  * @param string $name <p>
  * The variable name.
  * </p>
@@ -154,7 +154,7 @@ function session_is_registered(string $name): bool {}
 
 /**
  * Encodes the current session data as a string
- * @link https://php.net/manual/en/function.session-encode.php
+ * @link https://www.php.net/manual/en/function.session-encode.php
  * @return string|false the contents of the current session encoded.
  */
 #[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
@@ -162,7 +162,7 @@ function session_encode() {}
 
 /**
  * Initialize session data
- * @link https://php.net/manual/en/function.session-start.php
+ * @link https://www.php.net/manual/en/function.session-start.php
  * @param array $options [optional] <p>If provided, this is an associative array of options that will override the currently set session configuration directives. The keys should not include the session. prefix.
  * In addition to the normal set of configuration directives, a read_and_close option may also be provided. If set to TRUE, this will result in the session being closed immediately after being read, thereby avoiding unnecessary locking if the session data won't be changed.</p>
  * @return bool This function returns true if a session was successfully started,
@@ -193,14 +193,14 @@ function session_gc() {}
 
 /**
  * Destroys all data registered to a session
- * @link https://php.net/manual/en/function.session-destroy.php
+ * @link https://www.php.net/manual/en/function.session-destroy.php
  * @return bool true on success or false on failure.
  */
 function session_destroy(): bool {}
 
 /**
  * Free all session variables
- * @link https://php.net/manual/en/function.session-unset.php
+ * @link https://www.php.net/manual/en/function.session-unset.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
 #[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
@@ -208,7 +208,7 @@ function session_unset() {}
 
 /**
  * Sets user-level session storage functions
- * @link https://php.net/manual/en/function.session-set-save-handler.php
+ * @link https://www.php.net/manual/en/function.session-set-save-handler.php
  * @param callable $open <p>
  * Open function, this works like a constructor in classes and is
  * executed when the session is being opened. The open function
@@ -259,7 +259,7 @@ function session_set_save_handler(callable $open, callable $close, callable $rea
 /**
  * (PHP 5.4)<br/>
  * Sets user-level session storage functions
- * @link https://php.net/manual/en/function.session-set-save-handler.php
+ * @link https://www.php.net/manual/en/function.session-set-save-handler.php
  * @param SessionHandlerInterface $session_handler An instance of a class implementing SessionHandlerInterface,
  * and optionally SessionIdInterface and/or SessionUpdateTimestampHandlerInterface, such as SessionHandler,
  * to register as the session handler. Since PHP 5.4 only.
@@ -270,7 +270,7 @@ function session_set_save_handler(SessionHandlerInterface $sessionhandler, bool 
 
 /**
  * Get and/or set the current cache limiter
- * @link https://php.net/manual/en/function.session-cache-limiter.php
+ * @link https://www.php.net/manual/en/function.session-cache-limiter.php
  * @param string|null $value [optional] <p>
  * If <i>cache_limiter</i> is specified, the name of the
  * current cache limiter is changed to the new value.
@@ -328,7 +328,7 @@ function session_cache_limiter(#[LanguageLevelTypeAware(['8.0' => 'null|string']
 
 /**
  * Return current cache expire
- * @link https://php.net/manual/en/function.session-cache-expire.php
+ * @link https://www.php.net/manual/en/function.session-cache-expire.php
  * @param int|null $value [optional] <p>
  * If <i>new_cache_expire</i> is given, the current cache
  * expire is replaced with <i>new_cache_expire</i>.
@@ -346,7 +346,7 @@ function session_cache_expire(#[LanguageLevelTypeAware(['8.0' => 'null|int'], de
 
 /**
  * Set the session cookie parameters
- * @link https://php.net/manual/en/function.session-set-cookie-params.php
+ * @link https://www.php.net/manual/en/function.session-set-cookie-params.php
  * @param array $lifetime_or_options <p>
  * An associative array which may have any of the keys lifetime, path, domain,
  * secure, httponly and samesite. The values have the same meaning as described
@@ -363,7 +363,7 @@ function session_set_cookie_params(array $lifetime_or_options): bool {}
 
 /**
  * Set the session cookie parameters
- * @link https://php.net/manual/en/function.session-set-cookie-params.php
+ * @link https://www.php.net/manual/en/function.session-set-cookie-params.php
  * @param int $lifetime_or_options <p>
  * Lifetime of the
  * session cookie, defined in seconds.
@@ -394,7 +394,7 @@ function session_set_cookie_params(int $lifetime_or_options, ?string $path = nul
 
 /**
  * Get the session cookie parameters
- * @link https://php.net/manual/en/function.session-get-cookie-params.php
+ * @link https://www.php.net/manual/en/function.session-get-cookie-params.php
  * @return array an array with the current session cookie information, the array
  * contains the following items:
  * "lifetime" - The
@@ -413,7 +413,7 @@ function session_get_cookie_params(): array {}
 
 /**
  * Write session data and end session
- * @link https://php.net/manual/en/function.session-write-close.php
+ * @link https://www.php.net/manual/en/function.session-write-close.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
 #[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
@@ -421,7 +421,7 @@ function session_write_close() {}
 
 /**
  * Alias of <b>session_write_close</b>
- * @link https://php.net/manual/en/function.session-commit.php
+ * @link https://www.php.net/manual/en/function.session-commit.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
 #[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
@@ -430,7 +430,7 @@ function session_commit() {}
 /**
  * (PHP 5 >= 5.4.0)<br>
  * Returns the current session status
- * @link https://php.net/manual/en/function.session-status.php
+ * @link https://www.php.net/manual/en/function.session-status.php
  * @return int <b>PHP_SESSION_DISABLED</b> if sessions are disabled.
  * <b>PHP_SESSION_NONE</b> if sessions are enabled, but none exists.
  * <b>PHP_SESSION_ACTIVE</b> if sessions are enabled, and one exists.
@@ -441,7 +441,7 @@ function session_status(): int {}
 /**
  * (PHP 5 >= 5.6.0)<br>
  * Discard session array changes and finish session
- * @link https://php.net/manual/en/function.session-abort.php
+ * @link https://www.php.net/manual/en/function.session-abort.php
  * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  * @since 5.6
  */
@@ -451,7 +451,7 @@ function session_abort() {}
 /**
  * (PHP 5 >= 5.6.0)<br>
  * Re-initialize session array with original values
- * @link https://php.net/manual/en/function.session-reset.php
+ * @link https://www.php.net/manual/en/function.session-reset.php
  * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  * @since 5.6
  */

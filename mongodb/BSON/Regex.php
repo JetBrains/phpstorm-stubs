@@ -8,31 +8,31 @@ use Stringable;
 
 /**
  * Class Regex
- * @link https://php.net/manual/en/class.mongodb-bson-regex.php
+ * @link https://www.php.net/manual/en/class.mongodb-bson-regex.php
  */
 final class Regex implements RegexInterface, JsonSerializable, Type, Stringable
 {
     /**
      * Construct a new Regex
-     * @link https://php.net/manual/en/mongodb-bson-regex.construct.php
+     * @link https://www.php.net/manual/en/mongodb-bson-regex.construct.php
      */
     final public function __construct(string $pattern, string $flags = '') {}
 
     /**
      * Returns the Regex's flags
-     * @link https://php.net/manual/en/mongodb-bson-regex.getflags.php
+     * @link https://www.php.net/manual/en/mongodb-bson-regex.getflags.php
      */
     final public function getFlags(): string {}
 
     /**
      * Returns the Regex's pattern
-     * @link https://php.net/manual/en/mongodb-bson-regex.getpattern.php
+     * @link https://www.php.net/manual/en/mongodb-bson-regex.getpattern.php
      */
     final public function getPattern(): string {}
 
     /**
      * Returns the string representation of this Regex
-     * @link https://php.net/manual/en/mongodb-bson-regex.tostring.php
+     * @link https://www.php.net/manual/en/mongodb-bson-regex.tostring.php
      */
     final public function __toString(): string {}
 

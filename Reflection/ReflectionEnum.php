@@ -3,7 +3,7 @@
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
- * @link https://php.net/manual/en/class.reflectionenum.php
+ * @link https://www.php.net/manual/en/class.reflectionenum.php
  * @since 8.1
  */
 class ReflectionEnum extends ReflectionClass

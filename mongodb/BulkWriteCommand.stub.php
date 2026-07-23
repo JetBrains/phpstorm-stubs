@@ -27,7 +27,7 @@ final class BulkWriteCommand implements \Countable
 {
     /**
      * Create a new BulkWriteCommand
-     * @link https://php.net/manual/en/mongodb-driver-bulkwritecommand.construct.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwritecommand.construct.php
      * @param array|null $options
      * @throws InvalidArgumentException on argument parsing errors.
      */
@@ -35,14 +35,14 @@ final class BulkWriteCommand implements \Countable
 
     /**
      * Count number of write operations in the BulkWriteCommand
-     * @link https://php.net/manual/en/mongodb-driver-bulkwritecommand.count.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwritecommand.count.php
      * @return int
      */
     public function count(): int {}
 
     /**
      * Add a deleteOne operation
-     * @link https://php.net/manual/en/mongodb-driver-bulkwritecommand.deleteone.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwritecommand.deleteone.php
      * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
      * @param array|object $filter The query predicate. An empty predicate will match all documents in the collection.
      * @param array|null $options
@@ -53,7 +53,7 @@ final class BulkWriteCommand implements \Countable
 
     /**
      * Add a deleteMany operation
-     * @link https://php.net/manual/en/mongodb-driver-bulkwritecommand.deletemany.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwritecommand.deletemany.php
      * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
      * @param array|object $filter The query predicate. An empty predicate will match all documents in the collection.
      * @param array|null $options
@@ -64,7 +64,7 @@ final class BulkWriteCommand implements \Countable
 
     /**
      * Add an insertOne operation
-     * @link https://php.net/manual/en/mongodb-driver-bulkwritecommand.insertone.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwritecommand.insertone.php
      * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
      * @param array|object $document A document to insert.
      * @throws InvalidArgumentException on argument parsing errors.
@@ -74,7 +74,7 @@ final class BulkWriteCommand implements \Countable
 
     /**
      * Add a replaceOne operation
-     * @link https://php.net/manual/en/mongodb-driver-bulkwritecommand.replaceone.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwritecommand.replaceone.php
      * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
      * @param array|object $filter The query predicate. An empty predicate will match all documents in the collection.
      * @param array|object $replacement A replacement document.
@@ -86,7 +86,7 @@ final class BulkWriteCommand implements \Countable
 
     /**
      * Add an updateMany operation
-     * @link https://php.net/manual/en/mongodb-driver-bulkwritecommand.updateone.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwritecommand.updateone.php
      * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
      * @param array|object $filter The query predicate. An empty predicate will match all documents in the collection.
      * @param array|object $update A document containing either update operators (e.g. $set) or an aggregation pipeline.
@@ -98,7 +98,7 @@ final class BulkWriteCommand implements \Countable
 
     /**
      * Add an updateMany operation
-     * @link https://php.net/manual/en/mongodb-driver-bulkwritecommand.updatemany.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwritecommand.updatemany.php
      * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
      * @param array|object $filter The query predicate. An empty predicate will match all documents in the collection.
      * @param array|object $update A document containing either update operators (e.g. $set) or an aggregation pipeline.

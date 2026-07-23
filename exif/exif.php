@@ -5,7 +5,7 @@ use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Reads the EXIF headers from JPEG or TIFF
- * @link https://php.net/manual/en/function.exif-read-data.php
+ * @link https://www.php.net/manual/en/function.exif-read-data.php
  * @param string $file <p>
  * The location of the image file. This cannot be an URL.
  * Since 7.2.0 this can either be a path to the file (stream wrappers are also supported as usual)
@@ -81,7 +81,7 @@ function exif_read_data($file, ?string $required_sections = null, bool $as_array
 
 /**
  * Alias of <b>exif_read_data</b>
- * @link https://php.net/manual/en/function.read-exif-data.php
+ * @link https://www.php.net/manual/en/function.read-exif-data.php
  * @param $filename
  * @param $sections [optional]
  * @param $arrays [optional]
@@ -93,7 +93,7 @@ function read_exif_data($filename, $sections = null, $arrays = false, $thumbnail
 
 /**
  * Get the header name for an index
- * @link https://php.net/manual/en/function.exif-tagname.php
+ * @link https://www.php.net/manual/en/function.exif-tagname.php
  * @param int $index <p>
  * The Tag ID for which a Tag Name will be looked up.
  * </p>
@@ -104,7 +104,7 @@ function exif_tagname(int $index): string|false {}
 
 /**
  * Retrieve the embedded thumbnail of a TIFF or JPEG image
- * @link https://php.net/manual/en/function.exif-thumbnail.php
+ * @link https://www.php.net/manual/en/function.exif-thumbnail.php
  * @param string|resource $file <p>
  * The location of the image file. This cannot be an URL.
  * Since 7.2.0 this can either be a path to the file (stream wrappers are also supported as usual)
@@ -127,7 +127,7 @@ function exif_thumbnail($file, &$width = null, &$height = null, &$image_type = n
 
 /**
  * Determine the type of an image
- * @link https://php.net/manual/en/function.exif-imagetype.php
+ * @link https://www.php.net/manual/en/function.exif-imagetype.php
  * @param string $filename The image being checked.
  * @return int|false When a correct signature is found, the appropriate constant value will be
  * returned otherwise the return value is <b>FALSE</b>. The return value is the

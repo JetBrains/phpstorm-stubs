@@ -6,14 +6,14 @@ use JetBrains\PhpStorm\Deprecated;
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * create a new broker object capable of requesting
- * @link https://php.net/manual/en/function.enchant-broker-init.php
+ * @link https://www.php.net/manual/en/function.enchant-broker-init.php
  * @return resource|false|EnchantBroker a broker resource on success or <b>FALSE</b>.
  */
 function enchant_broker_init(): EnchantBroker|false {}
 
 /**
  * Free the broker resource and its dictionaries
- * @link https://php.net/manual/en/function.enchant-broker-free.php
+ * @link https://www.php.net/manual/en/function.enchant-broker-free.php
  * @param resource|EnchantBroker $broker <p>
  * Broker resource
  * </p>
@@ -26,7 +26,7 @@ function enchant_broker_free(EnchantBroker $broker): bool {}
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * Returns the last error of the broker
- * @link https://php.net/manual/en/function.enchant-broker-get-error.php
+ * @link https://www.php.net/manual/en/function.enchant-broker-get-error.php
  * @param resource|EnchantBroker $broker <p>
  * Broker resource.
  * </p>
@@ -58,7 +58,7 @@ function enchant_broker_get_dict_path(EnchantBroker $broker, int $type): string|
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 1.0.1)<br/>
  * Returns a list of available dictionaries
- * @link https://php.net/manual/en/function.enchant-broker-list-dicts.php
+ * @link https://www.php.net/manual/en/function.enchant-broker-list-dicts.php
  * @param resource|EnchantBroker $broker <p>
  * Broker resource
  * </p>
@@ -69,7 +69,7 @@ function enchant_broker_list_dicts(EnchantBroker $broker): array {}
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * create a new dictionary using a tag
- * @link https://php.net/manual/en/function.enchant-broker-request-dict.php
+ * @link https://www.php.net/manual/en/function.enchant-broker-request-dict.php
  * @param resource|EnchantBroker $broker <p>
  * Broker resource
  * </p>
@@ -83,7 +83,7 @@ function enchant_broker_request_dict(EnchantBroker $broker, string $tag): Enchan
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * creates a dictionary using a PWL file
- * @link https://php.net/manual/en/function.enchant-broker-request-pwl-dict.php
+ * @link https://www.php.net/manual/en/function.enchant-broker-request-pwl-dict.php
  * @param resource|EnchantBroker $broker <p>
  * Broker resource
  * </p>
@@ -97,7 +97,7 @@ function enchant_broker_request_pwl_dict(EnchantBroker $broker, string $filename
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * Free a dictionary resource
- * @link https://php.net/manual/en/function.enchant-broker-free-dict.php
+ * @link https://www.php.net/manual/en/function.enchant-broker-free-dict.php
  * @param resource|EnchantDictionary $dictionary <p>
  * Dictionary resource.
  * </p>
@@ -109,7 +109,7 @@ function enchant_broker_free_dict(EnchantDictionary $dictionary): bool {}
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * Whether a dictionary exists or not. Using non-empty tag
- * @link https://php.net/manual/en/function.enchant-broker-dict-exists.php
+ * @link https://www.php.net/manual/en/function.enchant-broker-dict-exists.php
  * @param resource|EnchantBroker $broker <p>
  * Broker resource
  * </p>
@@ -123,7 +123,7 @@ function enchant_broker_dict_exists(EnchantBroker $broker, string $tag): bool {}
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * Declares a preference of dictionaries to use for the language
- * @link https://php.net/manual/en/function.enchant-broker-set-ordering.php
+ * @link https://www.php.net/manual/en/function.enchant-broker-set-ordering.php
  * @param resource|EnchantBroker $broker <p>
  * Broker resource
  * </p>
@@ -142,7 +142,7 @@ function enchant_broker_set_ordering(EnchantBroker $broker, string $tag, string 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0)<br/>
  * Enumerates the Enchant providers
- * @link https://php.net/manual/en/function.enchant-broker-describe.php
+ * @link https://www.php.net/manual/en/function.enchant-broker-describe.php
  * @param resource|EnchantBroker $broker <p>
  * Broker resource
  * </p>
@@ -153,7 +153,7 @@ function enchant_broker_describe(EnchantBroker $broker): array {}
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * Check whether a word is correctly spelled or not
- * @link https://php.net/manual/en/function.enchant-dict-check.php
+ * @link https://www.php.net/manual/en/function.enchant-dict-check.php
  * @param resource|EnchantDictionary $dictionary <p>
  * Dictionary resource
  * </p>
@@ -167,7 +167,7 @@ function enchant_dict_check(EnchantDictionary $dictionary, string $word): bool {
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * Will return a list of values if any of those pre-conditions are not met
- * @link https://php.net/manual/en/function.enchant-dict-suggest.php
+ * @link https://www.php.net/manual/en/function.enchant-dict-suggest.php
  * @param resource|EnchantDictionary $dictionary <p>
  * Dictionary resource
  * </p>
@@ -181,7 +181,7 @@ function enchant_dict_suggest(EnchantDictionary $dictionary, string $word): arra
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * add a word to personal word list
- * @link https://php.net/manual/en/function.enchant-dict-add-to-personal.php
+ * @link https://www.php.net/manual/en/function.enchant-dict-add-to-personal.php
  * @param resource $dictionary <p>
  * Dictionary resource
  * </p>
@@ -201,7 +201,7 @@ function enchant_dict_add_to_personal(EnchantDictionary $dictionary, string $wor
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * add 'word' to this spell-checking session
- * @link https://php.net/manual/en/function.enchant-dict-add-to-session.php
+ * @link https://www.php.net/manual/en/function.enchant-dict-add-to-session.php
  * @param resource|EnchantDictionary $dictionary <p>
  * Dictionary resource
  * </p>
@@ -215,7 +215,7 @@ function enchant_dict_add_to_session(EnchantDictionary $dictionary, string $word
 /**
  * (PHP 8)<br/>
  * Add a word to personal word list
- * @link https://php.net/manual/en/function.enchant-dict-add.php
+ * @link https://www.php.net/manual/en/function.enchant-dict-add.php
  * @param EnchantDictionary $dictionary <p>
  * An Enchant dictionary returned by enchant_broker_request_dict() or enchant_broker_request_pwl_dict().
  * </p>
@@ -230,7 +230,7 @@ function enchant_dict_add(EnchantDictionary $dictionary, string $word): void {}
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * whether or not 'word' exists in this spelling-session
- * @link https://php.net/manual/en/function.enchant-dict-is-in-session.php
+ * @link https://www.php.net/manual/en/function.enchant-dict-is-in-session.php
  * @param resource $dictionary <p>
  * Dictionary resource
  * </p>
@@ -250,7 +250,7 @@ function enchant_dict_is_in_session(EnchantDictionary $dictionary, string $word)
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * Add a correction for a word
- * @link https://php.net/manual/en/function.enchant-dict-store-replacement.php
+ * @link https://www.php.net/manual/en/function.enchant-dict-store-replacement.php
  * @param resource|EnchantDictionary $dictionary <p>
  * Dictionary resource
  * </p>
@@ -267,7 +267,7 @@ function enchant_dict_store_replacement(EnchantDictionary $dictionary, string $m
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * Returns the last error of the current spelling-session
- * @link https://php.net/manual/en/function.enchant-dict-get-error.php
+ * @link https://www.php.net/manual/en/function.enchant-dict-get-error.php
  * @param resource|EnchantDictionary $dictionary <p>
  * Dictinaray resource
  * </p>
@@ -278,7 +278,7 @@ function enchant_dict_get_error(EnchantDictionary $dictionary): string|false {}
 /**
  * (PHP 8)<br/>
  * Whether or not 'word' exists in this spelling-session
- * @link https://php.net/manual/en/function.enchant-dict-is-added.php
+ * @link https://www.php.net/manual/en/function.enchant-dict-is-added.php
  * @param EnchantDictionary $dictionary <p>
  * An Enchant dictionary returned by enchant_broker_request_dict() or enchant_broker_request_pwl_dict().
  * </p>
@@ -293,7 +293,7 @@ function enchant_dict_is_added(EnchantDictionary $dictionary, string $word): boo
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * Describes an individual dictionary
- * @link https://php.net/manual/en/function.enchant-dict-describe.php
+ * @link https://www.php.net/manual/en/function.enchant-dict-describe.php
  * @param resource|EnchantDictionary $dictionary <p>
  * Dictionary resource
  * </p>
@@ -304,7 +304,7 @@ function enchant_dict_describe(EnchantDictionary $dictionary): array {}
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant:0.2.0-1.0.1)<br/>
  * Check the word is correctly spelled and provide suggestions
- * @link https://php.net/manual/en/function.enchant-dict-quick-check.php
+ * @link https://www.php.net/manual/en/function.enchant-dict-quick-check.php
  * @param resource|EnchantDictionary $dictionary <p>
  * Dictionary resource
  * </p>

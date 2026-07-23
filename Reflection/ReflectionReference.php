@@ -21,7 +21,7 @@ final class ReflectionReference
     /**
      * Returns ReflectionReference if array element is a reference, {@see null} otherwise
      *
-     * @link https://php.net/manual/en/reflectionreference.fromarrayelement.php
+     * @link https://www.php.net/manual/en/reflectionreference.fromarrayelement.php
      * @param array $array The array which contains the potential reference.
      * @param int|string $key The key; either an integer or a string.
      * @return ReflectionReference|null
@@ -34,7 +34,7 @@ final class ReflectionReference
     /**
      * Returns unique identifier for the reference. The return value format is unspecified
      *
-     * @link https://php.net/manual/en/reflectionreference.getid.php
+     * @link https://www.php.net/manual/en/reflectionreference.getid.php
      * @return int|string Returns an integer or string of unspecified format.
      */
     #[Pure]

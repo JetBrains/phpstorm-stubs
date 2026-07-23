@@ -4,6 +4,6 @@ namespace MongoDB\BSON;
 
 /**
  * Interface Type
- * @link https://php.net/manual/en/class.mongodb-bson-type.php
+ * @link https://www.php.net/manual/en/class.mongodb-bson-type.php
  */
 interface Type {}

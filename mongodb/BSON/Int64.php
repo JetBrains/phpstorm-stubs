@@ -10,7 +10,7 @@ use Stringable;
  * BSON type for a 64-bit integer.
  *
  * @since 1.5.0
- * @link https://secure.php.net/manual/en/class.mongodb-bson-int64.php
+ * @link https://www.php.net/manual/en/class.mongodb-bson-int64.php
  */
 final class Int64 implements Type, JsonSerializable, Stringable
 {

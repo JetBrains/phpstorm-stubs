@@ -6,7 +6,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Create or open shared memory block
- * @link https://php.net/manual/en/function.shmop-open.php
+ * @link https://www.php.net/manual/en/function.shmop-open.php
  * @param int $key <p>
  * System's id for the shared memory block.
  * Can be passed as a decimal or hex.
@@ -33,7 +33,7 @@ function shmop_open(int $key, string $mode, int $permissions, int $size) {}
 
 /**
  * Read data from shared memory block
- * @link https://php.net/manual/en/function.shmop-read.php
+ * @link https://www.php.net/manual/en/function.shmop-read.php
  * @param Shmop|resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
@@ -51,7 +51,7 @@ function shmop_read(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resou
 
 /**
  * Close shared memory block
- * @link https://php.net/manual/en/function.shmop-close.php
+ * @link https://www.php.net/manual/en/function.shmop-close.php
  * @param Shmop|resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
@@ -63,7 +63,7 @@ function shmop_close(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "reso
 
 /**
  * Get size of shared memory block
- * @link https://php.net/manual/en/function.shmop-size.php
+ * @link https://www.php.net/manual/en/function.shmop-size.php
  * @param Shmop|resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
@@ -75,7 +75,7 @@ function shmop_size(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resou
 
 /**
  * Write data into shared memory block
- * @link https://php.net/manual/en/function.shmop-write.php
+ * @link https://www.php.net/manual/en/function.shmop-write.php
  * @param Shmop|resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
@@ -95,7 +95,7 @@ function shmop_write(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "reso
 
 /**
  * Delete shared memory block
- * @link https://php.net/manual/en/function.shmop-delete.php
+ * @link https://www.php.net/manual/en/function.shmop-delete.php
  * @param Shmop|resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>

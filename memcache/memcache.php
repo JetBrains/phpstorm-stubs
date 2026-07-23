@@ -7,7 +7,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Open memcached server connection
-     * @link https://php.net/manual/en/memcache.connect.php
+     * @link https://www.php.net/manual/en/memcache.connect.php
      * @param string $host <p>
      * Point to the host where memcached is listening for connections. This parameter
      * may also specify other transports like <em>unix:///path/to/memcached.sock</em>
@@ -20,7 +20,7 @@ class MemcachePool
      * </p>
      * <p>
      * Please note: <b>port</b> defaults to
-     * {@link https://php.net/manual/en/memcache.ini.php#ini.memcache.default-port memcache.default_port}
+     * {@link https://www.php.net/manual/en/memcache.ini.php#ini.memcache.default-port memcache.default_port}
      * if not specified. For this reason it is wise to specify the port
      * explicitly in this method call.
      * </p>
@@ -32,7 +32,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
      * Add a memcached server to connection pool
-     * @link https://php.net/manual/en/memcache.addserver.php
+     * @link https://www.php.net/manual/en/memcache.addserver.php
      * @param string $host <p>
      * Point to the host where memcached is listening for connections. This parameter
      * may also specify other transports like unix:///path/to/memcached.sock
@@ -99,7 +99,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 2.1.0)<br/>
      * Changes server parameters and status at runtime
-     * @link https://secure.php.net/manual/en/memcache.setserverparams.php
+     * @link https://www.php.net/manual/en/memcache.setserverparams.php
      * @param string $host <p>Point to the host where memcached is listening for connections.</p>.
      * @param int $port [optional] <p>
      * Point to the port where memcached is listening for connections.
@@ -111,7 +111,7 @@ class MemcachePool
      * Controls how often a failed server will be retried, the default value
      * is 15 seconds. Setting this parameter to -1 disables automatic retry.
      * Neither this nor the <b>persistent</b> parameter has any
-     * effect when the extension is loaded dynamically via {@link https://secure.php.net/manual/en/function.dl.php dl()}.
+     * effect when the extension is loaded dynamically via {@link https://www.php.net/manual/en/function.dl.php dl()}.
      * </p>
      * @param bool $status [optional] <p>
      * Controls if the server should be flagged as online. Setting this parameter
@@ -139,7 +139,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 2.1.0)<br/>
      * Returns server status
-     * @link https://php.net/manual/en/memcache.getserverstatus.php
+     * @link https://www.php.net/manual/en/memcache.getserverstatus.php
      * @param string $host Point to the host where memcached is listening for connections.
      * @param int $port Point to the port where memcached is listening for connections.
      * @return int Returns the servers status. 0 if server is failed, non-zero otherwise
@@ -151,7 +151,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Return version of the server
-     * @link https://php.net/manual/en/memcache.getversion.php
+     * @link https://www.php.net/manual/en/memcache.getversion.php
      * @return string|false Returns a string of server version number or <b>FALSE</b> on failure.
      */
     public function getVersion() {}
@@ -159,7 +159,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
      * Add an item to the server. If the key already exists, the value will not be added and <b>FALSE</b> will be returned.
-     * @link https://php.net/manual/en/memcache.add.php
+     * @link https://www.php.net/manual/en/memcache.add.php
      * @param string $key The key that will be associated with the item.
      * @param mixed $var The variable to store. Strings and integers are stored as is, other types are stored serialized.
      * @param int $flag [optional] <p>
@@ -179,7 +179,7 @@ class MemcachePool
      * If it's 0, the item never expires (but memcached server doesn't guarantee this item to be stored all the time,
      * it could be deleted from the cache to make place for other items).
      * You can use MEMCACHE_COMPRESSED constant as flag value if you want to use on-the-fly compression (uses zlib).
-     * @link https://php.net/manual/en/memcache.set.php
+     * @link https://www.php.net/manual/en/memcache.set.php
      * @param string $key The key that will be associated with the item.
      * @param mixed $var The variable to store. Strings and integers are stored as is, other types are stored serialized.
      * @param int $flag [optional] Use MEMCACHE_COMPRESSED to store the item compressed (uses zlib).
@@ -191,7 +191,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Replace value of the existing item
-     * @link https://php.net/manual/en/memcache.replace.php
+     * @link https://www.php.net/manual/en/memcache.replace.php
      * @param string $key <p>The key that will be associated with the item.</p>
      * @param mixed $var <p>The variable to store. Strings and integers are stored as is, other types are stored serialized.</p>
      * @param int $flag [optional] <p>Use <b>MEMCACHE_COMPRESSED</b> to store the item compressed (uses zlib).</p>
@@ -230,21 +230,21 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Retrieve item from the server
-     * @link https://php.net/manual/en/memcache.get.php
+     * @link https://www.php.net/manual/en/memcache.get.php
      * @param string|array $key <p>
      * The key or array of keys to fetch.
      * </p>
      * @param int|array &$flags [optional] <p>
      * If present, flags fetched along with the values will be written to this parameter. These
-     * flags are the same as the ones given to for example {@link https://php.net/manual/en/memcache.set.php Memcache::set()}.
+     * flags are the same as the ones given to for example {@link https://www.php.net/manual/en/memcache.set.php Memcache::set()}.
      * The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate
      * compression and serialization status).
      * </p>
      * @return string|array|false <p>
      * Returns the string associated with the <b>key</b> or
-     * an array of found key-value pairs when <b>key</b> is an {@link https://php.net/manual/en/language.types.array.php array}.
+     * an array of found key-value pairs when <b>key</b> is an {@link https://www.php.net/manual/en/language.types.array.php array}.
      * Returns <b>FALSE</b> on failure, <b>key</b> is not found or
-     * <b>key</b> is an empty {@link https://php.net/manual/en/language.types.array.php array}.
+     * <b>key</b> is an empty {@link https://www.php.net/manual/en/language.types.array.php array}.
      * </p>
      */
     public function get($key, &$flags = null) {}
@@ -252,7 +252,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Delete item from the server
-     * https://secure.php.net/manual/en/memcache.delete.php
+     * https://www.php.net/manual/en/memcache.delete.php
      * @param string $key The key associated with the item to delete.
      * @param int $timeout [optional] This deprecated parameter is not supported, and defaults to 0 seconds. Do not use this parameter.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -262,7 +262,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Get statistics of the server
-     * @link https://php.net/manual/en/memcache.getstats.php
+     * @link https://www.php.net/manual/en/memcache.getstats.php
      * @param string $type [optional] <p>
      * The type of statistics to fetch.
      * Valid values are {reset, malloc, maps, cachedump, slabs, items, sizes}.
@@ -283,7 +283,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
      * Get statistics from all servers in pool
-     * @link https://php.net/manual/en/memcache.getextendedstats.php
+     * @link https://www.php.net/manual/en/memcache.getextendedstats.php
      * @param string $type [optional] <p>The type of statistics to fetch. Valid values are {reset, malloc, maps, cachedump, slabs, items, sizes}. According to the memcached protocol spec these additional arguments "are subject to change for the convenience of memcache developers".</p>
      * @param int $slabid [optional] <p>
      * Used in conjunction with <b>type</b> set to
@@ -301,7 +301,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
      * Enable automatic compression of large values
-     * @link https://php.net/manual/en/memcache.setcompressthreshold.php
+     * @link https://www.php.net/manual/en/memcache.setcompressthreshold.php
      * @param int $thresold <p>Controls the minimum value length before attempting to compress automatically.</p>
      * @param float $min_saving [optional] <p>Specifies the minimum amount of savings to actually store the value compressed. The supplied value must be between 0 and 1. Default value is 0.2 giving a minimum 20% compression savings.</p>
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -311,7 +311,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Increment item's value
-     * @link https://php.net/manual/en/memcache.increment.php
+     * @link https://www.php.net/manual/en/memcache.increment.php
      * @param string $key Key of the item to increment.
      * @param int $value [optional] increment the item by <b>value</b>
      * @return int|false Returns new items value on success or <b>FALSE</b> on failure.
@@ -321,7 +321,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Decrement item's value
-     * @link https://php.net/manual/en/memcache.decrement.php
+     * @link https://www.php.net/manual/en/memcache.decrement.php
      * @param string $key Key of the item do decrement.
      * @param int $value Decrement the item by <b>value</b>.
      * @return int|false Returns item's new value on success or <b>FALSE</b> on failure.
@@ -331,7 +331,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 0.4.0)<br/>
      * Close memcached server connection
-     * @link https://php.net/manual/en/memcache.close.php
+     * @link https://www.php.net/manual/en/memcache.close.php
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function close() {}
@@ -339,7 +339,7 @@ class MemcachePool
     /**
      * (PECL memcache &gt;= 1.0.0)<br/>
      * Flush all existing items at the server
-     * @link https://php.net/manual/en/memcache.flush.php
+     * @link https://www.php.net/manual/en/memcache.flush.php
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function flush() {}
@@ -347,14 +347,14 @@ class MemcachePool
 
 /**
  * Represents a connection to a set of memcache servers.
- * @link https://php.net/manual/en/class.memcache.php
+ * @link https://www.php.net/manual/en/class.memcache.php
  */
 class Memcache extends MemcachePool
 {
     /**
      * (PECL memcache &gt;= 0.4.0)<br/>
      * Open memcached server persistent connection
-     * @link https://php.net/manual/en/memcache.pconnect.php
+     * @link https://www.php.net/manual/en/memcache.pconnect.php
      * @param string $host <p>
      * Point to the host where memcached is listening for connections. This parameter
      * may also specify other transports like unix:///path/to/memcached.sock
@@ -380,7 +380,7 @@ class Memcache extends MemcachePool
 /**
  * (PECL memcache >= 0.2.0)<br/>
  * Memcache::connect — Open memcached server connection
- * @link https://php.net/manual/en/memcache.connect.php
+ * @link https://www.php.net/manual/en/memcache.connect.php
  * @param string $host <p>
  * Point to the host where memcached is listening for connections.
  * This parameter may also specify other transports like
@@ -404,7 +404,7 @@ function memcache_connect($host, $port, $timeout = 1) {}
  * (PECL memcache >= 0.4.0)
  * Memcache::pconnect — Open memcached server persistent connection
  *
- * @link https://php.net/manual/en/memcache.pconnect.php#example-5242
+ * @link https://www.php.net/manual/en/memcache.pconnect.php#example-5242
  * @param string $host
  * @param int|null $port
  * @param int $timeout
@@ -415,7 +415,7 @@ function memcache_pconnect($host, $port = null, $timeout = 1) {}
 /**
  * (PECL memcache &gt;= 2.0.0)<br/>
  * Add a memcached server to connection pool
- * @link https://php.net/manual/en/memcache.addserver.php
+ * @link https://www.php.net/manual/en/memcache.addserver.php
  * @param Memcache $memcache
  * @param string $host <p>
  * Point to the host where memcached is listening for connections. This parameter
@@ -484,7 +484,7 @@ function memcache_add_server($memcache, $host, $port = 11211, $persistent = true
  * (PECL memcache &gt;= 2.1.0)<br/>
  * Changes server parameters and status at runtime
  *
- * @link https://secure.php.net/manual/en/memcache.setserverparams.php
+ * @link https://www.php.net/manual/en/memcache.setserverparams.php
  *
  * @param Memcache $memcache
  * @param string $host <p>Point to the host where memcached is listening for connections.</p>.
@@ -498,7 +498,7 @@ function memcache_add_server($memcache, $host, $port = 11211, $persistent = true
  * Controls how often a failed server will be retried, the default value
  * is 15 seconds. Setting this parameter to -1 disables automatic retry.
  * Neither this nor the <b>persistent</b> parameter has any
- * effect when the extension is loaded dynamically via {@link https://secure.php.net/manual/en/function.dl.php dl()}.
+ * effect when the extension is loaded dynamically via {@link https://www.php.net/manual/en/function.dl.php dl()}.
  * </p>
  * @param bool $status [optional] <p>
  * Controls if the server should be flagged as online. Setting this parameter
@@ -529,7 +529,7 @@ function memcache_set_failure_callback($memcache, $callback) {}
  * (PECL memcache &gt;= 2.1.0)<br/>
  * Returns server status
  *
- * @link https://php.net/manual/en/memcache.getserverstatus.php
+ * @link https://www.php.net/manual/en/memcache.getserverstatus.php
  *
  * @param Memcache $memcache
  * @param string $host Point to the host where memcached is listening for connections.
@@ -543,7 +543,7 @@ function memcache_get_server_status($memcache, $host, $port = 11211) {}
  * (PECL memcache &gt;= 0.2.0)<br/>
  * Return version of the server
  *
- * @link https://php.net/manual/en/memcache.getversion.php
+ * @link https://www.php.net/manual/en/memcache.getversion.php
  *
  * @param Memcache $memcache
  *
@@ -555,7 +555,7 @@ function memcache_get_version($memcache) {}
  * (PECL memcache &gt;= 2.0.0)<br/>
  * Add an item to the server. If the key already exists, the value will not be added and <b>FALSE</b> will be returned.
  *
- * @link https://php.net/manual/en/memcache.add.php
+ * @link https://www.php.net/manual/en/memcache.add.php
  *
  * @param Memcache $memcache
  * @param string $key The key that will be associated with the item.
@@ -579,7 +579,7 @@ function memcache_add($memcache, $key, $var, $flag = null, $expire = null) {}
  * it could be deleted from the cache to make place for other items).
  * You can use MEMCACHE_COMPRESSED constant as flag value if you want to use on-the-fly compression (uses zlib).
  *
- * @link https://php.net/manual/en/memcache.set.php
+ * @link https://www.php.net/manual/en/memcache.set.php
  *
  * @param Memcache $memcache
  * @param string $key The key that will be associated with the item.
@@ -595,7 +595,7 @@ function memcache_set($memcache, $key, $var, $flag = null, $expire = null) {}
  * (PECL memcache &gt;= 0.2.0)<br/>
  * Replace value of the existing item
  *
- * @link https://php.net/manual/en/memcache.replace.php
+ * @link https://www.php.net/manual/en/memcache.replace.php
  *
  * @param Memcache $memcache
  * @param string $key <p>The key that will be associated with the item.</p>
@@ -644,7 +644,7 @@ function memcache_prepend($memcache, $key, $var, $flag = null, $expire = null) {
  * (PECL memcache &gt;= 0.2.0)<br/>
  * Retrieve item from the server
  *
- * @link https://php.net/manual/en/memcache.get.php
+ * @link https://www.php.net/manual/en/memcache.get.php
  *
  * @param Memcache $memcache
  * @param string|array $key <p>
@@ -652,16 +652,16 @@ function memcache_prepend($memcache, $key, $var, $flag = null, $expire = null) {
  * </p>
  * @param int|array &$flags [optional] <p>
  * If present, flags fetched along with the values will be written to this parameter. These
- * flags are the same as the ones given to for example {@link https://php.net/manual/en/memcache.set.php Memcache::set()}.
+ * flags are the same as the ones given to for example {@link https://www.php.net/manual/en/memcache.set.php Memcache::set()}.
  * The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate
  * compression and serialization status).
  * </p>
  *
  * @return string|array|false <p>
  * Returns the string associated with the <b>key</b> or
- * an array of found key-value pairs when <b>key</b> is an {@link https://php.net/manual/en/language.types.array.php array}.
+ * an array of found key-value pairs when <b>key</b> is an {@link https://www.php.net/manual/en/language.types.array.php array}.
  * Returns <b>FALSE</b> on failure, <b>key</b> is not found or
- * <b>key</b> is an empty {@link https://php.net/manual/en/language.types.array.php array}.
+ * <b>key</b> is an empty {@link https://www.php.net/manual/en/language.types.array.php array}.
  * </p>
  */
 function memcache_get($memcache, $key, &$flags = null) {}
@@ -669,7 +669,7 @@ function memcache_get($memcache, $key, &$flags = null) {}
 /**
  * (PECL memcache &gt;= 0.2.0)<br/>
  * Delete item from the server
- * https://secure.php.net/manual/en/memcache.delete.php
+ * https://www.php.net/manual/en/memcache.delete.php
  *
  * @param Memcache $memcache
  * @param string $key The key associated with the item to delete.
@@ -682,7 +682,7 @@ function memcache_delete($memcache, $key, $timeout = 0) {}
 /**
  * (PECL memcache &gt;= 0.2.0)<br/>
  * Turn debug output on/off
- * @link https://php.net/manual/en/function.memcache-debug.php
+ * @link https://www.php.net/manual/en/function.memcache-debug.php
  * @param bool $on_off <p>
  * Turns debug output on if equals to <b>TRUE</b>.
  * Turns debug output off if equals to <b>FALSE</b>.
@@ -696,7 +696,7 @@ function memcache_debug($on_off) {}
  * (PECL memcache &gt;= 0.2.0)<br/>
  * Get statistics of the server
  *
- * @link https://php.net/manual/en/memcache.getstats.php
+ * @link https://www.php.net/manual/en/memcache.getstats.php
  *
  * @param Memcache $memcache
  * @param string $type [optional] <p>
@@ -721,7 +721,7 @@ function memcache_get_stats($memcache, $type = null, $slabid = null, $limit = 10
  * (PECL memcache &gt;= 2.0.0)<br/>
  * Get statistics from all servers in pool
  *
- * @link https://php.net/manual/en/memcache.getextendedstats.php
+ * @link https://www.php.net/manual/en/memcache.getextendedstats.php
  *
  * @param Memcache $memcache
  * @param string $type [optional] <p>The type of statistics to fetch. Valid values are {reset, malloc, maps, cachedump, slabs, items, sizes}. According to the memcached protocol spec these additional arguments "are subject to change for the convenience of memcache developers".</p>
@@ -743,7 +743,7 @@ function memcache_get_extended_stats($type = null, $slabid = null, $limit = 100)
  * (PECL memcache &gt;= 2.0.0)<br/>
  * Enable automatic compression of large values
  *
- * @link https://php.net/manual/en/memcache.setcompressthreshold.php
+ * @link https://www.php.net/manual/en/memcache.setcompressthreshold.php
  *
  * @param Memcache $memcache
  * @param int $thresold <p>Controls the minimum value length before attempting to compress automatically.</p>
@@ -757,7 +757,7 @@ function memcache_set_compress_threshold($memcache, $thresold, $min_saving = 0.2
  * (PECL memcache &gt;= 0.2.0)<br/>
  * Increment item's value
  *
- * @link https://php.net/manual/en/memcache.increment.php
+ * @link https://www.php.net/manual/en/memcache.increment.php
  *
  * @param Memcache $memcache
  * @param string $key Key of the item to increment.
@@ -771,7 +771,7 @@ function memcache_increment($memcache, $key, $value = 1) {}
  * (PECL memcache &gt;= 0.2.0)<br/>
  * Decrement item's value
  *
- * @link https://php.net/manual/en/memcache.decrement.php
+ * @link https://www.php.net/manual/en/memcache.decrement.php
  *
  * @param Memcache $memcache
  * @param string $key Key of the item do decrement.
@@ -785,7 +785,7 @@ function memcache_decrement($memcache, $key, $value = 1) {}
  * (PECL memcache &gt;= 0.4.0)<br/>
  * Close memcached server connection
  *
- * @link https://php.net/manual/en/memcache.close.php
+ * @link https://www.php.net/manual/en/memcache.close.php
  *
  * @param Memcache $memcache
  *
@@ -797,7 +797,7 @@ function memcache_close($memcache) {}
  * (PECL memcache &gt;= 1.0.0)<br/>
  * Flush all existing items at the server
  *
- * @link https://php.net/manual/en/memcache.flush.php
+ * @link https://www.php.net/manual/en/memcache.flush.php
  *
  * @param Memcache $memcache
  *

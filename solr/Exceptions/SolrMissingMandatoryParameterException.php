@@ -9,6 +9,6 @@
 /**
  * (PECL solr &gt;= 2.2.0)<br/>
  * Class SolrMissingMandatoryParameterException<br/>
- * @link https://php.net/manual/en/class.solrmissingmandatoryparameterexception.php
+ * @link https://www.php.net/manual/en/class.solrmissingmandatoryparameterexception.php
  */
 class SolrMissingMandatoryParameterException extends SolrException {}

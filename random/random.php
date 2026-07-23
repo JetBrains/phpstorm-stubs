@@ -8,7 +8,7 @@ namespace {
 
     /**
      * Combined linear congruential generator
-     * @link https://php.net/manual/en/function.lcg-value.php
+     * @link https://www.php.net/manual/en/function.lcg-value.php
      * @return float A pseudo random float value in the range of (0, 1)
      */
     #[Deprecated("The function is deprecated", since: "8.4")]
@@ -16,7 +16,7 @@ namespace {
 
     /**
      * Seeds the Mersenne Twister Random Number Generator
-     * @link https://php.net/manual/en/function.mt-srand.php
+     * @link https://www.php.net/manual/en/function.mt-srand.php
      * @param int|null $seed <p>
      * An optional seed value
      * </p>
@@ -35,7 +35,7 @@ namespace {
      * <p><strong>Note</strong>: As of PHP 7.1.0, {@see srand()} has been made
      * an alias of {@see mt_srand()}.
      * </p>
-     * @link https://php.net/manual/en/function.srand.php
+     * @link https://www.php.net/manual/en/function.srand.php
      * @param int|null $seed <p>
      * Optional seed value
      * </p>
@@ -51,7 +51,7 @@ namespace {
 
     /**
      * Generate a random integer
-     * @link https://php.net/manual/en/function.rand.php
+     * @link https://www.php.net/manual/en/function.rand.php
      * @param int $min [optional]
      * @param int $max [optional]
      * @return int A pseudo random value between min
@@ -61,7 +61,7 @@ namespace {
 
     /**
      * Generate a random value via the Mersenne Twister Random Number Generator
-     * @link https://php.net/manual/en/function.mt-rand.php
+     * @link https://www.php.net/manual/en/function.mt-rand.php
      * @param int $min [optional] <p>
      * Optional lowest value to be returned (default: 0)
      * </p>
@@ -75,7 +75,7 @@ namespace {
 
     /**
      * Show largest possible random value
-     * @link https://php.net/manual/en/function.mt-getrandmax.php
+     * @link https://www.php.net/manual/en/function.mt-getrandmax.php
      * @return int the maximum random value returned by mt_rand
      */
     #[Pure]
@@ -83,7 +83,7 @@ namespace {
 
     /**
      * Show largest possible random value
-     * @link https://php.net/manual/en/function.getrandmax.php
+     * @link https://www.php.net/manual/en/function.getrandmax.php
      * @return int The largest possible random value returned by rand
      */
     #[Pure]
@@ -91,7 +91,7 @@ namespace {
 
     /**
      * Generates cryptographically secure pseudo-random bytes
-     * @link https://php.net/manual/en/function.random-bytes.php
+     * @link https://www.php.net/manual/en/function.random-bytes.php
      * @param int $length The length of the random string that should be returned in bytes.
      * @return string Returns a string containing the requested number of cryptographically secure random bytes.
      * @since 7.0
@@ -101,7 +101,7 @@ namespace {
 
     /**
      * Generates cryptographically secure pseudo-random integers
-     * @link https://php.net/manual/en/function.random-int.php
+     * @link https://www.php.net/manual/en/function.random-int.php
      * @param int $min The lowest value to be returned, which must be PHP_INT_MIN or higher.
      * @param int $max The highest value to be returned, which must be less than or equal to PHP_INT_MAX.
      * @return int Returns a cryptographically secure random integer in the range min to max, inclusive.

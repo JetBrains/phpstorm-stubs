@@ -12,7 +12,7 @@ use Stringable;
  * BSON symbol type while converting BSON to PHP, and can also be converted back into BSON while storing documents in the database.
  *
  * @since 1.4.0
- * @link https://secure.php.net/manual/en/class.mongodb-bson-dbpointer.php
+ * @link https://www.php.net/manual/en/class.mongodb-bson-dbpointer.php
  */
 #[Deprecated]
 final class DBPointer implements Type, JsonSerializable, Stringable

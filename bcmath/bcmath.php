@@ -7,7 +7,7 @@ namespace {
 
     /**
      * Add two arbitrary precision numbers
-     * @link https://php.net/manual/en/function.bcadd.php
+     * @link https://www.php.net/manual/en/function.bcadd.php
      * @param string $num1 <p>
      * The left operand, as a string.
      * </p>
@@ -27,7 +27,7 @@ namespace {
 
     /**
      * Subtract one arbitrary precision number from another
-     * @link https://php.net/manual/en/function.bcsub.php
+     * @link https://www.php.net/manual/en/function.bcsub.php
      * @param string $num1 <p>
      * The left operand, as a string.
      * </p>
@@ -47,7 +47,7 @@ namespace {
 
     /**
      * Multiply two arbitrary precision numbers
-     * @link https://php.net/manual/en/function.bcmul.php
+     * @link https://www.php.net/manual/en/function.bcmul.php
      * @param string $num1 <p>
      * The left operand, as a string.
      * </p>
@@ -67,7 +67,7 @@ namespace {
 
     /**
      * Divide two arbitrary precision numbers
-     * @link https://php.net/manual/en/function.bcdiv.php
+     * @link https://www.php.net/manual/en/function.bcdiv.php
      * @param string $num1 <p>
      * The dividend, as a string.
      * </p>
@@ -89,7 +89,7 @@ namespace {
 
     /**
      * Divide two arbitrary precision numbers
-     * @link https://php.net/manual/en/function.bcdiv.php
+     * @link https://www.php.net/manual/en/function.bcdiv.php
      * @param string $num1 <p>
      * The dividend, as a string.
      * </p>
@@ -111,7 +111,7 @@ namespace {
 
     /**
      * Get modulus of an arbitrary precision number
-     * @link https://php.net/manual/en/function.bcmod.php
+     * @link https://www.php.net/manual/en/function.bcmod.php
      * @param string $num1 <p>
      * The dividend, as a string. Since PHP 7.2, the divided is no longer truncated to an integer.
      * </p>
@@ -133,7 +133,7 @@ namespace {
 
     /**
      * Get modulus of an arbitrary precision number
-     * @link https://php.net/manual/en/function.bcmod.php
+     * @link https://www.php.net/manual/en/function.bcmod.php
      * @param string $num1 <p>
      * The dividend, as a string. Since PHP 7.2, the divided is no longer truncated to an integer.
      * </p>
@@ -155,7 +155,7 @@ namespace {
 
     /**
      * Raise an arbitrary precision number to another
-     * @link https://php.net/manual/en/function.bcpow.php
+     * @link https://www.php.net/manual/en/function.bcpow.php
      * @param string $num <p>
      * The base, as a string.
      * </p>
@@ -177,7 +177,7 @@ namespace {
 
     /**
      * Get the square root of an arbitrary precision number
-     * @link https://php.net/manual/en/function.bcsqrt.php
+     * @link https://www.php.net/manual/en/function.bcsqrt.php
      * @param string $num <p>
      * The operand, as a string.
      * </p>
@@ -191,7 +191,7 @@ namespace {
 
     /**
      * Set default scale parameter for all bc math functions
-     * @link https://php.net/manual/en/function.bcscale.php
+     * @link https://www.php.net/manual/en/function.bcscale.php
      * @param int $scale
      * @return int|bool
      */
@@ -203,7 +203,7 @@ namespace {
 
     /**
      * Compare two arbitrary precision numbers
-     * @link https://php.net/manual/en/function.bccomp.php
+     * @link https://www.php.net/manual/en/function.bccomp.php
      * @param string $num1 <p>
      * The left operand, as a string.
      * </p>
@@ -224,7 +224,7 @@ namespace {
 
     /**
      * Raise an arbitrary precision number to another, reduced by a specified modulus
-     * @link https://php.net/manual/en/function.bcpowmod.php
+     * @link https://www.php.net/manual/en/function.bcpowmod.php
      * @param string $num <p>
      * The base, as an integral string (i.e. the scale has to be zero).
      * </p>

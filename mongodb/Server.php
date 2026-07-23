@@ -10,7 +10,7 @@ use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\RuntimeException;
 
 /**
- * @link https://php.net/manual/en/class.mongodb-driver-server.php
+ * @link https://www.php.net/manual/en/class.mongodb-driver-server.php
  */
 final class Server
 {
@@ -31,7 +31,7 @@ final class Server
 
     /**
      * Server constructor.
-     * @link https://php.net/manual/en/mongodb-driver-server.construct.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.construct.php
      * @throws RuntimeException (can only be created internally)
      */
     final private function __construct() {}
@@ -40,7 +40,7 @@ final class Server
 
     /**
      * Execute one or more write operations on this server
-     * @link https://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.executebulkwrite.php
      * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
      * @param BulkWrite $bulkWrite The MongoDB\Driver\BulkWrite to execute.
      * @param array|null $options
@@ -56,7 +56,7 @@ final class Server
 
     /**
      * Execute write operations on this server using the bulkWrite command
-     * @link https://php.net/manual/en/mongodb-driver-server.executebulkwritecommand.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.executebulkwritecommand.php
      * @param BulkWriteCommand $bulkWriteCommand The write(s) to execute.
      * @param array|null $options
      * @throws BulkWriteCommandException on any write failure (e.g. write error, failure to apply a write concern).
@@ -71,7 +71,7 @@ final class Server
 
     /**
      * Execute a database command on this server
-     * @link https://php.net/manual/en/mongodb-driver-server.executecommand.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.executecommand.php
      * @param string $db The name of the database on which to execute the command.
      * @param Command $command The MongoDB\Driver\Command to execute.
      * @param array|null $options Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
@@ -86,7 +86,7 @@ final class Server
 
     /**
      * Execute a database command that reads on this server
-     * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadcommand.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.executereadcommand.php
      * @param string                  $db
      * @param \MongoDB\Driver\Command $command
      * @param array|null              $options
@@ -100,7 +100,7 @@ final class Server
 
     /**
      * Execute a database command that reads and writes on this server
-     * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadwritecommand.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.executereadwritecommand.php
      * @param string                  $db
      * @param \MongoDB\Driver\Command $command
      * @param array|null              $options
@@ -114,7 +114,7 @@ final class Server
 
     /**
      * Execute a database command that writes on this server
-     * @link https://secure.php.net/manual/en/mongodb-driver-server.executewritecommand.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.executewritecommand.php
      * @param string                  $db
      * @param \MongoDB\Driver\Command $command
      * @param array|null              $options
@@ -128,7 +128,7 @@ final class Server
 
     /**
      * Execute a database query on this server
-     * @link https://php.net/manual/en/mongodb-driver-server.executequery.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.executequery.php
      * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
      * @param Query $query The MongoDB\Driver\Query to execute.
      * @param array|ReadPreference|null $options
@@ -142,28 +142,28 @@ final class Server
 
     /**
      * Returns the hostname of this server
-     * @link https://php.net/manual/en/mongodb-driver-server.gethost.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.gethost.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
     final public function getHost(): string {}
 
     /**
      * Returns an array of information about this server
-     * @link https://php.net/manual/en/mongodb-driver-server.getinfo.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.getinfo.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
     final public function getInfo(): array {}
 
     /**
      * Returns the latency of this server
-     * @link https://php.net/manual/en/mongodb-driver-server.getlatency.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.getlatency.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
     final public function getLatency(): int {}
 
     /**
      * Returns the port on which this server is listening
-     * @link https://php.net/manual/en/mongodb-driver-server.getport.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.getport.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
     final public function getPort(): int {}
@@ -177,7 +177,7 @@ final class Server
 
     /**
      * Returns an array of tags describing this server in a replica set
-     * @link https://php.net/manual/en/mongodb-driver-server.gettags.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.gettags.php
      * @throws InvalidArgumentException on argument parsing errors.
      * @return array An array of tags used to describe this server in a replica set. The array will contain zero or more string key and value pairs.
      */
@@ -185,7 +185,7 @@ final class Server
 
     /**
      * Returns an integer denoting the type of this server
-     * @link https://php.net/manual/en/mongodb-driver-server.gettype.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.gettype.php
      * @throws InvalidArgumentException on argument parsing errors.
      * @return int denoting the type of this server
      */
@@ -193,35 +193,35 @@ final class Server
 
     /**
      * Checks if this server is an arbiter member of a replica set
-     * @link https://php.net/manual/en/mongodb-driver-server.isarbiter.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.isarbiter.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
     final public function isArbiter(): bool {}
 
     /**
      * Checks if this server is a hidden member of a replica set
-     * @link https://php.net/manual/en/mongodb-driver-server.ishidden.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.ishidden.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
     final public function isHidden(): bool {}
 
     /**
      * Checks if this server is a passive member of a replica set
-     * @link https://php.net/manual/en/mongodb-driver-server.ispassive.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.ispassive.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
     final public function isPassive(): bool {}
 
     /**
      * Checks if this server is a primary member of a replica set
-     * @link https://php.net/manual/en/mongodb-driver-server.isprimary.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.isprimary.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
     final public function isPrimary(): bool {}
 
     /**
      * Checks if this server is a secondary member of a replica set
-     * @link https://php.net/manual/en/mongodb-driver-server.issecondary.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.issecondary.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
     final public function isSecondary(): bool {}

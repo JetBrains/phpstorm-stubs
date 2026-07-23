@@ -8,7 +8,7 @@ use Stringable;
 
 /**
  * @since 1.16.0
- * @link https://secure.php.net/manual/en/class.mongodb-bson-document.php
+ * @link https://www.php.net/manual/en/class.mongodb-bson-document.php
  */
 final class Document implements IteratorAggregate, ArrayAccess, Type, Stringable
 {

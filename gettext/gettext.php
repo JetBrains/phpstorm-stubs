@@ -6,7 +6,7 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Sets the default domain
- * @link https://php.net/manual/en/function.textdomain.php
+ * @link https://www.php.net/manual/en/function.textdomain.php
  * @param string|null $domain <p>
  * The new message domain, or <b>NULL</b> to get the current setting without
  * changing it
@@ -18,7 +18,7 @@ function textdomain(?string $domain = null): string {}
 
 /**
  * Lookup a message in the current domain
- * @link https://php.net/manual/en/function.gettext.php
+ * @link https://www.php.net/manual/en/function.gettext.php
  * @param string $message <p>
  * The message being translated.
  * </p>
@@ -30,7 +30,7 @@ function _(string $message): string {}
 
 /**
  * Lookup a message in the current domain
- * @link https://php.net/manual/en/function.gettext.php
+ * @link https://www.php.net/manual/en/function.gettext.php
  * @param string $message <p>
  * The message being translated.
  * </p>
@@ -42,7 +42,7 @@ function gettext(string $message): string {}
 
 /**
  * Override the current domain
- * @link https://php.net/manual/en/function.dgettext.php
+ * @link https://www.php.net/manual/en/function.dgettext.php
  * @param string $domain <p>
  * The domain
  * </p>
@@ -55,7 +55,7 @@ function dgettext(string $domain, string $message): string {}
 
 /**
  * Overrides the domain for a single lookup
- * @link https://php.net/manual/en/function.dcgettext.php
+ * @link https://www.php.net/manual/en/function.dcgettext.php
  * @param string $domain <p>
  * The domain
  * </p>
@@ -71,7 +71,7 @@ function dcgettext(string $domain, string $message, int $category): string {}
 
 /**
  * Sets the path for a domain
- * @link https://php.net/manual/en/function.bindtextdomain.php
+ * @link https://www.php.net/manual/en/function.bindtextdomain.php
  * @param string $domain <p>
  * The domain
  * </p>
@@ -84,7 +84,7 @@ function bindtextdomain(string $domain, #[LanguageLevelTypeAware(['8.0' => 'stri
 
 /**
  * Plural version of gettext
- * @link https://php.net/manual/en/function.ngettext.php
+ * @link https://www.php.net/manual/en/function.ngettext.php
  * @param string $singular
  * @param string $plural
  * @param int $count
@@ -97,7 +97,7 @@ function ngettext(string $singular, string $plural, int $count): string {}
 
 /**
  * Plural version of dgettext
- * @link https://php.net/manual/en/function.dngettext.php
+ * @link https://www.php.net/manual/en/function.dngettext.php
  * @param string $domain <p>
  * The domain
  * </p>
@@ -111,7 +111,7 @@ function dngettext(string $domain, string $singular, string $plural, int $count)
 
 /**
  * Plural version of dcgettext
- * @link https://php.net/manual/en/function.dcngettext.php
+ * @link https://www.php.net/manual/en/function.dcngettext.php
  * @param string $domain <p>
  * The domain
  * </p>
@@ -126,7 +126,7 @@ function dcngettext(string $domain, string $singular, string $plural, int $count
 
 /**
  * Specify the character encoding in which the messages from the DOMAIN message catalog will be returned
- * @link https://php.net/manual/en/function.bind-textdomain-codeset.php
+ * @link https://www.php.net/manual/en/function.bind-textdomain-codeset.php
  * @param string $domain <p>
  * The domain
  * </p>

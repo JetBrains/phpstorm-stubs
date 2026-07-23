@@ -16,13 +16,13 @@ use MongoDB\Driver\Monitoring\Subscriber;
  * The MongoDB\Driver\Manager is the main entry point to the extension. It is responsible for maintaining connections to MongoDB (be it standalone server, replica set, or sharded cluster).
  * No connection to MongoDB is made upon instantiating the Manager. This means the MongoDB\Driver\Manager can always be constructed, even though one or more MongoDB servers are down.
  * Any write or query can throw connection exceptions as connections are created lazily. A MongoDB server may also become unavailable during the life time of the script. It is therefore important that all actions on the Manager to be wrapped in try/catch statements.
- * @link https://php.net/manual/en/class.mongodb-driver-manager.php
+ * @link https://www.php.net/manual/en/class.mongodb-driver-manager.php
  */
 final class Manager
 {
     /**
      * Manager constructor.
-     * @link https://php.net/manual/en/mongodb-driver-manager.construct.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.construct.php
      * @param string|null $uri A mongodb:// connection URI
      * @param array|null $uriOptions Connection string options
      * @param array|null $driverOptions Any driver-specific options not included in MongoDB connection spec.
@@ -35,7 +35,7 @@ final class Manager
 
     /**
      * Return a ClientEncryption instance.
-     * @link https://php.net/manual/en/mongodb-driver-manager.createclientencryption.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.createclientencryption.php
      * @param array $options
      * @return \MongoDB\Driver\ClientEncryption
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors.
@@ -45,7 +45,7 @@ final class Manager
 
     /**
      * Execute one or more write operations
-     * @link https://php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
      * @param string $namespace A fully qualified namespace (databaseName.collectionName)
      * @param BulkWrite $bulk The MongoDB\Driver\BulkWrite to execute.
      * @param array|null $options WriteConcern type for backwards compatibility
@@ -60,7 +60,7 @@ final class Manager
 
     /**
      * Execute write operations using the bulkWrite command
-     * @link https://php.net/manual/en/mongodb-driver-server.executebulkwritecommand.php
+     * @link https://www.php.net/manual/en/mongodb-driver-server.executebulkwritecommand.php
      * @param BulkWriteCommand $bulkWriteCommand The write(s) to execute.
      * @param array|null $options
      * @throws BulkWriteCommandException on any write failure (e.g. write error, failure to apply a write concern).
@@ -74,7 +74,7 @@ final class Manager
     final public function executeBulkWriteCommand(BulkWriteCommand $bulkWriteCommand, ?array $options = null): BulkWriteCommandResult {}
 
     /**
-     * @link https://php.net/manual/en/mongodb-driver-manager.executecommand.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.executecommand.php
      * @param string $db The name of the database on which to execute the command.
      * @param Command $command The command document.
      * @param array|null $options ReadPreference type for backwards compatibility
@@ -90,7 +90,7 @@ final class Manager
 
     /**
      * Execute a MongoDB query
-     * @link https://php.net/manual/en/mongodb-driver-manager.executequery.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.executequery.php
      * @param string $namespace A fully qualified namespace (databaseName.collectionName)
      * @param Query $query A MongoDB\Driver\Query to execute.
      * @param array|null $options ReadPreference type for backwards compatibility
@@ -103,7 +103,7 @@ final class Manager
     final public function executeQuery(string $namespace, Query $query, array|null $options = null): CursorInterface {}
 
     /**
-     * @link https://php.net/manual/en/mongodb-driver-manager.executereadcommand.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.executereadcommand.php
      * @param string $db The name of the database on which to execute the command that reads.
      * @param Command $command The command document.
      * @param array|null $options
@@ -118,7 +118,7 @@ final class Manager
     final public function executeReadCommand(string $db, Command $command, ?array $options = null): CursorInterface {}
 
     /**
-     * @link https://php.net/manual/en/mongodb-driver-manager.executereadwritecommand.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.executereadwritecommand.php
      * @param string $db The name of the database on which to execute the command that reads.
      * @param Command $command The command document.
      * @param array|null $options
@@ -133,7 +133,7 @@ final class Manager
     final public function executeReadWriteCommand(string $db, Command $command, ?array $options = null): CursorInterface {}
 
     /**
-     * @link https://php.net/manual/en/mongodb-driver-manager.executewritecommand.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.executewritecommand.php
      * @param string $db The name of the database on which to execute the command that writes.
      * @param Command $command The command document.
      * @param array|null $options
@@ -156,14 +156,14 @@ final class Manager
 
     /**
      * Return the ReadConcern for the Manager
-     * @link https://php.net/manual/en/mongodb-driver-manager.getreadconcern.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.getreadconcern.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
     final public function getReadConcern(): ReadConcern {}
 
     /**
      * Return the ReadPreference for the Manager
-     * @link https://php.net/manual/en/mongodb-driver-manager.getreadpreference.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.getreadpreference.php
      * @throws InvalidArgumentException
      * @return ReadPreference
      */
@@ -171,7 +171,7 @@ final class Manager
 
     /**
      * Return the servers to which this manager is connected
-     * @link https://php.net/manual/en/mongodb-driver-manager.getservers.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.getservers.php
      * @throws InvalidArgumentException on argument parsing errors
      * @return Server[]
      */
@@ -179,7 +179,7 @@ final class Manager
 
     /**
      * Return the WriteConcern for the Manager
-     * @link https://php.net/manual/en/mongodb-driver-manager.getwriteconcern.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.getwriteconcern.php
      * @throws InvalidArgumentException on argument parsing errors.
      * @return WriteConcern
      */
@@ -187,7 +187,7 @@ final class Manager
 
     /**
      * Preselect a MongoDB node based on provided readPreference. This can be useful to guarantee a command runs on a specific server when operating in a mixed version cluster.
-     * https://secure.php.net/manual/en/mongodb-driver-manager.selectserver.php
+     * https://www.php.net/manual/en/mongodb-driver-manager.selectserver.php
      * @param ReadPreference|null $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
      * @throws InvalidArgumentException on argument parsing errors.
      * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
@@ -203,7 +203,7 @@ final class Manager
      * @return \MongoDB\Driver\Session
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
      * @throws \MongoDB\Driver\Exception\RuntimeException If the session could not be created (e.g. libmongoc does not support crypto).
-     * @link https://secure.php.net/manual/en/mongodb-driver-manager.startsession.php
+     * @link https://www.php.net/manual/en/mongodb-driver-manager.startsession.php
      * @since 1.4.0
      */
     final public function startSession(?array $options = null) {}

@@ -9,7 +9,7 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Generate a system log message
- * @link https://php.net/manual/en/function.syslog.php
+ * @link https://www.php.net/manual/en/function.syslog.php
  * @param int $priority <p>
  * priority is a combination of the facility and
  * the level. Possible values are:
@@ -65,7 +65,7 @@ function syslog(int $priority, string $message) {}
 
 /**
  * Close connection to system logger
- * @link https://php.net/manual/en/function.closelog.php
+ * @link https://www.php.net/manual/en/function.closelog.php
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function closelog() {}
@@ -74,7 +74,7 @@ function closelog() {}
  * Registers a function that will be called when PHP starts sending output.
  * The callback is executed just after PHP prepares all headers to be sent,<br>
  * and before any other output is sent, creating a window to manipulate the outgoing headers before being sent.
- * @link https://secure.php.net/manual/en/function.header-register-callback.php
+ * @link https://www.php.net/manual/en/function.header-register-callback.php
  * @param callable $callback Function called just before the headers are sent.
  * @return bool true on success or false on failure.
  */
@@ -95,9 +95,9 @@ function header_register_callback(callable $callback): bool {}
  * Index 3 is a text string with the correct <b>height="yyy" width="xxx"</b> string<br>
  * that can be used directly in an IMG tag.<br>
  * On failure, FALSE is returned.
- * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
+ * @link https://www.php.net/manual/en/function.getimagesizefromstring.php
  * @since 5.4
- * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
+ * @link https://www.php.net/manual/en/function.getimagesizefromstring.php
  * @since 5.4
  */
 #[ArrayShape([0 => 'int', 1 => 'int', 2 => 'int', 3 => 'string', 'bits' => 'int', 'channels' => 'int', 'mime' => 'string'])]
@@ -109,7 +109,7 @@ function getimagesizefromstring(string $string, &$image_info = null): array|fals
  * @param int $size The desired new chunk size.
  * @return int|false Returns the previous chunk size on success.<br>
  * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
- * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
+ * @link https://www.php.net/manual/en/function.stream-set-chunk-size.php
  * @since 5.4
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
@@ -117,7 +117,7 @@ function stream_set_chunk_size($stream, int $size) {}
 
 /**
  * Initializes all syslog related variables
- * @link https://php.net/manual/en/function.define-syslog-variables.php
+ * @link https://www.php.net/manual/en/function.define-syslog-variables.php
  * @return void
  * @removed 5.4
  */
@@ -126,7 +126,7 @@ function define_syslog_variables() {}
 
 /**
  * Calculate the metaphone key of a string
- * @link https://php.net/manual/en/function.metaphone.php
+ * @link https://www.php.net/manual/en/function.metaphone.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -142,7 +142,7 @@ function metaphone(string $string, int $max_phonemes = 0) {}
 
 /**
  * Turn on output buffering
- * @link https://php.net/manual/en/function.ob-start.php
+ * @link https://www.php.net/manual/en/function.ob-start.php
  * @param callable|null $callback <p>
  * An optional output_callback function may be
  * specified. This function takes a string as a parameter and should
@@ -209,21 +209,21 @@ function ob_start($callback = null, int $chunk_size = 0, int $flags = PHP_OUTPUT
 
 /**
  * Flush (send) the output buffer
- * @link https://php.net/manual/en/function.ob-flush.php
+ * @link https://www.php.net/manual/en/function.ob-flush.php
  * @return bool
  */
 function ob_flush(): bool {}
 
 /**
  * Clean (erase) the output buffer
- * @link https://php.net/manual/en/function.ob-clean.php
+ * @link https://www.php.net/manual/en/function.ob-clean.php
  * @return bool
  */
 function ob_clean(): bool {}
 
 /**
  * Flush (send) the output buffer and turn off output buffering
- * @link https://php.net/manual/en/function.ob-end-flush.php
+ * @link https://www.php.net/manual/en/function.ob-end-flush.php
  * @return bool true on success or false on failure. Reasons for failure are first that you called the
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
@@ -232,7 +232,7 @@ function ob_end_flush(): bool {}
 
 /**
  * Clean (erase) the output buffer and turn off output buffering
- * @link https://php.net/manual/en/function.ob-end-clean.php
+ * @link https://www.php.net/manual/en/function.ob-end-clean.php
  * @return bool true on success or false on failure. Reasons for failure are first that you called the
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
@@ -241,14 +241,14 @@ function ob_end_clean(): bool {}
 
 /**
  * Flush the output buffer, return it as a string and turn off output buffering
- * @link https://php.net/manual/en/function.ob-get-flush.php
+ * @link https://www.php.net/manual/en/function.ob-get-flush.php
  * @return string|false the output buffer or false if no buffering is active.
  */
 function ob_get_flush(): string|false {}
 
 /**
  * Get current buffer contents and delete current output buffer
- * @link https://php.net/manual/en/function.ob-get-clean.php
+ * @link https://www.php.net/manual/en/function.ob-get-clean.php
  * @return string|false the contents of the output buffer and end output buffering.
  * If output buffering isn't active then false is returned.
  */
@@ -256,7 +256,7 @@ function ob_get_clean(): string|false {}
 
 /**
  * Return the length of the output buffer
- * @link https://php.net/manual/en/function.ob-get-length.php
+ * @link https://www.php.net/manual/en/function.ob-get-length.php
  * @return int|false the length of the output buffer contents or false if no
  * buffering is active.
  */
@@ -265,7 +265,7 @@ function ob_get_length(): int|false {}
 
 /**
  * Return the nesting level of the output buffering mechanism
- * @link https://php.net/manual/en/function.ob-get-level.php
+ * @link https://www.php.net/manual/en/function.ob-get-level.php
  * @return int the level of nested output buffering handlers or zero if output
  * buffering is not active.
  */
@@ -274,7 +274,7 @@ function ob_get_level(): int {}
 
 /**
  * Get status of output buffers
- * @link https://php.net/manual/en/function.ob-get-status.php
+ * @link https://www.php.net/manual/en/function.ob-get-status.php
  * @param bool $full_status [optional] <p>
  * true to return all active output buffer levels. If false or not
  * set, only the top level output buffer is returned.
@@ -356,7 +356,7 @@ function ob_get_status(bool $full_status = false): array {}
 
 /**
  * Return the contents of the output buffer
- * @link https://php.net/manual/en/function.ob-get-contents.php
+ * @link https://www.php.net/manual/en/function.ob-get-contents.php
  * @return string|false This will return the contents of the output buffer or false, if output
  * buffering isn't active.
  */
@@ -365,7 +365,7 @@ function ob_get_contents(): string|false {}
 
 /**
  * Turn implicit flush on/off
- * @link https://php.net/manual/en/function.ob-implicit-flush.php
+ * @link https://www.php.net/manual/en/function.ob-implicit-flush.php
  * @param int|bool $enable [optional] <p>
  * 1|<b>TRUE</b> to turn implicit flushing on, 0|<b>FALSE</b> turns it off.
  * <br><br>default: 1|<b>TRUE</b>
@@ -376,7 +376,7 @@ function ob_implicit_flush(#[LanguageLevelTypeAware(["8.0" => "bool"], default: 
 
 /**
  * List all output handlers in use
- * @link https://php.net/manual/en/function.ob-list-handlers.php
+ * @link https://www.php.net/manual/en/function.ob-list-handlers.php
  * @return array This will return an array with the output handlers in use (if any). If
  * output_buffering is enabled or
  * an anonymous function was used with ob_start,
@@ -387,7 +387,7 @@ function ob_list_handlers(): array {}
 
 /**
  * Sort an array by key in ascending order
- * @link https://php.net/manual/en/function.ksort.php
+ * @link https://www.php.net/manual/en/function.ksort.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -402,7 +402,7 @@ function ksort(array &$array, int $flags = SORT_REGULAR) {}
 
 /**
  * Sort an array by key in reverse order
- * @link https://php.net/manual/en/function.krsort.php
+ * @link https://www.php.net/manual/en/function.krsort.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -417,7 +417,7 @@ function krsort(array &$array, int $flags = SORT_REGULAR) {}
 
 /**
  * Sort an array using a "natural order" algorithm
- * @link https://php.net/manual/en/function.natsort.php
+ * @link https://www.php.net/manual/en/function.natsort.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -427,7 +427,7 @@ function natsort(array &$array) {}
 
 /**
  * Sort an array using a case insensitive "natural order" algorithm
- * @link https://php.net/manual/en/function.natcasesort.php
+ * @link https://www.php.net/manual/en/function.natcasesort.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -437,7 +437,7 @@ function natcasesort(array &$array) {}
 
 /**
  * Sort an array and maintain index association
- * @link https://php.net/manual/en/function.asort.php
+ * @link https://www.php.net/manual/en/function.asort.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -452,7 +452,7 @@ function asort(array &$array, int $flags = SORT_REGULAR) {}
 
 /**
  * Sort an array in reverse order and maintain index association
- * @link https://php.net/manual/en/function.arsort.php
+ * @link https://www.php.net/manual/en/function.arsort.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -467,7 +467,7 @@ function arsort(array &$array, int $flags = SORT_REGULAR) {}
 
 /**
  * Sort an array
- * @link https://php.net/manual/en/function.sort.php
+ * @link https://www.php.net/manual/en/function.sort.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -485,7 +485,7 @@ function sort(array &$array, int $flags = SORT_REGULAR) {}
 
 /**
  * Sort an array in reverse order
- * @link https://php.net/manual/en/function.rsort.php
+ * @link https://www.php.net/manual/en/function.rsort.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -500,7 +500,7 @@ function rsort(array &$array, int $flags = SORT_REGULAR) {}
 
 /**
  * Sort an array by values using a user-defined comparison function
- * @link https://php.net/manual/en/function.usort.php
+ * @link https://www.php.net/manual/en/function.usort.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -516,7 +516,7 @@ function usort(array &$array, callable $callback) {}
 
 /**
  * Sort an array with a user-defined comparison function and maintain index association
- * @link https://php.net/manual/en/function.uasort.php
+ * @link https://www.php.net/manual/en/function.uasort.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -530,7 +530,7 @@ function uasort(array &$array, callable $callback) {}
 
 /**
  * Sort an array by keys using a user-defined comparison function
- * @link https://php.net/manual/en/function.uksort.php
+ * @link https://www.php.net/manual/en/function.uksort.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -551,7 +551,7 @@ function uksort(array &$array, callable $callback) {}
 
 /**
  * Shuffle an array
- * @link https://php.net/manual/en/function.shuffle.php
+ * @link https://www.php.net/manual/en/function.shuffle.php
  * @param array &$array <p>
  * The array.
  * </p>
@@ -561,7 +561,7 @@ function shuffle(array &$array) {}
 
 /**
  * Apply a user function to every member of an array
- * @link https://php.net/manual/en/function.array-walk.php
+ * @link https://www.php.net/manual/en/function.array-walk.php
  * @param array|object &$array <p>
  * The input array.
  * </p>
@@ -595,7 +595,7 @@ function array_walk(object|array &$array, callable $callback, mixed $arg) {}
 
 /**
  * Apply a user function recursively to every member of an array
- * @link https://php.net/manual/en/function.array-walk-recursive.php
+ * @link https://www.php.net/manual/en/function.array-walk-recursive.php
  * @param array|object &$array <p>
  * The input array.
  * </p>
@@ -626,7 +626,7 @@ function array_walk_recursive(object|array &$array, callable $callback, mixed $a
  * <p>For objects, if you have SPL installed, you can hook into count() by implementing interface {@see Countable}.
  * The interface has exactly one method, {@see Countable::count()}, which returns the return value for the count() function.
  * Please see the {@see Array} section of the manual for a detailed explanation of how arrays are implemented and used in PHP.</p>
- * @link https://php.net/manual/en/function.count.php
+ * @link https://www.php.net/manual/en/function.count.php
  * @param array|Countable $value The array or the object.
  * @param int $mode [optional] If the optional mode parameter is set to
  * COUNT_RECURSIVE (or 1), count
@@ -653,7 +653,7 @@ function count(Countable|array $value, int $mode = COUNT_NORMAL): int {}
 
 /**
  * Set the internal pointer of an array to its last element
- * @link https://php.net/manual/en/function.end.php
+ * @link https://www.php.net/manual/en/function.end.php
  * @param array|object &$array <p>
  * The array. This array is passed by reference because it is modified by
  * the function. This means you must pass it a real variable and not
@@ -667,7 +667,7 @@ function end(object|array &$array): mixed {}
 
 /**
  * Rewind the internal array pointer
- * @link https://php.net/manual/en/function.prev.php
+ * @link https://www.php.net/manual/en/function.prev.php
  * @param array|object &$array <p>
  * The input array.
  * </p>
@@ -680,7 +680,7 @@ function prev(object|array &$array): mixed {}
 
 /**
  * Advance the internal array pointer of an array
- * @link https://php.net/manual/en/function.next.php
+ * @link https://www.php.net/manual/en/function.next.php
  * @param array|object &$array <p>
  * The array being affected.
  * </p>
@@ -692,7 +692,7 @@ function next(object|array &$array): mixed {}
 
 /**
  * Set the internal pointer of an array to its first element
- * @link https://php.net/manual/en/function.reset.php
+ * @link https://www.php.net/manual/en/function.reset.php
  * @param array|object &$array <p>
  * The input array.
  * </p>
@@ -704,7 +704,7 @@ function reset(object|array &$array): mixed {}
 
 /**
  * Return the current element in an array
- * @link https://php.net/manual/en/function.current.php
+ * @link https://www.php.net/manual/en/function.current.php
  * @param array|object $array <p>
  * The array.
  * </p>
@@ -720,7 +720,7 @@ function current(object|array $array): mixed {}
 
 /**
  * Fetch a key from an array
- * @link https://php.net/manual/en/function.key.php
+ * @link https://www.php.net/manual/en/function.key.php
  * @param array|object $array <p>
  * The array.
  * </p>
@@ -735,7 +735,7 @@ function key(object|array $array): string|int|null {}
 
 /**
  * Find lowest value
- * @link https://php.net/manual/en/function.min.php
+ * @link https://www.php.net/manual/en/function.min.php
  * @param array|mixed $value Array to look through or first value to compare
  * @param mixed ...$values any comparable value
  * @return mixed min returns the numerically lowest of the
@@ -750,7 +750,7 @@ function min(
 
 /**
  * Find highest value
- * @link https://php.net/manual/en/function.max.php
+ * @link https://www.php.net/manual/en/function.max.php
  * @param array|mixed $value Array to look through or first value to compare
  * @param mixed ...$values any comparable value
  * @return mixed max returns the numerically highest of the
@@ -765,7 +765,7 @@ function max(
 
 /**
  * Checks if a value exists in an array
- * @link https://php.net/manual/en/function.in-array.php
+ * @link https://www.php.net/manual/en/function.in-array.php
  * @param mixed $needle <p>
  * The searched value.
  * </p>
@@ -790,7 +790,7 @@ function in_array(mixed $needle, array $haystack, bool $strict = false): bool {}
 
 /**
  * Searches the array for a given value and returns the first corresponding key if successful
- * @link https://php.net/manual/en/function.array-search.php
+ * @link https://www.php.net/manual/en/function.array-search.php
  * @param mixed $needle <p>
  * The searched value.
  * </p>
@@ -821,7 +821,7 @@ function array_search(mixed $needle, array $haystack, bool $strict = false): str
 
 /**
  * Import variables into the current symbol table from an array
- * @link https://php.net/manual/en/function.extract.php
+ * @link https://www.php.net/manual/en/function.extract.php
  * @param array &$array <p>
  * Note that prefix is only required if
  * extract_type is EXTR_PREFIX_SAME,
@@ -862,7 +862,7 @@ function extract(
 
 /**
  * Create array containing variables and their values
- * @link https://php.net/manual/en/function.compact.php
+ * @link https://www.php.net/manual/en/function.compact.php
  * @param mixed $var_name <p>
  * compact takes a variable number of parameters.
  * Each parameter can be either a string containing the name of the
@@ -878,7 +878,7 @@ function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[PhpS
 
 /**
  * Fill an array with values
- * @link https://php.net/manual/en/function.array-fill.php
+ * @link https://www.php.net/manual/en/function.array-fill.php
  * @param int $start_index <p>
  * The first index of the returned array.
  * Supports non-negative indexes only.
@@ -896,7 +896,7 @@ function array_fill(int $start_index, int $count, mixed $value): array {}
 
 /**
  * Fill an array with values, specifying keys
- * @link https://php.net/manual/en/function.array-fill-keys.php
+ * @link https://www.php.net/manual/en/function.array-fill-keys.php
  * @param array $keys <p>
  * Array of values that will be used as keys. Illegal values
  * for key will be converted to string.
@@ -911,7 +911,7 @@ function array_fill_keys(array $keys, mixed $value): array {}
 
 /**
  * Create an array containing a range of elements
- * @link https://php.net/manual/en/function.range.php
+ * @link https://www.php.net/manual/en/function.range.php
  * @param mixed $start <p>
  * First value of the sequence.
  * </p>
@@ -936,7 +936,7 @@ function range(
 
 /**
  * Sort multiple or multi-dimensional arrays
- * @link https://php.net/manual/en/function.array-multisort.php
+ * @link https://www.php.net/manual/en/function.array-multisort.php
  * @param array &$array <p>
  * An array being sorted.
  * </p>
@@ -959,7 +959,7 @@ function array_multisort(
  * Push elements onto the end of array
  * Since 7.3.0 this function can be called with only one parameter.
  * For earlier versions at least two parameters are required.
- * @link https://php.net/manual/en/function.array-push.php
+ * @link https://www.php.net/manual/en/function.array-push.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -976,7 +976,7 @@ function array_push(
 
 /**
  * Pop the element off the end of array
- * @link https://php.net/manual/en/function.array-pop.php
+ * @link https://www.php.net/manual/en/function.array-pop.php
  * @param array &$array <p>
  * The array to get the value from.
  * </p>
@@ -989,7 +989,7 @@ function array_pop(array &$array): mixed {}
 
 /**
  * Shift an element off the beginning of array
- * @link https://php.net/manual/en/function.array-shift.php
+ * @link https://www.php.net/manual/en/function.array-shift.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -1003,7 +1003,7 @@ function array_shift(array &$array): mixed {}
  * Prepend elements to the beginning of an array
  * Since 7.3.0 this function can be called with only one parameter.
  * For earlier versions at least two parameters are required.
- * @link https://php.net/manual/en/function.array-unshift.php
+ * @link https://www.php.net/manual/en/function.array-unshift.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -1016,7 +1016,7 @@ function array_unshift(array &$array, #[PhpStormStubsElementAvailable(from: '5.3
 
 /**
  * Remove a portion of the array and replace it with something else
- * @link https://php.net/manual/en/function.array-splice.php
+ * @link https://www.php.net/manual/en/function.array-splice.php
  * @param array &$array <p>
  * The input array.
  * </p>
@@ -1062,7 +1062,7 @@ function array_splice(array &$array, int $offset, ?int $length = null, mixed $re
 
 /**
  * Extract a slice of the array
- * @link https://php.net/manual/en/function.array-slice.php
+ * @link https://www.php.net/manual/en/function.array-slice.php
  * @param array $array <p>
  * The input array.
  * </p>
@@ -1095,7 +1095,7 @@ function array_slice(array $array, int $offset, ?int $length = null, bool $prese
 /**
  * Merges the elements of one or more arrays together (if the input arrays have the same string keys, then the later value for that key will overwrite the previous one; if the arrays contain numeric keys, the later value will be appended)
  * Since 7.4.0 this function can be called without any parameter, and it will return empty array.
- * @link https://php.net/manual/en/function.array-merge.php
+ * @link https://www.php.net/manual/en/function.array-merge.php
  * @param array ...$arrays <p>
  * Variable list of arrays to merge.
  * </p>

@@ -11,7 +11,7 @@ use Stringable;
  * BSON type for the "Undefined" type. This BSON type is deprecated, and this class can not be instantiated. It will be created
  * from a BSON undefined type while converting BSON to PHP, and can also be converted back into BSON while storing documents in the database.
  *
- * @link https://secure.php.net/manual/en/class.mongodb-bson-undefined.php
+ * @link https://www.php.net/manual/en/class.mongodb-bson-undefined.php
  */
 #[Deprecated]
 final class Undefined implements JsonSerializable, Type, Stringable

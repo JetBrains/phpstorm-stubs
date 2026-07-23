@@ -4,7 +4,7 @@
 
 /**
  * Serialize a single value into a WDDX packet
- * @link https://php.net/manual/en/function.wddx-serialize-value.php
+ * @link https://www.php.net/manual/en/function.wddx-serialize-value.php
  * @param mixed $var <p>
  * The value to be serialized
  * </p>
@@ -18,7 +18,7 @@ function wddx_serialize_value($var, $comment = null) {}
 
 /**
  * Serialize variables into a WDDX packet
- * @link https://php.net/manual/en/function.wddx-serialize-vars.php
+ * @link https://www.php.net/manual/en/function.wddx-serialize-vars.php
  * @param mixed ...$var_names <p>
  * Can be either a string naming a variable or an array containing
  * strings naming the variables or another array, etc.
@@ -30,7 +30,7 @@ function wddx_serialize_vars(...$var_names) {}
 
 /**
  * Starts a new WDDX packet with structure inside it
- * @link https://php.net/manual/en/function.wddx-packet-start.php
+ * @link https://www.php.net/manual/en/function.wddx-packet-start.php
  * @param string $comment [optional] <p>
  * An optional comment string.
  * </p>
@@ -41,7 +41,7 @@ function wddx_packet_start($comment = null) {}
 
 /**
  * Ends a WDDX packet with the specified ID
- * @link https://php.net/manual/en/function.wddx-packet-end.php
+ * @link https://www.php.net/manual/en/function.wddx-packet-end.php
  * @param resource $packet_id <p>
  * A WDDX packet, returned by <b>wddx_packet_start</b>.
  * </p>
@@ -52,7 +52,7 @@ function wddx_packet_end($packet_id) {}
 
 /**
  * Add variables to a WDDX packet with the specified ID
- * @link https://php.net/manual/en/function.wddx-add-vars.php
+ * @link https://www.php.net/manual/en/function.wddx-add-vars.php
  * @param resource $packet_id <p>
  * A WDDX packet, returned by <b>wddx_packet_start</b>.
  * </p>
@@ -67,7 +67,7 @@ function wddx_add_vars($packet_id, ...$var_names) {}
 
 /**
  * Unserializes a WDDX packet
- * @link https://php.net/manual/en/function.wddx-deserialize.php
+ * @link https://www.php.net/manual/en/function.wddx-deserialize.php
  * @param string $packet <p>
  * A WDDX packet, as a string or stream.
  * </p>

@@ -5,7 +5,7 @@ namespace {
 
     /**
      * Creates an array.
-     * @link https://php.net/manual/en/function.array.php
+     * @link https://www.php.net/manual/en/function.array.php
      * @param mixed ...$_ [optional] <p>
      * Syntax "index => values", separated by commas, define index and values.
      * index may be of type string or integer. When index is omitted, an integer index is automatically generated,
@@ -21,7 +21,7 @@ namespace {
 
     /**
      * Assigns a list of variables in one operation.
-     * @link https://php.net/manual/en/function.list.php
+     * @link https://www.php.net/manual/en/function.list.php
      * @param mixed $var1 <p>A variable.</p>
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return array the assigned array.
@@ -31,7 +31,7 @@ namespace {
     /**
      * <p>Terminates execution of the script. Shutdown functions and object destructors will always be executed even if exit is called.</p>
      * <p>die is a language construct and it can be called without parentheses if no status is passed.</p>
-     * @link https://php.net/manual/en/function.die.php
+     * @link https://www.php.net/manual/en/function.die.php
      * @param int|string $status [optional] <p>
      * If status is a string, this function prints the status just before exiting.
      * </p>
@@ -49,7 +49,7 @@ namespace {
     /**
      * <p>Terminates execution of the script. Shutdown functions and object destructors will always be executed even if exit is called.</p>
      * <p>exit is a language construct and it can be called without parentheses if no status is passed.</p>
-     * @link https://php.net/manual/en/function.exit.php
+     * @link https://www.php.net/manual/en/function.exit.php
      * @param int|string $status [optional] <p>
      * If status is a string, this function prints the status just before exiting.
      * </p>
@@ -67,7 +67,7 @@ namespace {
     /**
      * Determine whether a variable is considered to be empty. A variable is considered empty if it does not exist or if its value
      * equals <b>FALSE</b>. <b>empty()</b> does not generate a warning if the variable does not exist.
-     * @link https://php.net/manual/en/function.empty.php
+     * @link https://www.php.net/manual/en/function.empty.php
      * @param mixed $var <p>Variable to be checked.</p>
      * <p>Note: Prior to PHP 5.5, <b>empty()</b> only supports variables; anything else will result in a parse error. In other words,
      * the following will not work: <b>empty(trim($name))</b>. Instead, use <b>trim($name) == false</b>.
@@ -99,7 +99,7 @@ namespace {
      * that has been set to <b>NULL</b>. Also note that a null character ("\0") is not equivalent to the PHP <b>NULL</b> constant.</p>
      * <p>If multiple parameters are supplied then <b>isset()</b> will return <b>TRUE</b> only if all of the parameters are set.
      * Evaluation goes from left to right and stops as soon as an unset variable is encountered.</p>
-     * @link https://php.net/manual/en/function.isset.php
+     * @link https://www.php.net/manual/en/function.isset.php
      * @param mixed $var <p>The variable to be checked.</p>
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return bool Returns <b>TRUE</b> if var exists and has value other than <b>NULL</b>, <b>FALSE</b> otherwise.
@@ -109,7 +109,7 @@ namespace {
     /**
      * <p>Destroys the specified variables.</p>
      * <p>The behavior of <b>unset()</b> inside of a function can vary depending on what type of variable you are attempting to destroy.</p>
-     * @link https://php.net/manual/en/function.unset.php
+     * @link https://www.php.net/manual/en/function.unset.php
      * @param mixed $var <p>The variable to be unset.</p>
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return void
@@ -121,7 +121,7 @@ namespace {
      * <p>Caution: The <b>eval()</b> language construct is very dangerous because it allows execution of arbitrary PHP code. Its use thus is
      * discouraged. If you have carefully verified that there is no other option than to use this construct, pay special attention not to
      * pass any user provided data into it without properly validating it beforehand.</p>
-     * @link https://php.net/manual/en/function.eval.php
+     * @link https://www.php.net/manual/en/function.eval.php
      * @param string $code <p>
      * Valid PHP code to be evaluated.
      * </p>
@@ -150,7 +150,7 @@ namespace {
 
     /**
      * Generator objects are returned from generators, cannot be instantiated via new.
-     * @link https://secure.php.net/manual/en/class.generator.php
+     * @link https://www.php.net/manual/en/class.generator.php
      * @link https://wiki.php.net/rfc/generators
      *
      * @template-covariant TKey
@@ -219,7 +219,7 @@ namespace {
         /**
          * Serialize callback
          * Throws an exception as generators can't be serialized.
-         * @link https://php.net/manual/en/generator.wakeup.php
+         * @link https://www.php.net/manual/en/generator.wakeup.php
          * @return void
          */
         public function __wakeup() {}
@@ -249,7 +249,7 @@ namespace ___PHPSTORM_HELPERS {
          * In order to run a parent constructor, a call to parent::__construct() within the child constructor is required.
          *
          * param [ mixed $args [, $... ]]
-         * @link https://php.net/manual/en/language.oop5.decon.php
+         * @link https://www.php.net/manual/en/language.oop5.decon.php
          */
         public function __construct() {}
 
@@ -267,7 +267,7 @@ namespace ___PHPSTORM_HELPERS {
          * Note: Attempting to throw an exception from a destructor (called in the time of script termination) causes a fatal error.
          *
          * @return void
-         * @link https://php.net/manual/en/language.oop5.decon.php
+         * @link https://www.php.net/manual/en/language.oop5.decon.php
          */
         public function __destruct() {}
 
@@ -277,7 +277,7 @@ namespace ___PHPSTORM_HELPERS {
          * @param string $name
          * @param array $arguments
          * @return mixed
-         * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
+         * @link https://www.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
          */
         public function __call(string $name, array $arguments) {}
 
@@ -287,7 +287,7 @@ namespace ___PHPSTORM_HELPERS {
          * @param string $name
          * @param array $arguments
          * @return mixed
-         * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
+         * @link https://www.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
          */
         public static function __callStatic(string $name, array $arguments) {}
 
@@ -296,7 +296,7 @@ namespace ___PHPSTORM_HELPERS {
          *
          * @param string $name
          * @return mixed
-         * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
+         * @link https://www.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
          */
         public function __get(string $name) {}
 
@@ -306,7 +306,7 @@ namespace ___PHPSTORM_HELPERS {
          * @param string $name
          * @param mixed $value
          * @return void
-         * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
+         * @link https://www.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
          */
         public function __set(string $name, $value): void {}
 
@@ -315,7 +315,7 @@ namespace ___PHPSTORM_HELPERS {
          *
          * @param string $name
          * @return bool
-         * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
+         * @link https://www.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
          */
         public function __isset(string $name): bool {}
 
@@ -324,7 +324,7 @@ namespace ___PHPSTORM_HELPERS {
          *
          * @param string $name
          * @return void
-         * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
+         * @link https://www.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
          */
         public function __unset(string $name): void {}
 
@@ -337,7 +337,7 @@ namespace ___PHPSTORM_HELPERS {
          * Also, the function is useful if you have very large objects which do not need to be saved completely.
          *
          * @return string[]
-         * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.sleep
+         * @link https://www.php.net/manual/en/language.oop5.magic.php#language.oop5.magic.sleep
          */
         public function __sleep(): array {}
 
@@ -348,7 +348,7 @@ namespace ___PHPSTORM_HELPERS {
          * serialization and perform other reinitialization tasks.
          *
          * @return void
-         * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.sleep
+         * @link https://www.php.net/manual/en/language.oop5.magic.php#language.oop5.magic.sleep
          */
         public function __wakeup(): void {}
 
@@ -356,7 +356,7 @@ namespace ___PHPSTORM_HELPERS {
          * The __toString method allows a class to decide how it will react when it is converted to a string.
          *
          * @return string
-         * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.tostring
+         * @link https://www.php.net/manual/en/language.oop5.magic.php#language.oop5.magic.tostring
          */
         public function __toString(): string {}
 
@@ -364,7 +364,7 @@ namespace ___PHPSTORM_HELPERS {
          * The __invoke method is called when a script tries to call an object as a function.
          *
          * @return mixed
-         * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.invoke
+         * @link https://www.php.net/manual/en/language.oop5.magic.php#language.oop5.magic.invoke
          */
         public function __invoke() {}
 
@@ -373,7 +373,7 @@ namespace ___PHPSTORM_HELPERS {
          * If the method isn't defined on an object, then all public, protected and private properties will be shown.
          *
          * @return array|null
-         * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo
+         * @link https://www.php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo
          */
         public function __debugInfo(): ?array {}
 
@@ -383,7 +383,7 @@ namespace ___PHPSTORM_HELPERS {
          *
          * @param array $an_array
          * @return object
-         * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.set-state
+         * @link https://www.php.net/manual/en/language.oop5.magic.php#language.oop5.magic.set-state
          */
         public static function __set_state(array $an_array): object {}
 
@@ -395,7 +395,7 @@ namespace ___PHPSTORM_HELPERS {
          * NOT CALLABLE DIRECTLY.
          *
          * @return void
-         * @link https://php.net/manual/en/language.oop5.cloning.php
+         * @link https://www.php.net/manual/en/language.oop5.cloning.php
          */
         public function __clone(): void {}
 

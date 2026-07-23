@@ -7,7 +7,7 @@ use MongoDB\Driver\Exception\InvalidArgumentException;
 
 /**
  * Class MinKey
- * @link https://php.net/manual/en/class.mongodb-bson-minkey.php
+ * @link https://www.php.net/manual/en/class.mongodb-bson-minkey.php
  */
 final class MinKey implements Type, MinKeyInterface, JsonSerializable
 {

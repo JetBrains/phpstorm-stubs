@@ -8,13 +8,13 @@ use Stringable;
 
 /**
  * Class Javascript
- * @link https://php.net/manual/en/class.mongodb-bson-javascript.php
+ * @link https://www.php.net/manual/en/class.mongodb-bson-javascript.php
  */
 final class Javascript implements Type, JavascriptInterface, JsonSerializable, Stringable
 {
     /**
      * Construct a new Javascript
-     * @link https://php.net/manual/en/mongodb-bson-javascript.construct.php
+     * @link https://www.php.net/manual/en/mongodb-bson-javascript.construct.php
      */
     final public function __construct(string $javascript, array|object|null $scope = null) {}
 
@@ -22,19 +22,19 @@ final class Javascript implements Type, JavascriptInterface, JsonSerializable, S
 
     /**
      * Returns the Javascript's code
-     * @link https://secure.php.net/manual/en/mongodb-bson-javascript.getcode.php
+     * @link https://www.php.net/manual/en/mongodb-bson-javascript.getcode.php
      */
     final public function getCode(): string {}
 
     /**
      * Returns the Javascript's scope document
-     * @link https://secure.php.net/manual/en/mongodb-bson-javascript.getscope.php
+     * @link https://www.php.net/manual/en/mongodb-bson-javascript.getscope.php
      */
     final public function getScope(): ?object {}
 
     /**
      * Returns the Javascript's code
-     * @link https://secure.php.net/manual/en/mongodb-bson-javascript.tostring.php
+     * @link https://www.php.net/manual/en/mongodb-bson-javascript.tostring.php
      */
     final public function __toString(): string {}
 

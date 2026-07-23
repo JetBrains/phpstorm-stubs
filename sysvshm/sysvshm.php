@@ -5,7 +5,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Creates or open a shared memory segment
- * @link https://php.net/manual/en/function.shm-attach.php
+ * @link https://www.php.net/manual/en/function.shm-attach.php
  * @param int $key <p>
  * A numeric shared memory segment ID
  * </p>
@@ -24,7 +24,7 @@ function shm_attach(int $key, ?int $size = null, int $permissions = 0666) {}
 
 /**
  * Removes shared memory from Unix systems
- * @link https://php.net/manual/en/function.shm-remove.php
+ * @link https://www.php.net/manual/en/function.shm-remove.php
  * @param SysvSharedMemory $shm <p>
  * The shared memory identifier as returned by
  * <b>shm_attach</b>
@@ -35,7 +35,7 @@ function shm_remove(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], defa
 
 /**
  * Disconnects from shared memory segment
- * @link https://php.net/manual/en/function.shm-detach.php
+ * @link https://www.php.net/manual/en/function.shm-detach.php
  * @param SysvSharedMemory $shm <p>
  * A shared memory resource handle as returned by
  * <b>shm_attach</b>
@@ -47,7 +47,7 @@ function shm_detach(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], defa
 
 /**
  * Inserts or updates a variable in shared memory
- * @link https://php.net/manual/en/function.shm-put-var.php
+ * @link https://www.php.net/manual/en/function.shm-put-var.php
  * @param SysvSharedMemory $shm <p>
  * A shared memory resource handle as returned by
  * <b>shm_attach</b>
@@ -67,7 +67,7 @@ function shm_put_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], def
 
 /**
  * Check whether a specific entry exists
- * @link https://php.net/manual/en/function.shm-has-var.php
+ * @link https://www.php.net/manual/en/function.shm-has-var.php
  * @param SysvSharedMemory $shm <p>
  * Shared memory segment, obtained from <b>shm_attach</b>.
  * </p>
@@ -80,7 +80,7 @@ function shm_has_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], def
 
 /**
  * Returns a variable from shared memory
- * @link https://php.net/manual/en/function.shm-get-var.php
+ * @link https://www.php.net/manual/en/function.shm-get-var.php
  * @param SysvSharedMemory $shm <p>
  * Shared memory segment, obtained from <b>shm_attach</b>.
  * </p>
@@ -93,7 +93,7 @@ function shm_get_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], def
 
 /**
  * Removes a variable from shared memory
- * @link https://php.net/manual/en/function.shm-remove-var.php
+ * @link https://www.php.net/manual/en/function.shm-remove-var.php
  * @param SysvSharedMemory $shm <p>
  * The shared memory identifier as returned by
  * <b>shm_attach</b>

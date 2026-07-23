@@ -18,7 +18,7 @@ final class BulkWrite implements \Countable
     /**
      * Create a new BulkWrite
      * Constructs a new ordered (default) or unordered BulkWrite.
-     * @link https://php.net/manual/en/mongodb-driver-bulkwrite.construct.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php
      * @param array $options
      * @throws InvalidArgumentException on argument parsing errors.
      */
@@ -29,7 +29,7 @@ final class BulkWrite implements \Countable
     /**
      * Count expected roundtrips for executing the bulk
      * Returns the expected number of client-to-server roundtrips required to execute all write operations in the BulkWrite.
-     * @link https://php.net/manual/en/mongodb-driver-bulkwrite.count.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwrite.count.php
      * @return int number of expected roundtrips to execute the BulkWrite.
      * @throws InvalidArgumentException on argument parsing errors.
      */
@@ -37,7 +37,7 @@ final class BulkWrite implements \Countable
 
     /**
      * Add a delete operation to the bulk
-     * @link https://php.net/manual/en/mongodb-driver-bulkwrite.delete.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwrite.delete.php
      * @param array|object $filter The search filter
      * @param array|null $deleteOptions
      * @throws InvalidArgumentException on argument parsing errors.
@@ -46,7 +46,7 @@ final class BulkWrite implements \Countable
 
     /**
      * Add an insert operation to the bulk
-     * @link https://php.net/manual/en/mongodb-driver-bulkwrite.insert.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwrite.insert.php
      * @return mixed If the document did not have an _id, a MongoDB\BSON\ObjectId will be generated and returned; otherwise, no value is returned.
      * @throws InvalidArgumentException on argument parsing errors.
      */
@@ -54,7 +54,7 @@ final class BulkWrite implements \Countable
 
     /**
      * Add an update operation to the bulk
-     * @link https://php.net/manual/en/mongodb-driver-bulkwrite.update.php
+     * @link https://www.php.net/manual/en/mongodb-driver-bulkwrite.update.php
      * @param array|object $filter The search filter
      * @param array|object $newObj A document containing either update operators (e.g. $set) or a replacement document (i.e. only field:value expressions)
      * @param array|null $updateOptions

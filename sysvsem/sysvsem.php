@@ -5,7 +5,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Get a semaphore id
- * @link https://php.net/manual/en/function.sem-get.php
+ * @link https://www.php.net/manual/en/function.sem-get.php
  * @param int $key
  * @param int $max_acquire [optional] <p>
  * The number of processes that can acquire the semaphore simultaneously
@@ -28,7 +28,7 @@ function sem_get(int $key, int $max_acquire = 1, int $permissions = 0666, bool $
 
 /**
  * Acquire a semaphore
- * @link https://php.net/manual/en/function.sem-acquire.php
+ * @link https://www.php.net/manual/en/function.sem-acquire.php
  * @param SysvSemaphore|resource $semaphore <p>
  * <i>sem_identifier</i> is a semaphore resource,
  * obtained from <b>sem_get</b>.
@@ -44,7 +44,7 @@ function sem_acquire(#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], defaul
 
 /**
  * Release a semaphore
- * @link https://php.net/manual/en/function.sem-release.php
+ * @link https://www.php.net/manual/en/function.sem-release.php
  * @param SysvSemaphore|resource $semaphore <p>
  * A Semaphore resource handle as returned by
  * <b>sem_get</b>.
@@ -55,7 +55,7 @@ function sem_release(#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], defaul
 
 /**
  * Remove a semaphore
- * @link https://php.net/manual/en/function.sem-remove.php
+ * @link https://www.php.net/manual/en/function.sem-remove.php
  * @param SysvSemaphore|resource $semaphore <p>
  * A semaphore resource identifier as returned
  * by <b>sem_get</b>.

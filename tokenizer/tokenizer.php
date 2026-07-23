@@ -6,7 +6,7 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Split given source into PHP tokens
- * @link https://php.net/manual/en/function.token-get-all.php
+ * @link https://www.php.net/manual/en/function.token-get-all.php
  * @param string $code <p>
  * The PHP source to parse.
  * </p>
@@ -33,7 +33,7 @@ function token_get_all(string $code, #[PhpStormStubsElementAvailable(from: '7.0'
 
 /**
  * Get the symbolic name of a given PHP token
- * @link https://php.net/manual/en/function.token-name.php
+ * @link https://www.php.net/manual/en/function.token-name.php
  * @param int $id <p>
  * The token value.
  * </p>

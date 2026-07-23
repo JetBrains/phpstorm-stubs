@@ -10,7 +10,7 @@ use JetBrains\PhpStorm\Pure;
 /**
  * The <b>ReflectionExtension</b> class reports information about an extension.
  *
- * @link https://php.net/manual/en/class.reflectionextension.php
+ * @link https://www.php.net/manual/en/class.reflectionextension.php
  */
 class ReflectionExtension implements Reflector
 {
@@ -24,7 +24,7 @@ class ReflectionExtension implements Reflector
     /**
      * Constructs a ReflectionExtension
      *
-     * @link https://php.net/manual/en/reflectionextension.construct.php
+     * @link https://www.php.net/manual/en/reflectionextension.construct.php
      * @param string $name Name of the extension.
      * @throws ReflectionException if the extension does not exist.
      */
@@ -34,7 +34,7 @@ class ReflectionExtension implements Reflector
      * Exports a reflected extension.
      * The output format of this function is the same as the CLI argument --re [extension].
      *
-     * @link https://php.net/manual/en/reflectionextension.export.php
+     * @link https://www.php.net/manual/en/reflectionextension.export.php
      * @param string $name The reflection to export.
      * @param bool $return Setting to {@see true} will return the
      * export, as opposed to emitting it. Setting to {@see false} (the default)
@@ -49,7 +49,7 @@ class ReflectionExtension implements Reflector
     /**
      * To string
      *
-     * @link https://php.net/manual/en/reflectionextension.tostring.php
+     * @link https://www.php.net/manual/en/reflectionextension.tostring.php
      * @return string the exported extension as a string, in the same way as
      * the {@see ReflectionExtension::export()}.
      */
@@ -59,7 +59,7 @@ class ReflectionExtension implements Reflector
     /**
      * Gets extension name
      *
-     * @link https://php.net/manual/en/reflectionextension.getname.php
+     * @link https://www.php.net/manual/en/reflectionextension.getname.php
      * @return string The extensions name.
      */
     #[Pure]
@@ -69,7 +69,7 @@ class ReflectionExtension implements Reflector
     /**
      * Gets extension version
      *
-     * @link https://php.net/manual/en/reflectionextension.getversion.php
+     * @link https://www.php.net/manual/en/reflectionextension.getversion.php
      * @return string|null The version of the extension.
      */
     #[Pure]
@@ -79,7 +79,7 @@ class ReflectionExtension implements Reflector
     /**
      * Gets extension functions
      *
-     * @link https://php.net/manual/en/reflectionextension.getfunctions.php
+     * @link https://www.php.net/manual/en/reflectionextension.getfunctions.php
      * @return ReflectionFunction[] An associative array of {@see ReflectionFunction} objects,
      * for each function defined in the extension with the keys being the function
      * names. If no function are defined, an empty array is returned.
@@ -91,7 +91,7 @@ class ReflectionExtension implements Reflector
     /**
      * Gets constants
      *
-     * @link https://php.net/manual/en/reflectionextension.getconstants.php
+     * @link https://www.php.net/manual/en/reflectionextension.getconstants.php
      * @return array An associative array with constant names as keys.
      */
     #[Pure]
@@ -101,7 +101,7 @@ class ReflectionExtension implements Reflector
     /**
      * Gets extension ini entries
      *
-     * @link https://php.net/manual/en/reflectionextension.getinientries.php
+     * @link https://www.php.net/manual/en/reflectionextension.getinientries.php
      * @return array An associative array with the ini entries as keys,
      * with their defined values as values.
      */
@@ -112,7 +112,7 @@ class ReflectionExtension implements Reflector
     /**
      * Gets classes
      *
-     * @link https://php.net/manual/en/reflectionextension.getclasses.php
+     * @link https://www.php.net/manual/en/reflectionextension.getclasses.php
      * @return ReflectionClass[] An array of {@see ReflectionClass} objects, one
      * for each class within the extension. If no classes are defined,
      * an empty array is returned.
@@ -124,7 +124,7 @@ class ReflectionExtension implements Reflector
     /**
      * Gets class names
      *
-     * @link https://php.net/manual/en/reflectionextension.getclassnames.php
+     * @link https://www.php.net/manual/en/reflectionextension.getclassnames.php
      * @return string[] An array of class names, as defined in the extension.
      * If no classes are defined, an empty array is returned.
      */
@@ -135,7 +135,7 @@ class ReflectionExtension implements Reflector
     /**
      * Gets dependencies
      *
-     * @link https://php.net/manual/en/reflectionextension.getdependencies.php
+     * @link https://www.php.net/manual/en/reflectionextension.getdependencies.php
      * @return string[] An associative array with dependencies as keys and
      * either Required, Optional or Conflicts as the values.
      */
@@ -146,7 +146,7 @@ class ReflectionExtension implements Reflector
     /**
      * Print extension info
      *
-     * @link https://php.net/manual/en/reflectionextension.info.php
+     * @link https://www.php.net/manual/en/reflectionextension.info.php
      * @return void Print extension info
      */
     #[TentativeType]
@@ -155,7 +155,7 @@ class ReflectionExtension implements Reflector
     /**
      * Returns whether this extension is persistent
      *
-     * @link https://php.net/manual/en/reflectionextension.ispersistent.php
+     * @link https://www.php.net/manual/en/reflectionextension.ispersistent.php
      * @return bool Returns {@see true} for extensions loaded by extension, {@see false} otherwise.
      * @since 5.4
      */
@@ -166,7 +166,7 @@ class ReflectionExtension implements Reflector
     /**
      * Returns whether this extension is temporary
      *
-     * @link https://php.net/manual/en/reflectionextension.istemporary.php
+     * @link https://www.php.net/manual/en/reflectionextension.istemporary.php
      * @return bool Returns {@see true} for extensions loaded by {@see dl()}, {@see false} otherwise.
      * @since 5.4
      */
@@ -177,7 +177,7 @@ class ReflectionExtension implements Reflector
     /**
      * Clones
      *
-     * @link https://php.net/manual/en/reflectionextension.clone.php
+     * @link https://www.php.net/manual/en/reflectionextension.clone.php
      * @return void No value is returned, if called a fatal error will occur.
      */
     #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
@@ -186,7 +186,7 @@ class ReflectionExtension implements Reflector
     /**
      * Clones
      *
-     * @link https://php.net/manual/en/reflectionextension.clone.php
+     * @link https://www.php.net/manual/en/reflectionextension.clone.php
      * @return void No value is returned, if called a fatal error will occur.
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]

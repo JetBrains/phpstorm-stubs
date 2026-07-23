@@ -4,7 +4,7 @@ namespace MongoDB\BSON;
 
 /**
  * @since 2.2.0
- * @link https://php.net/manual/en/enum.mongodb-bson-vectortype.php
+ * @link https://www.php.net/manual/en/enum.mongodb-bson-vectortype.php
  */
 enum VectorType
 {

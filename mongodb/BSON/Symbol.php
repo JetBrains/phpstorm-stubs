@@ -11,7 +11,7 @@ use Stringable;
  * BSON type for the "Symbol" type. This BSON type is deprecated, and this class can not be instantiated. It will be created from a
  * BSON symbol type while converting BSON to PHP, and can also be converted back into BSON while storing documents in the database.
  *
- * @link https://secure.php.net/manual/en/class.mongodb-bson-symbol.php
+ * @link https://www.php.net/manual/en/class.mongodb-bson-symbol.php
  */
 #[Deprecated]
 final class Symbol implements JsonSerializable, Type, Stringable

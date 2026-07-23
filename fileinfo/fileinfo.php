@@ -28,7 +28,7 @@ class finfo
     /**
      * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
      * Set libmagic configuration options
-     * @link https://php.net/manual/en/function.finfo-set-flags.php
+     * @link https://www.php.net/manual/en/function.finfo-set-flags.php
      * @param int $flags <p>
      * One or disjunction of more Fileinfo
      * constants.
@@ -42,7 +42,7 @@ class finfo
     /**
      * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
      * Return information about a file
-     * @link https://php.net/manual/en/function.finfo-file.php
+     * @link https://www.php.net/manual/en/function.finfo-file.php
      * @param string $filename <p>
      * Name of a file to be checked.
      * </p>
@@ -67,7 +67,7 @@ class finfo
     /**
      * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
      * Return information about a string buffer
-     * @link https://php.net/manual/en/function.finfo-buffer.php
+     * @link https://www.php.net/manual/en/function.finfo-buffer.php
      * @param string $string <p>
      * Content of a file to be checked.
      * </p>
@@ -91,7 +91,7 @@ class finfo
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Create a new fileinfo resource
- * @link https://php.net/manual/en/function.finfo-open.php
+ * @link https://www.php.net/manual/en/function.finfo-open.php
  * @param int $flags <p>
  * One or disjunction of more Fileinfo
  * constants.
@@ -112,7 +112,7 @@ function finfo_open(int $flags = 0, ?string $magic_database = null) {}
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Close fileinfo resource
- * @link https://php.net/manual/en/function.finfo-close.php
+ * @link https://www.php.net/manual/en/function.finfo-close.php
  * @param resource $finfo <p>
  * Fileinfo resource returned by finfo_open.
  * </p>
@@ -125,7 +125,7 @@ function finfo_close(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'reso
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Set libmagic configuration options
- * @link https://php.net/manual/en/function.finfo-set-flags.php
+ * @link https://www.php.net/manual/en/function.finfo-set-flags.php
  * @param resource $finfo <p>
  * Fileinfo resource returned by finfo_open.
  * </p>
@@ -141,7 +141,7 @@ function finfo_set_flags(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: '
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Return information about a file
- * @link https://php.net/manual/en/function.finfo-file.php
+ * @link https://www.php.net/manual/en/function.finfo-file.php
  * @param resource $finfo <p>
  * Fileinfo resource returned by finfo_open.
  * </p>
@@ -163,7 +163,7 @@ function finfo_file(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resou
 /**
  * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Return information about a string buffer
- * @link https://php.net/manual/en/function.finfo-buffer.php
+ * @link https://www.php.net/manual/en/function.finfo-buffer.php
  * @param resource $finfo <p>
  * Fileinfo resource returned by finfo_open.
  * </p>
@@ -171,7 +171,7 @@ function finfo_file(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resou
  * Content of a file to be checked.
  * </p>
  * @param int $flags [optional] One or disjunction of more
- * <a href="https://php.net/manual/en/fileinfo.constants.php">Fileinfo</a> constants.
+ * <a href="https://www.php.net/manual/en/fileinfo.constants.php">Fileinfo</a> constants.
  * @param resource $context [optional]
  * @return string|false a textual description of the <i>string</i>
  * argument, or <b>FALSE</b> if an error occurred.
@@ -180,7 +180,7 @@ function finfo_buffer(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'res
 
 /**
  * Detect MIME Content-type for a file
- * @link https://php.net/manual/en/function.mime-content-type.php
+ * @link https://www.php.net/manual/en/function.mime-content-type.php
  * @param resource|string $filename <p>
  * Path to the tested file.
  * </p>
@@ -191,56 +191,56 @@ function mime_content_type($filename): string|false {}
 
 /**
  * No special handling.
- * @link https://php.net/manual/en/fileinfo.constants.php
+ * @link https://www.php.net/manual/en/fileinfo.constants.php
  */
 define('FILEINFO_NONE', 0);
 
 /**
  * Follow symlinks.
- * @link https://php.net/manual/en/fileinfo.constants.php
+ * @link https://www.php.net/manual/en/fileinfo.constants.php
  */
 define('FILEINFO_SYMLINK', 2);
 
 /**
  * Return the mime type and mime encoding as defined by RFC 2045.
- * @link https://php.net/manual/en/fileinfo.constants.php
+ * @link https://www.php.net/manual/en/fileinfo.constants.php
  */
 define('FILEINFO_MIME', 1040);
 
 /**
  * Return the mime type.
- * @link https://php.net/manual/en/fileinfo.constants.php
+ * @link https://www.php.net/manual/en/fileinfo.constants.php
  */
 define('FILEINFO_MIME_TYPE', 16);
 
 /**
  * Return the mime encoding of the file.
- * @link https://php.net/manual/en/fileinfo.constants.php
+ * @link https://www.php.net/manual/en/fileinfo.constants.php
  */
 define('FILEINFO_MIME_ENCODING', 1024);
 
 /**
  * Look at the contents of blocks or character special devices.
- * @link https://php.net/manual/en/fileinfo.constants.php
+ * @link https://www.php.net/manual/en/fileinfo.constants.php
  */
 define('FILEINFO_DEVICES', 8);
 
 /**
  * Return all matches, not just the first.
- * @link https://php.net/manual/en/fileinfo.constants.php
+ * @link https://www.php.net/manual/en/fileinfo.constants.php
  */
 define('FILEINFO_CONTINUE', 32);
 
 /**
  * If possible preserve the original access time.
- * @link https://php.net/manual/en/fileinfo.constants.php
+ * @link https://www.php.net/manual/en/fileinfo.constants.php
  */
 define('FILEINFO_PRESERVE_ATIME', 128);
 
 /**
  * Don't translate unprintable characters to a \ooo octal
  * representation.
- * @link https://php.net/manual/en/fileinfo.constants.php
+ * @link https://www.php.net/manual/en/fileinfo.constants.php
  */
 define('FILEINFO_RAW', 256);
 

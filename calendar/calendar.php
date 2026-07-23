@@ -6,7 +6,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * Converts Julian Day Count to Gregorian date
- * @link https://php.net/manual/en/function.jdtogregorian.php
+ * @link https://www.php.net/manual/en/function.jdtogregorian.php
  * @param int $julian_day <p>
  * A julian day number as integer
  * </p>
@@ -16,7 +16,7 @@ function jdtogregorian(int $julian_day): string {}
 
 /**
  * Converts a Gregorian date to Julian Day Count
- * @link https://php.net/manual/en/function.gregoriantojd.php
+ * @link https://www.php.net/manual/en/function.gregoriantojd.php
  * @param int $month <p>
  * The month as a number from 1 (for January) to 12 (for December)
  * </p>
@@ -32,7 +32,7 @@ function gregoriantojd(int $month, int $day, int $year): int {}
 
 /**
  * Converts a Julian Day Count to a Julian Calendar Date
- * @link https://php.net/manual/en/function.jdtojulian.php
+ * @link https://www.php.net/manual/en/function.jdtojulian.php
  * @param int $julian_day <p>
  * A julian day number as integer
  * </p>
@@ -42,7 +42,7 @@ function jdtojulian(int $julian_day): string {}
 
 /**
  * Converts a Julian Calendar date to Julian Day Count
- * @link https://php.net/manual/en/function.juliantojd.php
+ * @link https://www.php.net/manual/en/function.juliantojd.php
  * @param int $month <p>
  * The month as a number from 1 (for January) to 12 (for December)
  * </p>
@@ -58,7 +58,7 @@ function juliantojd(int $month, int $day, int $year): int {}
 
 /**
  * Converts a Julian day count to a Jewish calendar date
- * @link https://php.net/manual/en/function.jdtojewish.php
+ * @link https://www.php.net/manual/en/function.jdtojewish.php
  * @param int $julian_day
  * @param bool $hebrew [optional] <p>
  * If the <i>hebrew</i> parameter is set to <b>TRUE</b>, the
@@ -77,7 +77,7 @@ function jdtojewish(int $julian_day, bool $hebrew = false, int $flags = 0): stri
 
 /**
  * Converts a date in the Jewish Calendar to Julian Day Count
- * @link https://php.net/manual/en/function.jewishtojd.php
+ * @link https://www.php.net/manual/en/function.jewishtojd.php
  * @param int $month <p>
  * The month as a number from 1 to 13
  * </p>
@@ -93,7 +93,7 @@ function jewishtojd(int $month, int $day, int $year): int {}
 
 /**
  * Converts a Julian Day Count to the French Republican Calendar
- * @link https://php.net/manual/en/function.jdtofrench.php
+ * @link https://www.php.net/manual/en/function.jdtofrench.php
  * @param int $julian_day
  * @return string The french revolution date as a string in the form "month/day/year"
  */
@@ -101,7 +101,7 @@ function jdtofrench(int $julian_day): string {}
 
 /**
  * Converts a date from the French Republican Calendar to a Julian Day Count
- * @link https://php.net/manual/en/function.frenchtojd.php
+ * @link https://www.php.net/manual/en/function.frenchtojd.php
  * @param int $month <p>
  * The month as a number from 1 (for Vendémiaire) to 13 (for the period of 5-6 days at the end of each year)
  * </p>
@@ -117,7 +117,7 @@ function frenchtojd(int $month, int $day, int $year): int {}
 
 /**
  * Returns the day of the week
- * @link https://php.net/manual/en/function.jddayofweek.php
+ * @link https://www.php.net/manual/en/function.jddayofweek.php
  * @param int $julian_day <p>
  * A julian day number as integer
  * </p>
@@ -154,7 +154,7 @@ function jddayofweek(int $julian_day, int $mode = CAL_DOW_DAYNO): string|int {}
 
 /**
  * Returns a month name
- * @link https://php.net/manual/en/function.jdmonthname.php
+ * @link https://www.php.net/manual/en/function.jdmonthname.php
  * @param int $julian_day
  * @param int $mode
  * @return string The month name for the given Julian Day and <i>calendar</i>.
@@ -163,7 +163,7 @@ function jdmonthname(int $julian_day, int $mode): string {}
 
 /**
  * Get Unix timestamp for midnight on Easter of a given year
- * @link https://php.net/manual/en/function.easter-date.php
+ * @link https://www.php.net/manual/en/function.easter-date.php
  * @param int|null $year [optional] <p>
  * The year as a number between 1970 an 2037
  * </p>
@@ -174,7 +174,7 @@ function easter_date(?int $year = null, #[PhpStormStubsElementAvailable(from: '8
 
 /**
  * Get number of days after March 21 on which Easter falls for a given year
- * @link https://php.net/manual/en/function.easter-days.php
+ * @link https://www.php.net/manual/en/function.easter-days.php
  * @param positive-int|null $year [optional] <p>
  * The year as a positive number
  * </p>
@@ -191,7 +191,7 @@ function easter_days(?int $year = null, int $mode = CAL_EASTER_DEFAULT): int {}
 
 /**
  * Convert Unix timestamp to Julian Day
- * @link https://php.net/manual/en/function.unixtojd.php
+ * @link https://www.php.net/manual/en/function.unixtojd.php
  * @param int|null $timestamp defaults to time() <p>
  * A unix timestamp to convert.
  * </p>
@@ -201,7 +201,7 @@ function unixtojd(?int $timestamp = null): int|false {}
 
 /**
  * Convert Julian Day to Unix timestamp
- * @link https://php.net/manual/en/function.jdtounix.php
+ * @link https://www.php.net/manual/en/function.jdtounix.php
  * @param int $julian_day <p>
  * A julian day number between 2440588 and 2465342.
  * </p>
@@ -211,7 +211,7 @@ function jdtounix(int $julian_day): int {}
 
 /**
  * Converts from a supported calendar to Julian Day Count
- * @link https://php.net/manual/en/function.cal-to-jd.php
+ * @link https://www.php.net/manual/en/function.cal-to-jd.php
  * @param int $calendar <p>
  * Calendar to convert from, one of
  * <b>CAL_GREGORIAN</b>,
@@ -237,7 +237,7 @@ function cal_to_jd(int $calendar, int $month, int $day, int $year): int {}
 
 /**
  * Converts from Julian Day Count to a supported calendar
- * @link https://php.net/manual/en/function.cal-from-jd.php
+ * @link https://www.php.net/manual/en/function.cal-from-jd.php
  * @param int $julian_day <p>
  * Julian day as integer
  * </p>
@@ -263,7 +263,7 @@ function cal_from_jd(int $julian_day, int $calendar): array {}
 
 /**
  * Return the number of days in a month for a given year and calendar
- * @link https://php.net/manual/en/function.cal-days-in-month.php
+ * @link https://www.php.net/manual/en/function.cal-days-in-month.php
  * @param int $calendar <p>
  * Calendar to use for calculation
  * </p>
@@ -279,7 +279,7 @@ function cal_days_in_month(int $calendar, int $month, int $year): int {}
 
 /**
  * Returns information about a particular calendar
- * @link https://php.net/manual/en/function.cal-info.php
+ * @link https://www.php.net/manual/en/function.cal-info.php
  * @param int $calendar [optional] <p>
  * Calendar to return information for. If no calendar is specified
  * information about all calendars is returned.

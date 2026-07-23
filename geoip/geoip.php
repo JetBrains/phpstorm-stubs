@@ -6,7 +6,7 @@ use JetBrains\PhpStorm\Pure;
 /**
  * (PECL geoip &gt;= 0.2.0)<br/>
  * Get GeoIP Database information
- * @link https://php.net/manual/en/function.geoip-database-info.php
+ * @link https://www.php.net/manual/en/function.geoip-database-info.php
  * @param int $database [optional] <p>
  * The database type as an integer. You can use the
  * various constants defined with
@@ -20,7 +20,7 @@ function geoip_database_info($database = GEOIP_COUNTRY_EDITION) {}
 /**
  * (PECL geoip &gt;= 0.2.0)<br/>
  * Get the two letter country code
- * @link https://php.net/manual/en/function.geoip-country-code-by-name.php
+ * @link https://www.php.net/manual/en/function.geoip-country-code-by-name.php
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
@@ -33,7 +33,7 @@ function geoip_country_code_by_name($hostname) {}
 /**
  * (PECL geoip &gt;= 0.2.0)<br/>
  * Get the three letter country code
- * @link https://php.net/manual/en/function.geoip-country-code3-by-name.php
+ * @link https://www.php.net/manual/en/function.geoip-country-code3-by-name.php
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
@@ -46,7 +46,7 @@ function geoip_country_code3_by_name($hostname) {}
 /**
  * (PECL geoip &gt;= 0.2.0)<br/>
  * Get the full country name
- * @link https://php.net/manual/en/function.geoip-country-name-by-name.php
+ * @link https://www.php.net/manual/en/function.geoip-country-name-by-name.php
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
@@ -59,7 +59,7 @@ function geoip_country_name_by_name($hostname) {}
 /**
  * (PECL geoip &gt;= 1.0.3)<br/>
  * Get the two letter continent code
- * @link https://php.net/manual/en/function.geoip-continent-code-by-name.php
+ * @link https://www.php.net/manual/en/function.geoip-continent-code-by-name.php
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
@@ -72,7 +72,7 @@ function geoip_continent_code_by_name($hostname) {}
 /**
  * (PECL geoip &gt;= 0.2.0)<br/>
  * Get the organization name
- * @link https://php.net/manual/en/function.geoip-org-by-name.php
+ * @link https://www.php.net/manual/en/function.geoip-org-by-name.php
  * @param string $hostname <p>
  * The hostname or IP address.
  * </p>
@@ -85,7 +85,7 @@ function geoip_org_by_name($hostname) {}
 /**
  * (PECL geoip &gt;= 0.2.0)<br/>
  * Returns the detailed City information found in the GeoIP Database
- * @link https://php.net/manual/en/function.geoip-record-by-name.php
+ * @link https://www.php.net/manual/en/function.geoip-record-by-name.php
  * @param string $hostname <p>
  * The hostname or IP address whose record is to be looked-up.
  * </p>
@@ -98,7 +98,7 @@ function geoip_record_by_name($hostname) {}
 /**
  * (PECL geoip &gt;= 0.2.0)<br/>
  * Get the Internet connection type
- * @link https://php.net/manual/en/function.geoip-id-by-name.php
+ * @link https://www.php.net/manual/en/function.geoip-id-by-name.php
  * @param string $hostname <p>
  * The hostname or IP address whose connection type is to be looked-up.
  * </p>
@@ -110,7 +110,7 @@ function geoip_id_by_name($hostname) {}
 /**
  * (PECL geoip &gt;= 0.2.0)<br/>
  * Get the country code and region
- * @link https://php.net/manual/en/function.geoip-region-by-name.php
+ * @link https://www.php.net/manual/en/function.geoip-region-by-name.php
  * @param string $hostname <p>
  * The hostname or IP address whose region is to be looked-up.
  * </p>
@@ -123,7 +123,7 @@ function geoip_region_by_name($hostname) {}
 /**
  * (PECL geoip &gt;= 1.0.2)<br/>
  * Get the Internet Service Provider (ISP) name
- * @link https://php.net/manual/en/function.geoip-isp-by-name.php
+ * @link https://www.php.net/manual/en/function.geoip-isp-by-name.php
  * @param string $hostname <p>
  * The hostname or IP address.
  * </p>
@@ -136,7 +136,7 @@ function geoip_isp_by_name($hostname) {}
 /**
  * (PECL geoip &gt;= 1.0.1)<br/>
  * Determine if GeoIP Database is available
- * @link https://php.net/manual/en/function.geoip-db-avail.php
+ * @link https://www.php.net/manual/en/function.geoip-db-avail.php
  * @param int $database <p>
  * The database type as an integer. You can use the
  * various constants defined with
@@ -150,7 +150,7 @@ function geoip_db_avail($database) {}
 /**
  * (PECL geoip &gt;= 1.0.1)<br/>
  * Returns detailed information about all GeoIP database types
- * @link https://php.net/manual/en/function.geoip-db-get-all-info.php
+ * @link https://www.php.net/manual/en/function.geoip-db-get-all-info.php
  * @return array the associative array.
  */
 #[Pure]
@@ -159,7 +159,7 @@ function geoip_db_get_all_info() {}
 /**
  * (PECL geoip &gt;= 1.0.1)<br/>
  * Returns the filename of the corresponding GeoIP Database
- * @link https://php.net/manual/en/function.geoip-db-filename.php
+ * @link https://www.php.net/manual/en/function.geoip-db-filename.php
  * @param int $database <p>
  * The database type as an integer. You can use the
  * various constants defined with
@@ -173,7 +173,7 @@ function geoip_db_filename($database) {}
 /**
  * (PECL geoip &gt;= 1.0.4)<br/>
  * Returns the region name for some country and region code combo
- * @link https://php.net/manual/en/function.geoip-region-name-by-code.php
+ * @link https://www.php.net/manual/en/function.geoip-region-name-by-code.php
  * @param string $country_code <p>
  * The two-letter country code (see
  * <b>geoip_country_code_by_name</b>)
@@ -191,7 +191,7 @@ function geoip_region_name_by_code($country_code, $region_code) {}
 /**
  * (PECL geoip &gt;= 1.0.4)<br/>
  * Returns the time zone for some country and region code combo
- * @link https://php.net/manual/en/function.geoip-time-zone-by-country-and-region.php
+ * @link https://www.php.net/manual/en/function.geoip-time-zone-by-country-and-region.php
  * @param string $country_code <p>
  * The two-letter country code (see
  * <b>geoip_country_code_by_name</b>)
@@ -227,7 +227,7 @@ define('GEOIP_CORPORATE_SPEED', 3);
  * <p>
  * The geoip_asnum_by_name() function will return the Autonomous System Numbers (ASN) associated with an IP address.
  * </p>
- * @link https://secure.php.net/manual/en/function.geoip-asnum-by-name.php
+ * @link https://www.php.net/manual/en/function.geoip-asnum-by-name.php
  * @param string $hostname The hostname or IP address
  *
  * @return string|false Returns the ASN on success, or <b>FALSE</b> if the address cannot be found in the database.
@@ -250,7 +250,7 @@ function geoip_asnum_by_name($hostname) {}
  * - Cellular<br>
  * - Corporate<br>
  * </p>
- * @link https://secure.php.net/manual/en/function.geoip-netspeedcell-by-name.php
+ * @link https://www.php.net/manual/en/function.geoip-netspeedcell-by-name.php
  * @param string $hostname The hostname or IP address
  *
  * @return string|false Returns the connection speed on success, or <b>FALSE</b> if the address cannot be found in the database.
@@ -263,7 +263,7 @@ function geoip_netspeedcell_by_name($hostname) {}
  * <p>
  * The geoip_setup_custom_directory() function will change the default directory of the GeoIP database. This is equivalent to changing geoip.custom_directory
  * </p>
- * @link https://secure.php.net/manual/en/function.geoip-setup-custom-directory.php
+ * @link https://www.php.net/manual/en/function.geoip-setup-custom-directory.php
  * @param string $path The full path of where the GeoIP database is on disk.
  *
  * @return void

@@ -10,7 +10,7 @@ use MongoDB\Driver\Exception\InvalidArgumentException;
 /**
  * Class Session
  *
- * @link https://secure.php.net/manual/en/class.mongodb-driver-session.php
+ * @link https://www.php.net/manual/en/class.mongodb-driver-session.php
  * @since 1.4.0
  */
 final class Session
@@ -42,7 +42,7 @@ final class Session
 
     /**
      * Create a new Session (not used)
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.construct.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.construct.php
      * @since 1.4.0
      */
     final private function __construct() {}
@@ -51,14 +51,14 @@ final class Session
 
     /**
      * Aborts a transaction
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.aborttransaction.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.aborttransaction.php
      * @since 1.5.0
      */
     final public function abortTransaction(): void {}
 
     /**
      * Advances the cluster time for this session
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.advanceclustertime.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.advanceclustertime.php
      * @param array|object $clusterTime The cluster time is a document containing a logical timestamp and server signature
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
      * @since 1.4.0
@@ -67,14 +67,14 @@ final class Session
 
     /**
      * Advances the operation time for this session
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.advanceoperationtime.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.advanceoperationtime.php
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
      * @since 1.4.0
      */
     final public function advanceOperationTime(TimestampInterface $operationTime): void {}
 
     /**
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.committransaction.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.committransaction.php
      * @throws InvalidArgumentException On argument parsing errors
      * @throws CommandException If the server could not commit the transaction (e.g. due to conflicts,
      * network issues). In case the exception's MongoDB\Driver\Exception\CommandException::getResultDocument() has a "errorLabels"
@@ -90,7 +90,7 @@ final class Session
      * This method closes an existing session. If a transaction was associated with this session, this transaction is also aborted,
      * and all its operations are rolled back.
      *
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.endsession.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.endsession.php
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
      * @since 1.5.0
      */
@@ -98,7 +98,7 @@ final class Session
 
     /**
      * Returns the cluster time for this session
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.getclustertime.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.getclustertime.php
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException
      * @since 1.4.0
      */
@@ -106,7 +106,7 @@ final class Session
 
     /**
      * Returns the logical session ID for this session
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.getlogicalsessionid.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.getlogicalsessionid.php
      * @return object Returns the logical session ID for this session
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException
      * @since 1.4.0
@@ -115,7 +115,7 @@ final class Session
 
     /**
      * Returns the operation time for this session, or NULL if the session has no operation time
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.getoperationtime.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.getoperationtime.php
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException
      * @since 1.4.0
      */
@@ -123,7 +123,7 @@ final class Session
 
     /**
      * Returns the server to which this session is pinned, or NULL if the session is not pinned to any server.
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.getserver.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.getserver.php
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException
      * @since 1.6.0
      */
@@ -131,7 +131,7 @@ final class Session
 
     /**
      * Returns options for the current transactions, or NULL if no transaction is running.
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.gettransactionoptions.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.gettransactionoptions.php
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException
      * @since 1.7.0
      */
@@ -139,7 +139,7 @@ final class Session
 
     /**
      * Returns the current transaction state
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.gettransactionstate.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.gettransactionstate.php
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException
      * @since 1.7.0
      */
@@ -154,7 +154,7 @@ final class Session
 
     /**
      * Returns whether a multi-document transaction is in progress.
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.isintransaction.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.isintransaction.php
      * @return bool
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException
      * @since 1.6.0
@@ -163,7 +163,7 @@ final class Session
 
     /**
      * Starts a transaction
-     * @link https://secure.php.net/manual/en/mongodb-driver-session.starttransaction.php
+     * @link https://www.php.net/manual/en/mongodb-driver-session.starttransaction.php
      * @param array|object $options
      * @return void
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors

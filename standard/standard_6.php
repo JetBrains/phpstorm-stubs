@@ -10,7 +10,7 @@ use JetBrains\PhpStorm\Pure;
 /**
  * Runs the equivalent of the select() system call on the given
  * arrays of streams with a timeout specified by tv_sec and tv_usec
- * @link https://php.net/manual/en/function.stream-select.php
+ * @link https://www.php.net/manual/en/function.stream-select.php
  * @param array|null &$read <p>
  * The streams listed in the read array will be watched to
  * see if characters become available for reading (more precisely, to see if
@@ -91,7 +91,7 @@ function stream_select(
 
 /**
  * Create a stream context
- * @link https://php.net/manual/en/function.stream-context-create.php
+ * @link https://www.php.net/manual/en/function.stream-context-create.php
  * @param null|array $options [optional] <p>
  * Must be an associative array of associative arrays in the format
  * $arr['wrapper']['option'] = $value.
@@ -111,7 +111,7 @@ function stream_context_create(?array $options = null, ?array $params = null) {}
 
 /**
  * Set parameters for a stream/wrapper/context
- * @link https://php.net/manual/en/function.stream-context-set-params.php
+ * @link https://www.php.net/manual/en/function.stream-context-set-params.php
  * @param resource $context <p>
  * The stream or context to apply the parameters too.
  * </p>
@@ -129,7 +129,7 @@ function stream_context_set_params($context, array $params) {}
 
 /**
  * Retrieves parameters from a context
- * @link https://php.net/manual/en/function.stream-context-get-params.php
+ * @link https://www.php.net/manual/en/function.stream-context-get-params.php
  * @param resource $context <p>
  * A stream resource or a
  * context resource
@@ -141,7 +141,7 @@ function stream_context_get_params($context): array {}
 
 /**
  * Sets an option for a stream/wrapper/context
- * @link https://php.net/manual/en/function.stream-context-set-option.php
+ * @link https://www.php.net/manual/en/function.stream-context-set-option.php
  * @param resource $context <p>
  * The stream or context resource to apply the options too.
  * </p>
@@ -155,7 +155,7 @@ function stream_context_set_option($context, string $wrapper_or_options, string 
 
 /**
  * Sets an option for a stream/wrapper/context
- * @link https://php.net/manual/en/function.stream-context-set-option.php
+ * @link https://www.php.net/manual/en/function.stream-context-set-option.php
  * @param resource $stream_or_context The stream or context resource to apply the options too.
  * @param array $options The options to set for the default context.
  * @return bool true on success or false on failure.
@@ -171,7 +171,7 @@ function stream_context_set_options($context, array $options) {}
 
 /**
  * Retrieve options for a stream/wrapper/context
- * @link https://php.net/manual/en/function.stream-context-get-options.php
+ * @link https://www.php.net/manual/en/function.stream-context-get-options.php
  * @param resource $stream_or_context <p>
  * The stream or context to get options from
  * </p>
@@ -181,7 +181,7 @@ function stream_context_get_options($stream_or_context): array {}
 
 /**
  * Retreive the default stream context
- * @link https://php.net/manual/en/function.stream-context-get-default.php
+ * @link https://www.php.net/manual/en/function.stream-context-get-default.php
  * @param null|array $options [optional] options must be an associative
  * array of associative arrays in the format
  * $arr['wrapper']['option'] = $value.
@@ -195,7 +195,7 @@ function stream_context_get_default(?array $options = null) {}
 
 /**
  * Set the default stream context
- * @link https://php.net/manual/en/function.stream-context-set-default.php
+ * @link https://www.php.net/manual/en/function.stream-context-set-default.php
  * @param array $options <p>
  * The options to set for the default context.
  * </p>
@@ -210,7 +210,7 @@ function stream_context_set_default(array $options) {}
 
 /**
  * Attach a filter to a stream
- * @link https://php.net/manual/en/function.stream-filter-prepend.php
+ * @link https://www.php.net/manual/en/function.stream-filter-prepend.php
  * @param resource $stream <p>
  * The target stream.
  * </p>
@@ -245,7 +245,7 @@ function stream_filter_prepend($stream, string $filter_name, int $mode = 0, mixe
 
 /**
  * Attach a filter to a stream
- * @link https://php.net/manual/en/function.stream-filter-append.php
+ * @link https://www.php.net/manual/en/function.stream-filter-append.php
  * @param resource $stream <p>
  * The target stream.
  * </p>
@@ -279,7 +279,7 @@ function stream_filter_append($stream, string $filter_name, int $mode = 0, mixed
 
 /**
  * Remove a filter from a stream
- * @link https://php.net/manual/en/function.stream-filter-remove.php
+ * @link https://www.php.net/manual/en/function.stream-filter-remove.php
  * @param resource $stream_filter <p>
  * The stream filter to be removed.
  * </p>
@@ -289,7 +289,7 @@ function stream_filter_remove($stream_filter): bool {}
 
 /**
  * Open Internet or Unix domain socket connection
- * @link https://php.net/manual/en/function.stream-socket-client.php
+ * @link https://www.php.net/manual/en/function.stream-socket-client.php
  * @param string $address <p>
  * Address to the socket to connect to.
  * </p>
@@ -331,7 +331,7 @@ function stream_socket_client(string $address, &$error_code = null, &$error_mess
 
 /**
  * Create an Internet or Unix domain server socket
- * @link https://php.net/manual/en/function.stream-socket-server.php
+ * @link https://www.php.net/manual/en/function.stream-socket-server.php
  * @param string $address <p>
  * The type of socket created is determined by the transport specified
  * using standard URL formatting: transport://target.
@@ -381,7 +381,7 @@ function stream_socket_server(string $address, &$error_code = null, &$error_mess
 
 /**
  * Accept a connection on a socket created by {@see stream_socket_server}
- * @link https://php.net/manual/en/function.stream-socket-accept.php
+ * @link https://www.php.net/manual/en/function.stream-socket-accept.php
  * @param resource $socket
  * @param float|null $timeout [optional] <p>
  * Override the default socket accept timeout. Time should be given in
@@ -401,7 +401,7 @@ function stream_socket_accept($socket, ?float $timeout = null, &$peer_name = nul
 
 /**
  * Retrieve the name of the local or remote sockets
- * @link https://php.net/manual/en/function.stream-socket-get-name.php
+ * @link https://www.php.net/manual/en/function.stream-socket-get-name.php
  * @param resource $socket <p>
  * The socket to get the name of.
  * </p>
@@ -415,7 +415,7 @@ function stream_socket_get_name($socket, bool $remote): string|false {}
 
 /**
  * Receives data from a socket, connected or not
- * @link https://php.net/manual/en/function.stream-socket-recvfrom.php
+ * @link https://www.php.net/manual/en/function.stream-socket-recvfrom.php
  * @param resource $socket <p>
  * The remote socket.
  * </p>
@@ -454,7 +454,7 @@ function stream_socket_recvfrom($socket, int $length, int $flags = 0, &$address 
 
 /**
  * Sends a message to a socket, whether it is connected or not
- * @link https://php.net/manual/en/function.stream-socket-sendto.php
+ * @link https://www.php.net/manual/en/function.stream-socket-sendto.php
  * @param resource $socket <p>
  * The socket to send data to.
  * </p>
@@ -487,7 +487,7 @@ function stream_socket_sendto($socket, string $data, int $flags = 0, string $add
 
 /**
  * Turns encryption on/off on an already connected socket
- * @link https://php.net/manual/en/function.stream-socket-enable-crypto.php
+ * @link https://www.php.net/manual/en/function.stream-socket-enable-crypto.php
  * @param resource $stream <p>
  * The stream resource.
  * </p>
@@ -509,7 +509,7 @@ function stream_socket_enable_crypto($stream, bool $enable, ?int $crypto_method 
 
 /**
  * Shutdown a full-duplex connection
- * @link https://php.net/manual/en/function.stream-socket-shutdown.php
+ * @link https://www.php.net/manual/en/function.stream-socket-shutdown.php
  * @param resource $stream <p>
  * An open stream (opened with stream_socket_client,
  * for example)
@@ -528,7 +528,7 @@ function stream_socket_shutdown($stream, int $mode): bool {}
 
 /**
  * Creates a pair of connected, indistinguishable socket streams
- * @link https://php.net/manual/en/function.stream-socket-pair.php
+ * @link https://www.php.net/manual/en/function.stream-socket-pair.php
  * @param int $domain <p>
  * The protocol family to be used: STREAM_PF_INET,
  * STREAM_PF_INET6 or
@@ -556,7 +556,7 @@ function stream_socket_pair(int $domain, int $type, int $protocol, #[PhpStormStu
 
 /**
  * Copies data from one stream to another
- * @link https://php.net/manual/en/function.stream-copy-to-stream.php
+ * @link https://www.php.net/manual/en/function.stream-copy-to-stream.php
  * @param resource $from <p>
  * The source stream
  * </p>
@@ -575,7 +575,7 @@ function stream_copy_to_stream($from, $to, ?int $length = null, int $offset = 0,
 
 /**
  * Reads remainder of a stream into a string
- * @link https://php.net/manual/en/function.stream-get-contents.php
+ * @link https://www.php.net/manual/en/function.stream-get-contents.php
  * @param resource $stream <p>
  * A stream resource (e.g. returned from fopen)
  * </p>
@@ -592,7 +592,7 @@ function stream_get_contents($stream, ?int $length = null, int $offset = -1): st
 
 /**
  * Tells whether the stream supports locking.
- * @link https://php.net/manual/en/function.stream-supports-lock.php
+ * @link https://www.php.net/manual/en/function.stream-supports-lock.php
  * @param resource $stream <p>
  * The stream to check.
  * </p>
@@ -602,7 +602,7 @@ function stream_supports_lock($stream): bool {}
 
 /**
  * Gets line from file pointer and parse for CSV fields
- * @link https://php.net/manual/en/function.fgetcsv.php
+ * @link https://www.php.net/manual/en/function.fgetcsv.php
  * @param resource $stream <p>
  * A valid file pointer to a file successfully opened by
  * fopen, popen, or
@@ -641,7 +641,7 @@ function fgetcsv($stream, ?int $length = null, string $separator = ',', string $
 
 /**
  * Format line as CSV and write to file pointer
- * @link https://php.net/manual/en/function.fputcsv.php
+ * @link https://www.php.net/manual/en/function.fputcsv.php
  * @param resource $stream The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @param array $fields <p>
  * An array of values.
@@ -670,7 +670,7 @@ function fputcsv(
 
 /**
  * Portable advisory file locking
- * @link https://php.net/manual/en/function.flock.php
+ * @link https://www.php.net/manual/en/function.flock.php
  * @param resource $stream <p>
  * An open file pointer.
  * </p>
@@ -687,7 +687,7 @@ function flock($stream, int $operation, &$would_block = null): bool {}
 
 /**
  * Extracts all meta tag content attributes from a file and returns an array
- * @link https://php.net/manual/en/function.get-meta-tags.php
+ * @link https://www.php.net/manual/en/function.get-meta-tags.php
  * @param string $filename <p>
  * The path to the HTML file, as a string. This can be a local file or an
  * URL.
@@ -727,7 +727,7 @@ function get_meta_tags(string $filename, bool $use_include_path = false): array|
 
 /**
  * Sets write file buffering on the given stream
- * @link https://php.net/manual/en/function.stream-set-write-buffer.php
+ * @link https://www.php.net/manual/en/function.stream-set-write-buffer.php
  * @param resource $stream <p>
  * The file pointer.
  * </p>
@@ -744,7 +744,7 @@ function stream_set_write_buffer($stream, int $size): int {}
 
 /**
  * Sets read file buffering on the given stream
- * @link https://php.net/manual/en/function.stream-set-read-buffer.php
+ * @link https://www.php.net/manual/en/function.stream-set-read-buffer.php
  * @param resource $stream <p>
  * The file pointer.
  * </p>
@@ -767,7 +767,7 @@ function stream_set_read_buffer($stream, int $size): int {}
  * This means that if there are two processes wanting to write to the same output stream (a file),
  * each is paused after 8K of data to allow the other to write.
  * </p>
- * @link https://php.net/manual/en/function.set-file-buffer.php
+ * @link https://www.php.net/manual/en/function.set-file-buffer.php
  * @param resource $stream The file pointer.
  * @param int $size The number of bytes to buffer. If buffer is 0 then write operations are unbuffered.
  * This ensures that all writes with fwrite() are completed before other processes are allowed to write to that output stream.
@@ -781,7 +781,7 @@ function set_file_buffer($stream, int $size): int {}
  * <p>Sets blocking or non-blocking mode on a stream.
  * This function works for any stream that supports non-blocking mode (currently, regular files and socket streams)
  * </p>
- * @link https://php.net/manual/en/function.set-socket-blocking.php
+ * @link https://www.php.net/manual/en/function.set-socket-blocking.php
  * @param resource $socket
  * @param bool $mode If mode is FALSE, the given stream will be switched to non-blocking mode, and if TRUE, it will be switched to blocking mode.
  * This affects calls like fgets() and fread() that read from the stream.
@@ -795,7 +795,7 @@ function set_socket_blocking($socket, bool $mode): bool {}
 
 /**
  * Set blocking/non-blocking mode on a stream
- * @link https://php.net/manual/en/function.stream-set-blocking.php
+ * @link https://www.php.net/manual/en/function.stream-set-blocking.php
  * @param resource $stream <p>
  * The stream.
  * </p>
@@ -816,7 +816,7 @@ function stream_set_blocking($stream, bool $enable): bool {}
 /**
  * Alias:
  * {@see stream_set_blocking}
- * @link https://php.net/manual/en/function.socket-set-blocking.php
+ * @link https://www.php.net/manual/en/function.socket-set-blocking.php
  * @param resource $stream <p>
  * The stream.
  * </p>
@@ -836,7 +836,7 @@ function socket_set_blocking($stream, bool $enable): bool {}
 
 /**
  * Retrieves header/meta data from streams/file pointers
- * @link https://php.net/manual/en/function.stream-get-meta-data.php
+ * @link https://www.php.net/manual/en/function.stream-get-meta-data.php
  * @param resource $stream <p>
  * The stream can be any stream created by fopen,
  * fsockopen and pfsockopen.
@@ -901,7 +901,7 @@ function stream_get_meta_data($stream): array {}
 
 /**
  * Gets line from stream resource up to a given delimiter
- * @link https://php.net/manual/en/function.stream-get-line.php
+ * @link https://www.php.net/manual/en/function.stream-get-line.php
  * @param resource $stream <p>
  * A valid file handle.
  * </p>
@@ -921,7 +921,7 @@ function stream_get_line($stream, int $length, string $ending = ''): string|fals
 
 /**
  * Register a URL wrapper implemented as a PHP class
- * @link https://php.net/manual/en/function.stream-wrapper-register.php
+ * @link https://www.php.net/manual/en/function.stream-wrapper-register.php
  * @param string $protocol <p>
  * The wrapper name to be registered.
  * </p>
@@ -945,7 +945,7 @@ function stream_wrapper_register(string $protocol, string $class, int $flags = 0
  * Alias:
  * {@see stream_wrapper_register}
  * <p>Register a URL wrapper implemented as a PHP class</p>
- * @link https://php.net/manual/en/function.stream-register-wrapper.php
+ * @link https://www.php.net/manual/en/function.stream-register-wrapper.php
  * @param string $protocol <p>
  * The wrapper name to be registered.
  * </p>
@@ -967,7 +967,7 @@ function stream_register_wrapper(string $protocol, string $class, int $flags = 0
 
 /**
  * Resolve filename against the include path according to the same rules as fopen()/include().
- * @link https://php.net/manual/en/function.stream-resolve-include-path.php
+ * @link https://www.php.net/manual/en/function.stream-resolve-include-path.php
  * @param string $filename The filename to resolve.
  * @return string|false containing the resolved absolute filename, or FALSE on failure.
  * @since 5.3
@@ -976,7 +976,7 @@ function stream_resolve_include_path(string $filename): string|false {}
 
 /**
  * Unregister a URL wrapper
- * @link https://php.net/manual/en/function.stream-wrapper-unregister.php
+ * @link https://www.php.net/manual/en/function.stream-wrapper-unregister.php
  * @param string $protocol <p>
  * </p>
  * @return bool true on success or false on failure.
@@ -985,7 +985,7 @@ function stream_wrapper_unregister(string $protocol): bool {}
 
 /**
  * Restores a previously unregistered built-in wrapper
- * @link https://php.net/manual/en/function.stream-wrapper-restore.php
+ * @link https://www.php.net/manual/en/function.stream-wrapper-restore.php
  * @param string $protocol <p>
  * </p>
  * @return bool true on success or false on failure.
@@ -994,7 +994,7 @@ function stream_wrapper_restore(string $protocol): bool {}
 
 /**
  * Retrieve list of registered streams
- * @link https://php.net/manual/en/function.stream-get-wrappers.php
+ * @link https://www.php.net/manual/en/function.stream-get-wrappers.php
  * @return list<string> an indexed array containing the name of all stream wrappers
  * available on the running system.
  */
@@ -1003,7 +1003,7 @@ function stream_get_wrappers(): array {}
 
 /**
  * Retrieve list of registered socket transports
- * @link https://php.net/manual/en/function.stream-get-transports.php
+ * @link https://www.php.net/manual/en/function.stream-get-transports.php
  * @return list<string> an indexed array of socket transports names.
  */
 #[Pure(true)]
@@ -1011,7 +1011,7 @@ function stream_get_transports(): array {}
 
 /**
  * Checks if a stream is a local stream
- * @link https://php.net/manual/en/function.stream-is-local.php
+ * @link https://www.php.net/manual/en/function.stream-is-local.php
  * @param mixed $stream <p>
  * The stream resource or URL to check.
  * </p>
@@ -1023,7 +1023,7 @@ function stream_is_local($stream, #[PhpStormStubsElementAvailable(from: '8.6')] 
 
 /**
  * Fetches all the headers sent by the server in response to an HTTP request
- * @link https://php.net/manual/en/function.get-headers.php
+ * @link https://www.php.net/manual/en/function.get-headers.php
  * @param string $url <p>
  * The target URL.
  * </p>
@@ -1045,7 +1045,7 @@ function get_headers(
 
 /**
  * Set timeout period on a stream
- * @link https://php.net/manual/en/function.stream-set-timeout.php
+ * @link https://www.php.net/manual/en/function.stream-set-timeout.php
  * @param resource $stream <p>
  * The target stream.
  * </p>
@@ -1068,7 +1068,7 @@ function stream_set_timeout(
  * Alias:
  * {@see stream_set_timeout}
  * Set timeout period on a stream
- * @link https://php.net/manual/en/function.socket-set-timeout.php
+ * @link https://www.php.net/manual/en/function.socket-set-timeout.php
  * @param resource $stream <p>
  * The target stream.
  * </p>
@@ -1092,7 +1092,7 @@ function socket_set_timeout(
  * Alias:
  * {@see stream_get_meta_data}
  * Retrieves header/meta data from streams/file pointers
- * @link https://php.net/manual/en/function.socket-get-status.php
+ * @link https://www.php.net/manual/en/function.socket-get-status.php
  * @param resource $stream <p>
  * The stream can be any stream created by fopen,
  * fsockopen and pfsockopen.
@@ -1156,7 +1156,7 @@ function socket_get_status($stream): array {}
 
 /**
  * Returns canonicalized absolute pathname
- * @link https://php.net/manual/en/function.realpath.php
+ * @link https://www.php.net/manual/en/function.realpath.php
  * @param string $path <p>
  * The path being checked.
  * </p>
@@ -1172,7 +1172,7 @@ function realpath(#[FileReference] string $path): string|false {}
 
 /**
  * Match filename against a pattern
- * @link https://php.net/manual/en/function.fnmatch.php
+ * @link https://www.php.net/manual/en/function.fnmatch.php
  * @param string $pattern <p>
  * The shell wildcard pattern.
  * </p>

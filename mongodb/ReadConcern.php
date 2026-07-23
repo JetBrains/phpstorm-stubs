@@ -7,7 +7,7 @@ use stdClass;
 
 /**
  * MongoDB\Driver\ReadConcern controls the level of isolation for read operations for replica sets and replica set shards. This option requires the WiredTiger storage engine and MongoDB 3.2 or later.
- * @link https://php.net/manual/en/class.mongodb-driver-readconcern.php
+ * @link https://www.php.net/manual/en/class.mongodb-driver-readconcern.php
  * @since 1.1.0
  */
 final class ReadConcern implements Serializable
@@ -36,7 +36,7 @@ final class ReadConcern implements Serializable
 
     /**
      * Construct immutable ReadConcern
-     * @link https://php.net/manual/en/mongodb-driver-readconcern.construct.php
+     * @link https://www.php.net/manual/en/mongodb-driver-readconcern.construct.php
      */
     final public function __construct(?string $level = null) {}
 
@@ -44,7 +44,7 @@ final class ReadConcern implements Serializable
 
     /**
      * Returns the ReadConcern's "level" option
-     * @link https://php.net/manual/en/mongodb-driver-readconcern.getlevel.php
+     * @link https://www.php.net/manual/en/mongodb-driver-readconcern.getlevel.php
      * @return string|null
      * @since 1.0.0
      */
@@ -52,14 +52,14 @@ final class ReadConcern implements Serializable
 
     /**
      * Returns an object for BSON serialization
-     * @link https://php.net/manual/en/mongodb-driver-readconcern.bsonserialize.php
+     * @link https://www.php.net/manual/en/mongodb-driver-readconcern.bsonserialize.php
      * @since 1.2.0
      */
     final public function bsonSerialize(): stdClass {}
 
     /**
      * Checks if this is the default read concern
-     * @link https://secure.php.net/manual/en/mongodb-driver-readconcern.isdefault.php
+     * @link https://www.php.net/manual/en/mongodb-driver-readconcern.isdefault.php
      * @since 1.3.0
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors.
      */

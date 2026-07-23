@@ -12,7 +12,7 @@ final class ReflectionGenerator
     /**
      * Constructs a ReflectionGenerator object
      *
-     * @link https://php.net/manual/en/reflectiongenerator.construct.php
+     * @link https://www.php.net/manual/en/reflectiongenerator.construct.php
      * @param Generator $generator A generator object.
      * @since 7.0
      */
@@ -21,7 +21,7 @@ final class ReflectionGenerator
     /**
      * Gets the currently executing line of the generator
      *
-     * @link https://php.net/manual/en/reflectiongenerator.getexecutingline.php
+     * @link https://www.php.net/manual/en/reflectiongenerator.getexecutingline.php
      * @return int Returns the line number of the currently executing statement
      * in the generator.
      * @since 7.0
@@ -32,7 +32,7 @@ final class ReflectionGenerator
     /**
      * Gets the file name of the currently executing generator
      *
-     * @link https://php.net/manual/en/reflectiongenerator.getexecutingfile.php
+     * @link https://www.php.net/manual/en/reflectiongenerator.getexecutingfile.php
      * @return string Returns the full path and file name of the currently
      * executing generator.
      * @since 7.0
@@ -43,7 +43,7 @@ final class ReflectionGenerator
     /**
      * Gets the trace of the executing generator
      *
-     * @link https://php.net/manual/en/reflectiongenerator.gettrace.php
+     * @link https://www.php.net/manual/en/reflectiongenerator.gettrace.php
      * @param int $options The value of <em>options</em> can be any of the following the following flags.
      *
      * Available options:
@@ -62,7 +62,7 @@ final class ReflectionGenerator
     /**
      * Gets the function name of the generator
      *
-     * @link https://php.net/manual/en/reflectiongenerator.getfunction.php
+     * @link https://www.php.net/manual/en/reflectiongenerator.getfunction.php
      * @return ReflectionFunctionAbstract Returns a {@see ReflectionFunctionAbstract}
      * class. This will be {@see ReflectionFunction} for functions,
      * or {@see ReflectionMethod} for methods.
@@ -74,7 +74,7 @@ final class ReflectionGenerator
     /**
      * Gets the function name of the generator
      *
-     * @link https://php.net/manual/en/reflectiongenerator.getthis.php
+     * @link https://www.php.net/manual/en/reflectiongenerator.getthis.php
      * @return object|null Returns the $this value, or {@see null} if the
      * generator was not created in a class context.
      * @since 7.0
@@ -85,7 +85,7 @@ final class ReflectionGenerator
     /**
      * Gets the executing Generator object
      *
-     * @link https://php.net/manual/en/reflectiongenerator.construct.php
+     * @link https://www.php.net/manual/en/reflectiongenerator.construct.php
      * @return Generator Returns the currently executing Generator object.
      * @since 7.0
      */

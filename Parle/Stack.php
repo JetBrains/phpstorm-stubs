@@ -31,7 +31,7 @@ class Stack
     /**
      * Pop an item from the stack
      *
-     * @link https://php.net/manual/en/parle-stack.pop.php
+     * @link https://www.php.net/manual/en/parle-stack.pop.php
      * @return void
      */
     public function pop(): void {}
@@ -39,7 +39,7 @@ class Stack
     /**
      * Push an item into the stack
      *
-     * @link https://php.net/manual/en/parle-stack.push.php
+     * @link https://www.php.net/manual/en/parle-stack.push.php
      * @param TValue $item Variable to be pushed.
      * @return void
      */

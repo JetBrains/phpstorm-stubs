@@ -8,13 +8,13 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Represents an element in an XML document.
- * @link https://php.net/manual/en/class.simplexmlelement.php
+ * @link https://www.php.net/manual/en/class.simplexmlelement.php
  */
 class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator, Stringable, RecursiveIterator
 {
     /**
      * Creates a new SimpleXMLElement object
-     * @link https://php.net/manual/en/simplexmlelement.construct.php
+     * @link https://www.php.net/manual/en/simplexmlelement.construct.php
      * @param string $data A well-formed XML string or the path or URL to an XML document if data_is_url is TRUE.
      * @param int $options Optionally used to specify additional Libxml parameters.
      * @param bool $dataIsURL By default, data_is_url is FALSE.
@@ -43,7 +43,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Return a well-formed XML string based on SimpleXML element
-     * @link https://php.net/manual/en/simplexmlelement.asxml.php
+     * @link https://www.php.net/manual/en/simplexmlelement.asxml.php
      * @param string $filename [optional] <p>
      * If specified, the function writes the data to the file rather than
      * returning it.
@@ -60,7 +60,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     /**
      * Alias of <b>SimpleXMLElement::asXML</b>
      * Return a well-formed XML string based on SimpleXML element
-     * @link https://php.net/manual/en/simplexmlelement.savexml.php
+     * @link https://www.php.net/manual/en/simplexmlelement.savexml.php
      * @param string $filename [optional] <p>
      * If specified, the function writes the data to the file rather than
      * returning it.
@@ -75,7 +75,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Runs XPath query on XML data
-     * @link https://php.net/manual/en/simplexmlelement.xpath.php
+     * @link https://www.php.net/manual/en/simplexmlelement.xpath.php
      * @param string $expression <p>
      * An XPath path
      * </p>
@@ -87,7 +87,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Creates a prefix/ns context for the next XPath query
-     * @link https://php.net/manual/en/simplexmlelement.registerxpathnamespace.php
+     * @link https://www.php.net/manual/en/simplexmlelement.registerxpathnamespace.php
      * @param string $prefix <p>
      * The namespace prefix to use in the XPath query for the namespace given in
      * <i>ns</i>.
@@ -107,7 +107,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Identifies an element's attributes
-     * @link https://php.net/manual/en/simplexmlelement.attributes.php
+     * @link https://www.php.net/manual/en/simplexmlelement.attributes.php
      * @param string $namespaceOrPrefix [optional] <p>
      * An optional namespace for the retrieved attributes
      * </p>
@@ -130,7 +130,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Finds children of given node
-     * @link https://php.net/manual/en/simplexmlelement.children.php
+     * @link https://www.php.net/manual/en/simplexmlelement.children.php
      * @param string $namespaceOrPrefix [optional] <p>
      * An XML namespace.
      * </p>
@@ -153,7 +153,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Returns namespaces used in document
-     * @link https://php.net/manual/en/simplexmlelement.getnamespaces.php
+     * @link https://www.php.net/manual/en/simplexmlelement.getnamespaces.php
      * @param bool $recursive [optional] <p>
      * If specified, returns all namespaces used in parent and child nodes.
      * Otherwise, returns only namespaces used in root node.
@@ -168,7 +168,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Returns namespaces declared in document
-     * @link https://php.net/manual/en/simplexmlelement.getdocnamespaces.php
+     * @link https://www.php.net/manual/en/simplexmlelement.getdocnamespaces.php
      * @param bool $recursive [optional] <p>
      * If specified, returns all namespaces declared in parent and child nodes.
      * Otherwise, returns only namespaces declared in root node.
@@ -190,7 +190,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Gets the name of the XML element
-     * @link https://php.net/manual/en/simplexmlelement.getname.php
+     * @link https://www.php.net/manual/en/simplexmlelement.getname.php
      * @return string The getName method returns as a string the
      * name of the XML tag referenced by the SimpleXMLElement object.
      * @since 5.1
@@ -201,7 +201,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Adds a child element to the XML node
-     * @link https://php.net/manual/en/simplexmlelement.addchild.php
+     * @link https://www.php.net/manual/en/simplexmlelement.addchild.php
      * @param string $qualifiedName <p>
      * The name of the child element to add.
      * </p>
@@ -224,7 +224,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Adds an attribute to the SimpleXML element
-     * @link https://php.net/manual/en/simplexmlelement.addattribute.php
+     * @link https://www.php.net/manual/en/simplexmlelement.addattribute.php
      * @param string $qualifiedName <p>
      * The name of the attribute to add.
      * </p>
@@ -247,7 +247,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Returns the string content
-     * @link https://php.net/manual/en/simplexmlelement.tostring.php
+     * @link https://www.php.net/manual/en/simplexmlelement.tostring.php
      * @return string the string content on success or an empty string on failure.
      * @since 5.3
      */
@@ -256,7 +256,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Counts the children of an element
-     * @link https://php.net/manual/en/simplexmlelement.count.php
+     * @link https://www.php.net/manual/en/simplexmlelement.count.php
      * @return int<0,max> the number of elements of an element.
      */
     #[Pure]
@@ -300,7 +300,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Rewind to the first element
-     * @link https://php.net/manual/en/simplexmliterator.rewind.php
+     * @link https://www.php.net/manual/en/simplexmliterator.rewind.php
      * @return void No value is returned.
      */
     #[TentativeType]
@@ -308,7 +308,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Check whether the current element is valid
-     * @link https://php.net/manual/en/simplexmliterator.valid.php
+     * @link https://www.php.net/manual/en/simplexmliterator.valid.php
      * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
      */
     #[Pure]
@@ -317,7 +317,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Returns the current element
-     * @link https://php.net/manual/en/simplexmliterator.current.php
+     * @link https://www.php.net/manual/en/simplexmliterator.current.php
      * @return static the current element as a <b>SimpleXMLElement</b> object.
      */
     #[Pure]
@@ -326,7 +326,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Return current key
-     * @link https://php.net/manual/en/simplexmliterator.key.php
+     * @link https://www.php.net/manual/en/simplexmliterator.key.php
      * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object
      */
     #[TentativeType]
@@ -335,7 +335,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
     /**
      * Move to next element
-     * @link https://php.net/manual/en/simplexmliterator.next.php
+     * @link https://www.php.net/manual/en/simplexmliterator.next.php
      * @return void No value is returned.
      */
     #[TentativeType]
@@ -365,13 +365,13 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 
 /**
  * The SimpleXMLIterator provides recursive iteration over all nodes of a <b>SimpleXMLElement</b> object.
- * @link https://php.net/manual/en/class.simplexmliterator.php
+ * @link https://www.php.net/manual/en/class.simplexmliterator.php
  */
 class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, Countable, Stringable
 {
     /**
      * Rewind to the first element
-     * @link https://php.net/manual/en/simplexmliterator.rewind.php
+     * @link https://www.php.net/manual/en/simplexmliterator.rewind.php
      * @return void No value is returned.
      */
     #[LanguageLevelTypeAware(['8.1' => 'void'], default: '')]
@@ -380,7 +380,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 
     /**
      * Check whether the current element is valid
-     * @link https://php.net/manual/en/simplexmliterator.valid.php
+     * @link https://www.php.net/manual/en/simplexmliterator.valid.php
      * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
      */
     #[Pure]
@@ -390,7 +390,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 
     /**
      * Returns the current element
-     * @link https://php.net/manual/en/simplexmliterator.current.php
+     * @link https://www.php.net/manual/en/simplexmliterator.current.php
      * @return SimpleXMLElement the current element as a <b>SimpleXMLElement</b> object.
      */
     #[Pure]
@@ -399,7 +399,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 
     /**
      * Return current key
-     * @link https://php.net/manual/en/simplexmliterator.key.php
+     * @link https://www.php.net/manual/en/simplexmliterator.key.php
      * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -408,7 +408,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 
     /**
      * Move to next element
-     * @link https://php.net/manual/en/simplexmliterator.next.php
+     * @link https://www.php.net/manual/en/simplexmliterator.next.php
      * @return void No value is returned.
      */
     #[LanguageLevelTypeAware(['8.1' => 'void'], default: '')]
@@ -417,7 +417,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 
     /**
      * Checks whether the current element has sub elements.
-     * @link https://php.net/manual/en/simplexmliterator.haschildren.php
+     * @link https://www.php.net/manual/en/simplexmliterator.haschildren.php
      * @return bool <b>TRUE</b> if the current element has sub-elements, otherwise <b>FALSE</b>
      */
     #[Pure]
@@ -427,7 +427,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 
     /**
      * Returns the sub-elements of the current element
-     * @link https://php.net/manual/en/simplexmliterator.getchildren.php
+     * @link https://www.php.net/manual/en/simplexmliterator.getchildren.php
      * @return SimpleXMLElement|null a <b>SimpleXMLElement</b> object containing
      * the sub-elements of the current element.
      */
@@ -438,7 +438,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 
     /**
      * Returns the string content
-     * @link https://php.net/manual/en/simplexmlelement.tostring.php
+     * @link https://www.php.net/manual/en/simplexmlelement.tostring.php
      * @return string the string content on success or an empty string on failure.
      * @since 5.3
      */
@@ -447,7 +447,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 
     /**
      * Counts the children of an element
-     * @link https://php.net/manual/en/simplexmlelement.count.php
+     * @link https://www.php.net/manual/en/simplexmlelement.count.php
      * @return int the number of elements of an element.
      */
     #[Pure]
@@ -458,7 +458,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 
 /**
  * Interprets an XML file into an object
- * @link https://php.net/manual/en/function.simplexml-load-file.php
+ * @link https://www.php.net/manual/en/function.simplexml-load-file.php
  * @param string $filename <p>
  * Path to the XML file
  * </p>
@@ -495,7 +495,7 @@ function simplexml_load_file(string $filename, ?string $class_name = "SimpleXMLE
 
 /**
  * Interprets a string of XML into an object
- * @link https://php.net/manual/en/function.simplexml-load-string.php
+ * @link https://www.php.net/manual/en/function.simplexml-load-string.php
  * @param string $data <p>
  * A well-formed XML string
  * </p>
@@ -524,7 +524,7 @@ function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLEle
 
 /**
  * Get a SimpleXMLElement object from a DOM node.
- * @link https://php.net/manual/en/function.simplexml-import-dom.php
+ * @link https://www.php.net/manual/en/function.simplexml-import-dom.php
  * @param SimpleXMLElement|DOMNode $node <p>
  * A DOM Element node
  * </p>

@@ -7,7 +7,7 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Output a gz-file
- * @link https://php.net/manual/en/function.readgzfile.php
+ * @link https://www.php.net/manual/en/function.readgzfile.php
  * @param string $filename <p>
  * The file name. This file will be opened from the filesystem and its
  * contents written to standard output.
@@ -22,7 +22,7 @@ function readgzfile(string $filename, #[LanguageLevelTypeAware(['8.5' => 'bool']
 
 /**
  * Rewind the position of a gz-file pointer
- * @link https://php.net/manual/en/function.gzrewind.php
+ * @link https://www.php.net/manual/en/function.gzrewind.php
  * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
@@ -33,7 +33,7 @@ function gzrewind($stream): bool {}
 
 /**
  * Close an open gz-file pointer
- * @link https://php.net/manual/en/function.gzclose.php
+ * @link https://www.php.net/manual/en/function.gzclose.php
  * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
@@ -44,7 +44,7 @@ function gzclose($stream): bool {}
 
 /**
  * Test for EOF on a gz-file pointer
- * @link https://php.net/manual/en/function.gzeof.php
+ * @link https://www.php.net/manual/en/function.gzeof.php
  * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
@@ -56,7 +56,7 @@ function gzeof($stream): bool {}
 
 /**
  * Get character from gz-file pointer
- * @link https://php.net/manual/en/function.gzgetc.php
+ * @link https://www.php.net/manual/en/function.gzgetc.php
  * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
@@ -67,7 +67,7 @@ function gzgetc($stream): string|false {}
 
 /**
  * Get line from file pointer
- * @link https://php.net/manual/en/function.gzgets.php
+ * @link https://www.php.net/manual/en/function.gzgets.php
  * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
@@ -81,7 +81,7 @@ function gzgets($stream, ?int $length = null): string|false {}
 
 /**
  * Get line from gz-file pointer and strip HTML tags
- * @link https://php.net/manual/en/function.gzgetss.php
+ * @link https://www.php.net/manual/en/function.gzgetss.php
  * @param resource $zp <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
@@ -101,7 +101,7 @@ function gzgetss($zp, int $length, $allowable_tags) {}
 
 /**
  * Binary-safe gz-file read
- * @link https://php.net/manual/en/function.gzread.php
+ * @link https://www.php.net/manual/en/function.gzread.php
  * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
@@ -115,7 +115,7 @@ function gzread($stream, int $length): string|false {}
 
 /**
  * Open gz-file
- * @link https://php.net/manual/en/function.gzopen.php
+ * @link https://www.php.net/manual/en/function.gzopen.php
  * @param string $filename <p>
  * The file name.
  * </p>
@@ -144,7 +144,7 @@ function gzopen(string $filename, string $mode, #[LanguageLevelTypeAware(['8.5' 
 
 /**
  * Output all remaining data on a gz-file pointer
- * @link https://php.net/manual/en/function.gzpassthru.php
+ * @link https://www.php.net/manual/en/function.gzpassthru.php
  * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
@@ -156,7 +156,7 @@ function gzpassthru($stream): int {}
 
 /**
  * Seek on a gz-file pointer
- * @link https://php.net/manual/en/function.gzseek.php
+ * @link https://www.php.net/manual/en/function.gzseek.php
  * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
@@ -180,7 +180,7 @@ function gzseek($stream, int $offset, int $whence = SEEK_SET): int {}
 
 /**
  * Tell gz-file pointer read/write position
- * @link https://php.net/manual/en/function.gztell.php
+ * @link https://www.php.net/manual/en/function.gztell.php
  * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
@@ -191,7 +191,7 @@ function gztell($stream): int|false {}
 
 /**
  * Binary-safe gz-file write
- * @link https://php.net/manual/en/function.gzwrite.php
+ * @link https://www.php.net/manual/en/function.gzwrite.php
  * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
@@ -218,7 +218,7 @@ function gzwrite($stream, string $data, ?int $length = null): int|false {}
 
 /**
  * Alias of <b>gzwrite</b>
- * @link https://php.net/manual/en/function.gzputs.php
+ * @link https://www.php.net/manual/en/function.gzputs.php
  * @param resource $stream
  * @param string $data
  * @param int|null $length [optional]
@@ -228,7 +228,7 @@ function gzputs($stream, string $data, ?int $length = null): int|false {}
 
 /**
  * Read entire gz-file into an array
- * @link https://php.net/manual/en/function.gzfile.php
+ * @link https://www.php.net/manual/en/function.gzfile.php
  * @param string $filename <p>
  * The file name.
  * </p>
@@ -242,7 +242,7 @@ function gzfile(string $filename, #[LanguageLevelTypeAware(['8.5' => 'bool'], de
 
 /**
  * Compress a string
- * @link https://php.net/manual/en/function.gzcompress.php
+ * @link https://www.php.net/manual/en/function.gzcompress.php
  * @param string $data <p>
  * The data to compress.
  * </p>
@@ -263,7 +263,7 @@ function gzcompress(string $data, int $level = -1, int $encoding = ZLIB_ENCODING
 
 /**
  * Uncompress a compressed string
- * @link https://php.net/manual/en/function.gzuncompress.php
+ * @link https://www.php.net/manual/en/function.gzuncompress.php
  * @param string $data <p>
  * The data compressed by <b>gzcompress</b>.
  * </p>
@@ -282,7 +282,7 @@ function gzuncompress(string $data, int $max_length = 0): string|false {}
 
 /**
  * Deflate a string
- * @link https://php.net/manual/en/function.gzdeflate.php
+ * @link https://www.php.net/manual/en/function.gzdeflate.php
  * @param string $data <p>
  * The data to deflate.
  * </p>
@@ -301,7 +301,7 @@ function gzdeflate(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_
 
 /**
  * Inflate a deflated string
- * @link https://php.net/manual/en/function.gzinflate.php
+ * @link https://www.php.net/manual/en/function.gzinflate.php
  * @param string $data <p>
  * The data compressed by <b>gzdeflate</b>.
  * </p>
@@ -320,7 +320,7 @@ function gzinflate(string $data, int $max_length = 0): string|false {}
 
 /**
  * Create a gzip compressed string
- * @link https://php.net/manual/en/function.gzencode.php
+ * @link https://www.php.net/manual/en/function.gzencode.php
  * @param string $data <p>
  * The data to encode.
  * </p>
@@ -350,7 +350,7 @@ function gzencode(string $data, int $level = -1, int $encoding = FORCE_GZIP): st
 
 /**
  * Decodes a gzip compressed string
- * @link https://php.net/manual/en/function.gzdecode.php
+ * @link https://www.php.net/manual/en/function.gzdecode.php
  * @param string $data <p>
  * The data to decode, encoded by <b>gzencode</b>.
  * </p>
@@ -365,7 +365,7 @@ function gzdecode(string $data, int $max_length = 0): string|false {}
 
 /**
  * Compress data with the specified encoding
- * @link https://php.net/manual/en/function.zlib-encode.php
+ * @link https://www.php.net/manual/en/function.zlib-encode.php
  * @param string $data <p>
  * </p>
  * @param int $encoding <p>
@@ -380,7 +380,7 @@ function zlib_encode(string $data, int $encoding, int $level = -1): string|false
 
 /**
  * Uncompress any raw/gzip/zlib encoded data
- * @link https://php.net/manual/en/function.zlib-decode.php
+ * @link https://www.php.net/manual/en/function.zlib-decode.php
  * @param string $data <p>
  * </p>
  * @param int $max_length <p>
@@ -393,7 +393,7 @@ function zlib_decode(string $data, int $max_length = 0): string|false {}
 
 /**
  * Returns the coding type used for output compression
- * @link https://php.net/manual/en/function.zlib-get-coding-type.php
+ * @link https://www.php.net/manual/en/function.zlib-get-coding-type.php
  * @return string|false Possible return values are gzip, deflate,
  * or <b>FALSE</b>.
  */
@@ -402,7 +402,7 @@ function zlib_get_coding_type(): string|false {}
 
 /**
  * ob_start callback function to gzip output buffer
- * @link https://php.net/manual/en/function.ob-gzhandler.php
+ * @link https://www.php.net/manual/en/function.ob-gzhandler.php
  * @param string $data
  * @param int $flags
  * @return string|false
@@ -411,7 +411,7 @@ function ob_gzhandler(string $data, int $flags): string|false {}
 
 /**
  * Initialize an incremental deflate context
- * @link https://php.net/manual/en/function.deflate-init.php
+ * @link https://www.php.net/manual/en/function.deflate-init.php
  * @param int $encoding <p>
  * One of the <b>ZLIB_ENCODING_*</b> constants.
  * </p>
@@ -436,7 +436,7 @@ function deflate_init(int $encoding, #[LanguageLevelTypeAware(["8.3" => "array|o
 
 /**
  * Incrementally deflate data
- * @link https://php.net/manual/en/function.deflate-add.php
+ * @link https://www.php.net/manual/en/function.deflate-add.php
  * @param DeflateContext|resource $context <p>
  * A context created with <b>deflate_init()</b>.
  * </p>
@@ -459,7 +459,7 @@ function deflate_add(#[LanguageLevelTypeAware(["8.0" => "DeflateContext"], defau
 
 /**
  * Initialize an incremental inflate context
- * @link https://php.net/manual/en/function.inflate-init.php
+ * @link https://www.php.net/manual/en/function.inflate-init.php
  * @param int $encoding <p>
  * One of the ZLIB_ENCODING_* constants.
  * </p>
@@ -484,7 +484,7 @@ function inflate_init(int $encoding, #[LanguageLevelTypeAware(["8.3" => "array|o
 
 /**
  * Incrementally inflate encoded data
- * @link https://php.net/manual/en/function.inflate-add.php
+ * @link https://www.php.net/manual/en/function.inflate-add.php
  * @param InflateContext|resource $context <p>
  * A context created with <b>inflate_init()</b>.
  * </p>
@@ -549,11 +549,11 @@ final class DeflateContext
 
 define('FORCE_GZIP', 31);
 define('FORCE_DEFLATE', 15);
-/** @link https://php.net/manual/en/zlib.constants.php */
+/** @link https://www.php.net/manual/en/zlib.constants.php */
 define('ZLIB_ENCODING_RAW', -15);
-/** @link https://php.net/manual/en/zlib.constants.php */
+/** @link https://www.php.net/manual/en/zlib.constants.php */
 define('ZLIB_ENCODING_GZIP', 31);
-/** @link https://php.net/manual/en/zlib.constants.php */
+/** @link https://www.php.net/manual/en/zlib.constants.php */
 define('ZLIB_ENCODING_DEFLATE', 15);
 
 define('ZLIB_NO_FLUSH', 0);

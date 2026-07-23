@@ -96,7 +96,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
 
     public function testHttpsLinkSucceeds(): void
     {
-        $phpDoc = "/**\n * @link https://php.net/manual/en/function.fopen.php\n */";
+        $phpDoc = "/**\n * @link https://www.php.net/manual/en/function.fopen.php\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $result = $this->runCheck($this->makeCheck(), $this->makeStubsWithClass($class), '\\TestClass');
         $this->assertFalse($result->hasFailures(), 'https:// link should pass format check');
@@ -104,7 +104,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
 
     public function testHttpLinkIsFailure(): void
     {
-        $phpDoc = "/**\n * @link http://php.net/manual/en/function.fopen.php\n */";
+        $phpDoc = "/**\n * @link http://www.php.net/manual/en/function.fopen.php\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $result = $this->runCheck($this->makeCheck(), $this->makeStubsWithClass($class), '\\TestClass');
         $this->assertTrue($result->hasFailures(), 'http:// link must be flagged');
@@ -128,31 +128,31 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
 
     public function testMultipleHttpLinksAllReported(): void
     {
-        $phpDoc = "/**\n * @link http://php.net/fopen\n * @link http://php.net/fclose\n */";
+        $phpDoc = "/**\n * @link http://www.php.net/fopen\n * @link http://www.php.net/fclose\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $result = $this->runCheck($this->makeCheck(), $this->makeStubsWithClass($class), '\\TestClass');
         $this->assertTrue($result->hasFailures());
         $message = implode(' ', $result->getFailures());
-        $this->assertStringContainsString('http://php.net/fopen', $message);
-        $this->assertStringContainsString('http://php.net/fclose', $message);
+        $this->assertStringContainsString('http://www.php.net/fopen', $message);
+        $this->assertStringContainsString('http://www.php.net/fclose', $message);
     }
 
     public function testMixedLinksOnlyHttpFlagged(): void
     {
-        $phpDoc = "/**\n * @link https://php.net/fopen Good link.\n * @link http://php.net/fclose Bad link.\n */";
+        $phpDoc = "/**\n * @link https://www.php.net/fopen Good link.\n * @link http://www.php.net/fclose Bad link.\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $result = $this->runCheck($this->makeCheck(), $this->makeStubsWithClass($class), '\\TestClass');
         $this->assertTrue($result->hasFailures());
         $message = implode(' ', $result->getFailures());
         $this->assertStringNotContainsString('php.net/fopen', $message, 'https link must not be flagged');
-        $this->assertStringContainsString('http://php.net/fclose', $message);
+        $this->assertStringContainsString('http://www.php.net/fclose', $message);
     }
 
     // ── Method-level phpDoc ───────────────────────────────────────────────────
 
     public function testHttpLinkInMethodPhpDocIsFailure(): void
     {
-        $method = $this->makeMethodWithPhpDoc('doSomething', "/**\n * @link http://php.net/doSomething\n */");
+        $method = $this->makeMethodWithPhpDoc('doSomething', "/**\n * @link http://www.php.net/doSomething\n */");
         $class = $this->makeClass('\\TestClass', methods: [$method]);
         $result = $this->runCheck($this->makeCheck(), $this->makeStubsWithClass($class), '\\TestClass');
         $this->assertTrue($result->hasFailures());
@@ -162,7 +162,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
 
     public function testHttpsLinkInMethodPhpDocSucceeds(): void
     {
-        $method = $this->makeMethodWithPhpDoc('doSomething', "/**\n * @link https://php.net/doSomething\n */");
+        $method = $this->makeMethodWithPhpDoc('doSomething', "/**\n * @link https://www.php.net/doSomething\n */");
         $class = $this->makeClass('\\TestClass', methods: [$method]);
         $result = $this->runCheck($this->makeCheck(), $this->makeStubsWithClass($class), '\\TestClass');
         $this->assertFalse($result->hasFailures());
@@ -172,7 +172,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
 
     public function testFunctionWithHttpsLinkSucceeds(): void
     {
-        $phpDoc = "/**\n * @link https://php.net/manual/en/function.strpos.php\n */";
+        $phpDoc = "/**\n * @link https://www.php.net/manual/en/function.strpos.php\n */";
         $function = $this->makePhpDocFunction('\\strpos', $phpDoc);
         $result = $this->runCheck($this->makeCheck(), $this->makeStubsWithFunction($function), '\\strpos');
         $this->assertFalse($result->hasFailures());
@@ -180,7 +180,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
 
     public function testFunctionWithHttpLinkIsFailure(): void
     {
-        $phpDoc = "/**\n * @link http://php.net/manual/en/function.strpos.php\n */";
+        $phpDoc = "/**\n * @link http://www.php.net/manual/en/function.strpos.php\n */";
         $function = $this->makePhpDocFunction('\\strpos', $phpDoc);
         $result = $this->runCheck($this->makeCheck(), $this->makeStubsWithFunction($function), '\\strpos');
         $this->assertTrue($result->hasFailures());
@@ -194,7 +194,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
             $this->fail('urlFetcher must not be called when liveness is disabled');
         };
 
-        $phpDoc = "/**\n * @link https://php.net/example\n */";
+        $phpDoc = "/**\n * @link https://www.php.net/example\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: false);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
@@ -205,7 +205,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
     {
         $fetcher = fn (string $url): int => 200;
 
-        $phpDoc = "/**\n * @link https://php.net/example\n */";
+        $phpDoc = "/**\n * @link https://www.php.net/example\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
@@ -216,7 +216,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
     {
         $fetcher = fn (string $url): int => 404;
 
-        $phpDoc = "/**\n * @link https://php.net/example\n */";
+        $phpDoc = "/**\n * @link https://www.php.net/example\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
@@ -228,7 +228,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
     {
         $fetcher = fn (string $url): int => 410;
 
-        $phpDoc = "/**\n * @link https://php.net/example\n */";
+        $phpDoc = "/**\n * @link https://www.php.net/example\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
@@ -240,7 +240,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
     {
         $fetcher = fn (string $url): int => 0;  // 0 = curl connection failure
 
-        $phpDoc = "/**\n * @link https://php.net/example\n */";
+        $phpDoc = "/**\n * @link https://www.php.net/example\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
@@ -253,7 +253,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
         // 403 means the server exists but won't serve — treated as alive
         $fetcher = fn (string $url): int => 403;
 
-        $phpDoc = "/**\n * @link https://php.net/example\n */";
+        $phpDoc = "/**\n * @link https://www.php.net/example\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
@@ -266,7 +266,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
         // Even if 301 is returned directly it should be treated as alive.
         $fetcher = fn (string $url): int => 301;
 
-        $phpDoc = "/**\n * @link https://php.net/example\n */";
+        $phpDoc = "/**\n * @link https://www.php.net/example\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $result = $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);
@@ -282,7 +282,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
             return 200;
         };
 
-        $phpDoc = "/**\n * @link http://php.net/example\n */";
+        $phpDoc = "/**\n * @link http://www.php.net/example\n */";
         $class = $this->makeClass('\\TestClass', phpDoc: $phpDoc);
         $check = new PhpDocLinksCheck(null, null, $fetcher, checkLiveness: true);
         $check->run($this->makeStubsWithClass($class), '\\TestClass', PhpVersions::LATEST->value);

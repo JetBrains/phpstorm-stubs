@@ -5,7 +5,7 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Check for alphanumeric character(s)
- * @link https://php.net/manual/en/function.ctype-alnum.php
+ * @link https://www.php.net/manual/en/function.ctype-alnum.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -17,7 +17,7 @@ function ctype_alnum(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
 
 /**
  * Check for alphabetic character(s)
- * @link https://php.net/manual/en/function.ctype-alpha.php
+ * @link https://www.php.net/manual/en/function.ctype-alpha.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -29,7 +29,7 @@ function ctype_alpha(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
 
 /**
  * Check for control character(s)
- * @link https://php.net/manual/en/function.ctype-cntrl.php
+ * @link https://www.php.net/manual/en/function.ctype-cntrl.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -41,7 +41,7 @@ function ctype_cntrl(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
 
 /**
  * Check for numeric character(s)
- * @link https://php.net/manual/en/function.ctype-digit.php
+ * @link https://www.php.net/manual/en/function.ctype-digit.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -53,7 +53,7 @@ function ctype_digit(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
 
 /**
  * Check for lowercase character(s)
- * @link https://php.net/manual/en/function.ctype-lower.php
+ * @link https://www.php.net/manual/en/function.ctype-lower.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -65,7 +65,7 @@ function ctype_lower(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
 
 /**
  * Check for any printable character(s) except space
- * @link https://php.net/manual/en/function.ctype-graph.php
+ * @link https://www.php.net/manual/en/function.ctype-graph.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -78,7 +78,7 @@ function ctype_graph(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
 
 /**
  * Check for printable character(s)
- * @link https://php.net/manual/en/function.ctype-print.php
+ * @link https://www.php.net/manual/en/function.ctype-print.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -93,7 +93,7 @@ function ctype_print(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
 /**
  * Check for any printable character which is not whitespace or an
  * alphanumeric character
- * @link https://php.net/manual/en/function.ctype-punct.php
+ * @link https://www.php.net/manual/en/function.ctype-punct.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -105,7 +105,7 @@ function ctype_punct(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
 
 /**
  * Check for whitespace character(s)
- * @link https://php.net/manual/en/function.ctype-space.php
+ * @link https://www.php.net/manual/en/function.ctype-space.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -119,7 +119,7 @@ function ctype_space(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
 
 /**
  * Check for uppercase character(s)
- * @link https://php.net/manual/en/function.ctype-upper.php
+ * @link https://www.php.net/manual/en/function.ctype-upper.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -131,7 +131,7 @@ function ctype_upper(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
 
 /**
  * Check for character(s) representing a hexadecimal digit
- * @link https://php.net/manual/en/function.ctype-xdigit.php
+ * @link https://www.php.net/manual/en/function.ctype-xdigit.php
  * @param string $text <p>
  * The tested string.
  * </p>
