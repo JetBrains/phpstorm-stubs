@@ -4,7 +4,8 @@ namespace StubTests\Unit\Validator\Enums;
 
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
-use StubTests\Framework\Validator\Enums\EnumInterfacesCheck;
+use StubTests\Framework\Validator\Classes\ClassInterfacesCheck;
+use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblems\ProblemDefinition;
@@ -12,6 +13,10 @@ use StubTests\Framework\Validator\KnownProblems\ProblemType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Unit\Validator\CheckTestCase;
 
+/**
+ * Exercises the enum variant of ClassInterfacesCheck (driven by EntityTypeConfig::forEnum()).
+ * The dedicated EnumInterfacesCheck class was removed in favour of this config-driven reuse.
+ */
 class EnumInterfacesCheckTest extends CheckTestCase
 {
     protected function setUp(): void
@@ -30,7 +35,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
 
     public function testSupportsAllPhpVersions(): void
     {
-        $check = new EnumInterfacesCheck();
+        $check = new ClassInterfacesCheck(entityTypeConfig: EntityTypeConfig::forEnum());
         $this->assertTrue($check->supports(PhpVersions::PHP_8_1->value));
         $this->assertTrue($check->supports(PhpVersions::LATEST->value));
     }
@@ -46,7 +51,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
         $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
-        $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
+        $result = (new ClassInterfacesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
 
         $this->assertTrue($result->hasFailures());
         $this->assertStringContainsString('not found in reflection data', $result->getFailures()[$enumId]);
@@ -61,7 +66,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
         $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([]);
 
-        $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
+        $result = (new ClassInterfacesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
 
         $this->assertTrue($result->hasFailures());
         $this->assertStringContainsString('not found in stubs', $result->getFailures()[$enumId]);
@@ -81,7 +86,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
         $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
-        $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
+        $result = (new ClassInterfacesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
 
         $this->assertFalse($result->hasFailures());
         $this->assertEquals(1, $result->getSuccessCount());
@@ -97,7 +102,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
         $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
-        $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
+        $result = (new ClassInterfacesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
 
         $this->assertFalse($result->hasFailures());
     }
@@ -116,7 +121,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
         $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
-        $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
+        $result = (new ClassInterfacesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
 
         $this->assertTrue($result->hasFailures());
         $failures = $result->getFailures();
@@ -140,7 +145,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
         $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
-        $result = (new EnumInterfacesCheck($provider))->run($stubs, $enumId, '8.1');
+        $result = (new ClassInterfacesCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
 
         $this->assertFalse($result->hasFailures());
     }
@@ -149,6 +154,8 @@ class EnumInterfacesCheckTest extends CheckTestCase
 
     public function testEnumLevelKnownProblemSkipsInterfaceCheck(): void
     {
+        // The unified check reports 'ClassInterfacesCheck' for every entity type, so an
+        // enum-level skip is keyed by (ENUM_TYPE, CheckType::CLASS_INTERFACES).
         $enumId = '\SpecialEnum';
         $spurious = $this->makeInterface('\SpuriousIface');
 
@@ -161,7 +168,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
                 entityType: EntityType::ENUM_TYPE,
                 entityId: $enumId,
                 type: ProblemType::INTERNAL_IMPLEMENTATION,
-                affectedChecks: [CheckType::ENUM_INTERFACES],
+                affectedChecks: [CheckType::CLASS_INTERFACES],
                 versionRange: new PhpVersionRange(PhpVersions::PHP_8_1, PhpVersions::LATEST),
                 reason: 'Enum-level interface skip'
             ),
@@ -174,7 +181,7 @@ class EnumInterfacesCheckTest extends CheckTestCase
         $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
-        $result = (new EnumInterfacesCheck($provider, $registry))->run($stubs, $enumId, '8.1');
+        $result = (new ClassInterfacesCheck(reflectionProvider: $provider, knownProblemsRegistry: $registry, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
 
         $this->assertFalse($result->hasFailures());
         $successes = $result->getSuccesses();
