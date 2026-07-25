@@ -184,6 +184,49 @@ class StubsEntitySerializerTest extends TestCase
         self::assertEquals('int', $propertyData['defaultType']);
     }
 
+    public function testPropertyDefaultValueSurvivesRoundtrip(): void
+    {
+        $class = new PHPClass();
+        $class->setName('TestClass');
+        $class->setId('TestClass');
+
+        $property = new PHPProperty();
+        $property->setName('answer');
+        $property->setAccess(AccessModifier::PUBLIC);
+        $property->setTypeFromSignature(new StandaloneType('int'));
+        $property->setDefaultValue(42);
+
+        $class->addProperty($property);
+
+        $serialized = $this->serializer->serialize($class);
+        $propertyData = $serialized['properties'][0];
+        self::assertTrue($propertyData['hasDefaultValue']);
+        self::assertEquals(42, $propertyData['defaultValue']);
+
+        $restored = $this->serializer->deserialize($serialized)->getProperties()[0];
+        self::assertTrue($restored->hasDefaultValue());
+        self::assertEquals(42, $restored->getDefaultValue());
+    }
+
+    public function testPropertyWithoutDefaultValueSurvivesRoundtrip(): void
+    {
+        $class = new PHPClass();
+        $class->setName('TestClass');
+        $class->setId('TestClass');
+
+        $property = new PHPProperty();
+        $property->setName('noDefault');
+        $property->setAccess(AccessModifier::PUBLIC);
+
+        $class->addProperty($property);
+
+        $serialized = $this->serializer->serialize($class);
+        self::assertFalse($serialized['properties'][0]['hasDefaultValue']);
+
+        $restored = $this->serializer->deserialize($serialized)->getProperties()[0];
+        self::assertFalse($restored->hasDefaultValue());
+    }
+
     public function testSerializeFunctionWithStubMetadata(): void
     {
         $function = new PHPFunction();

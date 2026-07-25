@@ -90,6 +90,13 @@ trait SubEntitySerializerTrait
         $type = $property->getType();
         $data['type'] = $type?->toString() ?? null;
 
+        $data['hasDefaultValue'] = $property->hasDefaultValue();
+        if ($property->hasDefaultValue()) {
+            $data['defaultValue'] = $this->toJsonSafe($property->getDefaultValue());
+        } else {
+            $data['defaultValue'] = null;
+        }
+
         $this->enrichSerializedProperty($data, $property, $parentId, $phpDocStorage);
 
         return $data;
@@ -189,6 +196,11 @@ trait SubEntitySerializerTrait
 
         if (isset($data['type']) && $data['type'] !== null) {
             $property->setTypeFromSignature($this->parseType($data['type']));
+        }
+
+        $property->setHasDefaultValue($data['hasDefaultValue'] ?? false);
+        if (isset($data['defaultValue'])) {
+            $property->setDefaultValue($data['defaultValue']);
         }
 
         $this->enrichDeserializedProperty($property, $data, $parentId, $phpDocStorage);

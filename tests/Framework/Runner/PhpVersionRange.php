@@ -15,6 +15,12 @@ class PhpVersionRange
         $this->from = $from instanceof PhpVersions ? $from->value : self::validateVersion($from);
         $to ??= $from;
         $this->to = $to instanceof PhpVersions ? $to->value : self::validateVersion($to);
+
+        if (version_compare($this->from, $this->to, '>')) {
+            throw new \InvalidArgumentException(
+                "Invalid PHP version range: 'from' ({$this->from}) must not be greater than 'to' ({$this->to})."
+            );
+        }
     }
 
     private static function validateVersion(string $version): string
