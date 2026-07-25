@@ -2,7 +2,6 @@
 
 namespace StubTests\Unit\Validator\Functions;
 
-use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Functions\FunctionSpecialTypeHintsCheck;
 use StubTests\Unit\Validator\CheckTestCase;
@@ -18,17 +17,6 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
     }
 
     // ── Helper ───────────────────────────────────────────────────────────────
-
-    private function makeFunction(string $id, ?string $phpDocReturnType = null): PHPFunction
-    {
-        $fn = new PHPFunction();
-        $fn->setId($id);
-        $fn->setName(ltrim($id, '\\'));
-        if ($phpDocReturnType !== null) {
-            $fn->initStubsMetadata()->setTypeFromPhpDoc($phpDocReturnType);
-        }
-        return $fn;
-    }
 
     private function runCheck(array $functions, string $entityId, string $phpVersion = '8.0'): \StubTests\Framework\Validator\Contracts\CheckResultSet
     {
@@ -64,7 +52,7 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
 
     public function testEndWithCorrectPhpDocIsSuccess(): void
     {
-        $fn = $this->makeFunction('\\end', 'mixed|false');
+        $fn = $this->makeFunction('\\end', typeFromPhpDoc: 'mixed|false');
 
         $result = $this->runCheck([$fn], '\\end');
 
@@ -88,7 +76,7 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
 
     public function testEndWithMixedOnlyIsMissingFalse(): void
     {
-        $fn = $this->makeFunction('\\end', 'mixed');
+        $fn = $this->makeFunction('\\end', typeFromPhpDoc: 'mixed');
 
         $result = $this->runCheck([$fn], '\\end');
 
@@ -102,7 +90,7 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
 
     public function testArrayPopWithCorrectPhpDocIsSuccess(): void
     {
-        $fn = $this->makeFunction('\\array_pop', 'mixed|null');
+        $fn = $this->makeFunction('\\array_pop', typeFromPhpDoc: 'mixed|null');
 
         $result = $this->runCheck([$fn], '\\array_pop');
 
@@ -112,7 +100,7 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
 
     public function testArrayPopWithMixedOnlyIsMissingNull(): void
     {
-        $fn = $this->makeFunction('\\array_pop', 'mixed');
+        $fn = $this->makeFunction('\\array_pop', typeFromPhpDoc: 'mixed');
 
         $result = $this->runCheck([$fn], '\\array_pop');
 
@@ -137,7 +125,7 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
 
     public function testPrevWithCorrectPhpDocIsSuccess(): void
     {
-        $fn = $this->makeFunction('\\prev', 'mixed|false');
+        $fn = $this->makeFunction('\\prev', typeFromPhpDoc: 'mixed|false');
 
         $result = $this->runCheck([$fn], '\\prev');
 
@@ -156,7 +144,7 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
 
     public function testResetWithCorrectPhpDocIsSuccess(): void
     {
-        $fn = $this->makeFunction('\\reset', 'mixed|false');
+        $fn = $this->makeFunction('\\reset', typeFromPhpDoc: 'mixed|false');
 
         $result = $this->runCheck([$fn], '\\reset');
 
@@ -165,7 +153,7 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
 
     public function testCurrentWithCorrectPhpDocIsSuccess(): void
     {
-        $fn = $this->makeFunction('\\current', 'mixed|false');
+        $fn = $this->makeFunction('\\current', typeFromPhpDoc: 'mixed|false');
 
         $result = $this->runCheck([$fn], '\\current');
 
@@ -176,7 +164,7 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
 
     public function testArrayShiftWithCorrectPhpDocIsSuccess(): void
     {
-        $fn = $this->makeFunction('\\array_shift', 'mixed|null');
+        $fn = $this->makeFunction('\\array_shift', typeFromPhpDoc: 'mixed|null');
 
         $result = $this->runCheck([$fn], '\\array_shift');
 
@@ -185,7 +173,7 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
 
     public function testArrayShiftWithWrongPhpDocIsFailure(): void
     {
-        $fn = $this->makeFunction('\\array_shift', 'mixed');
+        $fn = $this->makeFunction('\\array_shift', typeFromPhpDoc: 'mixed');
 
         $result = $this->runCheck([$fn], '\\array_shift');
 
@@ -197,7 +185,7 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
 
     public function testEndWithExtraTypeStillPassesIfContainsMixedAndFalse(): void
     {
-        $fn = $this->makeFunction('\\end', 'mixed|false|int');
+        $fn = $this->makeFunction('\\end', typeFromPhpDoc: 'mixed|false|int');
 
         $result = $this->runCheck([$fn], '\\end');
 
@@ -206,7 +194,7 @@ class FunctionSpecialTypeHintsCheckTest extends CheckTestCase
 
     public function testArrayPopWithExtraTypeStillPassesIfContainsMixedAndNull(): void
     {
-        $fn = $this->makeFunction('\\array_pop', 'mixed|null|string');
+        $fn = $this->makeFunction('\\array_pop', typeFromPhpDoc: 'mixed|null|string');
 
         $result = $this->runCheck([$fn], '\\array_pop');
 

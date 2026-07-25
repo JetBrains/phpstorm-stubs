@@ -2,7 +2,6 @@
 
 namespace StubTests\Unit\Validator\Functions;
 
-use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Functions\FunctionParameterDeprecationCheck;
@@ -28,15 +27,6 @@ class FunctionParameterDeprecationCheckTest extends CheckTestCase
     {
         KnownProblemsRegistry::reset();
         parent::tearDown();
-    }
-
-    private function makeFunction(string $id, array $params = []): PHPFunction
-    {
-        $fn = new PHPFunction();
-        $fn->setId($id);
-        $fn->setName(ltrim($id, '\\'));
-        $fn->setParameters($params);
-        return $fn;
     }
 
     // ── supports() ────────────────────────────────────────────────────────────

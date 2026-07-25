@@ -33,14 +33,6 @@ class FunctionParametersCountCheckTest extends CheckTestCase
     /**
      * Build a PHPFunction with the given id and optional parameters.
      */
-    private function makeFunction(string $id, array $parameters = []): PHPFunction
-    {
-        $fn = new PHPFunction();
-        $fn->setId($id);
-        $fn->setName(ltrim($id, '\\'));
-        $fn->setParameters($parameters);
-        return $fn;
-    }
 
     // ── supports() ────────────────────────────────────────────────────────────
 

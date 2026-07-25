@@ -4,7 +4,6 @@ namespace StubTests\Unit\Validator;
 
 use StubTests\Framework\Parsers\Model\PHPClass;
 use StubTests\Framework\Parsers\Model\PHPConstant;
-use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
@@ -35,14 +34,6 @@ class EntityLookupServiceTest extends CheckTestCase
         $storage->method('getFunctions')->willReturn($functions);
         $storage->method('getConstants')->willReturn($constants);
         return $storage;
-    }
-
-    private function makeFunction(string $id): PHPFunction
-    {
-        $f = new PHPFunction();
-        $f->setId($id);
-        $f->setName(ltrim($id, '\\'));
-        return $f;
     }
 
     // ── findClassById ────────────────────────────────────────────────────────

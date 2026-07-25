@@ -33,22 +33,6 @@ class ClassPropertiesExistCheckTest extends CheckTestCase
     /**
      * Build a real PHPProperty with the given name and optional version bounds.
      */
-    private function makeProperty(
-        string $name,
-        ?string $sinceVersion = null,
-        ?string $removedVersion = null
-    ): PHPProperty {
-        $property = new PHPProperty();
-        $property->setName($name);
-        if ($sinceVersion !== null) {
-            $property->initStubsMetadata()->setSinceVersion($sinceVersion);
-        }
-        if ($removedVersion !== null) {
-            $property->initStubsMetadata()->setRemovedVersion($removedVersion);
-        }
-        return $property;
-    }
-
     public function testSupportsAllPhpVersions(): void
     {
         $this->assertTrue($this->check->supports(PhpVersions::EARLIEST->value));
@@ -145,7 +129,7 @@ class ClassPropertiesExistCheckTest extends CheckTestCase
 
         $stubProperties = [
             $this->makeProperty('oldProp'),
-            $this->makeProperty('newProp', '8.1'),  // since 8.1, not available in 8.0
+            $this->makeProperty('newProp', sinceVersion: '8.1'),  // since 8.1, not available in 8.0
         ];
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [], null, [], $stubProperties);
 
@@ -172,7 +156,7 @@ class ClassPropertiesExistCheckTest extends CheckTestCase
 
         $stubProperties = [
             $this->makeProperty('currentProp'),
-            $this->makeProperty('legacyProp', null, '7.4'),  // removed in 7.4, gone in 8.0
+            $this->makeProperty('legacyProp', removedVersion: '7.4'),  // removed in 7.4, gone in 8.0
         ];
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [], null, [], $stubProperties);
 
@@ -193,7 +177,7 @@ class ClassPropertiesExistCheckTest extends CheckTestCase
         $reflectionProperties = [$this->createMockProperty('justAddedProp')];
         $reflectionClass = $this->createMockClassWithProperties($className, null, null, null, [], null, [], $reflectionProperties);
 
-        $stubProperties = [$this->makeProperty('justAddedProp', '8.0')];  // since exactly 8.0
+        $stubProperties = [$this->makeProperty('justAddedProp', sinceVersion: '8.0')];  // since exactly 8.0
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [], null, [], $stubProperties);
 
         $reflectionProvider = $this->createMockReflectionProvider([], [$reflectionClass]);
@@ -213,7 +197,7 @@ class ClassPropertiesExistCheckTest extends CheckTestCase
         $reflectionProperties = [$this->createMockProperty('lastVersionProp')];
         $reflectionClass = $this->createMockClassWithProperties($className, null, null, null, [], null, [], $reflectionProperties);
 
-        $stubProperties = [$this->makeProperty('lastVersionProp', null, '7.4')];  // removed at exactly 7.4
+        $stubProperties = [$this->makeProperty('lastVersionProp', removedVersion: '7.4')];  // removed at exactly 7.4
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [], null, [], $stubProperties);
 
         $reflectionProvider = $this->createMockReflectionProvider([], [$reflectionClass]);
