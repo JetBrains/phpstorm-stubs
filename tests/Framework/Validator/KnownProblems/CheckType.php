@@ -58,6 +58,9 @@ enum CheckType: string
 
     /**
      * Validates that directly implemented interfaces in stubs match reflection.
+     * Reused for classes and enums via EntityTypeConfig; the check reports this
+     * name for both, so the entity variant is distinguished by the EntityType of
+     * the known problem, not by a separate check name.
      */
     case CLASS_INTERFACES = 'ClassInterfacesCheck';
 
@@ -128,73 +131,41 @@ enum CheckType: string
     case INTERFACE_PARENT_INTERFACES = 'InterfaceParentInterfacesCheck';
 
     /**
-     * Validates that directly implemented interfaces in enum stubs match reflection.
-     */
-    case ENUM_INTERFACES = 'EnumInterfacesCheck';
-
-    /**
      * Validates that all enum cases present in reflection also exist in stubs.
      */
     case ENUM_CASES = 'EnumCasesCheck';
 
     /**
-     * Validates that the `final` modifier on a class in stubs matches reflection.
+     * Validates that the `final` modifier in stubs matches reflection.
+     * Reused for classes and enums via EntityTypeConfig; the check reports this
+     * name regardless of entity type, so known problems for enums are keyed by
+     * (ENUM_TYPE, ClassFinalCheck), not a separate enum-specific name.
      * Only meaningful against the latest PHP version, as stubs cannot express version-specific finality.
      */
     case CLASS_FINAL = 'ClassFinalCheck';
 
     /**
-     * Validates that the `final` modifier on an enum in stubs matches reflection.
-     */
-    case ENUM_FINAL = 'EnumFinalCheck';
-
-    /**
-     * Validates that constants declared in class stubs exist in reflection.
+     * Validates that constants declared in stubs exist in reflection.
+     * Reused for classes, interfaces and enums via EntityTypeConfig; the check
+     * reports this name for all three, so the entity variant is distinguished by
+     * the EntityType of the known problem, not by a separate check name.
      */
     case CLASS_CONSTANTS = 'ClassConstantsCheck';
 
     /**
-     * Validates that constants declared in interface stubs exist in reflection.
-     */
-    case INTERFACE_CONSTANTS = 'InterfaceConstantsCheck';
-
-    /**
-     * Validates that constants declared in enum stubs exist in reflection.
-     */
-    case ENUM_CONSTANTS = 'EnumConstantsCheck';
-
-    /**
-     * Validates that the visibility (public/protected/private) of constants in class stubs matches reflection.
+     * Validates that the visibility (public/protected/private) of constants in stubs matches reflection.
+     * Reused for classes, interfaces and enums via EntityTypeConfig; the check
+     * reports this name for all three (see CLASS_CONSTANTS).
      */
     case CLASS_CONSTANTS_VISIBILITY = 'ClassConstantsVisibilityCheck';
 
     /**
-     * Validates that the visibility of constants in enum stubs matches reflection.
-     */
-    case ENUM_CONSTANTS_VISIBILITY = 'EnumConstantsVisibilityCheck';
-
-    /**
-     * Validates that the visibility of constants in interface stubs matches reflection.
-     */
-    case INTERFACE_CONSTANTS_VISIBILITY = 'InterfaceConstantsVisibilityCheck';
-
-    /**
-     * Validates that the values of constants in class stubs match reflection.
+     * Validates that the values of constants in stubs match reflection.
+     * Reused for classes, interfaces and enums via EntityTypeConfig; the check
+     * reports this name for all three (see CLASS_CONSTANTS).
      * Value comparison is limited to the latest PHP version to avoid false positives.
      */
     case CLASS_CONSTANTS_VALUE = 'ClassConstantsValueCheck';
-
-    /**
-     * Validates that the values of constants in interface stubs match reflection.
-     * Value comparison is limited to the latest PHP version to avoid false positives.
-     */
-    case INTERFACE_CONSTANTS_VALUE = 'InterfaceConstantsValueCheck';
-
-    /**
-     * Validates that the values of constants in enum stubs match reflection.
-     * Value comparison is limited to the latest PHP version to avoid false positives.
-     */
-    case ENUM_CONSTANTS_VALUE = 'EnumConstantsValueCheck';
 
     /**
      * Validates that the `readonly` modifier on properties in stubs matches reflection.

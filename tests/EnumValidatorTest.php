@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\Framework\Validator\Enums\EnumCasesCheck;
-use StubTests\Framework\Validator\Enums\EnumInterfacesCheck;
+use StubTests\Framework\Validator\Classes\ClassInterfacesCheck;
 use StubTests\Framework\Validator\EntityExistsCheck;
 use StubTests\Framework\Validator\EntityNamespaceCheck;
 use StubTests\Framework\Validator\Classes\ClassFinalCheck;
@@ -64,7 +64,7 @@ class EnumValidatorTest extends ValidatorTestBase
             'checkEnumCases' => new CheckDescriptor(EnumCasesCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} cases check failed in PHP {phpVersion}'),
             'checkEnumExists' => new CheckDescriptor(EntityExistsCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} exists in PHP {phpVersion} but not in stubs', $e),
             'checkEnumNamespace' => new CheckDescriptor(EntityNamespaceCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} namespace validation failed in PHP {phpVersion}', $e),
-            'checkEnumInterfaces' => new CheckDescriptor(EnumInterfacesCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} interfaces check failed in PHP {phpVersion}'),
+            'checkEnumInterfaces' => new CheckDescriptor(ClassInterfacesCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} interfaces check failed in PHP {phpVersion}', $e),
 
             // Config-driven checks (using Class checks with EntityTypeConfig::forEnum())
             'checkEnumMethodsExist' => new CheckDescriptor(ClassMethodsExistCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} methods check failed in PHP {phpVersion}', $e),
