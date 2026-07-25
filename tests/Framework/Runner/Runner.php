@@ -95,13 +95,7 @@ class Runner
         $cacheFilePath = $this->cacheDir . '/Stubs.json';
         $phpDocCacheFilePath = $this->cacheDir . '/StubsPhpDoc.json';
 
-        $cacheExists = file_exists($this->cacheDir . '/StubsClasses.json')
-            && file_exists($this->cacheDir . '/StubsFunctions.json')
-            && file_exists($this->cacheDir . '/StubsInterfaces.json')
-            && file_exists($this->cacheDir . '/StubsEnums.json')
-            && file_exists($this->cacheDir . '/StubsConstants.json');
-
-        if ($cacheExists) {
+        if ($this->isStubsCacheComplete()) {
             $phpDocStorage = new PhpDocStorage($phpDocCacheFilePath);
             $serializer = new StubsEntitySerializer($phpDocStorage);
             $storage = new MultiFileJsonStorage($cacheFilePath, $serializer, true, $phpDocStorage);
@@ -130,5 +124,35 @@ class Runner
         $this->stubsCache = $manager;
 
         return $manager;
+    }
+
+    /**
+     * Whether every stub cache artifact required by the read-from-cache path is present.
+     *
+     * MultiFileJsonStorage reads the five per-type files (StubsClasses/Functions/Interfaces/
+     * Enums/Constants.json) — the "Stubs.json" base path is only used to derive those names and
+     * is never read itself — and PhpDocStorage reads StubsPhpDoc.json. A partial cache (e.g. the
+     * per-type files present but StubsPhpDoc.json missing) must fall through to regeneration;
+     * otherwise the entities would load with all PhpDoc metadata (sinceVersion, removedVersion,
+     * typeFromPhpDoc, …) silently dropped, yielding wrong validation results.
+     */
+    public function isStubsCacheComplete(): bool
+    {
+        $requiredFiles = [
+            'StubsClasses.json',
+            'StubsFunctions.json',
+            'StubsInterfaces.json',
+            'StubsEnums.json',
+            'StubsConstants.json',
+            'StubsPhpDoc.json',
+        ];
+
+        foreach ($requiredFiles as $file) {
+            if (!file_exists($this->cacheDir . '/' . $file)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
