@@ -325,6 +325,73 @@ abstract class CheckTestCase extends TestCase
     }
 
     /**
+     * Create a real PHPFunction with all optional metadata.
+     */
+    protected function makeFunction(
+        string $id,
+        array $parameters = [],
+        mixed $returnType = null,
+        ?string $sinceVersion = null,
+        ?string $removedVersion = null,
+        bool $isDeprecated = false,
+        bool $isTentative = false,
+        ?string $typeFromPhpDoc = null,
+    ): PHPFunction {
+        $function = new PHPFunction();
+        $function->setId($id);
+        $function->setName(ltrim($id, '\\'));
+        $function->setParameters($parameters);
+        if ($returnType !== null) {
+            $function->setReturnTypeFromSignature($returnType);
+        }
+        $function->setDeprecated($isDeprecated);
+        $function->setHasTentativeReturnType($isTentative);
+        if ($sinceVersion !== null || $removedVersion !== null) {
+            $function->initStubsMetadata()->setSinceVersion($sinceVersion);
+            $function->initStubsMetadata()->setRemovedVersion($removedVersion);
+        }
+        if ($typeFromPhpDoc !== null) {
+            $function->initStubsMetadata()->setTypeFromPhpDoc($typeFromPhpDoc);
+        }
+        return $function;
+    }
+
+    /**
+     * Create a real PHPProperty with all optional metadata.
+     */
+    protected function makeProperty(
+        string $name,
+        mixed $type = null,
+        string $visibility = 'public',
+        bool $isStatic = false,
+        bool $isReadonly = false,
+        ?string $sinceVersion = null,
+        ?string $removedVersion = null,
+        ?array $languageLevelTypes = null,
+        ?string $defaultType = null,
+    ): PHPProperty {
+        $property = new PHPProperty();
+        $property->setName($name);
+        if ($type !== null) {
+            $property->setTypeFromSignature($type);
+        }
+        $property->setAccess($this->createAccessModifier($visibility));
+        $property->setIsStatic($isStatic);
+        $property->setIsReadonly($isReadonly);
+        if ($sinceVersion !== null || $removedVersion !== null) {
+            $property->initStubsMetadata()->setSinceVersion($sinceVersion);
+            $property->initStubsMetadata()->setRemovedVersion($removedVersion);
+        }
+        if ($languageLevelTypes !== null) {
+            $property->initStubsMetadata()->setLanguageLevelTypes($languageLevelTypes);
+        }
+        if ($defaultType !== null) {
+            $property->initStubsMetadata()->setDefaultType($defaultType);
+        }
+        return $property;
+    }
+
+    /**
      * Create a real PHPParameter with all optional metadata.
      */
     protected function makeParam(

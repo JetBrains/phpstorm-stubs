@@ -2,7 +2,6 @@
 
 namespace StubTests\Unit\Validator\Functions;
 
-use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Functions\FunctionTentativeReturnTypeCheck;
@@ -27,15 +26,6 @@ class FunctionTentativeReturnTypeCheckTest extends CheckTestCase
         parent::tearDown();
     }
 
-    private function makeFunction(string $id, bool $tentative): PHPFunction
-    {
-        $fn = new PHPFunction();
-        $fn->setId($id);
-        $fn->setName(ltrim($id, '\\'));
-        $fn->setHasTentativeReturnType($tentative);
-        return $fn;
-    }
-
     // ── supports() ────────────────────────────────────────────────────────────
 
     public function testSupportsOnlyPhp81AndAbove(): void
@@ -56,7 +46,7 @@ class FunctionTentativeReturnTypeCheckTest extends CheckTestCase
 
         $provider = $this->createMockReflectionProvider([]);
         $stubs = $this->createMockStorageManager();
-        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, false)]);
+        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, isTentative: false)]);
 
         $result = (new FunctionTentativeReturnTypeCheck($provider))->run($stubs, $id, '8.1');
 
@@ -68,7 +58,7 @@ class FunctionTentativeReturnTypeCheckTest extends CheckTestCase
     {
         $id = '\\missing_func';
 
-        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, true)]);
+        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, isTentative: true)]);
         $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([]);
 
@@ -84,9 +74,9 @@ class FunctionTentativeReturnTypeCheckTest extends CheckTestCase
     {
         $id = '\\strlen';
 
-        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, false)]);
+        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, isTentative: false)]);
         $stubs = $this->createMockStorageManager();
-        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, false)]);
+        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, isTentative: false)]);
 
         $result = (new FunctionTentativeReturnTypeCheck($provider))->run($stubs, $id, '8.1');
 
@@ -98,9 +88,9 @@ class FunctionTentativeReturnTypeCheckTest extends CheckTestCase
     {
         $id = '\\iterator_to_array';
 
-        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, true)]);
+        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, isTentative: true)]);
         $stubs = $this->createMockStorageManager();
-        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, true)]);
+        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, isTentative: true)]);
 
         $result = (new FunctionTentativeReturnTypeCheck($provider))->run($stubs, $id, '8.1');
 
@@ -114,9 +104,9 @@ class FunctionTentativeReturnTypeCheckTest extends CheckTestCase
     {
         $id = '\\iterator_to_array';
 
-        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, true)]);
+        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, isTentative: true)]);
         $stubs = $this->createMockStorageManager();
-        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, false)]);
+        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, isTentative: false)]);
 
         $result = (new FunctionTentativeReturnTypeCheck($provider))->run($stubs, $id, '8.1');
 
@@ -130,9 +120,9 @@ class FunctionTentativeReturnTypeCheckTest extends CheckTestCase
     {
         $id = '\\some_func';
 
-        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, false)]);
+        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, isTentative: false)]);
         $stubs = $this->createMockStorageManager();
-        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, true)]);
+        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, isTentative: true)]);
 
         $result = (new FunctionTentativeReturnTypeCheck($provider))->run($stubs, $id, '8.1');
 
@@ -164,9 +154,9 @@ class FunctionTentativeReturnTypeCheckTest extends CheckTestCase
         $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
 
         // Would fail: reflection tentative, stub not tentative
-        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, true)]);
+        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, isTentative: true)]);
         $stubs = $this->createMockStorageManager();
-        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, false)]);
+        $stubs->method('getFunctions')->willReturn([$this->makeFunction($id, isTentative: false)]);
 
         $result = (new FunctionTentativeReturnTypeCheck($provider, $registry))->run($stubs, $id, '8.1');
 

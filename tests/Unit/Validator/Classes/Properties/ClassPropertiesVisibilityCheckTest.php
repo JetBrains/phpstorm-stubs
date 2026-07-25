@@ -2,9 +2,7 @@
 
 namespace StubTests\Unit\Validator\Classes\Properties;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
 use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPProperty;
 use StubTests\Framework\Validator\Classes\Properties\ClassPropertiesVisibilityCheck;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Unit\Validator\CheckTestCase;
@@ -30,28 +28,6 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
     {
         KnownProblemsRegistry::reset();
         parent::tearDown();
-    }
-
-    private function makeProperty(
-        string $name,
-        string $visibility = 'public',
-        ?string $sinceVersion = null,
-        ?string $removedVersion = null
-    ): PHPProperty {
-        $property = new PHPProperty();
-        $property->setName($name);
-        $property->setAccess(match ($visibility) {
-            'protected' => AccessModifier::PROTECTED,
-            'private' => AccessModifier::PRIVATE,
-            default => AccessModifier::PUBLIC,
-        });
-        if ($sinceVersion !== null) {
-            $property->initStubsMetadata()->setSinceVersion($sinceVersion);
-        }
-        if ($removedVersion !== null) {
-            $property->initStubsMetadata()->setRemovedVersion($removedVersion);
-        }
-        return $property;
     }
 
     // ── supports() ───────────────────────────────────────────────────────────
@@ -125,7 +101,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('name', 'public')]
+            [$this->makeProperty('name', visibility: 'public')]
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -135,7 +111,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('name', 'public')]
+            [$this->makeProperty('name', visibility: 'public')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -158,7 +134,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('data', 'protected')]
+            [$this->makeProperty('data', visibility: 'protected')]
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -168,7 +144,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('data', 'protected')]
+            [$this->makeProperty('data', visibility: 'protected')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -191,7 +167,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('secret', 'private')]
+            [$this->makeProperty('secret', visibility: 'private')]
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -201,7 +177,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('secret', 'private')]
+            [$this->makeProperty('secret', visibility: 'private')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -226,7 +202,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('name', 'public')]      // reflection: public
+            [$this->makeProperty('name', visibility: 'public')]      // reflection: public
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -236,7 +212,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('name', 'protected')]   // stub: protected
+            [$this->makeProperty('name', visibility: 'protected')]   // stub: protected
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -263,7 +239,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('data', 'protected')]  // reflection: protected
+            [$this->makeProperty('data', visibility: 'protected')]  // reflection: protected
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -273,7 +249,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('data', 'public')]     // stub: public
+            [$this->makeProperty('data', visibility: 'public')]     // stub: public
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -297,7 +273,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('secret', 'private')]  // reflection: private
+            [$this->makeProperty('secret', visibility: 'private')]  // reflection: private
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -307,7 +283,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('secret', 'public')]   // stub: public
+            [$this->makeProperty('secret', visibility: 'public')]   // stub: public
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -331,7 +307,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('name', 'public')]
+            [$this->makeProperty('name', visibility: 'public')]
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -341,7 +317,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('name', 'protected')]
+            [$this->makeProperty('name', visibility: 'protected')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -369,8 +345,8 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('name', 'public'),    // matches
-                $this->makeProperty('data', 'protected'), // mismatch: refl=protected, stub=public
+                $this->makeProperty('name', visibility: 'public'),    // matches
+                $this->makeProperty('data', visibility: 'protected'), // mismatch: refl=protected, stub=public
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
@@ -382,8 +358,8 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('name', 'public'),
-                $this->makeProperty('data', 'public'),    // wrong
+                $this->makeProperty('name', visibility: 'public'),
+                $this->makeProperty('data', visibility: 'public'),    // wrong
             ]
         );
 
@@ -410,8 +386,8 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('propA', 'public'),
-                $this->makeProperty('propB', 'protected'),
+                $this->makeProperty('propA', visibility: 'public'),
+                $this->makeProperty('propB', visibility: 'protected'),
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
@@ -423,8 +399,8 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('propA', 'protected'), // wrong
-                $this->makeProperty('propB', 'public'),    // wrong
+                $this->makeProperty('propA', visibility: 'protected'), // wrong
+                $this->makeProperty('propB', visibility: 'public'),    // wrong
             ]
         );
 
@@ -453,7 +429,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('onlyInReflection', 'public')]
+            [$this->makeProperty('onlyInReflection', visibility: 'public')]
         );
         $stubClass = $this->createMockClassWithProperties($className); // no properties
 
@@ -479,7 +455,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('name', 'public')]     // mismatch
+            [$this->makeProperty('name', visibility: 'public')]     // mismatch
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -489,7 +465,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('name', 'protected')]
+            [$this->makeProperty('name', visibility: 'protected')]
         );
 
         $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
@@ -536,8 +512,8 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('data', 'protected'), // matches
-                $this->makeProperty('name', 'public'),    // mismatch — covered by known problem
+                $this->makeProperty('data', visibility: 'protected'), // matches
+                $this->makeProperty('name', visibility: 'public'),    // mismatch — covered by known problem
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
@@ -549,8 +525,8 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('data', 'protected'),
-                $this->makeProperty('name', 'protected'), // wrong, but known problem
+                $this->makeProperty('data', visibility: 'protected'),
+                $this->makeProperty('name', visibility: 'protected'), // wrong, but known problem
             ]
         );
 
@@ -594,8 +570,8 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('name', 'public'),   // mismatch — known problem
-                $this->makeProperty('data', 'public'),   // mismatch — NOT a known problem
+                $this->makeProperty('name', visibility: 'public'),   // mismatch — known problem
+                $this->makeProperty('data', visibility: 'public'),   // mismatch — NOT a known problem
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
@@ -607,8 +583,8 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('name', 'protected'),
-                $this->makeProperty('data', 'protected'),
+                $this->makeProperty('name', visibility: 'protected'),
+                $this->makeProperty('data', visibility: 'protected'),
             ]
         );
 
@@ -652,7 +628,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('newProp', 'public')]
+            [$this->makeProperty('newProp', visibility: 'public')]
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -662,7 +638,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('newProp', 'protected', '8.1')] // not available in 8.0
+            [$this->makeProperty('newProp', visibility: 'protected', sinceVersion: '8.1')] // not available in 8.0
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -685,7 +661,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('oldProp', 'public')]
+            [$this->makeProperty('oldProp', visibility: 'public')]
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -695,7 +671,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('oldProp', 'protected', '5.6', '7.4')] // removed before 8.0
+            [$this->makeProperty('oldProp', visibility: 'protected', sinceVersion: '5.6', removedVersion: '7.4')] // removed before 8.0
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -718,7 +694,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('data', 'public')]               // reflection: public
+            [$this->makeProperty('data', visibility: 'public')]               // reflection: public
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -728,7 +704,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('data', 'protected', '7.0', '8.4')] // available in 8.0, but wrong
+            [$this->makeProperty('data', visibility: 'protected', sinceVersion: '7.0', removedVersion: '8.4')] // available in 8.0, but wrong
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -756,12 +732,12 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('data', 'public')] // reflection sees public on child
+            [$this->makeProperty('data', visibility: 'public')] // reflection sees public on child
         );
 
         $parentStub = new PHPClass();
         $parentStub->setId($parentClassName);
-        $parentStub->setProperties([$this->makeProperty('data', 'protected')]); // parent: protected
+        $parentStub->setProperties([$this->makeProperty('data', visibility: 'protected')]); // parent: protected
 
         $childStub = $this->createMockClassWithProperties($className);
         $childStub->setParentClass($parentStub);
@@ -789,12 +765,12 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('data', 'protected')]
+            [$this->makeProperty('data', visibility: 'protected')]
         );
 
         $parentStub = new PHPClass();
         $parentStub->setId($parentClassName);
-        $parentStub->setProperties([$this->makeProperty('data', 'protected')]); // matches
+        $parentStub->setProperties([$this->makeProperty('data', visibility: 'protected')]); // matches
 
         $childStub = $this->createMockClassWithProperties($className);
         $childStub->setParentClass($parentStub);
@@ -821,12 +797,12 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('data', 'public')] // child override: public
+            [$this->makeProperty('data', visibility: 'public')] // child override: public
         );
 
         $parentStub = new PHPClass();
         $parentStub->setId($parentClassName);
-        $parentStub->setProperties([$this->makeProperty('data', 'protected')]); // parent: protected (must not win)
+        $parentStub->setProperties([$this->makeProperty('data', visibility: 'protected')]); // parent: protected (must not win)
 
         $childStub = $this->createMockClassWithProperties(
             $className,
@@ -836,7 +812,7 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('data', 'public')] // child: public → matches reflection
+            [$this->makeProperty('data', visibility: 'public')] // child: public → matches reflection
         );
         $childStub->setParentClass($parentStub);
 

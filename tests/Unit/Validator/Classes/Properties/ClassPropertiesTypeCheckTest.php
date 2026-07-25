@@ -42,33 +42,6 @@ class ClassPropertiesTypeCheckTest extends CheckTestCase
      * @param array|null  $languageLevelTypes  LanguageLevelTypeAware map, e.g. ['8.0' => 'CurlHandle']
      * @param string|null $defaultType       Default type for LanguageLevelTypeAware
      */
-    private function makeProperty(
-        string $name,
-        mixed $type = null,
-        ?string $sinceVersion = null,
-        ?string $removedVersion = null,
-        ?array $languageLevelTypes = null,
-        ?string $defaultType = null
-    ): PHPProperty {
-        $property = new PHPProperty();
-        $property->setName($name);
-        if ($type !== null) {
-            $property->setTypeFromSignature($type);
-        }
-        if ($sinceVersion !== null) {
-            $property->initStubsMetadata()->setSinceVersion($sinceVersion);
-        }
-        if ($removedVersion !== null) {
-            $property->initStubsMetadata()->setRemovedVersion($removedVersion);
-        }
-        if ($languageLevelTypes !== null) {
-            $property->initStubsMetadata()->setLanguageLevelTypes($languageLevelTypes);
-        }
-        if ($defaultType !== null) {
-            $property->initStubsMetadata()->setDefaultType($defaultType);
-        }
-        return $property;
-    }
 
     // ── supports() ───────────────────────────────────────────────────────────
 
@@ -377,7 +350,7 @@ class ClassPropertiesTypeCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('handle', null, null, null, ['8.1' => 'string'], '')]
+            [$this->makeProperty('handle', languageLevelTypes: ['8.1' => 'string'], defaultType: '')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -412,7 +385,7 @@ class ClassPropertiesTypeCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('handle', null, null, null, ['8.1' => 'string'], '')]
+            [$this->makeProperty('handle', languageLevelTypes: ['8.1' => 'string'], defaultType: '')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -446,7 +419,7 @@ class ClassPropertiesTypeCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('handle', null, null, null, ['8.1' => 'string'], '')]
+            [$this->makeProperty('handle', languageLevelTypes: ['8.1' => 'string'], defaultType: '')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -474,7 +447,7 @@ class ClassPropertiesTypeCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('handle', null, null, null, ['7.4' => 'resource', '8.0' => 'CurlHandle'], '')]
+            [$this->makeProperty('handle', languageLevelTypes: ['7.4' => 'resource', '8.0' => 'CurlHandle'], defaultType: '')]
         );
 
         // PHP 8.0: reflection has 'CurlHandle'
@@ -552,7 +525,7 @@ class ClassPropertiesTypeCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('data', $this->createType('string'), null, null, ['8.0' => 'int'], 'bool')]
+            [$this->makeProperty('data', $this->createType('string'), languageLevelTypes: ['8.0' => 'int'], defaultType: 'bool')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -683,7 +656,7 @@ class ClassPropertiesTypeCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('newProp', $this->createType('string'), '8.1')]
+            [$this->makeProperty('newProp', $this->createType('string'), sinceVersion: '8.1')]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);

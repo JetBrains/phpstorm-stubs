@@ -3,7 +3,6 @@
 namespace StubTests\Unit\Validator\Classes\Properties;
 
 use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPProperty;
 use StubTests\Framework\Validator\Classes\Properties\ClassStaticPropertiesCheck;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Unit\Validator\CheckTestCase;
@@ -29,24 +28,6 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
     {
         KnownProblemsRegistry::reset();
         parent::tearDown();
-    }
-
-    private function makeProperty(
-        string $name,
-        bool $isStatic = false,
-        ?string $sinceVersion = null,
-        ?string $removedVersion = null
-    ): PHPProperty {
-        $property = new PHPProperty();
-        $property->setName($name);
-        $property->setIsStatic($isStatic);
-        if ($sinceVersion !== null) {
-            $property->initStubsMetadata()->setSinceVersion($sinceVersion);
-        }
-        if ($removedVersion !== null) {
-            $property->initStubsMetadata()->setRemovedVersion($removedVersion);
-        }
-        return $property;
     }
 
     // ── supports() ───────────────────────────────────────────────────────────
@@ -120,7 +101,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('count', false)]
+            [$this->makeProperty('count', isStatic: false)]
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -130,7 +111,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('count', false)]
+            [$this->makeProperty('count', isStatic: false)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -153,7 +134,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', true)]
+            [$this->makeProperty('instance', isStatic: true)]
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -163,7 +144,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', true)]
+            [$this->makeProperty('instance', isStatic: true)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -188,7 +169,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', true)]   // reflection: static
+            [$this->makeProperty('instance', isStatic: true)]   // reflection: static
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -198,7 +179,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', false)]  // stub: non-static
+            [$this->makeProperty('instance', isStatic: false)]  // stub: non-static
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -225,7 +206,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('count', false)]  // reflection: non-static
+            [$this->makeProperty('count', isStatic: false)]  // reflection: non-static
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -235,7 +216,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('count', true)]   // stub: static
+            [$this->makeProperty('count', isStatic: true)]   // stub: static
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -259,7 +240,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', true)]
+            [$this->makeProperty('instance', isStatic: true)]
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -269,7 +250,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', false)]
+            [$this->makeProperty('instance', isStatic: false)]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -297,8 +278,8 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('count', false), // matches
-                $this->makeProperty('instance', true),  // mismatch: refl=static, stub=non-static
+                $this->makeProperty('count', isStatic: false), // matches
+                $this->makeProperty('instance', isStatic: true),  // mismatch: refl=static, stub=non-static
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
@@ -310,8 +291,8 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('count', false),
-                $this->makeProperty('instance', false), // wrong
+                $this->makeProperty('count', isStatic: false),
+                $this->makeProperty('instance', isStatic: false), // wrong
             ]
         );
 
@@ -338,8 +319,8 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('propA', true),
-                $this->makeProperty('propB', false),
+                $this->makeProperty('propA', isStatic: true),
+                $this->makeProperty('propB', isStatic: false),
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
@@ -351,8 +332,8 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('propA', false), // wrong
-                $this->makeProperty('propB', true),  // wrong
+                $this->makeProperty('propA', isStatic: false), // wrong
+                $this->makeProperty('propB', isStatic: true),  // wrong
             ]
         );
 
@@ -381,7 +362,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('onlyInReflection', true)]
+            [$this->makeProperty('onlyInReflection', isStatic: true)]
         );
         $stubClass = $this->createMockClassWithProperties($className); // no properties
 
@@ -407,7 +388,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', true)]  // mismatch
+            [$this->makeProperty('instance', isStatic: true)]  // mismatch
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -417,7 +398,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', false)]
+            [$this->makeProperty('instance', isStatic: false)]
         );
 
         $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
@@ -464,8 +445,8 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('count', false), // matches
-                $this->makeProperty('instance', true),  // mismatch — covered by known problem
+                $this->makeProperty('count', isStatic: false), // matches
+                $this->makeProperty('instance', isStatic: true),  // mismatch — covered by known problem
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
@@ -477,8 +458,8 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('count', false),
-                $this->makeProperty('instance', false), // wrong, but known problem
+                $this->makeProperty('count', isStatic: false),
+                $this->makeProperty('instance', isStatic: false), // wrong, but known problem
             ]
         );
 
@@ -522,8 +503,8 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('instance', true),  // mismatch — known problem
-                $this->makeProperty('count', true),  // mismatch — NOT a known problem
+                $this->makeProperty('instance', isStatic: true),  // mismatch — known problem
+                $this->makeProperty('count', isStatic: true),  // mismatch — NOT a known problem
             ]
         );
         $stubClass = $this->createMockClassWithProperties(
@@ -535,8 +516,8 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             null,
             [],
             [
-                $this->makeProperty('instance', false),
-                $this->makeProperty('count', false),
+                $this->makeProperty('instance', isStatic: false),
+                $this->makeProperty('count', isStatic: false),
             ]
         );
 
@@ -580,7 +561,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('newProp', true)]
+            [$this->makeProperty('newProp', isStatic: true)]
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -590,7 +571,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('newProp', false, '8.1')] // not available in 8.0
+            [$this->makeProperty('newProp', isStatic: false, sinceVersion: '8.1')] // not available in 8.0
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -613,7 +594,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('oldProp', true)]
+            [$this->makeProperty('oldProp', isStatic: true)]
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -623,7 +604,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('oldProp', false, '5.6', '7.4')] // removed before 8.0
+            [$this->makeProperty('oldProp', isStatic: false, sinceVersion: '5.6', removedVersion: '7.4')] // removed before 8.0
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -646,7 +627,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', true)]   // reflection: static
+            [$this->makeProperty('instance', isStatic: true)]   // reflection: static
         );
         $stubClass = $this->createMockClassWithProperties(
             $className,
@@ -656,7 +637,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', false, '7.0', '8.4')] // available in 8.0, but wrong
+            [$this->makeProperty('instance', isStatic: false, sinceVersion: '7.0', removedVersion: '8.4')] // available in 8.0, but wrong
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
@@ -684,12 +665,12 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', true)] // reflection sees static on child
+            [$this->makeProperty('instance', isStatic: true)] // reflection sees static on child
         );
 
         $parentStub = new PHPClass();
         $parentStub->setId($parentClassName);
-        $parentStub->setProperties([$this->makeProperty('instance', false)]); // parent: non-static
+        $parentStub->setProperties([$this->makeProperty('instance', isStatic: false)]); // parent: non-static
 
         $childStub = $this->createMockClassWithProperties($className);
         $childStub->setParentClass($parentStub);
@@ -717,12 +698,12 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', true)]
+            [$this->makeProperty('instance', isStatic: true)]
         );
 
         $parentStub = new PHPClass();
         $parentStub->setId($parentClassName);
-        $parentStub->setProperties([$this->makeProperty('instance', true)]); // matches
+        $parentStub->setProperties([$this->makeProperty('instance', isStatic: true)]); // matches
 
         $childStub = $this->createMockClassWithProperties($className);
         $childStub->setParentClass($parentStub);
@@ -749,12 +730,12 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', false)] // child override: non-static
+            [$this->makeProperty('instance', isStatic: false)] // child override: non-static
         );
 
         $parentStub = new PHPClass();
         $parentStub->setId($parentClassName);
-        $parentStub->setProperties([$this->makeProperty('instance', true)]); // parent: static (must not win)
+        $parentStub->setProperties([$this->makeProperty('instance', isStatic: true)]); // parent: static (must not win)
 
         $childStub = $this->createMockClassWithProperties(
             $className,
@@ -764,7 +745,7 @@ class ClassStaticPropertiesCheckTest extends CheckTestCase
             [],
             null,
             [],
-            [$this->makeProperty('instance', false)] // child: non-static → matches reflection
+            [$this->makeProperty('instance', isStatic: false)] // child: non-static → matches reflection
         );
         $childStub->setParentClass($parentStub);
 
