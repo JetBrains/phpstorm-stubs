@@ -36,20 +36,15 @@ enum CheckType: string
     case RETURN_TYPES = 'ReturnTypesCheck';
 
     /**
-     * Validates that functions exist in reflection.
-     * Checks basic existence of entities.
+     * Validates that a top-level entity (function, class, enum, or interface) present in
+     * reflection also exists in stubs. Reused across those entity types via EntityTypeConfig;
+     * the check reports this name for all of them, so the entity variant is distinguished by
+     * the EntityType of the known problem, not by a separate check name.
+     *
+     * Scope note: global constants have their own ConstantExistsCheck / CONSTANT_EXISTS, and
+     * member existence is covered by CLASS_METHODS_EXIST, CLASS_PROPERTIES_EXIST and ENUM_CASES.
      */
-    case FUNCTION_EXISTS = 'FunctionExistsCheck';
-
-    /**
-     * Validates that methods exist in reflection.
-     */
-    case METHOD_EXISTS = 'MethodExistsCheck';
-
-    /**
-     * Validates that classes exist in reflection.
-     */
-    case CLASS_EXISTS = 'ClassExistsCheck';
+    case ENTITY_EXISTS = 'EntityExistsCheck';
 
     /**
      * Validates that parent class in stubs matches parent class in reflection.

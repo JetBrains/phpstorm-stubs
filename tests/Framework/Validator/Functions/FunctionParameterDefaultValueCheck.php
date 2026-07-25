@@ -19,7 +19,7 @@ use StubTests\Framework\Validator\Services\ParameterFilterHelper;
  * For each function identified by $entityId the validator:
  * 1. Looks up the function in reflection and stubs.
  * 2. If the stub function is not found it is silently skipped — existence is
- *    FunctionExistsCheck's responsibility.
+ *    EntityExistsCheck's responsibility.
  * 3. For each reflection parameter with an accessible default, checks whether
  *    the matching stub parameter (by name) declares the same evaluated default.
  * 4. Comparison is skipped when either side's value is null (see class-level check
@@ -54,7 +54,7 @@ class FunctionParameterDefaultValueCheck extends AbstractCallableCheck
         $stubFunction = $this->findCallable($stubs, $entityId, $phpVersion);
 
         if ($stubFunction === null) {
-            // Function absent from stubs — FunctionExistsCheck's responsibility
+            // Function absent from stubs — EntityExistsCheck's responsibility
             $results->addSuccess($entityId);
             return $results;
         }

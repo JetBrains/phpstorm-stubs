@@ -69,7 +69,7 @@ class FunctionSpecialTypeHintsCheck extends AbstractCallableCheck
         $stubFunction = $this->findCallable($stubs, $entityId, $phpVersion);
 
         if ($stubFunction === null) {
-            // FunctionExistsCheck is responsible for reporting absence
+            // EntityExistsCheck is responsible for reporting absence
             $results->addSuccess($entityId);
             return $results;
         }

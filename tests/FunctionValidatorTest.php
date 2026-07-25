@@ -5,7 +5,8 @@ namespace StubTests;
 use PHPUnit\Framework\Attributes\DataProvider;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Functions\FunctionDeprecationCheck;
-use StubTests\Framework\Validator\Functions\FunctionExistsCheck;
+use StubTests\Framework\Validator\EntityExistsCheck;
+use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\Framework\Validator\Functions\FunctionOptionalParametersCheck;
 use StubTests\Framework\Validator\Functions\FunctionParametersCountCheck;
 use StubTests\Framework\Validator\Functions\FunctionTentativeReturnTypeCheck;
@@ -41,7 +42,7 @@ class FunctionValidatorTest extends ValidatorTestBase
     protected static function getCheckDescriptors(): array
     {
         return [
-            'checkFunctionExists' => new CheckDescriptor(FunctionExistsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Function {entityId} exists in PHP {phpVersion} but not in stubs'),
+            'checkFunctionExists' => new CheckDescriptor(EntityExistsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Function {entityId} exists in PHP {phpVersion} but not in stubs', EntityTypeConfig::forFunction()),
             'checkParameterNames' => new CheckDescriptor(ParameterNamesCheck::class, PhpVersions::PHP_8_0, PhpVersions::LATEST, 'Function {entityId} has mismatched parameter names in PHP {phpVersion}'),
             'checkParameterTypes' => new CheckDescriptor(ParameterTypesCheck::class, PhpVersions::PHP_7_0, PhpVersions::LATEST, 'Function {entityId} has mismatched parameter types in PHP {phpVersion}'),
             'checkReturnTypes' => new CheckDescriptor(FunctionReturnTypesCheck::class, PhpVersions::PHP_7_0, PhpVersions::LATEST, 'Function {entityId} has mismatched return type in PHP {phpVersion}'),

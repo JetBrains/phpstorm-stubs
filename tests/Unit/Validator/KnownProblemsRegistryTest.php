@@ -427,7 +427,7 @@ class KnownProblemsRegistryTest extends TestCase
         $registry = KnownProblemsRegistry::getInstance();
 
         // The known problem is specific to ClassFinalMethodsCheck; other checks are unaffected
-        foreach (['ClassMethodsExistCheck', 'ClassExistsCheck', 'ParameterNamesCheck'] as $check) {
+        foreach (['ClassMethodsExistCheck', 'ClassInterfacesCheck', 'ParameterNamesCheck'] as $check) {
             $this->assertFalse(
                 $registry->hasProblem('methods', '\SimpleXMLElement::__construct', $check, '7.4'),
                 "SimpleXMLElement::__construct should not affect {$check}"

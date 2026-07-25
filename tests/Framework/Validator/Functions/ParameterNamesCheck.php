@@ -16,7 +16,7 @@ use StubTests\Framework\Validator\Services\ParameterNamesComparator;
  *
  * Algorithm:
  * 1. Look up the callable in both reflection and stubs using findCallable().
- * 2. If not found in stubs, silently succeed — FunctionExistsCheck handles existence.
+ * 2. If not found in stubs, silently succeed — EntityExistsCheck handles existence.
  * 3. Filter and deduplicate stub parameters by version (merges same-named variadic pairs).
  * 4. If parameter counts differ, silently succeed — ParametersCountCheck handles that.
  * 5. Compare names positionally; collect all mismatches into one failure message.
@@ -49,7 +49,7 @@ class ParameterNamesCheck extends AbstractCallableCheck
             return $results;
         }
 
-        // Stub not found — FunctionExistsCheck's responsibility
+        // Stub not found — EntityExistsCheck's responsibility
         $stubCallable = $this->findCallable($stubs, $entityId, $phpVersion);
         if ($stubCallable === null) {
             $results->addSuccess($entityId);

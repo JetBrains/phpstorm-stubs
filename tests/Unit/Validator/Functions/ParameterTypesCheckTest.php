@@ -99,7 +99,7 @@ class ParameterTypesCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInReflectionSucceedsSilently(): void
     {
-        // Arrange — FunctionExistsCheck is responsible for existence
+        // Arrange — EntityExistsCheck is responsible for existence
         $functionName = 'missing_function';
         $stubFunction = $this->createMockFunction($functionName);
 
@@ -118,7 +118,7 @@ class ParameterTypesCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInStubsSucceedsSilently(): void
     {
-        // Arrange — FunctionExistsCheck is responsible for existence
+        // Arrange — EntityExistsCheck is responsible for existence
         $functionName = 'missing_function';
         $reflectionFunction = $this->createMockFunction($functionName);
 

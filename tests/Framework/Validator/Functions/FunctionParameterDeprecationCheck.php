@@ -42,7 +42,7 @@ class FunctionParameterDeprecationCheck extends AbstractCallableCheck
             return $results;
         }
 
-        // Stub not found — FunctionExistsCheck's responsibility
+        // Stub not found — EntityExistsCheck's responsibility
         $stubCallable = $this->findCallable($stubs, $entityId, $phpVersion);
         if ($stubCallable === null) {
             $results->addSuccess($entityId);

@@ -62,7 +62,7 @@ class FunctionParametersCountCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInStubsIsSuccess(): void
     {
-        // Existence is FunctionExistsCheck's responsibility — silently skip
+        // Existence is EntityExistsCheck's responsibility — silently skip
         $id = '\\missing_func';
 
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id)]);

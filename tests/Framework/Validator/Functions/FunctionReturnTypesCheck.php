@@ -16,7 +16,7 @@ use StubTests\Framework\Validator\Services\TypeResolver;
  * 1. Looks up the function in reflection data for the given PHP version.
  * 2. Looks up the function in stubs using version-aware selection.
  * 3. If the stub function is not found it is silently skipped — existence is
- *    FunctionExistsCheck's responsibility.
+ *    EntityExistsCheck's responsibility.
  * 4. When both sides are found, return types are compared using version-aware
  *    resolution (LanguageLevelTypeAware attribute) and semantic normalisation.
  *
@@ -55,7 +55,7 @@ class FunctionReturnTypesCheck extends AbstractCallableCheck
         $stubCallable = $this->findCallable($stubs, $entityId, $phpVersion);
 
         if ($stubCallable === null) {
-            // Function absent from stubs — FunctionExistsCheck's responsibility
+            // Function absent from stubs — EntityExistsCheck's responsibility
             $results->addSuccess($entityId);
             return $results;
         }

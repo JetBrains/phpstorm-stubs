@@ -57,7 +57,7 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInStubsSucceeds(): void
     {
-        // FunctionExistsCheck handles missing stubs; we succeed silently
+        // EntityExistsCheck handles missing stubs; we succeed silently
         $fnId = '\\missingFunc';
         $reflFunc = $this->createMockFunction($fnId);
 

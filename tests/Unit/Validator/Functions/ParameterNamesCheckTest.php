@@ -110,7 +110,7 @@ class ParameterNamesCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInStubsSilentlySucceeds(): void
     {
-        // Stub not found — FunctionExistsCheck's responsibility; silently skip
+        // Stub not found — EntityExistsCheck's responsibility; silently skip
         $functionName = 'missing_function';
         $reflectionFunction = $this->createMockFunction($functionName);
 
