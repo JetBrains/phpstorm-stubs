@@ -77,4 +77,25 @@ class PhpVersionRangeTest extends TestCase
             $this->assertTrue($range->includes($version->value), "Should include {$version->value}");
         }
     }
+
+    public function testEqualFromAndToIsAllowed(): void
+    {
+        $range = new PhpVersionRange('8.0', '8.0');
+        $this->assertTrue($range->includes('8.0'));
+        $this->assertFalse($range->includes('7.4'));
+        $this->assertFalse($range->includes('8.1'));
+    }
+
+    public function testSwappedStringRangeThrows(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("'from' (8.6) must not be greater than 'to' (8.0)");
+        new PhpVersionRange('8.6', '8.0');
+    }
+
+    public function testSwappedEnumRangeThrows(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        new PhpVersionRange(PhpVersions::PHP_8_1, PhpVersions::PHP_7_0);
+    }
 }
