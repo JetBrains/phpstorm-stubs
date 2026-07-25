@@ -16,7 +16,7 @@ use StubTests\Framework\Validator\Services\ParameterCountComparator;
  * 2. Looks up the function in stubs using version-aware selection
  *    (PhpStormStubsElementAvailable `from`/`to` on the function itself).
  * 3. If the stub function is not found it is silently skipped — existence is
- *    FunctionExistsCheck's responsibility.
+ *    EntityExistsCheck's responsibility.
  * 4. When both sides are found, the stub parameter list is filtered by version
  *    (PhpStormStubsElementAvailable `from`/`to` on parameters →
  *    sinceVersion/removedVersion) and the resulting count is compared with
@@ -56,7 +56,7 @@ class FunctionParametersCountCheck extends AbstractCallableCheck
         $stubFunction = $this->findCallable($stubs, $entityId, $phpVersion);
 
         if ($stubFunction === null) {
-            // Function absent from stubs — FunctionExistsCheck's responsibility
+            // Function absent from stubs — EntityExistsCheck's responsibility
             $results->addSuccess($entityId);
             return $results;
         }

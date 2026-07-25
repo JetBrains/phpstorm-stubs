@@ -2,18 +2,36 @@
 
 namespace StubTests\Unit\Validator\Functions;
 
+use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
-use StubTests\Framework\Validator\Functions\FunctionExistsCheck;
+use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
+use StubTests\Framework\Validator\EntityExistsCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
+use StubTests\Framework\Validator\KnownProblems\EntityType;
+use StubTests\Framework\Validator\KnownProblems\ProblemDefinition;
+use StubTests\Framework\Validator\KnownProblems\ProblemType;
+use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Unit\Validator\CheckTestCase;
 
+/**
+ * Exercises the function variant of EntityExistsCheck (driven by EntityTypeConfig::forFunction()).
+ * The dedicated FunctionExistsCheck class was merged into EntityExistsCheck.
+ */
 class FunctionExistsCheckTest extends CheckTestCase
 {
-    private FunctionExistsCheck $check;
+    private EntityExistsCheck $check;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->check = new FunctionExistsCheck();
+        KnownProblemsRegistry::reset();
+        $this->check = new EntityExistsCheck(entityTypeConfig: EntityTypeConfig::forFunction());
+    }
+
+    protected function tearDown(): void
+    {
+        KnownProblemsRegistry::reset();
+        parent::tearDown();
     }
 
     public function testSupportsAllPhpVersions(): void
@@ -136,5 +154,37 @@ class FunctionExistsCheckTest extends CheckTestCase
 
         // Assert — should fail because no function with getId() === 'test_function'
         $this->assertTrue($result->hasFailures());
+    }
+
+    public function testKnownProblemSkipsFunctionExistenceCheck(): void
+    {
+        // A missing function is suppressed by a known problem keyed on (FUNCTION, EntityExistsCheck).
+        $functionName = '\\deliberately_absent';
+
+        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider->method('getProblems')->willReturn([
+            new ProblemDefinition(
+                entityType: EntityType::FUNCTION,
+                entityId: $functionName,
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::ENTITY_EXISTS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'Function is provided at C level without a stub'
+            ),
+        ]);
+
+        KnownProblemsRegistry::reset();
+        $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
+        $check = new EntityExistsCheck(entityTypeConfig: EntityTypeConfig::forFunction(), knownProblemsRegistry: $registry);
+
+        $stubsManager = $this->createMockStorageManager();
+        $stubsManager->method('getFunctions')->willReturn([]);
+
+        $result = $check->run($stubsManager, $functionName, '8.0');
+
+        $this->assertFalse($result->hasFailures());
+        $successes = $result->getSuccesses();
+        $this->assertStringContainsString('skipped', $successes[0]);
+        $this->assertStringContainsString('C level', $successes[0]);
     }
 }

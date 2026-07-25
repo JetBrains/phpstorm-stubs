@@ -34,7 +34,7 @@ class ParameterTypesCheck extends AbstractCallableCheck
         $reflectionCallable = $this->findCallable($reflection, $entityId, $phpVersion);
 
         if ($reflectionCallable === null) {
-            // FunctionExistsCheck handles existence; silently succeed here
+            // EntityExistsCheck handles existence; silently succeed here
             $results->addSuccess($entityId);
             return $results;
         }
@@ -42,7 +42,7 @@ class ParameterTypesCheck extends AbstractCallableCheck
         $stubCallable = $this->findCallable($stubs, $entityId, $phpVersion);
 
         if ($stubCallable === null) {
-            // FunctionExistsCheck handles existence; silently succeed here
+            // EntityExistsCheck handles existence; silently succeed here
             $results->addSuccess($entityId);
             return $results;
         }

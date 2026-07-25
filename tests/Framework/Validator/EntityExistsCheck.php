@@ -3,34 +3,38 @@
 namespace StubTests\Framework\Validator;
 
 use StubTests\Framework\Parsers\StubDataQueryInterface;
-use StubTests\Framework\Validator\Contracts\CheckInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\Framework\Validator\Contracts\LookupKind;
+use StubTests\Framework\Validator\KnownProblems\EntityType;
+use StubTests\Framework\Validator\Services\EntityLookupService;
 
 /**
- * Parameterized check that validates an entity from reflection exists in stubs.
+ * Validates that a top-level entity present in reflection also exists in stubs.
  *
- * Accepts either an EntityTypeConfig or raw LookupKind + label.
- * When used via CheckDescriptor, EntityTypeConfig is passed as a named argument.
+ * Config-driven across function / class / enum / interface via EntityTypeConfig: it always
+ * reports the check name 'EntityExistsCheck', and the entity variant is distinguished by the
+ * EntityType passed to the known-problem lookup. (Global constants use ConstantExistsCheck;
+ * member existence is handled by the *MethodsExist / *PropertiesExist / EnumCases checks.)
  */
-class EntityExistsCheck implements CheckInterface
+class EntityExistsCheck extends AbstractReflectionCheck
 {
-    private readonly LookupKind $lookupKind;
-    private readonly string $label;
+    private LookupKind $lookupKind;
+    private string $label;
+    private EntityType $entityType;
+    private EntityLookupService $entityLookup;
 
     public function __construct(
-        ?LookupKind $lookupKind = null,
-        ?string $label = null,
         ?EntityTypeConfig $entityTypeConfig = null,
+        ?KnownProblemsRegistry $knownProblemsRegistry = null,
+        ?EntityLookupService $entityLookup = null,
     ) {
-        if ($entityTypeConfig !== null) {
-            $this->lookupKind = $entityTypeConfig->lookupKind;
-            $this->label = $entityTypeConfig->label;
-        } else {
-            $this->lookupKind = $lookupKind ?? LookupKind::CLASS_TYPE;
-            $this->label = $label ?? 'Class';
-        }
+        parent::__construct(null, $knownProblemsRegistry);
+        $config = $entityTypeConfig ?? EntityTypeConfig::forClass();
+        $this->lookupKind = $config->lookupKind;
+        $this->label = $config->label;
+        $this->entityType = $config->entityType;
+        $this->entityLookup = $entityLookup ?? new EntityLookupService();
     }
 
     public function supports(string $phpVersion): bool
@@ -42,10 +46,15 @@ class EntityExistsCheck implements CheckInterface
     {
         $results = new CheckResultSet();
 
+        if ($this->skipWithKnownProblem($results, $this->entityType->value, $entityId, 'EntityExistsCheck', $phpVersion)) {
+            return $results;
+        }
+
         $exists = match ($this->lookupKind) {
             LookupKind::CLASS_TYPE => $stubs->hasClass($entityId),
             LookupKind::ENUM_TYPE => $stubs->hasEnum($entityId),
             LookupKind::INTERFACE_TYPE => $stubs->hasInterface($entityId),
+            LookupKind::FUNCTION => $this->entityLookup->findFunctionById($stubs, $entityId) !== null,
         };
 
         if (!$exists) {

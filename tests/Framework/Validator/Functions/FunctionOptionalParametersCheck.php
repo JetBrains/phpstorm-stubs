@@ -21,7 +21,7 @@ use StubTests\Framework\Validator\Services\OptionalParametersComparator;
  * - Its @param description contains [optional].
  *
  * If the stub function is not found it is silently skipped — existence is
- * FunctionExistsCheck's responsibility.
+ * EntityExistsCheck's responsibility.
  *
  * Known problems are supported at function level:
  * - EntityType::FUNCTION + functionId + 'OptionalParametersCheck'
@@ -53,7 +53,7 @@ class FunctionOptionalParametersCheck extends AbstractCallableCheck
         $stubFunction = $this->findCallable($stubs, $entityId, $phpVersion);
 
         if ($stubFunction === null) {
-            // Function absent from stubs — FunctionExistsCheck's responsibility
+            // Function absent from stubs — EntityExistsCheck's responsibility
             $results->addSuccess($entityId);
             return $results;
         }

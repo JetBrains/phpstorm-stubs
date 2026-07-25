@@ -18,7 +18,7 @@ use StubTests\Framework\Validator\Services\ReturnTypeResolver;
  * This is a stubs-only check (reflection data is never used). For each function
  * identified by $entityId the validator:
  * 1. Looks up the function in stubs using version-aware selection.
- * 2. If not found, silently succeeds — FunctionExistsCheck handles absence.
+ * 2. If not found, silently succeeds — EntityExistsCheck handles absence.
  * 3. For both return type and each parameter, compares the signature type with the
  *    PhpDoc type using the permissive compatibility algorithm in PhpDocConformanceTrait.
  * 4. Reports mismatches where sig and PhpDoc types share no common component.
@@ -59,7 +59,7 @@ class FunctionPhpDocConformsSignatureCheck extends AbstractCallableCheck
         $stubFunction = $this->findCallable($stubs, $entityId, $phpVersion);
 
         if ($stubFunction === null) {
-            // Function absent from stubs — FunctionExistsCheck's responsibility
+            // Function absent from stubs — EntityExistsCheck's responsibility
             $results->addSuccess($entityId);
             return $results;
         }

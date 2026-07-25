@@ -54,4 +54,13 @@ final class EntityTypeConfig
             constantEntityType: EntityType::INTERFACE_CONSTANT,
         );
     }
+
+    public static function forFunction(): self
+    {
+        return new self(
+            lookupKind: LookupKind::FUNCTION,
+            entityType: EntityType::FUNCTION,
+            label: 'Function',
+        );
+    }
 }

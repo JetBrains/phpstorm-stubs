@@ -13,4 +13,5 @@ enum LookupKind: string
     case CLASS_TYPE = 'class';
     case ENUM_TYPE = 'enum';
     case INTERFACE_TYPE = 'interface';
+    case FUNCTION = 'function';
 }

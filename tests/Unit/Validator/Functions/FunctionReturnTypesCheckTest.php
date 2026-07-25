@@ -94,7 +94,7 @@ class FunctionReturnTypesCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInStubs(): void
     {
-        // Existence is FunctionExistsCheck's responsibility — silently succeed
+        // Existence is EntityExistsCheck's responsibility — silently succeed
         $functionName = 'missing_function';
         $reflectionFunction = $this->createMockFunction($functionName);
 

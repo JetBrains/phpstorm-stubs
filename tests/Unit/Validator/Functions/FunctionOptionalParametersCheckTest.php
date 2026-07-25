@@ -56,7 +56,7 @@ class FunctionOptionalParametersCheckTest extends CheckTestCase
 
     public function testFunctionNotFoundInStubsIsSuccess(): void
     {
-        // Absence from stubs is FunctionExistsCheck's responsibility — silently skip
+        // Absence from stubs is EntityExistsCheck's responsibility — silently skip
         $id = '\\missing_func';
         $provider = $this->createMockReflectionProvider([$this->makeFunction($id)]);
         $stubs = $this->createMockStorageManager();
