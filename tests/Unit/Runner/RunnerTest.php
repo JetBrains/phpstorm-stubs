@@ -21,7 +21,6 @@ class RunnerTest extends TestCase
         'StubsConstants.json',
         'StubsPhpDoc.json',
     ];
-
     private string $cacheDir;
 
     protected function setUp(): void
