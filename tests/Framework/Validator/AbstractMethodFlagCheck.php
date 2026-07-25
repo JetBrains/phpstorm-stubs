@@ -2,23 +2,24 @@
 
 namespace StubTests\Framework\Validator;
 
+use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
-use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**
  * Base class for checks that compare a boolean method flag (e.g. isFinal, isStatic)
  * between reflection and stubs.
  *
+ * The comparison loop lives in {@see AbstractMemberFlagCheck}; this class only supplies
+ * the method-specific member accessors.
+ *
  * Subclasses must implement:
  * - getCheckName(): the name used for known-problem lookups
  * - describeMismatch(): returns a failure message when the flags differ, or null when they match
  */
-abstract class AbstractMethodFlagCheck extends AbstractClassCheck
+abstract class AbstractMethodFlagCheck extends AbstractMemberFlagCheck
 {
-    abstract protected function getCheckName(): string;
-
     /**
      * Compare a flag on the reflection and stub method.
      * Return a descriptive failure message if there is a mismatch, or null if they match.
@@ -32,61 +33,37 @@ abstract class AbstractMethodFlagCheck extends AbstractClassCheck
         string $phpVersion
     ): ?string;
 
-    public function supports(string $phpVersion): bool
+    protected function lookupFlagEntity(StubDataQueryInterface $storage, string $entityId): ?PHPClassLikeObject
     {
-        return true;
+        return $this->lookupEntityById($storage, $entityId);
     }
 
-    public function run(StubDataQueryInterface $stubs, string $entityId, string $phpVersion): CheckResultSet
+    protected function collectReflectionMembers(PHPClassLikeObject $reflectionEntity): iterable
     {
-        $results = new CheckResultSet();
+        return $reflectionEntity->getMethods();
+    }
 
-        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, $this->getCheckName(), $phpVersion)) {
-            return $results;
-        }
+    protected function collectStubMemberMap(PHPClassLikeObject $stubEntity, string $phpVersion): array
+    {
+        return $this->collectEntityMethodsByConfig($stubEntity, $phpVersion);
+    }
 
-        $reflection = $this->reflectionProvider->getReflection($phpVersion);
-        $label = $this->getEntityLabel();
+    protected function formatMemberId(string $entityId, string $memberName): string
+    {
+        return $entityId . '::' . $memberName;
+    }
 
-        $reflectionClass = $this->lookupEntityById($reflection, $entityId);
-        if ($reflectionClass === null) {
-            $results->addFailure($entityId, "{$label} {$entityId} not found in reflection data");
-            return $results;
-        }
+    protected function getMemberEntityType(): string
+    {
+        return EntityType::METHOD->value;
+    }
 
-        $stubClass = $this->lookupEntityById($stubs, $entityId);
-        if ($stubClass === null) {
-            $results->addFailure($entityId, "{$label} {$entityId} not found in stubs");
-            return $results;
-        }
-
-        $stubMethodMap = $this->collectEntityMethodsByConfig($stubClass, $phpVersion);
-
-        $hasMismatch = false;
-        foreach ($reflectionClass->getMethods() as $reflMethod) {
-            $name = $reflMethod->getName();
-            if ($name === null || !isset($stubMethodMap[$name])) {
-                // Null name or method absent from stubs — ClassMethodsExistCheck's responsibility
-                continue;
-            }
-
-            $methodEntityId = $entityId . '::' . $name;
-            $mismatchMessage = $this->describeMismatch($methodEntityId, $reflMethod, $stubMethodMap[$name], $phpVersion);
-
-            if ($mismatchMessage === null) {
-                continue;
-            }
-
-            $hasMismatch = true;
-            if (!$this->skipWithKnownProblem($results, EntityType::METHOD->value, $methodEntityId, $this->getCheckName(), $phpVersion)) {
-                $results->addFailure($methodEntityId, $mismatchMessage);
-            }
-        }
-
-        if (!$hasMismatch) {
-            $results->addSuccess($entityId);
-        }
-
-        return $results;
+    protected function describeMemberMismatch(
+        string $memberId,
+        mixed $reflectionMember,
+        mixed $stubMember,
+        string $phpVersion
+    ): ?string {
+        return $this->describeMismatch($memberId, $reflectionMember, $stubMember, $phpVersion);
     }
 }

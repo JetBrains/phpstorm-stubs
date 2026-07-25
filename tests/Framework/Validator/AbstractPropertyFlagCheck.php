@@ -3,14 +3,17 @@
 namespace StubTests\Framework\Validator;
 
 use StubTests\Framework\Parsers\Model\PHPClass;
+use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
 use StubTests\Framework\Parsers\Model\PHPProperty;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
-use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**
  * Base class for checks that compare a boolean property flag (e.g. isStatic, visibility)
  * between reflection and stubs.
+ *
+ * The comparison loop lives in {@see AbstractMemberFlagCheck}; this class only supplies
+ * the property-specific member accessors.
  *
  * Currently supports PHPClass entities only. Properties are class-specific
  * in the model (PHPEnum/PHPInterface do not have getProperties()).
@@ -19,10 +22,8 @@ use StubTests\Framework\Validator\KnownProblems\EntityType;
  * - getCheckName(): the name used for known-problem lookups
  * - describeMismatch(): returns a failure message when the flags differ, or null when they match
  */
-abstract class AbstractPropertyFlagCheck extends AbstractClassCheck
+abstract class AbstractPropertyFlagCheck extends AbstractMemberFlagCheck
 {
-    abstract protected function getCheckName(): string;
-
     /**
      * Compare a flag on the reflection and stub property.
      * Return a descriptive failure message if there is a mismatch, or null if they match.
@@ -34,66 +35,39 @@ abstract class AbstractPropertyFlagCheck extends AbstractClassCheck
         string $phpVersion
     ): ?string;
 
-    protected function findEntity(StubDataQueryInterface $storage, string $entityId): ?PHPClass
+    protected function lookupFlagEntity(StubDataQueryInterface $storage, string $entityId): ?PHPClassLikeObject
     {
         return $this->findClassById($storage, $entityId);
     }
 
-    public function supports(string $phpVersion): bool
+    protected function collectReflectionMembers(PHPClassLikeObject $reflectionEntity): iterable
     {
-        return true;
+        return $reflectionEntity instanceof PHPClass ? $reflectionEntity->getProperties() : [];
     }
 
-    public function run(StubDataQueryInterface $stubs, string $entityId, string $phpVersion): CheckResultSet
+    protected function collectStubMemberMap(PHPClassLikeObject $stubEntity, string $phpVersion): array
     {
-        $results = new CheckResultSet();
+        return $stubEntity instanceof PHPClass
+            ? $this->methodCollection->collectPropertiesForClass($stubEntity, $phpVersion)
+            : [];
+    }
 
-        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, $this->getCheckName(), $phpVersion)) {
-            return $results;
-        }
+    protected function formatMemberId(string $entityId, string $memberName): string
+    {
+        return $entityId . '::$' . $memberName;
+    }
 
-        $label = $this->getEntityLabel();
-        $reflection = $this->reflectionProvider->getReflection($phpVersion);
+    protected function getMemberEntityType(): string
+    {
+        return EntityType::PROPERTY->value;
+    }
 
-        $reflectionClass = $this->findEntity($reflection, $entityId);
-        if ($reflectionClass === null) {
-            $results->addFailure($entityId, "{$label} {$entityId} not found in reflection data");
-            return $results;
-        }
-
-        $stubClass = $this->findEntity($stubs, $entityId);
-        if ($stubClass === null) {
-            $results->addFailure($entityId, "{$label} {$entityId} not found in stubs");
-            return $results;
-        }
-
-        $stubPropertyMap = $this->methodCollection->collectPropertiesForClass($stubClass, $phpVersion);
-
-        $hasMismatch = false;
-        foreach ($reflectionClass->getProperties() as $reflProperty) {
-            $name = $reflProperty->getName();
-            if ($name === null || !isset($stubPropertyMap[$name])) {
-                // Null name or property absent from stubs — ClassPropertiesExistCheck's responsibility
-                continue;
-            }
-
-            $propertyEntityId = $entityId . '::$' . $name;
-            $mismatchMessage = $this->describeMismatch($propertyEntityId, $reflProperty, $stubPropertyMap[$name], $phpVersion);
-
-            if ($mismatchMessage === null) {
-                continue;
-            }
-
-            $hasMismatch = true;
-            if (!$this->skipWithKnownProblem($results, EntityType::PROPERTY->value, $propertyEntityId, $this->getCheckName(), $phpVersion)) {
-                $results->addFailure($propertyEntityId, $mismatchMessage);
-            }
-        }
-
-        if (!$hasMismatch) {
-            $results->addSuccess($entityId);
-        }
-
-        return $results;
+    protected function describeMemberMismatch(
+        string $memberId,
+        mixed $reflectionMember,
+        mixed $stubMember,
+        string $phpVersion
+    ): ?string {
+        return $this->describeMismatch($memberId, $reflectionMember, $stubMember, $phpVersion);
     }
 }
