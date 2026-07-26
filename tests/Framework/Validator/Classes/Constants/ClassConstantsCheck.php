@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Classes\Constants;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that constants declared in class stubs exist in reflection.
@@ -94,8 +95,8 @@ class ClassConstantsCheck extends AbstractClassCheck
         return $results;
     }
 
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ClassConstantsCheck';
+        return CheckType::CLASS_CONSTANTS;
     }
 }

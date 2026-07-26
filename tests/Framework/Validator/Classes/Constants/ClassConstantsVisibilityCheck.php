@@ -4,6 +4,7 @@ namespace StubTests\Framework\Validator\Classes\Constants;
 
 use StubTests\Framework\Parsers\Model\PHPClassConstant;
 use StubTests\Framework\Validator\AbstractConstantFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that the visibility (public/protected/private) of constants in class stubs
@@ -26,9 +27,9 @@ use StubTests\Framework\Validator\AbstractConstantFlagCheck;
  */
 class ClassConstantsVisibilityCheck extends AbstractConstantFlagCheck
 {
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ClassConstantsVisibilityCheck';
+        return CheckType::CLASS_CONSTANTS_VISIBILITY;
     }
 
     protected function describeMismatch(

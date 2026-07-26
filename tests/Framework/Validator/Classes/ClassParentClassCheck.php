@@ -2,6 +2,7 @@
 
 namespace StubTests\Framework\Validator\Classes;
 
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\ClassAncestorNamesExtractor;
 use StubTests\Framework\Parsers\Model\PHPClass;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
@@ -32,7 +33,7 @@ class ClassParentClassCheck extends AbstractClassCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, 'ClassParentClassCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, CheckType::CLASS_PARENT, $phpVersion)) {
             return $results;
         }
 

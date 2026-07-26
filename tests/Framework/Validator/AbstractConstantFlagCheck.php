@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator;
 use StubTests\Framework\Parsers\Model\PHPClassConstant;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Base class for checks that compare a single attribute (e.g. visibility) on class/interface/enum
@@ -21,7 +22,7 @@ use StubTests\Framework\Validator\Contracts\CheckResultSet;
  */
 abstract class AbstractConstantFlagCheck extends AbstractClassCheck
 {
-    abstract protected function getCheckName(): string;
+    abstract protected function getCheckName(): CheckType;
 
     /**
      * Compare a single attribute on the reflection and stub constant.

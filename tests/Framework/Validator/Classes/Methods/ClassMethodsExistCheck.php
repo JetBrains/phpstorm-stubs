@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Classes\Methods;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**
@@ -31,9 +32,9 @@ use StubTests\Framework\Validator\KnownProblems\EntityType;
  */
 class ClassMethodsExistCheck extends AbstractClassCheck
 {
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ClassMethodsExistCheck';
+        return CheckType::CLASS_METHODS_EXIST;
     }
 
     public function supports(string $phpVersion): bool

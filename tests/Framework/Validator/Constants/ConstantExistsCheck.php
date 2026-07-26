@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Constants;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractReflectionCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
@@ -35,7 +36,7 @@ class ConstantExistsCheck extends AbstractReflectionCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, EntityType::GLOBAL_CONSTANT->value, $entityId, 'ConstantExistsCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, EntityType::GLOBAL_CONSTANT->value, $entityId, CheckType::CONSTANT_EXISTS, $phpVersion)) {
             return $results;
         }
 

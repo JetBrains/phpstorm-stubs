@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Functions;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractCallableCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\Services\ReturnTypeResolver;
 use StubTests\Framework\Validator\Services\TypeResolver;
@@ -40,7 +41,7 @@ class FunctionReturnTypesCheck extends AbstractCallableCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, EntityType::FUNCTION->value, $entityId, 'ReturnTypesCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, EntityType::FUNCTION->value, $entityId, CheckType::RETURN_TYPES, $phpVersion)) {
             return $results;
         }
 

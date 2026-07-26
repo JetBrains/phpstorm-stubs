@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Classes\Methods;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\Services\TypeResolver;
 
@@ -75,7 +76,7 @@ class ReflectionMethodSpecialTypeHintsCheck extends AbstractClassCheck
             return $results;
         }
 
-        if ($this->skipWithKnownProblem($results, EntityType::CLASS_TYPE->value, $entityId, 'ReflectionMethodSpecialTypeHintsCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, EntityType::CLASS_TYPE->value, $entityId, CheckType::REFLECTION_SPECIAL_TYPE_HINTS, $phpVersion)) {
             return $results;
         }
 
@@ -106,7 +107,7 @@ class ReflectionMethodSpecialTypeHintsCheck extends AbstractClassCheck
 
             $methodEntityId = $entityId . '::' . $methodName;
 
-            if ($this->skipWithKnownProblem($results, EntityType::METHOD->value, $methodEntityId, 'ReflectionMethodSpecialTypeHintsCheck', $phpVersion)) {
+            if ($this->skipWithKnownProblem($results, EntityType::METHOD->value, $methodEntityId, CheckType::REFLECTION_SPECIAL_TYPE_HINTS, $phpVersion)) {
                 continue;
             }
 

@@ -24,11 +24,11 @@ class KnownProblemsRegistry
 {
     private static ?KnownProblemsRegistry $instance = null;
 
-    /** @var ProblemDefinition Indexed by entityType => entityId => problems */
+    /** @var array<string, array<string, ProblemDefinition[]>> Indexed by entityType => entityId => problems */
     private array $problemsIndex = [];
 
     public function __construct(
-        private KnownProblemsProvider $provider = new DefaultKnownProblemsProvider()
+        private readonly KnownProblemsProvider $provider = new DefaultKnownProblemsProvider()
     ) {
         $this->indexProblems();
     }
@@ -80,17 +80,17 @@ class KnownProblemsRegistry
      *
      * @param string $entityType Entity type: 'functions', 'methods', 'classes'
      * @param string $entityId Fully qualified entity ID (e.g., '\dba_fetch' or 'DateTime::format')
-     * @param string $checkName Name of the check class (e.g., 'ParameterNamesCheck')
+     * @param CheckType $checkType The check being run
      * @param string $phpVersion PHP version being tested (e.g., '8.0')
      * @return bool True if entity has a known problem for this check and version
      */
     public function hasProblem(
         string $entityType,
         string $entityId,
-        string $checkName,
+        CheckType $checkType,
         string $phpVersion
     ): bool {
-        return $this->getProblemDefinition($entityType, $entityId, $checkName, $phpVersion) !== null;
+        return $this->getProblemDefinition($entityType, $entityId, $checkType, $phpVersion) !== null;
     }
 
     /**
@@ -98,23 +98,17 @@ class KnownProblemsRegistry
      *
      * @param string $entityType Entity type: 'functions', 'methods', 'classes'
      * @param string $entityId Fully qualified entity ID
-     * @param string $checkName Name of the check class
+     * @param CheckType $checkType The check being run
      * @param string $phpVersion PHP version being tested
      * @return ProblemDefinition|null Problem definition or null if no problem exists
      */
     private function getProblemDefinition(
         string $entityType,
         string $entityId,
-        string $checkName,
+        CheckType $checkType,
         string $phpVersion
     ): ?ProblemDefinition {
         $problems = $this->problemsIndex[$entityType][$entityId] ?? [];
-
-        // Convert check name string to CheckType enum
-        $checkType = CheckType::tryFrom($checkName);
-        if ($checkType === null) {
-            return null;
-        }
 
         // Find matching problem
         foreach ($problems as $problem) {
@@ -131,18 +125,18 @@ class KnownProblemsRegistry
      *
      * @param string $entityType Entity type: 'functions', 'methods', 'classes'
      * @param string $entityId Fully qualified entity ID
-     * @param string $checkName Name of the check class
+     * @param CheckType $checkType The check being run
      * @param string $phpVersion PHP version being tested
      * @return bool True if validation should be skipped
      */
     public function shouldSkipValidation(
         string $entityType,
         string $entityId,
-        string $checkName,
+        CheckType $checkType,
         string $phpVersion
     ): bool {
         // All known problems skip validation by default
-        return $this->hasProblem($entityType, $entityId, $checkName, $phpVersion);
+        return $this->hasProblem($entityType, $entityId, $checkType, $phpVersion);
     }
 
     /**
@@ -150,17 +144,17 @@ class KnownProblemsRegistry
      *
      * @param string $entityType Entity type: 'functions', 'methods', 'classes'
      * @param string $entityId Fully qualified entity ID
-     * @param string $checkName Name of the check class
+     * @param CheckType $checkType The check being run
      * @param string $phpVersion PHP version being tested
      * @return string|null Skip reason or null if validation should not be skipped
      */
     public function getSkipReason(
         string $entityType,
         string $entityId,
-        string $checkName,
+        CheckType $checkType,
         string $phpVersion
     ): ?string {
-        $problem = $this->getProblemDefinition($entityType, $entityId, $checkName, $phpVersion);
+        $problem = $this->getProblemDefinition($entityType, $entityId, $checkType, $phpVersion);
 
         return $problem?->reason;
     }
@@ -186,7 +180,7 @@ class KnownProblemsRegistry
     /**
      * Get problems index (for debugging/reporting).
      *
-     * @return ProblemDefinition
+     * @return array<string, array<string, ProblemDefinition[]>>
      */
     public function getProblemsIndex(): array
     {

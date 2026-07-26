@@ -6,6 +6,7 @@ use StubTests\Framework\Parsers\Model\PHPClass;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**
@@ -44,7 +45,7 @@ class ClassPropertiesExistCheck extends AbstractClassCheck
         $results = new CheckResultSet();
 
         // Class-level known problem skips all property validation for this class
-        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, 'ClassPropertiesExistCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, CheckType::CLASS_PROPERTIES_EXIST, $phpVersion)) {
             return $results;
         }
 
@@ -87,7 +88,7 @@ class ClassPropertiesExistCheck extends AbstractClassCheck
         foreach ($missingProperties as $propertyName) {
             $propertyEntityId = $entityId . '::$' . $propertyName;
 
-            if (!$this->skipWithKnownProblem($results, EntityType::PROPERTY->value, $propertyEntityId, 'ClassPropertiesExistCheck', $phpVersion)) {
+            if (!$this->skipWithKnownProblem($results, EntityType::PROPERTY->value, $propertyEntityId, CheckType::CLASS_PROPERTIES_EXIST, $phpVersion)) {
                 $results->addFailure(
                     $propertyEntityId,
                     "Property {$propertyEntityId} exists in PHP {$phpVersion} but not in stubs"

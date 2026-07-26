@@ -4,6 +4,7 @@ namespace StubTests\Framework\Validator\Classes\TypeForbidden;
 
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Validator\AbstractTypeForbiddenCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that overridable stub methods available before PHP 7.0 do not declare
@@ -24,9 +25,9 @@ use StubTests\Framework\Validator\AbstractTypeForbiddenCheck;
  */
 class ClassMethodsReturnTypeForbiddenCheck extends AbstractTypeForbiddenCheck
 {
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ReturnTypeForbiddenCheck';
+        return CheckType::RETURN_TYPE_FORBIDDEN;
     }
 
     public function supports(string $phpVersion): bool

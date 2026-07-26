@@ -6,6 +6,7 @@ use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\Model\Types\NullableType;
 use StubTests\Framework\Parsers\Model\Types\StandaloneType;
 use StubTests\Framework\Validator\AbstractTypeForbiddenCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that overridable stub methods available before PHP 7.0 do not declare
@@ -31,9 +32,9 @@ class ClassMethodsScalarTypeForbiddenCheck extends AbstractTypeForbiddenCheck
     /** Scalar parameter type hints introduced in PHP 7.0. */
     private const SCALAR_TYPES = ['int', 'float', 'string', 'bool'];
 
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ScalarTypeForbiddenCheck';
+        return CheckType::SCALAR_TYPE_FORBIDDEN;
     }
 
     public function supports(string $phpVersion): bool

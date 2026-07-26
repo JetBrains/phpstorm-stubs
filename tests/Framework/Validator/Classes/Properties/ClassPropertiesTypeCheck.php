@@ -9,6 +9,7 @@ use StubTests\Framework\Parsers\Model\Types\NullableType;
 use StubTests\Framework\Parsers\Model\Types\StandaloneType;
 use StubTests\Framework\Parsers\Model\Types\UnionType;
 use StubTests\Framework\Validator\AbstractPropertyFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\TypeResolver;
 
 /**
@@ -47,9 +48,9 @@ class ClassPropertiesTypeCheck extends AbstractPropertyFlagCheck
         return version_compare($phpVersion, '7.4', '>=');
     }
 
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ClassPropertiesTypeCheck';
+        return CheckType::CLASS_PROPERTIES_TYPE;
     }
 
     protected function describeMismatch(

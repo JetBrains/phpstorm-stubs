@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Classes\Methods;
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\AbstractMethodFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\ParameterDefaultValueComparator;
 
 /**
@@ -35,9 +36,9 @@ class ClassMethodsParameterDefaultValueCheck extends AbstractMethodFlagCheck
         return $phpVersion === PhpVersions::LATEST->value;
     }
 
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ParameterDefaultValueCheck';
+        return CheckType::PARAMETER_DEFAULT_VALUE;
     }
 
     protected function describeMismatch(

@@ -4,6 +4,7 @@ namespace StubTests\Framework\Validator\Classes\Methods;
 
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Validator\AbstractMethodFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\TypeResolver;
 
 /**
@@ -43,9 +44,9 @@ class ClassMethodsParameterTypesCheck extends AbstractMethodFlagCheck
         return version_compare($phpVersion, '7.0', '>=');
     }
 
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ParameterTypesCheck';
+        return CheckType::PARAMETER_TYPES;
     }
 
     protected function describeMismatch(
