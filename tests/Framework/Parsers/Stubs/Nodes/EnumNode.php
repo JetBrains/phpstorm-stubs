@@ -69,4 +69,14 @@ interface EnumNode
      * Get the doc comment, or null if no doc comment.
      */
     public function getDocComment(): ?DocCommentNode;
+
+    /**
+     * Get the attributes for this enum.
+     *
+     * Needed so enum-level #[PhpStormStubsElementAvailable] is honoured the same way it
+     * is for classes and interfaces.
+     *
+     * @return AttributeNode[]
+     */
+    public function getAttributes(): array;
 }

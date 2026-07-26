@@ -281,6 +281,52 @@ class ReflectionEntitySerializerTest extends TestCase
         self::assertTrue($result['isFinal']);
         self::assertIsArray($result['methods']);
         self::assertIsArray($result['interfaces']);
+        self::assertIsArray($result['cases']);
+        self::assertIsArray($result['constants']);
+    }
+
+    /**
+     * The reflection enum serializer used to omit `cases` entirely, so the reflection side
+     * of EnumCasesCheck always saw an empty list and the check could never fail.
+     */
+    public function testSerializeEnumIncludesCases(): void
+    {
+        $enum = new PHPEnum();
+        $enum->setName('SortDirection');
+        $enum->setNamespace('\\');
+        $enum->setId('\\SortDirection');
+        $enum->setCases(['Ascending', 'Descending']);
+
+        $result = $this->serializer->serialize($enum);
+
+        self::assertSame(['Ascending', 'Descending'], $result['cases']);
+    }
+
+    public function testEnumCasesSurviveARoundtrip(): void
+    {
+        $enum = new PHPEnum();
+        $enum->setName('SortDirection');
+        $enum->setNamespace('\\');
+        $enum->setId('\\SortDirection');
+        $enum->setCases(['Ascending', 'Descending']);
+
+        $data = $this->serializer->serialize($enum);
+        $restored = $this->serializer->deserialize($data);
+
+        self::assertSame(['Ascending', 'Descending'], $restored->getCaseNames());
+        self::assertSame($data, $this->serializer->serialize($restored));
+    }
+
+    public function testDeserializeEnumWithoutCasesKeyYieldsEmptyCases(): void
+    {
+        $restored = $this->serializer->deserialize([
+            '_type' => 'PHPEnum',
+            'name' => 'Legacy',
+            'id' => '\\Legacy',
+            'namespace' => '\\',
+        ]);
+
+        self::assertSame([], $restored->getCaseNames());
     }
 
     public function testSerializeConstant(): void

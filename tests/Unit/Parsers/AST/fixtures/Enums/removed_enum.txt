@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * @since 8.1
+ * @removed 8.4
+ */
+enum LegacyMode
+{
+    case Old;
+}

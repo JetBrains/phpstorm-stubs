@@ -108,4 +108,15 @@ class NikicEnumNode implements EnumNode
         }
         return new NikicDocCommentNode($docComment);
     }
+
+    public function getAttributes(): array
+    {
+        $attributes = [];
+        foreach ($this->enum->attrGroups as $attrGroup) {
+            foreach ($attrGroup->attrs as $attr) {
+                $attributes[] = new NikicAttributeNode($attr);
+            }
+        }
+        return $attributes;
+    }
 }

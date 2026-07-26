@@ -16,8 +16,7 @@ use StubTests\Framework\Parsers\Stubs\StubEnumParser;
 use StubTests\Framework\Parsers\Stubs\StubFunctionParser;
 use StubTests\Framework\Parsers\Stubs\StubInterfaceParser;
 use StubTests\Framework\Parsers\Stubs\StubModernConstantParser;
-use StubTests\Framework\Parsers\Processors\EntityProcessingPipeline;
-use StubTests\Framework\Parsers\Processors\StubsDeduplicationProcessor;
+use StubTests\Framework\Parsers\Processors\EntityProcessingPipelineFactory;
 use StubTests\Framework\Parsers\Storage\DefaultParsedDataStorageManager;
 use StubTests\Framework\Parsers\Storage\JsonParsedDataStorage;
 use StubTests\Framework\Parsers\Storage\MultiFileJsonStorage;
@@ -66,8 +65,12 @@ class Runner
                 throw new \RuntimeException("Reflection cache file not found: $cacheFilePath. " . "Cannot generate cache for PHP $phpVersion on runtime PHP $runtimeVersion. " . "Run the reflection cache generation script for PHP $phpVersion first.");
             }
 
+            // Must use the same pipeline as tests/run-reflection-processor.php: without
+            // deduplication this writes a cache containing duplicate entities over the
+            // committed path, and every validator then compares against corrupted data.
             $parsedReflectionDataStorageManager = new DefaultParsedDataStorageManager(
-                new JsonParsedDataStorage($cacheFilePath, $serializer, false)
+                new JsonParsedDataStorage($cacheFilePath, $serializer, false),
+                EntityProcessingPipelineFactory::forReflection()
             );
             $parser = new AllReflectionParser(
                 new CurrentRuntimeReflectionRawDataProvider(),
@@ -104,9 +107,10 @@ class Runner
             $phpDocStorage = new PhpDocStorage($phpDocCacheFilePath, false);
             $serializer = new StubsEntitySerializer($phpDocStorage);
             $storage = new MultiFileJsonStorage($cacheFilePath, $serializer, false, $phpDocStorage);
-            $pipeline = new EntityProcessingPipeline();
-            $pipeline->addProcessor(new StubsDeduplicationProcessor());
-            $parsedStubsDataStorageManager = new DefaultParsedDataStorageManager($storage, $pipeline);
+            $parsedStubsDataStorageManager = new DefaultParsedDataStorageManager(
+                $storage,
+                EntityProcessingPipelineFactory::forStubs()
+            );
             $parser = new AllStubsParser(
                 new AllStubsDataProvider(),
                 $parsedStubsDataStorageManager,

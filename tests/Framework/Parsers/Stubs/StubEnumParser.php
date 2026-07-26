@@ -3,7 +3,10 @@
 namespace StubTests\Framework\Parsers\Stubs;
 
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
+use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
+use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
+use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
 use StubTests\Framework\Parsers\Model\PHPEnum;
 use StubTests\Framework\Parsers\Model\PHPInterface;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicNodeExtractor;
@@ -17,6 +20,8 @@ use StubTests\Framework\Parsers\Stubs\Nodes\EnumNode;
 class StubEnumParser implements MultiEntityStubParserInterface
 {
     private EnumNodeExtractorInterface $nodeExtractor;
+    private PhpDocParserInterface $phpDocParser;
+    private AvailableVersionParserInterface $versionParser;
     private StubMethodParser $methodParser;
     private StubClassConstantParser $constantParser;
 
@@ -26,8 +31,12 @@ class StubEnumParser implements MultiEntityStubParserInterface
         ?AvailableVersionParserInterface $versionParser = null
     ) {
         $this->nodeExtractor = $nodeExtractor ?? new NikicNodeExtractor();
-        $this->methodParser = new StubMethodParser($phpDocParser, null, $versionParser);
-        $this->constantParser = new StubClassConstantParser($phpDocParser, $versionParser);
+        $this->phpDocParser = $phpDocParser ?? new PhpDocumentorParser();
+        $this->versionParser = $versionParser ?? new DefaultAvailableVersionParser();
+        // Pass the resolved instances so every nesting level shares one parser rather
+        // than allocating its own DocBlockFactory chain.
+        $this->methodParser = new StubMethodParser($this->phpDocParser, null, $this->versionParser);
+        $this->constantParser = new StubClassConstantParser($this->phpDocParser, $this->versionParser);
     }
 
     /**
@@ -65,6 +74,19 @@ class StubEnumParser implements MultiEntityStubParserInterface
             $phpEnum->setId($phpEnum->getNamespace() . '\\' . $phpEnum->getName());
         }
 
+        // Parse PhpDoc using injected parser. Without this the enum's @since/@removed and
+        // raw PhpDoc were dropped, so every stub enum looked available in all PHP versions.
+        $parsedPhpDoc = $this->phpDocParser->parseElementPhpDoc($node->getDocComment());
+        $phpEnum->initStubsMetadata()->setPhpDoc($parsedPhpDoc->rawPhpDoc);
+
+        // Parse and apply available version (from PhpDoc + attributes)
+        $versions = $this->versionParser->parseAvailableVersion($parsedPhpDoc, $node->getAttributes(), $imports);
+        $phpEnum->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
+        $phpEnum->initStubsMetadata()->setRemovedVersion($versions['removedVersion']);
+
+        // Enum-level @template names propagate to methods that reference them
+        $classTemplateNames = TemplateTypeNormalizer::extractTemplateNames($parsedPhpDoc->rawPhpDoc);
+
         // Enum-specific properties
         $phpEnum->setIsFinal($node->isFinal()); // Always true for enums
         $phpEnum->setIsReadonly(false); // Enums are not readonly
@@ -85,7 +107,9 @@ class StubEnumParser implements MultiEntityStubParserInterface
 
         // Methods - pass namespace context for type resolution
         foreach ($node->getMethods() as $methodNode) {
-            $phpEnum->addMethod($this->methodParser->parseNode($methodNode, $imports, $phpEnum->getNamespace()));
+            $phpEnum->addMethod(
+                $this->methodParser->parseNode($methodNode, $imports, $phpEnum->getNamespace(), $classTemplateNames)
+            );
         }
 
         // Cases

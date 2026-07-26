@@ -1,0 +1,7 @@
+<?php
+
+enum PlainEnum
+{
+    case A;
+    case B;
+}

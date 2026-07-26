@@ -33,6 +33,15 @@ class ReflectionEnumSerializer implements EntityTypeSerializerInterface
 
         $data['namespace'] = $this->toJsonSafe($entity->getNamespace());
 
+        // Cases and constants were previously not serialized at all, so the reflection side
+        // of EnumCasesCheck always compared against an empty list and could never fail.
+        $data['cases'] = $entity->getCaseNames();
+
+        $data['constants'] = [];
+        foreach ($entity->getConstants() as $constant) {
+            $data['constants'][] = $this->serializeClassConstant($constant);
+        }
+
         $data['methods'] = [];
         foreach ($entity->getMethods() as $method) {
             $data['methods'][] = $this->serializeMethod($method);
@@ -54,6 +63,14 @@ class ReflectionEnumSerializer implements EntityTypeSerializerInterface
         $enum->setId($data['id'] ?? null);
         $enum->setIsFinal((bool)($data['isFinal'] ?? false));
         $enum->setIsReadonly((bool)($data['isReadonly'] ?? false));
+
+        $enum->setCases(isset($data['cases']) && is_array($data['cases']) ? $data['cases'] : []);
+
+        if (isset($data['constants']) && is_array($data['constants'])) {
+            foreach ($data['constants'] as $constantData) {
+                $enum->addConstant($this->deserializeClassConstant($constantData));
+            }
+        }
 
         if (isset($data['methods']) && is_array($data['methods'])) {
             foreach ($data['methods'] as $methodData) {

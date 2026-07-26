@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * A backed enum introduced in PHP 8.6.
+ *
+ * @since 8.6
+ */
+enum SortDirection: string implements \UnitEnum
+{
+    case Ascending = 'asc';
+    case Descending = 'desc';
+
+    const DEFAULT_DIRECTION = 'asc';
+
+    public function label(): string {}
+}
