@@ -13,7 +13,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use StubTests\Framework\Parsers\Serializers\Stubs\StubsEntitySerializer;
-use StubTests\Framework\Parsers\Processors\EntityProcessingPipeline;
+use StubTests\Framework\Parsers\Processors\EntityProcessingPipelineFactory;
 use StubTests\Framework\DataProvider\AllStubsDataProvider;
 use StubTests\Framework\Parsers\Storage\DefaultParsedDataStorageManager;
 use StubTests\Framework\Parsers\Stubs\AllStubsParser;
@@ -25,7 +25,6 @@ use StubTests\Framework\Parsers\Stubs\StubInterfaceParser;
 use StubTests\Framework\Parsers\Stubs\StubModernConstantParser;
 use StubTests\Framework\Parsers\Storage\MultiFileJsonStorage;
 use StubTests\Framework\Parsers\Storage\PhpDocStorage;
-use StubTests\Framework\Parsers\Processors\StubsDeduplicationProcessor;
 
 echo "========================================\n";
 echo "PHP Stubs Parser Runner\n";
@@ -53,9 +52,10 @@ try {
     $phpDocStorage = new PhpDocStorage($phpDocCacheFilePath, false); // Start fresh
     $serializer = new StubsEntitySerializer($phpDocStorage);
     $storage = new MultiFileJsonStorage($cacheFilePath, $serializer, false, $phpDocStorage); // Multi-file storage
-    $pipeline = new EntityProcessingPipeline();
-    $pipeline->addProcessor(new StubsDeduplicationProcessor());
-    $storageManager = new DefaultParsedDataStorageManager($storage, $pipeline);
+    $storageManager = new DefaultParsedDataStorageManager(
+        $storage,
+        EntityProcessingPipelineFactory::forStubs()
+    );
     echo "      ✓ Storage manager created with multi-file storage and deduplication enabled\n\n";
 
     // Create parsers

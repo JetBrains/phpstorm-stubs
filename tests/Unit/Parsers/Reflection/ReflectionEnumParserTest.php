@@ -262,6 +262,81 @@ class ReflectionEnumParserTest extends TestCase
         self::assertNotEmpty($basePHPElement->getConstants());
     }
 
+    /**
+     * getReflectionConstants() reports enum cases alongside real constants, flagged by
+     * isEnumCase(). Cases must land in setCases(), not in the constant list — otherwise
+     * getCaseNames() stays empty and EnumCasesCheck can never fail.
+     */
+    public function testItSeparatesEnumCasesFromConstants()
+    {
+        $case = $this->makeConstantMock('Ascending', null, true);
+        $constant = $this->makeConstantMock('DEFAULT_DIRECTION', 'asc', false);
+
+        $enum = new ReflectionEnumParser()->parse($this->makeEnumMockWithConstants([$case, $constant]));
+
+        self::assertSame(['Ascending'], $enum->getCaseNames());
+        self::assertCount(1, $enum->getConstants());
+        self::assertSame('DEFAULT_DIRECTION', $enum->getConstants()[0]->getName());
+    }
+
+    public function testItParsesAllEnumCases()
+    {
+        $cases = [
+            $this->makeConstantMock('First', null, true),
+            $this->makeConstantMock('Second', null, true),
+            $this->makeConstantMock('Third', null, true),
+        ];
+
+        $enum = new ReflectionEnumParser()->parse($this->makeEnumMockWithConstants($cases));
+
+        self::assertSame(['First', 'Second', 'Third'], $enum->getCaseNames());
+        self::assertEmpty($enum->getConstants());
+    }
+
+    public function testCasesAreEmptyWhenEveryConstantIsARealConstant()
+    {
+        $enum = new ReflectionEnumParser()->parse(
+            $this->makeEnumMockWithConstants([$this->makeConstantMock('FOO', 'BAR', false)])
+        );
+
+        self::assertSame([], $enum->getCaseNames());
+        self::assertCount(1, $enum->getConstants());
+    }
+
+    public function testCasesDefaultToEmptyArrayWhenConstantsCannotBeRead()
+    {
+        $enum = new ReflectionEnumParser()->parse(
+            $this->getMockBuilder(AdaptedReflectionClass::class)->disableOriginalConstructor()->getMock()
+        );
+
+        self::assertSame([], $enum->getCaseNames());
+    }
+
+    private function makeConstantMock(string $name, $value, bool $isEnumCase)
+    {
+        $mock = $this->getMockBuilder(AdaptedReflectionClassConstant::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['getName', 'getValue', 'isEnumCase'])
+            ->getMock();
+        $mock->method('getName')->willReturn($name);
+        $mock->method('getValue')->willReturn($value);
+        $mock->method('isEnumCase')->willReturn($isEnumCase);
+
+        return $mock;
+    }
+
+    private function makeEnumMockWithConstants(array $constants)
+    {
+        $mock = $this->getMockBuilder(AdaptedReflectionClass::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['hasReflectionConstants', 'getReflectionConstants'])
+            ->getMock();
+        $mock->method('hasReflectionConstants')->willReturn(true);
+        $mock->method('getReflectionConstants')->willReturn($constants);
+
+        return $mock;
+    }
+
     public function testItReturnsEmptyArrayIfImplementedInterfacesCanNotBeRead()
     {
         $reflectionClassMock = $this->getMockBuilder(AdaptedReflectionClass::class)->disableOriginalConstructor()->getMock();

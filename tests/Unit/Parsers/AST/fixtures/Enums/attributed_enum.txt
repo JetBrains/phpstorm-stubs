@@ -1,0 +1,10 @@
+<?php
+namespace Test;
+
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+
+#[PhpStormStubsElementAvailable(from: '8.2', to: '8.4')]
+enum AttributedEnum
+{
+    case One;
+}

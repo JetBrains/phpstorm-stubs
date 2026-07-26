@@ -116,6 +116,7 @@ FAILED_COUNT=0
 SKIPPED_COUNT=0
 declare -a FAILED_VERSIONS
 declare -a SUCCESS_VERSIONS
+declare -a SKIPPED_VERSIONS
 
 # Create cache directory if it doesn't exist
 mkdir -p "$SCRIPT_DIR/cache"
@@ -147,6 +148,7 @@ for VERSION in "${PHP_VERSIONS[@]}"; do
     if [ ! -f "$DOCKERFILE_PATH" ]; then
         echo -e "${RED}✗ Dockerfile not found: $DOCKERFILE_PATH${NC}"
         SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
+        SKIPPED_VERSIONS+=("$VERSION")
         continue
     fi
 
@@ -265,15 +267,24 @@ echo -e "\n${BLUE}Generated files:${NC}"
 ls -lh "$SCRIPT_DIR/cache/Reflection"*.json 2>/dev/null || echo "No files found"
 
 echo -e "\n${BLUE}========================================${NC}"
-if [ $FAILED_COUNT -eq 0 ] && [ $SUCCESS_COUNT -gt 0 ]; then
+# A skipped version leaves its Reflection<version>.json missing or stale, which is just
+# as broken as a failure — the validators would silently compare against absent or
+# outdated data. Skips must therefore fail the run, not merely be printed above.
+if [ $FAILED_COUNT -eq 0 ] && [ $SKIPPED_COUNT -eq 0 ] && [ $SUCCESS_COUNT -eq $TOTAL_VERSIONS ]; then
     echo -e "${GREEN}✓ All versions processed successfully!${NC}"
     exit 0
 else
-    if [ $SUCCESS_COUNT -gt 0 ]; then
-        echo -e "${YELLOW}⚠ Completed with $FAILED_COUNT failures${NC}"
-        exit 1
-    else
-        echo -e "${RED}✗ All versions failed!${NC}"
-        exit 1
+    if [ $SKIPPED_COUNT -gt 0 ]; then
+        echo -e "${YELLOW}⚠ $SKIPPED_COUNT version(s) skipped — their cache files are missing or stale${NC}"
+        for VERSION in "${SKIPPED_VERSIONS[@]}"; do
+            echo "  - PHP $VERSION"
+        done
     fi
+    if [ $FAILED_COUNT -gt 0 ]; then
+        echo -e "${RED}✗ Completed with $FAILED_COUNT failure(s)${NC}"
+    fi
+    if [ $SUCCESS_COUNT -ne $TOTAL_VERSIONS ]; then
+        echo -e "${RED}✗ Only $SUCCESS_COUNT of $TOTAL_VERSIONS versions were processed — the cache set is INCOMPLETE${NC}"
+    fi
+    exit 1
 fi

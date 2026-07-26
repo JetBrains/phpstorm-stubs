@@ -43,7 +43,7 @@ echo "========================================\n\n";
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use StubTests\Framework\Parsers\Serializers\Reflection\ReflectionEntitySerializer;
-use StubTests\Framework\Parsers\Processors\EntityProcessingPipeline;
+use StubTests\Framework\Parsers\Processors\EntityProcessingPipelineFactory;
 use StubTests\Framework\Parsers\Storage\DefaultParsedDataStorageManager;
 use StubTests\Framework\Parsers\Reflection\ReflectionClassParser;
 use StubTests\Framework\Parsers\Reflection\ReflectionDefineConstantParser;
@@ -52,7 +52,6 @@ use StubTests\Framework\Parsers\Reflection\ReflectionFunctionParser;
 use StubTests\Framework\Parsers\Reflection\ReflectionInterfaceParser;
 use StubTests\Framework\Parsers\Reflection\ReflectionModernConstantParser;
 use StubTests\Framework\Parsers\Storage\JsonParsedDataStorage;
-use StubTests\Framework\Parsers\Processors\ReflectionDeduplicationProcessor;
 
 try {
     // Load extracted data
@@ -80,9 +79,10 @@ try {
     // Create storage manager with deduplication pipeline
     echo "[2/4] Creating storage manager with deduplication pipeline...\n";
     $storage = new JsonParsedDataStorage($outputFile, new ReflectionEntitySerializer(), false);
-    $pipeline = new EntityProcessingPipeline();
-    $pipeline->addProcessor(new ReflectionDeduplicationProcessor());
-    $storageManager = new DefaultParsedDataStorageManager($storage, $pipeline);
+    $storageManager = new DefaultParsedDataStorageManager(
+        $storage,
+        EntityProcessingPipelineFactory::forReflection()
+    );
     echo "      ✓ Storage manager created with deduplication enabled\n\n";
 
     // Create parsers
@@ -97,6 +97,29 @@ try {
     // Parse wrapped entities
     echo "[3/4] Parsing wrapped entities...\n";
 
+    // Per-kind parse failures. Swallowing these silently used to let a systematic
+    // regression (e.g. every enum throwing) produce a cache with zero entities of that
+    // kind while still exiting 0, so the validators had nothing to compare and reported
+    // success. Failures are now counted, reported, and reflected in the exit code.
+    $parseFailures = [];
+    // The entity is passed raw rather than pre-formatted: this runs while handling a
+    // failure, so a malformed entry must not raise a second (fatal) error here.
+    $recordFailure = static function (string $kind, $entity, \Throwable $e) use (&$parseFailures): void {
+        $name = '?';
+        if (is_string($entity) || is_int($entity)) {
+            $name = (string)$entity;
+        } elseif (is_object($entity) && method_exists($entity, 'getName')) {
+            try {
+                $name = (string)$entity->getName();
+            } catch (\Throwable) {
+                $name = get_class($entity) . ' (name unavailable)';
+            }
+        } elseif (is_object($entity)) {
+            $name = get_class($entity);
+        }
+        $parseFailures[$kind][] = ['name' => $name, 'error' => $e->getMessage()];
+    };
+
     // Parse classes
     echo "      - Parsing classes...\n";
     foreach ($extractedData['classes'] ?? [] as $wrappedClass) {
@@ -105,9 +128,8 @@ try {
                 $phpClass = $classParser->parse($wrappedClass);
                 $storageManager->addEntity($phpClass);
             }
-        } catch (\Exception $e) {
-            // Skip classes that cannot be parsed
-            continue;
+        } catch (\Throwable $e) {
+            $recordFailure('classes', $wrappedClass, $e);
         }
     }
 
@@ -119,8 +141,8 @@ try {
                 $phpInterface = $interfaceParser->parse($wrappedInterface);
                 $storageManager->addEntity($phpInterface);
             }
-        } catch (\Exception $e) {
-            continue;
+        } catch (\Throwable $e) {
+            $recordFailure('interfaces', $wrappedInterface, $e);
         }
     }
 
@@ -132,8 +154,8 @@ try {
                 $phpEnum = $enumParser->parse($wrappedEnum);
                 $storageManager->addEntity($phpEnum);
             }
-        } catch (\Exception $e) {
-            continue;
+        } catch (\Throwable $e) {
+            $recordFailure('enums', $wrappedEnum, $e);
         }
     }
 
@@ -143,8 +165,8 @@ try {
         try {
             $phpFunction = $functionParser->parse($wrappedFunction);
             $storageManager->addEntity($phpFunction);
-        } catch (\Exception $e) {
-            continue;
+        } catch (\Throwable $e) {
+            $recordFailure('functions', $wrappedFunction, $e);
         }
     }
 
@@ -155,12 +177,28 @@ try {
             // Pass indexed array [name, value] for ReflectionDefineConstantParser compatibility
             $phpConstant = $constantParser->parse([$constantName, $constantValue]);
             $storageManager->addEntity($phpConstant);
-        } catch (\Exception $e) {
-            continue;
+        } catch (\Throwable $e) {
+            $recordFailure('constants', $constantName, $e);
         }
     }
 
-    echo "      ✓ Parsing completed\n\n";
+    $totalFailures = array_sum(array_map('count', $parseFailures));
+    if ($totalFailures > 0) {
+        echo "\n      ⚠ {$totalFailures} entities failed to parse and are ABSENT from the cache:\n";
+        foreach ($parseFailures as $kind => $failures) {
+            echo "        - " . str_pad($kind . ':', 12) . count($failures) . "\n";
+            // Cap the per-kind listing; the counts above are the complete picture.
+            foreach (array_slice($failures, 0, 5) as $failure) {
+                echo "            {$failure['name']}: {$failure['error']}\n";
+            }
+            if (count($failures) > 5) {
+                echo "            ... and " . (count($failures) - 5) . " more\n";
+            }
+        }
+        echo "\n";
+    } else {
+        echo "      ✓ Parsing completed\n\n";
+    }
 
     // Save to JSON
     echo "[4/4] Saving to JSON file...\n";
@@ -204,6 +242,13 @@ try {
     $fileSizeFormatted = number_format($fileSize / 1024 / 1024, 2);
     echo "Output File Size: {$fileSizeFormatted} MB\n";
     echo "========================================\n\n";
+
+    if ($totalFailures > 0) {
+        echo "✗ FAILED: {$totalFailures} entities could not be parsed.\n";
+        echo "          The cache at {$outputFile} was written but is INCOMPLETE.\n";
+        echo "          Fix the parse errors above and re-run; do not commit this cache.\n\n";
+        exit(1);
+    }
 
     echo "✓ SUCCESS: Reflection processing completed successfully!\n";
     echo "          Output saved to: {$outputFile}\n\n";
