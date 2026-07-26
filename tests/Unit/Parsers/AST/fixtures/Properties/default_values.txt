@@ -1,0 +1,28 @@
+<?php
+
+class TestClass
+{
+    public $untypedNoDefault;
+
+    public $untypedWithDefault = 5;
+
+    public int $typedNoDefault;
+
+    public int $typedWithDefault = 7;
+
+    public ?string $nullableNoDefault;
+
+    public array $arrayDefault = [];
+
+    public string $emptyStringDefault = '';
+
+    public $explicitNullDefault = null;
+
+    public int $constantDefault = PHP_INT_MAX;
+
+    public static $staticUntypedNoDefault;
+
+    public static int $staticTypedNoDefault;
+
+    public bool $falseDefault = false;
+}

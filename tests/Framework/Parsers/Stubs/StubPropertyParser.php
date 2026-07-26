@@ -60,6 +60,20 @@ class StubPropertyParser
         $property->setIsStatic($node->isStatic());
         $property->setIsReadonly($node->isReadonly());
 
+        // Default value. Evaluated eagerly: properties are far fewer than parameters, so
+        // there is no lazy-loading pressure, and PHPProperty has no deferred-evaluator hook.
+        // A default that cannot be statically evaluated leaves the value null while keeping
+        // hasDefaultValue true — the structural fact is always knowable from the signature
+        // even when the expression is not.
+        $hasDefault = $node->hasDefaultValue();
+        $property->setHasDefaultValue($hasDefault);
+        if ($hasDefault) {
+            // An expression that cannot be statically evaluated (an unresolvable constant,
+            // say) leaves the value null while hasDefaultValue stays true, rather than
+            // failing the whole parse over one property.
+            $property->setDefaultValue($this->evaluateDefaultOrNull($node));
+        }
+
         // Parse PhpDoc using injected parser
         $parsedPhpDoc = $this->phpDocParser->parseElementPhpDoc($node->getDocComment());
 
@@ -100,5 +114,18 @@ class StubPropertyParser
         }
 
         return $property;
+    }
+
+    /**
+     * Evaluates the node's default value, yielding null when the expression is not
+     * statically evaluable.
+     */
+    private function evaluateDefaultOrNull(PropertyNode $node): mixed
+    {
+        try {
+            return $node->getDefaultValue();
+        } catch (\RuntimeException) {
+            return null;
+        }
     }
 }
