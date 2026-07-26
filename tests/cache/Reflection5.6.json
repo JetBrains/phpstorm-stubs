@@ -183,49 +183,63 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "string",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "private",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "trace",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "private",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "previous",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "private",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -447,35 +461,45 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "severity",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -3288,21 +3312,27 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "mime",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "postname",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -3480,28 +3510,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -15833,28 +15871,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -16032,28 +16078,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -16231,28 +16285,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -16430,28 +16492,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -16629,28 +16699,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -16828,28 +16906,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -17027,28 +17113,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -17226,28 +17320,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -17425,28 +17527,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -17624,28 +17734,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -17823,28 +17941,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -18022,28 +18148,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -18221,28 +18355,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -20838,7 +20980,9 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [
@@ -21187,7 +21331,9 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [
@@ -31609,35 +31755,45 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "errorInfo",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -33109,7 +33265,9 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -33303,28 +33461,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -33694,7 +33860,9 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -34119,7 +34287,9 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [
@@ -34428,7 +34598,9 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -35042,14 +35214,18 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "class",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [
@@ -35898,7 +36074,9 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [
@@ -36729,7 +36907,9 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [
@@ -37053,14 +37233,18 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "class",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [
@@ -37310,7 +37494,9 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -37469,7 +37655,9 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -38713,14 +38901,18 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "params",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -40739,28 +40931,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -48988,7 +49188,9 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [
@@ -52326,28 +52528,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -55012,35 +55222,45 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "sqlstate",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -55062,42 +55282,54 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "client_version",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "driver_version",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "embedded",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "reconnect",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "report_mode",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -56246,133 +56478,171 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "client_info",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "client_version",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "connect_errno",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "connect_error",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "errno",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "error",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "error_list",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "field_count",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "host_info",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "info",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "insert_id",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "server_info",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "server_version",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "stat",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "sqlstate",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "protocol_version",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "thread_id",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "warning_count",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -56417,21 +56687,27 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "sqlstate",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "errno",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -56679,35 +56955,45 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "field_count",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "lengths",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "num_rows",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "type",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -57069,70 +57355,90 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "insert_id",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "num_rows",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "param_count",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "field_count",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "errno",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "error",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "error_list",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "sqlstate",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "id",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "public",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
@@ -58131,28 +58437,36 @@
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "code",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "file",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             },
             {
                 "name": "line",
                 "isStatic": false,
                 "isReadonly": false,
                 "accessModifier": "protected",
-                "type": ""
+                "type": "",
+                "hasDefaultValue": false,
+                "defaultValue": null
             }
         ],
         "constants": [],
