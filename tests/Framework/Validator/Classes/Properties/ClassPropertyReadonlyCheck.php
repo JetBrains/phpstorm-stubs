@@ -4,6 +4,7 @@ namespace StubTests\Framework\Validator\Classes\Properties;
 
 use StubTests\Framework\Parsers\Model\PHPProperty;
 use StubTests\Framework\Validator\AbstractPropertyFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that the `readonly` modifier on properties in stubs matches reflection.
@@ -33,9 +34,9 @@ class ClassPropertyReadonlyCheck extends AbstractPropertyFlagCheck
         return version_compare($phpVersion, '8.1', '>=');
     }
 
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ClassPropertyReadonlyCheck';
+        return CheckType::CLASS_PROPERTIES_READONLY;
     }
 
     protected function describeMismatch(

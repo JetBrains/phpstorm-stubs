@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Functions;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractCallableCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\DeprecationComparator;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
@@ -30,7 +31,7 @@ class FunctionDeprecationCheck extends AbstractCallableCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, EntityType::FUNCTION->value, $entityId, 'DeprecationCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, EntityType::FUNCTION->value, $entityId, CheckType::DEPRECATION, $phpVersion)) {
             return $results;
         }
 

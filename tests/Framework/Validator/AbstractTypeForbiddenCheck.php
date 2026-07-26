@@ -6,6 +6,7 @@ use StubTests\Framework\Parsers\Model\Access\AccessModifier;
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**
@@ -28,7 +29,7 @@ abstract class AbstractTypeForbiddenCheck extends AbstractClassCheck
     /**
      * Check name used for known-problem lookups.
      */
-    abstract protected function getCheckName(): string;
+    abstract protected function getCheckName(): CheckType;
 
     /**
      * Inspect a single overridable method for type violations.

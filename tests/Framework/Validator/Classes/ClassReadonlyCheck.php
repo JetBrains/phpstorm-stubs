@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Classes;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that the `readonly` modifier on a class in stubs matches reflection.
@@ -21,7 +22,7 @@ class ClassReadonlyCheck extends AbstractClassCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, 'ClassReadonlyCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, CheckType::CLASS_READONLY, $phpVersion)) {
             return $results;
         }
 

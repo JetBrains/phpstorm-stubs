@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Classes\Constants;
 use StubTests\Framework\Parsers\Model\PHPClassConstant;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\AbstractConstantFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that the values of constants in class stubs match reflection.
@@ -30,9 +31,9 @@ use StubTests\Framework\Validator\AbstractConstantFlagCheck;
  */
 class ClassConstantsValueCheck extends AbstractConstantFlagCheck
 {
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ClassConstantsValueCheck';
+        return CheckType::CLASS_CONSTANTS_VALUE;
     }
 
     protected function describeMismatch(

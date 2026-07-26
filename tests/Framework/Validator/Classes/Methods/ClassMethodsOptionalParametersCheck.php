@@ -4,6 +4,7 @@ namespace StubTests\Framework\Validator\Classes\Methods;
 
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Validator\AbstractMethodFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\OptionalParametersComparator;
 
 /**
@@ -30,9 +31,9 @@ use StubTests\Framework\Validator\Services\OptionalParametersComparator;
  */
 class ClassMethodsOptionalParametersCheck extends AbstractMethodFlagCheck
 {
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'OptionalParametersCheck';
+        return CheckType::OPTIONAL_PARAMETERS;
     }
 
     protected function describeMismatch(

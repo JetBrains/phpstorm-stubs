@@ -9,13 +9,15 @@ use StubTests\Framework\Validator\KnownProblems\DefaultKnownProblemsProvider;
 /**
  * Guards the join between known problems and the checks that consume them.
  *
- * Known-problem suppression is keyed by check name: a check calls
- * KnownProblemsRegistry with the string it reports (either getCheckName() or a
- * literal passed to skipWithKnownProblem()), and the registry matches that
- * string against the CheckType value stored in each ProblemDefinition. If a
- * provider references a CheckType whose value is never emitted by any check,
- * the skip silently never fires and the entity is validated anyway — a
- * suppression that looks configured but does nothing.
+ * Known-problem suppression is keyed by CheckType: a check passes its CheckType to
+ * KnownProblemsRegistry (via getCheckName() or directly to skipWithKnownProblem()),
+ * and the registry matches it against the CheckType stored in each ProblemDefinition.
+ *
+ * Since both sides are now the same enum, a *misspelled* name is a compile error and
+ * can no longer break the join silently. What remains possible — and still silent — is
+ * a provider referencing a CheckType that no check ever emits: the skip never fires and
+ * the entity is validated anyway, so the suppression looks configured but does nothing.
+ * That is what this test guards.
  *
  * This is exactly how ENUM_CONSTANTS / INTERFACE_CONSTANTS / ENUM_FINAL etc.
  * became latent traps: the constant/final checks were unified into
@@ -54,12 +56,16 @@ class CheckTypeEmissionTest extends TestCase
     }
 
     /**
-     * Scans the validator source tree for every check-name string literal a
-     * check can report — the return of getCheckName() and any literal passed as
-     * the check-name argument of skipWithKnownProblem(). The KnownProblems
-     * directory is excluded because it defines names, it does not emit them.
+     * Scans the validator source tree for every CheckType a check can report — the
+     * return of getCheckName() and any case passed as the check argument of
+     * skipWithKnownProblem(). The KnownProblems directory is excluded because it
+     * defines the cases, it does not emit them.
      *
-     * @return string[] distinct emitted check names
+     * Source scanning rather than reflection: getCheckName() is protected, and the
+     * checks that pass a CheckType directly to skipWithKnownProblem() do not declare
+     * getCheckName() at all, so there is no single API to interrogate.
+     *
+     * @return string[] distinct emitted CheckType values
      */
     private function collectEmittedCheckNames(): array
     {
@@ -82,21 +88,27 @@ class CheckTypeEmissionTest extends TestCase
 
             $source = file_get_contents($file->getPathname());
 
-            // getCheckName(): string { return 'Name'; }
-            if (preg_match_all('/function\s+getCheckName\s*\(\s*\)\s*:\s*string\s*\{\s*return\s*\'([^\']+)\'/s', $source, $m)) {
-                foreach ($m[1] as $name) {
-                    $names[$name] = true;
+            // getCheckName(): CheckType { return CheckType::CASE; }
+            if (preg_match_all('/function\s+getCheckName\s*\(\s*\)\s*:\s*CheckType\s*\{\s*return\s+CheckType::([A-Z_]+)/s', $source, $m)) {
+                foreach ($m[1] as $case) {
+                    $names[$case] = true;
                 }
             }
 
-            // skipWithKnownProblem(..., 'Name', $phpVersion)
-            if (preg_match_all('/skipWithKnownProblem\s*\([^;]*?,\s*\'([^\']+)\'\s*,\s*\$phpVersion/s', $source, $m)) {
-                foreach ($m[1] as $name) {
-                    $names[$name] = true;
+            // skipWithKnownProblem(..., CheckType::CASE, $phpVersion)
+            if (preg_match_all('/skipWithKnownProblem\s*\([^;]*?,\s*CheckType::([A-Z_]+)\s*,\s*\$phpVersion/s', $source, $m)) {
+                foreach ($m[1] as $case) {
+                    $names[$case] = true;
                 }
             }
         }
 
-        return array_keys($names);
+        $this->assertNotEmpty($names, 'Scanner found no emitted CheckType at all - the patterns are stale.');
+
+        // Map case names to their backed values, which is what ProblemDefinition stores.
+        return array_map(
+            static fn (string $case): string => constant(CheckType::class . '::' . $case)->value,
+            array_keys($names)
+        );
     }
 }

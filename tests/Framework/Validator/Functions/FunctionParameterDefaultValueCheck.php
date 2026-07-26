@@ -6,6 +6,7 @@ use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\AbstractCallableCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\Services\ParameterDefaultValueComparator;
 use StubTests\Framework\Validator\Services\ParameterFilterHelper;
@@ -39,7 +40,7 @@ class FunctionParameterDefaultValueCheck extends AbstractCallableCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, EntityType::FUNCTION->value, $entityId, 'ParameterDefaultValueCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, EntityType::FUNCTION->value, $entityId, CheckType::PARAMETER_DEFAULT_VALUE, $phpVersion)) {
             return $results;
         }
 

@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Enums;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**
@@ -27,7 +28,7 @@ class EnumCasesCheck extends AbstractClassCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, EntityType::ENUM_TYPE->value, $entityId, 'EnumCasesCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, EntityType::ENUM_TYPE->value, $entityId, CheckType::ENUM_CASES, $phpVersion)) {
             return $results;
         }
 

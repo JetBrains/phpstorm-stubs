@@ -7,6 +7,7 @@ use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\AbstractReflectionCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\Services\EntityLookupService;
@@ -50,7 +51,7 @@ class ConstantValueCheck extends AbstractReflectionCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, EntityType::GLOBAL_CONSTANT->value, $entityId, 'ConstantValueCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, EntityType::GLOBAL_CONSTANT->value, $entityId, CheckType::CONSTANT_VALUE, $phpVersion)) {
             return $results;
         }
 

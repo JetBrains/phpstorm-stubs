@@ -4,6 +4,7 @@ namespace StubTests\Framework\Validator\Classes\Methods;
 
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Validator\AbstractMethodFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that methods marked as deprecated in reflection are also deprecated in stubs.
@@ -28,9 +29,9 @@ use StubTests\Framework\Validator\AbstractMethodFlagCheck;
  */
 class MethodDeprecationCheck extends AbstractMethodFlagCheck
 {
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'DeprecationCheck';
+        return CheckType::DEPRECATION;
     }
 
     protected function describeMismatch(

@@ -4,6 +4,7 @@ namespace StubTests\Framework\Validator\Classes\Methods;
 
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Validator\AbstractMethodFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that the `static` modifier on methods in stubs matches reflection.
@@ -25,9 +26,9 @@ use StubTests\Framework\Validator\AbstractMethodFlagCheck;
  */
 class ClassStaticMethodsCheck extends AbstractMethodFlagCheck
 {
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ClassStaticMethodsCheck';
+        return CheckType::CLASS_STATIC_METHODS;
     }
 
     protected function describeMismatch(string $methodEntityId, mixed $reflMethod, PHPMethod $stubMethod, string $phpVersion): ?string

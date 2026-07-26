@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator;
 use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Shared orchestration for checks that compare a per-member attribute (e.g. a method's
@@ -26,7 +27,7 @@ use StubTests\Framework\Validator\Contracts\CheckResultSet;
  */
 abstract class AbstractMemberFlagCheck extends AbstractClassCheck
 {
-    abstract protected function getCheckName(): string;
+    abstract protected function getCheckName(): CheckType;
 
     /**
      * Look up the owning entity (class/enum/interface) by id in the given storage.

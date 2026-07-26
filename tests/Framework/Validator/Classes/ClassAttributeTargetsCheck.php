@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Classes;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that the target flags of an attribute class - declared in stubs via
@@ -47,7 +48,7 @@ class ClassAttributeTargetsCheck extends AbstractClassCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, 'ClassAttributeTargetsCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, CheckType::CLASS_ATTRIBUTE_TARGETS, $phpVersion)) {
             return $results;
         }
 

@@ -8,6 +8,7 @@ use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\ClassInterfaceFqnsExtractor;
 
 /**
@@ -45,7 +46,7 @@ class ClassInterfacesCheck extends AbstractClassCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, 'ClassInterfacesCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, CheckType::CLASS_INTERFACES, $phpVersion)) {
             return $results;
         }
 

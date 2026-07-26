@@ -6,6 +6,7 @@ use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractReflectionCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
@@ -140,7 +141,7 @@ class PhpDocLinksCheck extends AbstractReflectionCheck
 
         [$entity, $entityType] = $found;
 
-        if ($this->skipWithKnownProblem($results, $entityType->value, $entityId, 'PhpDocLinksCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, $entityType->value, $entityId, CheckType::PHPDOC_LINKS, $phpVersion)) {
             return $results;
         }
 

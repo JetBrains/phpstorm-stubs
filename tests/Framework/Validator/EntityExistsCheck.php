@@ -6,6 +6,7 @@ use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\Framework\Validator\Contracts\LookupKind;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 
@@ -46,7 +47,7 @@ class EntityExistsCheck extends AbstractReflectionCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, $this->entityType->value, $entityId, 'EntityExistsCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, $this->entityType->value, $entityId, CheckType::ENTITY_EXISTS, $phpVersion)) {
             return $results;
         }
 

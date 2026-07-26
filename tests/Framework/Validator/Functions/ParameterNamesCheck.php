@@ -5,6 +5,7 @@ namespace StubTests\Framework\Validator\Functions;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractCallableCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\Services\ParameterFilterHelper;
 use StubTests\Framework\Validator\Services\ParameterNamesComparator;
@@ -37,7 +38,7 @@ class ParameterNamesCheck extends AbstractCallableCheck
         $results = new CheckResultSet();
 
         $entityType = EntityType::fromEntityId($entityId)->value;
-        if ($this->skipWithKnownProblem($results, $entityType, $entityId, 'ParameterNamesCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, $entityType, $entityId, CheckType::PARAMETER_NAMES, $phpVersion)) {
             return $results;
         }
 

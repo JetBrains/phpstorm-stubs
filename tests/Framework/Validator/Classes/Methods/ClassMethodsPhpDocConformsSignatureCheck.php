@@ -6,6 +6,7 @@ use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
@@ -62,7 +63,7 @@ class ClassMethodsPhpDocConformsSignatureCheck extends AbstractClassCheck
     {
         $results = new CheckResultSet();
 
-        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, 'PhpDocConformsSignatureCheck', $phpVersion)) {
+        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, CheckType::PHPDOC_CONFORMS_SIGNATURE, $phpVersion)) {
             return $results;
         }
 
@@ -91,7 +92,7 @@ class ClassMethodsPhpDocConformsSignatureCheck extends AbstractClassCheck
             $methodEntityId = $entityId . '::' . $methodName;
             $hasMismatch = true;
 
-            if (!$this->skipWithKnownProblem($results, EntityType::METHOD->value, $methodEntityId, 'PhpDocConformsSignatureCheck', $phpVersion)) {
+            if (!$this->skipWithKnownProblem($results, EntityType::METHOD->value, $methodEntityId, CheckType::PHPDOC_CONFORMS_SIGNATURE, $phpVersion)) {
                 $results->addFailure(
                     $methodEntityId,
                     "{$this->getEntityLabel()} {$methodEntityId} PhpDoc/signature type mismatch in PHP {$phpVersion}: "
@@ -113,7 +114,7 @@ class ClassMethodsPhpDocConformsSignatureCheck extends AbstractClassCheck
                 $propEntityId = $entityId . '::$' . $propName;
                 $hasMismatch = true;
 
-                if (!$this->skipWithKnownProblem($results, EntityType::PROPERTY->value, $propEntityId, 'PhpDocConformsSignatureCheck', $phpVersion)) {
+                if (!$this->skipWithKnownProblem($results, EntityType::PROPERTY->value, $propEntityId, CheckType::PHPDOC_CONFORMS_SIGNATURE, $phpVersion)) {
                     $results->addFailure(
                         $propEntityId,
                         "{$this->getEntityLabel()} {$propEntityId} PhpDoc/signature type mismatch in PHP {$phpVersion}: sig '{$sigType}', phpdoc '{$docType}'"

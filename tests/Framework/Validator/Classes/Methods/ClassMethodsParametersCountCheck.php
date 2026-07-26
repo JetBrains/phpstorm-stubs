@@ -4,6 +4,7 @@ namespace StubTests\Framework\Validator\Classes\Methods;
 
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Validator\AbstractMethodFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\ParameterCountComparator;
 
 /**
@@ -36,9 +37,9 @@ use StubTests\Framework\Validator\Services\ParameterCountComparator;
  */
 class ClassMethodsParametersCountCheck extends AbstractMethodFlagCheck
 {
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ParametersCountCheck';
+        return CheckType::PARAMETERS_COUNT;
     }
 
     protected function describeMismatch(

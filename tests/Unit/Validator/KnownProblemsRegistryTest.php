@@ -57,7 +57,7 @@ class KnownProblemsRegistryTest extends TestCase
         $hasProblem = $registry->hasProblem(
             'functions',
             '\\dba_fetch',
-            'ParameterNamesCheck',
+            CheckType::PARAMETER_NAMES,
             '8.0'
         );
 
@@ -72,7 +72,7 @@ class KnownProblemsRegistryTest extends TestCase
         $hasProblem = $registry->hasProblem(
             'functions',
             '\\dba_fetch',
-            'ReturnTypesCheck',
+            CheckType::RETURN_TYPES,
             '8.0'
         );
 
@@ -86,7 +86,7 @@ class KnownProblemsRegistryTest extends TestCase
         $hasProblem = $registry->hasProblem(
             'functions',
             '\\non_existent_function',
-            'ParameterNamesCheck',
+            CheckType::PARAMETER_NAMES,
             '8.0'
         );
 
@@ -100,7 +100,7 @@ class KnownProblemsRegistryTest extends TestCase
         $shouldSkip = $registry->shouldSkipValidation(
             'functions',
             '\\dba_fetch',
-            'ParameterNamesCheck',
+            CheckType::PARAMETER_NAMES,
             '8.0'
         );
 
@@ -114,7 +114,7 @@ class KnownProblemsRegistryTest extends TestCase
         $reason = $registry->getSkipReason(
             'functions',
             '\\dba_fetch',
-            'ParameterNamesCheck',
+            CheckType::PARAMETER_NAMES,
             '8.0'
         );
 
@@ -130,7 +130,7 @@ class KnownProblemsRegistryTest extends TestCase
         $hasProblemInRange = $registry->hasProblem(
             'functions',
             '\\dba_fetch',
-            'ParameterNamesCheck',
+            CheckType::PARAMETER_NAMES,
             '8.0'
         );
         $this->assertTrue($hasProblemInRange, 'PHP 8.0 should be within affected range');
@@ -139,7 +139,7 @@ class KnownProblemsRegistryTest extends TestCase
         $hasProblemAtBoundary = $registry->hasProblem(
             'functions',
             '\\dba_fetch',
-            'ParameterNamesCheck',
+            CheckType::PARAMETER_NAMES,
             '8.4'
         );
         $this->assertTrue($hasProblemAtBoundary, 'PHP 8.4 should be within affected range');
@@ -153,14 +153,14 @@ class KnownProblemsRegistryTest extends TestCase
         $hasNamesProblem = $registry->hasProblem(
             'functions',
             '\\dba_fetch',
-            'ParameterNamesCheck',
+            CheckType::PARAMETER_NAMES,
             '8.0'
         );
 
         $hasTypesProblem = $registry->hasProblem(
             'functions',
             '\\dba_fetch',
-            'ParameterTypesCheck',
+            CheckType::PARAMETER_TYPES,
             '8.0'
         );
 
@@ -206,7 +206,7 @@ class KnownProblemsRegistryTest extends TestCase
             $hasProblem = $registry->hasProblem(
                 'functions',
                 $function,
-                'ParameterNamesCheck',
+                CheckType::PARAMETER_NAMES,
                 '8.0'
             );
             $this->assertTrue(
@@ -224,7 +224,7 @@ class KnownProblemsRegistryTest extends TestCase
 
         // SimpleXMLElement implements ArrayAccess at C level (visible in no PHP version via reflection)
         $this->assertTrue(
-            $registry->hasProblem('classes', '\SimpleXMLElement', 'ClassInterfacesCheck', '8.0')
+            $registry->hasProblem('classes', '\SimpleXMLElement', CheckType::CLASS_INTERFACES, '8.0')
         );
     }
 
@@ -234,7 +234,7 @@ class KnownProblemsRegistryTest extends TestCase
 
         foreach (['5.6', '7.0', '7.4', '8.0', '8.4'] as $version) {
             $this->assertTrue(
-                $registry->hasProblem('classes', '\SimpleXMLElement', 'ClassInterfacesCheck', $version),
+                $registry->hasProblem('classes', '\SimpleXMLElement', CheckType::CLASS_INTERFACES, $version),
                 "SimpleXMLElement should skip ClassInterfacesCheck for PHP {$version}"
             );
         }
@@ -247,13 +247,13 @@ class KnownProblemsRegistryTest extends TestCase
         // SeekableIterator was added in PHP 8.4 — problem applies to 5.6–8.3
         foreach (['5.6', '7.0', '8.0', '8.3'] as $version) {
             $this->assertTrue(
-                $registry->hasProblem('classes', '\SplObjectStorage', 'ClassInterfacesCheck', $version),
+                $registry->hasProblem('classes', '\SplObjectStorage', CheckType::CLASS_INTERFACES, $version),
                 "SplObjectStorage should skip ClassInterfacesCheck for PHP {$version}"
             );
         }
 
         $this->assertFalse(
-            $registry->hasProblem('classes', '\SplObjectStorage', 'ClassInterfacesCheck', '8.4'),
+            $registry->hasProblem('classes', '\SplObjectStorage', CheckType::CLASS_INTERFACES, '8.4'),
             'SplObjectStorage should NOT skip ClassInterfacesCheck for PHP 8.4 (SeekableIterator is present)'
         );
     }
@@ -265,14 +265,14 @@ class KnownProblemsRegistryTest extends TestCase
         // Stringable was added in PHP 8.0 — problem applies to 5.6–7.4
         foreach (['5.6', '7.0', '7.4'] as $version) {
             $this->assertTrue(
-                $registry->hasProblem('classes', '\SplFileInfo', 'ClassInterfacesCheck', $version),
+                $registry->hasProblem('classes', '\SplFileInfo', CheckType::CLASS_INTERFACES, $version),
                 "SplFileInfo should skip ClassInterfacesCheck for PHP {$version}"
             );
         }
 
         foreach (['8.0', '8.1', '8.4'] as $version) {
             $this->assertFalse(
-                $registry->hasProblem('classes', '\SplFileInfo', 'ClassInterfacesCheck', $version),
+                $registry->hasProblem('classes', '\SplFileInfo', CheckType::CLASS_INTERFACES, $version),
                 "SplFileInfo should NOT skip ClassInterfacesCheck for PHP {$version}"
             );
         }
@@ -282,19 +282,24 @@ class KnownProblemsRegistryTest extends TestCase
     {
         $registry = KnownProblemsRegistry::getInstance();
 
-        $reason = $registry->getSkipReason('classes', '\SimpleXMLElement', 'ClassInterfacesCheck', '8.0');
+        $reason = $registry->getSkipReason('classes', '\SimpleXMLElement', CheckType::CLASS_INTERFACES, '8.0');
 
         $this->assertNotNull($reason);
         $this->assertStringContainsString('ArrayAccess', $reason);
     }
 
-    public function testUnknownCheckNameReturnsFalse(): void
+    /**
+     * The old "unknown check name" case is gone: the check argument is a CheckType, so an
+     * unrecognised name is now a compile error rather than a silent null->false. What
+     * remains worth asserting is that a *valid* check with no matching definition is not
+     * treated as suppressed.
+     */
+    public function testValidCheckWithNoMatchingProblemReturnsFalse(): void
     {
         $registry = KnownProblemsRegistry::getInstance();
 
-        // Non-existent check name hits the default branch of stringToCheckType → null → false
         $this->assertFalse(
-            $registry->hasProblem('functions', '\dba_fetch', 'NonExistentCheck', '8.0')
+            $registry->hasProblem('functions', '\dba_fetch', CheckType::CLASS_ATTRIBUTE_TARGETS, '8.0')
         );
     }
 
@@ -312,8 +317,8 @@ class KnownProblemsRegistryTest extends TestCase
     public function testClassMethodsExistCheckNameMapsCorrectly(): void
     {
         // Register a custom known problem for CheckType::CLASS_METHODS_EXIST and verify
-        // that querying with the string 'ClassMethodsExistCheck' correctly resolves it.
-        // This tests the 'ClassMethodsExistCheck' → CheckType::CLASS_METHODS_EXIST branch
+        // that querying with the string CheckType::CLASS_METHODS_EXIST correctly resolves it.
+        // This tests the CheckType::CLASS_METHODS_EXIST → CheckType::CLASS_METHODS_EXIST branch
         // of KnownProblemsRegistry::stringToCheckType().
         $provider = $this->createMock(KnownProblemsProvider::class);
         $provider->method('getProblems')->willReturn([
@@ -332,13 +337,13 @@ class KnownProblemsRegistryTest extends TestCase
 
         // Version within range → problem found
         $this->assertTrue(
-            $registry->hasProblem('classes', '\SomeSpecialClass', 'ClassMethodsExistCheck', '8.0'),
-            "'ClassMethodsExistCheck' should map to CheckType::CLASS_METHODS_EXIST"
+            $registry->hasProblem('classes', '\SomeSpecialClass', CheckType::CLASS_METHODS_EXIST, '8.0'),
+            "CheckType::CLASS_METHODS_EXIST should map to CheckType::CLASS_METHODS_EXIST"
         );
 
         // Version outside range → problem not found
         $this->assertFalse(
-            $registry->hasProblem('classes', '\SomeSpecialClass', 'ClassMethodsExistCheck', '7.4'),
+            $registry->hasProblem('classes', '\SomeSpecialClass', CheckType::CLASS_METHODS_EXIST, '7.4'),
             "Version outside registered range should return false"
         );
     }
@@ -347,7 +352,7 @@ class KnownProblemsRegistryTest extends TestCase
 
     public function testClassFinalMethodsCheckNameMapsCorrectly(): void
     {
-        // Verifies the 'ClassFinalMethodsCheck' → CheckType::CLASS_FINAL_METHODS branch
+        // Verifies the CheckType::CLASS_FINAL_METHODS → CheckType::CLASS_FINAL_METHODS branch
         // of KnownProblemsRegistry::stringToCheckType().
         $provider = $this->createMock(KnownProblemsProvider::class);
         $provider->method('getProblems')->willReturn([
@@ -366,19 +371,19 @@ class KnownProblemsRegistryTest extends TestCase
 
         // Version within range → problem found
         $this->assertTrue(
-            $registry->hasProblem('methods', '\SomeClass::doWork', 'ClassFinalMethodsCheck', '8.0'),
-            "'ClassFinalMethodsCheck' should map to CheckType::CLASS_FINAL_METHODS"
+            $registry->hasProblem('methods', '\SomeClass::doWork', CheckType::CLASS_FINAL_METHODS, '8.0'),
+            "CheckType::CLASS_FINAL_METHODS should map to CheckType::CLASS_FINAL_METHODS"
         );
 
         // Version outside range → problem not found
         $this->assertFalse(
-            $registry->hasProblem('methods', '\SomeClass::doWork', 'ClassFinalMethodsCheck', '7.4'),
+            $registry->hasProblem('methods', '\SomeClass::doWork', CheckType::CLASS_FINAL_METHODS, '7.4'),
             "Version outside registered range should return false"
         );
 
         // Different check name → no problem (string unmapped)
         $this->assertFalse(
-            $registry->hasProblem('methods', '\SomeClass::doWork', 'ClassMethodsExistCheck', '8.0'),
+            $registry->hasProblem('methods', '\SomeClass::doWork', CheckType::CLASS_METHODS_EXIST, '8.0'),
             "A different check name should not match the CLASS_FINAL_METHODS problem"
         );
     }
@@ -392,7 +397,7 @@ class KnownProblemsRegistryTest extends TestCase
         // PHP 5.6–7.4: reflection reports __construct as final; stub is non-final → known problem
         foreach (['5.6', '7.0', '7.1', '7.2', '7.3', '7.4'] as $version) {
             $this->assertTrue(
-                $registry->hasProblem('methods', '\SimpleXMLElement::__construct', 'ClassFinalMethodsCheck', $version),
+                $registry->hasProblem('methods', '\SimpleXMLElement::__construct', CheckType::CLASS_FINAL_METHODS, $version),
                 "SimpleXMLElement::__construct should be a known problem for ClassFinalMethodsCheck on PHP {$version}"
             );
         }
@@ -405,7 +410,7 @@ class KnownProblemsRegistryTest extends TestCase
         // PHP 8.0+: reflection also reports __construct as non-final → no mismatch, no skip needed
         foreach (['8.0', '8.1', '8.2', '8.3', '8.4'] as $version) {
             $this->assertFalse(
-                $registry->hasProblem('methods', '\SimpleXMLElement::__construct', 'ClassFinalMethodsCheck', $version),
+                $registry->hasProblem('methods', '\SimpleXMLElement::__construct', CheckType::CLASS_FINAL_METHODS, $version),
                 "SimpleXMLElement::__construct should NOT be a known problem for ClassFinalMethodsCheck on PHP {$version}"
             );
         }
@@ -415,7 +420,7 @@ class KnownProblemsRegistryTest extends TestCase
     {
         $registry = KnownProblemsRegistry::getInstance();
 
-        $reason = $registry->getSkipReason('methods', '\SimpleXMLElement::__construct', 'ClassFinalMethodsCheck', '7.4');
+        $reason = $registry->getSkipReason('methods', '\SimpleXMLElement::__construct', CheckType::CLASS_FINAL_METHODS, '7.4');
 
         $this->assertNotNull($reason);
         $this->assertStringContainsString('final', strtolower($reason));
@@ -427,10 +432,10 @@ class KnownProblemsRegistryTest extends TestCase
         $registry = KnownProblemsRegistry::getInstance();
 
         // The known problem is specific to ClassFinalMethodsCheck; other checks are unaffected
-        foreach (['ClassMethodsExistCheck', 'ClassInterfacesCheck', 'ParameterNamesCheck'] as $check) {
+        foreach ([CheckType::CLASS_METHODS_EXIST, CheckType::CLASS_INTERFACES, CheckType::PARAMETER_NAMES] as $check) {
             $this->assertFalse(
                 $registry->hasProblem('methods', '\SimpleXMLElement::__construct', $check, '7.4'),
-                "SimpleXMLElement::__construct should not affect {$check}"
+                "SimpleXMLElement::__construct should not affect {$check->value}"
             );
         }
     }
@@ -441,13 +446,13 @@ class KnownProblemsRegistryTest extends TestCase
 
         // The entry must be indexed under 'methods', not 'classes' or 'functions'
         $this->assertTrue(
-            $registry->hasProblem('methods', '\SimpleXMLElement::__construct', 'ClassFinalMethodsCheck', '7.0')
+            $registry->hasProblem('methods', '\SimpleXMLElement::__construct', CheckType::CLASS_FINAL_METHODS, '7.0')
         );
         $this->assertFalse(
-            $registry->hasProblem('classes', '\SimpleXMLElement::__construct', 'ClassFinalMethodsCheck', '7.0')
+            $registry->hasProblem('classes', '\SimpleXMLElement::__construct', CheckType::CLASS_FINAL_METHODS, '7.0')
         );
         $this->assertFalse(
-            $registry->hasProblem('functions', '\SimpleXMLElement::__construct', 'ClassFinalMethodsCheck', '7.0')
+            $registry->hasProblem('functions', '\SimpleXMLElement::__construct', CheckType::CLASS_FINAL_METHODS, '7.0')
         );
     }
 
@@ -457,13 +462,13 @@ class KnownProblemsRegistryTest extends TestCase
 
         // 7.4 is the last affected version (inclusive upper bound)
         $this->assertTrue(
-            $registry->hasProblem('methods', '\SimpleXMLElement::__construct', 'ClassFinalMethodsCheck', '7.4'),
+            $registry->hasProblem('methods', '\SimpleXMLElement::__construct', CheckType::CLASS_FINAL_METHODS, '7.4'),
             'PHP 7.4 is within the affected range (inclusive)'
         );
 
         // 8.0 is the first unaffected version
         $this->assertFalse(
-            $registry->hasProblem('methods', '\SimpleXMLElement::__construct', 'ClassFinalMethodsCheck', '8.0'),
+            $registry->hasProblem('methods', '\SimpleXMLElement::__construct', CheckType::CLASS_FINAL_METHODS, '8.0'),
             'PHP 8.0 is outside the affected range'
         );
     }
@@ -476,7 +481,7 @@ class KnownProblemsRegistryTest extends TestCase
 
         foreach (['5.6', '7.0', '7.1', '7.2', '7.3', '7.4'] as $version) {
             $this->assertTrue(
-                $registry->hasProblem('methods', '\SimpleXMLIterator::__construct', 'ClassFinalMethodsCheck', $version),
+                $registry->hasProblem('methods', '\SimpleXMLIterator::__construct', CheckType::CLASS_FINAL_METHODS, $version),
                 "SimpleXMLIterator::__construct should be a known problem for ClassFinalMethodsCheck on PHP {$version}"
             );
         }
@@ -488,7 +493,7 @@ class KnownProblemsRegistryTest extends TestCase
 
         foreach (['8.0', '8.1', '8.2', '8.3', '8.4'] as $version) {
             $this->assertFalse(
-                $registry->hasProblem('methods', '\SimpleXMLIterator::__construct', 'ClassFinalMethodsCheck', $version),
+                $registry->hasProblem('methods', '\SimpleXMLIterator::__construct', CheckType::CLASS_FINAL_METHODS, $version),
                 "SimpleXMLIterator::__construct should NOT be a known problem for ClassFinalMethodsCheck on PHP {$version}"
             );
         }
@@ -498,7 +503,7 @@ class KnownProblemsRegistryTest extends TestCase
     {
         $registry = KnownProblemsRegistry::getInstance();
 
-        $reason = $registry->getSkipReason('methods', '\SimpleXMLIterator::__construct', 'ClassFinalMethodsCheck', '7.0');
+        $reason = $registry->getSkipReason('methods', '\SimpleXMLIterator::__construct', CheckType::CLASS_FINAL_METHODS, '7.0');
 
         $this->assertNotNull($reason);
         $this->assertStringContainsString('SimpleXMLElement', $reason);
@@ -510,11 +515,11 @@ class KnownProblemsRegistryTest extends TestCase
         $registry = KnownProblemsRegistry::getInstance();
 
         $this->assertTrue(
-            $registry->hasProblem('methods', '\SimpleXMLIterator::__construct', 'ClassFinalMethodsCheck', '7.4'),
+            $registry->hasProblem('methods', '\SimpleXMLIterator::__construct', CheckType::CLASS_FINAL_METHODS, '7.4'),
             'PHP 7.4 is within the affected range (inclusive)'
         );
         $this->assertFalse(
-            $registry->hasProblem('methods', '\SimpleXMLIterator::__construct', 'ClassFinalMethodsCheck', '8.0'),
+            $registry->hasProblem('methods', '\SimpleXMLIterator::__construct', CheckType::CLASS_FINAL_METHODS, '8.0'),
             'PHP 8.0 is outside the affected range'
         );
     }
@@ -526,10 +531,10 @@ class KnownProblemsRegistryTest extends TestCase
         // Both entries must exist independently — the iterator entry must not
         // accidentally suppress checks on the element and vice-versa.
         $this->assertTrue(
-            $registry->hasProblem('methods', '\SimpleXMLElement::__construct', 'ClassFinalMethodsCheck', '7.4')
+            $registry->hasProblem('methods', '\SimpleXMLElement::__construct', CheckType::CLASS_FINAL_METHODS, '7.4')
         );
         $this->assertTrue(
-            $registry->hasProblem('methods', '\SimpleXMLIterator::__construct', 'ClassFinalMethodsCheck', '7.4')
+            $registry->hasProblem('methods', '\SimpleXMLIterator::__construct', CheckType::CLASS_FINAL_METHODS, '7.4')
         );
     }
 
@@ -542,7 +547,7 @@ class KnownProblemsRegistryTest extends TestCase
         // PHP 5.6–7.4: reflection reports open() as non-static; stub is static → known problem
         foreach (['5.6', '7.0', '7.1', '7.2', '7.3', '7.4'] as $version) {
             $this->assertTrue(
-                $registry->hasProblem('methods', '\XMLReader::open', 'ClassStaticMethodsCheck', $version),
+                $registry->hasProblem('methods', '\XMLReader::open', CheckType::CLASS_STATIC_METHODS, $version),
                 "XMLReader::open should be a known problem for ClassStaticMethodsCheck on PHP {$version}"
             );
         }
@@ -555,7 +560,7 @@ class KnownProblemsRegistryTest extends TestCase
         // PHP 8.0+: open() is officially static → no mismatch, no skip needed
         foreach (['8.0', '8.1', '8.2', '8.3', '8.4'] as $version) {
             $this->assertFalse(
-                $registry->hasProblem('methods', '\XMLReader::open', 'ClassStaticMethodsCheck', $version),
+                $registry->hasProblem('methods', '\XMLReader::open', CheckType::CLASS_STATIC_METHODS, $version),
                 "XMLReader::open should NOT be a known problem for ClassStaticMethodsCheck on PHP {$version}"
             );
         }
@@ -567,13 +572,13 @@ class KnownProblemsRegistryTest extends TestCase
 
         // 7.4 is the last affected version (inclusive upper bound)
         $this->assertTrue(
-            $registry->hasProblem('methods', '\XMLReader::open', 'ClassStaticMethodsCheck', '7.4'),
+            $registry->hasProblem('methods', '\XMLReader::open', CheckType::CLASS_STATIC_METHODS, '7.4'),
             'PHP 7.4 is within the affected range (inclusive)'
         );
 
         // 8.0 is the first unaffected version
         $this->assertFalse(
-            $registry->hasProblem('methods', '\XMLReader::open', 'ClassStaticMethodsCheck', '8.0'),
+            $registry->hasProblem('methods', '\XMLReader::open', CheckType::CLASS_STATIC_METHODS, '8.0'),
             'PHP 8.0 is outside the affected range'
         );
     }
@@ -582,7 +587,7 @@ class KnownProblemsRegistryTest extends TestCase
     {
         $registry = KnownProblemsRegistry::getInstance();
 
-        $reason = $registry->getSkipReason('methods', '\XMLReader::open', 'ClassStaticMethodsCheck', '7.4');
+        $reason = $registry->getSkipReason('methods', '\XMLReader::open', CheckType::CLASS_STATIC_METHODS, '7.4');
 
         $this->assertNotNull($reason);
         $this->assertStringContainsString('static', strtolower($reason));
@@ -594,10 +599,10 @@ class KnownProblemsRegistryTest extends TestCase
         $registry = KnownProblemsRegistry::getInstance();
 
         // The known problem is specific to ClassStaticMethodsCheck; other checks are unaffected
-        foreach (['ClassFinalMethodsCheck', 'ClassMethodsExistCheck', 'ParameterNamesCheck'] as $check) {
+        foreach ([CheckType::CLASS_FINAL_METHODS, CheckType::CLASS_METHODS_EXIST, CheckType::PARAMETER_NAMES] as $check) {
             $this->assertFalse(
                 $registry->hasProblem('methods', '\XMLReader::open', $check, '7.4'),
-                "XMLReader::open should not affect {$check}"
+                "XMLReader::open should not affect {$check->value}"
             );
         }
     }
@@ -608,13 +613,13 @@ class KnownProblemsRegistryTest extends TestCase
 
         // The entry must be indexed under 'methods', not 'classes' or 'functions'
         $this->assertTrue(
-            $registry->hasProblem('methods', '\XMLReader::open', 'ClassStaticMethodsCheck', '7.0')
+            $registry->hasProblem('methods', '\XMLReader::open', CheckType::CLASS_STATIC_METHODS, '7.0')
         );
         $this->assertFalse(
-            $registry->hasProblem('classes', '\XMLReader::open', 'ClassStaticMethodsCheck', '7.0')
+            $registry->hasProblem('classes', '\XMLReader::open', CheckType::CLASS_STATIC_METHODS, '7.0')
         );
         $this->assertFalse(
-            $registry->hasProblem('functions', '\XMLReader::open', 'ClassStaticMethodsCheck', '7.0')
+            $registry->hasProblem('functions', '\XMLReader::open', CheckType::CLASS_STATIC_METHODS, '7.0')
         );
     }
 
@@ -627,7 +632,7 @@ class KnownProblemsRegistryTest extends TestCase
         // PHP 5.6–7.4: reflection reports XML() as non-static; stub is static → known problem
         foreach (['5.6', '7.0', '7.1', '7.2', '7.3', '7.4'] as $version) {
             $this->assertTrue(
-                $registry->hasProblem('methods', '\XMLReader::XML', 'ClassStaticMethodsCheck', $version),
+                $registry->hasProblem('methods', '\XMLReader::XML', CheckType::CLASS_STATIC_METHODS, $version),
                 "XMLReader::XML should be a known problem for ClassStaticMethodsCheck on PHP {$version}"
             );
         }
@@ -640,7 +645,7 @@ class KnownProblemsRegistryTest extends TestCase
         // PHP 8.0+: XML() is officially static → no mismatch, no skip needed
         foreach (['8.0', '8.1', '8.2', '8.3', '8.4'] as $version) {
             $this->assertFalse(
-                $registry->hasProblem('methods', '\XMLReader::XML', 'ClassStaticMethodsCheck', $version),
+                $registry->hasProblem('methods', '\XMLReader::XML', CheckType::CLASS_STATIC_METHODS, $version),
                 "XMLReader::XML should NOT be a known problem for ClassStaticMethodsCheck on PHP {$version}"
             );
         }
@@ -652,13 +657,13 @@ class KnownProblemsRegistryTest extends TestCase
 
         // 7.4 is the last affected version (inclusive upper bound)
         $this->assertTrue(
-            $registry->hasProblem('methods', '\XMLReader::XML', 'ClassStaticMethodsCheck', '7.4'),
+            $registry->hasProblem('methods', '\XMLReader::XML', CheckType::CLASS_STATIC_METHODS, '7.4'),
             'PHP 7.4 is within the affected range (inclusive)'
         );
 
         // 8.0 is the first unaffected version
         $this->assertFalse(
-            $registry->hasProblem('methods', '\XMLReader::XML', 'ClassStaticMethodsCheck', '8.0'),
+            $registry->hasProblem('methods', '\XMLReader::XML', CheckType::CLASS_STATIC_METHODS, '8.0'),
             'PHP 8.0 is outside the affected range'
         );
     }
@@ -667,7 +672,7 @@ class KnownProblemsRegistryTest extends TestCase
     {
         $registry = KnownProblemsRegistry::getInstance();
 
-        $reason = $registry->getSkipReason('methods', '\XMLReader::XML', 'ClassStaticMethodsCheck', '7.4');
+        $reason = $registry->getSkipReason('methods', '\XMLReader::XML', CheckType::CLASS_STATIC_METHODS, '7.4');
 
         $this->assertNotNull($reason);
         $this->assertStringContainsString('static', strtolower($reason));
@@ -679,10 +684,10 @@ class KnownProblemsRegistryTest extends TestCase
         $registry = KnownProblemsRegistry::getInstance();
 
         // The known problem is specific to ClassStaticMethodsCheck; other checks are unaffected
-        foreach (['ClassFinalMethodsCheck', 'ClassMethodsExistCheck', 'ParameterNamesCheck'] as $check) {
+        foreach ([CheckType::CLASS_FINAL_METHODS, CheckType::CLASS_METHODS_EXIST, CheckType::PARAMETER_NAMES] as $check) {
             $this->assertFalse(
                 $registry->hasProblem('methods', '\XMLReader::XML', $check, '7.4'),
-                "XMLReader::XML should not affect {$check}"
+                "XMLReader::XML should not affect {$check->value}"
             );
         }
     }
@@ -693,13 +698,13 @@ class KnownProblemsRegistryTest extends TestCase
 
         // The entry must be indexed under 'methods', not 'classes' or 'functions'
         $this->assertTrue(
-            $registry->hasProblem('methods', '\XMLReader::XML', 'ClassStaticMethodsCheck', '7.0')
+            $registry->hasProblem('methods', '\XMLReader::XML', CheckType::CLASS_STATIC_METHODS, '7.0')
         );
         $this->assertFalse(
-            $registry->hasProblem('classes', '\XMLReader::XML', 'ClassStaticMethodsCheck', '7.0')
+            $registry->hasProblem('classes', '\XMLReader::XML', CheckType::CLASS_STATIC_METHODS, '7.0')
         );
         $this->assertFalse(
-            $registry->hasProblem('functions', '\XMLReader::XML', 'ClassStaticMethodsCheck', '7.0')
+            $registry->hasProblem('functions', '\XMLReader::XML', CheckType::CLASS_STATIC_METHODS, '7.0')
         );
     }
 
@@ -711,10 +716,10 @@ class KnownProblemsRegistryTest extends TestCase
 
         // Both entries must exist independently of one another
         $this->assertTrue(
-            $registry->hasProblem('methods', '\XMLReader::open', 'ClassStaticMethodsCheck', '7.4')
+            $registry->hasProblem('methods', '\XMLReader::open', CheckType::CLASS_STATIC_METHODS, '7.4')
         );
         $this->assertTrue(
-            $registry->hasProblem('methods', '\XMLReader::XML', 'ClassStaticMethodsCheck', '7.4')
+            $registry->hasProblem('methods', '\XMLReader::XML', CheckType::CLASS_STATIC_METHODS, '7.4')
         );
     }
 }

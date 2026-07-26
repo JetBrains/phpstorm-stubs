@@ -4,6 +4,7 @@ namespace StubTests\Framework\Validator\Classes\Methods;
 
 use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Validator\AbstractMethodFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that the tentative-return-type flag on methods in stubs matches reflection.
@@ -36,9 +37,9 @@ class ClassMethodsTentativeReturnTypeCheck extends AbstractMethodFlagCheck
         return version_compare($phpVersion, '8.1', '>=');
     }
 
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'TentativeReturnTypeCheck';
+        return CheckType::TENTATIVE_RETURN_TYPE;
     }
 
     protected function describeMismatch(

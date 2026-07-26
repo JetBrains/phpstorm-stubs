@@ -4,6 +4,7 @@ namespace StubTests\Framework\Validator\Classes\Properties;
 
 use StubTests\Framework\Parsers\Model\PHPProperty;
 use StubTests\Framework\Validator\AbstractPropertyFlagCheck;
+use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that the visibility (public/protected/private) of properties in stubs matches reflection.
@@ -25,9 +26,9 @@ use StubTests\Framework\Validator\AbstractPropertyFlagCheck;
  */
 class ClassPropertiesVisibilityCheck extends AbstractPropertyFlagCheck
 {
-    protected function getCheckName(): string
+    protected function getCheckName(): CheckType
     {
-        return 'ClassPropertiesVisibilityCheck';
+        return CheckType::CLASS_PROPERTIES_VISIBILITY;
     }
 
     protected function describeMismatch(
