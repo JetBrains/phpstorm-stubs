@@ -84,10 +84,12 @@ namespace Io\Poll {
      */
     enum Backend implements \UnitEnum
     {
+        case Auto;
+        case Poll;
         case Epoll;
         case Kqueue;
-        case Poll;
-        case Select;
+        case EventPorts;
+        case WSAPoll;
 
         public static function getAvailableBackends(): array {}
 
@@ -104,7 +106,10 @@ namespace Io\Poll {
         case Read;
         case Write;
         case Error;
-        case Hangup;
+        case HangUp;
+        case ReadHangUp;
+        case OneShot;
+        case EdgeTriggered;
     }
 
     /**

@@ -127,10 +127,10 @@ namespace Uri\Rfc3986 {
      */
     enum UriHostType implements \UnitEnum
     {
-        case RegName;
-        case Ipv4;
-        case Ipv6;
-        case IpvFuture;
+        case IPv4;
+        case IPv6;
+        case IPvFuture;
+        case RegisteredName;
     }
 
     /**
@@ -138,8 +138,10 @@ namespace Uri\Rfc3986 {
      */
     enum UriType implements \UnitEnum
     {
-        case Absolute;
-        case Relative;
+        case AbsolutePathReference;
+        case RelativePathReference;
+        case NetworkPathReference;
+        case Uri;
     }
 
     /**
@@ -330,9 +332,9 @@ namespace Uri\WhatWg {
      */
     enum UrlHostType implements \UnitEnum
     {
+        case IPv4;
+        case IPv6;
         case Domain;
-        case Ipv4;
-        case Ipv6;
         case Opaque;
         case Empty;
     }
