@@ -15,6 +15,7 @@ use StubTests\Framework\Parsers\Stubs\Nodes\TypeNode;
  */
 class NikicPropertyNode implements PropertyNode
 {
+    use NikicConstExprEvaluatorTrait;
     private PropertyProperty $property;
     private Property $propertyStmt;
 
@@ -80,5 +81,26 @@ class NikicPropertyNode implements PropertyNode
             }
         }
         return $attributes;
+    }
+
+    public function hasDefaultValue(): bool
+    {
+        // An untyped property always has a default (implicit null) even without an
+        // initializer; a typed one only has a default when it is explicitly initialized.
+        // See PropertyNode::hasDefaultValue() for the full truth table.
+        return $this->property->default !== null || $this->propertyStmt->type === null;
+    }
+
+    public function getDefaultValue(): mixed
+    {
+        if ($this->property->default === null) {
+            if ($this->propertyStmt->type === null) {
+                // Untyped, uninitialized: PHP's implicit default.
+                return null;
+            }
+            throw new \RuntimeException('Property has no default value');
+        }
+
+        return self::evaluateConstExpr($this->property->default);
     }
 }

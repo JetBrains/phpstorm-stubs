@@ -2,6 +2,7 @@
 
 namespace StubTests\Unit\Parsers\AST;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use StubTests\Framework\Parsers\Model\PHPProperty;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
@@ -174,5 +175,79 @@ class StubPropertyParserTest extends BaseTestCase
         $expectedTypes = ['8.0' => 'string|null', '8.1' => 'string'];
         self::assertEquals($expectedTypes, $property->getStubsMetadata()->getLanguageLevelTypes());
         self::assertEquals('', $property->getStubsMetadata()->getDefaultType());
+    }
+
+    /**
+     * @return array<string, PHPProperty>
+     */
+    private function getDefaultValueProperties(): array
+    {
+        $byName = [];
+        foreach ($this->getPropertiesFromClass('default_values.txt') as $property) {
+            $byName[$property->getName()] = $property;
+        }
+        return $byName;
+    }
+
+    /**
+     * Mirrors ReflectionProperty::hasDefaultValue(): an untyped property always has a
+     * default (implicit null) even with no initializer, a typed one only when initialized.
+     */
+    #[DataProvider('hasDefaultValueProvider')]
+    public function testItParsesHasDefaultValueMatchingReflectionSemantics(string $propertyName, bool $expected)
+    {
+        $properties = $this->getDefaultValueProperties();
+        self::assertArrayHasKey($propertyName, $properties);
+        self::assertSame($expected, $properties[$propertyName]->hasDefaultValue());
+    }
+
+    public static function hasDefaultValueProvider(): array
+    {
+        return [
+            'untyped without initializer has implicit null default' => ['untypedNoDefault', true],
+            'untyped with initializer' => ['untypedWithDefault', true],
+            'typed without initializer is uninitialized' => ['typedNoDefault', false],
+            'typed with initializer' => ['typedWithDefault', true],
+            'nullable typed without initializer is uninitialized' => ['nullableNoDefault', false],
+            'static untyped without initializer' => ['staticUntypedNoDefault', true],
+            'static typed without initializer' => ['staticTypedNoDefault', false],
+            'explicit null initializer' => ['explicitNullDefault', true],
+        ];
+    }
+
+    #[DataProvider('defaultValueProvider')]
+    public function testItEvaluatesDefaultValues(string $propertyName, mixed $expected)
+    {
+        $properties = $this->getDefaultValueProperties();
+        self::assertArrayHasKey($propertyName, $properties);
+        self::assertSame($expected, $properties[$propertyName]->getDefaultValue());
+    }
+
+    public static function defaultValueProvider(): array
+    {
+        return [
+            'int literal' => ['untypedWithDefault', 5],
+            'typed int literal' => ['typedWithDefault', 7],
+            'empty string' => ['emptyStringDefault', ''],
+            'explicit null' => ['explicitNullDefault', null],
+            'boolean false' => ['falseDefault', false],
+            'named constant is resolved' => ['constantDefault', PHP_INT_MAX],
+            'untyped uninitialized yields implicit null' => ['untypedNoDefault', null],
+        ];
+    }
+
+    public function testItEvaluatesArrayDefaultValue()
+    {
+        $properties = $this->getDefaultValueProperties();
+        self::assertTrue($properties['arrayDefault']->hasDefaultValue());
+        self::assertSame([], $properties['arrayDefault']->getDefaultValue());
+    }
+
+    public function testTypedUninitializedPropertyHasNullValueAndNoDefault()
+    {
+        $properties = $this->getDefaultValueProperties();
+        $property = $properties['typedNoDefault'];
+        self::assertFalse($property->hasDefaultValue());
+        self::assertNull($property->getDefaultValue());
     }
 }
