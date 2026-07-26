@@ -15,11 +15,40 @@ use StubTests\Framework\Validator\KnownProblems\EntityType;
  * Service for looking up entities by ID with lazy indexing and caching.
  *
  * Extracted from AbstractClassCheck to enable reuse without inheritance.
+ *
+ * The index is cached per *storage object*, shared across every instance of this service.
+ * That matters because ValidatorTestBase constructs a fresh check — and therefore a fresh
+ * service — for every data-provider row, so an instance-level index was rebuilt and thrown
+ * away once per test case: a full linear scan of the storage (thousands of entities) per
+ * lookup. Sharing is safe because the index is a pure function of the storage contents.
+ *
+ * A WeakMap keyed on the storage object is used rather than spl_object_id(): object ids are
+ * reused once an object is freed, so an id-keyed cache could hand back the index of an
+ * unrelated storage that happened to reuse the id. WeakMap entries also disappear with the
+ * storage, so nothing is retained after a test's mock storage goes out of scope.
+ *
+ * Caveat: the index snapshots the storage the first time a kind is queried. Storages are
+ * read-only during validation, so this holds; a caller that mutates a storage after a
+ * lookup must call clearIndexCache().
  */
 class EntityLookupService
 {
-    /** @var array<string, array<int, array<string, mixed>>> Entity index cache, keyed by kind => storageId => entityId */
-    private array $entityIndex = [];
+    /**
+     * Index cache shared across instances.
+     *
+     * @var \WeakMap<StubDataQueryInterface, array<string, array<string, mixed>>>|null
+     *      storage => kind => entityId => entity
+     */
+    private static ?\WeakMap $indexCache = null;
+
+    /**
+     * Discards every cached index. Only needed when a storage is mutated after being
+     * queried, or to guarantee isolation between tests that reuse a storage instance.
+     */
+    public static function clearIndexCache(): void
+    {
+        self::$indexCache = null;
+    }
 
     /**
      * Find an entity by ID in a lazily-built index keyed by getId().
@@ -31,17 +60,23 @@ class EntityLookupService
      */
     private function findInIndex(string $kind, StubDataQueryInterface $storage, string $entityId, callable $getter): mixed
     {
-        $storageId = spl_object_id($storage);
-        if (!isset($this->entityIndex[$kind][$storageId])) {
-            $this->entityIndex[$kind][$storageId] = [];
+        self::$indexCache ??= new \WeakMap();
+
+        $indexes = self::$indexCache[$storage] ?? [];
+        if (!isset($indexes[$kind])) {
+            $index = [];
             foreach ($getter() as $entity) {
                 $id = $entity->getId();
                 if ($id !== null) {
-                    $this->entityIndex[$kind][$storageId][$id] = $entity;
+                    $index[$id] = $entity;
                 }
             }
+            // WeakMap returns array values by copy, so the whole entry is written back.
+            $indexes[$kind] = $index;
+            self::$indexCache[$storage] = $indexes;
         }
-        return $this->entityIndex[$kind][$storageId][$entityId] ?? null;
+
+        return $indexes[$kind][$entityId] ?? null;
     }
 
     public function findClassById(StubDataQueryInterface $storage, string $entityId): ?PHPClass

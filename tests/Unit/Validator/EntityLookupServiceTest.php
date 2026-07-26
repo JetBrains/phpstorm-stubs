@@ -259,4 +259,87 @@ class EntityLookupServiceTest extends CheckTestCase
         $this->assertSame($class, $result[0]);
         $this->assertSame(EntityType::CLASS_TYPE, $result[1]);
     }
+
+    // ── Shared index cache ───────────────────────────────────────────────────
+
+    /**
+     * The index is cached per storage object and shared across service instances, because
+     * ValidatorTestBase builds a fresh check (and service) per data-provider row. Without
+     * sharing, every lookup rescanned the whole storage.
+     */
+    public function testIndexIsSharedAcrossServiceInstancesForTheSameStorage(): void
+    {
+        $class = $this->makeClass('\\DateTime');
+        $storage = $this->createMockStorage(classes: [$class]);
+
+        $first = (new EntityLookupService())->findClassById($storage, '\\DateTime');
+        $second = (new EntityLookupService())->findClassById($storage, '\\DateTime');
+
+        $this->assertSame($class, $first);
+        $this->assertSame($first, $second, 'A separate instance must resolve to the same entity.');
+    }
+
+    /**
+     * The correctness property that matters most: sharing must be keyed on the storage, so
+     * two storages never see each other's entities. A cache keyed on spl_object_id() could
+     * violate this once an id is reused after an object is freed.
+     */
+    public function testIndexesOfDistinctStoragesDoNotLeakIntoEachOther(): void
+    {
+        $alpha = $this->makeClass('\\Alpha');
+        $beta = $this->makeClass('\\Beta');
+        $storageA = $this->createMockStorage(classes: [$alpha]);
+        $storageB = $this->createMockStorage(classes: [$beta]);
+
+        $service = new EntityLookupService();
+
+        $this->assertSame($alpha, $service->findClassById($storageA, '\\Alpha'));
+        $this->assertSame($beta, $service->findClassById($storageB, '\\Beta'));
+        $this->assertNull($service->findClassById($storageA, '\\Beta'), 'Storage A must not see B\'s entities.');
+        $this->assertNull($service->findClassById($storageB, '\\Alpha'), 'Storage B must not see A\'s entities.');
+    }
+
+    /**
+     * Each entity kind is indexed independently, so indexing classes must not mask a
+     * later interface lookup on the same storage.
+     */
+    public function testKindsAreIndexedIndependently(): void
+    {
+        $class = $this->makeClass('\\Shared');
+        $iface = $this->makeInterface('\\OnlyInterface');
+        $storage = $this->createMockStorage(classes: [$class], interfaces: [$iface]);
+
+        $service = new EntityLookupService();
+        $service->findClassById($storage, '\\Shared');
+
+        $this->assertSame($iface, $service->findInterfaceById($storage, '\\OnlyInterface'));
+        $this->assertNull($service->findClassById($storage, '\\OnlyInterface'));
+    }
+
+    /**
+     * The storage is only scanned once per kind: the mock is configured to allow a single
+     * getClasses() call, so a second lookup that rescanned would fail the expectation.
+     */
+    public function testStorageIsScannedOnlyOncePerKind(): void
+    {
+        $class = $this->makeClass('\\DateTime');
+        $storage = $this->createMock(StubDataQueryInterface::class);
+        $storage->expects($this->once())->method('getClasses')->willReturn([$class]);
+
+        (new EntityLookupService())->findClassById($storage, '\\DateTime');
+        (new EntityLookupService())->findClassById($storage, '\\DateTime');
+        (new EntityLookupService())->findClassById($storage, '\\Missing');
+    }
+
+    public function testClearIndexCacheForcesAReindex(): void
+    {
+        $class = $this->makeClass('\\DateTime');
+        $storage = $this->createMock(StubDataQueryInterface::class);
+        $storage->expects($this->exactly(2))->method('getClasses')->willReturn([$class]);
+
+        $service = new EntityLookupService();
+        $service->findClassById($storage, '\\DateTime');
+        EntityLookupService::clearIndexCache();
+        $this->assertSame($class, $service->findClassById($storage, '\\DateTime'));
+    }
 }
