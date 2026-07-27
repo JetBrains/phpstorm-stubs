@@ -3,7 +3,6 @@
 namespace StubTests\Unit\Parsers\Reflection;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPFunction;
 use StubTests\Framework\Parsers\Model\PHPParameter;
 use StubTests\Framework\Parsers\Reflection\ReflectionFunctionParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionFunction;
@@ -12,14 +11,26 @@ use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionType;
 
 class ReflectionFunctionParserTest extends TestCase
 {
-    public function testItReturnsCorrectInstanceOfFunction()
+    /**
+     * The declared return type already guarantees the model class, so asserting
+     * `instanceof` could never fail. What is not type-guaranteed — and would be a real
+     * regression if a parser ever memoised its result — is that each call yields its own
+     * model rather than a shared, mutable one.
+     */
+    public function testEachParseReturnsItsOwnFunctionModel()
     {
         $functionMock = $this->getMockBuilder(AdaptedReflectionFunction::class)
             ->disableOriginalConstructor()
             ->onlyMethods([])
             ->getMock();
-        $basePHPElement = new ReflectionFunctionParser()->parse($functionMock);
-        self::assertTrue($basePHPElement instanceof PHPFunction);
+
+        $parser = new ReflectionFunctionParser();
+        $first = $parser->parse($functionMock);
+        $second = $parser->parse($functionMock);
+
+        self::assertNotSame($first, $second);
+        $first->setName('mutated');
+        self::assertNotSame('mutated', $second->getName());
     }
 
     public function testItSetsNullToNameIfNameNotAvailable()

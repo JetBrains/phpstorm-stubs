@@ -3,21 +3,32 @@
 namespace StubTests\Unit\Parsers\Reflection;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPParameter;
 use StubTests\Framework\Parsers\Reflection\ReflectionParameterParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionParameter;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionType;
 
 class ReflectionParameterParserTest extends TestCase
 {
-    public function testItReturnsCorrectInstanceOfParameter()
+    /**
+     * The declared return type already guarantees the model class, so asserting
+     * `instanceof` could never fail. What is not type-guaranteed — and would be a real
+     * regression if a parser ever memoised its result — is that each call yields its own
+     * model rather than a shared, mutable one.
+     */
+    public function testEachParseReturnsItsOwnParameterModel()
     {
         $parameterMock = $this->getMockBuilder(AdaptedReflectionParameter::class)
             ->disableOriginalConstructor()
             ->onlyMethods([])
             ->getMock();
-        $parsedParameter = new ReflectionParameterParser()->parse($parameterMock);
-        self::assertTrue($parsedParameter instanceof PHPParameter);
+
+        $parser = new ReflectionParameterParser();
+        $first = $parser->parse($parameterMock);
+        $second = $parser->parse($parameterMock);
+
+        self::assertNotSame($first, $second);
+        $first->setName('mutated');
+        self::assertNotSame('mutated', $second->getName());
     }
 
     public function testItCanParseName()
