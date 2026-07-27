@@ -125,4 +125,61 @@ class StubEnumParserTest extends BaseTestCase
     {
         self::assertSame('\Test\AttributedEnum', $this->parseFixture('attributed_enum.txt')->getId());
     }
+
+    // ── Implemented interface ids ────────────────────────────────────────────
+
+    /**
+     * Parses via extractAndParseAll() because that is the path AllStubsParser uses and the
+     * only one that supplies `use` statements.
+     *
+     * @return array<string, string|null> interface short name => resolved id
+     */
+    private function interfaceIds(string $source): array
+    {
+        $enums = $this->enumParser->extractAndParseAll($source);
+        self::assertNotEmpty($enums, 'Expected the source to contain an enum.');
+
+        $ids = [];
+        foreach ($enums[0]->getImplementedInterfaces() as $i) {
+            $ids[$i->getName()] = $i->getId();
+        }
+        return $ids;
+    }
+
+    /**
+     * A fully qualified interface must keep its root-namespace id. Name::toString() drops the
+     * leading separator, so without the adapters preserving it this became `\Dom\BackedEnum`
+     * — a namespace-relative id for something the source wrote as global.
+     */
+    public function testFullyQualifiedInterfaceKeepsItsRootNamespaceId()
+    {
+        $source = "<?php\nnamespace Dom;\nenum AdjacentPosition: string implements \\BackedEnum, \\UnitEnum { case A = 'a'; }";
+
+        self::assertSame(['BackedEnum' => '\BackedEnum', 'UnitEnum' => '\UnitEnum'], $this->interfaceIds($source));
+    }
+
+    /**
+     * An unqualified interface still resolves within the declaring namespace, so a
+     * same-namespace interface is not shadowed by a global one of the same name.
+     */
+    public function testUnqualifiedInterfaceResolvesWithinTheDeclaringNamespace()
+    {
+        $source = "<?php\nnamespace App\\Bson;\nenum Kind implements Serializable { case A; }";
+
+        self::assertSame(['Serializable' => '\App\Bson\Serializable'], $this->interfaceIds($source));
+    }
+
+    public function testImportedInterfaceResolvesToTheImportedNamespace()
+    {
+        $source = "<?php\nnamespace App;\nuse Other\\Marker;\nenum Kind implements Marker { case A; }";
+
+        self::assertSame(['Marker' => '\Other\Marker'], $this->interfaceIds($source));
+    }
+
+    public function testRootNamespaceEnumKeepsGlobalInterfaceIds()
+    {
+        $source = "<?php\nenum Kind implements \\UnitEnum { case A; }";
+
+        self::assertSame(['UnitEnum' => '\UnitEnum'], $this->interfaceIds($source));
+    }
 }

@@ -56,13 +56,24 @@ class PHPEnumSerializer implements EntityTypeSerializerInterface
             $data['methods'][] = $this->serializeMethod($method, $entity->getId(), $phpDocStorage);
         }
 
-        // Serialize interfaces (just store the names)
+        // Persist the fully qualified name, matching PHPClassSerializer. Storing only the
+        // short name left a namespaced interface indistinguishable from a global one of the
+        // same name after a round-trip.
         $data['interfaces'] = [];
         foreach ($entity->getImplementedInterfaces() as $interface) {
-            $data['interfaces'][] = $interface->getName();
+            $data['interfaces'][] = $interface->getId() ?? $interface->getName();
         }
 
         return $data;
+    }
+
+    /**
+     * Short name of a possibly qualified interface name (`\Foo\Bar` => `Bar`).
+     */
+    private function shortInterfaceName(string $name): string
+    {
+        $pos = strrpos($name, '\\');
+        return $pos === false ? $name : substr($name, $pos + 1);
     }
 
     public function deserialize(array $data, ?PhpDocStorage $phpDocStorage = null)
@@ -104,7 +115,8 @@ class PHPEnumSerializer implements EntityTypeSerializerInterface
             foreach ($data['interfaces'] as $interfaceName) {
                 if (!empty($interfaceName)) {
                     $interface = new \StubTests\Framework\Parsers\Model\PHPInterface();
-                    $interface->setName($interfaceName);
+                    $interface->setName($this->shortInterfaceName($interfaceName));
+                    $interface->setId($interfaceName);
                     $enum->addImplementedInterface($interface);
                 }
             }

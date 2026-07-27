@@ -49,7 +49,7 @@ class ReflectionEnumSerializer implements EntityTypeSerializerInterface
 
         $data['interfaces'] = [];
         foreach ($entity->getImplementedInterfaces() as $interface) {
-            $data['interfaces'][] = $interface->getName();
+            $data['interfaces'][] = $interface->getId() ?? $interface->getName();
         }
 
         return $data;
@@ -82,7 +82,9 @@ class ReflectionEnumSerializer implements EntityTypeSerializerInterface
             foreach ($data['interfaces'] as $interfaceName) {
                 if (!empty($interfaceName)) {
                     $interface = new PHPInterface();
-                    $interface->setName($interfaceName);
+                    $pos = strrpos($interfaceName, '\\');
+                    $interface->setName($pos === false ? $interfaceName : substr($interfaceName, $pos + 1));
+                    $interface->setId($interfaceName);
                     $enum->addImplementedInterface($interface);
                 }
             }
