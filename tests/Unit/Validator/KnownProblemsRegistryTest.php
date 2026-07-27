@@ -320,7 +320,7 @@ class KnownProblemsRegistryTest extends TestCase
         // that querying with the string CheckType::CLASS_METHODS_EXIST correctly resolves it.
         // This tests the CheckType::CLASS_METHODS_EXIST → CheckType::CLASS_METHODS_EXIST branch
         // of KnownProblemsRegistry::stringToCheckType().
-        $provider = $this->createMock(KnownProblemsProvider::class);
+        $provider = $this->createStub(KnownProblemsProvider::class);
         $provider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -354,7 +354,7 @@ class KnownProblemsRegistryTest extends TestCase
     {
         // Verifies the CheckType::CLASS_FINAL_METHODS → CheckType::CLASS_FINAL_METHODS branch
         // of KnownProblemsRegistry::stringToCheckType().
-        $provider = $this->createMock(KnownProblemsProvider::class);
+        $provider = $this->createStub(KnownProblemsProvider::class);
         $provider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::METHOD,

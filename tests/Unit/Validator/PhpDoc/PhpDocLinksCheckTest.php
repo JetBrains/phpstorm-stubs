@@ -294,7 +294,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
     public function testKnownProblemAtEntityLevelSkipsCheck(): void
     {
         KnownProblemsRegistry::reset();
-        $provider = $this->createMock(KnownProblemsProvider::class);
+        $provider = $this->createStub(KnownProblemsProvider::class);
         $provider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,

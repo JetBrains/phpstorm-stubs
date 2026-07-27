@@ -261,7 +261,7 @@ class PhpDocTagsCheckTest extends PhpDocCheckTestCase
     public function testKnownProblemAtEntityLevelSkipsCheck(): void
     {
         KnownProblemsRegistry::reset();
-        $provider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $provider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $provider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,

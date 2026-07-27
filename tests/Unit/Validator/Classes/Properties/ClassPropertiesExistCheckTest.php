@@ -254,7 +254,7 @@ class ClassPropertiesExistCheckTest extends CheckTestCase
         $reflectionClass = $this->createMockClassWithProperties($className, null, null, null, [], null, [], $reflectionProperties);
         $stubClass = $this->createMockClassWithProperties($className);  // no properties, but class-level skip
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -299,7 +299,7 @@ class ClassPropertiesExistCheckTest extends CheckTestCase
         ];
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [], null, [], $stubProperties);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::PROPERTY,
@@ -389,7 +389,7 @@ class ClassPropertiesExistCheckTest extends CheckTestCase
         $reflectionClass = $this->createMockClassWithProperties($className, null, null, null, [], null, [], $reflectionProperties);
         $stubClass = $this->createMockClassWithProperties($className);  // no properties
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::PROPERTY,

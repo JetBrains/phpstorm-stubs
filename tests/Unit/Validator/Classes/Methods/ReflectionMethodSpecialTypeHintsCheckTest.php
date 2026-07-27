@@ -341,7 +341,7 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
 
         $entityId = '\\ReflectionFunctionAbstract';
 
-        $knownProblemsProvider = $this->createMock(KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -384,7 +384,7 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         $classId = '\\ReflectionFunctionAbstract';
         $methodId = $classId . '::getReturnType';
 
-        $knownProblemsProvider = $this->createMock(KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::METHOD,

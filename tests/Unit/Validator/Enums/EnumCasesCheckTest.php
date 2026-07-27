@@ -143,7 +143,7 @@ class EnumCasesCheckTest extends CheckTestCase
         $stubs = $this->createMockStorageManager();
         $stubs->method('getEnums')->willReturn([$stubEnum]);
 
-        $knownProblemsProvider = $this->createMock(KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::ENUM_TYPE,

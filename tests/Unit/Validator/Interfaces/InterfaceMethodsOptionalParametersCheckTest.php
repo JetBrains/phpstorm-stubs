@@ -193,7 +193,7 @@ class InterfaceMethodsOptionalParametersCheckTest extends CheckTestCase
             $this->makeMethod('doWork', parameters: [$this->makeParam('config', optional: false)]),  // mismatch
         ]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::INTERFACE_TYPE,

@@ -125,7 +125,7 @@ class FunctionExistsCheckTest extends CheckTestCase
         $functionName = 'test_function';
 
         // Create a mock that has getId but not getName
-        $mockFunction = $this->createMock(\StubTests\Framework\Model\PHPFunction::class);
+        $mockFunction = $this->createStub(\StubTests\Framework\Model\PHPFunction::class);
         $mockFunction->method('getId')->willReturn($functionName);
 
         $stubsManager = $this->createMockStorageManager();
@@ -142,7 +142,7 @@ class FunctionExistsCheckTest extends CheckTestCase
     public function testFunctionNotFoundWhenIdMismatches(): void
     {
         // Arrange — getId() does not match the searched entityId
-        $mockFunction = $this->createMock(\StubTests\Framework\Model\PHPFunction::class);
+        $mockFunction = $this->createStub(\StubTests\Framework\Model\PHPFunction::class);
         $mockFunction->method('getId')->willReturn('different_id');
         $mockFunction->method('getName')->willReturn('test_function');
 
@@ -161,7 +161,7 @@ class FunctionExistsCheckTest extends CheckTestCase
         // A missing function is suppressed by a known problem keyed on (FUNCTION, EntityExistsCheck).
         $functionName = '\\deliberately_absent';
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::FUNCTION,

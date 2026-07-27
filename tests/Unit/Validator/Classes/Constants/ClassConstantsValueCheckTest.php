@@ -197,7 +197,7 @@ class ClassConstantsValueCheckTest extends CheckTestCase
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('FOO', 1)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('FOO', 99)]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -236,7 +236,7 @@ class ClassConstantsValueCheckTest extends CheckTestCase
             $this->makeClassConstant('ICU_DEPENDENT', 99), // value differs → known problem
         ]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_CONSTANT,

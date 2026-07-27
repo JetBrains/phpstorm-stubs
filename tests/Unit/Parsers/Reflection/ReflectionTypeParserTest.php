@@ -27,7 +27,7 @@ class ReflectionTypeParserTest extends TestCase
 
     public function testItParsesStandaloneType()
     {
-        $typeMock = $this->createMock(\ReflectionNamedType::class);
+        $typeMock = $this->createStub(\ReflectionNamedType::class);
         $typeMock->method('getName')->willReturn('int');
         $typeMock->method('allowsNull')->willReturn(false);
 
@@ -39,7 +39,7 @@ class ReflectionTypeParserTest extends TestCase
 
     public function testItParsesStandaloneStringType()
     {
-        $typeMock = $this->createMock(\ReflectionNamedType::class);
+        $typeMock = $this->createStub(\ReflectionNamedType::class);
         $typeMock->method('getName')->willReturn('string');
         $typeMock->method('allowsNull')->willReturn(false);
 
@@ -51,7 +51,7 @@ class ReflectionTypeParserTest extends TestCase
 
     public function testItParsesStandaloneClassType()
     {
-        $typeMock = $this->createMock(\ReflectionNamedType::class);
+        $typeMock = $this->createStub(\ReflectionNamedType::class);
         $typeMock->method('getName')->willReturn('DateTime');
         $typeMock->method('allowsNull')->willReturn(false);
 
@@ -63,7 +63,7 @@ class ReflectionTypeParserTest extends TestCase
 
     public function testItParsesNullableType()
     {
-        $typeMock = $this->createMock(\ReflectionNamedType::class);
+        $typeMock = $this->createStub(\ReflectionNamedType::class);
         $typeMock->method('getName')->willReturn('string');
         $typeMock->method('allowsNull')->willReturn(true);
 
@@ -75,7 +75,7 @@ class ReflectionTypeParserTest extends TestCase
 
     public function testItParsesNullableObjectType()
     {
-        $typeMock = $this->createMock(\ReflectionNamedType::class);
+        $typeMock = $this->createStub(\ReflectionNamedType::class);
         $typeMock->method('getName')->willReturn('object');
         $typeMock->method('allowsNull')->willReturn(true);
 
@@ -87,7 +87,7 @@ class ReflectionTypeParserTest extends TestCase
 
     public function testItParsesNullableMixedType()
     {
-        $typeMock = $this->createMock(\ReflectionNamedType::class);
+        $typeMock = $this->createStub(\ReflectionNamedType::class);
         $typeMock->method('getName')->willReturn('mixed');
         $typeMock->method('allowsNull')->willReturn(true);
 
@@ -99,16 +99,16 @@ class ReflectionTypeParserTest extends TestCase
 
     public function testItParsesUnionType()
     {
-        $namedType1 = $this->createMock(\ReflectionNamedType::class);
+        $namedType1 = $this->createStub(\ReflectionNamedType::class);
         $namedType1->method('getName')->willReturn('string');
 
-        $namedType2 = $this->createMock(\ReflectionNamedType::class);
+        $namedType2 = $this->createStub(\ReflectionNamedType::class);
         $namedType2->method('getName')->willReturn('int');
 
-        $namedType3 = $this->createMock(\ReflectionNamedType::class);
+        $namedType3 = $this->createStub(\ReflectionNamedType::class);
         $namedType3->method('getName')->willReturn('null');
 
-        $unionTypeMock = $this->createMock(\ReflectionUnionType::class);
+        $unionTypeMock = $this->createStub(\ReflectionUnionType::class);
         $unionTypeMock->method('getTypes')->willReturn([$namedType1, $namedType2, $namedType3]);
 
         $result = $this->parser->parse($unionTypeMock);
@@ -151,13 +151,13 @@ class ReflectionTypeParserTest extends TestCase
             self::markTestSkipped('ReflectionIntersectionType not available in this PHP version');
         }
 
-        $namedType1 = $this->createMock(\ReflectionNamedType::class);
+        $namedType1 = $this->createStub(\ReflectionNamedType::class);
         $namedType1->method('getName')->willReturn('Countable');
 
-        $namedType2 = $this->createMock(\ReflectionNamedType::class);
+        $namedType2 = $this->createStub(\ReflectionNamedType::class);
         $namedType2->method('getName')->willReturn('ArrayAccess');
 
-        $intersectionTypeMock = $this->createMock(\ReflectionIntersectionType::class);
+        $intersectionTypeMock = $this->createStub(\ReflectionIntersectionType::class);
         $intersectionTypeMock->method('getTypes')->willReturn([$namedType1, $namedType2]);
 
         $result = $this->parser->parse($intersectionTypeMock);
@@ -208,10 +208,10 @@ class ReflectionTypeParserTest extends TestCase
         }
 
         $inner = [$this->namedTypeMock('A'), $this->namedTypeMock('B')];
-        $group = $this->createMock(\ReflectionIntersectionType::class);
+        $group = $this->createStub(\ReflectionIntersectionType::class);
         $group->method('getTypes')->willReturn($inner);
 
-        $union = $this->createMock(\ReflectionUnionType::class);
+        $union = $this->createStub(\ReflectionUnionType::class);
         $union->method('getTypes')->willReturn([$group, $this->namedTypeMock('null')]);
 
         $result = $this->parser->parse($union);
@@ -291,7 +291,7 @@ class ReflectionTypeParserTest extends TestCase
      */
     public function testPlainUnionMembersRemainStandalone()
     {
-        $union = $this->createMock(\ReflectionUnionType::class);
+        $union = $this->createStub(\ReflectionUnionType::class);
         $union->method('getTypes')->willReturn([$this->namedTypeMock('int'), $this->namedTypeMock('string')]);
 
         self::assertSame('int|string', $this->parser->parse($union)->toString());
@@ -299,7 +299,7 @@ class ReflectionTypeParserTest extends TestCase
 
     private function namedTypeMock(string $name): \ReflectionNamedType
     {
-        $mock = $this->createMock(\ReflectionNamedType::class);
+        $mock = $this->createStub(\ReflectionNamedType::class);
         $mock->method('getName')->willReturn($name);
         return $mock;
     }

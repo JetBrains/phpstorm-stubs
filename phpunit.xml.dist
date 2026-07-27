@@ -1,4 +1,32 @@
-<phpunit bootstrap="vendor/autoload.php" failOnWarning="false" cacheResult="false">
+<!--
+    failOn* flags: every category below is currently clean, so each one only guards against
+    regressions rather than papering over existing debt.
+
+    failOnRisky and failOnWarning are the ones that matter most: without them a test that
+    asserts nothing, or an accidentally empty data provider, passes silently.
+
+    Deliberately NOT enabled:
+
+    * failOnPhpunitNotice - the suite emits ~839 "No expectations were configured for the
+      mock object" notices. They are a PHPUnit style advisory (use a stub where nothing is
+      verified), not a correctness signal. The remaining ones come from
+      getMockBuilder(...)->onlyMethods([...]) doubles, where switching to createStub() also
+      replaces the methods NOT listed in onlyMethods() - so a mechanical conversion would
+      silently change what those tests exercise. Worth doing per-site with judgement, not in
+      bulk. The createMock() sites that were safe to convert already have been.
+
+    * failOnSkipped - several tests skip conditionally on PHP feature availability (e.g.
+      ReflectionIntersectionType), which is legitimate on older runtimes.
+-->
+<phpunit bootstrap="vendor/autoload.php"
+         cacheResult="false"
+         failOnWarning="true"
+         failOnRisky="true"
+         failOnDeprecation="true"
+         failOnNotice="true"
+         failOnPhpunitDeprecation="true"
+         failOnPhpunitWarning="true"
+         failOnEmptyTestSuite="true">
     <testsuites>
         <testsuite name="General">
             <file>tests/ClassValidatorTest.php</file>

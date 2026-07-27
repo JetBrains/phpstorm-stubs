@@ -2,6 +2,8 @@
 
 namespace StubTests\Unit\Validator;
 
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Model\Access\AccessModifier;
 use StubTests\Framework\Model\PHPClass;
@@ -25,9 +27,30 @@ use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 abstract class CheckTestCase extends TestCase
 {
     /**
-     * Create a mock StubDataQueryInterface.
+     * Create a stubbed StubDataQueryInterface.
+     *
+     * A stub rather than a mock: these doubles only supply return values and never verify
+     * interactions, so createMock() made PHPUnit emit "No expectations were configured for
+     * the mock object" for every one of them — 1777 notices from this helper alone.
+     *
+     * The return type names the double explicitly (`&Stub`) instead of just the interface,
+     * so `->method(...)` resolves for static analysis; previously every such call across
+     * ~90 test files was reported as an undefined method, burying real warnings.
      */
-    protected function createMockStorageManager(): StubDataQueryInterface
+    protected function createMockStorageManager(): StubDataQueryInterface&Stub
+    {
+        return $this->createStub(StubDataQueryInterface::class);
+    }
+
+    /**
+     * Create a StubDataQueryInterface **mock**, for tests that constrain arguments with
+     * with() or assert call counts with expects().
+     *
+     * Those only work on a mock: on a stub, with() is silently ignored (PHPUnit deprecates
+     * it and will remove it in 13), so a test using the stub helper would appear to pin the
+     * argument while actually accepting anything.
+     */
+    protected function createStorageManagerMock(): StubDataQueryInterface&MockObject
     {
         return $this->createMock(StubDataQueryInterface::class);
     }
@@ -58,7 +81,7 @@ abstract class CheckTestCase extends TestCase
      */
     protected function createMockClass(string $name, array $methods = []): PHPClass
     {
-        $class = $this->createMock(PHPClass::class);
+        $class = $this->createStub(PHPClass::class);
         $class->method('getId')->willReturn($name);
         $class->method('getName')->willReturn($name);
         $class->method('getMethods')->willReturn($methods);
@@ -240,9 +263,9 @@ abstract class CheckTestCase extends TestCase
      * @param array $classes Array of PHPClass mocks to return
      * @return ReflectionProviderInterface
      */
-    protected function createMockReflectionProvider(array $functions = [], array $classes = []): ReflectionProviderInterface
+    protected function createMockReflectionProvider(array $functions = [], array $classes = []): ReflectionProviderInterface&Stub
     {
-        $provider = $this->createMock(ReflectionProviderInterface::class);
+        $provider = $this->createStub(ReflectionProviderInterface::class);
         $manager = $this->createMockStorageManager();
 
         $manager->method('getFunctions')->willReturn($functions);
@@ -256,9 +279,9 @@ abstract class CheckTestCase extends TestCase
     /**
      * Create a mock ReflectionProvider returning storage with the given classes.
      */
-    protected function createMockReflectionProviderWithClasses(array $classes = []): ReflectionProviderInterface
+    protected function createMockReflectionProviderWithClasses(array $classes = []): ReflectionProviderInterface&Stub
     {
-        $provider = $this->createMock(ReflectionProviderInterface::class);
+        $provider = $this->createStub(ReflectionProviderInterface::class);
         $manager = $this->createMockStorageManager();
         $manager->method('getClasses')->willReturn($classes);
         $provider->method('getReflection')->willReturn($manager);
@@ -268,9 +291,9 @@ abstract class CheckTestCase extends TestCase
     /**
      * Create a mock ReflectionProvider returning storage with the given interfaces.
      */
-    protected function createMockReflectionProviderWithInterfaces(array $interfaces = []): ReflectionProviderInterface
+    protected function createMockReflectionProviderWithInterfaces(array $interfaces = []): ReflectionProviderInterface&Stub
     {
-        $provider = $this->createMock(ReflectionProviderInterface::class);
+        $provider = $this->createStub(ReflectionProviderInterface::class);
         $manager = $this->createMockStorageManager();
         $manager->method('getInterfaces')->willReturn($interfaces);
         $provider->method('getReflection')->willReturn($manager);
@@ -280,9 +303,9 @@ abstract class CheckTestCase extends TestCase
     /**
      * Create a mock ReflectionProvider returning storage with the given enums.
      */
-    protected function createMockReflectionProviderWithEnums(array $enums = []): ReflectionProviderInterface
+    protected function createMockReflectionProviderWithEnums(array $enums = []): ReflectionProviderInterface&Stub
     {
-        $provider = $this->createMock(ReflectionProviderInterface::class);
+        $provider = $this->createStub(ReflectionProviderInterface::class);
         $manager = $this->createMockStorageManager();
         $manager->method('getEnums')->willReturn($enums);
         $provider->method('getReflection')->willReturn($manager);
