@@ -135,7 +135,18 @@ enum CheckType: string
      * Reused for classes and enums via EntityTypeConfig; the check reports this
      * name regardless of entity type, so known problems for enums are keyed by
      * (ENUM_TYPE, ClassFinalCheck), not a separate enum-specific name.
-     * Only meaningful against the latest PHP version, as stubs cannot express version-specific finality.
+     *
+     * Checked against every supported PHP version, not just the latest: registered
+     * EARLIEST..LATEST for classes and 8.1..LATEST for enums (8.1 being when enums were
+     * introduced), and AbstractFinalCheck::supports() accepts all versions.
+     *
+     * A stub declares `final` without version awareness, so a class whose finality changed
+     * across releases necessarily disagrees with reflection on one side of that boundary.
+     * Those cases are suppressed individually by a version-ranged known problem rather than
+     * by narrowing the check — see the CLASS_FINAL entries in DefaultKnownProblemsProvider,
+     * for example `\GMP` (final since 8.4, suppressed for EARLIEST..8.3) and `\Directory`
+     * (final since 8.5, suppressed for 8.5..LATEST). Keeping the check version-wide is what
+     * makes those boundaries explicit instead of silently unchecked.
      */
     case CLASS_FINAL = 'ClassFinalCheck';
 
