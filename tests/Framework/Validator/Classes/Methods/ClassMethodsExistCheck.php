@@ -22,7 +22,10 @@ use StubTests\Framework\Validator\KnownProblems\EntityType;
  * attributes during stub parsing). A stub method is considered available for a given
  * PHP version if:
  *   - sinceVersion is null OR phpVersion >= sinceVersion
- *   - AND removedVersion is null OR phpVersion <= removedVersion
+ *   - AND removedVersion is null OR phpVersion < removedVersion
+ *
+ * removedVersion is exclusive: a method with @removed 8.0 is absent from 8.0 itself.
+ * See StubsMetadata::isAvailableIn(), which is the single implementation of this rule.
  *
  * Known problems are supported at two granularities:
  * - class-level: EntityType::CLASS_TYPE + classId + 'ClassMethodsExistCheck'

@@ -171,4 +171,167 @@ class ClassAttributeTargetsCheckTest extends CheckTestCase
         $this->assertTrue($result->hasFailures());
         $this->assertStringContainsString('not found in stubs', $result->getFailures()['MissingInStubs']);
     }
+
+    // ── Symbolic flag resolution ─────────────────────────────────────────────
+
+    /**
+     * Builds a reflection \Attribute class carrying the target constants of a given PHP
+     * version, so flag resolution is driven by that version rather than by the runtime
+     * running this suite.
+     */
+    private function attributeClassFor(string $version): \StubTests\Framework\Parsers\Model\PHPClass
+    {
+        $constants = [
+            $this->makeClassConstant('TARGET_CLASS', 1),
+            $this->makeClassConstant('TARGET_FUNCTION', 2),
+            $this->makeClassConstant('TARGET_METHOD', 4),
+            $this->makeClassConstant('TARGET_PROPERTY', 8),
+            $this->makeClassConstant('TARGET_CLASS_CONSTANT', 16),
+            $this->makeClassConstant('TARGET_PARAMETER', 32),
+        ];
+        // TARGET_CONSTANT (and the widened TARGET_ALL) only exist from PHP 8.5.
+        if (version_compare($version, '8.5', '>=')) {
+            $constants[] = $this->makeClassConstant('TARGET_CONSTANT', 64);
+            $constants[] = $this->makeClassConstant('TARGET_ALL', 127);
+        } else {
+            $constants[] = $this->makeClassConstant('TARGET_ALL', 63);
+        }
+
+        return $this->makeClass('\\Attribute', constants: $constants);
+    }
+
+    private function runCheckWithVersionMap(
+        array $reflAttributes,
+        array $stubAttributes,
+        string $version,
+        string $id = 'Override'
+    ): \StubTests\Framework\Validator\Contracts\CheckResultSet {
+        $reflClass = $this->makeClass($id);
+        $reflClass->setAttributes($reflAttributes);
+        $stubClass = $this->makeClass($id);
+        $stubClass->setAttributes($stubAttributes);
+
+        $provider = $this->createMockReflectionProviderWithClasses([$reflClass, $this->attributeClassFor($version)]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        return (new ClassAttributeTargetsCheck($provider))->run($stubs, $id, $version);
+    }
+
+    private function symbolicAttribute(string $expression): array
+    {
+        return [['name' => 'Attribute', 'arguments' => [0 => $expression]]];
+    }
+
+    /**
+     * The stub parser falls back to a symbolic name when the constant is not defined on the
+     * runtime that parsed the stubs. Casting that with (int) yields 0, so a stub declaring
+     * exactly the right target was reported as declaring none.
+     */
+    public function testSingleSymbolicFlagIsResolvedNotCastToZero(): void
+    {
+        $result = $this->runCheckWithVersionMap(
+            $this->attribute(64),
+            $this->symbolicAttribute('Attribute::TARGET_CONSTANT'),
+            '8.6'
+        );
+
+        $this->assertFalse($result->hasFailures(), implode('; ', $result->getFailures()));
+    }
+
+    /**
+     * The worst case: "1|Attribute::TARGET_CONSTANT" casts to 1, which is a *valid-looking*
+     * bitmask, so the check reported a confident, wrong "missing target(s)" result.
+     */
+    public function testMixedSymbolicBitwiseOrIsResolvedNotTruncated(): void
+    {
+        $result = $this->runCheckWithVersionMap(
+            $this->attribute(1|64),
+            $this->symbolicAttribute('1|Attribute::TARGET_CONSTANT'),
+            '8.6'
+        );
+
+        $this->assertFalse($result->hasFailures(), implode('; ', $result->getFailures()));
+    }
+
+    public function testFullySymbolicBitwiseOrIsResolved(): void
+    {
+        $result = $this->runCheckWithVersionMap(
+            $this->attribute(4|8|64),
+            $this->symbolicAttribute('Attribute::TARGET_METHOD|Attribute::TARGET_PROPERTY|Attribute::TARGET_CONSTANT'),
+            '8.6'
+        );
+
+        $this->assertFalse($result->hasFailures(), implode('; ', $result->getFailures()));
+    }
+
+    /**
+     * A genuine mismatch must still be reported — the resolution must not mask real defects.
+     */
+    public function testSymbolicResolutionStillDetectsARealMismatch(): void
+    {
+        $result = $this->runCheckWithVersionMap(
+            $this->attribute(1|64),
+            $this->symbolicAttribute('Attribute::TARGET_CLASS'),
+            '8.6'
+        );
+
+        $this->assertTrue($result->hasFailures());
+        $this->assertStringContainsString('TARGET_CONSTANT', $result->getFailures()['Override']);
+    }
+
+    /**
+     * An unresolvable value must fail loudly with the raw text rather than being cast to a
+     * plausible-looking number and compared.
+     */
+    public function testUnresolvableFlagsFailWithTheRawValue(): void
+    {
+        $result = $this->runCheckWithVersionMap(
+            $this->attribute(4),
+            $this->symbolicAttribute('Attribute::TARGET_NOT_A_REAL_CONSTANT'),
+            '8.6'
+        );
+
+        $this->assertTrue($result->hasFailures());
+        $failure = $result->getFailures()['Override'];
+        $this->assertStringContainsString('could not resolve', $failure);
+        $this->assertStringContainsString('TARGET_NOT_A_REAL_CONSTANT', $failure);
+    }
+
+    // ── Version-correct TARGET_ALL ───────────────────────────────────────────
+
+    /**
+     * `#[Attribute]` with no flags means TARGET_ALL, which widened from 63 to 127 in PHP 8.5
+     * when TARGET_CONSTANT was added. The old code hardcoded 63 as its fallback.
+     */
+    public function testBareAttributeUsesTheVersionsTargetAllOn85AndLater(): void
+    {
+        $bare = [['name' => 'Attribute', 'arguments' => []]];
+
+        $result = $this->runCheckWithVersionMap($this->attribute(127), $bare, '8.6');
+
+        $this->assertFalse($result->hasFailures(), implode('; ', $result->getFailures()));
+    }
+
+    public function testBareAttributeUsesTheNarrowerTargetAllBefore85(): void
+    {
+        $bare = [['name' => 'Attribute', 'arguments' => []]];
+
+        $result = $this->runCheckWithVersionMap($this->attribute(63), $bare, '8.4');
+
+        $this->assertFalse($result->hasFailures(), implode('; ', $result->getFailures()));
+    }
+
+    /**
+     * The same bare stub declaration must not satisfy both 63 and 127 — otherwise the
+     * version map is being ignored.
+     */
+    public function testBareAttributeIsVersionSensitive(): void
+    {
+        $bare = [['name' => 'Attribute', 'arguments' => []]];
+
+        $result = $this->runCheckWithVersionMap($this->attribute(63), $bare, '8.6');
+
+        $this->assertTrue($result->hasFailures(), 'TARGET_ALL=63 must not match PHP 8.6, where it is 127.');
+    }
 }
