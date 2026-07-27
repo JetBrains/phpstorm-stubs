@@ -51,13 +51,26 @@ class PHPInterfaceSerializer implements EntityTypeSerializerInterface
             $data['constants'][] = $this->serializeClassConstant($constant);
         }
 
-        // Serialize parent interfaces (just store the names)
+        // Persist the fully qualified name, matching PHPClassSerializer's handling of
+        // implemented interfaces. Storing only the short name made the cached form
+        // ambiguous: `MongoDB\BSON\Persistable extends Serializable` round-tripped to the
+        // bare name "Serializable", which ClassHierarchyResolver then matched against the
+        // global \Serializable instead of \MongoDB\BSON\Serializable.
         $data['parentInterfaces'] = [];
         foreach ($entity->getParentInterfaces() as $parentInterface) {
-            $data['parentInterfaces'][] = $parentInterface->getName();
+            $data['parentInterfaces'][] = $parentInterface->getId() ?? $parentInterface->getName();
         }
 
         return $data;
+    }
+
+    /**
+     * Short name of a possibly qualified interface name (`\Foo\Bar` => `Bar`).
+     */
+    private function shortInterfaceName(string $name): string
+    {
+        $pos = strrpos($name, '\\');
+        return $pos === false ? $name : substr($name, $pos + 1);
     }
 
     public function deserialize(array $data, ?PhpDocStorage $phpDocStorage = null)
@@ -89,12 +102,17 @@ class PHPInterfaceSerializer implements EntityTypeSerializerInterface
             }
         }
 
-        // Restore parent interfaces from stored names
+        // Restore parent interfaces. Both the id and the short name are set: the id lets
+        // ClassHierarchyResolver resolve cross-namespace references exactly, while the short
+        // name keeps its fallback working for stubs whose qualified id does not exist (e.g.
+        // `namespace Ds; interface Collection extends Countable`, which means the global
+        // \Countable in practice even though PHP would read it as \Ds\Countable).
         if (isset($data['parentInterfaces']) && is_array($data['parentInterfaces'])) {
             foreach ($data['parentInterfaces'] as $parentInterfaceName) {
                 if (!empty($parentInterfaceName)) {
                     $parentInterface = new PHPInterface();
-                    $parentInterface->setName($parentInterfaceName);
+                    $parentInterface->setName($this->shortInterfaceName($parentInterfaceName));
+                    $parentInterface->setId($parentInterfaceName);
                     $interface->addParentInterface($parentInterface);
                 }
             }
