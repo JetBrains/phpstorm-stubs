@@ -16,6 +16,7 @@ use StubTests\Framework\Parsers\Stubs\Nodes\TypeNode;
  */
 class NikicEnumNode implements EnumNode
 {
+    use NikicClassLikeNameTrait;
     private Enum_ $enum;
     private string $namespace = '\\';
 
@@ -73,7 +74,7 @@ class NikicEnumNode implements EnumNode
     {
         $names = [];
         foreach ($this->enum->implements as $interface) {
-            $names[] = $interface->toString();
+            $names[] = $this->classLikeName($interface);
         }
         return $names;
     }

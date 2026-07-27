@@ -106,8 +106,8 @@
             }
         ],
         "interfaces": [
-            "BackedEnum",
-            "UnitEnum"
+            "\\BackedEnum",
+            "\\UnitEnum"
         ]
     },
     {
@@ -185,7 +185,7 @@
             }
         ],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -212,7 +212,7 @@
         "constants": [],
         "methods": [],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -276,7 +276,7 @@
             }
         ],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -384,8 +384,8 @@
             }
         ],
         "interfaces": [
-            "BackedEnum",
-            "UnitEnum"
+            "\\BackedEnum",
+            "\\UnitEnum"
         ]
     },
     {
@@ -427,7 +427,7 @@
             }
         ],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -499,7 +499,7 @@
             }
         ],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -521,7 +521,7 @@
         "constants": [],
         "methods": [],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -619,7 +619,7 @@
         "constants": [],
         "methods": [],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -642,7 +642,7 @@
         "constants": [],
         "methods": [],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -667,7 +667,7 @@
         "constants": [],
         "methods": [],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -691,7 +691,7 @@
         "constants": [],
         "methods": [],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -715,7 +715,7 @@
         "constants": [],
         "methods": [],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -755,7 +755,7 @@
             }
         ],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -780,7 +780,7 @@
         "constants": [],
         "methods": [],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -847,7 +847,7 @@
             }
         ],
         "interfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     }
 ]

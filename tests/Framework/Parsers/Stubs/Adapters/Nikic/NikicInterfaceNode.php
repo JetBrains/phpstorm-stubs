@@ -14,6 +14,7 @@ use StubTests\Framework\Parsers\Stubs\Nodes\InterfaceNode;
  */
 class NikicInterfaceNode implements InterfaceNode
 {
+    use NikicClassLikeNameTrait;
     private Interface_ $interface;
     private string $namespace = '\\';
 
@@ -41,7 +42,7 @@ class NikicInterfaceNode implements InterfaceNode
     {
         $names = [];
         foreach ($this->interface->extends as $parent) {
-            $names[] = $parent->toString();
+            $names[] = $this->classLikeName($parent);
         }
         return $names;
     }

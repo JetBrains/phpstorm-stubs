@@ -7,6 +7,7 @@ use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
+use StubTests\Framework\Parsers\Types\TypeNameResolver;
 use StubTests\Framework\Parsers\Model\PHPEnum;
 use StubTests\Framework\Parsers\Model\PHPInterface;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicNodeExtractor;
@@ -24,6 +25,7 @@ class StubEnumParser implements MultiEntityStubParserInterface
     private AvailableVersionParserInterface $versionParser;
     private StubMethodParser $methodParser;
     private StubClassConstantParser $constantParser;
+    private TypeNameResolver $nameResolver;
 
     public function __construct(
         ?EnumNodeExtractorInterface $nodeExtractor = null,
@@ -37,6 +39,7 @@ class StubEnumParser implements MultiEntityStubParserInterface
         // than allocating its own DocBlockFactory chain.
         $this->methodParser = new StubMethodParser($this->phpDocParser, null, $this->versionParser);
         $this->constantParser = new StubClassConstantParser($this->phpDocParser, $this->versionParser);
+        $this->nameResolver = new TypeNameResolver();
     }
 
     /**
@@ -91,10 +94,13 @@ class StubEnumParser implements MultiEntityStubParserInterface
         $phpEnum->setIsFinal($node->isFinal()); // Always true for enums
         $phpEnum->setIsReadonly(false); // Enums are not readonly
 
-        // Implemented interfaces
+        // Implemented interfaces - name/id resolved exactly as StubClassParser does, so an
+        // enum implementing a namespaced interface is not left to the resolver's short-name
+        // fallback (which prefers a same-named global interface).
         foreach ($node->getImplementedInterfaceNames() as $interfaceName) {
             $phpInterface = new PHPInterface();
-            $phpInterface->setName($interfaceName);
+            $phpInterface->setName($this->shortName($interfaceName));
+            $phpInterface->setId($this->nameResolver->resolve($interfaceName, $imports, $phpEnum->getNamespace()));
             $phpEnum->addImplementedInterface($phpInterface);
         }
 
@@ -130,6 +136,15 @@ class StubEnumParser implements MultiEntityStubParserInterface
         }
 
         return $phpEnum;
+    }
+
+    /**
+     * Short name of a possibly qualified name (`\Foo\Bar` => `Bar`).
+     */
+    private function shortName(string $name): string
+    {
+        $pos = strrpos($name, '\\');
+        return $pos === false ? $name : substr($name, $pos + 1);
     }
 
     /**

@@ -13,6 +13,7 @@ use StubTests\Framework\Parsers\Stubs\Nodes\ClassNode;
  */
 class NikicClassNode implements ClassNode
 {
+    use NikicClassLikeNameTrait;
     private Class_ $class;
     private string $namespace = '\\';
 
@@ -42,14 +43,14 @@ class NikicClassNode implements ClassNode
             return null;
         }
 
-        return $this->class->extends->toString();
+        return $this->classLikeName($this->class->extends);
     }
 
     public function getInterfaceNames(): array
     {
         $interfaces = [];
         foreach ($this->class->implements as $interface) {
-            $interfaces[] = $interface->toString();
+            $interfaces[] = $this->classLikeName($interface);
         }
         return $interfaces;
     }
