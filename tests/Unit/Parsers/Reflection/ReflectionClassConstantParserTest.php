@@ -12,24 +12,43 @@ use function PHPUnit\Framework\assertEquals;
 
 class ReflectionClassConstantParserTest extends TestCase
 {
-    public function testItCanParseClassConstants()
+    /**
+     * Replaces two assertions that could not fail: parse() declares a non-nullable
+     * PHPClassConstant return type, so both `assertNotNull` and `instanceof` were
+     * guaranteed by the signature. Asserts the value actually reaches the model instead.
+     */
+    public function testItCopiesNameAndValueFromTheReflectionConstant()
     {
         $classConstantMock = $this->getMockBuilder(AdaptedReflectionClassConstant::class)
             ->disableOriginalConstructor()
-            ->onlyMethods([])
+            ->onlyMethods(['getName', 'getValue'])
             ->getMock();
+        $classConstantMock->method('getName')->willReturn('MY_CONST');
+        $classConstantMock->method('getValue')->willReturn(42);
+
         $parsedConstant = new ReflectionClassConstantParser()->parse($classConstantMock);
-        self::assertNotNull($parsedConstant);
+
+        self::assertSame('MY_CONST', $parsedConstant->getName());
+        self::assertSame(42, $parsedConstant->getValue());
     }
 
-    public function testItReturnsCorrectInstanceOfClassConstants()
+    /**
+     * Not type-guaranteed: each call must yield its own model, not a memoised one.
+     */
+    public function testEachParseReturnsItsOwnClassConstantModel()
     {
         $classConstantMock = $this->getMockBuilder(AdaptedReflectionClassConstant::class)
             ->disableOriginalConstructor()
             ->onlyMethods([])
             ->getMock();
-        $parsedConstant = new ReflectionClassConstantParser()->parse($classConstantMock);
-        self::assertTrue($parsedConstant instanceof PHPClassConstant);
+
+        $parser = new ReflectionClassConstantParser();
+        $first = $parser->parse($classConstantMock);
+        $second = $parser->parse($classConstantMock);
+
+        self::assertNotSame($first, $second);
+        $first->setName('mutated');
+        self::assertNotSame('mutated', $second->getName());
     }
 
     public function testItSetsDevautNameNullForClassConstants()

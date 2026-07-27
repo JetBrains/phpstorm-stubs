@@ -8,15 +8,27 @@ use StubTests\Framework\Parsers\Reflection\ReflectionDefineConstantParser;
 
 class ReflectionDefineConstantParserTest extends TestCase
 {
-    public function testItCanParseDefineConstant()
-    {
-        self::assertNotNull(new ReflectionDefineConstantParser()->parse(['MY_DUMMY_CONSTANT', '7.4.0']));
-    }
-
-    public function testItCanReturnsCorrectInstanceOfConstant()
+    /**
+     * Replaces an `assertNotNull` that the non-nullable PHPConstant return type already
+     * guaranteed — it would have passed even if nothing were parsed out of the input.
+     */
+    public function testItParsesNameAndValueFromTheDefinePair()
     {
         $parsedConstant = new ReflectionDefineConstantParser()->parse(['MY_DUMMY_CONSTANT', '7.4.0']);
-        self::assertTrue($parsedConstant instanceof PHPConstant);
+
+        self::assertSame('MY_DUMMY_CONSTANT', $parsedConstant->getName());
+        self::assertSame('7.4.0', $parsedConstant->getValue());
+    }
+
+    /**
+     * Replaces an `instanceof` assertion the return type already guaranteed; the id is the
+     * part that is actually derived and could regress.
+     */
+    public function testItDerivesTheIdFromTheConstantName()
+    {
+        $parsedConstant = new ReflectionDefineConstantParser()->parse(['MY_DUMMY_CONSTANT', '7.4.0']);
+
+        self::assertSame('\\MY_DUMMY_CONSTANT', $parsedConstant->getId());
     }
 
     public function testItCanParseStringConstantNameForDefinedConstant()

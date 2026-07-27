@@ -4,7 +4,6 @@ namespace StubTests\Unit\Parsers\Reflection;
 
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Parsers\Model\Types\NoType;
-use StubTests\Framework\Parsers\Model\PHPMethod;
 use StubTests\Framework\Parsers\Reflection\ReflectionMethodParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClass;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionMethod;
@@ -22,14 +21,26 @@ class ReflectionMethodParserTest extends TestCase
         self::assertNotNull($basePHPElement);
     }
 
-    public function testItReturnsCorrectInstanceOfMethods()
+    /**
+     * The declared return type already guarantees the model class, so asserting
+     * `instanceof` could never fail. What is not type-guaranteed — and would be a real
+     * regression if a parser ever memoised its result — is that each call yields its own
+     * model rather than a shared, mutable one.
+     */
+    public function testEachParseReturnsItsOwnMethodModel()
     {
         $reflectionMethodMock = $this->getMockBuilder(AdaptedReflectionMethod::class)
             ->disableOriginalConstructor()
             ->onlyMethods([])
             ->getMock();
-        $basePHPElement = new ReflectionMethodParser()->parse($reflectionMethodMock);
-        self::assertTrue($basePHPElement instanceof PHPMethod);
+
+        $parser = new ReflectionMethodParser();
+        $first = $parser->parse($reflectionMethodMock);
+        $second = $parser->parse($reflectionMethodMock);
+
+        self::assertNotSame($first, $second);
+        $first->setName('mutated');
+        self::assertNotSame('mutated', $second->getName());
     }
 
     public function testItCanParseName()
