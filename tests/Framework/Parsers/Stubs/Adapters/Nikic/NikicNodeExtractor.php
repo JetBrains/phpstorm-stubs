@@ -23,14 +23,68 @@ class NikicNodeExtractor implements NodeExtractorInterface
 {
     private \PhpParser\Parser $parser;
 
+    /**
+     * Most recently parsed stub file, shared across instances.
+     *
+     * AllStubsParser hands the same file content to every registered stub parser in turn,
+     * and each of those owns its own extractor — so a per-instance cache would never hit.
+     * The result was one full lex+parse per parser: 6 parses of every stub file, measured.
+     *
+     * A single entry is enough precisely because the access pattern is consecutive: all
+     * parsers see file A, then all see file B. It also keeps memory bounded to one AST
+     * rather than retaining the whole stub tree.
+     *
+     * Safe to share: the extract* methods only read the AST and wrap nodes in adapters that
+     * carry their own state (Nikic*Node::setNamespace()); nothing mutates the parsed nodes,
+     * and no traverser or visitor runs over them.
+     *
+     * @var array<int, \PhpParser\Node>|null
+     */
+    private static ?array $cachedAst = null;
+    private static ?string $cachedKey = null;
+
     public function __construct()
     {
         $this->parser = (new ParserFactory())->createForNewestSupportedVersion();
     }
 
+    /**
+     * Discards the shared AST cache. Only needed to release memory or to guarantee a
+     * re-parse in tests; correctness does not depend on it, since the cache is keyed by
+     * content.
+     */
+    public static function clearAstCache(): void
+    {
+        self::$cachedAst = null;
+        self::$cachedKey = null;
+    }
+
+    /**
+     * Parse stub code, reusing the previous result when the same content is parsed again.
+     *
+     * @return array<int, \PhpParser\Node>|null
+     */
+    private function parseCached(string $stubCode): ?array
+    {
+        $key = hash('xxh128', $stubCode);
+        if (self::$cachedKey === $key && self::$cachedAst !== null) {
+            return self::$cachedAst;
+        }
+
+        $ast = $this->parser->parse($stubCode);
+        // Only a successful parse is memoised; a null result keeps the previous behaviour
+        // of letting the caller deal with it, and must not poison the cache.
+        if ($ast !== null) {
+            self::$cachedAst = $ast;
+            self::$cachedKey = $key;
+        }
+
+        return $ast;
+    }
+
     public function extractFunction(string $stubCode): FunctionNode
     {
-        $ast = $this->parser->parse($stubCode);
+        $ast = $this->parseCached($stubCode);
         $namespace = null;
         $functionNode = null;
 
@@ -61,7 +115,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
 
     public function extractClass(string $stubCode): ClassNode
     {
-        $ast = $this->parser->parse($stubCode);
+        $ast = $this->parseCached($stubCode);
         $namespace = null;
         $classNode = null;
 
@@ -92,7 +146,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
 
     public function extractAllClasses(string $stubCode): array
     {
-        $ast = $this->parser->parse($stubCode);
+        $ast = $this->parseCached($stubCode);
         $classes = [];
         $currentNamespace = '\\';
 
@@ -122,7 +176,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
      */
     public function extractAllClassesWithImports(string $stubCode): array
     {
-        $ast = $this->parser->parse($stubCode);
+        $ast = $this->parseCached($stubCode);
         $classes = [];
         $currentNamespace = '\\';
         $currentImports = [];
@@ -160,7 +214,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
 
     public function extractAllFunctions(string $stubCode): array
     {
-        $ast = $this->parser->parse($stubCode);
+        $ast = $this->parseCached($stubCode);
         $functions = [];
         $currentNamespace = '\\';
         $currentImports = [];
@@ -193,7 +247,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
 
     public function extractAllInterfaces(string $stubCode): array
     {
-        $ast = $this->parser->parse($stubCode);
+        $ast = $this->parseCached($stubCode);
         $interfaces = [];
         $currentNamespace = '\\';
 
@@ -223,7 +277,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
      */
     public function extractAllInterfacesWithImports(string $stubCode): array
     {
-        $ast = $this->parser->parse($stubCode);
+        $ast = $this->parseCached($stubCode);
         $interfaces = [];
         $currentNamespace = '\\';
         $currentImports = [];
@@ -261,7 +315,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
 
     public function extractAllEnums(string $stubCode): array
     {
-        $ast = $this->parser->parse($stubCode);
+        $ast = $this->parseCached($stubCode);
         $enums = [];
         $currentNamespace = '\\';
 
@@ -291,7 +345,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
      */
     public function extractAllEnumsWithImports(string $stubCode): array
     {
-        $ast = $this->parser->parse($stubCode);
+        $ast = $this->parseCached($stubCode);
         $enums = [];
         $currentNamespace = '\\';
         $currentImports = [];
@@ -329,7 +383,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
 
     public function extractAllDefineConstants(string $stubCode): array
     {
-        $ast = $this->parser->parse($stubCode);
+        $ast = $this->parseCached($stubCode);
         $constants = [];
         $currentNamespace = '\\';
 
@@ -346,7 +400,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
     }
 
     public function extractAllModernConstants(string $stubCode): array {
-        $ast = $this->parser->parse($stubCode);
+        $ast = $this->parseCached($stubCode);
         $constants = [];
         $currentNamespace = '\\';
 
