@@ -23,9 +23,11 @@ use StubTests\Framework\Validator\Services\ParameterCountComparator;
  *    sinceVersion/removedVersion) and the resulting count is compared with
  *    the reflection count.
  *
- * Parameter version filtering uses inclusive boundaries for removedVersion (`<=`),
- * consistent with how PhpStormStubsElementAvailable `to` is interpreted elsewhere
- * (e.g. `to: '7.0'` means the parameter is still available in PHP 7.0).
+ * Parameter version filtering compares removedVersion **exclusively** (`phpVersion <
+ * removedVersion`), per StubsMetadata::isAvailableIn(). The inclusive reading belongs to
+ * the attribute, not to removedVersion: DefaultAvailableVersionParser converts
+ * `to: '7.0'` into `removedVersion = '7.1'`, so the parameter is still available in
+ * PHP 7.0 even though the comparison itself is exclusive.
  *
  * Known problems are supported:
  * - EntityType::FUNCTION + functionId + 'ParametersCountCheck'
