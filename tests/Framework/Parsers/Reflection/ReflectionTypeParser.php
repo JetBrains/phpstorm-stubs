@@ -63,11 +63,60 @@ class ReflectionTypeParser
     {
         $unionType = new UnionType();
         foreach ($reflectionType->getTypes() as $item) {
-            if ($item instanceof \ReflectionNamedType || method_exists($item, 'getName')) {
-                $unionType->addType(new StandaloneType($item->getName()));
+            $member = $this->parseUnionMember($item);
+            if ($member !== null) {
+                $unionType->addType($member);
             }
         }
         return $unionType;
+    }
+
+    /**
+     * Parse one member of a union, which since PHP 8.2 may itself be an intersection
+     * group (DNF, e.g. `null|(A&B)`).
+     *
+     * Two shapes reach this method and both must yield the same model, otherwise the
+     * reflection side renders a DNF type differently from the stubs side and the
+     * comparison fails on a type that is actually identical:
+     *  - live reflection hands over a ReflectionIntersectionType, which has no getName();
+     *    it was previously skipped outright, silently reducing `null|(A&B)` to `null`;
+     *  - the wrapper (AdaptedReflectionType) pre-flattens the group into the single name
+     *    "A&B", which rendered without parentheses as `A&B|null` rather than `(A&B)|null`.
+     *
+     * @param object $item
+     * @return StandaloneType|IntersectionType|null Null when the member cannot be read
+     */
+    private function parseUnionMember($item)
+    {
+        $isIntersection = (class_exists('\ReflectionIntersectionType') && $item instanceof \ReflectionIntersectionType)
+            || (method_exists($item, 'isIntersectionType') && $item->isIntersectionType());
+
+        if ($isIntersection && method_exists($item, 'getTypes')) {
+            return $this->parseIntersectionType($item);
+        }
+
+        if (!($item instanceof \ReflectionNamedType) && !method_exists($item, 'getName')) {
+            return null;
+        }
+
+        $name = $item->getName();
+        if ($name === null) {
+            return null;
+        }
+
+        // Wrapper-flattened intersection group, e.g. "A&B".
+        if (str_contains($name, '&')) {
+            $intersection = new IntersectionType();
+            foreach (explode('&', $name) as $part) {
+                $part = trim($part);
+                if ($part !== '') {
+                    $intersection->addType(new StandaloneType($part));
+                }
+            }
+            return $intersection;
+        }
+
+        return new StandaloneType($name);
     }
 
     /**
