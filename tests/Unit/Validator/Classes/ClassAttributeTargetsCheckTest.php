@@ -179,7 +179,7 @@ class ClassAttributeTargetsCheckTest extends CheckTestCase
      * version, so flag resolution is driven by that version rather than by the runtime
      * running this suite.
      */
-    private function attributeClassFor(string $version): \StubTests\Framework\Parsers\Model\PHPClass
+    private function attributeClassFor(string $version): \StubTests\Framework\Model\PHPClass
     {
         $constants = [
             $this->makeClassConstant('TARGET_CLASS', 1),

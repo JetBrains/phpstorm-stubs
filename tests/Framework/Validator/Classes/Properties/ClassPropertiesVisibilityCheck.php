@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator\Classes\Properties;
 
-use StubTests\Framework\Parsers\Model\PHPProperty;
+use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Validator\AbstractPropertyFlagCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 

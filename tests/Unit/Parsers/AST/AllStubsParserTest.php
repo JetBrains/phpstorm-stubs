@@ -4,14 +4,14 @@ namespace StubTests\Unit\Parsers\AST;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use RuntimeException;
-use StubTests\Framework\Parsers\Processors\EntityProcessingPipeline;
+use StubTests\Framework\Pipeline\EntityProcessingPipeline;
 use StubTests\Framework\DataProvider\StubsDataProvider;
 use StubTests\Framework\Parsers\Stubs\AllStubsParser;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
 use StubTests\Framework\Parsers\Stubs\StubFunctionParser;
-use StubTests\Framework\Parsers\Storage\DefaultParsedDataStorageManager;
-use StubTests\Framework\Parsers\Storage\InMemoryParsedDataStorage;
-use StubTests\Framework\Parsers\Processors\StubsDeduplicationProcessor;
+use StubTests\Framework\Storage\DefaultParsedDataStorageManager;
+use StubTests\Framework\Storage\InMemoryParsedDataStorage;
+use StubTests\Framework\Pipeline\StubsDeduplicationProcessor;
 use StubTests\Unit\Parsers\AST\fixtures\FixtureStubsDataProvider;
 
 class AllStubsParserTest extends BaseTestCase

@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Parsers;
 
-use StubTests\Framework\Parsers\Model\PHPInterface;
+use StubTests\Framework\Model\PHPInterface;
 
 interface InterfaceQueryInterface
 {

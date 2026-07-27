@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator;
 
-use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
+use StubTests\Framework\Model\PHPClassLikeObject;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\CheckType;

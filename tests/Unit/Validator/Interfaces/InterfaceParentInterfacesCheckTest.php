@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Interfaces;
 
-use StubTests\Framework\Parsers\Model\PHPInterface;
+use StubTests\Framework\Model\PHPInterface;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Interfaces\InterfaceParentInterfacesCheck;

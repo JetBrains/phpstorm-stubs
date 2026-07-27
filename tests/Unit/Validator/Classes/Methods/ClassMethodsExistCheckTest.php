@@ -2,8 +2,8 @@
 
 namespace StubTests\Unit\Validator\Classes\Methods;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPMethod;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsExistCheck;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Unit\Validator\CheckTestCase;

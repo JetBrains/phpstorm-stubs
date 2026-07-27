@@ -2,11 +2,11 @@
 
 namespace StubTests\Framework\Parsers\Stubs\Types;
 
-use StubTests\Framework\Parsers\Model\Types\IntersectionType;
-use StubTests\Framework\Parsers\Model\Types\NoType;
-use StubTests\Framework\Parsers\Model\Types\NullableType;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
-use StubTests\Framework\Parsers\Model\Types\UnionType;
+use StubTests\Framework\Model\Types\IntersectionType;
+use StubTests\Framework\Model\Types\NoType;
+use StubTests\Framework\Model\Types\NullableType;
+use StubTests\Framework\Model\Types\StandaloneType;
+use StubTests\Framework\Model\Types\UnionType;
 
 /**
  * Value object representing parsed type information from multiple sources.

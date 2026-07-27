@@ -3,10 +3,10 @@
 namespace StubTests\Unit\Parsers\Meta;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Meta\MetaFileReferenceExtractor;
-use StubTests\Framework\Parsers\Meta\MetaReference;
-use StubTests\Framework\Parsers\Meta\MetaReferenceRole;
-use StubTests\Framework\Parsers\Meta\MetaReferenceType;
+use StubTests\Framework\MetaFile\MetaFileReferenceExtractor;
+use StubTests\Framework\MetaFile\MetaReference;
+use StubTests\Framework\MetaFile\MetaReferenceRole;
+use StubTests\Framework\MetaFile\MetaReferenceType;
 
 class MetaFileReferenceExtractorTest extends TestCase
 {

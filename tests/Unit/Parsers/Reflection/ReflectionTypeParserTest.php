@@ -3,10 +3,10 @@
 namespace StubTests\Unit\Parsers\Reflection;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\Types\NoType;
-use StubTests\Framework\Parsers\Model\Types\NullableType;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
-use StubTests\Framework\Parsers\Model\Types\UnionType;
+use StubTests\Framework\Model\Types\NoType;
+use StubTests\Framework\Model\Types\NullableType;
+use StubTests\Framework\Model\Types\StandaloneType;
+use StubTests\Framework\Model\Types\UnionType;
 use StubTests\Framework\Parsers\Reflection\ReflectionTypeParser;
 
 class ReflectionTypeParserTest extends TestCase
@@ -162,7 +162,7 @@ class ReflectionTypeParserTest extends TestCase
 
         $result = $this->parser->parse($intersectionTypeMock);
 
-        self::assertInstanceOf(\StubTests\Framework\Parsers\Model\Types\IntersectionType::class, $result);
+        self::assertInstanceOf(\StubTests\Framework\Model\Types\IntersectionType::class, $result);
         self::assertEquals('Countable&ArrayAccess', $result->toString());
     }
 
@@ -190,7 +190,7 @@ class ReflectionTypeParserTest extends TestCase
 
         $result = $this->parser->parse($intersectionTypeMock);
 
-        self::assertInstanceOf(\StubTests\Framework\Parsers\Model\Types\IntersectionType::class, $result);
+        self::assertInstanceOf(\StubTests\Framework\Model\Types\IntersectionType::class, $result);
         self::assertEquals('Foo&Bar', $result->toString());
     }
 

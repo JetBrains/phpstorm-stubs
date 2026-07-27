@@ -2,8 +2,8 @@
 
 namespace StubTests\Unit\Validator;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPConstant;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPConstant;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 use StubTests\Framework\Validator\KnownProblems\EntityType;

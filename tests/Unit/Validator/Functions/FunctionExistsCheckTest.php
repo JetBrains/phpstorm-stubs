@@ -125,7 +125,7 @@ class FunctionExistsCheckTest extends CheckTestCase
         $functionName = 'test_function';
 
         // Create a mock that has getId but not getName
-        $mockFunction = $this->createMock(\StubTests\Framework\Parsers\Model\PHPFunction::class);
+        $mockFunction = $this->createMock(\StubTests\Framework\Model\PHPFunction::class);
         $mockFunction->method('getId')->willReturn($functionName);
 
         $stubsManager = $this->createMockStorageManager();
@@ -142,7 +142,7 @@ class FunctionExistsCheckTest extends CheckTestCase
     public function testFunctionNotFoundWhenIdMismatches(): void
     {
         // Arrange — getId() does not match the searched entityId
-        $mockFunction = $this->createMock(\StubTests\Framework\Parsers\Model\PHPFunction::class);
+        $mockFunction = $this->createMock(\StubTests\Framework\Model\PHPFunction::class);
         $mockFunction->method('getId')->willReturn('different_id');
         $mockFunction->method('getName')->willReturn('test_function');
 

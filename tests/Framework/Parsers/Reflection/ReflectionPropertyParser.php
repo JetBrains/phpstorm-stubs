@@ -2,8 +2,8 @@
 
 namespace StubTests\Framework\Parsers\Reflection;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-use StubTests\Framework\Parsers\Model\PHPProperty;
+use StubTests\Framework\Model\Access\AccessModifier;
+use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionProperty;
 use StubTests\Framework\Parsers\Parser;
 

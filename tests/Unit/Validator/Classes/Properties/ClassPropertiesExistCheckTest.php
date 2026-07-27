@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Classes\Properties;
 
-use StubTests\Framework\Parsers\Model\PHPProperty;
+use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Validator\Classes\Properties\ClassPropertiesExistCheck;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Unit\Validator\CheckTestCase;

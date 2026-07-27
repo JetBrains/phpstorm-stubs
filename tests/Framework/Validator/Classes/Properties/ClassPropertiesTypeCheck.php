@@ -2,12 +2,12 @@
 
 namespace StubTests\Framework\Validator\Classes\Properties;
 
-use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Parsers\Model\Types\IntersectionType;
-use StubTests\Framework\Parsers\Model\Types\NoType;
-use StubTests\Framework\Parsers\Model\Types\NullableType;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
-use StubTests\Framework\Parsers\Model\Types\UnionType;
+use StubTests\Framework\Model\PHPProperty;
+use StubTests\Framework\Model\Types\IntersectionType;
+use StubTests\Framework\Model\Types\NoType;
+use StubTests\Framework\Model\Types\NullableType;
+use StubTests\Framework\Model\Types\StandaloneType;
+use StubTests\Framework\Model\Types\UnionType;
 use StubTests\Framework\Validator\AbstractPropertyFlagCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\TypeResolver;

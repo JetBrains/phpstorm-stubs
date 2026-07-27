@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Parsers;
 
-use StubTests\Framework\Parsers\Model\PHPConstant;
+use StubTests\Framework\Model\PHPConstant;
 
 interface ConstantQueryInterface
 {

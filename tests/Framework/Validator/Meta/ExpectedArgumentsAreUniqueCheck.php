@@ -8,7 +8,7 @@ use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\Int_;
 use PhpParser\Node\Stmt;
-use StubTests\Framework\Parsers\Meta\MetaFileWalkerTrait;
+use StubTests\Framework\MetaFile\MetaFileWalkerTrait;
 
 final class ExpectedArgumentsAreUniqueCheck
 {

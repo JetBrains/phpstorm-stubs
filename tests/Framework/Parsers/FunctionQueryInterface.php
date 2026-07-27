@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Parsers;
 
-use StubTests\Framework\Parsers\Model\PHPFunction;
+use StubTests\Framework\Model\PHPFunction;
 
 interface FunctionQueryInterface
 {

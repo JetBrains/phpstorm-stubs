@@ -3,7 +3,7 @@
 namespace StubTests\Framework\Parsers\Stubs;
 
 use StubTests\Framework\DataProvider\StubsDataProvider;
-use StubTests\Framework\Parsers\Storage\ParsedDataStorageManager;
+use StubTests\Framework\Storage\ParsedDataStorageManager;
 
 class AllStubsParser
 {

@@ -2,12 +2,12 @@
 
 namespace StubTests\Framework\Runner;
 
-use StubTests\Framework\Parsers\Serializers\Reflection\ReflectionEntitySerializer;
-use StubTests\Framework\Parsers\Serializers\Stubs\StubsEntitySerializer;
+use StubTests\Framework\Serialization\Reflection\ReflectionEntitySerializer;
+use StubTests\Framework\Serialization\Stubs\StubsEntitySerializer;
 use StubTests\Framework\DataProvider\AllStubsDataProvider;
 use StubTests\Framework\DataProvider\CurrentRuntimeReflectionRawDataProvider;
-use StubTests\Framework\Parsers\Hierarchy\ClassHierarchyResolver;
-use StubTests\Framework\Parsers\Hierarchy\InheritDocVersionResolver;
+use StubTests\Framework\Hierarchy\ClassHierarchyResolver;
+use StubTests\Framework\Hierarchy\InheritDocVersionResolver;
 use StubTests\Framework\Parsers\Reflection\AllReflectionParser;
 use StubTests\Framework\Parsers\Stubs\AllStubsParser;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
@@ -16,12 +16,12 @@ use StubTests\Framework\Parsers\Stubs\StubEnumParser;
 use StubTests\Framework\Parsers\Stubs\StubFunctionParser;
 use StubTests\Framework\Parsers\Stubs\StubInterfaceParser;
 use StubTests\Framework\Parsers\Stubs\StubModernConstantParser;
-use StubTests\Framework\Parsers\Processors\EntityProcessingPipelineFactory;
-use StubTests\Framework\Parsers\Storage\DefaultParsedDataStorageManager;
-use StubTests\Framework\Parsers\Storage\JsonParsedDataStorage;
-use StubTests\Framework\Parsers\Storage\MultiFileJsonStorage;
-use StubTests\Framework\Parsers\Storage\ParsedDataStorageManager;
-use StubTests\Framework\Parsers\Storage\PhpDocStorage;
+use StubTests\Framework\Pipeline\EntityProcessingPipelineFactory;
+use StubTests\Framework\Storage\DefaultParsedDataStorageManager;
+use StubTests\Framework\Storage\JsonParsedDataStorage;
+use StubTests\Framework\Storage\MultiFileJsonStorage;
+use StubTests\Framework\Storage\ParsedDataStorageManager;
+use StubTests\Framework\Storage\PhpDocStorage;
 
 class Runner
 {

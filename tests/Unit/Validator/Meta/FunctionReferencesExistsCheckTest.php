@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Meta;
 
-use StubTests\Framework\Parsers\Model\PHPMethod;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Validator\Meta\FunctionReferencesExistsCheck;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 use StubTests\Unit\Validator\CheckTestCase;

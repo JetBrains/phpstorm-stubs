@@ -3,12 +3,12 @@
 namespace StubTests\Unit\Parsers\Serialization;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\Types\IntersectionType;
-use StubTests\Framework\Parsers\Model\Types\NoType;
-use StubTests\Framework\Parsers\Model\Types\NullableType;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
-use StubTests\Framework\Parsers\Model\Types\UnionType;
-use StubTests\Framework\Parsers\Serializers\SerializerUtilsTrait;
+use StubTests\Framework\Model\Types\IntersectionType;
+use StubTests\Framework\Model\Types\NoType;
+use StubTests\Framework\Model\Types\NullableType;
+use StubTests\Framework\Model\Types\StandaloneType;
+use StubTests\Framework\Model\Types\UnionType;
+use StubTests\Framework\Serialization\SerializerUtilsTrait;
 
 /**
  * Exposes the protected parseType() method for testing.

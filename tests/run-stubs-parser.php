@@ -12,10 +12,10 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use StubTests\Framework\Parsers\Serializers\Stubs\StubsEntitySerializer;
-use StubTests\Framework\Parsers\Processors\EntityProcessingPipelineFactory;
+use StubTests\Framework\Serialization\Stubs\StubsEntitySerializer;
+use StubTests\Framework\Pipeline\EntityProcessingPipelineFactory;
 use StubTests\Framework\DataProvider\AllStubsDataProvider;
-use StubTests\Framework\Parsers\Storage\DefaultParsedDataStorageManager;
+use StubTests\Framework\Storage\DefaultParsedDataStorageManager;
 use StubTests\Framework\Parsers\Stubs\AllStubsParser;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
 use StubTests\Framework\Parsers\Stubs\StubDefineConstantParser;
@@ -23,8 +23,8 @@ use StubTests\Framework\Parsers\Stubs\StubEnumParser;
 use StubTests\Framework\Parsers\Stubs\StubFunctionParser;
 use StubTests\Framework\Parsers\Stubs\StubInterfaceParser;
 use StubTests\Framework\Parsers\Stubs\StubModernConstantParser;
-use StubTests\Framework\Parsers\Storage\MultiFileJsonStorage;
-use StubTests\Framework\Parsers\Storage\PhpDocStorage;
+use StubTests\Framework\Storage\MultiFileJsonStorage;
+use StubTests\Framework\Storage\PhpDocStorage;
 
 echo "========================================\n";
 echo "PHP Stubs Parser Runner\n";

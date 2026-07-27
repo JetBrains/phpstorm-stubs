@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator\Services;
 
-use StubTests\Framework\Parsers\Model\PHPParameter;
+use StubTests\Framework\Model\PHPParameter;
 
 /**
  * Compares default parameter values between reflection and stubs.

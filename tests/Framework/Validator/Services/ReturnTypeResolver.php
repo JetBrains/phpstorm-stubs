@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator\Services;
 
-use StubTests\Framework\Parsers\Model\PHPFunction;
+use StubTests\Framework\Model\PHPFunction;
 
 /**
  * Resolves return type strings from functions/methods with version-aware fallback.

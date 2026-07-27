@@ -2,11 +2,11 @@
 
 namespace StubTests\Unit\Parsers\Storage\Managers;
 
-use StubTests\Framework\Parsers\Serializers\Stubs\StubsEntitySerializer;
+use StubTests\Framework\Serialization\Stubs\StubsEntitySerializer;
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Storage\DefaultParsedDataStorageManager;
-use StubTests\Framework\Parsers\Storage\JsonParsedDataStorage;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Storage\DefaultParsedDataStorageManager;
+use StubTests\Framework\Storage\JsonParsedDataStorage;
 
 class ParsedDataJsonStorageManagerTest extends TestCase
 {

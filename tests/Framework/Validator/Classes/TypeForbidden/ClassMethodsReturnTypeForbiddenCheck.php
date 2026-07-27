@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator\Classes\TypeForbidden;
 
-use StubTests\Framework\Parsers\Model\PHPMethod;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Validator\AbstractTypeForbiddenCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 

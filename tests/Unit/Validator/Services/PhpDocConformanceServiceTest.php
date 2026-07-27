@@ -4,9 +4,9 @@ namespace StubTests\Unit\Validator\Services;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPParameter;
-use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
+use StubTests\Framework\Model\PHPParameter;
+use StubTests\Framework\Model\PHPProperty;
+use StubTests\Framework\Model\Types\StandaloneType;
 use StubTests\Framework\Validator\Services\PhpDocConformanceService;
 
 class PhpDocConformanceServiceTest extends TestCase
