@@ -3,7 +3,7 @@
 namespace StubTests\Unit\Parsers\AST;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
-use StubTests\Framework\Parsers\Model\PHPEnum;
+use StubTests\Framework\Model\PHPEnum;
 use StubTests\Framework\Parsers\Stubs\StubEnumParser;
 use StubTests\Unit\Parsers\AST\fixtures\FixtureStubsDataProvider;
 

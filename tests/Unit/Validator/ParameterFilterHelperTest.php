@@ -3,7 +3,7 @@
 namespace StubTests\Unit\Validator;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPParameter;
+use StubTests\Framework\Model\PHPParameter;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Services\ParameterFilterHelper;
 

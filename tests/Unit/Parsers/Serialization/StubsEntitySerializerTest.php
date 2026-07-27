@@ -2,19 +2,19 @@
 
 namespace StubTests\Unit\Parsers\Serialization;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-use StubTests\Framework\Parsers\Serializers\Stubs\StubsEntitySerializer;
+use StubTests\Framework\Model\Access\AccessModifier;
+use StubTests\Framework\Serialization\Stubs\StubsEntitySerializer;
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPConstant;
-use StubTests\Framework\Parsers\Model\PHPEnum;
-use StubTests\Framework\Parsers\Model\PHPFunction;
-use StubTests\Framework\Parsers\Model\PHPInterface;
-use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Model\PHPParameter;
-use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Parsers\Model\Types\NoType;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPConstant;
+use StubTests\Framework\Model\PHPEnum;
+use StubTests\Framework\Model\PHPFunction;
+use StubTests\Framework\Model\PHPInterface;
+use StubTests\Framework\Model\PHPMethod;
+use StubTests\Framework\Model\PHPParameter;
+use StubTests\Framework\Model\PHPProperty;
+use StubTests\Framework\Model\Types\NoType;
+use StubTests\Framework\Model\Types\StandaloneType;
 
 class StubsEntitySerializerTest extends TestCase
 {

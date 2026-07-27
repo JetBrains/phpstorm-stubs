@@ -3,7 +3,7 @@
 namespace StubTests\Unit\Parsers\AST;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
-use StubTests\Framework\Parsers\Model\PHPConstant;
+use StubTests\Framework\Model\PHPConstant;
 use StubTests\Framework\Parsers\Stubs\StubDefineConstantParser;
 use StubTests\Framework\Parsers\Stubs\StubModernConstantParser;
 use StubTests\Unit\Parsers\AST\fixtures\FixtureStubsDataProvider;

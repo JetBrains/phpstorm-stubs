@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Parsers;
 
-use StubTests\Framework\Parsers\Model\PHPEnum;
+use StubTests\Framework\Model\PHPEnum;
 
 interface EnumQueryInterface
 {

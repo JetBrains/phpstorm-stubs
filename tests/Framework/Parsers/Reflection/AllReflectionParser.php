@@ -3,7 +3,7 @@
 namespace StubTests\Framework\Parsers\Reflection;
 
 use StubTests\Framework\DataProvider\CurrentRuntimeReflectionRawDataProvider;
-use StubTests\Framework\Parsers\Storage\ParsedDataStorageManager;
+use StubTests\Framework\Storage\ParsedDataStorageManager;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClass;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionFunction;
 use StubTests\Framework\Parsers\Registries\EntityReflectionObjectParsersRegistry;

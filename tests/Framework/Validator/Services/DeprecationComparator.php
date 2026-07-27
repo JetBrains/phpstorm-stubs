@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator\Services;
 
-use StubTests\Framework\Parsers\Model\PHPFunction;
+use StubTests\Framework\Model\PHPFunction;
 
 /**
  * Checks if a function/method is deprecated in reflection but not in stubs.

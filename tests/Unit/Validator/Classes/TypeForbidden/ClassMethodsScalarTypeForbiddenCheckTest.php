@@ -3,8 +3,8 @@
 namespace StubTests\Unit\Validator\Classes\TypeForbidden;
 
 use PHPUnit\Framework\Attributes\DataProvider;
-use StubTests\Framework\Parsers\Model\PHPParameter;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
+use StubTests\Framework\Model\PHPParameter;
+use StubTests\Framework\Model\Types\StandaloneType;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\TypeForbidden\ClassMethodsScalarTypeForbiddenCheck;

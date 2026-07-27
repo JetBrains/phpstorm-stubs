@@ -5,7 +5,7 @@ namespace StubTests\Unit\Parsers\AST;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\Types\ParsedType;
-use StubTests\Framework\Parsers\Model\PHPProperty;
+use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
 use StubTests\Framework\Parsers\Stubs\StubFunctionParser;
 use StubTests\Unit\Parsers\AST\fixtures\FixtureStubsDataProvider;
@@ -432,7 +432,7 @@ function fixture_resolvable($n) {}';
 
         self::assertInstanceOf(ParsedType::class, $result);
         // Null type node results in NoType object (not null)
-        self::assertInstanceOf(\StubTests\Framework\Parsers\Model\Types\NoType::class, $result->typeFromSignature);
+        self::assertInstanceOf(\StubTests\Framework\Model\Types\NoType::class, $result->typeFromSignature);
         self::assertNull($result->typeFromPhpDoc);
         self::assertNull($result->languageLevelTypes);
         self::assertNull($result->defaultType);

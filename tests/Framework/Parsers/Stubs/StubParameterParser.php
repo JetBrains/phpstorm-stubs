@@ -7,7 +7,7 @@ use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
-use StubTests\Framework\Parsers\Model\PHPParameter;
+use StubTests\Framework\Model\PHPParameter;
 use StubTests\Framework\Parsers\Stubs\Nodes\ParameterNode;
 
 /**

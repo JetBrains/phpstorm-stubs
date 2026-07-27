@@ -2,8 +2,8 @@
 
 namespace StubTests\Framework\Validator\Services;
 
-use StubTests\Framework\Parsers\Model\BasePHPElement;
-use StubTests\Framework\Parsers\Model\PHPParameter;
+use StubTests\Framework\Model\BasePHPElement;
+use StubTests\Framework\Model\PHPParameter;
 
 /**
  * Provides type-resolution and normalisation helpers for validators

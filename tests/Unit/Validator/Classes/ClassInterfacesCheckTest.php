@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Classes;
 
-use StubTests\Framework\Parsers\Model\PHPInterface;
+use StubTests\Framework\Model\PHPInterface;
 use StubTests\Framework\Validator\Classes\ClassInterfacesCheck;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Unit\Validator\CheckTestCase;

@@ -5,8 +5,8 @@ namespace StubTests\Framework\Validator\Services;
 use phpDocumentor\Reflection\DocBlockFactory;
 use phpDocumentor\Reflection\DocBlock\Tags\Template;
 use phpDocumentor\Reflection\DocBlock\Tags\TemplateCovariant;
-use StubTests\Framework\Parsers\Model\PHPParameter;
-use StubTests\Framework\Parsers\Model\PHPProperty;
+use StubTests\Framework\Model\PHPParameter;
+use StubTests\Framework\Model\PHPProperty;
 
 /**
  * Service for PhpDoc-vs-signature conformance checks.

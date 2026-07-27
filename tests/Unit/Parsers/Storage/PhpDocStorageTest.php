@@ -3,7 +3,7 @@
 namespace StubTests\Unit\Parsers\Storage;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Storage\PhpDocStorage;
+use StubTests\Framework\Storage\PhpDocStorage;
 
 class PhpDocStorageTest extends TestCase
 {

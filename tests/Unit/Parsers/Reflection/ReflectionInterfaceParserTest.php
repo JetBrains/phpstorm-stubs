@@ -3,7 +3,7 @@
 namespace StubTests\Unit\Parsers\Reflection;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPMethod;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Parsers\Reflection\ReflectionInterfaceParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClass;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassConstant;

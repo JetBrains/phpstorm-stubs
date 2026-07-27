@@ -3,19 +3,19 @@
 namespace StubTests\Unit\Validator;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPClassConstant;
-use StubTests\Framework\Parsers\Model\PHPConstant;
-use StubTests\Framework\Parsers\Model\PHPEnum;
-use StubTests\Framework\Parsers\Model\PHPFunction;
-use StubTests\Framework\Parsers\Model\PHPInterface;
-use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Model\PHPParameter;
-use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Parsers\Model\Types\NullableType;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
-use StubTests\Framework\Parsers\Model\Types\UnionType;
+use StubTests\Framework\Model\Access\AccessModifier;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPClassConstant;
+use StubTests\Framework\Model\PHPConstant;
+use StubTests\Framework\Model\PHPEnum;
+use StubTests\Framework\Model\PHPFunction;
+use StubTests\Framework\Model\PHPInterface;
+use StubTests\Framework\Model\PHPMethod;
+use StubTests\Framework\Model\PHPParameter;
+use StubTests\Framework\Model\PHPProperty;
+use StubTests\Framework\Model\Types\NullableType;
+use StubTests\Framework\Model\Types\StandaloneType;
+use StubTests\Framework\Model\Types\UnionType;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 

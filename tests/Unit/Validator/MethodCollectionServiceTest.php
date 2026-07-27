@@ -2,8 +2,8 @@
 
 namespace StubTests\Unit\Validator;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPMethod;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Services\MethodCollectionService;
 
@@ -353,7 +353,7 @@ class MethodCollectionServiceTest extends CheckTestCase
 
     public function testFilterAndDeduplicateParamsDelegatesToHelper(): void
     {
-        $param = new \StubTests\Framework\Parsers\Model\PHPParameter('value');
+        $param = new \StubTests\Framework\Model\PHPParameter('value');
 
         $result = $this->service->filterAndDeduplicateParams([$param], PhpVersions::LATEST->value);
 

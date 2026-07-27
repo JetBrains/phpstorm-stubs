@@ -4,9 +4,9 @@ namespace StubTests\Unit\Parsers\AST;
 
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\DataProvider\StubsDataProvider;
-use StubTests\Framework\Parsers\Model\PHPClassConstant;
-use StubTests\Framework\Parsers\Model\PHPInterface;
-use StubTests\Framework\Parsers\Model\PHPMethod;
+use StubTests\Framework\Model\PHPClassConstant;
+use StubTests\Framework\Model\PHPInterface;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Parsers\Stubs\StubInterfaceParser;
 use StubTests\Unit\Parsers\AST\fixtures\FixtureStubsDataProvider;
 

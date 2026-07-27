@@ -2,9 +2,9 @@
 
 namespace StubTests\Unit\Parsers\Reflection;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
+use StubTests\Framework\Model\Access\AccessModifier;
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPClassConstant;
+use StubTests\Framework\Model\PHPClassConstant;
 use StubTests\Framework\Parsers\Reflection\ReflectionClassConstantParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassConstant;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassReference;

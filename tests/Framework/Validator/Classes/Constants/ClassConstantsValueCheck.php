@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator\Classes\Constants;
 
-use StubTests\Framework\Parsers\Model\PHPClassConstant;
+use StubTests\Framework\Model\PHPClassConstant;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\AbstractConstantFlagCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;

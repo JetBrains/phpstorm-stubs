@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator\Services;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
+use StubTests\Framework\Model\PHPClass;
 
 /**
  * Extracts the list of ancestor class FQNs from a PHPClass by traversing the parentClass chain.

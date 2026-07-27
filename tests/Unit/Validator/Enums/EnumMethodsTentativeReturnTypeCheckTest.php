@@ -2,8 +2,8 @@
 
 namespace StubTests\Unit\Validator\Enums;
 
-use StubTests\Framework\Parsers\Model\PHPEnum;
-use StubTests\Framework\Parsers\Model\PHPMethod;
+use StubTests\Framework\Model\PHPEnum;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsTentativeReturnTypeCheck;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;

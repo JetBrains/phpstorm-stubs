@@ -2,9 +2,9 @@
 
 namespace StubTests\Unit\Validator\Classes\Properties;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Parsers\Model\Types\NoType;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPProperty;
+use StubTests\Framework\Model\Types\NoType;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Properties\ClassPropertiesTypeCheck;
 use StubTests\Unit\Validator\CheckTestCase;

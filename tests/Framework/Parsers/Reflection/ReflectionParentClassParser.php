@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Parsers\Reflection;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
+use StubTests\Framework\Model\PHPClass;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassReference;
 use StubTests\Framework\Parsers\Parser;
 

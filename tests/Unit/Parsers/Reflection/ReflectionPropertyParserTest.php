@@ -3,10 +3,10 @@
 namespace StubTests\Unit\Parsers\Reflection;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\Types\NoType;
-use StubTests\Framework\Parsers\Model\Types\NullableType;
-use StubTests\Framework\Parsers\Model\Types\UnionType;
-use StubTests\Framework\Parsers\Model\PHPProperty;
+use StubTests\Framework\Model\Types\NoType;
+use StubTests\Framework\Model\Types\NullableType;
+use StubTests\Framework\Model\Types\UnionType;
+use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Parsers\Reflection\ReflectionPropertyParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionProperty;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionType;
@@ -175,7 +175,7 @@ class ReflectionPropertyParserTest extends TestCase
         $property = new ReflectionPropertyParser()->parse($reflectionPropertyMock);
 
         // Intersection types return IntersectionType object
-        self::assertInstanceOf(\StubTests\Framework\Parsers\Model\Types\IntersectionType::class, $property->getType());
+        self::assertInstanceOf(\StubTests\Framework\Model\Types\IntersectionType::class, $property->getType());
         self::assertEquals('Foo&Bar', $property->getType()->toString());
         self::assertTrue($property->getType()->containsTypes('Foo', 'Bar'));
     }

@@ -2,8 +2,8 @@
 
 namespace StubTests\Unit\Validator\Classes\TypeForbidden;
 
-use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
+use StubTests\Framework\Model\PHPMethod;
+use StubTests\Framework\Model\Types\StandaloneType;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\TypeForbidden\ClassMethodsReturnTypeForbiddenCheck;

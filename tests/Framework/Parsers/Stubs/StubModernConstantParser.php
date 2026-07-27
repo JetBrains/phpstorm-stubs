@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Parsers\Stubs;
 
-use StubTests\Framework\Parsers\Model\PHPConstant;
+use StubTests\Framework\Model\PHPConstant;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicNodeExtractor;
 use StubTests\Framework\Parsers\Stubs\Nodes\ConstantDefinitionNode;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;

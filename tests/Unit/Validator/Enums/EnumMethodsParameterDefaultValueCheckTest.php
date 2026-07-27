@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Enums;
 
-use StubTests\Framework\Parsers\Model\PHPEnum;
+use StubTests\Framework\Model\PHPEnum;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsParameterDefaultValueCheck;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;

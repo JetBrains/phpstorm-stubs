@@ -4,7 +4,7 @@ namespace StubTests\Unit\Parsers\AST;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase as BaseTestCase;
-use StubTests\Framework\Parsers\Model\PHPProperty;
+use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
 use StubTests\Unit\Parsers\AST\fixtures\FixtureStubsDataProvider;
 

@@ -2,13 +2,13 @@
 
 namespace StubTests\Unit\Parsers\Serialization;
 
-use StubTests\Framework\Parsers\Serializers\Stubs\StubsEntitySerializer;
+use StubTests\Framework\Serialization\Stubs\StubsEntitySerializer;
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPFunction;
-use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Parsers\Storage\PhpDocStorage;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPFunction;
+use StubTests\Framework\Model\PHPMethod;
+use StubTests\Framework\Model\PHPProperty;
+use StubTests\Framework\Storage\PhpDocStorage;
 
 class PhpDocSeparationTest extends TestCase
 {

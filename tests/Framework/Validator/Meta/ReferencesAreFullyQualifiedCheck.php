@@ -11,7 +11,7 @@ use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name;
 use PhpParser\Node\Stmt;
-use StubTests\Framework\Parsers\Meta\MetaFileWalkerTrait;
+use StubTests\Framework\MetaFile\MetaFileWalkerTrait;
 
 final class ReferencesAreFullyQualifiedCheck
 {

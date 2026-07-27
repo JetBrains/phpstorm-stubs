@@ -2,9 +2,9 @@
 
 namespace StubTests\Framework\Validator;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
-use StubTests\Framework\Parsers\Model\PHPProperty;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPClassLikeObject;
+use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 

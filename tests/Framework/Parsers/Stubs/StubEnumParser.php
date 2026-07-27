@@ -8,8 +8,8 @@ use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
 use StubTests\Framework\Parsers\Types\TypeNameResolver;
-use StubTests\Framework\Parsers\Model\PHPEnum;
-use StubTests\Framework\Parsers\Model\PHPInterface;
+use StubTests\Framework\Model\PHPEnum;
+use StubTests\Framework\Model\PHPInterface;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicNodeExtractor;
 use StubTests\Framework\Parsers\Stubs\Nodes\EnumNode;
 
