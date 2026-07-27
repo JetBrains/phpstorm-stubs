@@ -685,7 +685,7 @@ class ClassMethodsParameterTypesCheckTest extends CheckTestCase
             [$this->createMockMethod('doWork', $stubParams)]
         );
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -743,7 +743,7 @@ class ClassMethodsParameterTypesCheckTest extends CheckTestCase
             ]
         );
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::METHOD,

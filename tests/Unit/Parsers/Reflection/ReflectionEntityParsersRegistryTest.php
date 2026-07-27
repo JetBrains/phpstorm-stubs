@@ -18,7 +18,7 @@ class ReflectionEntityParsersRegistryTest extends TestCase
 {
     public function testItFindsParserForClassObject()
     {
-        $mock = $this->createMock(AdaptedReflectionClass::class);
+        $mock = $this->createStub(AdaptedReflectionClass::class);
         $mock->method('isInternal')->willReturn(true);
         $mock->method('isInterface')->willReturn(false);
         $mock->method('isEnum')->willReturn(false);
@@ -30,7 +30,7 @@ class ReflectionEntityParsersRegistryTest extends TestCase
 
     public function testItFindsParserForInterfaceObject()
     {
-        $mock = $this->createMock(AdaptedReflectionClass::class);
+        $mock = $this->createStub(AdaptedReflectionClass::class);
         $mock->method('isInternal')->willReturn(true);
         $mock->method('isInterface')->willReturn(true);
 
@@ -41,7 +41,7 @@ class ReflectionEntityParsersRegistryTest extends TestCase
 
     public function testItFindsParserForEnumObject()
     {
-        $mock = $this->createMock(AdaptedReflectionClass::class);
+        $mock = $this->createStub(AdaptedReflectionClass::class);
         $mock->method('isInternal')->willReturn(true);
         $mock->method('isEnum')->willReturn(true);
 
@@ -52,7 +52,7 @@ class ReflectionEntityParsersRegistryTest extends TestCase
 
     public function testItFindsParserForFunctionObject()
     {
-        $mock = $this->createMock(AdaptedReflectionFunction::class);
+        $mock = $this->createStub(AdaptedReflectionFunction::class);
 
         $parser = (new EntityReflectionObjectParsersRegistry())->findParserForObject($mock);
 
@@ -98,7 +98,7 @@ class ReflectionEntityParsersRegistryTest extends TestCase
     public function testItPrioritizesEnumParserOverClassParser()
     {
         // Ensure enum parser is selected when object is both internal and enum
-        $mock = $this->createMock(AdaptedReflectionClass::class);
+        $mock = $this->createStub(AdaptedReflectionClass::class);
         $mock->method('isInternal')->willReturn(true);
         $mock->method('isEnum')->willReturn(true);
         $mock->method('isInterface')->willReturn(false);
@@ -112,7 +112,7 @@ class ReflectionEntityParsersRegistryTest extends TestCase
     public function testItPrioritizesInterfaceParserOverClassParser()
     {
         // Ensure interface parser is selected when object is interface
-        $mock = $this->createMock(AdaptedReflectionClass::class);
+        $mock = $this->createStub(AdaptedReflectionClass::class);
         $mock->method('isInternal')->willReturn(true);
         $mock->method('isInterface')->willReturn(true);
         $mock->method('isEnum')->willReturn(false);
@@ -126,7 +126,7 @@ class ReflectionEntityParsersRegistryTest extends TestCase
     public function testItReturnsNullForNonInternalClass()
     {
         // Non-internal classes should not be parsed
-        $mock = $this->createMock(AdaptedReflectionClass::class);
+        $mock = $this->createStub(AdaptedReflectionClass::class);
         $mock->method('isInternal')->willReturn(false);
         $mock->method('isInterface')->willReturn(false);
         $mock->method('isEnum')->willReturn(false);

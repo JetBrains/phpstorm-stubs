@@ -27,7 +27,7 @@ class EntityLookupServiceTest extends CheckTestCase
         array $functions = [],
         array $constants = []
     ): StubDataQueryInterface {
-        $storage = $this->createMock(StubDataQueryInterface::class);
+        $storage = $this->createStub(StubDataQueryInterface::class);
         $storage->method('getClasses')->willReturn($classes);
         $storage->method('getEnums')->willReturn($enums);
         $storage->method('getInterfaces')->willReturn($interfaces);

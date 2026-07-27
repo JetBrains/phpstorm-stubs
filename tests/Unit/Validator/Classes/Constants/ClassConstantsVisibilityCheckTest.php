@@ -268,7 +268,7 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('FLAG', visibility: AccessModifier::PUBLIC)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('FLAG', visibility: AccessModifier::PROTECTED)]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -307,7 +307,7 @@ class ClassConstantsVisibilityCheckTest extends CheckTestCase
             $this->makeClassConstant('LEGACY', visibility: AccessModifier::PROTECTED),  // mismatch, but has known problem
         ]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_CONSTANT,

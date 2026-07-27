@@ -802,7 +802,7 @@ class ClassPropertiesTypeCheckTest extends CheckTestCase
             [$this->makeProperty('data', $this->createType('string'))]  // wrong type
         );
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -864,7 +864,7 @@ class ClassPropertiesTypeCheckTest extends CheckTestCase
             ]
         );
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::PROPERTY,
@@ -922,7 +922,7 @@ class ClassPropertiesTypeCheckTest extends CheckTestCase
             ]
         );
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::PROPERTY,

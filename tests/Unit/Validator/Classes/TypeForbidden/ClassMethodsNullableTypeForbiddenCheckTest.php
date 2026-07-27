@@ -340,7 +340,7 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\SpecialClass';
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -474,7 +474,7 @@ class ClassMethodsNullableTypeForbiddenCheckTest extends CheckTestCase
         $className = '\MyClass';
         $methodEntityId = $className . '::getStr';
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::METHOD,

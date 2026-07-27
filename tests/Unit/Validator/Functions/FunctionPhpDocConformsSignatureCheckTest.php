@@ -248,7 +248,7 @@ class FunctionPhpDocConformsSignatureCheckTest extends CheckTestCase
         $stubs = $this->createMockStorageManager();
         $stubs->method('getFunctions')->willReturn([$func]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::FUNCTION,

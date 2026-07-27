@@ -10,7 +10,7 @@ class RegisteredArgumentsSetExistsCheckTest extends TestCase
     public function testRegisteredSetFound(): void
     {
         $check = new RegisteredArgumentsSetExistsCheck(['mySet', 'otherSet']);
-        $stubs = $this->createMock(\StubTests\Framework\Parsers\StubDataQueryInterface::class);
+        $stubs = $this->createStub(\StubTests\Framework\Parsers\StubDataQueryInterface::class);
 
         $result = $check->run($stubs, 'mySet', '8.0');
         $this->assertFalse($result->hasFailures());
@@ -20,7 +20,7 @@ class RegisteredArgumentsSetExistsCheckTest extends TestCase
     public function testUnregisteredSetFails(): void
     {
         $check = new RegisteredArgumentsSetExistsCheck(['mySet']);
-        $stubs = $this->createMock(\StubTests\Framework\Parsers\StubDataQueryInterface::class);
+        $stubs = $this->createStub(\StubTests\Framework\Parsers\StubDataQueryInterface::class);
 
         $result = $check->run($stubs, 'unknownSet', '8.0');
         $this->assertTrue($result->hasFailures());
@@ -30,7 +30,7 @@ class RegisteredArgumentsSetExistsCheckTest extends TestCase
     public function testEmptyDefinedSetsAlwaysFails(): void
     {
         $check = new RegisteredArgumentsSetExistsCheck([]);
-        $stubs = $this->createMock(\StubTests\Framework\Parsers\StubDataQueryInterface::class);
+        $stubs = $this->createStub(\StubTests\Framework\Parsers\StubDataQueryInterface::class);
 
         $result = $check->run($stubs, 'anySet', '8.0');
         $this->assertTrue($result->hasFailures());

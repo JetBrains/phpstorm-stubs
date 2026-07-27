@@ -99,7 +99,7 @@ class ConstantExistsCheckTest extends CheckTestCase
     {
         $constantId = '\\TRUE';
 
-        $knownProblemsProvider = $this->createMock(KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::GLOBAL_CONSTANT,
@@ -128,7 +128,7 @@ class ConstantExistsCheckTest extends CheckTestCase
     {
         $constantId = '\\SOME_VERSIONED_CONSTANT';
 
-        $knownProblemsProvider = $this->createMock(KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::GLOBAL_CONSTANT,

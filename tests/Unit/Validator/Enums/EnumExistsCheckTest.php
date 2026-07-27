@@ -34,7 +34,7 @@ class EnumExistsCheckTest extends CheckTestCase
     {
         $enumId = '\RoundingMode';
 
-        $stubs = $this->createMockStorageManager();
+        $stubs = $this->createStorageManagerMock();
         $stubs->method('hasEnum')->with($enumId)->willReturn(true);
 
         $result = $this->check->run($stubs, $enumId, '8.1');
@@ -47,7 +47,7 @@ class EnumExistsCheckTest extends CheckTestCase
     {
         $enumId = '\Dom\AdjacentPosition';
 
-        $stubs = $this->createMockStorageManager();
+        $stubs = $this->createStorageManagerMock();
         $stubs->method('hasEnum')->with($enumId)->willReturn(true);
 
         $result = $this->check->run($stubs, $enumId, '8.4');

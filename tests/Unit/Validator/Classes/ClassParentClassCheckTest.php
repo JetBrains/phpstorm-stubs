@@ -238,7 +238,7 @@ class ClassParentClassCheckTest extends CheckTestCase
         $stubParent = $this->createMockClassWithProperties('Error'); // different parent
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, [], $stubParent);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,

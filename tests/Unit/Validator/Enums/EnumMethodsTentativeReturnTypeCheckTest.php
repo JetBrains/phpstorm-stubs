@@ -39,7 +39,7 @@ class EnumMethodsTentativeReturnTypeCheckTest extends CheckTestCase
 
     private function makeReflection(array $enums): \StubTests\Framework\Validator\Contracts\ReflectionProviderInterface
     {
-        $provider = $this->createMock(\StubTests\Framework\Validator\Contracts\ReflectionProviderInterface::class);
+        $provider = $this->createStub(\StubTests\Framework\Validator\Contracts\ReflectionProviderInterface::class);
         $manager = $this->createMockStorageManager();
         $manager->method('getEnums')->willReturn($enums);
         $provider->method('getReflection')->willReturn($manager);

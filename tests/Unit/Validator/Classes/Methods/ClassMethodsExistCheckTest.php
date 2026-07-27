@@ -289,7 +289,7 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         $reflectionClass = $this->createMockClassWithProperties($className, null, null, null, $reflectionMethods);
         $stubClass = $this->createMockClassWithProperties($className); // no methods, but class-level skip
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -334,7 +334,7 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         ];
         $stubClass = $this->createMockClassWithProperties($className, null, null, null, $stubMethods);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::METHOD,
@@ -739,7 +739,7 @@ class ClassMethodsExistCheckTest extends CheckTestCase
         $reflectionClass = $this->createMockClassWithProperties($className, null, null, null, $reflectionMethods);
         $stubClass = $this->createMockClassWithProperties($className);  // no methods
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::METHOD,

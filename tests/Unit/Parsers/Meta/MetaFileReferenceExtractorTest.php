@@ -369,7 +369,7 @@ PHP;
         $code = <<<'PHP'
 <?php
 namespace PHPSTORM_META {
-    override(\PHPUnit\Framework\TestCase::createMock(0), map(["" => "$0"]));
+    override(\PHPUnit\Framework\TestCase::createStub(0), map(["" => "$0"]));
     override(\Mockery::mock(0), map(["" => "@"]));
     expectedArguments(\GuzzleHttp\Client::request(), 0, 'GET');
     expectedArguments(\Psr\Log\LoggerInterface::log(0), 0, 'info');
