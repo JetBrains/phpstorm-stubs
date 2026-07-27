@@ -17,6 +17,13 @@ class CurrentRuntimeReflectionDataProviderTest extends TestCase
         self::assertNotEmpty(new CurrentRuntimeReflectionRawDataProvider()->getReflectionFunctions());
     }
 
+    /**
+     * getReflectionFunctions() returns get_defined_functions()['internal'], an
+     * integer-keyed list of names. This previously asserted
+     * `assertFalse(array_key_exists('my_custom_function', ...))`, which is unconditionally
+     * true for a list and so would have passed even if the provider returned every
+     * user-defined function. The value must be searched, not the key.
+     */
     public function testItDoesNotReturnUsersFunctions()
     {
         $fake = <<<PHP
@@ -24,8 +31,13 @@ function my_custom_function(string \$package, string \$version, string \$message
 PHP;
         eval($fake);
         self::assertTrue(function_exists('my_custom_function'));
+
         $reflectionFunctions = new CurrentRuntimeReflectionRawDataProvider()->getReflectionFunctions();
-        self::assertFalse(array_key_exists('my_custom_function', $reflectionFunctions));
+
+        self::assertNotContains('my_custom_function', $reflectionFunctions);
+        // Positive control: proves the exclusion is selective rather than the list being
+        // empty or otherwise unusable, which would make the assertion above vacuous again.
+        self::assertContains('strlen', $reflectionFunctions);
     }
 
     public function testItReturnsOnlyInternalFunctions()
