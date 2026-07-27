@@ -647,4 +647,67 @@ class StubsEntitySerializerTest extends TestCase
 
         $this->serializer->serialize($unknown);
     }
+
+    // ── Parent interface FQN round-trip ──────────────────────────────────────
+
+    private function interfaceWithParent(string $id, string $parentShortName, string $parentId): PHPInterface
+    {
+        $parent = new PHPInterface();
+        $parent->setName($parentShortName);
+        $parent->setId($parentId);
+
+        $interface = new PHPInterface();
+        $interface->setName(substr($id, strrpos($id, '\\') + 1));
+        $interface->setId($id);
+        $interface->addParentInterface($parent);
+
+        return $interface;
+    }
+
+    /**
+     * Parent interfaces were serialized as bare short names, so a namespaced parent became
+     * indistinguishable from a global one of the same name after a cache round-trip.
+     */
+    public function testParentInterfaceIsSerializedAsAFullyQualifiedName(): void
+    {
+        $interface = $this->interfaceWithParent(
+            '\\MongoDB\\BSON\\Persistable',
+            'Serializable',
+            '\\MongoDB\\BSON\\Serializable'
+        );
+
+        $result = $this->serializer->serialize($interface);
+
+        self::assertSame(['\\MongoDB\\BSON\\Serializable'], $result['parentInterfaces']);
+    }
+
+    public function testParentInterfaceIdSurvivesARoundtrip(): void
+    {
+        $interface = $this->interfaceWithParent(
+            '\\MongoDB\\BSON\\Persistable',
+            'Serializable',
+            '\\MongoDB\\BSON\\Serializable'
+        );
+
+        $restored = $this->serializer->deserialize($this->serializer->serialize($interface));
+        $parent = $restored->getParentInterfaces()[0];
+
+        self::assertSame('\\MongoDB\\BSON\\Serializable', $parent->getId(), 'The qualified id must survive.');
+        self::assertSame('Serializable', $parent->getName(), 'The short name must remain short for the resolver fallback.');
+    }
+
+    public function testParentInterfaceWithoutAnIdFallsBackToItsName(): void
+    {
+        $parent = new PHPInterface();
+        $parent->setName('Countable');
+
+        $interface = new PHPInterface();
+        $interface->setName('Legacy');
+        $interface->setId('\\Legacy');
+        $interface->addParentInterface($parent);
+
+        $result = $this->serializer->serialize($interface);
+
+        self::assertSame(['Countable'], $result['parentInterfaces']);
+    }
 }

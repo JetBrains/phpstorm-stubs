@@ -199,4 +199,146 @@ class StubsInterfaceParserTest extends TestCase
 
         self::assertEmpty($classWithoutConstants->getConstants());
     }
+
+    // ── Parent interface id resolution ───────────────────────────────────────
+
+    private function parseSource(?string $namespace, string $declaration): PHPInterface
+    {
+        $header = $namespace === null ? '' : "namespace {$namespace};\n";
+        return $this->parser->parse("<?php\n{$header}{$declaration}");
+    }
+
+    /**
+     * @return array<string, string|null> parent short name => resolved id
+     */
+    private function parentIds(PHPInterface $interface): array
+    {
+        $ids = [];
+        foreach ($interface->getParentInterfaces() as $parent) {
+            $ids[$parent->getName()] = $parent->getId();
+        }
+        return $ids;
+    }
+
+    /**
+     * An unqualified parent resolves within the declaring namespace, per PHP's rule for
+     * class-like names. Storing only the short name let ClassHierarchyResolver match
+     * `MongoDB\BSON\Persistable extends Serializable` against the *global* \Serializable.
+     */
+    public function testUnqualifiedParentResolvesWithinTheDeclaringNamespace()
+    {
+        $interface = $this->parseSource('MongoDB\\BSON', 'interface Persistable extends Unserializable, Serializable {}');
+
+        self::assertSame(
+            [
+                'Unserializable' => '\\MongoDB\\BSON\\Unserializable',
+                'Serializable' => '\\MongoDB\\BSON\\Serializable',
+            ],
+            $this->parentIds($interface)
+        );
+    }
+
+    public function testParentInRootNamespaceKeepsASingleLeadingSeparator()
+    {
+        $interface = $this->parseSource(null, 'interface Foo extends Countable {}');
+
+        self::assertSame(['Countable' => '\\Countable'], $this->parentIds($interface));
+    }
+
+    /**
+     * The stored name stays short even when the source writes a qualified parent, so the
+     * resolver's short-name fallback still works for stubs whose qualified id does not exist.
+     */
+    public function testQualifiedParentKeepsShortNameAndQualifiedId()
+    {
+        $interface = $this->parseSource('Some\\Ns', 'interface Foo extends Other\\Bar {}');
+
+        self::assertSame(['Bar' => '\\Other\\Bar'], $this->parentIds($interface));
+    }
+
+    public function testMultipleParentsAreEachResolved()
+    {
+        $interface = $this->parseSource('Ds', 'interface Collection extends Countable, IteratorAggregate {}');
+
+        self::assertSame(
+            ['Countable' => '\\Ds\\Countable', 'IteratorAggregate' => '\\Ds\\IteratorAggregate'],
+            $this->parentIds($interface)
+        );
+    }
+
+    // ── Imported parents ─────────────────────────────────────────────────────
+
+    /**
+     * Parses through extractAndParseAll(), the path AllStubsParser uses, because it supplies
+     * the `use` statements. parse() deliberately does not — see the note on those tests below.
+     */
+    private function parseSourceWithImports(string $source): PHPInterface
+    {
+        $interfaces = $this->parser->extractAndParseAll($source);
+        self::assertNotEmpty($interfaces, 'Expected the source to contain an interface.');
+        return $interfaces[0];
+    }
+
+    /**
+     * A `use` statement must win over the declaring namespace, otherwise an imported parent
+     * is silently rewritten to a same-namespace name that does not exist.
+     */
+    public function testImportedParentResolvesToTheImportedNamespace()
+    {
+        $interface = $this->parseSourceWithImports(<<<'SRC'
+<?php
+namespace App;
+use SomeNamespace\Unserializable;
+interface Persistable extends Unserializable {}
+SRC);
+
+        self::assertSame(['Unserializable' => '\\SomeNamespace\\Unserializable'], $this->parentIds($interface));
+    }
+
+    public function testAliasedImportResolvesToTheTargetAndKeepsTheTargetShortName()
+    {
+        $interface = $this->parseSourceWithImports(<<<'SRC'
+<?php
+namespace App;
+use SomeNamespace\Unserializable as U;
+interface Persistable extends U {}
+SRC);
+
+        self::assertSame(['\\SomeNamespace\\Unserializable'], array_values($this->parentIds($interface)));
+    }
+
+    /**
+     * Importing a global interface is how a stub says "the root-namespace one" — the case
+     * `namespace Ds; interface Collection extends Countable` cannot express.
+     */
+    public function testImportOfAGlobalInterfaceResolvesToTheRootNamespace()
+    {
+        $interface = $this->parseSourceWithImports(<<<'SRC'
+<?php
+namespace Ds;
+use Countable;
+interface Collection extends Countable {}
+SRC);
+
+        self::assertSame(['Countable' => '\\Countable'], $this->parentIds($interface));
+    }
+
+    /**
+     * Guards the trap that makes the tests above necessary: parse() is a convenience wrapper
+     * that calls parseNode() with no imports, so it resolves an imported parent against the
+     * declaring namespace instead. Production always goes through extractAndParseAll().
+     * Asserted so the discrepancy is visible rather than quietly misleading a test author.
+     */
+    public function testParseWithoutImportsResolvesAgainstTheNamespaceInstead()
+    {
+        $source = <<<'SRC'
+<?php
+namespace App;
+use SomeNamespace\Unserializable;
+interface Persistable extends Unserializable {}
+SRC;
+
+        self::assertSame(['Unserializable' => '\\App\\Unserializable'], $this->parentIds($this->parser->parse($source)));
+        self::assertSame(['Unserializable' => '\\SomeNamespace\\Unserializable'], $this->parentIds($this->parseSourceWithImports($source)));
+    }
 }

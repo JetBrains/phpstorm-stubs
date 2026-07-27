@@ -7,6 +7,7 @@ use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
+use StubTests\Framework\Parsers\Types\TypeNameResolver;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
 use StubTests\Framework\Parsers\Model\PHPInterface;
@@ -26,6 +27,7 @@ class StubInterfaceParser implements MultiEntityStubParserInterface
     private AvailableVersionParserInterface $versionParser;
     private StubMethodParser $methodParser;
     private StubClassConstantParser $constantParser;
+    private TypeNameResolver $nameResolver;
 
     public function __construct(
         ?InterfaceNodeExtractorInterface $nodeExtractor = null,
@@ -39,11 +41,16 @@ class StubInterfaceParser implements MultiEntityStubParserInterface
         $this->versionParser = $versionParser ?? new DefaultAvailableVersionParser();
         $this->methodParser = new StubMethodParser($phpDocParser, $typeParser, $versionParser);
         $this->constantParser = new StubClassConstantParser($phpDocParser, $versionParser);
+        $this->nameResolver = new TypeNameResolver();
     }
 
     /**
      * Parses stub code string into PHPInterface.
-     * This is a convenience method that delegates to parseNode().
+     *
+     * Convenience wrapper that delegates to parseNode() **without imports**, so a parent
+     * declared via a `use` statement resolves against the declaring namespace rather than
+     * the imported one. Production parsing goes through extractAndParseAll(), which supplies
+     * them; prefer that whenever import handling matters.
      *
      * @param string $stubCode PHP stub code
      * @return PHPInterface
@@ -90,14 +97,18 @@ class StubInterfaceParser implements MultiEntityStubParserInterface
         $phpInterface->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
         $phpInterface->initStubsMetadata()->setRemovedVersion($versions['removedVersion']);
 
-        // Parent interfaces (extends)
+        // Parent interfaces (extends). The id is resolved through the shared TypeNameResolver
+        // so imports and already-qualified names are honoured, matching how StubClassParser
+        // resolves a parent class and implemented interfaces. Prefixing the owning namespace
+        // unconditionally (the previous behaviour) produced ids like `\Ds\Foo\Bar` for
+        // `extends \Foo\Bar`.
         foreach ($node->getParentInterfaceNames() as $parentInterfaceName) {
             $parentInterface = new PHPInterface();
-            $parentInterface->setName($parentInterfaceName);
+            $parentInterface->setName($this->shortName($parentInterfaceName));
             $parentInterface->setNamespace($node->getNamespace());
-            $parentInterface->setId($node->getNamespace() === '\\'
-                ? '\\' . $parentInterfaceName
-                : $node->getNamespace() . '\\' . $parentInterfaceName);
+            $parentInterface->setId(
+                $this->nameResolver->resolve($parentInterfaceName, $imports, $node->getNamespace())
+            );
             $phpInterface->addParentInterface($parentInterface);
         }
 
@@ -114,6 +125,15 @@ class StubInterfaceParser implements MultiEntityStubParserInterface
         }
 
         return $phpInterface;
+    }
+
+    /**
+     * Short name of a possibly qualified name (`\Foo\Bar` => `Bar`).
+     */
+    private function shortName(string $name): string
+    {
+        $pos = strrpos($name, '\\');
+        return $pos === false ? $name : substr($name, $pos + 1);
     }
 
     /**

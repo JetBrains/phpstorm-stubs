@@ -290,7 +290,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "UnitEnum"
+            "\\UnitEnum"
         ]
     },
     {
@@ -2881,7 +2881,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "MutationResult"
+            "\\Couchbase\\MutationResult"
         ]
     },
     {
@@ -3092,7 +3092,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Result"
+            "\\Couchbase\\Result"
         ]
     },
     {
@@ -3143,7 +3143,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Result"
+            "\\Couchbase\\Result"
         ]
     },
     {
@@ -3194,7 +3194,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Result"
+            "\\Couchbase\\Result"
         ]
     },
     {
@@ -3330,7 +3330,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Result"
+            "\\Couchbase\\Result"
         ]
     },
     {
@@ -3460,7 +3460,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "MutationResult"
+            "\\Couchbase\\MutationResult"
         ]
     },
     {
@@ -3508,7 +3508,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Result"
+            "\\Couchbase\\Result"
         ]
     },
     {
@@ -6146,9 +6146,9 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Countable",
-            "IteratorAggregate",
-            "JsonSerializable"
+            "\\Countable",
+            "\\IteratorAggregate",
+            "\\JsonSerializable"
         ]
     },
     {
@@ -7143,8 +7143,8 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Collection",
-            "ArrayAccess"
+            "\\Ds\\Collection",
+            "\\ArrayAccess"
         ]
     },
     {
@@ -8125,7 +8125,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "ExecutionSegmentContextInterface"
+            "\\Elastic\\Apm\\ExecutionSegmentContextInterface"
         ]
     },
     {
@@ -8311,7 +8311,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "ExecutionSegmentInterface"
+            "\\Elastic\\Apm\\ExecutionSegmentInterface"
         ]
     },
     {
@@ -8496,7 +8496,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "ExecutionSegmentContextInterface"
+            "\\Elastic\\Apm\\ExecutionSegmentContextInterface"
         ]
     },
     {
@@ -9180,7 +9180,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "ExecutionSegmentInterface"
+            "\\Elastic\\Apm\\ExecutionSegmentInterface"
         ]
     },
     {
@@ -9265,7 +9265,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "BackedEnum"
+            "\\BackedEnum"
         ]
     },
     {
@@ -9381,7 +9381,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Traversable"
+            "\\Traversable"
         ]
     },
     {
@@ -9415,7 +9415,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Traversable"
+            "\\Traversable"
         ]
     },
     {
@@ -9633,7 +9633,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Iterator"
+            "\\Iterator"
         ]
     },
     {
@@ -9908,8 +9908,8 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Unserializable",
-            "Serializable"
+            "\\MongoDB\\BSON\\Unserializable",
+            "\\MongoDB\\BSON\\Serializable"
         ]
     },
     {
@@ -10009,7 +10009,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Type"
+            "\\MongoDB\\BSON\\Type"
         ]
     },
     {
@@ -10206,7 +10206,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Type"
+            "\\MongoDB\\BSON\\Type"
         ]
     },
     {
@@ -10359,7 +10359,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Iterator"
+            "\\Iterator"
         ]
     },
     {
@@ -10375,7 +10375,7 @@
         "methods": [],
         "constants": [],
         "parentInterfaces": [
-            "Throwable"
+            "\\Throwable"
         ]
     },
     {
@@ -10494,7 +10494,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Subscriber"
+            "\\MongoDB\\Driver\\Monitoring\\Subscriber"
         ]
     },
     {
@@ -10626,7 +10626,7 @@
             }
         ],
         "parentInterfaces": [
-            "Subscriber"
+            "\\MongoDB\\Driver\\Monitoring\\Subscriber"
         ]
     },
     {
@@ -10949,7 +10949,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Subscriber"
+            "\\MongoDB\\Driver\\Monitoring\\Subscriber"
         ]
     },
     {
@@ -10997,7 +10997,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Iterator"
+            "\\Iterator"
         ]
     },
     {
@@ -11013,7 +11013,7 @@
         "methods": [],
         "constants": [],
         "parentInterfaces": [
-            "Engine"
+            "\\Random\\Engine"
         ]
     },
     {
@@ -11096,7 +11096,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Iterator"
+            "\\Iterator"
         ]
     },
     {
@@ -11149,7 +11149,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Stringable"
+            "\\Stringable"
         ]
     },
     {
@@ -11202,7 +11202,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Iterator"
+            "\\Iterator"
         ]
     },
     {
@@ -11885,7 +11885,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "BackedEnum"
+            "\\BackedEnum"
         ]
     },
     {
@@ -12074,7 +12074,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "Stringable"
+            "\\Stringable"
         ]
     },
     {
@@ -13399,7 +13399,7 @@
         ],
         "constants": [],
         "parentInterfaces": [
-            "mysql_xdevapi\\DatabaseObject"
+            "\\mysql_xdevapi\\DatabaseObject"
         ]
     },
     {
