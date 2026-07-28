@@ -84,13 +84,13 @@ class AllReflectionParser
 
     /**
      * Parse all internal constants from runtime reflection.
-     * Handles both PHP 8.1+ (ReflectionConstant) and older versions (array format).
+     * Handles both PHP 8.4+ (\ReflectionConstant) and older versions (array format).
      */
     private function parseConstants(): void
     {
         $reflectionConstants = $this->dataProvider->getReflectionConstants();
 
-        // Check if ReflectionConstant class exists (PHP 8.1+)
+        // \ReflectionConstant was added in PHP 8.4, not 8.1 — 8.1/8.2/8.3 take the array path
         if (class_exists('\ReflectionConstant')) {
             // Filter to only defined constants and get their names
             $constantNames = array_filter(array_keys($reflectionConstants), function ($name) {

@@ -5,6 +5,7 @@ namespace StubTests\Unit\Parsers\Stubs;
 use PhpParser\Node\Stmt\Function_;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Model\PHPParameter;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicParameterNode;
@@ -131,6 +132,39 @@ class StubConstantDefaultValueTest extends TestCase
         $ref = StubConstantRegistry::get('\\Uri\\UriComparisonMode::ExcludeFragment');
         self::assertInstanceOf(StubEnumCaseReference::class, $ref);
         self::assertSame('Uri\\UriComparisonMode', $ref->getEnumFqn());
+    }
+
+    /**
+     * A const-expr can be syntactically valid yet fail arithmetically. DivisionByZeroError is
+     * an \Error, so it slipped past the evaluator's `catch (ConstExprEvaluationException)`
+     * and past PHPParameter::getDefaultValue()'s `catch (\RuntimeException)` — escaping from
+     * a plain accessor, despite the trait documenting `@throws \RuntimeException`.
+     *
+     * The evaluator now normalises it, so an unevaluatable default reads as null like any
+     * other. No stub declares such a default; this guards the contract, not current data.
+     */
+    #[DataProvider('arithmeticallyInvalidDefaults')]
+    public function testArithmeticallyInvalidDefaultsResolveToNullInsteadOfEscaping(string $code)
+    {
+        self::assertNull($this->evaluateDefault($code));
+    }
+
+    public static function arithmeticallyInvalidDefaults(): array
+    {
+        return [
+            'division by zero' => ['function f($x = 1 / 0) {}'],
+            'modulo by zero' => ['function f($x = 1 % 0) {}'],
+        ];
+    }
+
+    /**
+     * The counterpart: an evaluatable default must still come through untouched, so the
+     * normalisation above cannot be mistaken for swallowing everything.
+     */
+    public function testValidArithmeticDefaultsStillEvaluate()
+    {
+        self::assertSame(4, $this->evaluateDefault('function f($x = 2 + 2) {}'));
+        self::assertSame(3, $this->evaluateDefault('function f($x = 7 % 4) {}'));
     }
 
     private function evaluateDefault(string $functionCode): mixed

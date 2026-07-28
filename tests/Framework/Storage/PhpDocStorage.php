@@ -5,6 +5,19 @@ namespace StubTests\Framework\Storage;
 /**
  * Storage for raw PhpDoc comments, separated from main entity data.
  * Provides lazy loading and efficient access to PhpDoc by entity ID.
+ *
+ * **Invariant: any code path that will call save() must construct this with
+ * $loadExisting = false.**
+ *
+ * setPhpDoc() only unsets an id when that same id is re-serialized with an empty doc, so a
+ * writer that pre-loaded the file would carry forward entries for entities that have since
+ * been renamed or deleted, and StubsPhpDoc.json would grow monotonically while serving docs
+ * for ids that no longer exist.
+ *
+ * Both writers honour this today — run-stubs-parser.php and the cache-incomplete branch of
+ * Runner::getStubs() pass false — and the only $loadExisting = true construction (the
+ * cache-complete branch of Runner::getStubs()) is a pure reader that never saves. That is
+ * why the file currently has zero orphaned ids. Preserve the split when adding a writer.
  */
 class PhpDocStorage
 {
