@@ -7,8 +7,7 @@ use StubTests\Framework\Validator\AbstractCallableCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
-use StubTests\Framework\Validator\Services\ParameterFilterHelper;
-use StubTests\Framework\Validator\Services\TypeResolver;
+use StubTests\Framework\Validator\Services\ParameterTypeComparator;
 
 /**
  * Validates that parameter types in stubs match those in reflection.
@@ -49,42 +48,11 @@ class ParameterTypesCheck extends AbstractCallableCheck
         }
 
         $reflectionParams = $reflectionCallable->getParameters();
-        $stubParams = $stubCallable->getParameters();
-
-        // Filter and deduplicate stub parameters by version
-        $stubParams = ParameterFilterHelper::filterAndDeduplicate($stubParams, $phpVersion);
-
-        // Build name-based stub param map (matching ClassMethodsParameterTypesCheck approach)
-        $stubParamsByName = [];
-        foreach ($stubParams as $param) {
-            $stubParamsByName[$param->getName()] = $param;
-        }
-
-        // Compare parameter types by name
         $mismatches = [];
-        foreach ($reflectionParams as $reflectionParam) {
-            $name = $reflectionParam->getName();
-
-            if (!isset($stubParamsByName[$name])) {
-                // Parameter absent from stubs — ParametersCountCheck's responsibility
-                continue;
-            }
-
-            $reflType = TypeResolver::getParamTypeString($reflectionParam, $phpVersion);
-
-            if ($reflType === null) {
-                continue;
-            }
-
-            $stubType = TypeResolver::getParamTypeString($stubParamsByName[$name], $phpVersion);
-            $normalRefl = TypeResolver::normalizeType($reflType);
-            $normalStub = TypeResolver::normalizeType($stubType);
-
-            if ($normalRefl !== $normalStub) {
-                $display = $stubType ?? 'none';
-                $mismatches[] = "Parameter '\${$name}' type mismatch: reflection has '{$reflType}', " .
-                    "stubs have '{$display}'";
-            }
+        foreach (ParameterTypeComparator::compare($reflectionParams, $stubCallable->getParameters(), $phpVersion) as $m) {
+            $display = $m['stubType'] ?? 'none';
+            $mismatches[] = "Parameter '\${$m['name']}' type mismatch: reflection has '{$m['reflType']}', " .
+                "stubs have '{$display}'";
         }
 
         if (!empty($mismatches)) {

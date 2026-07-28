@@ -2,7 +2,6 @@
 
 namespace StubTests\Framework\Validator\PhpDoc;
 
-use StubTests\Framework\Model\PHPClassLikeObject;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractReflectionCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
@@ -37,6 +36,7 @@ use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
  */
 class PhpDocVersionFormatCheck extends AbstractReflectionCheck
 {
+    use PhpDocLocationWalkerTrait;
     private EntityLookupService $entityLookup;
 
     public function __construct(
@@ -107,33 +107,11 @@ class PhpDocVersionFormatCheck extends AbstractReflectionCheck
      */
     private function collectViolationsByLocation(object $entity, string $entityId): array
     {
-        $result = [];
-
-        // Entity-level phpDoc
-        $phpDoc = $entity->getStubsMetadata()?->getPhpDoc();
-        if ($phpDoc !== null && $phpDoc !== '') {
-            $violations = $this->findPatchVersions($phpDoc);
-            if (!empty($violations)) {
-                $result[$entityId] = $violations;
-            }
-        }
-
-        // Method-level phpDocs for class-like entities
-        if ($entity instanceof PHPClassLikeObject) {
-            foreach ($entity->getMethods() as $method) {
-                $phpDoc = $method->getStubsMetadata()?->getPhpDoc();
-                if ($phpDoc === null || $phpDoc === '') {
-                    continue;
-                }
-                $violations = $this->findPatchVersions($phpDoc);
-                if (!empty($violations)) {
-                    $methodId = $entityId . '::' . $method->getName();
-                    $result[$methodId] = $violations;
-                }
-            }
-        }
-
-        return $result;
+        return $this->collectByPhpDocLocation(
+            $entity,
+            $entityId,
+            fn (string $phpDoc): array => $this->findPatchVersions($phpDoc)
+        );
     }
 
     /**
