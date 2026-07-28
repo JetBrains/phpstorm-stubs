@@ -98,6 +98,26 @@ class PHPParameter extends BasePHPElement
         $this->isDeprecated = $isDeprecated;
     }
 
+    /**
+     * Resolves a deferred default value on first read, then caches it.
+     *
+     * This is the one getter here that is not a plain field read, which reads as a violation
+     * of the "models are pure data holders" rule — so, why it has to be deferred:
+     *
+     * A default value may reference a constant (`PHP_INT_MAX`, `SOME\Ext::FLAG`) that is not
+     * resolvable at the moment the parameter is parsed, because the constant may be declared
+     * in a stub file that has not been parsed yet. Evaluating eagerly in StubParameterParser
+     * would therefore resolve some defaults to null purely because of file ordering; the
+     * evaluator exists so resolution happens after StubConstantRegistry is fully populated.
+     *
+     * The mutation is memoisation of a deterministic computation, so the value observed is
+     * the same on every call — but it is genuinely deferred work, not a field read. Moving it
+     * out would mean a post-parse resolution pass over every parameter before serialization.
+     *
+     * A failure to evaluate yields null rather than propagating: the evaluator normalises
+     * everything it cannot compute (including DivisionByZeroError, see
+     * NikicConstExprEvaluatorTrait) to \RuntimeException, which is absorbed here.
+     */
     public function getDefaultValue(): mixed
     {
         if ($this->defaultValueEvaluator !== null) {
