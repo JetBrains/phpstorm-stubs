@@ -56,10 +56,9 @@ class ReflectionDeduplicationProcessor implements EntityProcessor
             $entity instanceof PHPEnum ||
             $entity instanceof PHPFunction ||
             $entity instanceof PHPConstant) {
+            // All five types matched above implement PHPNamespacedElement.
             $name = $entity->getName() ?? '';
-            if ($entity instanceof PHPNamespacedElement) {
-                $namespace = $entity->getNamespace() ?? '';
-            }
+            $namespace = $entity->getNamespace() ?? '';
         }
 
         // Construct unique ID: type::namespace\name

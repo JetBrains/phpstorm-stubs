@@ -346,7 +346,7 @@ final class MetaFileReferenceExtractor
         }
 
         // Global constant (e.g. \PHP_OS_FAMILY) — in callable position of expectedReturnValues
-        if ($expr instanceof ConstFetch && $expr->name instanceof Name) {
+        if ($expr instanceof ConstFetch) {
             $fqn = '\\' . $expr->name->toString();
             $refs[] = new MetaReference(MetaReferenceType::GLOBAL_CONST, $fqn, $file, $expr->getStartLine(), MetaReferenceRole::CALLABLE);
         }
@@ -374,7 +374,7 @@ final class MetaFileReferenceExtractor
         }
 
         // Global constant: \CONST_NAME or CONST_NAME (inside PHPSTORM_META namespace, treated as global)
-        if ($expr instanceof ConstFetch && $expr->name instanceof Name) {
+        if ($expr instanceof ConstFetch) {
             $name = $expr->name->toString();
             // Skip PHP magic constants and special values
             if (in_array($name, ['true', 'false', 'null', 'TRUE', 'FALSE', 'NULL'], true)) {

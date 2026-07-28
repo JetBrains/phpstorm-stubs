@@ -26,7 +26,7 @@ use StubTests\Framework\Validator\Contracts\CheckResultSet;
 class FunctionSpecialTypeHintsCheck extends AbstractCallableCheck
 {
     /**
-     * Functions whose PhpDoc @return must contain both 'mixed' and 'false'.
+     * Functions whose PhpDoc `@return` must contain both 'mixed' and 'false'.
      */
     private const MIXED_FALSE_RETURN_FUNCTIONS = [
         '\end',
@@ -37,7 +37,7 @@ class FunctionSpecialTypeHintsCheck extends AbstractCallableCheck
     ];
 
     /**
-     * Functions whose PhpDoc @return must contain both 'mixed' and 'null'.
+     * Functions whose PhpDoc `@return` must contain both 'mixed' and 'null'.
      *
      * array_pop() and array_shift() remove and return the last/first element of
      * an array, or null when the array is empty.  The PHP 8 signature uses 'mixed',
@@ -103,7 +103,7 @@ class FunctionSpecialTypeHintsCheck extends AbstractCallableCheck
 
             $results->addFailure(
                 $entityId,
-                "Function {$entityId} PhpDoc @return must contain '{$expectedPattern}' " .
+                "Function {$entityId} PhpDoc `@return` must contain '{$expectedPattern}' " .
                 "but is missing: " . implode(', ', $missing) . " (got '{$docReturnType}'). (see https://youtrack.jetbrains.com/issue/WI-57991)"
             );
             return $results;

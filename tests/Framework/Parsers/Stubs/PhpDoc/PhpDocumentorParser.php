@@ -68,7 +68,7 @@ class PhpDocumentorParser implements PhpDocParserInterface
     }
 
     /**
-     * Fill in @param/@return/@var types that phpDocumentor dropped, reading them verbatim from
+     * Fill in `@param`/`@return`/`@var` types that phpDocumentor dropped, reading them verbatim from
      * the raw docblock. Gaps are filled, and values phpDocumentor produced are also replaced when
      * it collapsed a multi-argument generic (see {@see preferFaithfulType}); otherwise the value
      * phpDocumentor already produced is kept.

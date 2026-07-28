@@ -30,10 +30,11 @@ class InMemoryParsedDataStorage implements ParsedDataStorageProvider
         $this->entities[] = $entity;
 
         // Also categorize by type for faster lookups
-        // PHPMethod extends PHPFunction, so check PHPMethod first to avoid misclassification
+        // PHPMethod extends PHPFunction, so it is excluded explicitly: methods are reached
+        // via their owning class, and indexing them here would list them as free functions.
         if ($entity instanceof PHPClass) {
             $this->classes[] = $entity;
-        } elseif ($entity instanceof PHPMethod) {} elseif ($entity instanceof PHPFunction) {
+        } elseif ($entity instanceof PHPFunction && !$entity instanceof PHPMethod) {
             $this->functions[] = $entity;
         } elseif ($entity instanceof PHPInterface) {
             $this->interfaces[] = $entity;

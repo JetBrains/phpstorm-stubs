@@ -8,7 +8,6 @@ use StubTests\Framework\Validator\AbstractReflectionCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\EntityLookupService;
-use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 

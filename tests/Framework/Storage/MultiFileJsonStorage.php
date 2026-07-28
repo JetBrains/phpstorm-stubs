@@ -159,20 +159,4 @@ class MultiFileJsonStorage implements ParsedDataPersistentStorageProvider
         $storage->load();
         return $storage->getEntities();
     }
-
-    /**
-     * Check if an entity type file has been loaded
-     */
-    public function isTypeLoaded(string $fileId): bool
-    {
-        if (!isset($this->fileStorages[$fileId])) {
-            return false;
-        }
-
-        // We can't directly access the loaded property, so we check if entities exist
-        // or try to load and check
-        $storage = $this->fileStorages[$fileId];
-        $entities = $storage->getEntities();
-        return is_array($entities);
-    }
 }

@@ -154,9 +154,7 @@ class DefaultParsedDataStorageManager implements ParsedDataStorageManager
     {
         if ($this->cachedClasses === null) {
             $allEntities = $this->parsedDataStorageProvider->getEntities();
-            $this->cachedClasses = is_array($allEntities)
-                ? array_filter($allEntities, fn ($e) => $e instanceof PHPClass)
-                : [];
+            $this->cachedClasses = array_filter($allEntities, fn ($e) => $e instanceof PHPClass);
         }
         return $this->cachedClasses;
     }
@@ -176,9 +174,7 @@ class DefaultParsedDataStorageManager implements ParsedDataStorageManager
     {
         if ($this->cachedFunctions === null) {
             $allEntities = $this->parsedDataStorageProvider->getEntities();
-            $this->cachedFunctions = is_array($allEntities)
-                ? array_filter($allEntities, fn ($e) => $e instanceof PHPFunction && !$e instanceof PHPMethod)
-                : [];
+            $this->cachedFunctions = array_filter($allEntities, fn ($e) => $e instanceof PHPFunction && !$e instanceof PHPMethod);
         }
         return $this->cachedFunctions;
     }
@@ -188,9 +184,7 @@ class DefaultParsedDataStorageManager implements ParsedDataStorageManager
     {
         if ($this->cachedInterfaces === null) {
             $allEntities = $this->parsedDataStorageProvider->getEntities();
-            $this->cachedInterfaces = is_array($allEntities)
-                ? array_filter($allEntities, fn ($e) => $e instanceof PHPInterface)
-                : [];
+            $this->cachedInterfaces = array_filter($allEntities, fn ($e) => $e instanceof PHPInterface);
         }
         return $this->cachedInterfaces;
     }
@@ -210,9 +204,7 @@ class DefaultParsedDataStorageManager implements ParsedDataStorageManager
     {
         if ($this->cachedEnums === null) {
             $allEntities = $this->parsedDataStorageProvider->getEntities();
-            $this->cachedEnums = is_array($allEntities)
-                ? array_filter($allEntities, fn ($e) => $e instanceof PHPEnum)
-                : [];
+            $this->cachedEnums = array_filter($allEntities, fn ($e) => $e instanceof PHPEnum);
         }
         return $this->cachedEnums;
     }
@@ -232,9 +224,7 @@ class DefaultParsedDataStorageManager implements ParsedDataStorageManager
     {
         if ($this->cachedConstants === null) {
             $allEntities = $this->parsedDataStorageProvider->getEntities();
-            $this->cachedConstants = is_array($allEntities)
-                ? array_filter($allEntities, fn ($e) => $e instanceof PHPConstant)
-                : [];
+            $this->cachedConstants = array_filter($allEntities, fn ($e) => $e instanceof PHPConstant);
         }
         return $this->cachedConstants;
     }

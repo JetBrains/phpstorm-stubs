@@ -72,7 +72,7 @@ class NikicClassNode implements ClassNode
         foreach ($this->class->stmts as $stmt) {
             if ($stmt instanceof Property) {
                 foreach ($stmt->props as $prop) {
-                    // Pass both PropertyProperty and parent Property statement
+                    // Pass both PropertyItem and parent Property statement
                     $properties[] = new NikicPropertyNode($prop, $stmt);
                 }
             }
