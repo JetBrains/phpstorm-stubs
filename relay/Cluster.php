@@ -78,6 +78,13 @@ class Cluster
     public const OPT_SLAVE_FAILOVER = 5;
 
     /**
+     * Modern alias for `OPT_SLAVE_FAILOVER`.
+     *
+     * @var int
+     */
+    public const OPT_REPLICA_FAILOVER = 5;
+
+    /**
      * Controls the retry strategy when a command fails on a node.
      *
      * @see self::FAILOVER_NONE
@@ -121,6 +128,13 @@ class Cluster
      * @var int
      */
     public const FAILOVER_DISTRIBUTE_SLAVES = 3;
+
+    /**
+     * Modern alias for `FAILOVER_DISTRIBUTE_SLAVES`.
+     *
+     * @var int
+     */
+    public const FAILOVER_DISTRIBUTE_REPLICAS = 3;
 
     /**
      * On failure, retry the readonly command on a randomly selected replica.
@@ -426,6 +440,27 @@ class Cluster
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function blmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos, float $timeout): Cluster|string|null|false {}
+
+    /**
+     * Blocking move of one or more elements from the source to destination list.
+     *
+     * @param  mixed  $srckey
+     * @param  mixed  $dstkey
+     * @param  string  $srcpos
+     * @param  string  $dstpos
+     * @param  float  $timeout
+     * @param  array|null  $options
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function blmovem(
+        mixed $srckey,
+        mixed $dstkey,
+        string $srcpos,
+        string $dstpos,
+        float $timeout,
+        ?array $options = null
+    ): Cluster|array|false {}
 
     /**
      * Pop elements from a list, or block until one is available.
@@ -1052,6 +1087,14 @@ class Cluster
     public function getdel(mixed $key): mixed {}
 
     /**
+     * Returns the currently selected database.
+     *
+     * @return int|false
+     */
+    #[Attributes\Local]
+    public function getDbNum(): mixed {}
+
+    /**
      * Returns the last error message, if any.
      *
      * @return string|null
@@ -1564,6 +1607,25 @@ class Cluster
     public function lmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos): Cluster|string|null|false {}
 
     /**
+     * Move one or more elements from the source to destination list.
+     *
+     * @param  mixed  $srckey
+     * @param  mixed  $dstkey
+     * @param  string  $srcpos
+     * @param  string  $dstpos
+     * @param  array|null  $options
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function lmovem(
+        mixed $srckey,
+        mixed $dstkey,
+        string $srcpos,
+        string $dstpos,
+        ?array $options = null
+    ): Cluster|array|false {}
+
+    /**
      * Pops one or more elements from the first non-empty list key from the list of provided key names.
      *
      * @param  array  $keys
@@ -1709,6 +1771,16 @@ class Cluster
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function multi(int $mode = Relay::MULTI): Cluster|bool {}
+
+    /**
+     * Move key from the currently selected database to the specified destination database.
+     *
+     * @param  mixed  $key
+     * @param  int  $db
+     * @return Cluster|int|false
+     */
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    public function move(mixed $key, int $db): Cluster|int|false {}
 
     /**
      * This is a container command for object introspection commands.
@@ -2058,6 +2130,16 @@ class Cluster
     public function sdiff(mixed $key, mixed ...$other_keys): Cluster|array|false {}
 
     /**
+     * Returns the number of members of the difference between the first set and all successive sets.
+     *
+     * @param  array  $keys
+     * @param  array|null  $options
+     * @return Cluster|int|false
+     */
+    #[Attributes\RedisCommand, Attributes\Cached]
+    public function sdiffcard(array $keys, ?array $options = null): Cluster|int|false {}
+
+    /**
      * This command is equal to SDIFF, but instead of returning the resulting set, it is stored in destination.
      * If destination already exists, it is overwritten.
      *
@@ -2067,6 +2149,15 @@ class Cluster
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sdiffstore(mixed $key, mixed ...$other_keys): Cluster|int|false {}
+
+    /**
+     * Select the Redis logical database having the specified zero-based numeric index.
+     *
+     * @param  int  $db
+     * @return Cluster|bool|string
+     */
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    public function select(int $db): Cluster|bool|string {}
 
     /**
      * Set key to hold the string value. If key already holds
@@ -2351,6 +2442,16 @@ class Cluster
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function sunion(mixed $key, mixed ...$other_keys): Cluster|array|false {}
+
+    /**
+     * Union multiple sets and return the cardinality of the result.
+     *
+     * @param  array  $keys
+     * @param  array|null  $options
+     * @return Cluster|int|false
+     */
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
+    public function sunioncard(array $keys, ?array $options = null): Cluster|int|false {}
 
     /**
      * This command is equal to SUNION, but instead of returning the resulting set, it is stored in destination.
