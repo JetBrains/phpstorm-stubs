@@ -5,7 +5,7 @@ namespace StubTests\Framework\Validator\Classes\Methods;
 use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Validator\AbstractMethodFlagCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
-use StubTests\Framework\Validator\Services\PhpDocConformanceService;
+use StubTests\Framework\Validator\Services\ReturnTypeComparator;
 use StubTests\Framework\Validator\Services\ReturnTypeResolver;
 use StubTests\Framework\Validator\Services\TypeResolver;
 
@@ -61,49 +61,7 @@ class ClassMethodsReturnTypesCheck extends AbstractMethodFlagCheck
         $normalizedRefl = TypeResolver::normalizeType($reflType);
         $normalizedStub = TypeResolver::normalizeType($stubType);
 
-        // When stub uses 'static' (covariant return type), validate semantically:
-        // each 'static' component in the stub must correspond to a class-name (non-primitive)
-        // component in reflection; the remaining union parts must match exactly.
-        //
-        // This handles both direct declarations (stub 'static' matches reflection 'DateTime')
-        // and inherited methods (stub 'static|null' inherited from SimpleXMLElement matches
-        // reflection 'SimpleXMLElement|null' reported for SimpleXMLIterator).
-        if ($normalizedStub !== null && str_contains($normalizedStub, 'static')) {
-            // If reflection also uses 'static', they are directly equivalent.
-            if (str_contains($normalizedRefl, 'static')) {
-                return null;
-            }
-            // PHP primitive / keyword types that are never class names.
-            $primitives = PhpDocConformanceService::PRIMITIVES;
-            $stubParts = explode('|', $normalizedStub);
-            $reflParts = explode('|', $normalizedRefl);
-            foreach ($stubParts as $stubKey => $part) {
-                if ($part === 'static') {
-                    // Consume a class-name component from the reflection side.
-                    foreach ($reflParts as $reflKey => $reflPart) {
-                        if (!in_array($reflPart, $primitives, true)) {
-                            unset($reflParts[$reflKey]);
-                            break;
-                        }
-                    }
-                    unset($stubParts[$stubKey]);
-                }
-            }
-            sort($stubParts);
-            sort($reflParts);
-            if (array_values($stubParts) === array_values($reflParts)) {
-                return null;
-            }
-            // Types genuinely differ even after static matching — fall through to report.
-        }
-
-        // When stub narrows 'bool' to 'true' or 'false' (TentativeType pattern), reflection
-        // always reports the wider 'bool'. The stub is intentionally more specific.
-        if ($normalizedRefl === 'bool' && ($normalizedStub === 'true' || $normalizedStub === 'false')) {
-            return null;
-        }
-
-        if ($normalizedRefl !== $normalizedStub) {
+        if (!ReturnTypeComparator::areEquivalent($normalizedRefl, $normalizedStub)) {
             return "Return type mismatch for {$methodEntityId}: reflection has '{$reflType}', stubs have '{$stubType}'";
         }
 
