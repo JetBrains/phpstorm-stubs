@@ -71,7 +71,7 @@ final class ExpectedReturnValuesAreUniqueCheck
         if ($expr instanceof StaticCall && $expr->class instanceof Name && $expr->name instanceof Node\Identifier) {
             return '\\' . $expr->class->toString() . '::' . $expr->name->toString();
         }
-        if ($expr instanceof ConstFetch && $expr->name instanceof Name) {
+        if ($expr instanceof ConstFetch) {
             return '\\' . $expr->name->toString();
         }
         return null;

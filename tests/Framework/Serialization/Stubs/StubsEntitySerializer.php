@@ -5,6 +5,7 @@ namespace StubTests\Framework\Serialization\Stubs;
 use StubTests\Framework\Storage\PhpDocStorage;
 use StubTests\Framework\Serialization\SerializerRegistry;
 use StubTests\Framework\Serialization\EntitySerializerInterface;
+use StubTests\Framework\Serialization\EntityTypeSerializerInterface;
 
 /**
  * Serializer for stub entities that includes all stub-specific metadata:

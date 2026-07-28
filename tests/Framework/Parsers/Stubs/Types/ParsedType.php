@@ -23,7 +23,7 @@ class ParsedType
     public StandaloneType|UnionType|NullableType|NoType|IntersectionType|null $typeFromSignature = null;
 
     /**
-     * Type extracted from PhpDoc (@var, @param, @return)
+     * Type extracted from PhpDoc (`@var`, `@param`, `@return`)
      */
     public ?string $typeFromPhpDoc = null;
 

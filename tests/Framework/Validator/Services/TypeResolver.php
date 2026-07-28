@@ -58,7 +58,7 @@ final class TypeResolver
             return null;
         }
 
-        $type = preg_replace('/\b(\w+)\[\]/', 'array', $type);
+        $type = preg_replace('/\b(\w+)\[]/', 'array', $type);
 
         if (str_contains($type, '|')) {
             $parts = explode('|', $type);

@@ -8,6 +8,7 @@ namespace StubTests\Framework\Tools;
 use Exception;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
+use PhpParser\NodeVisitor;
 use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\NodeVisitorAbstract;
 use PhpParser\ParserFactory;
@@ -111,24 +112,24 @@ use const PHP_EOL;
         {
             if ($node instanceof Node\Stmt\ClassLike) {
                 if ($node->getDocComment() !== null && strpos($node->getDocComment()->getText(), '@internal') !== false) {
-                    return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+                    return NodeVisitor::DONT_TRAVERSE_CHILDREN;
                 }
 
                 $this->classNames[] = $node->namespacedName->toString();
 
-                return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+                return NodeVisitor::DONT_TRAVERSE_CHILDREN;
             }
 
             if ($node instanceof Node\Stmt\Function_) {
                 $this->functionNames[] = $node->namespacedName->toString();
 
-                return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+                return NodeVisitor::DONT_TRAVERSE_CHILDREN;
             }
 
             if ($node instanceof Node\Const_) {
                 $this->constantNames[] = $node->namespacedName->toString();
 
-                return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+                return NodeVisitor::DONT_TRAVERSE_CHILDREN;
             }
 
             if ($node instanceof Node\Expr\FuncCall) {
@@ -150,7 +151,7 @@ use const PHP_EOL;
 
                 $this->constantNames[] = $nameNode->value;
 
-                return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+                return NodeVisitor::DONT_TRAVERSE_CHILDREN;
             }
 
             return null;

@@ -314,11 +314,11 @@ final class PhpDocConformanceService
         $prev = null;
         while ($prev !== $type) {
             $prev = $type;
-            $type = preg_replace('/\{[^{}]*\}/', '', $type);
+            $type = preg_replace('/\{[^{}]*}/', '', $type);
         }
 
         // Typed-array suffix: string[], int[][], \Foo[] → array
-        $type = preg_replace('/[\w\\\\]+(?:\[\])+/', 'array', $type);
+        $type = preg_replace('/[\w\\\\]+(?:\[])+/', 'array', $type);
 
         // Class-constant value types (psalm/phpstan): Foo::BAR, Foo::BAR_*, \Foo\Bar::BAZ_*.
         // These enumerate the values of one or more class constants — a value-level refinement

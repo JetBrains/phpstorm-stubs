@@ -174,7 +174,7 @@ final class ReferencesAreFullyQualifiedCheck
             $this->checkCallableRef($expr, $file, $violations);
             return;
         }
-        if ($expr instanceof ConstFetch && $expr->name instanceof Name) {
+        if ($expr instanceof ConstFetch) {
             if (!$expr->name instanceof Name\FullyQualified) {
                 $name = $expr->name->toString();
                 if (!in_array($name, self::SKIP_CONST_NAMES, true)) {
@@ -199,7 +199,7 @@ final class ReferencesAreFullyQualifiedCheck
             return;
         }
 
-        if ($expr instanceof ConstFetch && $expr->name instanceof Name) {
+        if ($expr instanceof ConstFetch) {
             if (!$expr->name instanceof Name\FullyQualified) {
                 $name = $expr->name->toString();
                 if (!in_array($name, self::SKIP_CONST_NAMES, true)) {

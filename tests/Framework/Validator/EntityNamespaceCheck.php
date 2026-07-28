@@ -51,6 +51,7 @@ class EntityNamespaceCheck implements CheckInterface
             LookupKind::CLASS_TYPE => $this->entityLookup->findClassById($stubs, $entityId),
             LookupKind::ENUM_TYPE => $this->entityLookup->findEnumById($stubs, $entityId),
             LookupKind::INTERFACE_TYPE => $this->entityLookup->findInterfaceById($stubs, $entityId),
+            LookupKind::FUNCTION => $this->rejectFunctionLookupKind(),
         };
 
         if ($entity === null) {
@@ -88,5 +89,15 @@ class EntityNamespaceCheck implements CheckInterface
             return '\\';
         }
         return substr($entityId, 0, $lastBackslashPos);
+    }
+
+    /**
+     * This check validates class-like namespaces; LookupKind::FUNCTION has no meaning here.
+     * It is registered only with forClass/forEnum/forInterface, so this is a guard against a
+     * future misregistration rather than a reachable path today.
+     */
+    private function rejectFunctionLookupKind(): never
+    {
+        throw new \LogicException(static::class . ' validates class-like namespaces; LookupKind::FUNCTION is unsupported.');
     }
 }

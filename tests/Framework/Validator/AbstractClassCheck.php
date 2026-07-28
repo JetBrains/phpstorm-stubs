@@ -24,6 +24,9 @@ use StubTests\Framework\Validator\Services\MethodCollectionService;
  */
 abstract class AbstractClassCheck extends AbstractReflectionCheck
 {
+    private const FUNCTION_LOOKUP_UNSUPPORTED = ' operates on class-like entities but was'
+        . ' configured with LookupKind::FUNCTION. Function checks must extend'
+        . ' AbstractReflectionCheck (see EntityExistsCheck), which handles all four kinds.';
     protected EntityLookupService $entityLookup;
     protected MethodCollectionService $methodCollection;
     protected ?EntityTypeConfig $entityTypeConfig;
@@ -53,6 +56,7 @@ abstract class AbstractClassCheck extends AbstractReflectionCheck
             LookupKind::ENUM_TYPE => $this->findEnumById($storage, $entityId),
             LookupKind::INTERFACE_TYPE => $this->findInterfaceById($storage, $entityId),
             LookupKind::CLASS_TYPE => $this->findClassById($storage, $entityId),
+            LookupKind::FUNCTION => $this->rejectFunctionLookupKind(),
         };
     }
 
@@ -68,6 +72,7 @@ abstract class AbstractClassCheck extends AbstractReflectionCheck
             LookupKind::ENUM_TYPE => $this->methodCollection->collectForEnum($entity, $phpVersion),
             LookupKind::INTERFACE_TYPE => $this->methodCollection->collectForInterface($entity, $phpVersion),
             LookupKind::CLASS_TYPE => $this->methodCollection->collectForClass($entity, $phpVersion),
+            LookupKind::FUNCTION => $this->rejectFunctionLookupKind(),
         };
     }
 
@@ -101,7 +106,7 @@ abstract class AbstractClassCheck extends AbstractReflectionCheck
 
     protected function getConstantEntityType(): string
     {
-        return $this->entityTypeConfig?->constantEntityType->value ?? EntityType::CLASS_CONSTANT->value;
+        return $this->entityTypeConfig?->constantEntityType?->value ?? EntityType::CLASS_CONSTANT->value;
     }
 
     // ── Direct lookup methods ────────────────────────────────────────────────
@@ -119,5 +124,19 @@ abstract class AbstractClassCheck extends AbstractReflectionCheck
     protected function findInterfaceById(StubDataQueryInterface $storage, string $entityId): ?PHPInterface
     {
         return $this->entityLookup->findInterfaceById($storage, $entityId);
+    }
+
+    /**
+     * Class-like checks cannot service LookupKind::FUNCTION: their lookups and method
+     * collection are typed against PHPClassLikeObject, which a function is not.
+     *
+     * Reached only if a class-like check is registered with EntityTypeConfig::forFunction().
+     * Function checks belong on AbstractReflectionCheck (see EntityExistsCheck), which
+     * handles all four lookup kinds. Raised instead of letting the match fall through to a
+     * bare UnhandledMatchError, which named neither the check nor the remedy.
+     */
+    private function rejectFunctionLookupKind(): never
+    {
+        throw new \LogicException(static::class . self::FUNCTION_LOOKUP_UNSUPPORTED);
     }
 }

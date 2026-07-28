@@ -19,7 +19,7 @@ use StubTests\Framework\Validator\Services\OptionalParametersComparator;
  * A stub parameter is considered optional when:
  * - It has a default value in the signature (e.g. `$mode = SORT_REGULAR`), or
  * - It is variadic (e.g. `...$args`), or
- * - Its @param description contains [optional].
+ * - Its `@param` description contains [optional].
  *
  * If the stub function is not found it is silently skipped — existence is
  * EntityExistsCheck's responsibility.

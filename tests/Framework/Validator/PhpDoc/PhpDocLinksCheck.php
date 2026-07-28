@@ -8,7 +8,6 @@ use StubTests\Framework\Validator\AbstractReflectionCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\EntityLookupService;
-use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 
@@ -110,7 +109,6 @@ class PhpDocLinksCheck extends AbstractReflectionCheck
         $code = curl_errno($ch) === CURLE_OK
             ? (int)curl_getinfo($ch, CURLINFO_HTTP_CODE)
             : 0;
-        curl_close($ch);
 
         self::$urlCache[$url] = $code;
         return $code;
