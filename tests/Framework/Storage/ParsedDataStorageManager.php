@@ -3,45 +3,30 @@
 namespace StubTests\Framework\Storage;
 
 use StubTests\Framework\Pipeline\EntityProcessingPipeline;
-use StubTests\Framework\Model\PHPClass;
-use StubTests\Framework\Model\PHPConstant;
-use StubTests\Framework\Model\PHPEnum;
-use StubTests\Framework\Model\PHPFunction;
-use StubTests\Framework\Model\PHPInterface;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 
-interface ParsedDataStorageManager extends StubDataQueryInterface
+/**
+ * The full parsed-data store: queryable, writable, persistable, plus access to its internals.
+ *
+ * This composes four concerns rather than declaring 22 methods itself, so that each consumer can
+ * name the one it actually needs:
+ *  - {@see StubDataQueryInterface} — reading entities (what validators get)
+ *  - {@see ParsedDataWriter}       — adding entities and processing them (what the parsers get)
+ *  - {@see ParsedDataPersistence}  — save()/load() (only the cache-generation paths)
+ *  - the accessors below           — the backing provider and the pipeline, for wiring and tests
+ *
+ * The composite still exists because DefaultParsedDataStorageManager is all four things, and the
+ * cache-generation scripts legitimately use all four in sequence: build, process, save. What changed
+ * is that nothing *else* has to accept all four — `Runner::getStubs()` and `getReflection()` now
+ * return the read interface, so a validator holding one cannot call save() or load() on the
+ * committed cache.
+ */
+interface ParsedDataStorageManager extends StubDataQueryInterface, ParsedDataWriter, ParsedDataPersistence
 {
     public function getParsedDataStorageProvider(): ParsedDataStorageProvider;
 
     /** @return iterable<mixed> */
     public function getAllEntities(): iterable;
 
-    // Write operations (processed immediately through pipeline)
-    public function addClass(PHPClass $entity): void;
-
-    public function addFunction(PHPFunction $entity): void;
-
-    public function addInterface(PHPInterface $entity): void;
-
-    public function addEnum(PHPEnum $entity): void;
-
-    public function addConstant(PHPConstant $entity): void;
-
-    // Generic add that auto-detects entity type
-    public function addEntity(mixed $entity): void;
-
-    // Write operations (deferred - raw, no processing)
-    public function addEntityRaw(mixed $entity): void;
-
-    // Processing
-    public function process(): void;
-
-    // Persistence
-    public function save(): void;
-
-    public function load(): void;
-
-    // Pipeline access
     public function getPipeline(): EntityProcessingPipeline;
 }

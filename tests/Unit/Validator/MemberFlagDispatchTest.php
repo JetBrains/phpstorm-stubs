@@ -36,7 +36,7 @@ class MemberFlagDispatchTest extends TestCase
 
     public function testMethodDescriberIsReachedWithTypedArguments()
     {
-        $check = new class () extends AbstractMemberFlagCheck implements DescribesMethodMismatch {
+        $check = new class() extends AbstractMemberFlagCheck implements DescribesMethodMismatch {
             protected function getCheckName(): CheckType
             {
                 return CheckType::RETURN_TYPES;
@@ -65,7 +65,7 @@ class MemberFlagDispatchTest extends TestCase
 
     public function testPropertyDescriberIsReachedWithTypedArguments()
     {
-        $check = new class () extends AbstractMemberFlagCheck implements DescribesPropertyMismatch {
+        $check = new class() extends AbstractMemberFlagCheck implements DescribesPropertyMismatch {
             protected function getCheckName(): CheckType
             {
                 return CheckType::PROPERTY_TYPES;
@@ -95,7 +95,7 @@ class MemberFlagDispatchTest extends TestCase
     /** A null return (attributes match) must pass straight through, not be treated as "no describer". */
     public function testNullFromTheDescriberIsPropagated()
     {
-        $check = new class () extends AbstractMemberFlagCheck implements DescribesMethodMismatch {
+        $check = new class() extends AbstractMemberFlagCheck implements DescribesMethodMismatch {
             protected function getCheckName(): CheckType
             {
                 return CheckType::RETURN_TYPES;
@@ -125,7 +125,7 @@ class MemberFlagDispatchTest extends TestCase
      */
     public function testImplementingNoDescriberThrowsADiagnostic()
     {
-        $check = new class () extends AbstractMemberFlagCheck {
+        $check = new class() extends AbstractMemberFlagCheck {
             protected function getCheckName(): CheckType
             {
                 return CheckType::RETURN_TYPES;
@@ -149,7 +149,7 @@ class MemberFlagDispatchTest extends TestCase
      */
     public function testKindAndDescriberDisagreeingFailsLoudly()
     {
-        $check = new class () extends AbstractMemberFlagCheck implements DescribesMethodMismatch {
+        $check = new class() extends AbstractMemberFlagCheck implements DescribesMethodMismatch {
             protected function getCheckName(): CheckType
             {
                 return CheckType::RETURN_TYPES;
