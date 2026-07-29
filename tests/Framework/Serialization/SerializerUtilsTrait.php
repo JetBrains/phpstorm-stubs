@@ -48,6 +48,13 @@ trait SerializerUtilsTrait
             return '[object:' . $value->getEnumFqn() . ']';
         }
 
+        // The reflection-side equivalent: an enum case captured in Stage 1 as a portable
+        // reference, because a live instance cannot cross the two-stage container hop. Rendered
+        // identically to a live instance so caches generated either way are byte-identical.
+        if ($value instanceof \StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedEnumCaseReference) {
+            return '[object:' . $value->getEnumFqn() . ']';
+        }
+
         if (is_object($value) && !($value instanceof \stdClass) && !($value instanceof \DateTimeInterface)) {
             // Check if object has toString() method (e.g., type objects)
             if (method_exists($value, 'toString')) {

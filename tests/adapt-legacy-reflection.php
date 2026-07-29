@@ -24,12 +24,14 @@ require_once __DIR__ . '/Framework/DataProvider/CurrentRuntimeReflectionRawDataP
 
 // Include base wrapper classes first
 require_once __DIR__ . '/Framework/Parsers/Reflection/Wrappers/ReflectionMethodExtractor.php';
+require_once __DIR__ . '/Framework/Parsers/Reflection/Wrappers/ReflectionValueNormalizer.php';
 require_once __DIR__ . '/Framework/Parsers/Reflection/Wrappers/ReflectionTypeRegistry.php';
 require_once __DIR__ . '/Framework/Parsers/Reflection/Wrappers/AbstractReflectionAdapter.php';
 
 // Include wrapper classes
 require_once __DIR__ . '/Framework/Parsers/Reflection/Wrappers/AdaptedReflectionClass.php';
 require_once __DIR__ . '/Framework/Parsers/Reflection/Wrappers/AdaptedReflectionClassReference.php';
+require_once __DIR__ . '/Framework/Parsers/Reflection/Wrappers/AdaptedEnumCaseReference.php';
 require_once __DIR__ . '/Framework/Parsers/Reflection/Wrappers/AdaptedReflectionMethod.php';
 require_once __DIR__ . '/Framework/Parsers/Reflection/Wrappers/AdaptedReflectionProperty.php';
 require_once __DIR__ . '/Framework/Parsers/Reflection/Wrappers/AdaptedReflectionClassConstant.php';
