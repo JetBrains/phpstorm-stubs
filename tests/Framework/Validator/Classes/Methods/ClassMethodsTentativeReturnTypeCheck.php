@@ -2,8 +2,10 @@
 
 namespace StubTests\Framework\Validator\Classes\Methods;
 
+use StubTests\Framework\Validator\AbstractMemberFlagCheck;
+use StubTests\Framework\Validator\Contracts\DescribesMethodMismatch;
+use StubTests\Framework\Validator\Contracts\MemberKind;
 use StubTests\Framework\Model\PHPMethod;
-use StubTests\Framework\Validator\AbstractMethodFlagCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
@@ -29,8 +31,13 @@ use StubTests\Framework\Validator\KnownProblems\CheckType;
  * - class-level:  EntityType::CLASS_TYPE + classId + 'TentativeReturnTypeCheck'
  * - method-level: EntityType::METHOD + '\ClassName::methodName' + 'TentativeReturnTypeCheck'
  */
-class ClassMethodsTentativeReturnTypeCheck extends AbstractMethodFlagCheck
+class ClassMethodsTentativeReturnTypeCheck extends AbstractMemberFlagCheck implements DescribesMethodMismatch
 {
+    protected function memberKind(): MemberKind
+    {
+        return MemberKind::METHOD;
+    }
+
     public function supports(string $phpVersion): bool
     {
         // Tentative return types were introduced in PHP 8.1
@@ -42,7 +49,7 @@ class ClassMethodsTentativeReturnTypeCheck extends AbstractMethodFlagCheck
         return CheckType::TENTATIVE_RETURN_TYPE;
     }
 
-    protected function describeMismatch(
+    public function describeMethodMismatch(
         string $methodEntityId,
         mixed $reflMethod,
         PHPMethod $stubMethod,

@@ -6,6 +6,8 @@ use StubTests\Framework\Model\PHPClass;
 use StubTests\Framework\Model\PHPClassLikeObject;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\Contracts\DescribesMethodMismatch;
+use StubTests\Framework\Validator\Contracts\DescribesPropertyMismatch;
 use StubTests\Framework\Validator\Contracts\MemberKind;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 
@@ -22,13 +24,21 @@ use StubTests\Framework\Validator\KnownProblems\CheckType;
  * hooks below. Constants are NOT modelled here: {@see AbstractConstantFlagCheck} iterates the
  * stub side with per-member version filtering and different known-problem-skip semantics.
  *
- * Subclasses must implement three things:
+ * Subclasses must supply three things, one per axis plus the check's identity:
  * - getCheckName(): the name used for known-problem lookups
- * - memberKind(): which member kind to compare, supplying the former one-line config hooks
- * - describeMemberMismatch(): the actual attribute comparison
+ * - memberKind(): which member kind to compare (see {@see MemberKind})
+ * - one of {@see DescribesMethodMismatch} / {@see DescribesPropertyMismatch}: the comparison itself
+ *
+ * Those last two are the two axes this check varies along. They used to be expressed as one
+ * inheritance chain — a member-kind subclass per kind, with the comparison abstract below it — so
+ * adding a member kind meant adding a level. Now the kind is data and the comparison is an
+ * interface, and neither requires a new abstract class.
  */
 abstract class AbstractMemberFlagCheck extends AbstractClassCheck
 {
+    private const NO_DESCRIBER = ' extends AbstractMemberFlagCheck but implements neither'
+        . ' DescribesMethodMismatch nor DescribesPropertyMismatch, so it has no comparison to run.';
+
     abstract protected function getCheckName(): CheckType;
 
     /**
@@ -38,21 +48,36 @@ abstract class AbstractMemberFlagCheck extends AbstractClassCheck
     abstract protected function memberKind(): MemberKind;
 
     /**
-     * Compare the attribute on the reflection and stub member.
-     * Return a descriptive failure message if there is a mismatch, or null if they match.
+     * Compare the attribute on the reflection and stub member, via whichever describer interface
+     * this check implements.
      *
-     * This stays abstract rather than collapsing into the leaves' describeMismatch(): the two
-     * member-kind subclasses re-declare it with concrete parameter types (PHPMethod, PHPProperty)
-     * and forward to it, which is what lets 16 leaf checks keep typed signatures. PHP forbids
-     * narrowing a parameter type in an override, so a single `mixed` declaration here would force
-     * every leaf to widen to `mixed` and lose that typing.
+     * The concrete parameter types live on those interfaces rather than on an abstract method here,
+     * because PHP forbids narrowing a parameter type in an override — which is the sole reason
+     * AbstractMethodFlagCheck and AbstractPropertyFlagCheck used to exist as a layer between this
+     * class and the leaves. Implementing an interface declares the type instead of narrowing one, so
+     * the leaves keep typed signatures and that layer is gone.
+     *
+     * The kind and the describer are two independent axes, so a mismatch between them is a wiring
+     * error: MemberKind::PROPERTY with only DescribesMethodMismatch implemented would hand a
+     * PHPProperty to a PHPMethod parameter. That surfaces as a TypeError from the describer; the
+     * LogicException below covers the case where neither interface is implemented at all.
      */
-    abstract protected function describeMemberMismatch(
+    private function describeMemberMismatch(
         string $memberId,
         mixed $reflectionMember,
         mixed $stubMember,
         string $phpVersion
-    ): ?string;
+    ): ?string {
+        if ($this instanceof DescribesMethodMismatch) {
+            return $this->describeMethodMismatch($memberId, $reflectionMember, $stubMember, $phpVersion);
+        }
+
+        if ($this instanceof DescribesPropertyMismatch) {
+            return $this->describePropertyMismatch($memberId, $reflectionMember, $stubMember, $phpVersion);
+        }
+
+        throw new \LogicException(static::class . self::NO_DESCRIBER);
+    }
 
     /**
      * Look up the owning entity (class/enum/interface) by id.

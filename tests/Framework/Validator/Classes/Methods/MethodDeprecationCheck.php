@@ -2,8 +2,10 @@
 
 namespace StubTests\Framework\Validator\Classes\Methods;
 
+use StubTests\Framework\Validator\AbstractMemberFlagCheck;
+use StubTests\Framework\Validator\Contracts\DescribesMethodMismatch;
+use StubTests\Framework\Validator\Contracts\MemberKind;
 use StubTests\Framework\Model\PHPMethod;
-use StubTests\Framework\Validator\AbstractMethodFlagCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
@@ -27,14 +29,19 @@ use StubTests\Framework\Validator\KnownProblems\CheckType;
  * - method-level: EntityType::METHOD + '\ClassName::methodName' + 'MethodDeprecationCheck'
  *   → skips only that specific mismatch.
  */
-class MethodDeprecationCheck extends AbstractMethodFlagCheck
+class MethodDeprecationCheck extends AbstractMemberFlagCheck implements DescribesMethodMismatch
 {
+    protected function memberKind(): MemberKind
+    {
+        return MemberKind::METHOD;
+    }
+
     protected function getCheckName(): CheckType
     {
         return CheckType::DEPRECATION;
     }
 
-    protected function describeMismatch(
+    public function describeMethodMismatch(
         string $methodEntityId,
         mixed $reflMethod,
         PHPMethod $stubMethod,

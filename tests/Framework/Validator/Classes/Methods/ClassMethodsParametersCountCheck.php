@@ -2,8 +2,10 @@
 
 namespace StubTests\Framework\Validator\Classes\Methods;
 
+use StubTests\Framework\Validator\AbstractMemberFlagCheck;
+use StubTests\Framework\Validator\Contracts\DescribesMethodMismatch;
+use StubTests\Framework\Validator\Contracts\MemberKind;
 use StubTests\Framework\Model\PHPMethod;
-use StubTests\Framework\Validator\AbstractMethodFlagCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\ParameterCountComparator;
 
@@ -37,14 +39,19 @@ use StubTests\Framework\Validator\Services\ParameterCountComparator;
  * - method-level: EntityType::METHOD + '\ClassName::methodName' + 'ParametersCountCheck'
  *   → skips only that specific mismatch.
  */
-class ClassMethodsParametersCountCheck extends AbstractMethodFlagCheck
+class ClassMethodsParametersCountCheck extends AbstractMemberFlagCheck implements DescribesMethodMismatch
 {
+    protected function memberKind(): MemberKind
+    {
+        return MemberKind::METHOD;
+    }
+
     protected function getCheckName(): CheckType
     {
         return CheckType::PARAMETERS_COUNT;
     }
 
-    protected function describeMismatch(
+    public function describeMethodMismatch(
         string $methodEntityId,
         mixed $reflMethod,
         PHPMethod $stubMethod,
