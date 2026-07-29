@@ -2,8 +2,10 @@
 
 namespace StubTests\Framework\Validator\Classes\Properties;
 
+use StubTests\Framework\Validator\AbstractMemberFlagCheck;
+use StubTests\Framework\Validator\Contracts\DescribesPropertyMismatch;
+use StubTests\Framework\Validator\Contracts\MemberKind;
 use StubTests\Framework\Model\PHPProperty;
-use StubTests\Framework\Validator\AbstractPropertyFlagCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
@@ -24,14 +26,19 @@ use StubTests\Framework\Validator\KnownProblems\CheckType;
  * - property-level: EntityType::PROPERTY + '\ClassName::$propertyName' + 'ClassPropertiesVisibilityCheck'
  *   → skips only that specific mismatch.
  */
-class ClassPropertiesVisibilityCheck extends AbstractPropertyFlagCheck
+class ClassPropertiesVisibilityCheck extends AbstractMemberFlagCheck implements DescribesPropertyMismatch
 {
+    protected function memberKind(): MemberKind
+    {
+        return MemberKind::PROPERTY;
+    }
+
     protected function getCheckName(): CheckType
     {
         return CheckType::CLASS_PROPERTIES_VISIBILITY;
     }
 
-    protected function describeMismatch(
+    public function describePropertyMismatch(
         string $propertyEntityId,
         PHPProperty $reflProperty,
         PHPProperty $stubProperty,

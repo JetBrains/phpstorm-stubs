@@ -2,8 +2,10 @@
 
 namespace StubTests\Framework\Validator\Classes\Methods;
 
+use StubTests\Framework\Validator\AbstractMemberFlagCheck;
+use StubTests\Framework\Validator\Contracts\DescribesMethodMismatch;
+use StubTests\Framework\Validator\Contracts\MemberKind;
 use StubTests\Framework\Model\PHPMethod;
-use StubTests\Framework\Validator\AbstractMethodFlagCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\ReturnTypeComparator;
 use StubTests\Framework\Validator\Services\ReturnTypeResolver;
@@ -30,8 +32,13 @@ use StubTests\Framework\Validator\Services\TypeResolver;
  * - method-level: EntityType::METHOD + '\ClassName::methodName' + 'ReturnTypesCheck'
  *   → skips only that specific mismatch.
  */
-class ClassMethodsReturnTypesCheck extends AbstractMethodFlagCheck
+class ClassMethodsReturnTypesCheck extends AbstractMemberFlagCheck implements DescribesMethodMismatch
 {
+    protected function memberKind(): MemberKind
+    {
+        return MemberKind::METHOD;
+    }
+
     public function supports(string $phpVersion): bool
     {
         // Return type declarations were introduced in PHP 7.0
@@ -43,7 +50,7 @@ class ClassMethodsReturnTypesCheck extends AbstractMethodFlagCheck
         return CheckType::RETURN_TYPES;
     }
 
-    protected function describeMismatch(
+    public function describeMethodMismatch(
         string $methodEntityId,
         mixed $reflMethod,
         PHPMethod $stubMethod,

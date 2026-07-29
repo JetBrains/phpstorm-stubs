@@ -2,8 +2,10 @@
 
 namespace StubTests\Framework\Validator\Classes\Properties;
 
+use StubTests\Framework\Validator\AbstractMemberFlagCheck;
+use StubTests\Framework\Validator\Contracts\DescribesPropertyMismatch;
+use StubTests\Framework\Validator\Contracts\MemberKind;
 use StubTests\Framework\Model\PHPProperty;
-use StubTests\Framework\Validator\AbstractPropertyFlagCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
@@ -27,8 +29,13 @@ use StubTests\Framework\Validator\KnownProblems\CheckType;
  * - property-level: EntityType::PROPERTY + '\ClassName::$propertyName' + 'ClassPropertyReadonlyCheck'
  *   → skips only that specific mismatch.
  */
-class ClassPropertyReadonlyCheck extends AbstractPropertyFlagCheck
+class ClassPropertyReadonlyCheck extends AbstractMemberFlagCheck implements DescribesPropertyMismatch
 {
+    protected function memberKind(): MemberKind
+    {
+        return MemberKind::PROPERTY;
+    }
+
     public function supports(string $phpVersion): bool
     {
         return version_compare($phpVersion, '8.1', '>=');
@@ -39,7 +46,7 @@ class ClassPropertyReadonlyCheck extends AbstractPropertyFlagCheck
         return CheckType::CLASS_PROPERTIES_READONLY;
     }
 
-    protected function describeMismatch(
+    public function describePropertyMismatch(
         string $propertyEntityId,
         PHPProperty $reflProperty,
         PHPProperty $stubProperty,
