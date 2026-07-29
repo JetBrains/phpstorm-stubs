@@ -69,6 +69,28 @@ try {
     $phpVersion = $extractedData['phpVersion'] ?? 'unknown';
     $runtimeVersion = $extractedData['runtimeVersion'] ?? 'unknown';
 
+    // Guard against writing one version's reflection data into another version's cache.
+    //
+    // Stage 1 records the runtime it actually ran on. Nothing used to compare that against the
+    // cache being written, so a mismatch was silent — and it is easy to cause: running
+    // run-all-reflection-parsers.sh with --skip-build and an explicit version list reuses whatever
+    // php_under_test image was last built, so `--skip-build 8.1` can extract from the 8.6 image and
+    // overwrite Reflection8.1.json with 8.6 data. That produced a 100k-line diff that looked like a
+    // legitimate regeneration.
+    //
+    // The target version is taken from the output filename, which is how the caller names it.
+    if (preg_match('/Reflection(\d+\.\d+)\.json$/', $outputFile, $targetMatch) === 1) {
+        $targetVersion = $targetMatch[1];
+        $actualMajorMinor = implode('.', array_slice(explode('.', $runtimeVersion), 0, 2));
+
+        if ($runtimeVersion !== 'unknown' && $actualMajorMinor !== $targetVersion) {
+            $message = "Refusing to write {$outputFile}: the input data was extracted on PHP "
+                . "{$runtimeVersion}, not PHP {$targetVersion}. Rebuild the php_under_test image for "
+                . "{$targetVersion} (drop --skip-build) so Stage 1 runs on the intended runtime.";
+            throw new Exception($message);
+        }
+    }
+
     echo "      ✓ Loaded data for PHP {$phpVersion} (runtime: {$runtimeVersion})\n";
     echo "      - Classes:    " . count($extractedData['classes'] ?? []) . "\n";
     echo "      - Interfaces: " . count($extractedData['interfaces'] ?? []) . "\n";
