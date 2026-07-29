@@ -1515,6 +1515,7 @@ abstract class SplHeap implements Iterator, Countable
 
     /**
      * @return bool
+     * @since 7.0
      */
     #[TentativeType]
     public function isCorrupted(): bool {}
@@ -1837,12 +1838,14 @@ class SplPriorityQueue implements Iterator, Countable
 
     /**
      * @return bool
+     * @since 7.0
      */
     #[TentativeType]
     public function isCorrupted(): bool {}
 
     /**
      * @return int
+     * @since 7.0
      */
     #[TentativeType]
     public function getExtractFlags(): int {}
@@ -1994,6 +1997,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * Rewind iterator back to the start
      * @link https://php.net/manual/en/splfixedarray.rewind.php
      * @return void
+     * @removed 8.0
      */
     public function rewind() {}
 
@@ -2001,6 +2005,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * Return current array entry
      * @link https://php.net/manual/en/splfixedarray.current.php
      * @return TValue The current element value.
+     * @removed 8.0
      */
     public function current() {}
 
@@ -2008,6 +2013,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * Return current array index
      * @link https://php.net/manual/en/splfixedarray.key.php
      * @return int The current array index.
+     * @removed 8.0
      */
     public function key() {}
 
@@ -2015,6 +2021,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * Move to next entry
      * @link https://php.net/manual/en/splfixedarray.next.php
      * @return void
+     * @removed 8.0
      */
     public function next() {}
 
@@ -2022,6 +2029,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * Check whether the array contains more elements
      * @link https://php.net/manual/en/splfixedarray.valid.php
      * @return bool true if the array contains any more elements, false otherwise.
+     * @removed 8.0
      */
     #[TentativeType]
     public function valid(): bool {}

@@ -403,8 +403,6 @@ final class HTMLDocument extends Document
     public function saveHtml(?Node $node = null): string {}
 
     public function saveHtmlFile(string $filename): int|false {}
-
-    public function debugGetTemplateCount(): int {}
 }
 /**
  * @since 8.4
