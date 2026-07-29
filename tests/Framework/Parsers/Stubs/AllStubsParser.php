@@ -3,18 +3,18 @@
 namespace StubTests\Framework\Parsers\Stubs;
 
 use StubTests\Framework\DataProvider\StubsDataProvider;
-use StubTests\Framework\Storage\ParsedDataStorageManager;
+use StubTests\Framework\Storage\ParsedDataWriter;
 
 class AllStubsParser
 {
     /**
      * @param StubsDataProvider $dataProvider
-     * @param ParsedDataStorageManager $storageManager
+     * @param ParsedDataWriter $storageManager
      * @param MultiEntityStubParserInterface[] $parsers Array of parsers implementing MultiEntityStubParserInterface
      */
     public function __construct(
         private StubsDataProvider $dataProvider,
-        private ParsedDataStorageManager $storageManager,
+        private ParsedDataWriter $storageManager,
         private array $parsers
     ) {}
 
