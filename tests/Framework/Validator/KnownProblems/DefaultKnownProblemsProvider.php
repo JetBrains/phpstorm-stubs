@@ -401,6 +401,54 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 entityIds: ['\\FFI::new', '\\FFI::cast', '\\FFI::type']
             ),
 
+            // ── ClassStaleMethodsCheck exceptions ──────────────────────────────────────────────
+            // Legitimate stub-only method declarations, i.e. methods the stubs must declare even
+            // though reflection does not report them. See ClassStaleMethodsCheck for the direction
+            // this check runs in and why its scope is limited to CORE and BUNDLED.
+
+            // PDO driver-specific methods: present only when the corresponding PDO driver is
+            // compiled into the running PHP. The reflecting containers build pdo_sqlite but not
+            // pdo_pgsql, so reflection reports neither the pgsql* nor (in some builds) the
+            // sqliteCreate* family. Stubs must declare them for users who do have those drivers.
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\PDO',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'PDO exposes driver-specific methods (sqliteCreateAggregate/Collation/Function, pgsqlCopyFrom*/CopyTo*, pgsqlLOB*, pgsqlGetNotify, pgsqlGetPid) that exist only when that driver is compiled in. Reflection in the cache-generating container reports only the drivers it was built with, so these read as stub-only regardless of whether the stub is correct.'
+            ),
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\PDOStatement',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'PDOStatement::connect is a driver-level entry point that reflection does not report on the base class; same rationale as \\PDO above.'
+            ),
+
+            // SimpleXMLElement implements ArrayAccess and Iterator through internal object handlers
+            // (get_dimension/has_dimension, get_iterator) rather than declared methods, so reflection
+            // lists none of them even though they are callable.
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\SimpleXMLElement',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'SimpleXMLElement satisfies ArrayAccess (offsetExists/Get/Set/Unset) and Iterator (rewind/valid/current/key/next) via internal C handlers rather than declared methods, so reflection reports none of them while they are all callable. Stubs must declare them for completion and type inference.'
+            ),
+
+            // DOM methods whose presence varies across versions in a way stubs cannot yet express.
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\DOMNode',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'compareDocumentPosition and isEqualNode are reported by reflection at 7.4, absent 8.0-8.2, and present again from 8.3/8.4 onward. PHP documents both as added in 8.3, which contradicts the 7.4 reading, so the correct bound is unclear and the stubs are left unbounded pending investigation rather than annotated on an uncertain basis.'
+            ),
+
             // SplFixedArray - interfaces changed across PHP versions; stubs declare the union
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,

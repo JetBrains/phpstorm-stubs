@@ -80,6 +80,4 @@ class ReflectionAttribute implements Reflector
     private function __clone(): void {}
 
     public function __toString(): string {}
-
-    public static function export() {}
 }

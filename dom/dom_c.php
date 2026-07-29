@@ -1107,6 +1107,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @param DOMNode $node
      * @param $namespace
      * @param $qualifiedName
+     * @removed 8.0
      */
     public function renameNode(DOMNode $node, $namespace, $qualifiedName) {}
 
@@ -2182,6 +2183,7 @@ class DOMText extends DOMCharacterData
 
     /**
      * @param $content
+     * @removed 8.0
      */
     public function replaceWholeText($content) {}
 

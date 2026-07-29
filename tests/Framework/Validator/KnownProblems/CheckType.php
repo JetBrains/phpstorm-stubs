@@ -65,6 +65,20 @@ enum CheckType: string
     case CLASS_METHODS_EXIST = 'ClassMethodsExistCheck';
 
     /**
+     * Validates the reverse of CLASS_METHODS_EXIST: that a method declared in stubs actually
+     * exists in reflection for the version under test.
+     *
+     * Every other check runs reflection->stubs, so a stub declaring a member that the runtime does
+     * not have was invisible to the whole suite — which is how five SplFixedArray iterator methods,
+     * DOMDocument::renameNode, DOMText::replaceWholeText and ReflectionZendExtension::export sat
+     * unbounded past their removal in 8.0 while 412k tests passed.
+     *
+     * Scoped to StubCategory::CORE and BUNDLED, and skips magic methods and
+     * PS_UNRESERVE_PREFIX_* — see ClassStaleMethodsCheck for why each exclusion is required.
+     */
+    case CLASS_STALE_METHODS = 'ClassStaleMethodsCheck';
+
+    /**
      * Validates that the `final` attribute on methods in stubs matches reflection.
      */
     case CLASS_FINAL_METHODS = 'ClassFinalMethodsCheck';

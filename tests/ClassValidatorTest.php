@@ -14,6 +14,7 @@ use StubTests\Framework\Validator\Classes\ClassFinalCheck;
 use StubTests\Framework\Validator\Classes\ClassAttributeTargetsCheck;
 use StubTests\Framework\Validator\Classes\Methods\ClassFinalMethodsCheck;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsExistCheck;
+use StubTests\Framework\Validator\Classes\Methods\ClassStaleMethodsCheck;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsVisibilityCheck;
 use StubTests\Framework\Validator\Classes\Properties\ClassStaticPropertiesCheck;
 use StubTests\Framework\Validator\Classes\Properties\ClassPropertiesExistCheck;
@@ -74,6 +75,8 @@ class ClassValidatorTest extends ValidatorTestBase
             'checkParentClass' => new CheckDescriptor(ClassParentClassCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} parent class validation failed in PHP {phpVersion}'),
             'checkClassInterfaces' => new CheckDescriptor(ClassInterfacesCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} interfaces validation failed in PHP {phpVersion}'),
             'checkClassesMethodsExist' => new CheckDescriptor(ClassMethodsExistCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} methods check failed in PHP {phpVersion}'),
+            // The reverse direction of the check above: a stub method that the runtime does not have.
+            'checkClassesStaleMethods' => new CheckDescriptor(ClassStaleMethodsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} stale methods check failed in PHP {phpVersion}'),
             'checkClassesFinalMethods' => new CheckDescriptor(ClassFinalMethodsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} final methods check failed in PHP {phpVersion}'),
             'checkClassesStaticMethods' => new CheckDescriptor(ClassStaticMethodsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} static methods check failed in PHP {phpVersion}'),
             'checkClassProperties' => new CheckDescriptor(ClassPropertiesExistCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} properties check failed in PHP {phpVersion}'),

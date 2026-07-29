@@ -39,6 +39,7 @@ class ReflectionZendExtension implements Reflector
      * will do the opposite.
      * @return string|null If the $return parameter is set to {@see true}, then
      * the export is returned as a string, otherwise {@see null} is returned.
+     * @removed 8.0
      */
     #[Deprecated(since: '7.4')]
     public static function export($name, $return = false) {}
