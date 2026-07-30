@@ -44,6 +44,15 @@ abstract class AbstractConstantFlagCheck extends AbstractClassCheck
     {
         $results = new CheckResultSet();
 
+        // A version the subclass does not support has nothing to compare, so bail out before
+        // building the reflection constant map (which includes every inherited constant) and
+        // doing a registry lookup per stub constant. ValidatorTestBase already fails loudly on a
+        // registration whose range exceeds supports(), so this only shortcuts direct callers.
+        if (!$this->supports($phpVersion)) {
+            $results->addSuccess($entityId);
+            return $results;
+        }
+
         if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, $this->getCheckName(), $phpVersion)) {
             return $results;
         }

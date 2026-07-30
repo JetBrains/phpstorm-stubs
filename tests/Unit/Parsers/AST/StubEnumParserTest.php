@@ -30,9 +30,25 @@ class StubEnumParserTest extends BaseTestCase
         return $this->enumParser->parse($this->filesProvider->getStubFileContent($fixtureFile));
     }
 
-    public function testItReturnsCorrectInstance()
+    /**
+     * Pins both halves of parse()'s type contract. assertInstanceOf alone is weak here: it keeps
+     * passing if the `: PHPEnum` declaration is dropped or widened, as long as the body still
+     * happens to return the right thing. Asserting the declared return type catches the loosening
+     * itself, which is the change that would silently let a different entity type escape.
+     *
+     * Calls the parser directly rather than through parseFixture(), whose own `: PHPEnum` return
+     * type would coerce-or-TypeError and hide which side actually regressed.
+     */
+    public function testItDeclaresAndReturnsPHPEnum()
     {
-        self::assertInstanceOf(PHPEnum::class, $this->parseFixture('versioned_enum.txt'));
+        $returnType = (new \ReflectionMethod(StubEnumParser::class, 'parse'))->getReturnType();
+
+        self::assertInstanceOf(\ReflectionNamedType::class, $returnType, 'parse() must keep a single named return type');
+        self::assertSame(PHPEnum::class, $returnType->getName());
+        self::assertFalse($returnType->allowsNull(), 'parse() must not become nullable');
+
+        $stubCode = $this->filesProvider->getStubFileContent('versioned_enum.txt');
+        self::assertInstanceOf(PHPEnum::class, $this->enumParser->parse($stubCode));
     }
 
     public function testItParsesNameAndId()

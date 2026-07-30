@@ -71,6 +71,11 @@ class ClassValidatorTest extends ValidatorTestBase
             'checkClassFinal' => new CheckDescriptor(ClassFinalCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} final validation failed in PHP {phpVersion}'),
             // Attribute target flags are declared without version awareness in stubs, so - like the
             // constant-value checks - the comparison against reflection only runs at the latest version.
+            // Cost of a LATEST-only range: the entity list is taken from Reflection{LATEST}.json, so
+            // any entity missing there is never checked at *any* version (currently 696 - 335
+            // functions, 343 constants, 18 classes - of which only imap/pspell/wddx are genuine PHP
+            // removals; the rest is Docker image drift). Widening the range does not help, because
+            // the stub side has no version information to compare against.
             'checkClassAttributeTargets' => new CheckDescriptor(ClassAttributeTargetsCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Class {entityId} attribute targets validation failed in PHP {phpVersion}'),
             'checkParentClass' => new CheckDescriptor(ClassParentClassCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} parent class validation failed in PHP {phpVersion}'),
             'checkClassInterfaces' => new CheckDescriptor(ClassInterfacesCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} interfaces validation failed in PHP {phpVersion}'),
@@ -92,9 +97,14 @@ class ClassValidatorTest extends ValidatorTestBase
             'checkClassMethodsOptionalParameters' => new CheckDescriptor(ClassMethodsOptionalParametersCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} methods optional parameters check failed in PHP {phpVersion}'),
             'checkClassConstants' => new CheckDescriptor(ClassConstantsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} constants check failed in PHP {phpVersion}'),
             'checkClassConstantsVisibility' => new CheckDescriptor(ClassConstantsVisibilityCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} constants visibility check failed in PHP {phpVersion}'),
-            'checkClassConstantsValue' => new CheckDescriptor(ClassConstantsValueCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} constants value check failed in PHP {phpVersion}'),
+            // Constant values are compared against reflection at the latest version only, so the
+            // range matches ClassConstantsValueCheck::supports() rather than advertising 13.
+            'checkClassConstantsValue' => new CheckDescriptor(ClassConstantsValueCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Class {entityId} constants value check failed in PHP {phpVersion}'),
             'checkClassMethodsParameterNames' => new CheckDescriptor(ClassMethodsParameterNamesCheck::class, PhpVersions::PHP_8_0, PhpVersions::LATEST, 'Class {entityId} methods parameter names check failed in PHP {phpVersion}'),
-            'checkClassMethodsTentativeReturnType' => new CheckDescriptor(ClassMethodsTentativeReturnTypeCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Class {entityId} methods tentative return type check failed in PHP {phpVersion}'),
+            // Tentative return types exist from PHP 8.1, and the check's own supports() gates on that.
+            // Matches the interface/enum registrations; the two 8.1-8.2 / 8.1-8.3 known-problem
+            // definitions only apply because this range starts at 8.1.
+            'checkClassMethodsTentativeReturnType' => new CheckDescriptor(ClassMethodsTentativeReturnTypeCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Class {entityId} methods tentative return type check failed in PHP {phpVersion}'),
             'checkClassPropertyReadonly' => new CheckDescriptor(ClassPropertyReadonlyCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Class {entityId} property readonly check failed in PHP {phpVersion}'),
             'checkClassMethodsParameterDefaultValue' => new CheckDescriptor(ClassMethodsParameterDefaultValueCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Class {entityId} methods parameter default value check failed in PHP {phpVersion}'),
             'checkClassMethodsPhpDocConformsSignature' => new CheckDescriptor(ClassMethodsPhpDocConformsSignatureCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} PhpDoc/signature type mismatch in PHP {phpVersion}'),

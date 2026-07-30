@@ -38,7 +38,7 @@ class ClassStaticMethodsCheck extends AbstractMemberFlagCheck implements Describ
         return CheckType::CLASS_STATIC_METHODS;
     }
 
-    public function describeMethodMismatch(string $methodEntityId, mixed $reflMethod, PHPMethod $stubMethod, string $phpVersion): ?string
+    public function describeMethodMismatch(string $methodEntityId, PHPMethod $reflMethod, PHPMethod $stubMethod, string $phpVersion): ?string
     {
         $reflIsStatic = $reflMethod->isStatic();
         $stubIsStatic = $stubMethod->isStatic();

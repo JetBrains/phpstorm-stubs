@@ -31,6 +31,16 @@ use StubTests\Framework\Validator\KnownProblems\CheckType;
  */
 class ClassConstantsValueCheck extends AbstractConstantFlagCheck
 {
+    /**
+     * Value comparison is only meaningful at the latest PHP version (see the class docblock), so
+     * declare that instead of inheriting the unconditional `true`. Without this the whole run()
+     * body executed for all 13 versions and its result was discarded.
+     */
+    public function supports(string $phpVersion): bool
+    {
+        return $phpVersion === PhpVersions::LATEST->value;
+    }
+
     protected function getCheckName(): CheckType
     {
         return CheckType::CLASS_CONSTANTS_VALUE;
@@ -42,10 +52,6 @@ class ClassConstantsValueCheck extends AbstractConstantFlagCheck
         PHPClassConstant $stubConstant,
         string $phpVersion
     ): ?string {
-        if ($phpVersion !== PhpVersions::LATEST->value) {
-            return null;
-        }
-
         if ($reflConstant->getValue() === null || $stubConstant->getValue() === null) {
             return null;
         }

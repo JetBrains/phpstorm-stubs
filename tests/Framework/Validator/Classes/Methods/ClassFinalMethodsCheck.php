@@ -38,7 +38,7 @@ class ClassFinalMethodsCheck extends AbstractMemberFlagCheck implements Describe
         return CheckType::CLASS_FINAL_METHODS;
     }
 
-    public function describeMethodMismatch(string $methodEntityId, mixed $reflMethod, PHPMethod $stubMethod, string $phpVersion): ?string
+    public function describeMethodMismatch(string $methodEntityId, PHPMethod $reflMethod, PHPMethod $stubMethod, string $phpVersion): ?string
     {
         $reflIsFinal = $reflMethod->isFinal();
         $stubIsFinal = $stubMethod->isFinal();

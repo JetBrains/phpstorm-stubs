@@ -74,7 +74,9 @@ class InterfaceValidatorTest extends ValidatorTestBase
             'checkInterfaceMethodsOptionalParameters' => new CheckDescriptor(ClassMethodsOptionalParametersCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Interface {entityId} methods optional parameters check failed in PHP {phpVersion}', $i),
             'checkInterfaceConstants' => new CheckDescriptor(ClassConstantsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Interface {entityId} constants check failed in PHP {phpVersion}', $i),
             'checkInterfaceConstantsVisibility' => new CheckDescriptor(ClassConstantsVisibilityCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Interface {entityId} constants visibility check failed in PHP {phpVersion}', $i),
-            'checkInterfaceConstantsValue' => new CheckDescriptor(ClassConstantsValueCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Interface {entityId} constants value check failed in PHP {phpVersion}', $i),
+            // Constant values are compared against reflection at the latest version only, so the
+            // range matches ClassConstantsValueCheck::supports() rather than advertising 13.
+            'checkInterfaceConstantsValue' => new CheckDescriptor(ClassConstantsValueCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Interface {entityId} constants value check failed in PHP {phpVersion}', $i),
             'checkInterfaceMethodsParameterNames' => new CheckDescriptor(ClassMethodsParameterNamesCheck::class, PhpVersions::PHP_8_0, PhpVersions::LATEST, 'Interface {entityId} methods parameter names check failed in PHP {phpVersion}', $i),
             'checkInterfaceMethodsTentativeReturnType' => new CheckDescriptor(ClassMethodsTentativeReturnTypeCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Interface {entityId} methods tentative return type check failed in PHP {phpVersion}', $i),
             'checkInterfaceMethodsParameterDefaultValue' => new CheckDescriptor(ClassMethodsParameterDefaultValueCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Interface {entityId} methods parameter default value check failed in PHP {phpVersion}', $i),

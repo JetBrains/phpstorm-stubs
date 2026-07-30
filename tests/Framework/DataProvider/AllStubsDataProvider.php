@@ -96,9 +96,28 @@ class AllStubsDataProvider implements StubsDataProvider
         // hard-coded "/vendor/" needle never matched and vendor/tests/.git were parsed too
         // (pulling in thousands of non-stub files).
         $normalizedPath = str_replace('\\', '/', $filePath);
+        $normalizedRoot = rtrim(str_replace('\\', '/', $this->stubsRootPath), '/');
+
+        // Only the portion *below the stubs root* may trigger exclusion. Matching the absolute
+        // path meant that if any ancestor directory of the checkout happened to be named
+        // vendor/tests/.git/.idea, every discovered file was excluded and the whole stub set came
+        // back empty — a green run that validated nothing. The realistic triggers are a clone
+        // whose path contains such a segment (e.g. ~/work/tests/phpstorm-stubs) and a git
+        // worktree, which is conventionally created under .git/worktrees/<name>.
+        //
+        // A path that is not under the root cannot be classified against it, and there is no
+        // safe absolute-path fallback: falling back to matching $normalizedPath is precisely the
+        // bug above. Callers only ever pass paths produced by StubFileScanner::collect() from
+        // this root, and its descend() callback already prunes these directories during
+        // traversal, so anything outside the root is simply not excluded here.
+        if (!str_starts_with($normalizedPath, $normalizedRoot . '/')) {
+            return false;
+        }
+
+        $relativePath = substr($normalizedPath, strlen($normalizedRoot));
 
         foreach ($this->excludedPaths as $excludedPath) {
-            if (str_contains($normalizedPath, '/' . $excludedPath . '/')) {
+            if (str_contains($relativePath, '/' . $excludedPath . '/')) {
                 return true;
             }
         }

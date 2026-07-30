@@ -3,6 +3,7 @@
 namespace StubTests\Unit\Parsers\Reflection;
 
 use PHPUnit\Framework\TestCase;
+use StubTests\Framework\Model\PHPClassLikeObject;
 use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Parsers\Reflection\ReflectionInterfaceParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClass;
@@ -249,12 +250,22 @@ class ReflectionInterfaceParserTest extends TestCase
         self::assertEquals(1, sizeof($basePHPElement->getMethods()));
     }
 
-    public function testItDoesNotReturnNullIfNoConstants()
+    /**
+     * The `: array` declarations on PHPClassLikeObject are what make a null return impossible, and
+     * every assertNotNull() on these getters in this file leans on them. Pin the declarations
+     * themselves: widening either to `?array` would reintroduce the null case while the
+     * behavioural tests below still passed, and callers doing foreach($x->getMethods()) would
+     * start breaking at runtime instead.
+     */
+    public function testItDeclaresMethodsAndConstantsAsNonNullableArrays()
     {
-        $reflectionClassMock = $this->getMockBuilder(AdaptedReflectionClass::class)->disableOriginalConstructor()->getMock();
-        $reflectionClassMock->method('getConstants')->willReturn([]);
-        $basePHPElement = new ReflectionInterfaceParser()->parse($reflectionClassMock);
-        self::assertNotNull($basePHPElement->getConstants());
+        foreach (['getConstants', 'getMethods'] as $getter) {
+            $returnType = (new \ReflectionMethod(PHPClassLikeObject::class, $getter))->getReturnType();
+
+            self::assertInstanceOf(\ReflectionNamedType::class, $returnType, "{$getter}() must keep a single named return type");
+            self::assertSame('array', $returnType->getName(), "{$getter}() must stay declared as array");
+            self::assertFalse($returnType->allowsNull(), "{$getter}() must stay non-nullable");
+        }
     }
 
     public function testItReturnsEmptyArrayIfNoConstants()
