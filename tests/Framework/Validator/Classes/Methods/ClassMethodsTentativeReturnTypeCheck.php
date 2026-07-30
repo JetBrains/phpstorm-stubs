@@ -51,12 +51,15 @@ class ClassMethodsTentativeReturnTypeCheck extends AbstractMemberFlagCheck imple
 
     public function describeMethodMismatch(
         string $methodEntityId,
-        mixed $reflMethod,
+        PHPMethod $reflMethod,
         PHPMethod $stubMethod,
         string $phpVersion
     ): ?string {
-        $reflTentative = method_exists($reflMethod, 'hasTentativeReturnType')
-            && (bool)$reflMethod->hasTentativeReturnType();
+        // No method_exists() guard: $reflMethod is declared PHPMethod, which always has
+        // hasTentativeReturnType(). The guard could never be false, and if a non-PHPMethod were
+        // ever passed it silently reported "not tentative" for every method in the suite — a
+        // green run that validated nothing. The parameter type now raises a TypeError instead.
+        $reflTentative = $reflMethod->hasTentativeReturnType();
         $stubTentative = $stubMethod->hasTentativeReturnType();
 
         if ($reflTentative === $stubTentative) {

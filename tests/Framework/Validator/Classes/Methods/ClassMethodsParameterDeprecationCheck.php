@@ -35,7 +35,7 @@ class ClassMethodsParameterDeprecationCheck extends AbstractMemberFlagCheck impl
 
     public function describeMethodMismatch(
         string $methodEntityId,
-        mixed $reflMethod,
+        PHPMethod $reflMethod,
         PHPMethod $stubMethod,
         string $phpVersion
     ): ?string {

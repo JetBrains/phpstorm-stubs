@@ -2,9 +2,11 @@
 
 namespace StubTests\Unit\Validator\Classes\Constants;
 
+use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Constants\ClassConstantsValueCheck;
+use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblems\ProblemDefinition;
@@ -28,11 +30,11 @@ class ClassConstantsValueCheckTest extends CheckTestCase
 
     // ── supports() ────────────────────────────────────────────────────────────
 
-    public function testSupportsAllVersions(): void
+    public function testSupportsOnlyLatestVersion(): void
     {
         $check = new ClassConstantsValueCheck();
-        $this->assertTrue($check->supports(PhpVersions::PHP_5_6->value));
-        $this->assertTrue($check->supports(PhpVersions::PHP_8_1->value));
+        $this->assertFalse($check->supports(PhpVersions::PHP_5_6->value));
+        $this->assertFalse($check->supports(PhpVersions::PHP_8_1->value));
         $this->assertTrue($check->supports(PhpVersions::LATEST->value));
     }
 
@@ -125,7 +127,9 @@ class ClassConstantsValueCheckTest extends CheckTestCase
 
     public function testValueMismatchSkippedOnNonLatestPhp(): void
     {
-        // Value comparison is intentionally skipped on non-latest PHP versions
+        // A genuine value mismatch (42 vs 0) must still be skipped below LATEST. The skip now
+        // happens in AbstractConstantFlagCheck::run(), which returns early when supports() is
+        // false — describeMismatch() no longer carries its own version guard.
         $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', 42)]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', 0)]);
@@ -135,6 +139,34 @@ class ClassConstantsValueCheckTest extends CheckTestCase
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassConstantsValueCheck($provider))->run($stubs, $classId, PhpVersions::PHP_8_0->value);
+
+        $this->assertFalse($result->hasFailures());
+    }
+
+    /**
+     * Pins the early return in AbstractConstantFlagCheck::run().
+     *
+     * Without it, run() executed its whole body for all 13 versions — building a reflection
+     * constant map that includes every inherited constant, then a per-constant known-problem
+     * lookup — and discarded the result via describeMismatch()'s version guard. The observable
+     * difference is that an unsupported version must not touch the storage at all, so a plain
+     * "no failures" assertion cannot detect the regression: assert the reflection lookup and the
+     * stub storage are never consulted.
+     */
+    public function testUnsupportedVersionShortCircuitsBeforeTouchingStorage(): void
+    {
+        $classId = '\\DateTime';
+
+        $provider = $this->createMock(ReflectionProviderInterface::class);
+        $provider->expects($this->never())->method('getReflection');
+
+        $stubs = $this->createMock(StubDataQueryInterface::class);
+        $stubs->expects($this->never())->method('getClasses');
+
+        $check = new ClassConstantsValueCheck($provider);
+        self::assertFalse($check->supports(PhpVersions::PHP_8_0->value), 'guards the premise of this test');
+
+        $result = $check->run($stubs, $classId, PhpVersions::PHP_8_0->value);
 
         $this->assertFalse($result->hasFailures());
     }

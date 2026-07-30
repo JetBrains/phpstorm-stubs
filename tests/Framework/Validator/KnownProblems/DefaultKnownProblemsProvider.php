@@ -1532,6 +1532,49 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 ],
             ),
 
+            // Tentative return types that PHP 8.5 promoted to real (enforced) return types.
+            // Verified against the committed reflection caches: hasTentativeReturnType is true
+            // for 8.1-8.4 and false for 8.5-8.6 on every id below. The stubs declare the plain
+            // concrete return type, which matches the current runtime, so the divergence is
+            // purely historical. It is suppressed for the versions where PHP still called them
+            // tentative rather than marking the stubs #[TentativeType] and having to suppress
+            // the newest versions instead.
+            //
+            // These 19 methods are why tests/ClassValidatorTest.php's and
+            // tests/FunctionValidatorTest.php's descriptors were narrowed to LATEST..LATEST in
+            // 06eb7e14 (an unrelated ICU/final commit) when 8.5 landed. Narrowing hid five
+            // versions of coverage and stranded the two definitions above, so the range is
+            // restored and the real reason recorded here instead.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::TENTATIVE_RETURN_TYPE],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_8_1, PhpVersions::PHP_8_4),
+                reason: 'PHP 8.5 turned these tentative return types into real ones; stubs declare the concrete type for all versions',
+                entityIds: [
+                    '\\Directory::close',
+                    '\\Directory::read',
+                    '\\Directory::rewind',
+                    '\\DirectoryIterator::_bad_state_ex',
+                    '\\FilesystemIterator::_bad_state_ex',
+                    '\\GlobIterator::_bad_state_ex',
+                    '\\Phar::_bad_state_ex',
+                    '\\PharData::_bad_state_ex',
+                    '\\PharFileInfo::_bad_state_ex',
+                    '\\RecursiveDirectoryIterator::_bad_state_ex',
+                    '\\ReflectionGenerator::getExecutingFile',
+                    '\\ReflectionGenerator::getExecutingGenerator',
+                    '\\ReflectionGenerator::getExecutingLine',
+                    '\\ReflectionGenerator::getFunction',
+                    '\\ReflectionGenerator::getThis',
+                    '\\ReflectionGenerator::getTrace',
+                    '\\SplFileInfo::_bad_state_ex',
+                    '\\SplFileObject::_bad_state_ex',
+                    '\\SplTempFileObject::_bad_state_ex',
+                ],
+            ),
+
             // ── FunctionParameterDefaultValueCheck known problems ─────────────────
 
             // round() - PHP 8.4 changed $mode default from int PHP_ROUND_HALF_UP (0) to

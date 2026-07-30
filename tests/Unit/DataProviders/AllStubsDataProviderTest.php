@@ -223,14 +223,76 @@ class AllStubsDataProviderTest extends TestCase
     {
         // On Windows the directory iterator yields backslash paths. Exclusion must still
         // match, otherwise vendor/tests/.git get parsed as if they were stubs.
-        $provider = new AllStubsDataProvider();
+        //
+        // The roots are passed explicitly: exclusion is evaluated on the path *relative to the
+        // stubs root*, so paths under an unrelated root (the default is this repo's root) would
+        // exit before matching and report "not excluded", making the assertions vacuous.
+        $method = new \ReflectionMethod(AllStubsDataProvider::class, 'shouldExclude');
+        $windows = new AllStubsDataProvider('C:\\proj');
+        $posix = new AllStubsDataProvider('/proj');
+
+        self::assertTrue($method->invoke($windows, 'C:\\proj\\vendor\\nikic\\file.php'), 'backslash /vendor/');
+        self::assertTrue($method->invoke($windows, 'C:\\proj\\tests\\Foo.php'), 'backslash /tests/');
+        self::assertTrue($method->invoke($posix, '/proj/vendor/nikic/file.php'), 'forward-slash /vendor/');
+        self::assertFalse($method->invoke($windows, 'C:\\proj\\dom\\dom_n.php'), 'real stub must not be excluded');
+        self::assertFalse($method->invoke($posix, '/proj/dom/dom_n.php'), 'real stub must not be excluded');
+    }
+
+    /**
+     * Exclusion must be evaluated relative to the stubs root, never against the absolute path.
+     *
+     * The framework only ever runs from a clone of this repository (StubTests\ is registered
+     * under autoload-dev, and phpunit.xml.dist is export-ignored, so it cannot run from a
+     * Composer install). The reachable trigger is therefore the *clone location*: if any
+     * ancestor directory is named vendor/tests/.git/.idea, absolute-path matching excluded every
+     * discovered file. getAllStubFiles() returned an empty array, run-stubs-parser.php wrote five
+     * empty Stubs*.json caches and printed SUCCESS, and every validator then compared reflection
+     * against an empty stub set — a fully green run that validated nothing.
+     *
+     * `~/work/tests/phpstorm-stubs` is an ordinary checkout path, and `.git/worktrees/<name>` is
+     * where `git worktree add` puts a linked worktree by convention.
+     */
+    public function testExclusionIsRelativeToTheStubsRootSoACheckoutUnderSuchADirectoryStillWorks()
+    {
         $method = new \ReflectionMethod(AllStubsDataProvider::class, 'shouldExclude');
 
-        self::assertTrue($method->invoke($provider, 'C:\\proj\\vendor\\nikic\\file.php'), 'backslash /vendor/');
-        self::assertTrue($method->invoke($provider, 'C:\\proj\\tests\\Foo.php'), 'backslash /tests/');
-        self::assertTrue($method->invoke($provider, '/proj/vendor/nikic/file.php'), 'forward-slash /vendor/');
-        self::assertFalse($method->invoke($provider, 'C:\\proj\\dom\\dom_n.php'), 'real stub must not be excluded');
-        self::assertFalse($method->invoke($provider, '/proj/dom/dom_n.php'), 'real stub must not be excluded');
+        foreach (['tests/phpstorm-stubs', '.git/worktrees/wt', 'vendor/x', '.idea/x'] as $suffix) {
+            $root = '/home/dev/' . $suffix;
+            $provider = new AllStubsDataProvider($root);
+
+            self::assertFalse(
+                $method->invoke($provider, $root . '/dom/dom_n.php'),
+                "A stub in a checkout rooted at {$suffix} must not be excluded"
+            );
+            // Exclusion still applies to those directory names *inside* the checkout.
+            self::assertTrue(
+                $method->invoke($provider, $root . '/vendor/nikic/file.php'),
+                "vendor/ inside a checkout rooted at {$suffix} must still be excluded"
+            );
+        }
+    }
+
+    public function testItDiscoversStubsWhenTheCheckoutSitsUnderAnExcludedDirectoryName()
+    {
+        // End-to-end counterpart to the unit assertions above: the real traversal must return the
+        // stub even though every absolute path involved contains "/tests/".
+        $base = sys_get_temp_dir() . '/phpstorm-stubs-clone-' . uniqid();
+        $root = $base . '/tests/phpstorm-stubs';
+        @mkdir($root . '/dom', 0777, true);
+        file_put_contents($root . '/dom/dom_n.php', "<?php\n");
+
+        try {
+            $found = (new AllStubsDataProvider($root))->getAllStubFiles();
+
+            self::assertCount(1, $found, 'A checkout under a directory named tests/ must still yield its stub files');
+            self::assertStringEndsWith('/dom/dom_n.php', str_replace('\\', '/', $found[0]));
+        } finally {
+            @unlink($root . '/dom/dom_n.php');
+            @rmdir($root . '/dom');
+            @rmdir($root);
+            @rmdir($base . '/tests');
+            @rmdir($base);
+        }
     }
 
     public function testItRecursivelyDiscoversNestedStubsAndPrunesExcludedDirectories()

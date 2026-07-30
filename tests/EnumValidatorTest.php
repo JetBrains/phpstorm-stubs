@@ -80,7 +80,9 @@ class EnumValidatorTest extends ValidatorTestBase
             'checkEnumMethodsOptionalParameters' => new CheckDescriptor(ClassMethodsOptionalParametersCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} methods optional parameters check failed in PHP {phpVersion}', $e),
             'checkEnumConstants' => new CheckDescriptor(ClassConstantsCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} constants check failed in PHP {phpVersion}', $e),
             'checkEnumConstantsVisibility' => new CheckDescriptor(ClassConstantsVisibilityCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} constants visibility check failed in PHP {phpVersion}', $e),
-            'checkEnumConstantsValue' => new CheckDescriptor(ClassConstantsValueCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} constants value check failed in PHP {phpVersion}', $e),
+            // Constant values are compared against reflection at the latest version only, so the
+            // range matches ClassConstantsValueCheck::supports() rather than advertising 8.1+.
+            'checkEnumConstantsValue' => new CheckDescriptor(ClassConstantsValueCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Enum {entityId} constants value check failed in PHP {phpVersion}', $e),
             'checkEnumMethodsParameterNames' => new CheckDescriptor(ClassMethodsParameterNamesCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} methods parameter names check failed in PHP {phpVersion}', $e),
             'checkEnumMethodsTentativeReturnType' => new CheckDescriptor(ClassMethodsTentativeReturnTypeCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} methods tentative return type check failed in PHP {phpVersion}', $e),
             'checkEnumMethodsParameterDefaultValue' => new CheckDescriptor(ClassMethodsParameterDefaultValueCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Enum {entityId} methods parameter default value check failed in PHP {phpVersion}', $e),

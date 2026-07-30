@@ -43,11 +43,15 @@ class MethodDeprecationCheck extends AbstractMemberFlagCheck implements Describe
 
     public function describeMethodMismatch(
         string $methodEntityId,
-        mixed $reflMethod,
+        PHPMethod $reflMethod,
         PHPMethod $stubMethod,
         string $phpVersion
     ): ?string {
-        $reflDeprecated = method_exists($reflMethod, 'isDeprecated') && (bool)$reflMethod->isDeprecated();
+        // No method_exists() guard: $reflMethod is declared PHPMethod, which always has
+        // isDeprecated(). The guard could never be false, and if a non-PHPMethod were ever
+        // passed it silently reported "not deprecated" for every method in the suite — a green
+        // run that validated nothing. The parameter type now raises a TypeError instead.
+        $reflDeprecated = $reflMethod->isDeprecated();
         $stubDeprecated = $stubMethod->isDeprecated();
 
         if ($reflDeprecated && !$stubDeprecated) {

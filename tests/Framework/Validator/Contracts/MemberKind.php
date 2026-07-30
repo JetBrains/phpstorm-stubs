@@ -4,6 +4,8 @@ namespace StubTests\Framework\Validator\Contracts;
 
 use StubTests\Framework\Model\PHPClass;
 use StubTests\Framework\Model\PHPClassLikeObject;
+use StubTests\Framework\Model\PHPMethod;
+use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**
@@ -54,7 +56,9 @@ enum MemberKind
      * Properties are class-specific in the model — PHPEnum and PHPInterface have no
      * getProperties() — so a non-class entity yields nothing rather than erroring.
      *
-     * @return iterable<mixed>
+     * @return iterable<PHPMethod>|iterable<PHPProperty> METHOD yields PHPMethod, PROPERTY yields
+     *         PHPProperty; both getters are typed on the model, so no other type can appear. The
+     *         describe*Mismatch() contracts declare these concrete types.
      */
     public function reflectionMembers(PHPClassLikeObject $reflectionEntity): iterable
     {

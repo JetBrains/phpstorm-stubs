@@ -27,11 +27,17 @@ interface DescribesMethodMismatch
      * Compare an attribute on the reflection and stub method.
      * Return a descriptive failure message if there is a mismatch, or null if they match.
      *
-     * @param mixed $reflMethod reflection method object
+     * Both sides are PHPMethod: the reflection half is read back out of the reflection cache into
+     * the same model as the stub half, and MemberKind::METHOD only ever yields
+     * PHPClassLikeObject::getMethods(). Declaring it rather than `mixed` is the whole point of
+     * this interface — it lets the 12 leaves state a concrete signature instead of narrowing an
+     * inherited one — and it matches DescribesPropertyMismatch, which types both sides
+     * PHPProperty. AbstractMemberFlagCheck dispatches through a `mixed` argument, so a wrong type
+     * now surfaces as a TypeError here instead of a silently skipped comparison.
      */
     public function describeMethodMismatch(
         string $methodEntityId,
-        mixed $reflMethod,
+        PHPMethod $reflMethod,
         PHPMethod $stubMethod,
         string $phpVersion
     ): ?string;

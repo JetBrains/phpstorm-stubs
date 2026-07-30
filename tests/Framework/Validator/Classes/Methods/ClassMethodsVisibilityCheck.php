@@ -38,7 +38,7 @@ class ClassMethodsVisibilityCheck extends AbstractMemberFlagCheck implements Des
         return CheckType::CLASS_METHODS_VISIBILITY;
     }
 
-    public function describeMethodMismatch(string $methodEntityId, mixed $reflMethod, PHPMethod $stubMethod, string $phpVersion): ?string
+    public function describeMethodMismatch(string $methodEntityId, PHPMethod $reflMethod, PHPMethod $stubMethod, string $phpVersion): ?string
     {
         $reflVisibility = $reflMethod->getAccess()?->value ?? 'public';
         $stubVisibility = $stubMethod->getAccess()?->value ?? 'public';

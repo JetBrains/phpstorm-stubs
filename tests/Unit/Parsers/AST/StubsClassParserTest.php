@@ -24,11 +24,22 @@ class StubsClassParserTest extends BaseTestCase
         $this->parser = new StubClassParser();
     }
 
-    public function testItReturnsCorrectInstance()
+    /**
+     * Pins both halves of parse()'s type contract. assertInstanceOf alone is weak here: it keeps
+     * passing if the `: PHPClass` declaration is dropped or widened, as long as the body still
+     * happens to return the right thing. Asserting the declared return type catches the loosening
+     * itself, which is the change that would silently let a different entity type escape.
+     */
+    public function testItDeclaresAndReturnsPHPClass()
     {
+        $returnType = (new \ReflectionMethod(StubClassParser::class, 'parse'))->getReturnType();
+
+        self::assertInstanceOf(\ReflectionNamedType::class, $returnType, 'parse() must keep a single named return type');
+        self::assertSame(PHPClass::class, $returnType->getName());
+        self::assertFalse($returnType->allowsNull(), 'parse() must not become nullable');
+
         $stubCode = $this->filesProvider->getStubFileContent('stdClass.txt');
-        $basePHPElement = $this->parser->parse($stubCode);
-        self::assertInstanceOf(PHPClass::class, $basePHPElement);
+        self::assertInstanceOf(PHPClass::class, $this->parser->parse($stubCode));
     }
 
     public function testItCanParseSimpleClassName()
