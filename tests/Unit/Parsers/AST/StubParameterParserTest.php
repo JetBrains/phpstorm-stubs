@@ -64,4 +64,52 @@ class StubParameterParserTest extends BaseTestCase
         self::assertCount(1, $parameters);
         self::assertInstanceOf(PHPParameter::class, $parameters[0]);
     }
+
+    /**
+     * `&$param` used to be dropped on the stub side entirely: parseNode() never called
+     * setIsPassedByReference() and ParameterNode had no accessor for nikic's Param::$byRef, so all
+     * 10,697 cached stub parameters read `false` while reflection reported `true` for 169 of them.
+     * Asserting per-parameter (not just "at least one is true") is what distinguishes reading the
+     * flag from hardcoding it.
+     */
+    public function testItParsesTheByReferenceFlagPerParameter()
+    {
+        $stubCode = '<?php function byRefMix($plain, &$out, ...$rest) {}';
+        $parameters = $this->functionParser->parse($stubCode)->getParameters();
+
+        self::assertSame(
+            ['plain' => false, 'out' => true, 'rest' => false],
+            array_combine(
+                array_map(fn (PHPParameter $p) => $p->getName(), $parameters),
+                array_map(fn (PHPParameter $p) => $p->isPassedByReference(), $parameters)
+            )
+        );
+    }
+
+    public function testItParsesByReferenceOnAVariadicParameter()
+    {
+        $stubCode = '<?php function byRefVariadic(&...$refs) {}';
+        $parameters = $this->functionParser->parse($stubCode)->getParameters();
+
+        self::assertTrue($parameters[0]->isPassedByReference());
+        self::assertTrue($parameters[0]->isVariadic(), 'The two flags are independent');
+    }
+
+    /**
+     * setPosition() was never called, so every stub parameter kept PHPParameter's constructor
+     * default of 0 while the reflection side recorded real indices. Only the second parameter
+     * onwards can tell a real position from that default, hence the three-parameter fixture.
+     */
+    public function testItAssignsTheSignatureIndexAsThePosition()
+    {
+        $parameters = $this->getParametersFromFunction('complete_function.txt');
+
+        self::assertSame(
+            ['param1' => 0, 'param2' => 1, 'param3' => 2],
+            array_combine(
+                array_map(fn (PHPParameter $p) => $p->getName(), $parameters),
+                array_map(fn (PHPParameter $p) => $p->getPosition(), $parameters)
+            )
+        );
+    }
 }

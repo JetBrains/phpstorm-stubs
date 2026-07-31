@@ -18,7 +18,7 @@ use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Model\Types\NullableType;
 use StubTests\Framework\Model\Types\StandaloneType;
 use StubTests\Framework\Model\Types\UnionType;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 
 /**

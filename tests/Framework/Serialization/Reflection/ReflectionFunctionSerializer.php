@@ -4,7 +4,7 @@ namespace StubTests\Framework\Serialization\Reflection;
 
 use StubTests\Framework\Serialization\EntityTypeSerializerInterface;
 use StubTests\Framework\Serialization\SubEntitySerializerTrait;
-use StubTests\Framework\Storage\PhpDocStorage;
+use StubTests\Framework\Serialization\PhpDocRepository;
 use StubTests\Framework\Model\PHPFunction;
 use StubTests\Framework\Model\PHPMethod;
 
@@ -21,7 +21,7 @@ class ReflectionFunctionSerializer implements EntityTypeSerializerInterface
         return $entity instanceof PHPFunction && !$entity instanceof PHPMethod;
     }
 
-    public function serialize($entity, ?PhpDocStorage $phpDocStorage = null): array
+    public function serialize($entity, ?PhpDocRepository $phpDocStorage = null): array
     {
         $data = [
             '_type' => 'PHPFunction',
@@ -59,7 +59,7 @@ class ReflectionFunctionSerializer implements EntityTypeSerializerInterface
         return $data;
     }
 
-    public function deserialize(array $data, ?PhpDocStorage $phpDocStorage = null): PHPFunction
+    public function deserialize(array $data, ?PhpDocRepository $phpDocStorage = null): PHPFunction
     {
         $function = new PHPFunction();
         $function->setName($data['name'] ?? null);

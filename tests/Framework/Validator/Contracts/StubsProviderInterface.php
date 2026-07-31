@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator\Contracts;
 
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 
 /**
  * Abstracts access to parsed stubs data.

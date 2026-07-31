@@ -5,7 +5,7 @@ namespace StubTests;
 use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionClass;
 use StubTests\Framework\DataProvider\StubCategory;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Runner\RunnerScope;

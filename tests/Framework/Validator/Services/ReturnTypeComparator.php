@@ -59,7 +59,7 @@ final class ReturnTypeComparator
             return true;
         }
 
-        $primitives = PhpDocConformanceService::PRIMITIVES;
+        $primitives = TypeResolver::PRIMITIVES;
         $stubParts = explode('|', $normalizedStub);
         $reflParts = explode('|', (string)$normalizedRefl);
 

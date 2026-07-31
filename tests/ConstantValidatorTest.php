@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Constants\ConstantExistsCheck;
 use StubTests\Framework\Validator\Constants\ConstantValueCheck;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
 
 /**

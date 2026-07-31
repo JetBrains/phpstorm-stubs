@@ -950,6 +950,7 @@ function mb_check_encoding(array|string|null $value = null, ?string $encoding = 
  * is NOT changed. If encoding is omitted, then the current character
  * encoding name for a multibyte regex is returned.
  */
+#[Deprecated(since: '8.6')]
 function mb_regex_encoding(?string $encoding = null): string|bool {}
 
 /**
@@ -961,6 +962,7 @@ function mb_regex_encoding(?string $encoding = null): string|bool {}
  * @return string The previous options. If options is omitted,
  * it returns the string that describes the current options.
  */
+#[Deprecated(since: '8.6')]
 function mb_regex_set_options(?string $options = null): string {}
 
 /**
@@ -977,6 +979,7 @@ function mb_regex_set_options(?string $options = null): string {}
  * </p>
  * @return bool
  */
+#[Deprecated(since: '8.6')]
 function mb_ereg(string $pattern, string $string, &$matches = null): bool {}
 
 /**
@@ -994,6 +997,7 @@ function mb_ereg(string $pattern, string $string, &$matches = null): bool {}
  * @return bool|int
  */
 #[LanguageLevelTypeAware(["8.0" => "bool"], default: "false|int")]
+#[Deprecated(since: '8.6')]
 function mb_eregi(string $pattern, string $string, &$matches = null): bool {}
 
 /**
@@ -1025,6 +1029,7 @@ function mb_eregi(string $pattern, string $string, &$matches = null): bool {}
  * @return string|false|null The resultant string on success, or false on error.
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function mb_ereg_replace(string $pattern, string $replacement, string $string, ?string $options = null): string|false|null {}
 
 /**
@@ -1070,6 +1075,7 @@ function mb_ereg_replace(string $pattern, string $replacement, string $string, ?
  * </p>
  * @since 5.4
  */
+#[Deprecated(since: '8.6')]
 function mb_ereg_replace_callback(string $pattern, callable $callback, string $string, ?string $options = null): string|false|null {}
 
 /**
@@ -1090,6 +1096,7 @@ function mb_ereg_replace_callback(string $pattern, callable $callback, string $s
  * @return string|false|null The resultant string or false on error.
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function mb_eregi_replace(
     string $pattern,
     string $replacement,
@@ -1112,6 +1119,7 @@ function mb_eregi_replace(
  * @return string[]|false The result as an array.
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function mb_split(string $pattern, string $string, int $limit = -1): array|false {}
 
 /**
@@ -1128,6 +1136,7 @@ function mb_split(string $pattern, string $string, int $limit = -1): array|false
  * @return bool
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function mb_ereg_match(string $pattern, string $string, ?string $options = null): bool {}
 
 /**
@@ -1142,6 +1151,7 @@ function mb_ereg_match(string $pattern, string $string, ?string $options = null)
  * @return bool
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function mb_ereg_search(?string $pattern = null, ?string $options = null): bool {}
 
 /**
@@ -1159,6 +1169,7 @@ function mb_ereg_search(?string $pattern = null, ?string $options = null): bool 
  * length in bytes of the match. If an error occurs, FALSE is returned.
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function mb_ereg_search_pos(?string $pattern = null, ?string $options = null): array|false {}
 
 /**
@@ -1177,6 +1188,7 @@ function mb_ereg_search_pos(?string $pattern = null, ?string $options = null): a
  * part as third element, and so on. It returns FALSE on error.
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function mb_ereg_search_regs(?string $pattern = null, ?string $options = null): array|false {}
 
 /**
@@ -1193,6 +1205,7 @@ function mb_ereg_search_regs(?string $pattern = null, ?string $options = null): 
  * </p>
  * @return bool
  */
+#[Deprecated(since: '8.6')]
 function mb_ereg_search_init(string $string, ?string $pattern = null, ?string $options = null): bool {}
 
 /**
@@ -1206,6 +1219,7 @@ function mb_ereg_search_init(string $string, ?string $pattern = null, ?string $o
  * brackets, and so on. It returns FALSE on error;
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function mb_ereg_search_getregs(): array|false {}
 
 /**
@@ -1214,6 +1228,7 @@ function mb_ereg_search_getregs(): array|false {}
  * @return int
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function mb_ereg_search_getpos(): int {}
 
 /**
@@ -1225,6 +1240,7 @@ function mb_ereg_search_getpos(): int {}
  * @return bool
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function mb_ereg_search_setpos(int $offset): bool {}
 
 /**

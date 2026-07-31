@@ -3,7 +3,6 @@
 namespace StubTests\Framework\Storage;
 
 use StubTests\Framework\Pipeline\EntityProcessingPipeline;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
 
 /**
  * The full parsed-data store: queryable, writable, persistable, plus access to its internals.

@@ -3,7 +3,7 @@
 namespace StubTests\Framework\Serialization\Stubs;
 
 use StubTests\Framework\Model\PHPEnum;
-use StubTests\Framework\Storage\PhpDocStorage;
+use StubTests\Framework\Serialization\PhpDocRepository;
 use StubTests\Framework\Serialization\EntityTypeSerializerInterface;
 
 /**
@@ -18,7 +18,7 @@ class PHPEnumSerializer implements EntityTypeSerializerInterface
         return $entity instanceof PHPEnum;
     }
 
-    public function serialize($entity, ?PhpDocStorage $phpDocStorage = null): array
+    public function serialize($entity, ?PhpDocRepository $phpDocStorage = null): array
     {
         if (!$entity instanceof PHPEnum) {
             throw new \InvalidArgumentException('Expected PHPEnum entity');
@@ -76,7 +76,7 @@ class PHPEnumSerializer implements EntityTypeSerializerInterface
         return $pos === false ? $name : substr($name, $pos + 1);
     }
 
-    public function deserialize(array $data, ?PhpDocStorage $phpDocStorage = null)
+    public function deserialize(array $data, ?PhpDocRepository $phpDocStorage = null)
     {
         $enum = new PHPEnum();
         $enum->setName($data['name'] ?? null);

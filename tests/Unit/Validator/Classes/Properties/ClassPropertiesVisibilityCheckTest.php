@@ -827,22 +827,43 @@ class ClassPropertiesVisibilityCheckTest extends CheckTestCase
 
     // ── Cycle guard ───────────────────────────────────────────────────────────
 
-    public function testCyclicParentChainDoesNotInfiniteLoop(): void
+    /**
+     * \MyClass.parentClass = \ParentClass; \ParentClass.parentClass = \MyClass → a real cycle.
+     * Without the visited-set guard in MethodCollectionService::collectPropertiesForClass() the
+     * while-loop never reaches null and $visited grows until the process dies.
+     *
+     * The parent carries the *mismatching* declaration on purpose: asserting the resulting failure
+     * proves the walk actually entered the parent before breaking. A guard that bailed out one step
+     * too early would terminate just as happily and report nothing, which `assertFalse(hasFailures())`
+     * cannot tell apart from a correct traversal.
+     */
+    public function testCyclicParentChainTerminatesAndStillCollectsFromTheParent(): void
     {
         $className = '\MyClass';
-        $reflClass = $this->createMockClassWithProperties($className);
+        $reflClass = $this->createMockClassWithProperties(
+            $className,
+            properties: [$this->makeProperty('data', visibility: 'protected')]
+        );
 
+        // The child declares nothing itself, so `data` can only come from the parent.
         $stubClass = $this->createMockClassWithProperties($className);
-        $parent = new PHPClass();
-        $parent->setId('\ParentClass');
-        $parent->setProperties([]);
+        $parent = $this->createMockClassWithProperties(
+            '\ParentClass',
+            properties: [$this->makeProperty('data', visibility: 'public')]
+        );
         $stubClass->setParentClass($parent);
+        $parent->setParentClass($stubClass);  // cycle!
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);
         $stubs = $this->createMockStorageManager();
         $stubs->method('getClasses')->willReturn([$stubClass]);
 
         $result = (new ClassPropertiesVisibilityCheck($provider))->run($stubs, $className, '8.0');
-        $this->assertFalse($result->hasFailures());
+
+        $this->assertSame(
+            ['\MyClass::$data' => 'Property \MyClass::$data is protected in PHP 8.0 but public in stubs'],
+            $result->getFailures(),
+            'The cyclic walk must terminate having visited the parent exactly once'
+        );
     }
 }

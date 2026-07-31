@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-use StubTests\Framework\CodeStyle\BracesOneLineFixer;
-
 require_once __DIR__ . '/vendor/autoload.php';
 
 $finder = PhpCsFixer\Finder::create()
@@ -17,9 +15,6 @@ $finder = PhpCsFixer\Finder::create()
 
 return (new PhpCsFixer\Config())
     ->setUnsupportedPhpVersionAllowed(true)
-    ->registerCustomFixers([
-        new BracesOneLineFixer(),
-    ])
     ->setRules([
         'global_namespace_import' => false,
         'array_syntax' => ['syntax' => 'short'],
@@ -124,7 +119,14 @@ return (new PhpCsFixer\Config())
         'blank_lines_before_namespace' => true,
         'single_trait_insert_per_statement' => true,
         'ternary_operator_spaces' => true,
-        'PhpStorm/braces_one_line' => true,
+        // Replaces the former custom PhpStorm/braces_one_line fixer, which resolved the closing
+        // brace with getNextMeaningfulToken() — that skips T_COMMENT, so a body whose sole content
+        // was a comment counted as empty and the comment was cleared along with the whitespace.
+        // `composer cs-fix` therefore deleted "// intentionally empty"-style comments repo-wide.
+        // The built-in rule leaves comment-only bodies alone. It does not collapse empty *control*
+        // bodies (if/while/foreach/try-catch), which the custom fixer also did; that is cosmetic
+        // only and no existing file relies on it.
+        'single_line_empty_body' => true,
         'no_trailing_whitespace' => true,
         'no_trailing_whitespace_in_comment' => true,
         'no_whitespace_in_blank_line' => true,

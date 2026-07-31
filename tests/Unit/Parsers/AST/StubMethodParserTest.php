@@ -130,6 +130,29 @@ class StubMethodParserTest extends BaseTestCase
         self::assertTrue($completeMethod->isDeprecated());
     }
 
+    /**
+     * StubMethodParser has its own parameter loop, separate from StubFunctionParser's, so the
+     * position/by-reference wiring has to be pinned on both paths — a regression in one would not
+     * show up in the other.
+     *
+     * @see StubParameterParserTest::testItAssignsTheSignatureIndexAsThePosition
+     */
+    public function testItAssignsParameterPositionsAndByReferenceFlagsOnMethods()
+    {
+        $stubCode = '<?php class Sample { public function m($first, &$second, $third) {} }';
+        $parameters = $this->classParser->parse($stubCode)->getMethods()[0]->getParameters();
+
+        $actual = [];
+        foreach ($parameters as $parameter) {
+            $actual[$parameter->getName()] = [$parameter->getPosition(), $parameter->isPassedByReference()];
+        }
+
+        self::assertSame(
+            ['first' => [0, false], 'second' => [1, true], 'third' => [2, false]],
+            $actual
+        );
+    }
+
     public function testItParsesAllMethodsFromClass()
     {
         $methods = $this->getMethodsFromClass('modifiers_method.txt');

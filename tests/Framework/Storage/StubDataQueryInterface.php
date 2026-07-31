@@ -1,6 +1,6 @@
 <?php
 
-namespace StubTests\Framework\Parsers;
+namespace StubTests\Framework\Storage;
 
 use StubTests\Framework\Model\PHPClass;
 use StubTests\Framework\Model\PHPConstant;
@@ -10,6 +10,15 @@ use StubTests\Framework\Model\PHPInterface;
 
 /**
  * Read-only query interface for accessing parsed stub/reflection data.
+ *
+ * Lives in Storage/ because that is where its implementor does: ParsedDataStorageManager composes it
+ * and DefaultParsedDataStorageManager is the only class that satisfies it. It sat in Parsers/ until
+ * nothing under Parsers/ referenced it at all — not one file — while Storage/ had to import across
+ * the namespace boundary to compose it. That was the only Storage -> Parsers edge in the framework.
+ *
+ * The name still says "Stub", but both of Runner's handles are this type: getStubs() and
+ * getReflection() alike. Reading it as "the parsed-data query" rather than "the stubs query" is what
+ * the code means; renaming it would touch 64 files for no behavioural gain.
  *
  * These eight methods were previously spread across five per-entity interfaces
  * (Class/Function/Interface/Enum/ConstantQueryInterface) that this one composed, written so that

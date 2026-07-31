@@ -32,6 +32,13 @@ interface ParameterNode
     public function isVariadic(): bool;
 
     /**
+     * Check if the parameter is declared by reference (`&$param`).
+     *
+     * @return bool True if the signature marks the parameter as by-reference
+     */
+    public function isPassedByReference(): bool;
+
+    /**
      * Check if the parameter has a default value in the signature.
      *
      * @return bool True if the parameter has an explicit default value

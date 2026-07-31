@@ -82,6 +82,11 @@ class ReflectionMethodExtractorTest extends TestCase
         self::assertArrayNotHasKey('getStaticPropertyValue', $result);
     }
 
+    /**
+     * Not decisive on its own — see the test below. Kept because it states the end-to-end
+     * expectation against a real ReflectionClass, and so would catch a future widening of the
+     * default prefixes that let a magic method through.
+     */
     public function testItSkipsMagicMethods()
     {
         $reflection = new \ReflectionClass(\stdClass::class);
@@ -90,6 +95,30 @@ class ReflectionMethodExtractorTest extends TestCase
         // Should not extract __construct, __destruct, __toString, etc.
         self::assertArrayNotHasKey('__construct', $result);
         self::assertArrayNotHasKey('__toString', $result);
+    }
+
+    /**
+     * Puts the `strpos($methodName, '__') === 0` guard on the decisive path.
+     *
+     * With the default prefixes (`is`/`has`/`get`, or the production set
+     * `allows|can|get|has|in|is|returns`) no name can start with both `__` and a prefix, so the
+     * prefix filter rejects every magic method before the guard is consulted — deleting the guard
+     * left testItSkipsMagicMethods() above entirely green. Only a prefix that itself overlaps `__`
+     * reaches it, and the guard runs first because it sits above the prefix loop.
+     */
+    public function testItSkipsMagicMethodsEvenWhenTheyMatchAConfiguredPrefix()
+    {
+        $mockObject = new class() {
+            public function __getState(): string { return 'magic'; }
+
+            public function getState(): string { return 'plain'; }
+        };
+
+        $config = ['methodPrefixes' => ['__get', 'get']];
+        $result = ReflectionMethodExtractor::extractData($mockObject, $config);
+
+        self::assertArrayNotHasKey('__getState', $result, 'The __ guard must win over a matching prefix');
+        self::assertArrayHasKey('getState', $result, 'The non-magic sibling still matches the "get" prefix');
     }
 
     public function testItRespectsSkipMethodsConfiguration()

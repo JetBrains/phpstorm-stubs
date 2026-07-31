@@ -42,6 +42,18 @@ trait SerializerUtilsTrait
             return '[closure]';
         }
 
+        // INF / -INF / NAN have no JSON representation. They used to reach json_encode() unchanged,
+        // where JSON_PARTIAL_OUTPUT_ON_ERROR silently replaced them with the integer 0 — so \INF and
+        // \NAN were cached as `"value": 0`, which no consumer could tell apart from a real 0.
+        // Rendered as sentinels here so the value is representable, distinguishable, and identical
+        // on both the stubs and reflection sides.
+        if (is_float($value) && !is_finite($value)) {
+            if (is_nan($value)) {
+                return '[float:NAN]';
+            }
+            return $value > 0 ? '[float:INF]' : '[float:-INF]';
+        }
+
         // Enum-case default resolved from stub sources (declaring extension not
         // loaded). Render it exactly as a runtime-resolved enum instance would be.
         if ($value instanceof \StubTests\Framework\Parsers\Stubs\StubEnumCaseReference) {

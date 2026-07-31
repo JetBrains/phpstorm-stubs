@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator\Meta;
 
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 

@@ -17,7 +17,7 @@ use StubTests\Framework\Validator\Functions\FunctionReturnTypesCheck;
 use StubTests\Framework\Validator\Functions\FunctionParameterDeprecationCheck;
 use StubTests\Framework\Validator\Functions\FunctionPhpDocConformsSignatureCheck;
 use StubTests\Framework\Validator\Functions\FunctionSpecialTypeHintsCheck;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
 
 /**

@@ -4,7 +4,7 @@ namespace StubTests\Framework\Validator;
 
 use StubTests\Framework\Model\PHPClass;
 use StubTests\Framework\Model\PHPClassLikeObject;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\Contracts\DescribesMethodMismatch;
 use StubTests\Framework\Validator\Contracts\DescribesPropertyMismatch;

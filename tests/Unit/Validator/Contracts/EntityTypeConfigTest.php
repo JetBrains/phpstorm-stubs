@@ -5,7 +5,7 @@ namespace StubTests\Unit\Validator\Contracts;
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\Framework\Validator\Contracts\LookupKind;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Classes\ClassFinalCheck;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 

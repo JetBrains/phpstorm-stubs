@@ -57,6 +57,48 @@ echo "Output File: {$outputFile}\n";
 echo "Start Time: " . date('Y-m-d H:i:s') . "\n";
 echo "========================================\n\n";
 
+/**
+ * Per-kind wrap failures, keyed by kind: array('classes' => array(array('name', 'error'), ...)).
+ *
+ * Swallowing these silently let a systematic regression (e.g. every enum throwing inside
+ * AdaptedReflectionClass::__construct) produce `✓ Wrapped 0 enums` and exit 0. Stage 2 then found
+ * nothing of that kind to parse, so its own failure counter stayed at 0 and it also reported
+ * success — committing a cache with an entire entity kind missing, against which every validator
+ * has nothing to compare and stays green. Stage 2 was hardened for this; Stage 1 was not, which
+ * made the hardening bypassable one stage earlier.
+ *
+ * @var array<string, array<int, array>>
+ */
+$skipped = [];
+
+/**
+ * Deliberately typed loosely and PHP 5.6-compatible (no scalar hints, no Throwable): this file runs
+ * on every runtime down to 5.6.
+ *
+ * @param array $skipped
+ * @param string $kind
+ * @param string $name
+ * @param Exception $e
+ * @return void
+ */
+function recordSkipped(array &$skipped, $kind, $name, Exception $e)
+{
+    $skipped[$kind][] = ['name' => $name, 'error' => $e->getMessage()];
+}
+
+/**
+ * @param array $skipped
+ * @return int total number of skipped entities across all kinds
+ */
+function countSkipped(array $skipped)
+{
+    $total = 0;
+    foreach ($skipped as $failures) {
+        $total += count($failures);
+    }
+    return $total;
+}
+
 try {
     // Create data provider
     echo "[1/7] Creating reflection data provider...\n";
@@ -72,8 +114,8 @@ try {
             $reflection = new ReflectionClass($className);
             $wrappedClasses[] = new AdaptedReflectionClass($reflection);
         } catch (Exception $e) {
-            // Skip classes that can't be reflected
-            continue;
+            // Recorded, not swallowed — see $skipped above.
+            recordSkipped($skipped, 'classes', $className, $e);
         }
     }
     echo "      ✓ Wrapped " . count($wrappedClasses) . " classes\n\n";
@@ -87,7 +129,7 @@ try {
             $reflection = new ReflectionClass($interfaceName);
             $wrappedInterfaces[] = new AdaptedReflectionClass($reflection);
         } catch (Exception $e) {
-            continue;
+            recordSkipped($skipped, 'interfaces', $interfaceName, $e);
         }
     }
     echo "      ✓ Wrapped " . count($wrappedInterfaces) . " interfaces\n\n";
@@ -101,7 +143,7 @@ try {
             $reflection = new ReflectionClass($enumName);
             $wrappedEnums[] = new AdaptedReflectionClass($reflection);
         } catch (Exception $e) {
-            continue;
+            recordSkipped($skipped, 'enums', $enumName, $e);
         }
     }
     echo "      ✓ Wrapped " . count($wrappedEnums) . " enums\n\n";
@@ -115,7 +157,7 @@ try {
             $reflection = new ReflectionFunction($functionName);
             $wrappedFunctions[] = new AdaptedReflectionFunction($reflection);
         } catch (Exception $e) {
-            continue;
+            recordSkipped($skipped, 'functions', $functionName, $e);
         }
     }
     echo "      ✓ Wrapped " . count($wrappedFunctions) . " functions\n\n";
@@ -124,6 +166,22 @@ try {
     echo "[6/7] Extracting constants...\n";
     $constants = $dataProvider->getReflectionConstants();
     echo "      ✓ Extracted " . count($constants) . " constants\n\n";
+
+    $totalSkipped = countSkipped($skipped);
+    if ($totalSkipped > 0) {
+        echo "      ⚠ {$totalSkipped} entities could not be wrapped and are ABSENT from the output:\n";
+        foreach ($skipped as $kind => $failures) {
+            echo "        - " . str_pad($kind . ':', 12) . count($failures) . "\n";
+            // Cap the per-kind listing; the counts above are the complete picture.
+            foreach (array_slice($failures, 0, 5) as $failure) {
+                echo "            {$failure['name']}: {$failure['error']}\n";
+            }
+            if (count($failures) > 5) {
+                echo "            ... and " . (count($failures) - 5) . " more\n";
+            }
+        }
+        echo "\n";
+    }
 
     // Package all data
     $extractedData = [
@@ -167,7 +225,17 @@ try {
     echo "Total Enums:      " . count($wrappedEnums) . "\n";
     echo "Total Functions:  " . count($wrappedFunctions) . "\n";
     echo "Total Constants:  " . count($constants) . "\n";
+    echo "Skipped:          " . $totalSkipped . "\n";
     echo "========================================\n\n";
+
+    if ($totalSkipped > 0) {
+        // The .dat is still written so the failures can be inspected downstream, but the exit code
+        // must stop run-all-reflection-parsers.sh from proceeding to Stage 2 as if this succeeded.
+        echo "✗ FAILED: {$totalSkipped} entities could not be wrapped.\n";
+        echo "          The data at {$outputFile} was written but is INCOMPLETE.\n";
+        echo "          Fix the errors above and re-run; do not commit a cache built from it.\n\n";
+        exit(1);
+    }
 
     echo "✓ SUCCESS: Reflection data extracted and wrapped successfully!\n";
     echo "          Output saved to: {$outputFile}\n\n";

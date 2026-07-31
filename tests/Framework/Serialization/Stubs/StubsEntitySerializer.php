@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Serialization\Stubs;
 
-use StubTests\Framework\Storage\PhpDocStorage;
+use StubTests\Framework\Serialization\PhpDocRepository;
 use StubTests\Framework\Serialization\SerializerRegistry;
 use StubTests\Framework\Serialization\EntitySerializerInterface;
 use StubTests\Framework\Serialization\EntityTypeSerializerInterface;
@@ -19,13 +19,13 @@ use StubTests\Framework\Serialization\EntityTypeSerializerInterface;
  */
 class StubsEntitySerializer implements EntitySerializerInterface
 {
-    private ?PhpDocStorage $phpDocStorage = null;
+    private ?PhpDocRepository $phpDocStorage = null;
     private SerializerRegistry $registry;
 
     /** @var array<string, EntityTypeSerializerInterface> Explicit type name → serializer */
     private array $deserializerMap = [];
 
-    public function __construct(?PhpDocStorage $phpDocStorage = null)
+    public function __construct(?PhpDocRepository $phpDocStorage = null)
     {
         $this->phpDocStorage = $phpDocStorage;
         $this->registry = new SerializerRegistry();

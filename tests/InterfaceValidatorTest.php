@@ -27,7 +27,7 @@ use StubTests\Framework\Validator\Classes\Methods\ClassMethodsPhpDocConformsSign
 use StubTests\Framework\Validator\Classes\TypeForbidden\ClassMethodsReturnTypeForbiddenCheck;
 use StubTests\Framework\Validator\Classes\TypeForbidden\ClassMethodsScalarTypeForbiddenCheck;
 use StubTests\Framework\Validator\Classes\TypeForbidden\ClassMethodsUnionTypeForbiddenCheck;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
 
 /**

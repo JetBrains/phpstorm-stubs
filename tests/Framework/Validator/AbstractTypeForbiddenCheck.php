@@ -4,7 +4,7 @@ namespace StubTests\Framework\Validator;
 
 use StubTests\Framework\Model\Access\AccessModifier;
 use StubTests\Framework\Model\PHPMethod;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;

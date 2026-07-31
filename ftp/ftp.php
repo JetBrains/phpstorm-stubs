@@ -508,7 +508,8 @@ function ftp_close(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defaul
  * supported or the passed <i>value</i> doesn't match the
  * expected value for the given <i>option</i>.
  */
-function ftp_set_option(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default: 'resource')] $ftp, #[EV(flags: [FTP_TIMEOUT_SEC, FTP_AUTOSEEK, FTP_USEPASVADDRESS])] int $option, $value): bool {}
+#[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
+function ftp_set_option(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default: 'resource')] $ftp, #[EV(flags: [FTP_TIMEOUT_SEC, FTP_AUTOSEEK, FTP_USEPASVADDRESS])] int $option, $value) {}
 
 /**
  * Retrieves various runtime behaviours of the current FTP stream

@@ -1,6 +1,6 @@
 <?php
 
-namespace StubTests\Framework\Parsers\Stubs\PhpDoc;
+namespace StubTests\Framework\PhpDoc;
 
 /**
  * Normalizes generic template parameters in PhpDoc type strings.
@@ -10,6 +10,13 @@ namespace StubTests\Framework\Parsers\Stubs\PhpDoc;
  * qualified `\TValue` — which is wrong: it is a template name, not a class. This helper
  * extracts the template names declared via `@template` (and its variance forms) and strips
  * that spurious leading backslash back off, leaving the bare template name.
+ *
+ * Lives outside both Parsers/ and Validator/ because both need extractTemplateNames(): the stub
+ * parsers to unqualify template names as they read a docblock, and the PhpDoc conformance checks to
+ * recognise a template variable rather than report it as an unknown class. The validator had its own
+ * DocBlockFactory-based copy that dropped `@template-contravariant` entirely, so a doc declaring a
+ * contravariant parameter and using it in a `@param` would be reported as a signature mismatch. One
+ * implementation, so the two cannot drift again.
  */
 final class TemplateTypeNormalizer
 {

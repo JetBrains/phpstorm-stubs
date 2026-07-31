@@ -12,6 +12,24 @@ use StubTests\Framework\Model\PHPParameter;
 final class TypeResolver
 {
     /**
+     * PHP primitive and pseudo types — anything *not* in this list is a class name.
+     *
+     * That "is it a class name" question is general type vocabulary, not a PhpDoc question. It lived
+     * on PhpDocConformanceService, which meant ReturnTypeComparator — which has nothing to do with
+     * PhpDoc — had to reach into the conformance service to answer it. Both now read it from here.
+     *
+     * `self`, `parent` and `static` are listed because they are *relative* names: they denote a class
+     * but say nothing about which one, so a comparison that treats them as class names would be
+     * comparing a placeholder against a resolved FQN. Callers that care about late static binding
+     * handle them explicitly before consulting this list.
+     */
+    public const PRIMITIVES = [
+        'array', 'bool', 'callable', 'false', 'float', 'int', 'iterable',
+        'mixed', 'never', 'null', 'object', 'resource', 'self', 'parent',
+        'static', 'string', 'true', 'void',
+    ];
+
+    /**
      * Resolve version-aware type from LanguageLevelTypeAware attribute data.
      *
      * Finds the highest version key in languageLevelTypes that is <= $phpVersion.

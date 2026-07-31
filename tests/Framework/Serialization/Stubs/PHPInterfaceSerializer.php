@@ -3,7 +3,7 @@
 namespace StubTests\Framework\Serialization\Stubs;
 
 use StubTests\Framework\Model\PHPInterface;
-use StubTests\Framework\Storage\PhpDocStorage;
+use StubTests\Framework\Serialization\PhpDocRepository;
 use StubTests\Framework\Serialization\EntityTypeSerializerInterface;
 
 /**
@@ -18,7 +18,7 @@ class PHPInterfaceSerializer implements EntityTypeSerializerInterface
         return $entity instanceof PHPInterface;
     }
 
-    public function serialize($entity, ?PhpDocStorage $phpDocStorage = null): array
+    public function serialize($entity, ?PhpDocRepository $phpDocStorage = null): array
     {
         if (!$entity instanceof PHPInterface) {
             throw new \InvalidArgumentException('Expected PHPInterface entity');
@@ -73,7 +73,7 @@ class PHPInterfaceSerializer implements EntityTypeSerializerInterface
         return $pos === false ? $name : substr($name, $pos + 1);
     }
 
-    public function deserialize(array $data, ?PhpDocStorage $phpDocStorage = null)
+    public function deserialize(array $data, ?PhpDocRepository $phpDocStorage = null)
     {
         $interface = new PHPInterface();
         $interface->setName($data['name'] ?? null);
