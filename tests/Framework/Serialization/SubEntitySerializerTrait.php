@@ -7,7 +7,6 @@ use StubTests\Framework\Model\PHPClassConstant;
 use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Model\PHPParameter;
 use StubTests\Framework\Model\PHPProperty;
-use StubTests\Framework\Storage\PhpDocStorage;
 
 /**
  * Shared sub-entity serialization logic for both Stubs and Reflection serializers.
@@ -24,7 +23,7 @@ trait SubEntitySerializerTrait
 
     // ── Serialize ──────────────────────────────────────────────────
 
-    protected function serializeMethod(PHPMethod $method, ?string $parentId = null, ?PhpDocStorage $phpDocStorage = null): array
+    protected function serializeMethod(PHPMethod $method, ?string $parentId = null, ?PhpDocRepository $phpDocStorage = null): array
     {
         $data = [
             'name' => $method->getName(),
@@ -51,7 +50,7 @@ trait SubEntitySerializerTrait
         return $data;
     }
 
-    protected function serializeParameter(PHPParameter $parameter, ?PhpDocStorage $phpDocStorage = null): array
+    protected function serializeParameter(PHPParameter $parameter, ?PhpDocRepository $phpDocStorage = null): array
     {
         $data = [
             'name' => $parameter->getName(),
@@ -76,7 +75,7 @@ trait SubEntitySerializerTrait
         return $data;
     }
 
-    protected function serializeProperty(PHPProperty $property, ?string $parentId = null, ?PhpDocStorage $phpDocStorage = null): array
+    protected function serializeProperty(PHPProperty $property, ?string $parentId = null, ?PhpDocRepository $phpDocStorage = null): array
     {
         $data = [
             'name' => $property->getName(),
@@ -118,7 +117,7 @@ trait SubEntitySerializerTrait
 
     // ── Deserialize ────────────────────────────────────────────────
 
-    protected function deserializeMethod(array $data, ?string $parentId = null, ?PhpDocStorage $phpDocStorage = null): PHPMethod
+    protected function deserializeMethod(array $data, ?string $parentId = null, ?PhpDocRepository $phpDocStorage = null): PHPMethod
     {
         $method = new PHPMethod();
         $method->setName($data['name'] ?? '');
@@ -155,7 +154,7 @@ trait SubEntitySerializerTrait
         return $method;
     }
 
-    protected function deserializeParameter(array $data, ?PhpDocStorage $phpDocStorage = null): PHPParameter
+    protected function deserializeParameter(array $data, ?PhpDocRepository $phpDocStorage = null): PHPParameter
     {
         $parameter = new PHPParameter($data['name'] ?? '');
         $parameter->setPosition($data['position'] ?? 0);
@@ -178,7 +177,7 @@ trait SubEntitySerializerTrait
         return $parameter;
     }
 
-    protected function deserializeProperty(array $data, ?string $parentId = null, ?PhpDocStorage $phpDocStorage = null): PHPProperty
+    protected function deserializeProperty(array $data, ?string $parentId = null, ?PhpDocRepository $phpDocStorage = null): PHPProperty
     {
         $property = new PHPProperty();
         $property->setName($data['name'] ?? '');
@@ -228,19 +227,19 @@ trait SubEntitySerializerTrait
 
     // ── Hooks (no-op defaults, overridden by Stubs variant) ────────
 
-    protected function enrichSerializedMethod(array &$data, PHPMethod $method, ?string $parentId, ?PhpDocStorage $phpDocStorage): void {}
+    protected function enrichSerializedMethod(array &$data, PHPMethod $method, ?string $parentId, ?PhpDocRepository $phpDocStorage): void {}
 
     protected function enrichSerializedParameter(array &$data, PHPParameter $parameter): void {}
 
-    protected function enrichSerializedProperty(array &$data, PHPProperty $property, ?string $parentId, ?PhpDocStorage $phpDocStorage): void {}
+    protected function enrichSerializedProperty(array &$data, PHPProperty $property, ?string $parentId, ?PhpDocRepository $phpDocStorage): void {}
 
     protected function enrichSerializedClassConstant(array &$data, PHPClassConstant $constant): void {}
 
-    protected function enrichDeserializedMethod(PHPMethod $method, array $data, ?string $parentId, ?PhpDocStorage $phpDocStorage): void {}
+    protected function enrichDeserializedMethod(PHPMethod $method, array $data, ?string $parentId, ?PhpDocRepository $phpDocStorage): void {}
 
     protected function enrichDeserializedParameter(PHPParameter $parameter, array $data): void {}
 
-    protected function enrichDeserializedProperty(PHPProperty $property, array $data, ?string $parentId, ?PhpDocStorage $phpDocStorage): void {}
+    protected function enrichDeserializedProperty(PHPProperty $property, array $data, ?string $parentId, ?PhpDocRepository $phpDocStorage): void {}
 
     protected function enrichDeserializedClassConstant(PHPClassConstant $constant, array $data): void {}
 }

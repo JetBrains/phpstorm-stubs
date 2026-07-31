@@ -2,7 +2,10 @@
 
 namespace StubTests\Unit\Parsers\Storage;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use StubTests\Framework\Serialization\PhpDocRepository;
+use StubTests\Framework\Storage\InMemoryPhpDocRepository;
 use StubTests\Framework\Storage\PhpDocStorage;
 
 class PhpDocStorageTest extends TestCase
@@ -100,5 +103,38 @@ class PhpDocStorageTest extends TestCase
 
         self::assertNull($storage->getPhpDoc('\\TestClass'));
         self::assertEmpty($storage->getAllPhpDocs());
+    }
+
+    /**
+     * The in-memory double stands in for this class in serializer tests, so its blank-doc semantics
+     * must match. Run the same script against both: a fake that stored '' where the real writer
+     * removes the id would let a serializer bug pass its unit test and fail only in a cache rebuild.
+     *
+     * @param callable(string): PhpDocRepository $makeRepository
+     */
+    #[DataProvider('phpDocRepositories')]
+    public function testEveryPhpDocRepositoryAgreesOnBlankDocSemantics(callable $makeRepository): void
+    {
+        $repository = $makeRepository($this->testFilePath);
+
+        $repository->setPhpDoc('\\TestClass', '/** @deprecated */');
+        self::assertSame('/** @deprecated */', $repository->getPhpDoc('\\TestClass'));
+
+        $repository->setPhpDoc('\\TestClass', null);
+        self::assertNull($repository->getPhpDoc('\\TestClass'), 'a null doc must remove the id');
+
+        $repository->setPhpDoc('\\TestClass', '/** @deprecated */');
+        $repository->setPhpDoc('\\TestClass', "  \n\t ");
+        self::assertNull($repository->getPhpDoc('\\TestClass'), 'a blank doc must remove the id');
+
+        self::assertNull($repository->getPhpDoc('\\NeverSet'));
+    }
+
+    public static function phpDocRepositories(): array
+    {
+        return [
+            'file-backed' => [static fn (string $path): PhpDocRepository => new PhpDocStorage($path, false)],
+            'in-memory' => [static fn (string $path): PhpDocRepository => new InMemoryPhpDocRepository()],
+        ];
     }
 }

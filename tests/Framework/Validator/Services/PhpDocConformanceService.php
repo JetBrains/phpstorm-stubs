@@ -2,32 +2,27 @@
 
 namespace StubTests\Framework\Validator\Services;
 
-use phpDocumentor\Reflection\DocBlockFactory;
-use phpDocumentor\Reflection\DocBlock\Tags\Template;
-use phpDocumentor\Reflection\DocBlock\Tags\TemplateCovariant;
 use StubTests\Framework\Model\PHPParameter;
 use StubTests\Framework\Model\PHPProperty;
+use StubTests\Framework\PhpDoc\TemplateTypeNormalizer;
 
 /**
- * Service for PhpDoc-vs-signature conformance checks.
+ * Whether a PhpDoc type and a signature type describe the same thing.
  *
- * Provides the compatibility algorithm and helper methods used by
- * FunctionPhpDocConformsSignatureCheck, ClassMethodsPhpDocConformsSignatureCheck,
- * and their Enum/Interface variants.
+ * Used by FunctionPhpDocConformsSignatureCheck, ClassMethodsPhpDocConformsSignatureCheck, and their
+ * Enum/Interface variants.
  *
- * Extracted from PhpDocConformanceTrait for independent testability.
+ * Three concerns that used to live here have moved out, leaving this class to hold the compatibility
+ * relation and nothing else:
+ * - phpstan/psalm annotation narrowing → {@see PhpStanTypeNormalizer}, which is pure string
+ *   rewriting and whose leaf table grows on a different schedule than the algorithm below;
+ * - "which type names are primitives" → {@see TypeResolver::PRIMITIVES}, general type vocabulary
+ *   that ReturnTypeComparator also needs and was reaching across for;
+ * - `@template` name extraction → {@see TemplateTypeNormalizer}, which the stub parsers already had
+ *   a better implementation of.
  */
 final class PhpDocConformanceService
 {
-    /**
-     * PHP primitive types — used to distinguish class names from scalar/pseudo types.
-     */
-    public const PRIMITIVES = [
-        'array', 'bool', 'callable', 'false', 'float', 'int', 'iterable',
-        'mixed', 'never', 'null', 'object', 'resource', 'self', 'parent',
-        'static', 'string', 'true', 'void',
-    ];
-
     /**
      * Check if a PhpDoc type is compatible with a signature type.
      *
@@ -109,50 +104,23 @@ final class PhpDocConformanceService
     /**
      * Extract @template variable names from a raw PhpDoc comment.
      *
+     * Delegates to the one implementation the stub parsers also use. This class used to carry a
+     * second, DocBlockFactory-based one that silently dropped `@template-contravariant`.
+     *
      * @return string[] Template variable names (without any leading backslash)
      */
     public function extractTemplateNames(?string $rawPhpDoc): array
     {
-        if ($rawPhpDoc === null || trim($rawPhpDoc) === '') {
-            return [];
-        }
-
-        try {
-            $factory = DocBlockFactory::createInstance();
-            $docBlock = $factory->create($rawPhpDoc);
-        } catch (\Exception $e) {
-            return [];
-        }
-
-        $names = [];
-        foreach ($docBlock->getTagsByName('template') as $tag) {
-            if ($tag instanceof Template) {
-                $names[] = $tag->getTemplateName();
-            }
-        }
-
-        foreach ($docBlock->getTagsByName('template-covariant') as $tag) {
-            if ($tag instanceof TemplateCovariant) {
-                $typeName = ltrim((string)$tag->getType(), '\\');
-                if ($typeName !== '') {
-                    $names[] = $typeName;
-                }
-            }
-        }
-
-        return $names;
+        return TemplateTypeNormalizer::extractTemplateNames($rawPhpDoc);
     }
 
     /**
-     * Normalise a PhpDoc type string.
-     *
-     * Strips phpstan/psalm annotations first, then applies standard
+     * Normalise a PhpDoc type string: strip phpstan/psalm annotations, then apply the shared
      * normalizeType() (union ordering, FQN backslash, T[] → array).
      */
     public function normalizeDocType(string $type): string
     {
-        $type = $this->stripPhpStanGenerics($type);
-        return TypeResolver::normalizeType($type) ?? '';
+        return PhpStanTypeNormalizer::normalize($type);
     }
 
     /**
@@ -221,129 +189,6 @@ final class PhpDocConformanceService
     }
 
     /**
-     * Filter parameters by version availability and deduplicate same-named variadic pairs.
-     *
-     * @param PHPParameter[] $params
-     * @return PHPParameter[]
-     */
-    public function filterAndDeduplicateParamsPhpDoc(array $params, string $phpVersion): array
-    {
-        return ParameterFilterHelper::filterAndDeduplicate($params, $phpVersion);
-    }
-
-    /**
-     * Maps phpstan/psalm pseudo-type leaves to the closest built-in PHP type.
-     *
-     * Keys are lowercased leaf tokens (after generics/shapes/`[]` have been stripped).
-     * A value may itself be a union (e.g. 'array-key' → 'int|string'); it is substituted
-     * verbatim and later flattened/sorted by TypeResolver::normalizeType().
-     */
-    private const PHPSTAN_LEAF_MAP = [
-        // array-like
-        'array' => 'array',
-        'non-empty-array' => 'array',
-        'list' => 'array',
-        'non-empty-list' => 'array',
-        // iterable
-        'iterable' => 'iterable',
-        // string family
-        'numeric-string' => 'string',
-        'non-empty-string' => 'string',
-        'non-falsy-string' => 'string',
-        'truthy-string' => 'string',
-        'literal-string' => 'string',
-        'lowercase-string' => 'string',
-        'class-string' => 'string',
-        'callable-string' => 'string',
-        'trait-string' => 'string',
-        'interned-string' => 'string',
-        'html-escaped-string' => 'string',
-        'enum-string' => 'string',
-        // int family
-        'positive-int' => 'int',
-        'negative-int' => 'int',
-        'non-positive-int' => 'int',
-        'non-negative-int' => 'int',
-        'int-mask' => 'int',
-        'int-mask-of' => 'int',
-        // key/value helpers
-        'array-key' => 'int|string',
-        'key-of' => 'int|string',
-        'value-of' => 'mixed',
-        'scalar' => 'mixed',
-        // callables
-        'pure-callable' => 'callable',
-        'pure-closure' => '\\Closure',
-    ];
-
-    /**
-     * Narrow phpstan/psalm-specific type annotations down to the closest built-in PHP type.
-     *
-     * Handles, in order: conditional return types, callable/Closure signatures, the `?T`
-     * nullable shorthand, generic brackets `<…>`, array shapes `{…}`, typed-array suffix `[]`,
-     * and finally an explicit leaf-mapping table (see {@see self::PHPSTAN_LEAF_MAP}). If any
-     * resulting component is `mixed`, the whole type collapses to `mixed`.
-     */
-    private function stripPhpStanGenerics(string $type): string
-    {
-        $type = trim($type);
-
-        // Conditional return type: ($x is Y ? A : B) → mixed
-        if (preg_match('/^\(.*\bis\b.*\?.*:.*\)$/s', $type)) {
-            return 'mixed';
-        }
-
-        // callable(...): T / Closure(...): T signatures → base keyword (before generic stripping).
-        // Tolerates one level of nested parentheses and an optional ": ReturnType".
-        $type = preg_replace('/\bcallable\s*\((?:[^()]*|\([^()]*\))*\)(\s*:\s*[^|&,\s]+)?/i', 'callable', $type);
-        $type = preg_replace('/\\\\?\bClosure\s*\((?:[^()]*|\([^()]*\))*\)(\s*:\s*[^|&,\s]+)?/', 'Closure', $type);
-
-        // ?T → T|null (PHP nullable shorthand sometimes used in PhpDoc)
-        if (str_starts_with($type, '?') && !str_contains($type, '|')) {
-            $type = substr($type, 1) . '|null';
-        }
-
-        // Strip generics <...> iteratively to handle nesting
-        $prev = null;
-        while ($prev !== $type) {
-            $prev = $type;
-            $type = preg_replace('/<[^<>]*>/', '', $type);
-        }
-
-        // Strip array shapes {...} iteratively to handle nesting
-        $prev = null;
-        while ($prev !== $type) {
-            $prev = $type;
-            $type = preg_replace('/\{[^{}]*}/', '', $type);
-        }
-
-        // Typed-array suffix: string[], int[][], \Foo[] → array
-        $type = preg_replace('/[\w\\\\]+(?:\[])+/', 'array', $type);
-
-        // Class-constant value types (psalm/phpstan): Foo::BAR, Foo::BAR_*, \Foo\Bar::BAZ_*.
-        // These enumerate the values of one or more class constants — a value-level refinement
-        // the conformance check cannot evaluate. They refine, never contradict, the declared
-        // scalar signature, so collapse them to `mixed` (as value-of/scalar already do).
-        $type = preg_replace('/[\w\\\\]+::[A-Za-z_]\w*\*?/', 'mixed', $type);
-
-        // Map remaining phpstan/psalm leaf tokens to the closest built-in type
-        $type = preg_replace_callback(
-            '/[A-Za-z_\\\\][\w\-\\\\]*/',
-            fn (array $m): string => self::PHPSTAN_LEAF_MAP[strtolower($m[0])] ?? $m[0],
-            $type
-        );
-
-        // mixed absorbs everything else (tolerate wrapping parens, e.g. psalm's `(mixed)`)
-        foreach (preg_split('/[|&]/', $type) as $component) {
-            if (trim($component, " \t()") === 'mixed') {
-                return 'mixed';
-            }
-        }
-
-        return trim($type);
-    }
-
-    /**
      * @param string[] $sigParts
      * @param string[] $docParts
      */
@@ -356,8 +201,8 @@ final class PhpDocConformanceService
             return false;
         }
 
-        $hasNonPrimitiveInSig = !empty(array_diff($sigParts, self::PRIMITIVES));
-        $hasNonPrimitiveInDoc = !empty(array_diff($docParts, self::PRIMITIVES));
+        $hasNonPrimitiveInSig = !empty(array_diff($sigParts, TypeResolver::PRIMITIVES));
+        $hasNonPrimitiveInDoc = !empty(array_diff($docParts, TypeResolver::PRIMITIVES));
 
         if ($hasObjectInSig && ($hasNonPrimitiveInDoc || $hasObjectInDoc)) {
             return true;
@@ -377,16 +222,16 @@ final class PhpDocConformanceService
     private function isResourceToClassMigration(array $sigParts, array $docParts): bool
     {
         if (in_array('resource', $docParts)) {
-            $sigClasses = array_diff($sigParts, self::PRIMITIVES);
-            $docClasses = array_diff($docParts, self::PRIMITIVES);
+            $sigClasses = array_diff($sigParts, TypeResolver::PRIMITIVES);
+            $docClasses = array_diff($docParts, TypeResolver::PRIMITIVES);
             if (!empty($sigClasses) && empty($docClasses)) {
                 return true;
             }
         }
 
         if (in_array('resource', $sigParts)) {
-            $docClasses = array_diff($docParts, self::PRIMITIVES);
-            $sigClasses = array_diff($sigParts, self::PRIMITIVES);
+            $docClasses = array_diff($docParts, TypeResolver::PRIMITIVES);
+            $sigClasses = array_diff($sigParts, TypeResolver::PRIMITIVES);
             if (!empty($docClasses) && empty($sigClasses)) {
                 return true;
             }
@@ -448,11 +293,11 @@ final class PhpDocConformanceService
             return false;
         }
 
-        if ($docHasStatic && !empty(array_diff($sigParts, self::PRIMITIVES))) {
+        if ($docHasStatic && !empty(array_diff($sigParts, TypeResolver::PRIMITIVES))) {
             return true;
         }
 
-        if ($sigHasStatic && !empty(array_diff($docParts, self::PRIMITIVES))) {
+        if ($sigHasStatic && !empty(array_diff($docParts, TypeResolver::PRIMITIVES))) {
             return true;
         }
 
@@ -465,8 +310,8 @@ final class PhpDocConformanceService
      */
     private function isBothSidesClassTypes(array $sigParts, array $docParts): bool
     {
-        return !empty(array_diff($sigParts, self::PRIMITIVES))
-            && !empty(array_diff($docParts, self::PRIMITIVES));
+        return !empty(array_diff($sigParts, TypeResolver::PRIMITIVES))
+            && !empty(array_diff($docParts, TypeResolver::PRIMITIVES));
     }
 
     /**

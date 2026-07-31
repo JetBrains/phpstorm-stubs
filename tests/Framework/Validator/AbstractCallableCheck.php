@@ -3,7 +3,7 @@
 namespace StubTests\Framework\Validator;
 
 use StubTests\Framework\Model\PHPFunction;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 

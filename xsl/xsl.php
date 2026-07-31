@@ -2,6 +2,7 @@
 
 // Start of xsl v.0.1
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
@@ -9,6 +10,34 @@ use JetBrains\PhpStorm\Internal\TentativeType;
  */
 class XSLTProcessor
 {
+    /**
+     * Controls whether the input document is cloned before transformation
+     * @link https://php.net/manual/en/class.xsltprocessor.php#xsltprocessor.props.clonedocument
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public bool $cloneDocument;
+
+    /**
+     * Controls whether XInclude substitution is performed
+     * @link https://php.net/manual/en/class.xsltprocessor.php#xsltprocessor.props.doxinclude
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public bool $doXInclude;
+
+    /**
+     * The maximum template nesting depth
+     * @link https://php.net/manual/en/class.xsltprocessor.php#xsltprocessor.props.maxtemplatedepth
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public int $maxTemplateDepth;
+
+    /**
+     * The maximum number of template variables
+     * @link https://php.net/manual/en/class.xsltprocessor.php#xsltprocessor.props.maxtemplatevars
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public int $maxTemplateVars;
+
     /**
      * Import stylesheet
      * @link https://php.net/manual/en/xsltprocessor.importstylesheet.php
@@ -144,6 +173,24 @@ class XSLTProcessor
     public function registerPHPFunctions(#[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $functions = null): void {}
 
     /**
+     * Registers a PHP function to be callable from XSLT under the given namespace
+     * @link https://php.net/manual/en/xsltprocessor.registerphpfunctionns.php
+     * @param string $namespaceURI <p>
+     * The namespace URI the function is registered under.
+     * </p>
+     * @param string $name <p>
+     * The name the function is exposed as inside the stylesheet.
+     * </p>
+     * @param callable $callable <p>
+     * The PHP callable to invoke.
+     * </p>
+     * @return void No value is returned.
+     * @since 8.4
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public function registerPHPFunctionNS(string $namespaceURI, string $name, callable $callable): void {}
+
+    /**
      * Sets profiling output file
      * @link https://php.net/manual/en/xsltprocessor.setprofiling.php
      * @param string $filename <p>
@@ -151,6 +198,8 @@ class XSLTProcessor
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: '')]
+    #[TentativeType]
     public function setProfiling(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename) {}
 
     /**

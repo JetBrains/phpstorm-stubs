@@ -7,13 +7,11 @@ use StubTests\Framework\Model\PHPParameter;
 /**
  * Shared utility for filtering and deduplicating parameters by PHP version.
  *
- * Consolidates the parameter filtering algorithm previously duplicated in:
- * - MethodCollectionService::filterAndDeduplicateParams()
- * - PhpDocConformanceTrait::filterAndDeduplicateParamsPhpDoc()
- * - Functions\ParameterNamesCheck::filterAndDeduplicateByVersion()
- *
- * @param PHPParameter[] $params
- * @return PHPParameter[]
+ * Consolidates the parameter filtering algorithm previously duplicated in
+ * MethodCollectionService, the PhpDoc conformance checks and
+ * Functions\ParameterNamesCheck. The PhpDoc conformance path reached it through a
+ * PhpDocConformanceService pass-through for a while; the checks now call it directly, so
+ * "which parameters exist at version X" no longer looks like a PhpDoc question.
  */
 final class ParameterFilterHelper
 {

@@ -265,6 +265,62 @@ class ReflectionEntitySerializerTest extends TestCase
         self::assertEquals('INTERFACE_CONSTANT', $result['constants'][0]['name']);
     }
 
+    /**
+     * ReflectionInterfaceSerializer had no `parentInterfaces` field at all, so even once the parser
+     * populated it the data could not reach Reflection*.json — the gap was invisible on both sides.
+     *
+     * A round trip is asserted rather than just the serialized array: the ids are what
+     * ClassHierarchyResolver matches on, and dropping them on the way back in would be just as
+     * silent as never writing them.
+     */
+    public function testSerializeInterfaceWithParentInterfaces(): void
+    {
+        $interface = new PHPInterface();
+        $interface->setName('Persistable');
+        $interface->setNamespace('\\MongoDB\\BSON');
+        $interface->setId('\\MongoDB\\BSON\\Persistable');
+
+        foreach (['MongoDB\\BSON\\Serializable', 'MongoDB\\BSON\\Unserializable'] as $parentName) {
+            $parent = new PHPInterface();
+            $parent->setName($parentName);
+            $parent->setId('\\' . $parentName);
+            $interface->addParentInterface($parent);
+        }
+
+        $result = $this->serializer->serialize($interface);
+
+        self::assertSame(
+            ['\\MongoDB\\BSON\\Serializable', '\\MongoDB\\BSON\\Unserializable'],
+            $result['parentInterfaces'],
+            'Parents must be persisted as fully qualified ids, not bare names'
+        );
+
+        $restored = $this->serializer->deserialize($result);
+        self::assertSame(
+            ['\\MongoDB\\BSON\\Serializable', '\\MongoDB\\BSON\\Unserializable'],
+            array_map(fn (PHPInterface $parent) => $parent->getId(), $restored->getParentInterfaces())
+        );
+        self::assertSame(
+            ['MongoDB\\BSON\\Serializable', 'MongoDB\\BSON\\Unserializable'],
+            array_map(fn (PHPInterface $parent) => $parent->getName(), $restored->getParentInterfaces()),
+            'The name must round-trip as ReflectionImplementedInterfaceParser writes it: FQN, no leading slash'
+        );
+    }
+
+    public function testSerializeInterfaceWithoutParentsEmitsAnEmptyList(): void
+    {
+        $interface = new PHPInterface();
+        $interface->setName('Traversable');
+        $interface->setId('\\Traversable');
+
+        $result = $this->serializer->serialize($interface);
+
+        // Present-but-empty, not absent: deserialize() keys off isset(), and an absent key would
+        // make "no parents" indistinguishable from "written by an older serializer".
+        self::assertSame([], $result['parentInterfaces']);
+        self::assertSame([], $this->serializer->deserialize($result)->getParentInterfaces());
+    }
+
     public function testSerializeEnum(): void
     {
         $enum = new PHPEnum();
@@ -342,6 +398,21 @@ class ReflectionEntitySerializerTest extends TestCase
         self::assertEquals('TEST_CONSTANT', $result['name']);
         self::assertEquals('Test\\Namespace', $result['namespace']);
         self::assertEquals(42, $result['value']);
+    }
+
+    public function testNonFiniteConstantValuesUseTheSameSentinelsAsTheStubsSide(): void
+    {
+        // A constant is compared across the two caches by value, so the reflection side has to
+        // render \INF exactly like the stubs side does. Both go through
+        // SerializerUtilsTrait::toJsonSafe(); this pins that they still share it.
+        $expectations = [[INF, '[float:INF]'], [-INF, '[float:-INF]'], [NAN, '[float:NAN]']];
+        foreach ($expectations as [$value, $expected]) {
+            $constant = new PHPConstant();
+            $constant->setName('SOME_LIMIT');
+            $constant->setValue($value);
+
+            self::assertSame($expected, $this->serializer->serialize($constant)['value']);
+        }
     }
 
     public function testSerializeUnknownEntityType(): void

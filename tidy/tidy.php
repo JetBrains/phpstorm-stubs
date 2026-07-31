@@ -498,6 +498,26 @@ final class tidyNode
      */
     public function getParent(): ?tidyNode {}
 
+    /**
+     * Returns the previous sibling of the current node
+     * @link https://php.net/manual/en/tidynode.getprevioussibling.php
+     * @return tidyNode|null a tidyNode if the node has a previous sibling, or <b>NULL</b>
+     * otherwise.
+     * @since 8.4
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public function getPreviousSibling(): ?tidyNode {}
+
+    /**
+     * Returns the next sibling of the current node
+     * @link https://php.net/manual/en/tidynode.getnextsibling.php
+     * @return tidyNode|null a tidyNode if the node has a next sibling, or <b>NULL</b>
+     * otherwise.
+     * @since 8.4
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public function getNextSibling(): ?tidyNode {}
+
     private function __construct() {}
 }
 

@@ -2,6 +2,8 @@
 
 namespace StubTests\Framework\Storage;
 
+use StubTests\Framework\Serialization\PhpDocRepository;
+
 /**
  * Storage for raw PhpDoc comments, separated from main entity data.
  * Provides lazy loading and efficient access to PhpDoc by entity ID.
@@ -18,8 +20,12 @@ namespace StubTests\Framework\Storage;
  * Runner::getStubs() pass false — and the only $loadExisting = true construction (the
  * cache-complete branch of Runner::getStubs()) is a pure reader that never saves. That is
  * why the file currently has zero orphaned ids. Preserve the split when adding a writer.
+ *
+ * Serializers see only the two-method {@see PhpDocRepository} slice of this class, so they cannot
+ * reach save()/load()/clear() and cannot break the invariant above. Keep depending on the concrete
+ * class wherever the file lifecycle actually matters.
  */
-class PhpDocStorage
+class PhpDocStorage implements PhpDocRepository
 {
     private string $pathToJsonFile;
     private array $phpDocs = [];

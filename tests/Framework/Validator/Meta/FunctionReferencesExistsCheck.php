@@ -4,7 +4,7 @@ namespace StubTests\Framework\Validator\Meta;
 
 use StubTests\Framework\MetaFile\MetaReference;
 use StubTests\Framework\MetaFile\MetaReferenceType;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\Services\EntityLookupService;

@@ -76,15 +76,19 @@ class JsonParsedDataStorage implements ParsedDataPersistentStorageProvider
             mkdir($dir, 0777, true);
         }
 
-        // Use JSON_PARTIAL_OUTPUT_ON_ERROR to handle encoding errors gracefully
+        // JSON_PARTIAL_OUTPUT_ON_ERROR must NOT be used here. It does not skip an unencodable
+        // value, it substitutes one (`0` for a non-finite float, `null` for a malformed string) — so
+        // INF, -INF and NAN landed in the committed caches as the integer 0, indistinguishable from
+        // a genuine 0. It also takes precedence over JSON_THROW_ON_ERROR and suppresses the false
+        // return, so the corrupt cache was written and the run stayed green. Non-finite floats are
+        // now rendered as sentinels by SerializerUtilsTrait::toJsonSafe(); anything still
+        // unencodable here is a bug in a serializer and must stop the pipeline. JSON_THROW_ON_ERROR
+        // is the only mechanism needed for that — it throws rather than returning false, so no
+        // return-value guard follows.
         $json = json_encode(
             $serializedData,
-            JSON_PRETTY_PRINT|JSON_PARTIAL_OUTPUT_ON_ERROR|JSON_UNESCAPED_SLASHES
+            JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES|JSON_THROW_ON_ERROR
         );
-
-        if ($json === false || $json === 'null') {
-            throw new \RuntimeException('JSON encoding failed: ' . json_last_error_msg());
-        }
 
         $bytes = file_put_contents($this->pathToJsonFile, $json);
 

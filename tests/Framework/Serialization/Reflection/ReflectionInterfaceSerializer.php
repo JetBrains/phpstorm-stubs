@@ -4,7 +4,7 @@ namespace StubTests\Framework\Serialization\Reflection;
 
 use StubTests\Framework\Serialization\EntityTypeSerializerInterface;
 use StubTests\Framework\Serialization\SubEntitySerializerTrait;
-use StubTests\Framework\Storage\PhpDocStorage;
+use StubTests\Framework\Serialization\PhpDocRepository;
 use StubTests\Framework\Model\PHPInterface;
 
 /**
@@ -20,7 +20,7 @@ class ReflectionInterfaceSerializer implements EntityTypeSerializerInterface
         return $entity instanceof PHPInterface;
     }
 
-    public function serialize($entity, ?PhpDocStorage $phpDocStorage = null): array
+    public function serialize($entity, ?PhpDocRepository $phpDocStorage = null): array
     {
         $data = [
             '_type' => 'PHPInterface',
@@ -40,10 +40,23 @@ class ReflectionInterfaceSerializer implements EntityTypeSerializerInterface
             $data['constants'][] = $this->serializeClassConstant($constant);
         }
 
+        // Persisted as fully qualified ids, like PHPInterfaceSerializer does, so the FQN survives
+        // the round trip and ClassHierarchyResolver can match `\MongoDB\BSON\Serializable` rather
+        // than falling back to the global `\Serializable`.
+        //
+        // This is the transitive ancestor set, not just the direct parents — see the note in
+        // ReflectionInterfaceParser::parse().
+        $data['parentInterfaces'] = [];
+        foreach ($entity->getParentInterfaces() as $parentInterface) {
+            $data['parentInterfaces'][] = $this->toJsonSafe(
+                $parentInterface->getId() ?? $parentInterface->getName()
+            );
+        }
+
         return $data;
     }
 
-    public function deserialize(array $data, ?PhpDocStorage $phpDocStorage = null): PHPInterface
+    public function deserialize(array $data, ?PhpDocRepository $phpDocStorage = null): PHPInterface
     {
         $interface = new PHPInterface();
         $interface->setName($data['name'] ?? null);
@@ -59,6 +72,21 @@ class ReflectionInterfaceSerializer implements EntityTypeSerializerInterface
         if (isset($data['constants']) && is_array($data['constants'])) {
             foreach ($data['constants'] as $constantData) {
                 $interface->addConstant($this->deserializeClassConstant($constantData));
+            }
+        }
+
+        if (isset($data['parentInterfaces']) && is_array($data['parentInterfaces'])) {
+            foreach ($data['parentInterfaces'] as $parentInterfaceId) {
+                if (empty($parentInterfaceId)) {
+                    continue;
+                }
+                $parentInterface = new PHPInterface();
+                // Reflection ids are always fully qualified, so no short-name fallback is needed
+                // here (unlike the stubs serializer, which has to cope with `extends Countable`
+                // inside a namespace meaning the global \Countable).
+                $parentInterface->setName(ltrim($parentInterfaceId, '\\'));
+                $parentInterface->setId($parentInterfaceId);
+                $interface->addParentInterface($parentInterface);
             }
         }
 

@@ -8,26 +8,28 @@ use StubTests\Framework\Model\PHPClass;
 use StubTests\Framework\Model\PHPFunction;
 use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Model\PHPProperty;
+use StubTests\Framework\Storage\InMemoryPhpDocRepository;
 use StubTests\Framework\Storage\PhpDocStorage;
 
+/**
+ * What the serializers do with a PhpDoc: hoist it out of the entity array and into the repository
+ * under the entity's id, and put it back on the way in.
+ *
+ * Most of these are pure array transforms and use the in-memory repository — no temp file, no lazy
+ * loading, no save() to forget. Only testDeserializationLoadsPhpDocFromStorage goes through a real
+ * file, because the thing it verifies *is* the round trip through one; it owns its own path.
+ * PhpDocStorageTest::testEveryPhpDocRepositoryAgreesOnBlankDocSemantics pins the two implementations
+ * to the same semantics so the cheap double can't drift from the real writer.
+ */
 class PhpDocSeparationTest extends TestCase
 {
-    private string $testFilePath;
-    private PhpDocStorage $phpDocStorage;
+    private InMemoryPhpDocRepository $phpDocStorage;
     private StubsEntitySerializer $serializer;
 
     protected function setUp(): void
     {
-        $this->testFilePath = sys_get_temp_dir() . '/phpstorm-stubs-test-phpdoc-' . uniqid() . '.json';
-        $this->phpDocStorage = new PhpDocStorage($this->testFilePath, false);
+        $this->phpDocStorage = new InMemoryPhpDocRepository();
         $this->serializer = new StubsEntitySerializer($this->phpDocStorage);
-    }
-
-    protected function tearDown(): void
-    {
-        if (file_exists($this->testFilePath)) {
-            unlink($this->testFilePath);
-        }
     }
 
     public function testClassPhpDocIsSeparated(): void
@@ -109,26 +111,38 @@ class PhpDocSeparationTest extends TestCase
         self::assertEquals('/** @var int */', $this->phpDocStorage->getPhpDoc('\\TestClass::$testProperty'));
     }
 
+    /**
+     * The only test here that needs a real file: it asserts a doc survives serialize → save() → a
+     * fresh process's lazy load → deserialize, which is exactly what the cache does and what an
+     * in-memory double cannot show.
+     */
     public function testDeserializationLoadsPhpDocFromStorage(): void
     {
-        // Serialize a class with PhpDoc
-        $class = new PHPClass();
-        $class->setName('TestClass');
-        $class->setId('\\TestClass');
-        $class->initStubsMetadata()->setPhpDoc('/** @since 8.0 */');
+        $path = sys_get_temp_dir() . '/phpstorm-stubs-test-phpdoc-' . uniqid() . '.json';
 
-        $serialized = $this->serializer->serialize($class);
-        $this->phpDocStorage->save();
+        try {
+            // A writer must not pre-load, per PhpDocStorage's invariant.
+            $writeStorage = new PhpDocStorage($path, false);
+            $writeSerializer = new StubsEntitySerializer($writeStorage);
 
-        // Create new storage and serializer to simulate loading
-        $newPhpDocStorage = new PhpDocStorage($this->testFilePath);
-        $newSerializer = new StubsEntitySerializer($newPhpDocStorage);
+            $class = new PHPClass();
+            $class->setName('TestClass');
+            $class->setId('\\TestClass');
+            $class->initStubsMetadata()->setPhpDoc('/** @since 8.0 */');
 
-        // Deserialize
-        $deserialized = $newSerializer->deserialize($serialized);
+            $serialized = $writeSerializer->serialize($class);
+            self::assertNull($serialized['phpDoc'], 'the doc must be hoisted out, not inlined');
+            $writeStorage->save();
 
-        // PhpDoc should be loaded from external storage
-        self::assertEquals('/** @since 8.0 */', $deserialized->getStubsMetadata()?->getPhpDoc());
+            // A second storage over the same file stands in for a later run reading the cache.
+            $deserialized = (new StubsEntitySerializer(new PhpDocStorage($path)))->deserialize($serialized);
+
+            self::assertEquals('/** @since 8.0 */', $deserialized->getStubsMetadata()?->getPhpDoc());
+        } finally {
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
     }
 
     public function testWithoutPhpDocStoragePhpDocIsInline(): void

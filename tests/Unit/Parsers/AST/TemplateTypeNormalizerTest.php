@@ -4,7 +4,7 @@ namespace StubTests\Unit\Parsers\AST;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
+use StubTests\Framework\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
 use StubTests\Framework\Parsers\Stubs\StubInterfaceParser;
 

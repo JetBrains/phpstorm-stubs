@@ -4,7 +4,7 @@ namespace StubTests\Framework\Serialization\Reflection;
 
 use StubTests\Framework\Serialization\EntityTypeSerializerInterface;
 use StubTests\Framework\Serialization\SubEntitySerializerTrait;
-use StubTests\Framework\Storage\PhpDocStorage;
+use StubTests\Framework\Serialization\PhpDocRepository;
 use StubTests\Framework\Model\PHPConstant;
 
 /**
@@ -20,7 +20,7 @@ class ReflectionConstantSerializer implements EntityTypeSerializerInterface
         return $entity instanceof PHPConstant;
     }
 
-    public function serialize($entity, ?PhpDocStorage $phpDocStorage = null): array
+    public function serialize($entity, ?PhpDocRepository $phpDocStorage = null): array
     {
         $data = [
             '_type' => 'PHPConstant',
@@ -34,7 +34,7 @@ class ReflectionConstantSerializer implements EntityTypeSerializerInterface
         return $data;
     }
 
-    public function deserialize(array $data, ?PhpDocStorage $phpDocStorage = null): PHPConstant
+    public function deserialize(array $data, ?PhpDocRepository $phpDocStorage = null): PHPConstant
     {
         $constant = new PHPConstant();
         $constant->setName($data['name'] ?? '');

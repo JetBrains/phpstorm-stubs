@@ -54,9 +54,11 @@ class ReflectionValueNormalizerTest extends TestCase
         self::assertInstanceOf(AdaptedReflectionClass::class, $result);
     }
 
-    public function testItPreventsInfiniteRecursion()
+    /**
+     * Build a 10-level array: ['level' => 0, 'nested' => ['level' => 1, 'nested' => [...]]].
+     */
+    private static function deeplyNestedArray()
     {
-        // Create deeply nested array
         $deep = ['level' => 0];
         $current = &$deep;
         for ($i = 1; $i < 10; $i++) {
@@ -64,9 +66,57 @@ class ReflectionValueNormalizerTest extends TestCase
             $current = &$current['nested'];
         }
 
-        // Should not throw due to max depth limit
-        $result = ReflectionValueNormalizer::makeSerializable($deep, 0, 3);
-        self::assertIsArray($result);
+        return $deep;
+    }
+
+    /**
+     * Asserts *where* the recursion stops, not merely that it stopped.
+     *
+     * `assertIsArray($result)` alone could not fail: the top-level value is an array whatever
+     * $maxDepth does, so deleting the depth guard entirely left the test green while the recursion
+     * became unbounded. The exact expected tree below pins both halves of the contract — that
+     * truncation happens, and that it happens no earlier than $maxDepth.
+     */
+    public function testItTruncatesAtMaxDepthInsteadOfRecursingForever()
+    {
+        $result = ReflectionValueNormalizer::makeSerializable(self::deeplyNestedArray(), 0, 3);
+
+        self::assertSame(
+            [
+                'level' => 0,                                        // depth 1
+                'nested' => [
+                    'level' => 1,                                    // depth 2
+                    'nested' => [
+                        'level' => null,                             // depth 3 == maxDepth → cut
+                        'nested' => null,
+                    ],
+                ],
+            ],
+            $result
+        );
+    }
+
+    /**
+     * The default $maxDepth is part of the contract: every caller in the reflection pipeline relies
+     * on it rather than passing a depth. Pinned behaviourally so that changing the default fails
+     * here rather than silently altering every cached reflection payload.
+     */
+    public function testItAppliesMaxDepthThreeByDefault()
+    {
+        self::assertSame(
+            ReflectionValueNormalizer::makeSerializable(self::deeplyNestedArray(), 0, 3),
+            ReflectionValueNormalizer::makeSerializable(self::deeplyNestedArray())
+        );
+    }
+
+    /**
+     * The boundary is `>=`, so a depth already at the limit yields null without inspecting the
+     * value at all — including for a plain scalar that would otherwise pass straight through.
+     */
+    public function testItReturnsNullWhenAlreadyAtMaxDepth()
+    {
+        self::assertNull(ReflectionValueNormalizer::makeSerializable('scalar', 3, 3));
+        self::assertNull(ReflectionValueNormalizer::makeSerializable(['a' => 1], 0, 0));
     }
 
     public function testItReturnsAdaptedReflectionObjectsAsIs()

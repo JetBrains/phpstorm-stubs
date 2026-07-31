@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Runner;
 
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Serialization\Reflection\ReflectionEntitySerializer;
 use StubTests\Framework\Serialization\Stubs\StubsEntitySerializer;
 use StubTests\Framework\DataProvider\AllStubsDataProvider;

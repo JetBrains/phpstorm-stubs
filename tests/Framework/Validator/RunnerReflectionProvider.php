@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator;
 
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Runner\RunnerScope;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 

@@ -7,7 +7,7 @@ use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Model\PHPParameter;
 use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Serialization\SubEntitySerializerTrait;
-use StubTests\Framework\Storage\PhpDocStorage;
+use StubTests\Framework\Serialization\PhpDocRepository;
 
 /**
  * Stubs-specific serialization extending the shared SubEntitySerializerTrait.
@@ -22,7 +22,7 @@ trait SerializerHelperTrait
 
     // ── PhpDoc storage helpers ─────────────────────────────────────
 
-    protected function serializePhpDoc(?string $entityId, ?string $phpDoc, ?PhpDocStorage $phpDocStorage): ?string
+    protected function serializePhpDoc(?string $entityId, ?string $phpDoc, ?PhpDocRepository $phpDocStorage): ?string
     {
         if ($phpDocStorage !== null && $entityId !== null) {
             $phpDocStorage->setPhpDoc($entityId, $phpDoc);
@@ -31,7 +31,7 @@ trait SerializerHelperTrait
         return $this->toJsonSafe($phpDoc);
     }
 
-    protected function deserializePhpDoc(?string $entityId, ?string $inlinePhpDoc, ?PhpDocStorage $phpDocStorage): ?string
+    protected function deserializePhpDoc(?string $entityId, ?string $inlinePhpDoc, ?PhpDocRepository $phpDocStorage): ?string
     {
         if ($inlinePhpDoc !== null) {
             return $inlinePhpDoc;
@@ -44,7 +44,7 @@ trait SerializerHelperTrait
 
     // ── Serialize hooks ────────────────────────────────────────────
 
-    protected function enrichSerializedMethod(array &$data, PHPMethod $method, ?string $parentId, ?PhpDocStorage $phpDocStorage): void
+    protected function enrichSerializedMethod(array &$data, PHPMethod $method, ?string $parentId, ?PhpDocRepository $phpDocStorage): void
     {
         $methodId = $parentId ? $parentId . '::' . $method->getName() : null;
         $data['phpDoc'] = $this->serializePhpDoc($methodId, $method->getStubsMetadata()?->getPhpDoc(), $phpDocStorage);
@@ -64,7 +64,7 @@ trait SerializerHelperTrait
         $data['removedVersion'] = $this->toJsonSafe($parameter->getStubsMetadata()?->getRemovedVersion());
     }
 
-    protected function enrichSerializedProperty(array &$data, PHPProperty $property, ?string $parentId, ?PhpDocStorage $phpDocStorage): void
+    protected function enrichSerializedProperty(array &$data, PHPProperty $property, ?string $parentId, ?PhpDocRepository $phpDocStorage): void
     {
         $propertyId = $parentId ? $parentId . '::$' . $property->getName() : null;
         $data['phpDoc'] = $this->serializePhpDoc($propertyId, $property->getStubsMetadata()?->getPhpDoc(), $phpDocStorage);
@@ -83,7 +83,7 @@ trait SerializerHelperTrait
 
     // ── Deserialize hooks ──────────────────────────────────────────
 
-    protected function enrichDeserializedMethod(PHPMethod $method, array $data, ?string $parentId, ?PhpDocStorage $phpDocStorage): void
+    protected function enrichDeserializedMethod(PHPMethod $method, array $data, ?string $parentId, ?PhpDocRepository $phpDocStorage): void
     {
         $methodId = $parentId ? $parentId . '::' . ($data['name'] ?? '') : null;
         $method->initStubsMetadata()->setPhpDoc($this->deserializePhpDoc($methodId, $data['phpDoc'] ?? null, $phpDocStorage));
@@ -103,7 +103,7 @@ trait SerializerHelperTrait
         $parameter->initStubsMetadata()->setRemovedVersion($data['removedVersion'] ?? null);
     }
 
-    protected function enrichDeserializedProperty(PHPProperty $property, array $data, ?string $parentId, ?PhpDocStorage $phpDocStorage): void
+    protected function enrichDeserializedProperty(PHPProperty $property, array $data, ?string $parentId, ?PhpDocRepository $phpDocStorage): void
     {
         $propertyId = $parentId ? $parentId . '::$' . ($data['name'] ?? '') : null;
         $property->initStubsMetadata()->setPhpDoc($this->deserializePhpDoc($propertyId, $data['phpDoc'] ?? null, $phpDocStorage));

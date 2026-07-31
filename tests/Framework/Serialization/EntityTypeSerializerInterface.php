@@ -2,8 +2,6 @@
 
 namespace StubTests\Framework\Serialization;
 
-use StubTests\Framework\Storage\PhpDocStorage;
-
 /**
  * Interface for entity-specific serializers in the strategy pattern.
  * Each entity type (PHPClass, PHPFunction, etc.) has its own serializer implementation.
@@ -22,17 +20,17 @@ interface EntityTypeSerializerInterface
      * Serialize an entity to array format suitable for JSON encoding.
      *
      * @param mixed $entity The entity to serialize
-     * @param PhpDocStorage|null $phpDocStorage Optional PhpDoc storage for external storage
+     * @param PhpDocRepository|null $phpDocStorage Optional PhpDoc storage for external storage
      * @return array The serialized entity data
      */
-    public function serialize($entity, ?PhpDocStorage $phpDocStorage = null): array;
+    public function serialize($entity, ?PhpDocRepository $phpDocStorage = null): array;
 
     /**
      * Deserialize an entity from array format.
      *
      * @param array $data The serialized entity data
-     * @param PhpDocStorage|null $phpDocStorage Optional PhpDoc storage for external retrieval
+     * @param PhpDocRepository|null $phpDocStorage Optional PhpDoc storage for external retrieval
      * @return mixed The reconstructed entity object
      */
-    public function deserialize(array $data, ?PhpDocStorage $phpDocStorage = null);
+    public function deserialize(array $data, ?PhpDocRepository $phpDocStorage = null);
 }

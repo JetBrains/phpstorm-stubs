@@ -8,7 +8,7 @@ use StubTests\Framework\Model\PHPEnum;
 use StubTests\Framework\Model\PHPConstant;
 use StubTests\Framework\Model\PHPFunction;
 use StubTests\Framework\Model\PHPInterface;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
 /**

@@ -43,7 +43,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
 
     private function runCheck(
         PhpDocLinksCheck $check,
-        \StubTests\Framework\Parsers\StubDataQueryInterface $stubs,
+        \StubTests\Framework\Storage\StubDataQueryInterface $stubs,
         string $entityId
     ): \StubTests\Framework\Validator\Contracts\CheckResultSet {
         return $check->run($stubs, $entityId, PhpVersions::LATEST->value);

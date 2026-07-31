@@ -17,7 +17,8 @@
  *   2. looks up the latest available `php:<minor>.<patch>-alpine` image on Docker Hub
  *      (we build from those images, so a patch is only actionable once its image exists),
  *   3. compares that to the manifest, and
- *   4. rewrites the manifest with the newest patches.
+ *   4. rewrites the manifest with the newest patches, never regressing an entry
+ *      (see PhpVersionManifest::resolveRecordedPatch()).
  *
  * When at least one tracked line has a newer patch than recorded, the script reports the affected
  * versions (so the caller can regenerate just those caches) via $GITHUB_OUTPUT:
@@ -30,6 +31,13 @@
  * Usage:
  *   php tests/check-and-update-php-versions.php
  */
+// Required directly, not via vendor/autoload.php: the update-reflection-cache workflow runs this
+// detector *before* its "Composer Install" step (that step is conditional on our own output), so
+// this script must keep working with no vendor/ present. PhpVersionManifest has no dependencies.
+require_once __DIR__ . '/Framework/Runner/PhpVersionManifest.php';
+
+use StubTests\Framework\Runner\PhpVersionManifest;
+
 const DOCKER_TAGS_ENDPOINT = 'https://hub.docker.com/v2/repositories/library/php/tags';
 const MAX_TAG_PAGES_PER_MINOR = 3;
 
@@ -78,15 +86,23 @@ foreach ($tracked as $minor) {
     }
 
     $previous = $manifest[$minor] ?? null;
-    $newManifest[$minor] = $latest;
+    // Monotonic on purpose — see PhpVersionManifest::resolveRecordedPatch().
+    $newManifest[$minor] = PhpVersionManifest::resolveRecordedPatch($previous, $latest);
 
     if ($previous === null) {
         echo sprintf("  %-4s : %s (baseline)\n", $minor, $latest);
-        continue;
-    }
-    if (version_compare($latest, $previous, '>')) {
+    } elseif (version_compare($latest, $previous, '>')) {
         echo sprintf("  %-4s : %s -> %s (UPDATE)\n", $minor, $previous, $latest);
         $updated[] = $minor;
+    } elseif (PhpVersionManifest::isRegression($previous, $latest)) {
+        fwrite(STDERR, sprintf(
+            "Warning: %s: newest image found (%s) is older than the recorded %s — keeping %s.\n",
+            $minor,
+            $latest,
+            $previous,
+            $previous
+        ));
+        echo sprintf("  %-4s : %s (kept; newest image seen was %s)\n", $minor, $previous, $latest);
     } else {
         echo sprintf("  %-4s : %s (up to date)\n", $minor, $previous);
     }

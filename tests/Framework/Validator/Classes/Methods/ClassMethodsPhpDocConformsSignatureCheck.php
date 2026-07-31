@@ -3,7 +3,7 @@
 namespace StubTests\Framework\Validator\Classes\Methods;
 
 use StubTests\Framework\Model\PHPMethod;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
@@ -12,6 +12,7 @@ use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\Services\MethodCollectionService;
+use StubTests\Framework\Validator\Services\ParameterFilterHelper;
 use StubTests\Framework\Validator\Services\PhpDocConformanceService;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 use StubTests\Framework\Validator\Services\ReturnTypeResolver;
@@ -159,7 +160,7 @@ class ClassMethodsPhpDocConformsSignatureCheck extends AbstractClassCheck
         }
 
         // Parameters
-        foreach ($this->conformanceService->filterAndDeduplicateParamsPhpDoc($method->getParameters(), $phpVersion) as $param) {
+        foreach (ParameterFilterHelper::filterAndDeduplicate($method->getParameters(), $phpVersion) as $param) {
             $sigType = $this->conformanceService->getParamSigTypeForPhpDoc($param, $phpVersion);
             $docType = $param->getStubsMetadata()?->getTypeFromPhpDoc();
 

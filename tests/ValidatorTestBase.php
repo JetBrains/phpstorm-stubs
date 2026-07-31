@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Runner\RunnerScope;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
 use StubTests\Framework\Validator\Contracts\CheckInterface;
@@ -168,7 +168,7 @@ abstract class ValidatorTestBase extends TestCase
      * Subclasses should override to return specific entity types.
      *
      * @param string $methodName
-     * @param \StubTests\Framework\Parsers\StubDataQueryInterface $reflection
+     * @param \StubTests\Framework\Storage\StubDataQueryInterface $reflection
      * @return iterable
      */
     protected static function getEntitiesForMethod(string $methodName, StubDataQueryInterface $reflection): iterable

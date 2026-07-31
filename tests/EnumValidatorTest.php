@@ -27,7 +27,7 @@ use StubTests\Framework\Validator\Classes\Constants\ClassConstantsCheck;
 use StubTests\Framework\Validator\Classes\Constants\ClassConstantsValueCheck;
 use StubTests\Framework\Validator\Classes\Constants\ClassConstantsVisibilityCheck;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsPhpDocConformsSignatureCheck;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
 
 /**

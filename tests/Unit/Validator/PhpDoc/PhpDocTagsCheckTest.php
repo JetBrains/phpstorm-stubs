@@ -30,7 +30,7 @@ class PhpDocTagsCheckTest extends PhpDocCheckTestCase
     }
 
     private function runCheck(
-        \StubTests\Framework\Parsers\StubDataQueryInterface $stubs,
+        \StubTests\Framework\Storage\StubDataQueryInterface $stubs,
         string $entityId
     ): \StubTests\Framework\Validator\Contracts\CheckResultSet {
         return $this->check->run($stubs, $entityId, PhpVersions::LATEST->value);

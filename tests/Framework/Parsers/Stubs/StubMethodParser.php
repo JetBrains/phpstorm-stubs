@@ -5,7 +5,7 @@ namespace StubTests\Framework\Parsers\Stubs;
 use StubTests\Framework\Model\Access\AccessModifier;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
-use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
+use StubTests\Framework\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
@@ -95,8 +95,8 @@ class StubMethodParser
 
         // Parse parameters with @param types from PhpDoc, imports, namespace, and optional flags
         $parameters = [];
-        foreach ($node->getParameters() as $param) {
-            $parameters[] = $this->parameterParser->parseNode($param, $parsedPhpDoc->paramTypes, $imports, $namespace, $parsedPhpDoc->optionalParams);
+        foreach ($node->getParameters() as $position => $param) {
+            $parameters[] = $this->parameterParser->parseNode($param, $parsedPhpDoc->paramTypes, $imports, $namespace, $parsedPhpDoc->optionalParams, $position);
         }
         $method->setParameters($parameters);
 
