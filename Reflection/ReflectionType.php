@@ -42,7 +42,6 @@ abstract class ReflectionType implements Stringable
      * @since 7.0
      * @see ReflectionNamedType::getName()
      */
-    #[Deprecated(since: '7.4')]
     public function __toString(): string {}
 
     /**
