@@ -15,6 +15,5 @@ final class ParsedDeprecation
     public function __construct(
         public readonly bool $isDeprecated = false,
         public readonly ?string $sinceVersion = null
-    ) {
-    }
+    ) {}
 }
