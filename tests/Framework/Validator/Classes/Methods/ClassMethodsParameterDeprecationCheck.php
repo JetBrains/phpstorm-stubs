@@ -7,6 +7,7 @@ use StubTests\Framework\Validator\Contracts\DescribesMethodMismatch;
 use StubTests\Framework\Validator\Contracts\MemberKind;
 use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
+use StubTests\Framework\Validator\Services\DeprecationComparator;
 
 /**
  * Validates that parameters deprecated in reflection are also deprecated in stubs.
@@ -51,9 +52,8 @@ class ClassMethodsParameterDeprecationCheck extends AbstractMemberFlagCheck impl
         $mismatches = [];
         foreach ($reflParams as $reflParam) {
             $reflName = $reflParam->getName();
-            $reflDeprecated = $reflParam->isDeprecated();
 
-            if (!$reflDeprecated) {
+            if (!DeprecationComparator::isDeprecatedIn($reflParam, $phpVersion)) {
                 continue;
             }
 
@@ -62,9 +62,7 @@ class ClassMethodsParameterDeprecationCheck extends AbstractMemberFlagCheck impl
                 continue;
             }
 
-            $stubDeprecated = $stubParamsByName[$reflName]->isDeprecated();
-
-            if (!$stubDeprecated) {
+            if (!DeprecationComparator::isDeprecatedIn($stubParamsByName[$reflName], $phpVersion)) {
                 $mismatches[] = "\${$reflName}";
             }
         }

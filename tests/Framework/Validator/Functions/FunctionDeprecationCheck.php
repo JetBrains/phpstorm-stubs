@@ -50,7 +50,7 @@ class FunctionDeprecationCheck extends AbstractCallableCheck
             return $results;
         }
 
-        if (DeprecationComparator::isMismatch($reflCallable, $stubCallable)) {
+        if (DeprecationComparator::isMismatch($reflCallable, $stubCallable, $phpVersion)) {
             $results->addFailure(
                 $entityId,
                 "Function {$entityId} is deprecated in PHP {$phpVersion} but not marked as deprecated in stubs"

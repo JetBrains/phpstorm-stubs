@@ -11,6 +11,7 @@ final class StubsMetadata
     private ?string $phpDoc = null;
     private ?string $sinceVersion = null;
     private ?string $removedVersion = null;
+    private ?string $deprecatedSinceVersion = null;
     private ?array $languageLevelTypes = null;
     private ?string $defaultType = null;
     private ?string $typeFromPhpDoc = null;
@@ -70,6 +71,23 @@ final class StubsMetadata
     public function setRemovedVersion(?string $removedVersion): void
     {
         $this->removedVersion = $removedVersion;
+    }
+
+    /**
+     * PHP version the element becomes deprecated at, as declared by `#[Deprecated(since:)]` or
+     * `@_deprecated <version>`. Null means the element carries no deprecation version — either it
+     * is not deprecated at all, or it is deprecated in every version it exists in. The flag itself
+     * lives on the element (`PHPFunction::isDeprecated()`), since reflection reports it too;
+     * only the version is stub-specific.
+     */
+    public function getDeprecatedSinceVersion(): ?string
+    {
+        return $this->deprecatedSinceVersion;
+    }
+
+    public function setDeprecatedSinceVersion(?string $deprecatedSinceVersion): void
+    {
+        $this->deprecatedSinceVersion = $deprecatedSinceVersion;
     }
 
     public function getLanguageLevelTypes(): ?array

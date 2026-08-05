@@ -3,6 +3,7 @@
 namespace StubTests\Framework\Parsers\Stubs\PhpDoc;
 
 use phpDocumentor\Reflection\DocBlock;
+use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 use phpDocumentor\Reflection\DocBlock\Tags\Generic;
 use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
@@ -10,6 +11,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use phpDocumentor\Reflection\DocBlockFactory;
 use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
+use StubTests\Framework\Parsers\Stubs\Versions\DeprecationParser;
 
 /**
  * PhpDoc parser implementation using phpDocumentor library.
@@ -57,6 +59,7 @@ class PhpDocumentorParser implements PhpDocParserInterface
         $parsed->sinceVersion = $this->extractSinceVersion($docBlock);
         $parsed->removedVersion = $this->extractRemovedVersion($docBlock);
         $parsed->isDeprecated = $this->hasDeprecatedTag($docBlock);
+        $parsed->deprecatedSinceVersion = $this->extractDeprecatedSinceVersion($docBlock);
 
         // phpDocumentor silently drops @param/@return/@var tags whose type it cannot resolve
         // (e.g. phpstan/psalm types like array<TKey, TValue> or non-empty-array<int>). Recover
@@ -364,5 +367,31 @@ class PhpDocumentorParser implements PhpDocParserInterface
     {
         $deprecatedTags = $docBlock->getTagsByName('deprecated');
         return !empty($deprecatedTags);
+    }
+
+    /**
+     * Read the PHP version out of `@_deprecated <version> [description]`.
+     *
+     * The leading version vector is a PHP language level on most entries (`@_deprecated 7.1`) but a
+     * library version on others (`@_deprecated 2.3.0 use ... instead`, for PECL extensions versioned
+     * independently of PHP), so only recognised PHP versions are accepted —
+     * see {@see DeprecationParser::normalizePhpVersion()}. Anything else yields null, meaning
+     * "deprecated regardless of version", which is how a bare `@_deprecated` already behaves.
+     */
+    private function extractDeprecatedSinceVersion(DocBlock $docBlock): ?string
+    {
+        $deprecatedTags = $docBlock->getTagsByName('deprecated');
+        if (empty($deprecatedTags)) {
+            return null;
+        }
+
+        $deprecatedTag = $deprecatedTags[0];
+        if (!$deprecatedTag instanceof Deprecated) {
+            return null;
+        }
+
+        $version = $deprecatedTag->getVersion();
+
+        return $version === null ? null : DeprecationParser::normalizePhpVersion($version);
     }
 }

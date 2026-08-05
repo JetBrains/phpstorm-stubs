@@ -7,6 +7,7 @@ use StubTests\Framework\Validator\AbstractCallableCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
+use StubTests\Framework\Validator\Services\DeprecationComparator;
 use StubTests\Framework\Validator\Services\ParameterFilterHelper;
 
 /**
@@ -65,8 +66,7 @@ class FunctionParameterDeprecationCheck extends AbstractCallableCheck
         foreach ($reflParams as $reflParam) {
             $reflName = $reflParam->getName();
 
-            $reflDeprecated = $reflParam->isDeprecated();
-            if (!$reflDeprecated) {
+            if (!DeprecationComparator::isDeprecatedIn($reflParam, $phpVersion)) {
                 continue;
             }
 
@@ -74,9 +74,7 @@ class FunctionParameterDeprecationCheck extends AbstractCallableCheck
                 continue;
             }
 
-            $stubDeprecated = $stubParamsByName[$reflName]->isDeprecated();
-
-            if (!$stubDeprecated) {
+            if (!DeprecationComparator::isDeprecatedIn($stubParamsByName[$reflName], $phpVersion)) {
                 $mismatches[] = "\${$reflName}";
             }
         }

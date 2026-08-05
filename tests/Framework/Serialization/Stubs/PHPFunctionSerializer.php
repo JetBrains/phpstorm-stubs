@@ -44,6 +44,7 @@ class PHPFunctionSerializer implements EntityTypeSerializerInterface
         $data['phpDoc'] = $this->serializePhpDoc($entity->getId(), $entity->getStubsMetadata()?->getPhpDoc(), $phpDocStorage);
         $data['sinceVersion'] = $this->toJsonSafe($entity->getStubsMetadata()?->getSinceVersion());
         $data['removedVersion'] = $this->toJsonSafe($entity->getStubsMetadata()?->getRemovedVersion());
+        $data['deprecatedSinceVersion'] = $this->toJsonSafe($entity->getStubsMetadata()?->getDeprecatedSinceVersion());
         $data['returnTypeFromPhpDoc'] = $this->toJsonSafe($entity->getStubsMetadata()?->getTypeFromPhpDoc());
         $data['languageLevelTypes'] = $this->toJsonSafe($entity->getStubsMetadata()?->getLanguageLevelTypes());
         $data['defaultType'] = $this->toJsonSafe($entity->getStubsMetadata()?->getDefaultType());
@@ -79,6 +80,7 @@ class PHPFunctionSerializer implements EntityTypeSerializerInterface
         $function->initStubsMetadata()->setPhpDoc($this->deserializePhpDoc($functionId, $data['phpDoc'] ?? null, $phpDocStorage));
         $function->initStubsMetadata()->setSinceVersion($data['sinceVersion'] ?? null);
         $function->initStubsMetadata()->setRemovedVersion($data['removedVersion'] ?? null);
+        $function->initStubsMetadata()->setDeprecatedSinceVersion($data['deprecatedSinceVersion'] ?? null);
         $function->initStubsMetadata()->setTypeFromPhpDoc($data['returnTypeFromPhpDoc'] ?? null);
         $function->initStubsMetadata()->setLanguageLevelTypes($data['languageLevelTypes'] ?? null);
         $function->initStubsMetadata()->setDefaultType($data['defaultType'] ?? null);

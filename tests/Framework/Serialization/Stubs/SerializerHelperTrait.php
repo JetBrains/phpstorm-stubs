@@ -13,7 +13,8 @@ use StubTests\Framework\Serialization\PhpDocRepository;
  * Stubs-specific serialization extending the shared SubEntitySerializerTrait.
  *
  * Overrides the enrich*() hooks to append stub metadata (phpDoc, sinceVersion,
- * removedVersion, LanguageLevelTypeAware fields) to serialized/deserialized entities.
+ * removedVersion, deprecatedSinceVersion, LanguageLevelTypeAware fields) to
+ * serialized/deserialized entities.
  * Also provides PhpDoc storage helper methods.
  */
 trait SerializerHelperTrait
@@ -50,6 +51,7 @@ trait SerializerHelperTrait
         $data['phpDoc'] = $this->serializePhpDoc($methodId, $method->getStubsMetadata()?->getPhpDoc(), $phpDocStorage);
         $data['sinceVersion'] = $this->toJsonSafe($method->getStubsMetadata()?->getSinceVersion());
         $data['removedVersion'] = $this->toJsonSafe($method->getStubsMetadata()?->getRemovedVersion());
+        $data['deprecatedSinceVersion'] = $this->toJsonSafe($method->getStubsMetadata()?->getDeprecatedSinceVersion());
         $data['returnTypeFromPhpDoc'] = $this->toJsonSafe($method->getStubsMetadata()?->getTypeFromPhpDoc());
         $data['languageLevelTypes'] = $this->toJsonSafe($method->getStubsMetadata()?->getLanguageLevelTypes());
         $data['defaultType'] = $this->toJsonSafe($method->getStubsMetadata()?->getDefaultType());
@@ -62,6 +64,7 @@ trait SerializerHelperTrait
         $data['defaultType'] = $this->toJsonSafe($parameter->getStubsMetadata()?->getDefaultType());
         $data['sinceVersion'] = $this->toJsonSafe($parameter->getStubsMetadata()?->getSinceVersion());
         $data['removedVersion'] = $this->toJsonSafe($parameter->getStubsMetadata()?->getRemovedVersion());
+        $data['deprecatedSinceVersion'] = $this->toJsonSafe($parameter->getStubsMetadata()?->getDeprecatedSinceVersion());
     }
 
     protected function enrichSerializedProperty(array &$data, PHPProperty $property, ?string $parentId, ?PhpDocRepository $phpDocStorage): void
@@ -89,6 +92,7 @@ trait SerializerHelperTrait
         $method->initStubsMetadata()->setPhpDoc($this->deserializePhpDoc($methodId, $data['phpDoc'] ?? null, $phpDocStorage));
         $method->initStubsMetadata()->setSinceVersion($data['sinceVersion'] ?? null);
         $method->initStubsMetadata()->setRemovedVersion($data['removedVersion'] ?? null);
+        $method->initStubsMetadata()->setDeprecatedSinceVersion($data['deprecatedSinceVersion'] ?? null);
         $method->initStubsMetadata()->setTypeFromPhpDoc($data['returnTypeFromPhpDoc'] ?? null);
         $method->initStubsMetadata()->setLanguageLevelTypes($data['languageLevelTypes'] ?? null);
         $method->initStubsMetadata()->setDefaultType($data['defaultType'] ?? null);
@@ -101,6 +105,7 @@ trait SerializerHelperTrait
         $parameter->initStubsMetadata()->setDefaultType($data['defaultType'] ?? null);
         $parameter->initStubsMetadata()->setSinceVersion($data['sinceVersion'] ?? null);
         $parameter->initStubsMetadata()->setRemovedVersion($data['removedVersion'] ?? null);
+        $parameter->initStubsMetadata()->setDeprecatedSinceVersion($data['deprecatedSinceVersion'] ?? null);
     }
 
     protected function enrichDeserializedProperty(PHPProperty $property, array $data, ?string $parentId, ?PhpDocRepository $phpDocStorage): void

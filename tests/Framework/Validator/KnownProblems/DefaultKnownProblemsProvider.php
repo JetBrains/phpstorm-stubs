@@ -863,6 +863,27 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 reason: 'GMP was made final in PHP 8.4. Stubs declare it final to match the current PHP behaviour; PHP 5.6–8.3 reflection reports non-final.'
             ),
 
+            // Directory - became final in PHP 8.5; the stub matches pre-8.5 behaviour here,
+            // so the mismatch runs the other way from the entries above.
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\Directory',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_FINAL],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_8_5, PhpVersions::LATEST),
+                reason: 'Directory was marked final in PHP 8.5. The stub declares it without final (matching PHP <8.5 behaviour), but reflection for PHP 8.5 reports isFinal=true.'
+            ),
+
+            // ReflectionConstant - introduced and marked final in PHP 8.4
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\ReflectionConstant',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_FINAL],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_8_4, PhpVersions::PHP_8_4),
+                reason: 'ReflectionConstant was marked final in PHP 8.4. The stub declares it without final (matching other PHP versions), but reflection for PHP 8.4 reports isFinal=true.'
+            ),
+
             // ReflectionGenerator - introduced in PHP 7.0, became final in PHP 8.0
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -1801,22 +1822,99 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 reason: 'imap_sort() $reverse was int before PHP 8.0; PhpDoc documents the PHP 8.0+ bool type. The int→bool change is intentional; the PhpDoc is correct for current PHP.'
             ),
 
+            // ── MethodDeprecationCheck known problems ─────────────────────────────
+            //
+            // MethodDeprecationCheck compares both directions, so a deprecation the stub
+            // declares must also be reported by reflection for the version under test, and
+            // vice versa. Two situations below cannot satisfy that:
+            //
+            // 1. The deprecation window has an upper bound. StubsMetadata carries only
+            //    deprecatedSinceVersion — a lower bound — so a deprecation that PHP later
+            //    reverted cannot be expressed at all.
+            // 2. The deprecation is real but invisible to reflection, because PHP raises it as
+            //    an E_DEPRECATED at call time (or documents it only) rather than setting the
+            //    ZEND_ACC_DEPRECATED flag that ReflectionMethod::isDeprecated() reads.
+            //
+            // Version ranges below were read off the committed reflection caches, not assumed.
+
+            // ReflectionType::__toString — deprecated in 7.4, un-deprecated again in 8.0.
+            // Reflection reports isDeprecated=true for 7.4 only and false for 7.0-7.3 and 8.0+.
+            // Case 1: since:'7.4' would have to mean "7.4 onwards" and would wrongly mark the
+            // method deprecated for 8.0-8.6, so the stub carries no #[Deprecated] at all and
+            // the single 7.4 disagreement is suppressed here instead.
             new ProblemDefinition(
-                entityType: EntityType::CLASS_TYPE,
-                entityId: '\\Directory',
+                entityType: EntityType::METHOD,
+                entityId: '\\ReflectionType::__toString',
                 type: ProblemType::INTERNAL_IMPLEMENTATION,
-                affectedChecks: [CheckType::CLASS_FINAL],
-                versionRange: new PhpVersionRange(PhpVersions::PHP_8_5, PhpVersions::LATEST),
-                reason: 'Directory was marked final in PHP 8.5. The stub declares it without final (matching PHP <8.5 behaviour), but reflection for PHP 8.5 reports isFinal=true.'
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_7_4, PhpVersions::PHP_7_4),
+                reason: 'ReflectionType::__toString was deprecated in PHP 7.4 and the deprecation was reverted in 8.0; reflection reports isDeprecated=true for 7.4 only. deprecatedSinceVersion is a lower bound with no upper bound, so no attribute value describes a single deprecated version: since:\'7.4\' would also claim 8.0-8.6. The stub therefore omits #[Deprecated] and this suppresses the resulting 7.4 mismatch.'
             ),
 
+            // ReflectionNamedType inherits __toString from ReflectionType; the check resolves it
+            // through the stub hierarchy and reports it under the subclass id as well.
             new ProblemDefinition(
-                entityType: EntityType::CLASS_TYPE,
-                entityId: '\\ReflectionConstant',
+                entityType: EntityType::METHOD,
+                entityId: '\\ReflectionNamedType::__toString',
                 type: ProblemType::INTERNAL_IMPLEMENTATION,
-                affectedChecks: [CheckType::CLASS_FINAL],
-                versionRange: new PhpVersionRange(PhpVersions::PHP_8_4, PhpVersions::PHP_8_4),
-                reason: 'ReflectionConstant was marked final in PHP 8.4. The stub declares it without final (matching other PHP versions), but reflection for PHP 8.4 reports isFinal=true.'
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_7_4, PhpVersions::PHP_7_4),
+                reason: 'ReflectionNamedType inherits __toString from ReflectionType, which was deprecated in PHP 7.4 and un-deprecated in 8.0. Same cause as \\ReflectionType::__toString: the deprecation window has an upper bound that deprecatedSinceVersion cannot express.'
+            ),
+
+            // SplFileObject::fgetss — fgetss() was deprecated in PHP 7.3 and removed in 8.0
+            // (the stub records the removal as @removed 8.0). Case 2: PHP raised the
+            // deprecation as an E_DEPRECATED when the function was called and never set the
+            // reflection flag, so isDeprecated() is false for 7.3-7.4. The stub keeps
+            // #[Deprecated(since: '7.3')] so PhpStorm still warns users on those versions.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\SplFileObject::fgetss',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_7_3, PhpVersions::PHP_7_4),
+                reason: 'fgetss() was deprecated in PHP 7.3 and removed in 8.0. PHP emitted the deprecation as a call-time E_DEPRECATED rather than setting the reflection deprecation flag, so ReflectionMethod::isDeprecated() returns false for 7.3-7.4. The stub keeps #[Deprecated(since: \'7.3\')] so the IDE reports it; only the unverifiable comparison is skipped.'
+            ),
+
+            // SplTempFileObject extends SplFileObject and inherits fgetss.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\SplTempFileObject::fgetss',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_7_3, PhpVersions::PHP_7_4),
+                reason: 'SplTempFileObject extends SplFileObject and inherits fgetss. Same cause as \\SplFileObject::fgetss: the PHP 7.3 deprecation was call-time only and is not exposed through reflection.'
+            ),
+
+            // IntlDateFormatter::setTimeZoneId — deprecated in PHP 5.5 and removed in 7.0 (the
+            // stub records the removal as @removed 7.0). Case 2 again: the intl deprecation is
+            // documentation-level and not exposed through reflection, so isDeprecated() is
+            // false at 5.6 — the only cached version where the method still exists.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\IntlDateFormatter::setTimeZoneId',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_5_6, PhpVersions::PHP_5_6),
+                reason: 'IntlDateFormatter::setTimeZoneId was deprecated in PHP 5.5 and removed in 7.0, so 5.6 is the only validated version where it exists. The intl deprecation is documentation-level and never set the reflection deprecation flag, so isDeprecated() is false there. The stub keeps #[Deprecated(since: \'5.5\')] so the IDE reports it.'
+            ),
+
+            // SoapClient::__call — documented as deprecated in favour of __soapCall(), but PHP
+            // never set the reflection deprecation flag: isDeprecated() is false at every
+            // validated version (verified 5.6-8.6 against the committed caches). Case 2 again.
+            //
+            // The range is EARLIEST..LATEST because the gap is a property of ext-soap, not of a
+            // particular version, so it must keep applying to versions added later. The cost of
+            // that width: if PHP ever does flag the method, this entry hides the fact that the
+            // two sides finally agree instead of letting the check confirm it. Re-test by
+            // dropping this entry whenever ext-soap deprecations are revisited.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\SoapClient::__call',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'SoapClient::__call is documented as deprecated in favour of SoapClient::__soapCall(), but ext-soap never set the reflection deprecation flag, so ReflectionMethod::isDeprecated() returns false for every validated version. The stub keeps #[Deprecated] so PhpStorm reports it; only the unverifiable comparison is skipped.'
             ),
         ];
 
