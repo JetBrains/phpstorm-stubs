@@ -10,6 +10,7 @@ use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
+use StubTests\Framework\Parsers\Stubs\Versions\DeprecationParser;
 use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Parsers\Stubs\Nodes\MethodNode;
 
@@ -23,6 +24,7 @@ class StubMethodParser
     private PhpDocParserInterface $phpDocParser;
     private TypeParserInterface $typeParser;
     private AvailableVersionParserInterface $versionParser;
+    private DeprecationParser $deprecationParser;
     private StubParameterParser $parameterParser;
 
     public function __construct(
@@ -33,6 +35,7 @@ class StubMethodParser
         $this->phpDocParser = $phpDocParser ?? new PhpDocumentorParser();
         $this->typeParser = $typeParser ?? new DefaultTypeParser();
         $this->versionParser = $versionParser ?? new DefaultAvailableVersionParser();
+        $this->deprecationParser = new DeprecationParser();
         $this->parameterParser = new StubParameterParser($typeParser, $versionParser);
     }
 
@@ -78,7 +81,9 @@ class StubMethodParser
 
         // Apply parsed PhpDoc data to method
         $method->initStubsMetadata()->setPhpDoc($parsedPhpDoc->rawPhpDoc);
-        $method->setDeprecated($parsedPhpDoc->isDeprecated || $this->hasDeprecatedAttribute($node->getAttributes(), $imports));
+        $deprecation = $this->deprecationParser->parseDeprecation($node->getAttributes(), $imports, $parsedPhpDoc);
+        $method->setDeprecated($deprecation->isDeprecated);
+        $method->initStubsMetadata()->setDeprecatedSinceVersion($deprecation->sinceVersion);
         $method->setHasTentativeReturnType($this->hasTentativeTypeAttribute($node->getAttributes(), $imports));
 
         // Parse and apply available version (from PhpDoc + attributes)

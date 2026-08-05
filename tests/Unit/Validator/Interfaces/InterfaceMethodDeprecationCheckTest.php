@@ -122,7 +122,7 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
         $this->assertStringContainsString('deprecated', $failures[$interfaceId . '::oldMethod']);
     }
 
-    public function testStubDeprecatedReflectionNotIsNotReported(): void
+    public function testStubDeprecatedReflectionNotIsFailure(): void
     {
         // One-directional: only reflection-deprecated → stub must be deprecated.
         $interfaceId = '\MyInterface';
@@ -135,7 +135,7 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
 
-        $this->assertFalse($result->hasFailures());
+        $this->assertTrue($result->hasFailures());
     }
 
     // ── Parent interface traversal ────────────────────────────────────────────

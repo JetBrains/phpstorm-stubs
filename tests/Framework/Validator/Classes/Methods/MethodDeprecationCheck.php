@@ -7,6 +7,7 @@ use StubTests\Framework\Validator\Contracts\DescribesMethodMismatch;
 use StubTests\Framework\Validator\Contracts\MemberKind;
 use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
+use StubTests\Framework\Validator\Services\DeprecationComparator;
 
 /**
  * Validates that methods marked as deprecated in reflection are also deprecated in stubs.
@@ -17,11 +18,13 @@ use StubTests\Framework\Validator\KnownProblems\CheckType;
  *    and interfaces), stripping PS_UNRESERVE_PREFIX_ where needed.
  * 3. If the stub method is not found it is silently skipped — existence is
  *    ClassMethodsExistCheck's responsibility.
- * 4. When both sides are found, their deprecation status is compared: if reflection
- *    reports the method as deprecated but the stub does not, a failure is reported.
+ * 4. When both sides are found, their deprecation status at $phpVersion is compared and any
+ *    disagreement is reported.
  *
- * The check is one-directional: reflection-deprecated → stub must be deprecated.
- * The reverse is not enforced.
+ * The check is bidirectional: the two sides must agree. A stub deprecation that starts later
+ * than the version under test does not count as deprecated here — `#[Deprecated(since: '8.4')]`
+ * reads as deprecated on 8.4 and above only, which is what makes the reverse direction
+ * (stub-deprecated → reflection must be deprecated) checkable at all.
  *
  * Known problems are supported at two granularities:
  * - class-level: EntityType::CLASS_TYPE + classId + 'MethodDeprecationCheck'
@@ -51,11 +54,15 @@ class MethodDeprecationCheck extends AbstractMemberFlagCheck implements Describe
         // isDeprecated(). The guard could never be false, and if a non-PHPMethod were ever
         // passed it silently reported "not deprecated" for every method in the suite — a green
         // run that validated nothing. The parameter type now raises a TypeError instead.
-        $reflDeprecated = $reflMethod->isDeprecated();
-        $stubDeprecated = $stubMethod->isDeprecated();
+        $reflDeprecated = DeprecationComparator::isDeprecatedIn($reflMethod, $phpVersion);
+        $stubDeprecated = DeprecationComparator::isDeprecatedIn($stubMethod, $phpVersion);
 
         if ($reflDeprecated && !$stubDeprecated) {
             return "Method {$methodEntityId} is deprecated in PHP {$phpVersion} but not marked as deprecated in stubs";
+        }
+
+        if ($stubDeprecated && !$reflDeprecated) {
+            return "Method {$methodEntityId} is marked as deprecated in stubs but is not deprecated in PHP {$phpVersion}";
         }
 
         return null;

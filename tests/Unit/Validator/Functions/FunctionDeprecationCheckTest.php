@@ -124,6 +124,43 @@ class FunctionDeprecationCheckTest extends CheckTestCase
         $this->assertStringContainsString('not marked as deprecated in stubs', $result->getFailures()[$id]);
     }
 
+    // ── Version-aware stub deprecation ────────────────────────────────────────
+
+    public function testStubDeprecationStartingLaterThanTheVersionUnderTestDoesNotSatisfyReflection(): void
+    {
+        // #[Deprecated(since: '8.4')] must read as "not deprecated" on 8.1, so a reflection
+        // deprecation at 8.1 is still an unmet obligation.
+        $id = '\\strftime';
+
+        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, isDeprecated: true)]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getFunctions')->willReturn([
+            $this->makeFunction($id, isDeprecated: true, deprecatedSinceVersion: '8.4'),
+        ]);
+
+        $result = (new FunctionDeprecationCheck($provider))->run($stubs, $id, '8.1');
+
+        $this->assertTrue($result->hasFailures());
+        $this->assertStringContainsString('not marked as deprecated in stubs', $result->getFailures()[$id]);
+    }
+
+    public function testStubDeprecationSatisfiesReflectionFromItsSinceVersionOnwards(): void
+    {
+        // Same stub, now validated at 8.4: the deprecation applies and the sides agree.
+        $id = '\\strftime';
+
+        $provider = $this->createMockReflectionProvider([$this->makeFunction($id, isDeprecated: true)]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getFunctions')->willReturn([
+            $this->makeFunction($id, isDeprecated: true, deprecatedSinceVersion: '8.4'),
+        ]);
+
+        $result = (new FunctionDeprecationCheck($provider))->run($stubs, $id, '8.4');
+
+        $this->assertFalse($result->hasFailures());
+        $this->assertEquals(1, $result->getSuccessCount());
+    }
+
     public function testDeprecatedInStubsButNotInReflectionIsSuccess(): void
     {
         // One-way check: stubs can be more conservative

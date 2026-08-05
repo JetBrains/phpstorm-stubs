@@ -183,9 +183,18 @@ abstract class CheckTestCase extends TestCase
      * @param mixed|null $type Parameter type (optional)
      * @param string|null $sinceVersion Version when parameter was introduced (optional)
      * @param string|null $removedVersion Version when parameter was removed (optional)
+     * @param bool $isDeprecated Whether the parameter is marked deprecated
+     * @param string|null $deprecatedSinceVersion PHP version the deprecation starts at; null
+     *                                            means "deprecated in every version"
      */
-    protected function createMockParameter(string $name, $type = null, ?string $sinceVersion = null, ?string $removedVersion = null): PHPParameter
-    {
+    protected function createMockParameter(
+        string $name,
+        $type = null,
+        ?string $sinceVersion = null,
+        ?string $removedVersion = null,
+        bool $isDeprecated = false,
+        ?string $deprecatedSinceVersion = null,
+    ): PHPParameter {
         $parameter = new PHPParameter($name);
         if ($type !== null) {
             $parameter->setType($type);
@@ -193,6 +202,10 @@ abstract class CheckTestCase extends TestCase
         if ($sinceVersion !== null || $removedVersion !== null) {
             $parameter->initStubsMetadata()->setSinceVersion($sinceVersion);
             $parameter->initStubsMetadata()->setRemovedVersion($removedVersion);
+        }
+        $parameter->setDeprecated($isDeprecated);
+        if ($deprecatedSinceVersion !== null) {
+            $parameter->initStubsMetadata()->setDeprecatedSinceVersion($deprecatedSinceVersion);
         }
 
         return $parameter;
@@ -328,6 +341,7 @@ abstract class CheckTestCase extends TestCase
         bool $isStatic = false,
         bool $isDeprecated = false,
         bool $isTentative = false,
+        ?string $deprecatedSinceVersion = null,
     ): PHPMethod {
         $method = new PHPMethod();
         $method->setName($name);
@@ -344,6 +358,9 @@ abstract class CheckTestCase extends TestCase
             $method->initStubsMetadata()->setSinceVersion($sinceVersion);
             $method->initStubsMetadata()->setRemovedVersion($removedVersion);
         }
+        if ($deprecatedSinceVersion !== null) {
+            $method->initStubsMetadata()->setDeprecatedSinceVersion($deprecatedSinceVersion);
+        }
         return $method;
     }
 
@@ -359,6 +376,7 @@ abstract class CheckTestCase extends TestCase
         bool $isDeprecated = false,
         bool $isTentative = false,
         ?string $typeFromPhpDoc = null,
+        ?string $deprecatedSinceVersion = null,
     ): PHPFunction {
         $function = new PHPFunction();
         $function->setId($id);
@@ -375,6 +393,9 @@ abstract class CheckTestCase extends TestCase
         }
         if ($typeFromPhpDoc !== null) {
             $function->initStubsMetadata()->setTypeFromPhpDoc($typeFromPhpDoc);
+        }
+        if ($deprecatedSinceVersion !== null) {
+            $function->initStubsMetadata()->setDeprecatedSinceVersion($deprecatedSinceVersion);
         }
         return $function;
     }
@@ -429,6 +450,7 @@ abstract class CheckTestCase extends TestCase
         mixed $defaultValue = null,
         ?array $languageLevelTypes = null,
         ?string $defaultType = null,
+        ?string $deprecatedSinceVersion = null,
     ): PHPParameter {
         $param = new PHPParameter($name);
         if ($type !== null) {
@@ -450,6 +472,9 @@ abstract class CheckTestCase extends TestCase
         }
         if ($defaultType !== null) {
             $param->initStubsMetadata()->setDefaultType($defaultType);
+        }
+        if ($deprecatedSinceVersion !== null) {
+            $param->initStubsMetadata()->setDeprecatedSinceVersion($deprecatedSinceVersion);
         }
         return $param;
     }

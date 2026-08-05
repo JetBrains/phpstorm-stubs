@@ -152,6 +152,53 @@ class ClassMethodsParameterDeprecationCheckTest extends CheckTestCase
         $this->assertStringContainsString('deprecated in PHP 8.0', $result->getFailures()[$failureKey]);
     }
 
+    // ── Version-aware stub deprecation ────────────────────────────────────────
+
+    public function testStubParameterDeprecationStartingLaterDoesNotSatisfyReflection(): void
+    {
+        // The stub deprecates $case_insensitive only from 8.4, so at 8.0 it does not answer
+        // the reflection deprecation.
+        $className = '\MyClass';
+
+        $reflMethod = $this->createMockMethod('define', [$this->makeParam('case_insensitive', deprecated: true)]);
+        $stubMethod = $this->createMockMethod('define', [
+            $this->makeParam('case_insensitive', deprecated: true, deprecatedSinceVersion: '8.4'),
+        ]);
+
+        $reflClass = $this->createMockClassWithProperties($className, null, null, null, [$reflMethod]);
+        $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$stubMethod]);
+
+        $provider = $this->createMockReflectionProvider([], [$reflClass]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.0');
+
+        $this->assertTrue($result->hasFailures());
+        $this->assertStringContainsString('$case_insensitive', $result->getFailures()[$className . '::define']);
+    }
+
+    public function testStubParameterDeprecationSatisfiesReflectionFromItsSinceVersionOnwards(): void
+    {
+        $className = '\MyClass';
+
+        $reflMethod = $this->createMockMethod('define', [$this->makeParam('case_insensitive', deprecated: true)]);
+        $stubMethod = $this->createMockMethod('define', [
+            $this->makeParam('case_insensitive', deprecated: true, deprecatedSinceVersion: '8.4'),
+        ]);
+
+        $reflClass = $this->createMockClassWithProperties($className, null, null, null, [$reflMethod]);
+        $stubClass = $this->createMockClassWithProperties($className, null, null, null, [$stubMethod]);
+
+        $provider = $this->createMockReflectionProvider([], [$reflClass]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        $result = (new ClassMethodsParameterDeprecationCheck($provider))->run($stubs, $className, '8.4');
+
+        $this->assertFalse($result->hasFailures());
+    }
+
     public function testDeprecatedInStubsButNotInReflectionIsSuccess(): void
     {
         // One-way check: stubs can be more conservative

@@ -1,0 +1,9 @@
+<?php
+
+use JetBrains\PhpStorm\Deprecated;
+
+/**
+ * @deprecated 7.1
+ */
+#[Deprecated(since: '8.0')]
+function f(): void {}

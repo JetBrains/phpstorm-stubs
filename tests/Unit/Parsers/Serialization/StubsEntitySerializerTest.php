@@ -754,4 +754,64 @@ class StubsEntitySerializerTest extends TestCase
 
         self::assertSame(['Countable'], $result['parentInterfaces']);
     }
+
+    public function testFunctionDeprecatedSinceVersionSurvivesARoundtrip(): void
+    {
+        $function = new PHPFunction();
+        $function->setName('testFunction');
+        $function->setId('\\testFunction');
+        $function->setDeprecated(true);
+        $function->initStubsMetadata()->setDeprecatedSinceVersion('8.4');
+
+        $result = $this->serializer->serialize($function);
+        self::assertSame('8.4', $result['deprecatedSinceVersion']);
+
+        $restored = $this->serializer->deserialize($result);
+        self::assertTrue($restored->isDeprecated());
+        self::assertSame('8.4', $restored->getStubsMetadata()?->getDeprecatedSinceVersion());
+    }
+
+    public function testMethodAndParameterDeprecatedSinceVersionSurviveARoundtrip(): void
+    {
+        $parameter = new PHPParameter('deprecatedParam');
+        $parameter->setDeprecated(true);
+        $parameter->initStubsMetadata()->setDeprecatedSinceVersion('8.2');
+
+        $method = new PHPMethod();
+        $method->setName('testMethod');
+        $method->setAccess(AccessModifier::PUBLIC);
+        $method->setDeprecated(true);
+        $method->setParameters([$parameter]);
+        $method->initStubsMetadata()->setDeprecatedSinceVersion('8.4');
+
+        $class = new PHPClass();
+        $class->setName('TestClass');
+        $class->setId('\\TestClass');
+        $class->addMethod($method);
+
+        $result = $this->serializer->serialize($class);
+        self::assertSame('8.4', $result['methods'][0]['deprecatedSinceVersion']);
+        self::assertSame('8.2', $result['methods'][0]['parameters'][0]['deprecatedSinceVersion']);
+
+        $restoredMethod = $this->serializer->deserialize($result)->getMethods()[0];
+        self::assertSame('8.4', $restoredMethod->getStubsMetadata()?->getDeprecatedSinceVersion());
+        self::assertSame('8.2', $restoredMethod->getParameters()[0]->getStubsMetadata()?->getDeprecatedSinceVersion());
+    }
+
+    /**
+     * Caches written before the field existed simply have no key; deserialization must treat
+     * that as "no version recorded" rather than fail.
+     */
+    public function testMissingDeprecatedSinceVersionDeserializesToNull(): void
+    {
+        $restored = $this->serializer->deserialize([
+            '_type' => 'PHPFunction',
+            'name' => 'legacyFunction',
+            'id' => '\\legacyFunction',
+            'isDeprecated' => true,
+        ]);
+
+        self::assertTrue($restored->isDeprecated());
+        self::assertNull($restored->getStubsMetadata()?->getDeprecatedSinceVersion());
+    }
 }

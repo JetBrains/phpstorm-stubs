@@ -1,0 +1,6 @@
+<?php
+
+/**
+ * @deprecated 7.0.7
+ */
+function f(): void {}

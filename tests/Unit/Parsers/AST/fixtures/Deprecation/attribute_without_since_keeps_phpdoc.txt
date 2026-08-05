@@ -1,0 +1,9 @@
+<?php
+
+use JetBrains\PhpStorm\Deprecated;
+
+/**
+ * @deprecated 7.1
+ */
+#[Deprecated('reason')]
+function f(): void {}

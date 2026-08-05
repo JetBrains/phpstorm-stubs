@@ -7,6 +7,7 @@ use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
+use StubTests\Framework\Parsers\Stubs\Versions\DeprecationParser;
 use StubTests\Framework\Model\PHPParameter;
 use StubTests\Framework\Parsers\Stubs\Nodes\ParameterNode;
 
@@ -16,9 +17,9 @@ use StubTests\Framework\Parsers\Stubs\Nodes\ParameterNode;
  */
 class StubParameterParser
 {
-    use AttributeDetectionTrait;
     private TypeParserInterface $typeParser;
     private AvailableVersionParserInterface $versionParser;
+    private DeprecationParser $deprecationParser;
 
     public function __construct(
         ?TypeParserInterface $typeParser = null,
@@ -26,6 +27,7 @@ class StubParameterParser
     ) {
         $this->typeParser = $typeParser ?? new DefaultTypeParser();
         $this->versionParser = $versionParser ?? new DefaultAvailableVersionParser();
+        $this->deprecationParser = new DeprecationParser();
     }
 
     /**
@@ -87,8 +89,11 @@ class StubParameterParser
             || in_array($paramName, $optionalParamsFromPhpDoc, true);
         $parameter->setIsOptional($isOptional);
 
-        // Detect #[Deprecated] attribute on the parameter
-        $parameter->setDeprecated($this->hasDeprecatedAttribute($node->getAttributes(), $imports));
+        // Detect #[Deprecated] attribute on the parameter. Parameters carry no PhpDoc of their
+        // own, so the attribute is the only deprecation source here.
+        $deprecation = $this->deprecationParser->parseDeprecation($node->getAttributes(), $imports);
+        $parameter->setDeprecated($deprecation->isDeprecated);
+        $parameter->initStubsMetadata()->setDeprecatedSinceVersion($deprecation->sinceVersion);
 
         // Parse available version from attributes using version parser with import context
         // Note: Parameters typically don't have PhpDoc, only attributes
