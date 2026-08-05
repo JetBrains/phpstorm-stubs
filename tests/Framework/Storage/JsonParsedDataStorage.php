@@ -102,6 +102,22 @@ class JsonParsedDataStorage implements ParsedDataPersistentStorageProvider
         }
     }
 
+    /**
+     * Load entities from the cache file.
+     *
+     * A missing file yields no entities and is not an error: callers decide whether to
+     * regenerate (see `Runner::isStubsCacheComplete()`), and `MultiFileJsonStorage` constructs a
+     * storage per entity type whether or not every file has been written yet.
+     *
+     * A file that *exists* but cannot be read as JSON is a different matter and throws. Returning
+     * no entities there is indistinguishable from a legitimately empty cache, and the
+     * consequences are silent: a truncated `StubsClasses.json` yielded zero classes while the
+     * other four type files loaded normally, so every class-level check iterated an empty list
+     * and reported success. The suite stayed green while validating nothing. This happened —
+     * commit 51b2a776 carried a 2.3 MB prefix of a 20.4 MB file.
+     *
+     * @throws \RuntimeException if the file exists but is empty, unreadable, or not valid JSON
+     */
     public function load(): void
     {
         if ($this->loaded) {
@@ -115,17 +131,18 @@ class JsonParsedDataStorage implements ParsedDataPersistentStorageProvider
         }
 
         $jsonContent = file_get_contents($this->pathToJsonFile);
-        if ($jsonContent === false || trim($jsonContent) === '') {
-            $this->entities = [];
-            $this->loaded = true;
-            return;
+        if ($jsonContent === false) {
+            throw new \RuntimeException($this->corruptCacheMessage('could not be read'));
+        }
+
+        if (trim($jsonContent) === '') {
+            // An empty entity type serialises to "[]", never to an empty file.
+            throw new \RuntimeException($this->corruptCacheMessage('is empty'));
         }
 
         $data = json_decode($jsonContent, true);
         if (!is_array($data)) {
-            $this->entities = [];
-            $this->loaded = true;
-            return;
+            throw new \RuntimeException($this->corruptCacheMessage(sprintf('is not valid JSON (%s)', json_last_error_msg())));
         }
 
         foreach ($data as $entityData) {
@@ -135,5 +152,22 @@ class JsonParsedDataStorage implements ParsedDataPersistentStorageProvider
         }
 
         $this->loaded = true;
+    }
+
+    private function corruptCacheMessage(string $problem): string
+    {
+        $size = @filesize($this->pathToJsonFile);
+
+        return sprintf(
+            "Cache file %s %s (%s bytes).\n"
+            . "It exists, so nothing will regenerate it automatically, and treating it as empty "
+            . "would let checks pass while validating nothing.\n"
+            . "Regenerate with: docker compose -f docker-compose.yml run --rm test_runner php "
+            . "tests/run-stubs-parser.php\n"
+            . "(for a Reflection*.json file, use tests/run-all-reflection-parsers.sh instead)",
+            $this->pathToJsonFile,
+            $problem,
+            $size === false ? 'unknown' : $size
+        );
     }
 }

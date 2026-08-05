@@ -42,6 +42,8 @@
         <testsuite name="Structure">
             <file>tests/StubsStructureValidatorTest.php</file>
             <file>tests/PhpVersionsSyncTest.php</file>
+            <file>tests/KnownProblemsIntegrityTest.php</file>
+            <file>tests/StubsCacheIntegrityTest.php</file>
         </testsuite>
         <testsuite name="Unit">
             <directory>tests/Unit</directory>
