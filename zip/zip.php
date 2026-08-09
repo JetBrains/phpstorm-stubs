@@ -706,71 +706,71 @@ class ZipArchive implements Countable
      * @param int $flags [optional] <p>
      * The mode to use to open the archive.
      * </p>
-	 * <table>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::OVERWRITE</b></td>
-	 * <td>If archive exists, ignore its current contents. In other words, handle it the same way as an empty archive</td>
-	 * </tr>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::CREATE</b></td>
-	 * <td>Create the archive if it does not exist</td>
-	 * </tr>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::RDONLY</b></td>
-	 * <td>Open archive in read only mode. Available as of PHP 7.4.3 and PECL zip 1.17.1, respectively, if built against libzip ≥ 1.0.0</td>
-	 * </tr>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::EXCL</b></td>
-	 * <td>Error if archive already exists</td>
-	 * </tr>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::CHECKCONS</b></td>
-	 * <td>Perform additional consistency checks on the archive, and error if they fail</td>
-	 * </tr>
-	 * </table>
+     * <table>
+     * <tr valign="top">
+     * <td><b>ZipArchive::OVERWRITE</b></td>
+     * <td>If archive exists, ignore its current contents. In other words, handle it the same way as an empty archive</td>
+     * </tr>
+     * <tr valign="top">
+     * <td><b>ZipArchive::CREATE</b></td>
+     * <td>Create the archive if it does not exist</td>
+     * </tr>
+     * <tr valign="top">
+     * <td><b>ZipArchive::RDONLY</b></td>
+     * <td>Open archive in read only mode. Available as of PHP 7.4.3 and PECL zip 1.17.1, respectively, if built against libzip ≥ 1.0.0</td>
+     * </tr>
+     * <tr valign="top">
+     * <td><b>ZipArchive::EXCL</b></td>
+     * <td>Error if archive already exists</td>
+     * </tr>
+     * <tr valign="top">
+     * <td><b>ZipArchive::CHECKCONS</b></td>
+     * <td>Perform additional consistency checks on the archive, and error if they fail</td>
+     * </tr>
+     * </table>
      *
      * @return int|bool <i>Error codes</i>
      * <p>
      * Returns <b>TRUE</b> on success, <b>FALSE</b> or the error code on error.
      * </p>
-	 * <table>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::ER_EXISTS</b></td>
-	 * <td>File already exists</td>
-	 * </tr>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::ER_INCONS</b></td>
-	 * <td>Zip archive inconsistent</td>
-	 * </tr>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::ER_INVAL</b></td>
-	 * <td>Invalid argument</td>
-	 * </tr>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::ER_MEMORY</b></td>
-	 * <td>Malloc failure</td>
-	 * </tr>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::ER_NOENT</b></td>
-	 * <td>No such file</td>
-	 * </tr>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::ER_NOZIP</b></td>
-	 * <td>Not a zip archive</td>
-	 * </tr>
-	 * <tr valign="top"></tr>
-	 * <td><b>ZipArchive::ER_OPEN</b></td>
-	 * <td>Can't open file</td>
-	 * </tr>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::ER_READ</b></td>
-	 * <td>Read error</td>
-	 * </tr>
-	 * <tr valign="top">
-	 * <td><b>ZipArchive::ER_SEEK</b></td>
-	 * <td>Seek error</td>
-	 * </tr>
-	 * </table>
+     * <table>
+     * <tr valign="top">
+     * <td><b>ZipArchive::ER_EXISTS</b></td>
+     * <td>File already exists</td>
+     * </tr>
+     * <tr valign="top">
+     * <td><b>ZipArchive::ER_INCONS</b></td>
+     * <td>Zip archive inconsistent</td>
+     * </tr>
+     * <tr valign="top">
+     * <td><b>ZipArchive::ER_INVAL</b></td>
+     * <td>Invalid argument</td>
+     * </tr>
+     * <tr valign="top">
+     * <td><b>ZipArchive::ER_MEMORY</b></td>
+     * <td>Malloc failure</td>
+     * </tr>
+     * <tr valign="top">
+     * <td><b>ZipArchive::ER_NOENT</b></td>
+     * <td>No such file</td>
+     * </tr>
+     * <tr valign="top">
+     * <td><b>ZipArchive::ER_NOZIP</b></td>
+     * <td>Not a zip archive</td>
+     * </tr>
+     * <tr valign="top"></tr>
+     * <td><b>ZipArchive::ER_OPEN</b></td>
+     * <td>Can't open file</td>
+     * </tr>
+     * <tr valign="top">
+     * <td><b>ZipArchive::ER_READ</b></td>
+     * <td>Read error</td>
+     * </tr>
+     * <tr valign="top">
+     * <td><b>ZipArchive::ER_SEEK</b></td>
+     * <td>Seek error</td>
+     * </tr>
+     * </table>
      */
     #[TentativeType]
     public function open(
