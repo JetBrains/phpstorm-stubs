@@ -45,6 +45,17 @@ By default the script validates against the **committed** reflection caches
 them. Pass `--refresh-reflection` (e.g. `./runTests.sh --refresh-reflection`) to regenerate them
 locally; this is slow and rarely needed, and the result should not be committed (see below).
 
+To validate against a single PHP version instead of all of them, pass `--php-version`:
+
+* macOS / Linux: `./runTests.sh --php-version 5.6`
+* Windows: `runTests.bat --php-version 5.6`
+
+Only the checks that apply to that version run — a check declared for PHP 8.2+ produces no test cases
+for 5.6, so there is nothing to skip through. The `Unit` and `Structure` suites are not tied to a PHP
+version and always run in full, and a suite with nothing to run for the selected version (the
+`PhpDoc` checks, for example, are declared for the latest version only) is reported as empty rather
+than as a failure. Use this while iterating locally; CI always runs every version.
+
 Both scripts require Docker (they use the `test_runner` image defined in `docker-compose.yml`).
 
 #### Running suites manually
