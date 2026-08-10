@@ -34,6 +34,7 @@ function curl_copy_handle(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], defa
  * The easiest way to run the full test suite locally is the bundled script (requires Docker — it installs dependencies, regenerates the stubs and reflection caches, and runs every test suite):
    * macOS / Linux: `./runTests.sh`
    * Windows: `runTests.bat`
+ * While iterating on stubs for one PHP version, add `--php-version` (e.g. `./runTests.sh --php-version 5.6`) to validate against that version only — checks that do not apply to it are not generated at all. CI still runs every version.
  * To run suites manually instead, see [How to run tests](README.md#how-to-run-tests) in the README.
  * If a stub legitimately cannot match reflection (for example a runtime-dependent constant value, or an entity available only on certain PHP versions), register it in `tests/Framework/Validator/KnownProblems/DefaultKnownProblemsProvider.php`.
 
