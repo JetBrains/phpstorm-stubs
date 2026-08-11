@@ -8,6 +8,11 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  */
 class ReflectionEnum extends ReflectionClass
 {
+    /**
+     * Instantiates a ReflectionEnum object
+     * @link https://php.net/manual/en/reflectionenum.construct.php
+     * @param object|string $objectOrClass An enum instance or a name.
+     */
     public function __construct(object|string $objectOrClass) {}
 
     /**

@@ -2216,6 +2216,35 @@ namespace Pdo {
          */
         public const TRANSACTION_MODE_EXCLUSIVE = 2;
 
+        /**
+         * Registers an aggregating user-defined function for use in SQL statements
+         *
+         * This method is similar to Pdo\Sqlite::createFunction except that it registers functions
+         * that can be used to calculate a result aggregated across all the rows of a query.
+         *
+         * @link https://php.net/manual/en/pdo-sqlite.createaggregate.php
+         * @param string $name The name of the function used in SQL statements.
+         * @param callable $step Callback function called for each row of the result set. The
+         * callback should accumulate the result and store it in the aggregation context. This
+         * function need to be defined as: mixedstep mixedcontext intrownumber mixedvalue
+         * mixedvalues context null for the first row; on subsequent rows it will have the value
+         * that was previously returned from the step function; you should use this to maintain the
+         * aggregate state. rownumber The current row number. value The first argument passed to the
+         * aggregate. values Further arguments passed to the aggregate. The return value of this
+         * function will be used as the context argument in the next call of the step or finalize
+         * functions.
+         * @param callable $finalize Callback function to aggregate the "stepped" data from each
+         * row. Once all the rows have been processed, this function will be called, and it should
+         * then take the data from the aggregation context and return the result. This callback
+         * function should return a type understood by SQLite (i.e. scalar type). This function need
+         * to be defined as: mixedfini mixedcontext introwcount context Holds the return value from
+         * the very last call to the step function. rowcount Holds the number of rows over which the
+         * aggregate was performed. The return value of this function will be used as the return
+         * value for the aggregate.
+         * @param int $numArgs Hint to the SQLite parser if the callback function accepts a
+         * predetermined number of arguments.
+         * @return bool Returns true on success or false on failure.
+         */
         public function createAggregate(
             string $name,
             callable $step,
@@ -2223,8 +2252,43 @@ namespace Pdo {
             int $numArgs = -1
         ): bool {}
 
+        /**
+         * Registers a user-defined function for use as a collating function in SQL statements
+         *
+         * This method is similar to Pdo\Sqlite::createFunction except that it registers functions
+         * that are used to collate strings.
+         *
+         * @link https://php.net/manual/en/pdo-sqlite.createcollation.php
+         * @param string $name Name of the SQL collating function to be created or redefined.
+         * @param callable $callback Callback function that defines the behaviour of a collation. It
+         * must accept two strings and return -1, 0, or 1 if the first string sorts before, sorts
+         * identically, or sorts after the second string respectively. An internal function that
+         * behaves like this is strcmp. This function need to be defined as: intcollation
+         * stringstring1 stringstring2
+         * @return bool Returns true on success or false on failure.
+         */
         public function createCollation(string $name, callable $callback): bool {}
 
+        /**
+         * Registers a user-defined function for use in SQL statements
+         *
+         * This method allows PHP function to be registered with SQLite as a user-defined function,
+         * so that it can be called within SQL queries. The defined function can be used in any SQL
+         * query that allows function calls, for example SELECT, UPDATE, or triggers.
+         *
+         * @link https://php.net/manual/en/pdo-sqlite.createfunction.php
+         * @param string $function_name The name of the function used in SQL statements.
+         * @param callable $callback Callback function to handle the defined SQL function. Callback
+         * functions should return a type understood by SQLite (i.e. scalar type). This function
+         * need to be defined as: mixedcallback mixedvalue mixedvalues value The first argument
+         * passed to the SQL function. values Further arguments passed to the SQL function.
+         * @param int $num_args The number of arguments that the SQL function takes. If this
+         * parameter is -1, then the SQL function may take any number of arguments.
+         * @param int $flags A bitmask of flags. Currently, only Pdo\Sqlite::DETERMINISTIC is
+         * supported, which specifies that the function always returns the same result given the
+         * same inputs within a single SQL statement.
+         * @return bool Returns true on success or false on failure.
+         */
         public function createFunction(
             string $function_name,
             callable $callback,
@@ -2282,6 +2346,12 @@ namespace Pdo {
         public const int ATTR_SSL_VERIFY_SERVER_CERT = 1013;
         public const int ATTR_LOCAL_INFILE_DIRECTORY = 1014;
 
+        /**
+         * Returns the number of warnings from the last executed query
+         * @link https://php.net/manual/en/pdo-mysql.getwarningcount.php
+         * @return int Returns an int representing the number of warnings generated by the last
+         * query.
+         */
         public function getWarningCount(): int {}
     }
 
@@ -2308,6 +2378,21 @@ namespace Pdo {
         #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_UNKNOWN = 4;
 
+        /**
+         * Copy data from a PHP array into a table
+         *
+         * Copies data from rows array to table tableName using separator as fields delimiter and
+         * fields list.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.copyfromarray.php
+         * @param string $tableName String containing table name.
+         * @param array $rows An indexed array (or Traversable) of strings with fields separated by
+         * separator.
+         * @param string $separator Delimiter used to separate fields in an entry of the rows array.
+         * @param string $nullAs How to interpret SQL NULL values.
+         * @param string|null $fields List of fields to insert.
+         * @return bool Returns true on success or false on failure.
+         */
         public function copyFromArray(
             string $tableName,
             array $rows,
@@ -2316,6 +2401,20 @@ namespace Pdo {
             ?string $fields = null
         ): bool {}
 
+        /**
+         * Copy data from file into table
+         *
+         * Copies data from file specified by filename into table tableName using separator as
+         * fields delimiter and fields list
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.copyfromfile.php
+         * @param string $tableName String containing table name.
+         * @param string $filename Filename containing the data to import.
+         * @param string $separator Delimiter used to separate fields in an entry of the rows array.
+         * @param string $nullAs How to interpret SQL NULL values.
+         * @param string|null $fields List of fields to insert.
+         * @return bool Returns true on success or false on failure.
+         */
         public function copyFromFile(
             string $tableName,
             string $filename,
@@ -2324,6 +2423,18 @@ namespace Pdo {
             ?string $fields = null
         ): bool {}
 
+        /**
+         * Copy data from database table into PHP array
+         *
+         * Copies data from tableName into array using separator as fields delimiter and fields list
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.copytoarray.php
+         * @param string $tableName String containing table name.
+         * @param string $separator Delimiter used to separate fields in an entry of the rows array.
+         * @param string $nullAs How to interpret SQL NULL values.
+         * @param string|null $fields List of fields to export.
+         * @return array|false Returns an array of rows, or false on failure.
+         */
         public function copyToArray(
             string $tableName,
             string $separator = "\t",
@@ -2331,6 +2442,20 @@ namespace Pdo {
             ?string $fields = null
         ): array|false {}
 
+        /**
+         * Copy data from table into file
+         *
+         * Copies data from table into file specified by filename using separator as fields
+         * delimiter and fields list.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.copytofile.php
+         * @param string $tableName String containing table name.
+         * @param string $filename Filename to export data.
+         * @param string $separator Delimiter used to separate fields in an entry of the rows array.
+         * @param string $nullAs How to interpret SQL NULL values.
+         * @param string|null $fields List of fields to export.
+         * @return bool Returns true on success or false on failure.
+         */
         public function copyToFile(
             string $tableName,
             string $filename,
@@ -2339,12 +2464,58 @@ namespace Pdo {
             ?string $fields = null
         ): bool {}
 
+        /**
+         * Escapes a string for use as an SQL identifier
+         *
+         * Escapes a string for use as an SQL identifier, such as a table, column, or function name.
+         * This is useful when a user-supplied identifier might contain special characters that
+         * would otherwise not be interpreted as part of the identifier by the SQL parser, or when
+         * the identifier might contain upper case characters whose case should be preserved.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.escapeidentifier.php
+         * @param string $input A string containing text to be escaped.
+         * @return string A string containing the escaped data.
+         */
         public function escapeIdentifier(string $input): string {}
 
+        /**
+         * Get asynchronous notification
+         *
+         * Returns a result set representing a pending asynchronous notification.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.getnotify.php
+         * @param int $fetchMode The format the result set should be returned as, one of the
+         * following constants: PDO::FETCH_DEFAULT PDO::FETCH_BOTH PDO::FETCH_ASSOC PDO::FETCH_NUM
+         * @param int $timeoutMilliseconds The length of time to wait for a response, in
+         * milliseconds.
+         * @return array|false If a notification is pending, returns a single row, otherwise returns
+         * false. The row has a message field (the channel name) and a pid field (the process ID of
+         * the notifying backend). If the notification carries a non-empty payload, the row also has
+         * a payload field. With PDO::FETCH_NUM, these fields are at indexes 0, 1, and 2.
+         */
         public function getNotify(int $fetchMode = \PDO::FETCH_DEFAULT, int $timeoutMilliseconds = 0): array|false {}
 
+        /**
+         * Get the PID of the backend process handling this connection
+         *
+         * Returns the PID of the backend process handling this connection. Note that the PID
+         * belongs to a process executing on the database server host, not the local host.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.getpid.php
+         * @return int Returns the PID as an int.
+         */
         public function getPid(): int {}
 
+        /**
+         * Creates a new large object
+         *
+         * Pdo\Pgsql::lobCreate creates a large object and returns the OID which refers to it. It
+         * can be opened to read or write data with Pdo\Pgsql::lobOpen.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.lobcreate.php
+         * @return string|false Returns the OID of the newly created large object on success, or
+         * false on failure.
+         */
         public function lobCreate(): string|false {}
 
         /**
@@ -2353,8 +2524,33 @@ namespace Pdo {
          */
         public function lobOpen(string $oid, string $mode = "rb") {}
 
+        /**
+         * Deletes the large object
+         *
+         * Pdo\Pgsql::lobCreate creates a large object and returns the OID which refers to it. It
+         * can be opened to read or write data with Pdo\Pgsql::lobOpen. Deletes a large object from
+         * the database identified by OID.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.lobunlink.php
+         * @param string $oid A large object identifier.
+         * @return bool Returns true on success or false on failure.
+         */
         public function lobUnlink(string $oid): bool {}
 
+        /**
+         * Set a callback to handle notice and warning messages generated by the backend
+         *
+         * Set a callback to handle notice and warning messages generated by the backend. This
+         * includes messages emitted by PostgreSQL itself, as well as those raised by user-defined
+         * SQL functions using RAISE. Please note that the actual receipt of these messages depends
+         * on the backend setting client_min_messages.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.setnoticecallback.php
+         * @param callable|null $callback If null is passed, the handler is reset to its default
+         * state. Otherwise, the handler is a callback with the following signature: voidhandler
+         * stringmessage message A message generated by the backend.
+         * @return void No value is returned.
+         */
         public function setNoticeCallback(?callable $callback): void {}
     }
 
@@ -2372,6 +2568,14 @@ namespace Pdo {
         public const int SERIALIZABLE = 1006;
         public const int WRITABLE_TRANSACTION = 1007;
 
+        /**
+         * Get the API version
+         *
+         * Returns the Firebird API version as defined by the C constant FB_API_VER in ibase.h.
+         *
+         * @link https://php.net/manual/en/pdo-firebird.getapiversion.php
+         * @return int Returns the FireBird API as an int.
+         */
         public static function getApiVersion(): int {}
     }
 

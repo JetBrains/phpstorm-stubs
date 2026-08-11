@@ -131,6 +131,45 @@ const DBA_LMDB_NO_SUB_DIR = 0;
 #[PhpStormStubsElementAvailable(from: '5.3', to: '8.1')]
 function dba_open($path, $mode, $handler = null, ...$handler_params) {}
 
+/**
+ * Open database
+ *
+ * dba_open establishes a database instance for path with mode using handler.
+ *
+ * @link https://php.net/manual/en/function.dba-open.php
+ * @param string $path Commonly a regular path in your filesystem.
+ * @param string $mode It is r for read access, w for read/write access to an already existing
+ * database, c for read/write access and database creation if it doesn't currently exist, and n for
+ * create, truncate and read/write access. The database is created in BTree mode, other modes (like
+ * Hash or Queue) are not supported. Additionally you can set the database lock method with the next
+ * char. Use l to lock the database with a .lck file or d to lock the databasefile itself. It is
+ * important that all of your applications do this consistently. If you want to test the access and
+ * do not want to wait for the lock you can add t as third character. When you are absolutely sure
+ * that you do not require database locking you can do so by using - instead of l or d. When none of
+ * d, l or - is used, dba will lock on the database file as it would with d. There can only be one
+ * writer for one database file. When you use dba on a web server and more than one request requires
+ * write operations they can only be done one after another. Also read during write is not allowed.
+ * The dba extension uses locks to prevent this. See the following table: DBA locking already open
+ * mode = "rl" mode = "rlt" mode = "wl" mode = "wlt" mode = "rd" mode = "rdt" mode = "wd" mode =
+ * "wdt" not open ok ok ok ok ok ok ok ok mode = "rl" ok ok wait false illegal illegal illegal
+ * illegal mode = "wl" wait false wait false illegal illegal illegal illegal mode = "rd" illegal
+ * illegal illegal illegal ok ok wait false mode = "wd" illegal illegal illegal illegal wait false
+ * wait false ok: the second call will be successful. wait: the second call waits until dba_close is
+ * called for the first. false: the second call returns false. illegal: you must not mix "l" and "d"
+ * modifiers for mode parameter.
+ * @param string|null $handler The name of the handler which shall be used for accessing path. It is
+ * passed all optional parameters given to dba_open and can act on behalf of them. If handler is
+ * null, then the default handler is invoked.
+ * @param int $permission Optional integer parameter which is passed to the driver. It has the same
+ * meaning as the permissions parameter of chmod, and defaults to 0644. The db1, db2, db3, db4, dbm,
+ * gdbm, ndbm, and lmdb drivers support the permission parameter.
+ * @param int $map_size Optional integer parameter which is passed to the driver. Its value should
+ * be a multiple of the page size of the OS, or zero, to use the default map size. Only the lmdb
+ * driver accepts the map_size parameter.
+ * @param int|null $flags Flags to pass to the database drivers. If null the default flags will be
+ * provided. Currently, only the LMDB driver supports the following flags DBA_LMDB_USE_SUB_DIR and
+ * DBA_LMDB_NO_SUB_DIR.
+ */
 #[PhpStormStubsElementAvailable(from: '8.2')]
 #[LanguageLevelTypeAware(["8.4" => "\Dba\Connection|false"], default: "resource|false")]
 function dba_open(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0, ?int $flags = null) {}
@@ -159,6 +198,28 @@ function dba_open(string $path, string $mode, ?string $handler = null, int $perm
 #[PhpStormStubsElementAvailable(from: '5.3', to: '8.1')]
 function dba_popen($path, $mode, $handler = null, ...$handler_params) {}
 
+/**
+ * Open database persistently
+ *
+ * dba_popen establishes a persistent database instance for path with mode using handler.
+ *
+ * @link https://php.net/manual/en/function.dba-popen.php
+ * @param string $path Commonly a regular path in your filesystem.
+ * @param string $mode It is r for read access, w for read/write access to an already existing
+ * database, c for read/write access and database creation if it doesn't currently exist, and n for
+ * create, truncate and read/write access.
+ * @param string|null $handler The name of the handler which shall be used for accessing path. It is
+ * passed all optional parameters given to dba_popen and can act on behalf of them. If handler is
+ * null, then the default handler is invoked.
+ * @param int $permission Optional integer parameter which is passed to the driver. It has the same
+ * meaning as the permissions parameter of chmod, and defaults to 0644. The db1, db2, db3, db4, dbm,
+ * gdbm, ndbm, and lmdb drivers support the permission parameter.
+ * @param int $map_size Optional integer parameter which is passed to the driver. Its value should
+ * be a multiple of the page size of the OS, or zero, to use the default mapsize. The lmdb driver
+ * accepts the map_size parameter.
+ * @param int|null $flags Allows to pass flags to the DB drivers. Currently, only LMDB with
+ * DBA_LMDB_USE_SUB_DIR and DBA_LMDB_NO_SUB_DIR are supported.
+ */
 #[PhpStormStubsElementAvailable(from: '8.2')]
 #[LanguageLevelTypeAware(["8.4" => "\Dba\Connection|false"], default: "resource|false")]
 function dba_popen(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0, ?int $flags = null) {}

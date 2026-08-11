@@ -184,15 +184,54 @@ function sodium_crypto_scalarmult_ristretto255(string $n, string $p): string {}
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_scalarmult_ristretto255_base(string $n): string {}
 
+/**
+ * Expands the key and nonce into a keystream of pseudorandom bytes
+ * @link https://php.net/manual/en/function.sodium-crypto-stream-xchacha20.php
+ * @param int $length Number of bytes desired.
+ * @param string $nonce 24-byte nonce.
+ * @param string $key Key, possibly generated from sodium_crypto_stream_xchacha20_keygen.
+ * @return string Returns a pseudorandom stream that can be used with
+ * sodium_crypto_stream_xchacha20_xor.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_stream_xchacha20(int $length, string $nonce, string $key): string {}
 
+/**
+ * Encrypts a message using a nonce and a secret key (no authentication)
+ * @link https://php.net/manual/en/function.sodium-crypto-stream-xchacha20-xor.php
+ * @param string $message The message to encrypt.
+ * @param string $nonce 24-byte nonce.
+ * @param string $key Key, possibly generated from sodium_crypto_stream_xchacha20_keygen.
+ * @return string Encrypted message.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_stream_xchacha20_xor(string $message, string $nonce, string $key): string {}
 
+/**
+ * Encrypts a message using a nonce and a secret key (no authentication)
+ *
+ * The function is similar to sodium_crypto_stream_xchacha20_xor but adds the ability to set the
+ * initial value of the block counter to a non-zero value. This permits direct access to any block
+ * without having to compute the previous ones.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-stream-xchacha20-xor-ic.php
+ * @param string $message The message to encrypt.
+ * @param string $nonce 24-byte nonce.
+ * @param int $counter The initial value of the block counter.
+ * @param string $key Key, possibly generated from sodium_crypto_stream_xchacha20_keygen.
+ * @return string Encrypted message.
+ */
 #[PhpStormStubsElementAvailable('8.2')]
 function sodium_crypto_stream_xchacha20_xor_ic(#[\SensitiveParameter] string $message, string $nonce, int $counter, #[\SensitiveParameter] string $key): string {}
 
+/**
+ * Returns a secure random key
+ *
+ * Returns a secure random key for use with sodium_crypto_stream_xchacha20.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-stream-xchacha20-keygen.php
+ * @return string Returns a 32-byte secure random key for use with sodium_crypto_stream_xchacha20.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_stream_xchacha20_keygen(): string {}
 
@@ -1172,6 +1211,26 @@ function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
  */
 function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): array {}
 
+/**
+ * Encrypt a chunk of data so that it can safely be decrypted in a streaming API
+ * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-push.php
+ * @param string $state See sodium_crypto_secretstream_xchacha20poly1305_init_pull and
+ * sodium_crypto_secretstream_xchacha20poly1305_init_push
+ * @param string $message
+ * @param string $additional_data
+ * @param int $tag Optional. Can be used to assert decryption behavior (i.e. re-keying or indicating
+ * the final chunk in a stream). SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_MESSAGE: the most
+ * common tag, that doesn't add any information about the nature of the message.
+ * SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_FINAL: indicates that the message marks the end
+ * of the stream, and erases the secret key used to encrypt the previous sequence.
+ * SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_PUSH: indicates that the message marks the end
+ * of a set of messages, but not the end of the stream. For example, a huge JSON string sent as
+ * multiple chunks can use this tag to indicate to the application that the string is complete and
+ * that it can be decoded. But the stream itself is not closed, and more data may follow.
+ * SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_REKEY: "forget" the key used to encrypt this
+ * message and the previous ones, and derive a new secret key.
+ * @return string Returns the encrypted ciphertext.
+ */
 #[PhpStormStubsElementAvailable('7.2')]
 function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, #[\SensitiveParameter] string $message, string $additional_data = "", int $tag = SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_MESSAGE): string {}
 
@@ -1185,6 +1244,26 @@ function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, #[\Se
  */
 function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string {}
 
+/**
+ * Decrypt a chunk of data from an encrypted stream
+ * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-pull.php
+ * @param string $state See sodium_crypto_secretstream_xchacha20poly1305_init_pull and
+ * sodium_crypto_secretstream_xchacha20poly1305_init_push
+ * @param string $ciphertext The ciphertext chunk to decrypt.
+ * @param string $additional_data Optional additional data to include in the authentication tag.
+ * @return array|false An array with two values: string; The decrypted chunk int; An optional tag
+ * (if provided during push). Possible values:
+ * SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_MESSAGE: the most common tag, that doesn't add
+ * any information about the nature of the message.
+ * SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_FINAL: indicates that the message marks the end
+ * of the stream, and erases the secret key used to encrypt the previous sequence.
+ * SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_PUSH: indicates that the message marks the end
+ * of a set of messages, but not the end of the stream. For example, a huge JSON string sent as
+ * multiple chunks can use this tag to indicate to the application that the string is complete and
+ * that it can be decoded. But the stream itself is not closed, and more data may follow.
+ * SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_REKEY: "forget" the key used to encrypt this
+ * message and the previous ones, and derive a new secret key.
+ */
 #[PhpStormStubsElementAvailable('7.2')]
 function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, string $ciphertext, string $additional_data = ""): array|false {}
 

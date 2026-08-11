@@ -343,8 +343,26 @@ namespace BcMath {
         /** @throws \ValueError */
         public function sqrt(?int $scale = null): Number {}
 
+        /**
+         * Rounds down an arbitrary precision number
+         *
+         * Returns the next highest integer value by rounding down $this if necessary.
+         *
+         * @link https://php.net/manual/en/bcmath-number.floor.php
+         * @return Number Returns the result as a new BcMath\Number object. The BcMath\Number::scale
+         * of the result is always 0.
+         */
         public function floor(): Number {}
 
+        /**
+         * Rounds up an arbitrary precision number
+         *
+         * Returns the next highest integer value by rounding up $this if necessary.
+         *
+         * @link https://php.net/manual/en/bcmath-number.ceil.php
+         * @return Number Returns the result as a new BcMath\Number object. The BcMath\Number::scale
+         * of the result is always 0.
+         */
         public function ceil(): Number {}
 
         /** @throws \ValueError */
@@ -357,6 +375,11 @@ namespace BcMath {
          */
         public function compare(Number|string|int $num, ?int $scale = null): int {}
 
+        /**
+         * Converts BcMath\Number to string
+         * @link https://php.net/manual/en/bcmath-number.tostring.php
+         * @return string Returns BcMath\Number::value as a string.
+         */
         public function __toString(): string {}
 
         /** @return array{value:numeric-string} */

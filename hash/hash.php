@@ -459,6 +459,10 @@ define('MHASH_XXH128', 41);
  */
 final class HashContext
 {
+    /**
+     * Private constructor to disallow direct instantiation
+     * @link https://php.net/manual/en/hashcontext.construct.php
+     */
     private function __construct() {}
 
     public function __serialize(): array {}

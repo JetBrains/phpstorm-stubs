@@ -454,7 +454,7 @@ class Error implements Throwable
         #[LanguageLevelTypeAware(['8.0' => 'Throwable|null'], default: 'Throwable')] $previous = null
     ) {}
 
-    /***
+    /**
      * Gets the message
      * @link https://php.net/manual/en/throwable.getmessage.php
      * @return string
@@ -938,16 +938,60 @@ final class Attribute
  */
 final class InternalIterator implements Iterator
 {
+    /**
+     * Private constructor to disallow direct instantiation
+     * @link https://php.net/manual/en/internaliterator.construct.php
+     */
     private function __construct() {}
 
+    /**
+     * Return the current element
+     *
+     * Returns the current element.
+     *
+     * @link https://php.net/manual/en/internaliterator.current.php
+     * @return mixed Returns the current element.
+     */
     public function current(): mixed {}
 
+    /**
+     * Move forward to next element
+     *
+     * Moves the current position to the next element.
+     *
+     * @link https://php.net/manual/en/internaliterator.next.php
+     * @return void No value is returned.
+     */
     public function next(): void {}
 
+    /**
+     * Return the key of the current element
+     *
+     * Returns the key of the current element.
+     *
+     * @link https://php.net/manual/en/internaliterator.key.php
+     * @return mixed Returns the key of the current element.
+     */
     public function key(): mixed {}
 
+    /**
+     * Check if current position is valid
+     *
+     * Checks if current position is valid.
+     *
+     * @link https://php.net/manual/en/internaliterator.valid.php
+     * @return bool Returns whether the current position is valid.
+     */
     public function valid(): bool {}
 
+    /**
+     * Rewind the Iterator to the first element
+     *
+     * Rewinds back to the first element of the Iterator.
+     *
+     * @link https://php.net/manual/en/internaliterator.rewind.php
+     * @return void No value is returned.
+     */
     public function rewind(): void {}
 }
 
@@ -1168,6 +1212,10 @@ final class Fiber
  */
 final class FiberError extends Error
 {
+    /**
+     * Constructor to disallow direct instantiation
+     * @link https://php.net/manual/en/fibererror.construct.php
+     */
     public function __construct() {}
 }
 
@@ -1177,6 +1225,13 @@ final class FiberError extends Error
 #[Attribute(Attribute::TARGET_METHOD)]
 final class ReturnTypeWillChange
 {
+    /**
+     * Construct a new ReturnTypeWillChange attribute instance
+     *
+     * Constructs a new ReturnTypeWillChange instance.
+     *
+     * @link https://php.net/manual/en/returntypewillchange.construct.php
+     */
     public function __construct() {}
 }
 
@@ -1186,6 +1241,13 @@ final class ReturnTypeWillChange
 #[Attribute(Attribute::TARGET_CLASS)]
 final class AllowDynamicProperties
 {
+    /**
+     * Construct a new AllowDynamicProperties attribute instance
+     *
+     * Constructs a new AllowDynamicProperties instance.
+     *
+     * @link https://php.net/manual/en/allowdynamicproperties.construct.php
+     */
     public function __construct() {}
 }
 
@@ -1195,6 +1257,13 @@ final class AllowDynamicProperties
 #[Attribute(Attribute::TARGET_PARAMETER)]
 final class SensitiveParameter
 {
+    /**
+     * Construct a new SensitiveParameter attribute instance
+     *
+     * Constructs a new SensitiveParameter instance.
+     *
+     * @link https://php.net/manual/en/sensitiveparameter.construct.php
+     */
     public function __construct() {}
 }
 
@@ -1205,10 +1274,36 @@ final class SensitiveParameterValue
 {
     private readonly mixed $value;
 
+    /**
+     * Constructs a new SensitiveParameterValue object
+     *
+     * Construct a SensitiveParameterValue holding a sensitive value.
+     *
+     * @link https://php.net/manual/en/sensitiveparametervalue.construct.php
+     * @param mixed $value An arbitrary value that should be stored inside the
+     * SensitiveParameterValue object.
+     */
     public function __construct(mixed $value) {}
 
+    /**
+     * Returns the sensitive value
+     *
+     * Get the sensitive value.
+     *
+     * @link https://php.net/manual/en/sensitiveparametervalue.getvalue.php
+     * @return mixed The sensitive value.
+     */
     public function getValue(): mixed {}
 
+    /**
+     * Protects the sensitive value against accidental exposure
+     *
+     * Returns an empty array to protect the sensitive value against accidental exposure when using
+     * var_dump.
+     *
+     * @link https://php.net/manual/en/sensitiveparametervalue.debuginfo.php
+     * @return array An empty array.
+     */
     public function __debugInfo(): array {}
 }
 
@@ -1218,6 +1313,13 @@ final class SensitiveParameterValue
 #[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_PROPERTY|Attribute::TARGET_CLASS_CONSTANT)]
 final class Override
 {
+    /**
+     * Construct a new Override attribute instance
+     *
+     * Constructs a new Override instance.
+     *
+     * @link https://php.net/manual/en/override.construct.php
+     */
     public function __construct() {}
 }
 
@@ -1230,6 +1332,15 @@ final class Deprecated
     public readonly ?string $message;
     public readonly ?string $since;
 
+    /**
+     * Construct a new Deprecated attribute instance
+     *
+     * Constructs a new Deprecated instance.
+     *
+     * @link https://php.net/manual/en/deprecated.construct.php
+     * @param string|null $message The value of the message property.
+     * @param string|null $since The value of the since property.
+     */
     public function __construct(?string $message = null, ?string $since = null) {}
 }
 
@@ -1241,6 +1352,14 @@ final class NoDiscard
 {
     public readonly ?string $message;
 
+    /**
+     * Construct a new NoDiscard attribute instance
+     *
+     * Constructs a new NoDiscard instance.
+     *
+     * @link https://php.net/manual/en/nodiscard.construct.php
+     * @param string|null $message The value of the message property.
+     */
     public function __construct(?string $message = null) {}
 }
 

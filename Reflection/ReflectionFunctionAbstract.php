@@ -328,23 +328,51 @@ abstract class ReflectionFunctionAbstract implements Reflector
     #[Pure]
     public function getAttributes(?string $name = null, int $flags = 0): array {}
 
+    /**
+     * Returns an array of the used variables in the Closure
+     * @link https://php.net/manual/en/reflectionfunctionabstract.getclosureusedvariables.php
+     * @return array Returns an array of the used variables in the Closure.
+     */
     #[PhpStormStubsElementAvailable('8.1')]
     #[Pure]
     public function getClosureUsedVariables(): array {}
 
+    /**
+     * Returns whether the function has a tentative return type
+     * @link https://php.net/manual/en/reflectionfunctionabstract.hastentativereturntype.php
+     * @return bool Returns true if the function has a tentative return type, otherwise false.
+     */
     #[PhpStormStubsElementAvailable('8.1')]
     #[Pure]
     public function hasTentativeReturnType(): bool {}
 
+    /**
+     * Returns the tentative return type associated with the function
+     * @link https://php.net/manual/en/reflectionfunctionabstract.gettentativereturntype.php
+     * @return ReflectionType|null Returns a ReflectionType object if a tentative return type is
+     * specified, null otherwise.
+     */
     #[PhpStormStubsElementAvailable('8.1')]
     #[Pure]
     public function getTentativeReturnType(): ?ReflectionType {}
 
+    /**
+     * Checks if the function is static
+     * @link https://php.net/manual/en/reflectiofunctionabstract.isstatic.php
+     * @return bool true if the function is static, otherwise false
+     */
     #[PhpStormStubsElementAvailable('8.1')]
     #[Pure]
     #[TentativeType]
     public function isStatic(): bool {}
 
+    /**
+     * Returns the string representation of the ReflectionFunctionAbstract object
+     *
+     * Get a human-readable description of the function, its parameters and return values.
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.tostring.php
+     */
     #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
     public function __toString() {}
 }

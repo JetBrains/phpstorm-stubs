@@ -2034,6 +2034,11 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     #[TentativeType]
     public function valid(): bool {}
 
+    /**
+     * Reinitialises the array after being unserialised
+     * @link https://php.net/manual/en/splfixedarray.wakeup.php
+     * @return void No value is returned.
+     */
     #[TentativeType]
     #[Deprecated("The function is deprecated", since: "8.4")]
     public function __wakeup(): void {}
@@ -2050,6 +2055,15 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      */
     public function getIterator(): Iterator {}
 
+    /**
+     * Returns a representation that can be converted to JSON
+     *
+     * Serializes the array to a value that can be serialized natively by json_encode.
+     *
+     * @link https://php.net/manual/en/splfixedarray.jsonserialize.php
+     * @return array Returns array data which can be serialized by json_encode, which is a value of
+     * any type other than a resource.
+     */
     #[PhpStormStubsElementAvailable(from: '8.1')]
     public function jsonSerialize(): array {}
 }

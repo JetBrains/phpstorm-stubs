@@ -105,6 +105,11 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     #[TentativeType]
     public function getClosure(): Closure {}
 
+    /**
+     * Checks if a function is anonymous
+     * @link https://php.net/manual/en/reflectionfunction.isanonymous.php
+     * @return bool Returns true if the function is anonymous, otherwise false.
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function isAnonymous(): bool {}
 }

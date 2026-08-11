@@ -160,9 +160,25 @@ interface DateTimeInterface
     #[\JetBrains\PhpStorm\Deprecated(since: '8.5')]
     public function __wakeup(): void;
 
+    /**
+     * Serialize a DateTime
+     *
+     * The __serialize() handler.
+     *
+     * @link https://php.net/manual/en/datetime.serialize.php
+     * @return array The serialized representation of the DateTime object.
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __serialize(): array;
 
+    /**
+     * Unserialize an Datetime
+     *
+     * The __unserialize() handler.
+     *
+     * @link https://php.net/manual/en/datetime.unserialize.php
+     * @param array $data The serialized DateTime.
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __unserialize(array $data): void;
 
@@ -508,9 +524,25 @@ class DateTimeImmutable implements DateTimeInterface
      */
     public static function createFromInterface(DateTimeInterface $object): DateTimeImmutable {}
 
+    /**
+     * Serialize a DateTime
+     *
+     * The __serialize() handler.
+     *
+     * @link https://php.net/manual/en/datetime.serialize.php
+     * @return array The serialized representation of the DateTime object.
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __serialize(): array {}
 
+    /**
+     * Unserialize an Datetime
+     *
+     * The __unserialize() handler.
+     *
+     * @link https://php.net/manual/en/datetime.unserialize.php
+     * @param array $data The serialized DateTime.
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __unserialize(array $data): void {}
 
@@ -904,9 +936,25 @@ class DateTime implements DateTimeInterface
      */
     public static function createFromInterface(DateTimeInterface $object): DateTime {}
 
+    /**
+     * Serialize a DateTime
+     *
+     * The __serialize() handler.
+     *
+     * @link https://php.net/manual/en/datetime.serialize.php
+     * @return array The serialized representation of the DateTime object.
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __serialize(): array {}
 
+    /**
+     * Unserialize an Datetime
+     *
+     * The __unserialize() handler.
+     *
+     * @link https://php.net/manual/en/datetime.unserialize.php
+     * @param array $data The serialized DateTime.
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __unserialize(array $data): void {}
 

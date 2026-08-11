@@ -697,6 +697,14 @@ class ReflectionClass implements Reflector
     #[PhpStormStubsElementAvailable(from: "8.1")]
     private function __clone(): void {}
 
+    /**
+     * Returns whether this is an enum
+     *
+     * Checks if a class is an enum.
+     *
+     * @link https://php.net/manual/en/reflectionclass.isenum.php
+     * @return bool Returns true if this is an enum, false otherwise.
+     */
     #[PhpStormStubsElementAvailable('8.1')]
     public function isEnum(): bool {}
 
