@@ -1429,27 +1429,71 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
     ): bool {}
 
+    /**
+     * Check if a encryption method is supported by libzip
+     *
+     * Check if a compression method is supported by libzip.
+     *
+     * @link https://php.net/manual/en/ziparchive.isencryptionmethoddupported.php
+     * @param int $method The encryption method, one of the ZipArchive::EM_* constants.
+     * @param bool $enc If true check for encryption, else check for decryption.
+     */
     #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public static function isEncryptionMethodSupported(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true
     ) {}
 
+    /**
+     * Check if a compression method is supported by libzip
+     * @link https://php.net/manual/en/ziparchive.iscompressionmethoddupported.php
+     * @param int $method The compression method, one of the ZipArchive::CM_* constants.
+     * @param bool $enc If true check for compression, else check for decompression.
+     */
     #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public static function isCompressionMethodSupported(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true
     ) {}
 
+    /**
+     * Register a callback to allow cancellation during archive close.
+     *
+     * Register a callback function to allow cancellation during archive close.
+     *
+     * @link https://php.net/manual/en/ziparchive.registercancelcallback.php
+     * @param callable $callback If this function return 0 operation will continue, other value it
+     * will be cancelled.
+     * @return bool Returns true on success or false on failure.
+     */
     #[TentativeType]
     public function registerCancelCallback(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
 
+    /**
+     * Register a callback to provide updates during archive close.
+     *
+     * Register a callback function to provide updates during archive close.
+     *
+     * @link https://php.net/manual/en/ziparchive.registerprogresscallback.php
+     * @param float $rate Change between each call of the callback (from 0.0 to 1.0).
+     * @param callable $callback This function will receive the current state as a float (from 0.0
+     * to 1.0).
+     * @return bool Returns true on success or false on failure.
+     */
     #[TentativeType]
     public function registerProgressCallback(
         #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $rate,
         #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback
     ): bool {}
 
+    /**
+     * Set the modification time of an entry defined by its name
+     * @link https://php.net/manual/en/ziparchive.setmtimename.php
+     * @param string $name Name of the entry.
+     * @param int $timestamp The modification time (unix timestamp) of the file.
+     * @param int $flags Optional flags, unused for now.
+     * @return bool Returns true on success or false on failure.
+     */
     #[TentativeType]
     public function setMtimeName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
@@ -1457,6 +1501,14 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
     ): bool {}
 
+    /**
+     * Set the modification time of an entry defined by its index
+     * @link https://php.net/manual/en/ziparchive.setmtimeindex.php
+     * @param int $index Index of the entry.
+     * @param int $timestamp The modification time (unix timestamp) of the file.
+     * @param int $flags Optional flags, unused for now.
+     * @return bool Returns true on success or false on failure.
+     */
     #[TentativeType]
     public function setMtimeIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
@@ -1464,6 +1516,20 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
     ): bool {}
 
+    /**
+     * Replace file in ZIP archive with a given path
+     * @link https://php.net/manual/en/ziparchive.replacefile.php
+     * @param string $filepath The path to the file to add.
+     * @param int $index The index of the file to be replaced, its name is unchanged.
+     * @param int $start For partial copy, start position.
+     * @param int $length For partial copy, length to be copied, if ZipArchive::LENGTH_TO_END (0)
+     * the file size is used, if ZipArchive::LENGTH_UNCHECKED the whole file is used (starting from
+     * start).
+     * @param int $flags Bitmask consisting of ZipArchive::FL_ENC_GUESS, ZipArchive::FL_ENC_UTF_8,
+     * ZipArchive::FL_ENC_CP437, ZipArchive::FL_OPEN_FILE_NOW. The behaviour of these constants is
+     * described on the ZIP constants page.
+     * @return bool Returns true on success or false on failure.
+     */
     #[TentativeType]
     public function replaceFile(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filepath,
@@ -1473,6 +1539,10 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
     ): bool {}
 
+    /**
+     * Clear the status error message, system and/or zip messages
+     * @link https://php.net/manual/en/ziparchive.clearerror.php
+     */
     #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
     public function clearError() {}
 

@@ -653,6 +653,10 @@ class DOMDocumentFragment extends DOMNode implements DOMParentNode
     #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $firstElementChild;
 
+    /**
+     * Constructs a DOMDocumentFragment object
+     * @link https://php.net/manual/en/domdocumentfragment.construct.php
+     */
     public function __construct() {}
 
     /**
@@ -1075,6 +1079,14 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[TentativeType]
     public function getElementById(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $elementId): ?DOMElement {}
 
+    /**
+     * Transfer a node from another document
+     *
+     * Transfer a node from another document into the current document.
+     *
+     * @link https://php.net/manual/en/domdocument.adoptnode.php
+     * @param DOMNode $node The node to transfer.
+     */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.3' => 'DOMNode|false'], default: '')]
     public function adoptNode(DOMNode $node) {}
@@ -2178,6 +2190,11 @@ class DOMText extends DOMCharacterData
     #[TentativeType]
     public function isWhitespaceInElementContent(): bool {}
 
+    /**
+     * Returns whether this text node contains whitespace in element content
+     * @link https://php.net/manual/en/domtext.iselementcontentwhitespace.php
+     * @return bool Returns true on success or false on failure.
+     */
     #[TentativeType]
     public function isElementContentWhitespace(): bool {}
 

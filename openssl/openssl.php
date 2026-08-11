@@ -1218,6 +1218,19 @@ function openssl_error_string(): string|false {}
 ])]
 function openssl_get_cert_locations(): array {}
 
+/**
+ * Gets list of available curve names for ECC
+ *
+ * Gets the list of available curve names for use in Elliptic curve cryptography (ECC) for
+ * public/private key operations. The two most widely standardized/supported curves are prime256v1
+ * (NIST P-256) and secp384r1 (NIST P-384). Approximate Equivalancies of AES, RSA, DSA and ECC
+ * Keysizes AES Symmetric Keysize (Bits) RSA and DSA Keysize (Bits) ECC Keysize (Bits) 80 1024 160
+ * 112 2048 224 128 3072 256 192 7680 384 256 15360 512 NIST recommends using ECC curves with at
+ * least 256 bits.
+ *
+ * @link https://php.net/manual/en/function.openssl-get-curve-names.php
+ * @return array|false An array of available curve names, or false on failure.
+ */
 function openssl_get_curve_names(): array|false {}
 
 /**

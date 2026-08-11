@@ -66,6 +66,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $fileformat = null
     ) {}
 
+    /**
+     * Destructs a Phar archive object
+     * @link https://php.net/manual/en/phar.destruct.php
+     */
     public function __destruct() {}
 
     /**
@@ -1951,6 +1955,10 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
     #[TentativeType]
     public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): void {}
 
+    /**
+     * Destructs a non-executable tar or zip archive object
+     * @link https://php.net/manual/en/phardata.destruct.php
+     */
     public function __destruct() {}
 }
 
@@ -1973,6 +1981,10 @@ class PharFileInfo extends SplFileInfo
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename) {}
 
+    /**
+     * Destructs a Phar entry object
+     * @link https://php.net/manual/en/pharfileinfo.destruct.php
+     */
     public function __destruct() {}
 
     /**
@@ -2041,6 +2053,14 @@ class PharFileInfo extends SplFileInfo
     #[TentativeType]
     public function getCRC32(): int {}
 
+    /**
+     * Get the complete file contents of the entry
+     *
+     * This function behaves like file_get_contents but for Phar.
+     *
+     * @link https://php.net/manual/en/pharfileinfo.getcontent.php
+     * @return string Returns the file contents.
+     */
     #[TentativeType]
     public function getContent(): string {}
 

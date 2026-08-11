@@ -305,6 +305,11 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     #[Deprecated('Deprecated: it has no effect', since: '8.5')]
     public function setAccessible(bool $accessible): void {}
 
+    /**
+     * Returns whether a method has a prototype
+     * @link https://php.net/manual/en/reflectionmethod.hasprototype.php
+     * @return bool Returns true if the method has a prototype, otherwise false.
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function hasPrototype(): bool {}
 

@@ -597,6 +597,16 @@ class SQLite3Stmt
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = SQLITE3_TEXT
     ): bool {}
 
+    /**
+     * Returns whether a statement is definitely read only
+     *
+     * Returns whether a statement is definitely read only. A statement is considered read only, if
+     * it makes no direct changes to the content of the database file. Note that user defined SQL
+     * functions might change the database indirectly as a side effect.
+     *
+     * @link https://php.net/manual/en/sqlite3stmt.readonly.php
+     * @return bool Returns true if a statement is definitely read only, false otherwise.
+     */
     #[TentativeType]
     public function readOnly(): bool {}
 
@@ -712,6 +722,13 @@ class SQLite3Result
     #[TentativeType]
     public function finalize() {}
 
+    /**
+     * Constructs an SQLite3Result
+     *
+     * SQLite3Result instances are created by SQLite3::query and SQLite3Stmt::execute.
+     *
+     * @link https://php.net/manual/en/sqlite3result.construct.php
+     */
     private function __construct() {}
 
     /**

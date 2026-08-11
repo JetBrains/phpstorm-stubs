@@ -518,6 +518,10 @@ final class tidyNode
     #[PhpStormStubsElementAvailable(from: '8.4')]
     public function getNextSibling(): ?tidyNode {}
 
+    /**
+     * Private constructor to disallow direct instantiation
+     * @link https://php.net/manual/en/tidynode.construct.php
+     */
     private function __construct() {}
 }
 

@@ -212,6 +212,14 @@ class ReflectionClassConstant implements Reflector
     #[PhpStormStubsElementAvailable(from: "8.1")]
     private function __clone(): void {}
 
+    /**
+     * Checks if class constant is an Enum case
+     *
+     * Checks if the class constant is an Enum case.
+     *
+     * @link https://php.net/manual/en/reflectionclassconstant.isenumcase.php
+     * @return bool true if the class constant is an Enum case; false otherwise.
+     */
     #[PhpStormStubsElementAvailable('8.1')]
     public function isEnumCase(): bool {}
 
