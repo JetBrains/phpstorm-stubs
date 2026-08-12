@@ -1110,6 +1110,7 @@ function array_merge(
 ): array {}
 
 /**
+ * @link https://php.net/manual/en/function.array-first.php
  * @template TKey
  * @template TValue
  * @param array<TKey, TValue> $array
@@ -1121,6 +1122,7 @@ function array_merge(
 function array_first(array $array): mixed {}
 
 /**
+ * @link https://php.net/manual/en/function.array-last.php
  * @template TKey
  * @template TValue
  * @param array<TKey, TValue> $array

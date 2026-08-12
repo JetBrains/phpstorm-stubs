@@ -1511,6 +1511,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     public function getPrefix(): string {}
 
     /**
+     * @link https://php.net/manual/en/recursivetreeiterator.setpostfix.php
      * @param string $postfix
      */
     #[TentativeType]

@@ -185,6 +185,7 @@ function session_create_id(string $prefix = '') {}
 
 /**
  * Perform session data garbage collection
+ * @link https://php.net/manual/en/function.session-gc.php
  * @return int|false number of deleted session data for success, false for failure.
  * @since 7.1
  */

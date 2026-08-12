@@ -422,6 +422,9 @@ class SoapClient
      * If $oneWay is set to 1, this method returns nothing.
      * Use this where a response is not expected.
      * </p>
+     * @param string|null $uriParserClass The classname to use for parsing the redirection URI when
+     * a "Location" header is received in the response, or null to use the default, parse_url based
+     * parsing.
      * @return string|null The XML SOAP response.
      * @since 5.0
      */
@@ -820,6 +823,7 @@ class SoapServer
     public function addSoapHeader(SoapHeader $header): void {}
 
     /**
+     * @link https://php.net/manual/en/soapserver.getlastresponse.php
      * @since 8.4
      */
     public function __getLastResponse(): ?string {}
@@ -906,6 +910,8 @@ class SoapFault extends Exception
      * Can be used during SOAP header handling to report an error in the
      * response header.
      * </p>
+     * @param string $lang The human language that the SoapFault is written in. This is only used
+     * for SOAP version 1.2.
      * @since 5.0
      */
     #[Pure]

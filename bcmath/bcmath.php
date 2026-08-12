@@ -249,21 +249,25 @@ namespace {
     function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null) {}
 
     /**
+     * @link https://php.net/manual/en/function.bcfloor.php
      * @since 8.4
      */
     function bcfloor(string $num): string {}
 
     /**
+     * @link https://php.net/manual/en/function.bcceil.php
      * @since 8.4
      */
     function bcceil(string $num): string {}
 
     /**
+     * @link https://php.net/manual/en/function.bcround.php
      * @since 8.4
      */
     function bcround(string $num, int $precision = 0, RoundingMode $mode = RoundingMode::HalfAwayFromZero): string {}
 
     /**
+     * @link https://php.net/manual/en/function.bcdivmod.php
      * @return string[]
      */
     function bcdivmod(string $num1, string $num2, ?int $scale = null): array {}
@@ -280,45 +284,62 @@ namespace BcMath {
         public readonly int $scale;
 
         /**
+         * @link https://php.net/manual/en/bcmath-number.construct.php
          * @param int|numeric-string $num
          * @throws \ValueError
          */
         public function __construct(string|int $num) {}
 
         /**
+         * @link https://php.net/manual/en/bcmath-number.add.php
          * @param Number|int|numeric-string $num
+         * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
+         * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \ValueError
          */
         public function add(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
+         * @link https://php.net/manual/en/bcmath-number.sub.php
          * @param Number|int|numeric-string $num
+         * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
+         * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \ValueError
          */
         public function sub(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
+         * @link https://php.net/manual/en/bcmath-number.mul.php
          * @param Number|int|numeric-string $num
+         * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
+         * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \ValueError
          */
         public function mul(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
+         * @link https://php.net/manual/en/bcmath-number.div.php
          * @param Number|int|numeric-string $num
+         * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
+         * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \DivisionByZeroError
          * @throws \ValueError
          */
         public function div(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
+         * @link https://php.net/manual/en/bcmath-number.mod.php
          * @param Number|int|numeric-string $num
+         * @param int|null $scale
          * @throws \DivisionByZeroError
          * @throws \ValueError
          */
         public function mod(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
+         * @link https://php.net/manual/en/bcmath-number.divmod.php
          * @param Number|int|numeric-string $num
+         * @param int|null $scale
          * @return array{Number, Number}
          * @throws \DivisionByZeroError
          * @throws \ValueError
@@ -326,21 +347,30 @@ namespace BcMath {
         public function divmod(Number|string|int $num, ?int $scale = null): array {}
 
         /**
+         * @link https://php.net/manual/en/bcmath-number.powmod.php
          * @param Number|int|numeric-string $exponent
          * @param Number|int|numeric-string $modulus
+         * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
+         * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \DivisionByZeroError
          * @throws \ValueError
          */
         public function powmod(Number|string|int $exponent, Number|string|int $modulus, ?int $scale = null): Number {}
 
         /**
+         * @link https://php.net/manual/en/bcmath-number.pow.php
          * @param Number|int|numeric-string $exponent
+         * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
+         * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \DivisionByZeroError
          * @throws \ValueError
          */
         public function pow(Number|string|int $exponent, ?int $scale = null): Number {}
 
-        /** @throws \ValueError */
+        /**
+         * @link https://php.net/manual/en/bcmath-number.sqrt.php
+         * @throws \ValueError
+         */
         public function sqrt(?int $scale = null): Number {}
 
         /**
@@ -365,11 +395,17 @@ namespace BcMath {
          */
         public function ceil(): Number {}
 
-        /** @throws \ValueError */
+        /**
+         * @link https://php.net/manual/en/bcmath-number.round.php
+         * @throws \ValueError
+         */
         public function round(int $precision = 0, \RoundingMode $mode = \RoundingMode::HalfAwayFromZero): Number {}
 
         /**
+         * @link https://php.net/manual/en/bcmath-number.compare.php
          * @param Number|int|numeric-string $num
+         * @param int|null $scale Specify the scale to use for comparison. If null, all digits are
+         * used in the comparison.
          * @return int Returns -1, 0, or 1
          * @throws \ValueError
          */
@@ -382,10 +418,16 @@ namespace BcMath {
          */
         public function __toString(): string {}
 
-        /** @return array{value:numeric-string} */
+        /**
+         * @link https://php.net/manual/en/bcmath-number.serialize.php
+         * @return array{value:numeric-string}
+         */
         public function __serialize(): array {}
 
-        /** @param array{value:numeric-string} $data */
+        /**
+         * @link https://php.net/manual/en/bcmath-number.unserialize.php
+         * @param array{value:numeric-string} $data
+         */
         public function __unserialize(array $data): void {}
     }
 }

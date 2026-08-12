@@ -1367,6 +1367,7 @@ function realpath_cache_size(): int {}
  * It returns the same result as (array) $object, with the
  * exception that it ignores overloaded array casts, such as used by
  * ArrayObject.
+ * @link https://php.net/manual/en/function.get-mangled-object-vars.php
  * @param object $object
  * @return array returns the mangled object properties
  * @since 7.4
@@ -1376,6 +1377,7 @@ function get_mangled_object_vars(object $object): array {}
 /**
  * Get the type or object name of a variable
  *
+ * @link https://php.net/manual/en/function.get-debug-type.php
  * @param mixed $value The variable being type checked.
  * @return string Possibles values for the returned string are:
  *  - "int"
@@ -1396,6 +1398,7 @@ function get_debug_type(mixed $value): string {}
 /**
  * A more obvious and type-safe form of "(int) $resource"
  *
+ * @link https://php.net/manual/en/function.get-resource-id.php
  * @param resource $resource
  * @return int
  * @since 8.0

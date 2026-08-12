@@ -716,6 +716,7 @@ final class Closure
     public function call(object $newThis, mixed ...$args): mixed {}
 
     /**
+     * @link https://php.net/manual/en/closure.fromcallable.php
      * @param callable $callback
      * @return Closure
      * @since 7.1
@@ -723,6 +724,7 @@ final class Closure
     public static function fromCallable(callable $callback): Closure {}
 
     /**
+     * @link https://php.net/manual/en/closure.getcurrent.php
      * @since 8.5
      */
     public static function getCurrent(): Closure {}
@@ -761,6 +763,7 @@ final class WeakReference
      * This method exists only to disallow instantiation of the WeakReference
      * class. Weak references are to be instantiated with the factory method
      * <b>WeakReference::create()</b>.
+     * @link https://php.net/manual/en/weakreference.construct.php
      */
     public function __construct() {}
 
@@ -805,6 +808,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      * Returns {@see true} if the value for the object is contained in
      * the {@see WeakMap} and {@see false} instead.
      *
+     * @link https://php.net/manual/en/weakmap.offsetexists.php
      * @param TKey $object Any object
      * @return bool
      */
@@ -814,6 +818,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
     /**
      * Returns the existsing value by an object.
      *
+     * @link https://php.net/manual/en/weakmap.offsetget.php
      * @param TKey $object Any object
      * @return TValue Value associated with the key object
      */
@@ -823,6 +828,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
     /**
      * Sets a new value for an object.
      *
+     * @link https://php.net/manual/en/weakmap.offsetset.php
      * @param TKey $object Any object
      * @param TValue $value Any value
      * @return void
@@ -832,6 +838,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
     /**
      * Force removes an object value from the {@see WeakMap} instance.
      *
+     * @link https://php.net/manual/en/weakmap.offsetunset.php
      * @param TKey $object Any object
      * @return void
      */
@@ -840,6 +847,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
     /**
      * Returns an iterator in the "[object => mixed]" format.
      *
+     * @link https://php.net/manual/en/weakmap.getiterator.php
      * @return Iterator<TKey, TValue>
      */
     #[Pure]
@@ -848,6 +856,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
     /**
      * Returns the number of items in the {@see WeakMap} instance.
      *
+     * @link https://php.net/manual/en/weakmap.count.php
      * @return int<0,max>
      */
     #[Pure]
@@ -865,6 +874,7 @@ interface Stringable
      * Magic method {@see https://www.php.net/manual/en/language.oop5.magic.php#object.tostring}
      * allows a class to decide how it will react when it is treated like a string.
      *
+     * @link https://php.net/manual/en/stringable.tostring.php
      * @return string Returns string representation of the object that
      * implements this interface (and/or "__toString" magic method).
      */
@@ -927,6 +937,7 @@ final class Attribute
     public const IS_REPEATABLE = 128;
 
     /**
+     * @link https://php.net/manual/en/attribute.construct.php
      * @param int $flags A value in the form of a bitmask indicating the places
      * where attributes can be defined.
      */
@@ -1003,6 +1014,7 @@ interface UnitEnum
     public readonly string $name;
 
     /**
+     * @link https://php.net/manual/en/unitenum.cases.php
      * @return static[]
      */
     #[Pure]
@@ -1118,6 +1130,7 @@ interface StringBackedEnum extends BackedEnum
 final class Fiber
 {
     /**
+     * @link https://php.net/manual/en/fiber.construct.php
      * @param callable $callback Function to invoke when starting the fiber.
      */
     public function __construct(callable $callback) {}
@@ -1125,6 +1138,7 @@ final class Fiber
     /**
      * Starts execution of the fiber. Returns when the fiber suspends or terminates.
      *
+     * @link https://php.net/manual/en/fiber.start.php
      * @param TStart ...$args Arguments passed to fiber function.
      *
      * @return TSuspend|null Value from the first suspension point or NULL if the fiber returns.
@@ -1138,6 +1152,7 @@ final class Fiber
      * Resumes the fiber, returning the given value from {@see Fiber::suspend()}.
      * Returns when the fiber suspends or terminates.
      *
+     * @link https://php.net/manual/en/fiber.resume.php
      * @param TResume $value
      *
      * @return TSuspend|null Value from the next suspension point or NULL if the fiber returns.
@@ -1151,6 +1166,7 @@ final class Fiber
      * Throws the given exception into the fiber from {@see Fiber::suspend()}.
      * Returns when the fiber suspends or terminates.
      *
+     * @link https://php.net/manual/en/fiber.throw.php
      * @param Throwable $exception
      *
      * @return TSuspend|null Value from the next suspension point or NULL if the fiber returns.
@@ -1161,26 +1177,31 @@ final class Fiber
     public function throw(Throwable $exception): mixed {}
 
     /**
+     * @link https://php.net/manual/en/fiber.isstarted.php
      * @return bool True if the fiber has been started.
      */
     public function isStarted(): bool {}
 
     /**
+     * @link https://php.net/manual/en/fiber.issuspended.php
      * @return bool True if the fiber is suspended.
      */
     public function isSuspended(): bool {}
 
     /**
+     * @link https://php.net/manual/en/fiber.isrunning.php
      * @return bool True if the fiber is currently running.
      */
     public function isRunning(): bool {}
 
     /**
+     * @link https://php.net/manual/en/fiber.isterminated.php
      * @return bool True if the fiber has completed execution (returned or threw).
      */
     public function isTerminated(): bool {}
 
     /**
+     * @link https://php.net/manual/en/fiber.getreturn.php
      * @return TReturn Return value of the fiber callback. NULL is returned if the fiber does not have a return statement.
      *
      * @throws FiberError If the fiber has not terminated or the fiber threw an exception.
@@ -1188,6 +1209,7 @@ final class Fiber
     public function getReturn(): mixed {}
 
     /**
+     * @link https://php.net/manual/en/fiber.getcurrent.php
      * @return Fiber|null Returns the currently executing fiber instance or NULL if in {main}.
      */
     public static function getCurrent(): ?Fiber {}
@@ -1197,6 +1219,7 @@ final class Fiber
      *
      * Cannot be called from {main}.
      *
+     * @link https://php.net/manual/en/fiber.suspend.php
      * @param TSuspend $value Value to return from {@see Fiber::resume()} or {@see Fiber::throw()}.
      *
      * @return TResume Value provided to {@see Fiber::resume()}.

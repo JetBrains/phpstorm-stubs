@@ -283,7 +283,10 @@ interface ParentNode
      */
     public function querySelector(string $selectors): ?Element;
 
-    /** @return NodeList<Element> */
+    /**
+     * @link https://php.net/manual/en/dom-parentnode.queryselectorall.php
+     * @return NodeList<Element>
+     */
     public function querySelectorAll(string $selectors): NodeList;
 }
 /**
@@ -1002,6 +1005,7 @@ class RandomException {}
  */
 class Mysql {}
 /**
+ * @link https://php.net/manual/en/function.dom-ns-import-simplexml.php
  * @since 8.4
  */
 function import_simplexml(object $node): Attr|Element {}

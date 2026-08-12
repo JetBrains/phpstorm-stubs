@@ -277,6 +277,7 @@ class DOMNode
     public function hasAttributes(): bool {}
 
     /**
+     * @link https://php.net/manual/en/domnode.comparedocumentposition.php
      * @return int
      */
     #[LanguageLevelTypeAware(['8.4' => 'int'], default: '')]
@@ -340,6 +341,8 @@ class DOMNode
     public function lookupNamespaceUri($prefix) {}
 
     /**
+     * @link https://php.net/manual/en/domnode.isequalnode.php
+     * @param DOMNode|null $otherNode The node.
      * @param DOMNode|null $arg
      * @return bool
      */
@@ -379,6 +382,7 @@ class DOMNode
 
     /**
      * Canonicalize nodes to a string
+     * @link https://php.net/manual/en/domnode.c14n.php
      * @param bool $exclusive [optional] Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.
      * @param bool $withComments [optional] Retain comments in output.
      * @param null|array $xpath [optional] An array of xpaths to filter the nodes by.
@@ -413,21 +417,25 @@ class DOMNode
     ): int|false {}
 
     /**
+     * @link https://php.net/manual/en/domnode.contains.php
      * @since 8.3
      */
     public function contains(DOMNode|DOMNameSpaceNode|null $other): bool {}
 
     /**
+     * @link https://php.net/manual/en/domnode.getrootnode.php
      * @since 8.3
      */
     public function getRootNode(?array $options = null): DOMNode {}
 
     /**
+     * @link https://php.net/manual/en/domnode.sleep.php
      * @since 8.1
      */
     public function __sleep(): array {}
 
     /**
+     * @link https://php.net/manual/en/domnode.wakeup.php
      * @since 8.1
      */
     public function __wakeup(): void {}
@@ -628,11 +636,13 @@ class DOMNameSpaceNode
     public bool $isConnected;
 
     /**
+     * @link https://php.net/manual/en/domnamespacenode.sleep.php
      * @since 8.1
      */
     public function __sleep(): array {}
 
     /**
+     * @link https://php.net/manual/en/domnamespacenode.wakeup.php
      * @since 8.1
      */
     public function __wakeup(): void {}
@@ -672,15 +682,18 @@ class DOMDocumentFragment extends DOMNode implements DOMParentNode
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domdocumentfragment.append.php
      */
     public function append(...$nodes): void {}
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domdocumentfragment.prepend.php
      */
     public function prepend(...$nodes): void {}
 
     /**
+     * @link https://php.net/manual/en/domdocumentfragment.replacechildren.php
      * @since 8.3
      * {@inheritDoc}
      */
@@ -1093,15 +1106,18 @@ class DOMDocument extends DOMNode implements DOMParentNode
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domdocument.append.php
      */
     public function append(...$nodes): void {}
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domdocument.prepend.php
      */
     public function prepend(...$nodes): void {}
 
     /**
+     * @link https://php.net/manual/en/domdocument.replacechildren.php
      * @since 8.3
      * {@inheritDoc}
      */
@@ -1300,6 +1316,8 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @param string $filename <p>
      * The path to the schema.
      * </p>
+     * @param int $flags A bitmask of Libxml schema validation flags. Currently the only supported
+     * value is LIBXML_SCHEMA_CREATE. Available since Libxml 2.6.14.
      * @param int $options [optional] <p>
      * Bitwise OR
      * of the libxml option constants.
@@ -1404,6 +1422,7 @@ class DOMNodeList implements IteratorAggregate, Countable
     public function item(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index) {}
 
     /**
+     * @link https://php.net/manual/en/domnodelist.count.php
      * @return int<0, max>
      * @since 7.2
      */
@@ -1411,6 +1430,7 @@ class DOMNodeList implements IteratorAggregate, Countable
     public function count(): int {}
 
     /**
+     * @link https://php.net/manual/en/domnodelist.getiterator.php
      * @return Iterator<int, TNode>
      * @since 8.0
      */
@@ -1510,6 +1530,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function removeNamedItemNS($namespace, $localName) {}
 
     /**
+     * @link https://php.net/manual/en/domnamednodemap.count.php
      * @return int<0,max>
      * @since 7.2
      */
@@ -1517,6 +1538,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function count(): int {}
 
     /**
+     * @link https://php.net/manual/en/domnamednodemap.getiterator.php
      * @return Iterator<string, TNode>
      * @since 8.0
      */
@@ -1642,21 +1664,25 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domcharacterdata.remove.php
      */
     public function remove(): void {}
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domcharacterdata.before.php
      */
     public function before(...$nodes): void {}
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domcharacterdata.after.php
      */
     public function after(...$nodes): void {}
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domcharacterdata.replacewith.php
      */
     public function replaceWith(...$nodes): void {}
 }
@@ -2088,35 +2114,42 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domelement.remove.php
      */
     public function remove(): void {}
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domelement.before.php
      */
     public function before(...$nodes): void {}
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domelement.after.php
      */
     public function after(...$nodes): void {}
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domelement.replacewith.php
      */
     public function replaceWith(...$nodes): void {}
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domelement.append.php
      */
     public function append(...$nodes): void {}
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/domelement.prepend.php
      */
     public function prepend(...$nodes): void {}
 
     /**
+     * @link https://php.net/manual/en/domelement.replacechildren.php
      * @since 8.3
      * {@inheritDoc}
      */
@@ -2137,21 +2170,25 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
     ) {}
 
     /**
+     * @link https://php.net/manual/en/domelement.getattributenames.php
      * @since 8.3
      */
     public function getAttributeNames(): array {}
 
     /**
+     * @link https://php.net/manual/en/domelement.toggleattribute.php
      * @since 8.3
      */
     public function toggleAttribute(string $qualifiedName, ?bool $force = null): bool {}
 
     /**
+     * @link https://php.net/manual/en/domelement.insertadjacentelement.php
      * @since 8.3
      */
     public function insertAdjacentElement(string $where, DOMElement $element): ?DOMElement {}
 
     /**
+     * @link https://php.net/manual/en/domelement.insertadjacenttext.php
      * @since 8.3
      */
     public function insertAdjacentText(string $where, string $data): void {}
@@ -2603,11 +2640,13 @@ class DOMXPath
     public function registerPhpFunctions(#[LanguageLevelTypeAware(['8.0' => 'string|array|null'], default: '')] $restrict = null): void {}
 
     /**
+     * @link https://php.net/manual/en/domxpath.registerphpfunctionns.php
      * @since 8.4
      */
     public function registerPhpFunctionNS(string $namespaceURI, string $name, callable $callable): void {}
 
     /**
+     * @link https://php.net/manual/en/domxpath.quote.php
      * @since 8.4
      */
     public static function quote(string $str): string {}
@@ -2626,6 +2665,7 @@ interface DOMParentNode
      * Appends one or many nodes to the list of children behind the last
      * child node.
      *
+     * @link https://php.net/manual/en/domparentnode.append.php
      * @param DOMNode|string|null ...$nodes
      * @return void
      * @since 8.0
@@ -2636,6 +2676,7 @@ interface DOMParentNode
      * Prepends one or many nodes to the list of children before the first
      * child node.
      *
+     * @link https://php.net/manual/en/domparentnode.prepend.php
      * @param DOMNode|string|null ...$nodes
      * @return void
      * @since 8.0
@@ -2643,6 +2684,7 @@ interface DOMParentNode
     public function prepend(...$nodes): void;
 
     /**
+     * @link https://php.net/manual/en/domparentnode.replacechildren.php
      * @since 8.3
      */
     public function replaceChildren(...$nodes): void;
@@ -2659,6 +2701,7 @@ interface DOMChildNode
     /**
      * Acts as a simpler version of {@see DOMNode::removeChild()}.
      *
+     * @link https://php.net/manual/en/domchildnode.remove.php
      * @return void
      * @since 8.0
      */
@@ -2667,6 +2710,7 @@ interface DOMChildNode
     /**
      * Add passed node(s) before the current node
      *
+     * @link https://php.net/manual/en/domchildnode.before.php
      * @param DOMNode|string|null ...$nodes
      * @return void
      * @since 8.0
@@ -2676,6 +2720,7 @@ interface DOMChildNode
     /**
      * Add passed node(s) after  the current node
      *
+     * @link https://php.net/manual/en/domchildnode.after.php
      * @param DOMNode|string|null ...$nodes
      * @return void
      * @since 8.0
@@ -2686,6 +2731,7 @@ interface DOMChildNode
      * Replace current node with new node(s), a combination
      * of {@see DOMChildNode::remove()} + {@see DOMChildNode::append()}.
      *
+     * @link https://php.net/manual/en/domchildnode.replacewith.php
      * @param DOMNode|string|null ...$nodes
      * @return void
      * @since 8.0

@@ -505,6 +505,7 @@ function preg_last_error(): int {}
 /**
  * Returns the error message of the last PCRE regex execution
  *
+ * @link https://php.net/manual/en/function.preg-last-error-msg.php
  * @return string one of the error messages or "No error" if there is no error.
  * @since 8.0
  */

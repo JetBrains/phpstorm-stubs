@@ -121,6 +121,7 @@ interface DateTimeInterface
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Returns the timezone offset
+     * @link https://php.net/manual/en/datetime.getoffset.php
      * @return int|false
      * Returns the timezone offset in seconds from UTC on success
      * or <b>FALSE</b> on failure. Since PHP8, it always returns <b>INT</b>.
@@ -132,6 +133,7 @@ interface DateTimeInterface
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Gets the Unix timestamp
+     * @link https://php.net/manual/en/datetime.gettimestamp.php
      * @return int
      * Returns the Unix timestamp representing the date.
      */
@@ -183,6 +185,7 @@ interface DateTimeInterface
     public function __unserialize(array $data): void;
 
     /**
+     * @link https://php.net/manual/en/datetimeinterface.getmicrosecond.php
      * @since 8.4
      */
     public function getMicrosecond(): int;
@@ -480,6 +483,7 @@ class DateTimeImmutable implements DateTimeInterface
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Returns the timezone offset
+     * @link https://php.net/manual/en/datetime.getoffset.php
      * @return int
      * Returns the timezone offset in seconds from UTC on success
      * or <b>FALSE</b> on failure.
@@ -490,6 +494,7 @@ class DateTimeImmutable implements DateTimeInterface
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Gets the Unix timestamp
+     * @link https://php.net/manual/en/datetime.gettimestamp.php
      * @return int
      * Returns the Unix timestamp representing the date.
      */
@@ -518,6 +523,7 @@ class DateTimeImmutable implements DateTimeInterface
     public function __wakeup(): void {}
 
     /**
+     * @link https://php.net/manual/en/datetimeimmutable.createfrominterface.php
      * @param DateTimeInterface $object
      * @return static
      * @since 8.0
@@ -547,17 +553,20 @@ class DateTimeImmutable implements DateTimeInterface
     public function __unserialize(array $data): void {}
 
     /**
+     * @link https://php.net/manual/en/datetimeimmutable.createfromtimestamp.php
      * @since 8.4
      */
     #[TentativeType]
     public static function createFromTimestamp(int|float $timestamp): static {}
 
     /**
+     * @link https://php.net/manual/en/datetimeinterface.getmicrosecond.php
      * @since 8.4
      */
     public function getMicrosecond(): int {}
 
     /**
+     * @link https://php.net/manual/en/datetimeimmutable.setmicrosecond.php
      * @since 8.4
      */
     #[\NoDiscard(message: "as DateTimeImmutable::setMicrosecond() does not modify the object itself")]
@@ -758,6 +767,7 @@ class DateTime implements DateTimeInterface
     public function add(DateInterval $interval): DateTime {}
 
     /**
+     * @link https://php.net/manual/en/datetime.createfromimmutable.php
      * @param DateTimeImmutable $object
      * @return DateTime
      * @since 7.3
@@ -930,6 +940,7 @@ class DateTime implements DateTimeInterface
     public static function __set_state(array $array): static {}
 
     /**
+     * @link https://php.net/manual/en/datetime.createfrominterface.php
      * @param DateTimeInterface $object
      * @return static
      * @since 8.0
@@ -959,17 +970,20 @@ class DateTime implements DateTimeInterface
     public function __unserialize(array $data): void {}
 
     /**
+     * @link https://php.net/manual/en/datetime.createfromtimestamp.php
      * @since 8.4
      */
     #[TentativeType]
     public static function createFromTimestamp(int|float $timestamp): static {}
 
     /**
+     * @link https://php.net/manual/en/datetimeinterface.getmicrosecond.php
      * @since 8.4
      */
     public function getMicrosecond(): int {}
 
     /**
+     * @link https://php.net/manual/en/datetime.setmicrosecond.php
      * @since 8.4
      */
     public function setMicrosecond(int $microsecond): static {}
@@ -1368,6 +1382,7 @@ class DatePeriod implements IteratorAggregate
     public function __unserialize(array $data): void {}
 
     /**
+     * @link https://php.net/manual/en/dateperiod.createfromiso8601string.php
      * @since 8.3
      */
     public static function createFromISO8601String(string $specification, int $options = 0): static {}

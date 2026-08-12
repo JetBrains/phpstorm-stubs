@@ -11,6 +11,7 @@ class ReflectionUnionType extends ReflectionType
     /**
      * Get list of types of union type
      *
+     * @link https://php.net/manual/en/reflectionuniontype.gettypes.php
      * @return ReflectionNamedType[]|ReflectionIntersectionType[]
      */
     #[Pure]

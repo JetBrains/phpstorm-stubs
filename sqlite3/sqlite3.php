@@ -465,6 +465,7 @@ class SQLite3
     ): bool {}
 
     /**
+     * @link https://php.net/manual/en/sqlite3.backup.php
      * @param SQLite3 $destination
      * @param string $sourceDatabase
      * @param string $destinationDatabase
@@ -475,6 +476,7 @@ class SQLite3
     public function backup(SQLite3 $destination, string $sourceDatabase = 'main', string $destinationDatabase = 'main'): bool {}
 
     /**
+     * @link https://php.net/manual/en/sqlite3.setauthorizer.php
      * @param null|callable $callback
      * @return bool
      * @since 8.0
@@ -611,6 +613,7 @@ class SQLite3Stmt
     public function readOnly(): bool {}
 
     /**
+     * @link https://php.net/manual/en/sqlite3stmt.construct.php
      * @param SQLite3 $sqlite3
      * @param string $query
      */
@@ -622,6 +625,7 @@ class SQLite3Stmt
     /**
      * Retrieves the SQL of the prepared statement. If expanded is FALSE, the unmodified SQL is retrieved.
      * If expanded is TRUE, all query parameters are replaced with their bound values, or with an SQL NULL, if not already bound.
+     * @link https://php.net/manual/en/sqlite3stmt.getsql.php
      * @param bool $expand Whether to retrieve the expanded SQL. Passing TRUE is only supported as of libsqlite 3.14.
      * @return string|false Returns the SQL of the prepared statement, or FALSE on failure.
      * @since 7.4

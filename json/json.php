@@ -232,6 +232,7 @@ function json_last_error(): int {}
 function json_last_error_msg(): string {}
 
 /**
+ * @link https://php.net/manual/en/function.json-validate.php
  * @since 8.3
  */
 function json_validate(#[Language("JSON")] string $json, int $depth = 512, int $flags = 0): bool {}

@@ -251,6 +251,7 @@ function openssl_spki_export(string $spki): string|false {}
 function openssl_x509_read(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate) {}
 
 /**
+ * @link https://php.net/manual/en/function.openssl-x509-fingerprint.php
  * @param string $certificate
  * @param string $digest_algo [optional] hash method
  * @param bool $binary [optional]
@@ -644,6 +645,9 @@ function openssl_csr_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSLC
  * An optional the serial number of issued certificate. If not specified
  * it will default to 0.
  * </p>
+ * @param string|null $serial_hex An optional hexadecimal string representing the serial number of
+ * the issued certificate. If set, it takes precedence over the serial parameter value. If not
+ * specified or set to null, the serial parameter value is used instead.
  * @return OpenSSLCertificate|resource|false an x509 certificate resource on success, false on failure.
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|false"], default: "resource|false")]
@@ -785,6 +789,7 @@ function openssl_cipher_iv_length(string $cipher_algo): int|false {}
 /**
  * This function works in exactly the same way as openssl_cipher_iv_length but for a key length. This is especially
  * useful to make sure that the right key length is provided to openssl_encrypt and openssl_decrypt.
+ * @link https://php.net/manual/en/function.openssl-cipher-key-length.php
  * @param string $cipher_algo
  * @return int|false
  * @since 8.2
@@ -803,6 +808,7 @@ function openssl_cipher_key_length(string $cipher_algo): int|false {}
  * @param string|int $algorithm [optional] <p>
  * For more information see the list of Signature Algorithms.
  * </p>
+ * @param int $padding RSA PSS padding to use.
  * @return bool true on success or false on failure.
  */
 function openssl_sign(
@@ -822,6 +828,7 @@ function openssl_sign(
  * @param string|int $algorithm [optional] <p>
  * For more information see the list of Signature Algorithms.
  * </p>
+ * @param int $padding RSA PSS padding to use.
  * @return int|false 1 if the signature is correct, 0 if it is incorrect, and
  * -1 on error.
  */
@@ -1064,6 +1071,8 @@ function openssl_private_encrypt(
  * <b>OPENSSL_PKCS1_OAEP_PADDING</b>,
  * <b>OPENSSL_NO_PADDING</b>.
  * </p>
+ * @param string|null $digest_algo The digest algorithm for OAEP padding, or null to use the default
+ * algorithm.
  * @return bool true on success or false on failure.
  */
 function openssl_private_decrypt(
@@ -1091,6 +1100,8 @@ function openssl_private_decrypt(
  * <b>OPENSSL_PKCS1_OAEP_PADDING</b>,
  * <b>OPENSSL_NO_PADDING</b>.
  * </p>
+ * @param string|null $digest_algo The digest algorithm for OAEP padding, or null to use the default
+ * algorithm.
  * @return bool true on success or false on failure.
  */
 function openssl_public_encrypt(
@@ -1161,6 +1172,7 @@ function openssl_get_cipher_methods(bool $aliases = false): array {}
 function openssl_dh_compute_key(string $public_key, #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey"], default: "resource")] $private_key): string|false {}
 
 /**
+ * @link https://php.net/manual/en/function.openssl-pkey-derive.php
  * @param OpenSSLAsymmetricKey|OpenSSLCertificate|array|string $public_key
  * @param OpenSSLAsymmetricKey|OpenSSLCertificate|array|string $private_key
  * @param int $key_length
@@ -1234,6 +1246,7 @@ function openssl_get_cert_locations(): array {}
 function openssl_get_curve_names(): array|false {}
 
 /**
+ * @link https://php.net/manual/en/function.openssl-pkcs7-read.php
  * @param string $data
  * @param array &$certificates
  * @return bool
@@ -1243,6 +1256,7 @@ function openssl_pkcs7_read(string $data, &$certificates): bool {}
 
 /**
  * Verifies that the data block is intact, the signer is who they say they are, and returns the certs of the signers.
+ * @link https://php.net/manual/en/function.openssl-cms-verify.php
  * @param string $input_filename
  * @param int $flags [optional]
  * @param string|null $certificates [optional]
@@ -1259,6 +1273,7 @@ function openssl_cms_verify(string $input_filename, int $flags = 0, ?string $cer
 
 /**
  * Encrypts the message in the file with the certificates and outputs the result to the supplied file.
+ * @link https://php.net/manual/en/function.openssl-cms-encrypt.php
  * @param string $input_filename
  * @param string $output_filename
  * @param resource|string|array $certificate
@@ -1273,6 +1288,7 @@ function openssl_cms_encrypt(string $input_filename, string $output_filename, $c
 
 /**
  * Signs the MIME message in the file with a cert and key and output the result to the supplied file.
+ * @link https://php.net/manual/en/function.openssl-cms-sign.php
  * @param string $input_filename
  * @param string $output_filename
  * @param OpenSSLCertificate|string $certificate
@@ -1288,6 +1304,7 @@ function openssl_cms_sign(string $input_filename, string $output_filename, OpenS
 
 /**
  * Decrypts the S/MIME message in the file and outputs the results to the supplied file.
+ * @link https://php.net/manual/en/function.openssl-cms-decrypt.php
  * @param string $input_filename
  * @param string $output_filename
  * @param resource|string $certificate
@@ -1300,6 +1317,7 @@ function openssl_cms_decrypt(string $input_filename, string $output_filename, $c
 
 /**
  * Exports the CMS file to an array of PEM certificates.
+ * @link https://php.net/manual/en/function.openssl-cms-read.php
  * @param string $input_filename
  * @param array &$certificates
  * @return bool

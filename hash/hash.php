@@ -20,6 +20,8 @@ use JetBrains\PhpStorm\Pure;
  * When set to <b>TRUE</b>, outputs raw binary data.
  * <b>FALSE</b> outputs lowercase hexits.
  * </p>
+ * @param array $options An array of options for the various hashing algorithms. Currently, only the
+ * "seed" parameter is supported by the MurmurHash variants.
  * @return string a string containing the calculated message digest as lowercase hexits
  * unless <i>binary</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
@@ -52,6 +54,8 @@ function hash_equals(string $known_string, string $user_string): bool {}
  * When set to <b>TRUE</b>, outputs raw binary data.
  * <b>FALSE</b> outputs lowercase hexits.
  * </p>
+ * @param array $options An array of options for the various hashing algorithms. Currently, only the
+ * "seed" parameter is supported by the MurmurHash variants.
  * @return string|false a string containing the calculated message digest as lowercase hexits
  * unless <i>binary</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
@@ -127,6 +131,8 @@ function hash_hmac_file(string $algo, string $filename, string $key, bool $binar
  * a shared secret key to be used with the HMAC hashing method must be supplied in this
  * parameter.
  * </p>
+ * @param array $options An array of options for the various hashing algorithms. Currently, only the
+ * "seed" parameter is supported by the MurmurHash variants.
  * @return HashContext|resource a Hashing Context resource for use with <b>hash_update</b>,
  * <b>hash_update_stream</b>, <b>hash_update_file</b>,
  * and <b>hash_final</b>.
@@ -250,6 +256,7 @@ function hash_hkdf(string $algo, string $key, int $length = 0, string $info = ''
 
 /**
  * Return a list of registered hashing algorithms suitable for hash_hmac
+ * @link https://php.net/manual/en/function.hash-hmac-algos.php
  * @since 7.2
  * Return a list of registered hashing algorithms suitable for hash_hmac
  * @return string[] Returns a numerically indexed array containing the list of supported hashing algorithms suitable for {@see hash_hmac()}.
@@ -468,11 +475,13 @@ final class HashContext
     public function __serialize(): array {}
 
     /**
+     * @link https://php.net/manual/en/hashcontext.unserialize.php
      * @param array $data
      */
     public function __unserialize(#[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $data): void {}
 
     /**
+     * @link https://php.net/manual/en/hashcontext.debuginfo.php
      * @since 8.4
      */
     public function __debugInfo(): array {}

@@ -436,6 +436,7 @@ class ReflectionClass implements Reflector
     public function isFinal(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclass.isreadonly.php
      * @return bool
      */
     #[Pure]
@@ -667,6 +668,7 @@ class ReflectionClass implements Reflector
     public function getShortName(): string {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclass.getattributes.php
      * @template T
      *
      * Returns an array of class attributes.
@@ -709,42 +711,50 @@ class ReflectionClass implements Reflector
     public function isEnum(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclass.newlazyghost.php
      * @since 8.4
      */
     public function newLazyGhost(callable $initializer, int $options = 0): object {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclass.newlazyproxy.php
      * @return T
      * @since 8.4
      */
     public function newLazyProxy(callable $factory, int $options = 0): object {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclass.resetaslazyghost.php
      * @since 8.4
      */
     public function resetAsLazyGhost(object $object, callable $initializer, int $options = 0): void {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclass.resetaslazyproxy.php
      * @since 8.4
      */
     public function resetAsLazyProxy(object $object, callable $factory, int $options = 0): void {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclass.initializelazyobject.php
      * @since 8.4
      */
     public function initializeLazyObject(object $object): object {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclass.isuninitializedlazyobject.php
      * @since 8.4
      */
     public function isUninitializedLazyObject(object $object): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclass.marklazyobjectasinitialized.php
      * @since 8.4
      */
     public function markLazyObjectAsInitialized(object $object): object {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclass.getlazyinitializer.php
      * @since 8.4
      */
     public function getLazyInitializer(object $object): ?callable {}

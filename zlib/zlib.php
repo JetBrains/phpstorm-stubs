@@ -507,6 +507,7 @@ function inflate_add(#[LanguageLevelTypeAware(["8.0" => "InflateContext"], defau
 
 /**
  * Get number of bytes read so far
+ * @link https://php.net/manual/en/function.inflate-get-read-len.php
  * @param InflateContext|resource $context
  * @return int
  * @since 7.2
@@ -516,6 +517,7 @@ function inflate_get_read_len(#[LanguageLevelTypeAware(["8.0" => "InflateContext
 
 /**
  * Get decompression status
+ * @link https://php.net/manual/en/function.inflate-get-status.php
  * @param InflateContext|resource $context
  * @return int
  * @since 7.2

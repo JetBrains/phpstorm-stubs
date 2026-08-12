@@ -28,6 +28,7 @@ class ReflectionEnumUnitCase extends ReflectionClassConstant
     public function getValue(): UnitEnum {}
 
     /**
+     * @link https://php.net/manual/en/reflectionenumunitcase.getenum.php
      * @return ReflectionEnum
      */
     #[Pure]

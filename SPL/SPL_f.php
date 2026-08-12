@@ -200,6 +200,7 @@ function class_uses($object_or_class, bool $autoload = true): array|false {}
 
 /**
  * return the integer object handle for given object
+ * @link https://php.net/manual/en/function.spl-object-id.php
  * @param object $object
  * @return int
  * @since 7.2

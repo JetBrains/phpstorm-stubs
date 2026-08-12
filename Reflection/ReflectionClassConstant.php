@@ -184,6 +184,7 @@ class ReflectionClassConstant implements Reflector
     public function __toString(): string {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclassconstant.getattributes.php
      * @template T
      *
      * Returns an array of constant attributes.
@@ -224,22 +225,26 @@ class ReflectionClassConstant implements Reflector
     public function isEnumCase(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclassconstant.isfinal.php
      * @return bool
      * @since 8.1
      */
     public function isFinal(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclassconstant.hastype.php
      * @since 8.3
      */
     public function hasType(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclassconstant.gettype.php
      * @since 8.3
      */
     public function getType(): ?ReflectionType {}
 
     /**
+     * @link https://php.net/manual/en/reflectionclassconstant.isdeprecated.php
      * @since 8.4
      */
     public function isDeprecated(): bool {}

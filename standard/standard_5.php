@@ -9,6 +9,7 @@ use JetBrains\PhpStorm\Pure;
 /**
  * (PHP 5.5.0)<br/>
  * Get the boolean value of a variable
+ * @link https://php.net/manual/en/function.boolval.php
  * @param mixed $value <p>the scalar value being converted to a boolean.</p>
  * @return bool The boolean value of var.
  * @since 5.5
@@ -809,6 +810,7 @@ function fflush($stream): bool {}
 
 /**
  * Sync file to storage. Similar to fflush() but blocks until OS buffers have flushed.
+ * @link https://php.net/manual/en/function.fsync.php
  * @param resource $stream
  * @since 8.1
  */
@@ -816,6 +818,7 @@ function fsync($stream): bool {}
 
 /**
  * Sync file data only to storage. Similar to fsync but does not flush modified metadata. POSIX only, aliased to fsync on Win32.
+ * @link https://php.net/manual/en/function.fdatasync.php
  * @param resource $stream
  * @since 8.1
  */

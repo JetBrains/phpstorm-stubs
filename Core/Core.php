@@ -134,6 +134,7 @@ function strncasecmp(string $string1, string $string2, int $length): int {}
  * The function returns {@see true} if the passed $haystack starts from the
  * $needle string or {@see false} otherwise.
  *
+ * @link https://php.net/manual/en/function.str-starts-with.php
  * @param string $haystack
  * @param string $needle
  * @return bool
@@ -146,6 +147,7 @@ function str_starts_with(string $haystack, string $needle): bool {}
  * The function returns {@see true} if the passed $haystack ends with the
  * $needle string or {@see false} otherwise.
  *
+ * @link https://php.net/manual/en/function.str-ends-with.php
  * @param string $haystack
  * @param string $needle
  * @return bool
@@ -158,6 +160,7 @@ function str_ends_with(string $haystack, string $needle): bool {}
  * Checks if $needle is found in $haystack and returns a boolean value
  * (true/false) whether or not the $needle was found.
  *
+ * @link https://php.net/manual/en/function.str-contains.php
  * @param string $haystack
  * @param string $needle
  * @return bool
@@ -167,11 +170,13 @@ function str_ends_with(string $haystack, string $needle): bool {}
 function str_contains(string $haystack, string $needle): bool {}
 
 /**
+ * @link https://php.net/manual/en/function.str-decrement.php
  * @since 8.3
  */
 function str_decrement(string $string): string {}
 
 /**
+ * @link https://php.net/manual/en/function.str-increment.php
  * @since 8.3
  */
 function str_increment(string $string): string {}
@@ -708,6 +713,7 @@ function set_error_handler(?callable $callback, int $error_levels = E_ALL) {}
 function restore_error_handler() {}
 
 /**
+ * @link https://php.net/manual/en/function.get-error-handler.php
  * @since 8.5
  */
 function get_error_handler(): ?callable {}
@@ -728,6 +734,7 @@ function get_error_handler(): ?callable {}
 function set_exception_handler(?callable $callback) {}
 
 /**
+ * @link https://php.net/manual/en/function.get-exception-handler.php
  * @since 8.5
  */
 function get_exception_handler(): ?callable {}
@@ -1142,6 +1149,7 @@ function gc_mem_caches(): int {}
 function get_resources(?string $type = null): array {}
 
 /**
+ * @link https://php.net/manual/en/function.exit.php
  * @since 8.4
  */
 function exit(string|int $status = 0): never {}

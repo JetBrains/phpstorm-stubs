@@ -7,6 +7,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * append the contents of a file to another file on the ftp server
+ * @link https://php.net/manual/en/function.ftp-append.php
  * @param resource $ftp
  * @param string $remote_filename
  * @param string $local_filename
@@ -24,6 +25,7 @@ function ftp_append(
 
 /**
  * returns a list of files in the given directory
+ * @link https://php.net/manual/en/function.ftp-mlsd.php
  * @param resource $ftp
  * @param string $directory
  * @return array|false

@@ -2369,6 +2369,7 @@ function imagecreatefrombmp(string $filename): GdImage|false {}
 function imagebmp(GdImage $image, $file = null, bool $compressed = true): bool {}
 
 /**
+ * @link https://php.net/manual/en/function.imagecreatefromtga.php
  * @param string $filename
  * @return resource|GdImage|false
  */
@@ -2379,6 +2380,7 @@ function imagecreatefromtga(string $filename): GdImage|false {}
  *
  * https://www.php.net/manual/en/function.imagegrabscreen.php
  *
+ * @link https://php.net/manual/en/function.imagegrabscreen.php
  * @return resource|GdImage|false
  */
 #[Pure]

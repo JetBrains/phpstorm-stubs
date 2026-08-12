@@ -386,6 +386,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     ): bool {}
 
     /**
+     * @link https://php.net/manual/en/phar.getalias.php
      * @return string|null
      * @see setAlias
      */

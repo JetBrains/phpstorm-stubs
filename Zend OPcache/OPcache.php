@@ -84,11 +84,13 @@ function opcache_get_configuration(): array|false {}
 function opcache_is_script_cached(string $filename): bool {}
 
 /**
+ * @link https://php.net/manual/en/function.opcache-jit-blacklist.php
  * @since 8.4
  */
 function opcache_jit_blacklist(Closure $closure): void {}
 
 /**
+ * @link https://php.net/manual/en/function.opcache-is-script-cached-in-file-cache.php
  * @since 8.5
  */
 function opcache_is_script_cached_in_file_cache(string $filename): bool {}

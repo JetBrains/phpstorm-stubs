@@ -154,6 +154,7 @@ function libxml_set_external_entity_loader(?callable $resolver_function) {}
  * This allows libraries to save and restore the loader, controlling entity expansion without interfering with the rest
  * of the application.
  *
+ * @link https://php.net/manual/en/function.libxml-get-external-entity-loader.php
  * @return callable|null
  * @since 8.2
  */

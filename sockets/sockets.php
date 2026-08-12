@@ -261,6 +261,7 @@ function socket_select(?array &$read, ?array &$write, ?array &$except, ?int $sec
 function socket_create(int $domain, int $type, int $protocol): Socket|false {}
 
 /**
+ * @link https://php.net/manual/en/function.socket-export-stream.php
  * @param resource|Socket $socket
  * @return resource|Socket|false
  */
@@ -1401,6 +1402,7 @@ function socket_wsaprotocol_info_import($info_id) {}
 function socket_wsaprotocol_info_release($info_id) {}
 
 /**
+ * @link https://php.net/manual/en/function.socket-atmark.php
  * @since 8.3
  */
 function socket_atmark(Socket $socket): bool {}

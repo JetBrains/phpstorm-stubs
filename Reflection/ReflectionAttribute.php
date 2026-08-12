@@ -23,6 +23,7 @@ class ReflectionAttribute implements Reflector
 
     /**
      * ReflectionAttribute cannot be created explicitly.
+     * @link https://php.net/manual/en/reflectionattribute.construct.php
      * @since 8.0
      */
     private function __construct() {}
@@ -30,6 +31,7 @@ class ReflectionAttribute implements Reflector
     /**
      * Gets attribute name
      *
+     * @link https://php.net/manual/en/reflectionattribute.getname.php
      * @return string The name of the attribute parameter.
      * @since 8.0
      */
@@ -39,6 +41,7 @@ class ReflectionAttribute implements Reflector
     /**
      * Returns the target of the attribute as a bit mask format.
      *
+     * @link https://php.net/manual/en/reflectionattribute.gettarget.php
      * @return int
      * @since 8.0
      */
@@ -48,6 +51,7 @@ class ReflectionAttribute implements Reflector
     /**
      * Returns {@see true} if the attribute is repeated.
      *
+     * @link https://php.net/manual/en/reflectionattribute.isrepeated.php
      * @return bool
      * @since 8.0
      */
@@ -57,6 +61,7 @@ class ReflectionAttribute implements Reflector
     /**
      * Gets list of passed attribute's arguments.
      *
+     * @link https://php.net/manual/en/reflectionattribute.getarguments.php
      * @return array
      * @since 8.0
      */
@@ -66,6 +71,7 @@ class ReflectionAttribute implements Reflector
     /**
      * Creates a new instance of the attribute with passed arguments
      *
+     * @link https://php.net/manual/en/reflectionattribute.newinstance.php
      * @return T
      * @since 8.0
      */

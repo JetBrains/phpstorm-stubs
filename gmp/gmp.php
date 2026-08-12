@@ -41,6 +41,7 @@ function gmp_intval(GMP|string|int $num): int {}
 
 /**
  * Sets the RNG seed
+ * @link https://php.net/manual/en/function.gmp-random-seed.php
  * @param resource|string|int|GMP $seed <p>
  * The seed to be set for the {@see gmp_random()}, {@see gmp_random_bits()}, and {@see gmp_random_range()} functions.
  * </p>
@@ -805,6 +806,7 @@ define('GMP_MPIR_VERSION', '3.0.0');
 final class GMP
 {
     /**
+     * @link https://php.net/manual/en/gmp.construct.php
      * @since 8.2
      */
     public function __construct(int|string $num = 0, int $base = 0) {}
