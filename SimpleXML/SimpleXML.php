@@ -342,6 +342,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     public function next(): void {}
 
     /**
+     * @link https://php.net/manual/en/simplexmlelement.haschildren.php
      * @return bool
      * @since 8.0
      */
@@ -350,6 +351,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     public function hasChildren(): bool {}
 
     /**
+     * @link https://php.net/manual/en/simplexmlelement.getchildren.php
      * @since 8.0
      */
     #[Pure]

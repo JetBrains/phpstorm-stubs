@@ -164,24 +164,28 @@ namespace {
     {
         /**
          * Throws an exception if the generator is currently after the first yield.
+         * @link https://php.net/manual/en/generator.rewind.php
          * @return void
          */
         public function rewind(): void {}
 
         /**
          * Returns false if the generator has been closed, true otherwise.
+         * @link https://php.net/manual/en/generator.valid.php
          * @return bool
          */
         public function valid(): bool {}
 
         /**
          * Returns whatever was passed to yield or null if nothing was passed or the generator is already closed.
+         * @link https://php.net/manual/en/generator.current.php
          * @return TYield|null
          */
         public function current(): mixed {}
 
         /**
          * Returns the yielded key or, if none was specified, an auto-incrementing key or null if the generator is already closed.
+         * @link https://php.net/manual/en/generator.key.php
          * @return TKey|null
          */
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: 'string|float|int|bool|null')]
@@ -189,12 +193,14 @@ namespace {
 
         /**
          * Resumes the generator (unless the generator is already closed).
+         * @link https://php.net/manual/en/generator.next.php
          * @return void
          */
         public function next(): void {}
 
         /**
          * Sets the return value of the yield expression and resumes the generator (unless the generator is already closed).
+         * @link https://php.net/manual/en/generator.send.php
          * @param TSend $value
          * @return TYield|null
          */

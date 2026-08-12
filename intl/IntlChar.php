@@ -1448,6 +1448,7 @@ class IntlChar
 
     /**
      * Check if code point is a hexadecimal digit
+     * @link https://php.net/manual/en/intlchar.isxdigit.php
      * @param int|string $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool|null Returns TRUE if codepoint is a hexadecimal character, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0

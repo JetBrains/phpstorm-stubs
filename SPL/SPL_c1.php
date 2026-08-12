@@ -747,6 +747,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <b>SplFileObject::setCsvControl</b>.
      * </p>
      * @param string $escape The optional escape parameter sets the escape character (one character only).
+     * @param string $eol The optional eol parameter sets a custom End of Line sequence.
      * @return int|false Returns the length of the written string or FALSE on failure.
      * @since 5.4
      */
@@ -1514,6 +1515,7 @@ abstract class SplHeap implements Iterator, Countable
     );
 
     /**
+     * @link https://php.net/manual/en/splheap.iscorrupted.php
      * @return bool
      * @since 7.0
      */
@@ -1837,6 +1839,7 @@ class SplPriorityQueue implements Iterator, Countable
     public function recoverFromCorruption(): true {}
 
     /**
+     * @link https://php.net/manual/en/splpriorityqueue.iscorrupted.php
      * @return bool
      * @since 7.0
      */
@@ -1844,6 +1847,7 @@ class SplPriorityQueue implements Iterator, Countable
     public function isCorrupted(): bool {}
 
     /**
+     * @link https://php.net/manual/en/splpriorityqueue.getextractflags.php
      * @return int
      * @since 7.0
      */
@@ -2050,6 +2054,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     public function __unserialize(array $data): void {}
 
     /**
+     * @link https://php.net/manual/en/splfixedarray.getiterator.php
      * @since 8.0
      * @return Iterator<int, TValue>
      */
@@ -2387,6 +2392,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
     public function __debugInfo(): array {}
 
     /**
+     * @link https://php.net/manual/en/splobjectstorage.seek.php
      * @since 8.4
      */
     public function seek(int $offset): void {}

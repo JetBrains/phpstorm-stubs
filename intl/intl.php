@@ -1738,6 +1738,7 @@ class Locale
     public static function acceptFromHttp(#[LanguageAware(['8.0' => 'string'], default: '')] $header): string|false {}
 
     /**
+     * @link https://php.net/manual/en/locale.isrighttoleft.php
      * @since 8.5
      */
     public static function isRightToLeft(string $locale): bool {}
@@ -1976,6 +1977,7 @@ class IntlDateFormatter
     public const PATTERN = -2;
 
     /**
+     * @link https://php.net/manual/en/intldateformatter.create.php
      * @param string|null $locale
      * @param int $dateType
      * @param int $timeType
@@ -2335,6 +2337,7 @@ class IntlDateFormatter
     public function getErrorMessage(): string {}
 
     /**
+     * @link https://php.net/manual/en/intldateformatter.parsetocalendar.php
      * @since 8.4
      */
     public function parseToCalendar(string $string, &$offset = null): int|float|false {}
@@ -2694,12 +2697,14 @@ class Spoofchecker
     public function setChecks(#[LanguageAware(['8.0' => 'int'], default: '')] $checks): void {}
 
     /**
+     * @link https://php.net/manual/en/spoofchecker.setrestrictionlevel.php
      * @param int $level
      */
     #[TentativeType]
     public function setRestrictionLevel(#[LanguageAware(['8.0' => 'int'], default: '')] $level): void {}
 
     /**
+     * @link https://php.net/manual/en/spoofchecker.setallowedchars.php
      * @since 8.4
      */
     public function setAllowedChars(string $pattern, int $patternOptions = 0): void {}
@@ -2722,12 +2727,14 @@ class IntlGregorianCalendar extends IntlCalendar
     public function __construct($timezoneOrYear, $localeOrMonth, $day, $hour, $minute, $second) {}
 
     /**
+     * @link https://php.net/manual/en/intlgregoriancalendar.setgregorianchange.php
      * @param float $timestamp
      */
     #[TentativeType]
     public function setGregorianChange(#[LanguageAware(['8.0' => 'float'], default: '')] $timestamp): bool {}
 
     /**
+     * @link https://php.net/manual/en/intlgregoriancalendar.getgregorianchange.php
      * @return float
      */
     #[Pure]
@@ -2735,6 +2742,7 @@ class IntlGregorianCalendar extends IntlCalendar
     public function getGregorianChange(): float {}
 
     /**
+     * @link https://php.net/manual/en/intlgregoriancalendar.isleapyear.php
      * @param int $year
      * @return bool
      */
@@ -2743,11 +2751,13 @@ class IntlGregorianCalendar extends IntlCalendar
     public function isLeapYear(#[LanguageAware(['8.0' => 'int'], default: '')] $year): bool {}
 
     /**
+     * @link https://php.net/manual/en/intlgregoriancalendar.createfromdate.php
      * @since 8.3
      */
     public static function createFromDate(int $year, int $month, int $dayOfMonth): static {}
 
     /**
+     * @link https://php.net/manual/en/intlgregoriancalendar.createfromdatetime.php
      * @since 8.3
      */
     public static function createFromDateTime(int $year, int $month, int $dayOfMonth, int $hour, int $minute, ?int $second = null): static {}
@@ -2824,6 +2834,7 @@ class IntlCalendar
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Whether this object's time is after that of the passed object
      * https://secure.php.net/manual/en/intlcalendar.after.php
+     * @link https://php.net/manual/en/intlcalendar.after.php
      * @param IntlCalendar $other <p>The calendar whose time will be checked against this object's time.</p>
      * @return bool
      * Returns <b>TRUE</b> if this object's current time is after that of the
@@ -3050,6 +3061,7 @@ class IntlCalendar
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Tell whether a day is a weekday, weekend or a day that has a transition between the two
+     * @link https://php.net/manual/en/intlcalendar.getdayofweektype.php
      * @param int $dayOfWeek <p>
      * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
      * <b>IntlCalendar::DOW_MONDAY</b>, ...,
@@ -3118,6 +3130,7 @@ class IntlCalendar
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get set of locale keyword values
+     * @link https://php.net/manual/en/intlcalendar.getkeywordvaluesforlocale.php
      * @param string $keyword <p>
      * The locale keyword for which relevant values are to be queried. Only
      * <em>'calendar'</em> is supported.
@@ -3218,6 +3231,7 @@ class IntlCalendar
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get number representing the current time
+     * @link https://php.net/manual/en/intlcalendar.getnow.php
      * @return float A float representing a number of milliseconds since the epoch, not counting leap seconds.
      */
     #[TentativeType]
@@ -3251,6 +3265,7 @@ class IntlCalendar
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get time currently represented by the object
+     * @link https://php.net/manual/en/intlcalendar.gettime.php
      * @return float|false
      * A {@link https://secure.php.net/manual/en/language.types.float.php float} representing the number of milliseconds elapsed since the
      * reference time (1 Jan 1970 00:00:00 UTC).
@@ -3590,11 +3605,13 @@ class IntlCalendar
     public function setMinimalDaysInFirstWeek(#[LanguageAware(['8.0' => 'int'], default: '')] $days) {}
 
     /**
+     * @link https://php.net/manual/en/intlcalendar.setdate.php
      * @since 8.3
      */
     public function setDate(int $year, int $month, int $dayOfMonth): void {}
 
     /**
+     * @link https://php.net/manual/en/intlcalendar.setdatetime.php
      * @since 8.3
      */
     public function setDateTime(int $year, int $month, int $dayOfMonth, int $hour, int $minute, ?int $second = null): void {}
@@ -3727,6 +3744,7 @@ class IntlTimeZone
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get a name of this time zone suitable for presentation to the user
+     * @link https://php.net/manual/en/intltimezone.getdisplayname.php
      * @param bool $dst [optional]
      * @param int $style [optional]
      * @param string $locale [optional]
@@ -3796,6 +3814,7 @@ class IntlTimeZone
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get timezone ID
+     * @link https://php.net/manual/en/intltimezone.getid.php
      * @return string|false
      */
     #[Pure]
@@ -3921,6 +3940,7 @@ class IntlTimeZone
     public function useDaylightTime(): bool {}
 
     /**
+     * @link https://php.net/manual/en/intltimezone.getianaid.php
      * @since 8.4
      */
     public static function getIanaID(string $timezoneId): string|false {}
@@ -4739,6 +4759,7 @@ function locale_accept_from_http(string $header): string|false {}
 
 /**
  * Constructs a new message formatter
+ * @link https://php.net/manual/en/messageformatter.create.php
  * @param string $locale
  * @param string $pattern
  * @return MessageFormatter|null
@@ -5240,6 +5261,7 @@ function grapheme_strlen(string $string): int|false|null {}
  * The position returned is still relative to the beginning of haystack
  * regardless of the value of $offset.
  * </p>
+ * @param string $locale Locale to use.
  * @return int|false the position as an integer. If needle is not found, strpos() will return boolean FALSE.
  */
 #[Pure]
@@ -5261,6 +5283,7 @@ function grapheme_strpos(string $haystack, string $needle, int $offset = 0, #[El
  * The position returned is still relative to the beginning of haystack
  * regardless of the value of $offset.
  * </p>
+ * @param string $locale Locale to use.
  * @return int|false the position as an integer. If needle is not found, grapheme_stripos() will return boolean FALSE.
  */
 #[Pure]
@@ -5282,6 +5305,7 @@ function grapheme_stripos(string $haystack, string $needle, int $offset = 0, #[E
  * The position returned is still relative to the beginning of haystack
  * regardless of the value of $offset.
  * </p>
+ * @param string $locale Locale to use.
  * @return int|false the position as an integer. If needle is not found, grapheme_strrpos() will return boolean FALSE.
  */
 #[Pure]
@@ -5303,6 +5327,7 @@ function grapheme_strrpos(string $haystack, string $needle, int $offset = 0, #[E
  * The position returned is still relative to the beginning of haystack
  * regardless of the value of $offset.
  * </p>
+ * @param string $locale Locale to use.
  * @return int|false the position as an integer. If needle is not found, grapheme_strripos() will return boolean FALSE.
  */
 #[Pure]
@@ -5331,6 +5356,7 @@ function grapheme_strripos(string $haystack, string $needle, int $offset = 0, #[
  * start position has been calculated when a start is negative). If $start
  * denotes a position beyond this truncation, <b>FALSE</b> will be returned.
  * </p>
+ * @param string $locale Locale to use.
  * @return string|false <p>the extracted part of $string,<br />
  * or <strong>FALSE</strong> if $length is negative and $start denotes a position beyond truncation $length,<br />
  * or also <strong>FALSE</strong> if $start denotes a position beyond $string length</p>
@@ -5363,6 +5389,7 @@ function grapheme_strrev(string $string): string|false {}
  * If <b>TRUE</b>, grapheme_strstr() returns the part of the
  * haystack before the first occurrence of the needle (excluding the needle).
  * </p>
+ * @param string $locale Locale to use.
  * @return string|false the portion of string, or FALSE if needle is not found.
  */
 #[Pure]
@@ -5382,6 +5409,7 @@ function grapheme_strstr(string $haystack, string $needle, bool $beforeNeedle = 
  * If <b>TRUE</b>, grapheme_strstr() returns the part of the
  * haystack before the first occurrence of the needle (excluding needle).
  * </p>
+ * @param string $locale Locale to use.
  * @return string|false the portion of $haystack, or FALSE if $needle is not found.
  */
 #[Pure]
@@ -6482,6 +6510,7 @@ function intltz_get_canonical_id(string $timezoneId, &$isSystemId): string|false
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get a name of this time zone suitable for presentation to the user
+ * @link https://php.net/manual/en/intltimezone.getdisplayname.php
  * @param IntlTimeZone $timezone - <p>
  * The time zone object, on the procedural style interface.
  * </p>
@@ -6927,6 +6956,7 @@ function intl_error_name(int $errorCode): string {}
 function normalizer_get_raw_decomposition(string $string, #[ElementAvailable(from: '8.0')] int $form = Normalizer::FORM_C): ?string {}
 
 /**
+ * @link https://php.net/manual/en/intltimezone.createdefault.php
  * @return IntlTimeZone
  * @since 5.5
  */
@@ -6934,6 +6964,7 @@ function normalizer_get_raw_decomposition(string $string, #[ElementAvailable(fro
 function intltz_create_default(): IntlTimeZone {}
 
 /**
+ * @link https://php.net/manual/en/intltimezone.getgmt.php
  * @return IntlTimeZone
  * @since 5.5
  */
@@ -6941,6 +6972,7 @@ function intltz_create_default(): IntlTimeZone {}
 function intltz_get_gmt(): IntlTimeZone {}
 
 /**
+ * @link https://php.net/manual/en/intltimezone.getunknown.php
  * @return IntlTimeZone
  * @since 5.5
  */
@@ -6948,6 +6980,7 @@ function intltz_get_gmt(): IntlTimeZone {}
 function intltz_get_unknown(): IntlTimeZone {}
 
 /**
+ * @link https://php.net/manual/en/intltimezone.createtimezoneidenumeration.php
  * @param int $type
  * @param null|string $region
  * @param null|int $rawOffset
@@ -6958,6 +6991,7 @@ function intltz_get_unknown(): IntlTimeZone {}
 function intltz_create_time_zone_id_enumeration(int $type, ?string $region = null, ?int $rawOffset = null): IntlIterator|false {}
 
 /**
+ * @link https://php.net/manual/en/intltimezone.getregion.php
  * @param string $timezoneId
  * @return string|false
  * @since 5.5
@@ -6984,11 +7018,13 @@ function intltz_get_windows_id(string $timezoneId): string|false {}
 function intltz_get_id_for_windows_id(string $timezoneId, ?string $region = null): string|false {}
 
 /**
+ * @link https://php.net/manual/en/function.grapheme-str-split.php
  * @since 8.4
  */
 function grapheme_str_split(string $string, int $length = 1): array|false {}
 
 /**
+ * @link https://php.net/manual/en/intltimezone.getianaid.php
  * @since  8.4
  */
 function intltz_get_iana_id(string $timezoneId): string|false {}
@@ -6999,6 +7035,7 @@ function intltz_get_iana_id(string $timezoneId): string|false {}
 function grapheme_levenshtein(string $string1, string $string2, int $insertion_cost = 1, int $replacement_cost = 1, int $deletion_cost = 1, string $locale = ""): int|false {}
 
 /**
+ * @link https://php.net/manual/en/locale.isrighttoleft.php
  * @since 8.5
  */
 function locale_is_right_to_left(string $locale): bool {}
@@ -7330,6 +7367,7 @@ class IntlBreakIterator implements IteratorAggregate
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Private constructor for disallowing instantiation
+     * @link https://php.net/manual/en/intlbreakiterator.construct.php
      */
     private function __construct() {}
 
@@ -7616,6 +7654,7 @@ class IntlPartsIterator extends IntlIterator implements Iterator
     public const KEY_RIGHT = 2;
 
     /**
+     * @link https://php.net/manual/en/intlpartsiterator.getbreakiterator.php
      * @return IntlBreakIterator
      */
     #[Pure]

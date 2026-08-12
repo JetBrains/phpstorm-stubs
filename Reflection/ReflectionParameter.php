@@ -270,6 +270,7 @@ class ReflectionParameter implements Reflector
     /**
      * Returns information about whether the parameter is a promoted.
      *
+     * @link https://php.net/manual/en/reflectionparameter.ispromoted.php
      * @return bool Returns {@see true} if the parameter promoted or {@see false} instead
      * @since 8.0
      */
@@ -277,6 +278,7 @@ class ReflectionParameter implements Reflector
     public function isPromoted(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionparameter.getattributes.php
      * @template T
      *
      * Returns an array of parameter attributes.

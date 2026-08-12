@@ -210,6 +210,7 @@ function password_verify(string $password, string $hash): bool {}
 
 /**
  * Return a complete list of all registered password hashing algorithms.
+ * @link https://php.net/manual/en/function.password-algos.php
  * @return string[]
  * @since 7.4
  */

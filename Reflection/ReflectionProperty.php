@@ -314,6 +314,7 @@ class ReflectionProperty implements Reflector
     /**
      * Returns information about whether the property was promoted.
      *
+     * @link https://php.net/manual/en/reflectionproperty.ispromoted.php
      * @return bool Returns {@see true} if the property was promoted or {@see false} instead.
      * @since 8.0
      */
@@ -339,12 +340,14 @@ class ReflectionProperty implements Reflector
     private function __clone(): void {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.hasdefaultvalue.php
      * @return bool
      * @since 8.0
      */
     public function hasDefaultValue(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.getdefaultvalue.php
      * @return mixed
      * @since 8.0
      */
@@ -353,6 +356,7 @@ class ReflectionProperty implements Reflector
     public function getDefaultValue(): mixed {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.getattributes.php
      * @template T
      *
      * Returns an array of property attributes.
@@ -366,92 +370,110 @@ class ReflectionProperty implements Reflector
     public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.isreadonly.php
      * @return bool
      * @since 8.1
      */
     public function isReadOnly(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.getrawvalue.php
      * @since 8.4
      */
     public function getRawValue(object $object): mixed {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.setrawvalue.php
      * @since 8.4
      */
     public function setRawValue(object $object, mixed $value): void {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.isabstract.php
      * @since 8.4
      */
     public function isAbstract(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.isvirtual.php
      * @since 8.4
      */
     public function isVirtual(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.getsettabletype.php
      * @since 8.4
      */
     public function getSettableType(): ?ReflectionType {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.hashooks.php
      * @since 8.4
      */
     public function hasHooks(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.gethooks.php
      * @since 8.4
      */
     public function getHooks(): array {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.hashook.php
      * @since 8.4
      */
     public function hasHook(PropertyHookType $type): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.gethook.php
      * @since 8.4
      */
     public function getHook(PropertyHookType $type): ?ReflectionMethod {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.isprivateset.php
      * @since 8.4
      */
     public function isPrivateSet(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.isprotectedset.php
      * @since 8.4
      */
     public function isProtectedSet(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.setrawvaluewithoutlazyinitialization.php
      * @since 8.4
      */
     public function setRawValueWithoutLazyInitialization(object $object, mixed $value): void {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.skiplazyinitialization.php
      * @since 8.4
      */
     public function skipLazyInitialization(object $object): void {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.isdynamic.php
      * @since 8.4
      */
     public function isDynamic(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.isfinal.php
      * @since 8.4
      */
     public function isFinal(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.islazy.php
      * @since 8.4
      */
     public function isLazy(object $object): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionproperty.getmangledname.php
      * @since 8.5
      */
     public function getMangledName(): string {}

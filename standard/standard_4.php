@@ -280,6 +280,7 @@ function memory_get_usage(bool $real_usage = false): int {}
 function memory_get_peak_usage(bool $real_usage = false): int {}
 
 /**
+ * @link https://php.net/manual/en/function.memory-reset-peak-usage.php
  * @since 8.2
  */
 function memory_reset_peak_usage(): void {}
@@ -496,6 +497,7 @@ function ini_alter(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|in
 function ini_restore(string $option): void {}
 
 /**
+ * @link https://php.net/manual/en/function.ini-parse-quantity.php
  * @param string $shorthand
  * @return int
  * @since 8.2
@@ -912,6 +914,7 @@ function is_uploaded_file(string $filename): bool {}
 function move_uploaded_file(string $from, string $to): bool {}
 
 /**
+ * @link https://php.net/manual/en/function.net-get-interfaces.php
  * @return array|false
  * @since 7.3
  */

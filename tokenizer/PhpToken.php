@@ -30,6 +30,7 @@ class PhpToken implements Stringable
     public int $pos;
 
     /**
+     * @link https://php.net/manual/en/phptoken.construct.php
      * @param int $id An integer identifier
      * @param string $text Textual content
      * @param int $line Strating line
@@ -40,6 +41,7 @@ class PhpToken implements Stringable
     /**
      * Get the name of the token.
      *
+     * @link https://php.net/manual/en/phptoken.gettokenname.php
      * @return string|null
      */
     public function getTokenName(): ?string {}
@@ -48,6 +50,7 @@ class PhpToken implements Stringable
      * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
      * or an instance of a child class.
      *
+     * @link https://php.net/manual/en/phptoken.tokenize.php
      * @param string $code An a PHP source code
      * @param int $flags
      * @return static[]
@@ -58,6 +61,7 @@ class PhpToken implements Stringable
      * Whether the token has the given ID, the given text, or has an ID/text
      * part of the given array.
      *
+     * @link https://php.net/manual/en/phptoken.is.php
      * @param int|string|array $kind
      * @return bool
      */
@@ -66,12 +70,14 @@ class PhpToken implements Stringable
     /**
      * Whether this token would be ignored by the PHP parser.
      *
+     * @link https://php.net/manual/en/phptoken.isignorable.php
      * @return bool
      */
     public function isIgnorable(): bool {}
 
     /**
      * {@inheritDoc}
+     * @link https://php.net/manual/en/phptoken.tostring.php
      */
     public function __toString(): string {}
 }

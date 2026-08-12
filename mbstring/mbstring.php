@@ -1414,6 +1414,7 @@ function mbereg_search_setpos($position) {}
 
 /**
  * Function performs string splitting to an array of defined size chunks.
+ * @link https://php.net/manual/en/function.mb-str-split.php
  * @param string $string <p>
  * The string to split into characters or chunks.
  * </p>

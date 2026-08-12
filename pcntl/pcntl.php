@@ -238,6 +238,7 @@ function pcntl_wifsignaled(int $status): bool {}
 function pcntl_wexitstatus(int $status): int|false {}
 
 /**
+ * @link https://php.net/manual/en/function.pcntl-wifcontinued.php
  * @param int $status
  * @return bool
  */
@@ -489,6 +490,7 @@ function pcntl_async_signals(
 function pcntl_signal_get_handler(int $signal) {}
 
 /**
+ * @link https://php.net/manual/en/function.pcntl-unshare.php
  * @param int $flags
  * @return bool
  * @since 7.4
@@ -496,18 +498,22 @@ function pcntl_signal_get_handler(int $signal) {}
 function pcntl_unshare(int $flags): bool {}
 
 /**
+ * @link https://php.net/manual/en/function.pcntl-waitid.php
  * @since 8.4
  */
 function pcntl_waitid(int $idtype = P_ALL, ?int $id = null, &$info = [], int $flags = WEXITED, #[PhpStormStubsElementAvailable(from: '8.5')] &$resource_usage = []): bool {}
 /**
+ * @link https://php.net/manual/en/function.pcntl-getcpuaffinity.php
  * @since 8.4
  */
 function pcntl_getcpuaffinity(?int $process_id = null): array|false {}
 /**
+ * @link https://php.net/manual/en/function.pcntl-setcpuaffinity.php
  * @since 8.4
  */
 function pcntl_setcpuaffinity(?int $process_id = null, array $cpu_ids = []): bool {}
 /**
+ * @link https://php.net/manual/en/function.pcntl-getcpu.php
  * @since 8.4
  */
 function pcntl_getcpu(): int {}

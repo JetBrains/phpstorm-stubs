@@ -697,6 +697,7 @@ function fmod(float $num1, float $num2): float {}
  * Performs a floating-point division under
  * IEEE 754 semantics. Division by zero is considered well-defined and
  * will return one of Inf, -Inf or NaN.
+ * @link https://php.net/manual/en/function.fdiv.php
  * @param float $num1
  * @param float $num2
  * @return float

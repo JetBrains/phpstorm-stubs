@@ -1380,17 +1380,11 @@ function pg_lo_read_all(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Lob'], defaul
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @param string $pathname <p>
- * The full path and file name of the file on the client
- * filesystem from which to read the large object data.
- * </p>
- * @param mixed $object_id [optional] <p>
- * If an <i>object_id</i> is given the function
- * will try to create a large object with this id, else a free
- * object id is assigned by the server. The parameter
- * was added in PHP 5.3 and relies on functionality that first
- * appeared in PostgreSQL 8.1.
- * </p>
+ * @param string $filename The full path and file name of the file on the client filesystem from
+ * which to read the large object data.
+ * @param int|string $oid If an oid is given the function will try to create a large object with
+ * this id, else a free object id is assigned by the server. The parameter relies on functionality
+ * that first appeared in PostgreSQL 8.1.
  * @return string|int|false The OID of the newly created large object, or
  * <b>FALSE</b> on failure.
  */
@@ -1413,10 +1407,8 @@ function pg_lo_import(
  * @param int $oid <p>
  * The OID of the large object in the database.
  * </p>
- * @param string $pathname <p>
- * The full path and file name of the file in which to write the
- * large object on the client filesystem.
- * </p>
+ * @param string $filename The full path and file name of the file in which to write the large
+ * object on the client filesystem.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_lo_export(
@@ -1639,6 +1631,7 @@ function pg_set_client_encoding(
  * @param string $table_name <p>
  * The name of the table.
  * </p>
+ * @param bool $extended Flag for returning extended meta data. Default to false.
  * @return array|false An array of the table definition, or <b>FALSE</b> on error.
  */
 function pg_meta_data(
@@ -2073,6 +2066,7 @@ function pg_consume_input(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Connection'
 function pg_flush(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Connection'], default: 'resource')] $connection): int|bool {}
 
 /**
+ * @link https://php.net/manual/en/function.pg-set-error-context-visibility.php
  * @since 8.3
  */
 function pg_set_error_context_visibility(PgSql\Connection $connection, int $visibility): int {}
@@ -2098,29 +2092,39 @@ function pg_exit_pipeline_mode(PgSql\Connection $connection): bool {}
 function pg_enter_pipeline_mode(PgSql\Connection $connection): bool {}
 
 /**
+ * @link https://php.net/manual/en/function.pg-result-memory-size.php
  * @since 8.4
  */
 function pg_result_memory_size(PgSql\Result $result): int {}
 /**
+ * @link https://php.net/manual/en/function.pg-change-password.php
  * @since 8.4
  */
 function pg_change_password(PgSql\Connection $connection, string $user, #[\SensitiveParameter] string $password): bool {}
 /**
+ * @link https://php.net/manual/en/function.pg-put-copy-data.php
  * @since 8.4
  */
 function pg_put_copy_data(PgSql\Connection $connection, string $cmd): int {}
 
 /**
+ * @link https://php.net/manual/en/function.pg-socket-poll.php
  * @since  8.4
  * @param resource $socket
+ * @param int $read Whether to check for read readiness. Pass 1 to check, 0 to skip.
+ * @param int $write Whether to check for write readiness. Pass 1 to check, 0 to skip.
+ * @param int $timeout The maximum number of milliseconds to wait. Pass -1 to wait indefinitely, or
+ * 0 to not wait at all.
  */
 function pg_socket_poll($socket, int $read, int $write, int $timeout = -1): int {}
 
 /**
+ * @link https://php.net/manual/en/function.pg-set-chunked-rows-size.php
  * @since  8.4
  */
 function pg_set_chunked_rows_size(PgSql\Connection $connection, int $size): bool {}
 /**
+ * @link https://php.net/manual/en/function.pg-put-copy-end.php
  * @since 8.4
  */
 function pg_put_copy_end(PgSql\Connection $connection, ?string $error = null): int {}
@@ -2131,6 +2135,7 @@ function pg_put_copy_end(PgSql\Connection $connection, ?string $error = null): i
 function pg_close_stmt(Pgsql\Connection $connection, string $statement_name): PgSql\Result|false {}
 
 /**
+ * @link https://php.net/manual/en/function.pg-jit.php
  * @since 8.4
  * @return array<string, string|null>
  */

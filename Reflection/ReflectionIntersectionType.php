@@ -7,7 +7,10 @@ use JetBrains\PhpStorm\Pure;
  */
 class ReflectionIntersectionType extends ReflectionType
 {
-    /** @return ReflectionType[] */
+    /**
+     * @link https://php.net/manual/en/reflectionintersectiontype.gettypes.php
+     * @return ReflectionType[]
+     */
     #[Pure]
     public function getTypes(): array {}
 }

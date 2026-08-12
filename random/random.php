@@ -359,16 +359,19 @@ namespace Random
         public function __unserialize(array $data): void {}
 
         /**
+         * @link https://php.net/manual/en/random-randomizer.nextfloat.php
          * @since 8.3
          */
         public function nextFloat(): float {}
 
         /**
+         * @link https://php.net/manual/en/random-randomizer.getfloat.php
          * @since 8.3
          */
         public function getFloat(float $min, float $max, IntervalBoundary $boundary = IntervalBoundary::ClosedOpen): float {}
 
         /**
+         * @link https://php.net/manual/en/random-randomizer.getbytesfromstring.php
          * @since 8.3
          */
         public function getBytesFromString(string $string, int $length): string {}

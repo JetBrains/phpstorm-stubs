@@ -73,6 +73,7 @@ class CURLFile
     /**
      * Set file name for POST
      * https://secure.php.net/manual/en/curlfile.setpostfilename.php
+     * @link https://php.net/manual/en/curlfile.setpostfilename.php
      * @param string $posted_filename
      * @since 5.5
      */
@@ -2780,6 +2781,7 @@ function curl_multi_close(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'],
 
 /**
  * Return the last multi curl error number
+ * @link https://php.net/manual/en/function.curl-multi-errno.php
  * @param CurlMultiHandle|resource $multi_handle
  * @return int
  * @since 7.1
@@ -2789,6 +2791,7 @@ function curl_multi_errno(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'],
 
 /**
  * Return the last share curl error number
+ * @link https://php.net/manual/en/function.curl-share-errno.php
  * @param CurlShareHandle|resource $share_handle
  * @return int
  * @since 7.1
@@ -2798,6 +2801,7 @@ function curl_share_errno(#[LanguageLevelTypeAware(['8.0' => 'CurlShareHandle'],
 
 /**
  * Return string describing the given error code
+ * @link https://php.net/manual/en/function.curl-share-strerror.php
  * @param int $error_code
  * @return string|null
  * @since 7.1
@@ -2806,6 +2810,7 @@ function curl_share_errno(#[LanguageLevelTypeAware(['8.0' => 'CurlShareHandle'],
 function curl_share_strerror(int $error_code): ?string {}
 
 /**
+ * @link https://php.net/manual/en/function.curl_upkeep.php
  * @since 8.2
  */
 function curl_upkeep(CurlHandle $handle): bool {}
@@ -2816,6 +2821,7 @@ function curl_upkeep(CurlHandle $handle): bool {}
 function curl_multi_get_handles(CurlMultiHandle $multi_handle): array {}
 
 /**
+ * @link https://php.net/manual/en/function.curl-share-init-persistent.php
  * @since 8.5
  */
 function curl_share_init_persistent(array $share_options): CurlSharePersistentHandle {}

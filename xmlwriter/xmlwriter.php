@@ -611,16 +611,19 @@ class XMLWriter
     public function flush(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $empty = true): string|int {}
 
     /**
+     * @link https://php.net/manual/en/xmlwriter.touri.php
      * @since 8.4
      */
     public static function toUri(string $uri): static {}
 
     /**
+     * @link https://php.net/manual/en/xmlwriter.tomemory.php
      * @since 8.4
      */
     public static function toMemory(): static {}
 
     /**
+     * @link https://php.net/manual/en/xmlwriter.tostream.php
      * @since 8.4
      */
     public static function toStream($stream): static {}

@@ -164,6 +164,7 @@ function stream_context_set_option($context, string $wrapper_or_options, string 
 function stream_context_set_option($stream_or_context, array $options) {}
 
 /**
+ * @link https://php.net/manual/en/function.stream-context-set-options.php
  * @since 8.3
  */
 #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
@@ -657,6 +658,7 @@ function fgetcsv($stream, ?int $length = null, string $separator = ',', string $
  * @param string $escape [optional] <p>
  * The optional escape_char parameter sets the escape character (one character only).
  * </p>
+ * @param string $eol The optional eol parameter sets a custom End of Line sequence.
  * @return int|false the length of the written string or false on failure.
  */
 function fputcsv(

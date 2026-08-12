@@ -314,6 +314,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     public function hasPrototype(): bool {}
 
     /**
+     * @link https://php.net/manual/en/reflectionmethod.createfrommethodname.php
      * @since 8.3
      */
     public static function createFromMethodName(string $method): static {}

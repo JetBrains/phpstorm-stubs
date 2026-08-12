@@ -93,6 +93,7 @@ final class ReflectionGenerator
     public function getExecutingGenerator(): Generator {}
 
     /**
+     * @link https://php.net/manual/en/reflectiongenerator.isclosed.php
      * @since 8.4
      */
     public function isClosed(): bool {}

@@ -15,6 +15,7 @@ final class ReflectionReference
 {
     /**
      * ReflectionReference cannot be created explicitly.
+     * @link https://php.net/manual/en/reflectionreference.construct.php
      */
     private function __construct() {}
 

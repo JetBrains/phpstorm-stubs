@@ -48,7 +48,10 @@ namespace Uri\Rfc3986 {
          */
         public static function parse(string $uri, ?\Uri\Rfc3986\Uri $baseUrl = null): ?static {}
 
-        /** @throws \Uri\InvalidUriException */
+        /**
+         * @link https://php.net/manual/en/uri-rfc3986-uri.construct.php
+         * @throws \Uri\InvalidUriException
+         */
         public function __construct(string $uri, ?\Uri\Rfc3986\Uri $baseUrl = null) {}
 
         /**
@@ -73,7 +76,10 @@ namespace Uri\Rfc3986 {
          */
         public function getRawScheme(): ?string {}
 
-        /** @throws \Uri\InvalidUriException */
+        /**
+         * @link https://php.net/manual/en/uri-rfc3986-uri.withscheme.php
+         * @throws \Uri\InvalidUriException
+         */
         public function withScheme(?string $scheme): static {}
 
         /**
@@ -98,7 +104,10 @@ namespace Uri\Rfc3986 {
          */
         public function getRawUserInfo(): ?string {}
 
-        /** @throws \Uri\InvalidUriException */
+        /**
+         * @link https://php.net/manual/en/uri-rfc3986-uri.withuserinfo.php
+         * @throws \Uri\InvalidUriException
+         */
         public function withUserInfo(#[\SensitiveParameter] ?string $userinfo): static {}
 
         /**
@@ -174,7 +183,10 @@ namespace Uri\Rfc3986 {
          */
         public function getRawHost(): ?string {}
 
-        /** @throws \Uri\InvalidUriException */
+        /**
+         * @link https://php.net/manual/en/uri-rfc3986-uri.withhost.php
+         * @throws \Uri\InvalidUriException
+         */
         public function withHost(?string $host): static {}
 
         /**
@@ -188,7 +200,10 @@ namespace Uri\Rfc3986 {
          */
         public function getPort(): ?int {}
 
-        /** @throws \Uri\InvalidUriException */
+        /**
+         * @link https://php.net/manual/en/uri-rfc3986-uri.withport.php
+         * @throws \Uri\InvalidUriException
+         */
         public function withPort(?int $port): static {}
 
         /**
@@ -211,7 +226,10 @@ namespace Uri\Rfc3986 {
          */
         public function getRawPath(): string {}
 
-        /** @throws \Uri\InvalidUriException */
+        /**
+         * @link https://php.net/manual/en/uri-rfc3986-uri.withpath.php
+         * @throws \Uri\InvalidUriException
+         */
         public function withPath(string $path): static {}
 
         /**
@@ -236,7 +254,10 @@ namespace Uri\Rfc3986 {
          */
         public function getRawQuery(): ?string {}
 
-        /** @throws \Uri\InvalidUriException */
+        /**
+         * @link https://php.net/manual/en/uri-rfc3986-uri.withquery.php
+         * @throws \Uri\InvalidUriException
+         */
         public function withQuery(?string $query): static {}
 
         /**
@@ -261,7 +282,10 @@ namespace Uri\Rfc3986 {
          */
         public function getRawFragment(): ?string {}
 
-        /** @throws \Uri\InvalidUriException */
+        /**
+         * @link https://php.net/manual/en/uri-rfc3986-uri.withfragment.php
+         * @throws \Uri\InvalidUriException
+         */
         public function withFragment(?string $fragment): static {}
 
         /**
@@ -298,13 +322,22 @@ namespace Uri\Rfc3986 {
          */
         public function toRawString(): string {}
 
-        /** @throws \Uri\InvalidUriException */
+        /**
+         * @link https://php.net/manual/en/uri-rfc3986-uri.resolve.php
+         * @throws \Uri\InvalidUriException
+         */
         public function resolve(string $uri): static {}
 
-        /** @throws \Exception */
+        /**
+         * @link https://php.net/manual/en/uri-rfc3986-uri.serialize.php
+         * @throws \Exception
+         */
         public function __serialize(): array {}
 
-        /** @throws \Exception */
+        /**
+         * @link https://php.net/manual/en/uri-rfc3986-uri.unserialize.php
+         * @throws \Exception
+         */
         public function __unserialize(array $data): void {}
 
         /**
@@ -471,10 +504,19 @@ namespace Uri\WhatWg {
      */
     final readonly class Url
     {
-        /** @param array $errors */
+        /**
+         * @link https://php.net/manual/en/uri-whatwg-url.parse.php
+         * @param array $errors
+         */
         public static function parse(string $uri, ?\Uri\WhatWg\Url $baseUrl = null, &$errors = null): ?static {}
 
         /**
+         * @link https://php.net/manual/en/uri-whatwg-url.construct.php
+         * @param string $uri A valid URL string to parse (e.g. /foo or (e.g.
+         * https://example.com/foo).
+         * @param \Uri\WhatWg\Url|null $baseUrl When a string is passed, uri is applied on baseUrl,
+         * if uri is a relative-URL string. If either null is passed, or uri is a not a relative-URL
+         * string, then baseUrl doesn't have any effect.
          * @param array $softErrors
          *
          * @throws \Uri\WhatWg\InvalidUrlException
@@ -492,7 +534,10 @@ namespace Uri\WhatWg {
          */
         public function getScheme(): string {}
 
-        /** @throws \Uri\WhatWg\InvalidUrlException */
+        /**
+         * @link https://php.net/manual/en/uri-whatwg-url.withscheme.php
+         * @throws \Uri\WhatWg\InvalidUrlException
+         */
         public function withScheme(string $scheme): static {}
 
         /**
@@ -506,7 +551,10 @@ namespace Uri\WhatWg {
          */
         public function getUsername(): ?string {}
 
-        /** @throws \Uri\WhatWg\InvalidUrlException */
+        /**
+         * @link https://php.net/manual/en/uri-whatwg-url.withusername.php
+         * @throws \Uri\WhatWg\InvalidUrlException
+         */
         public function withUsername(?string $username): static {}
 
         /**
@@ -520,7 +568,10 @@ namespace Uri\WhatWg {
          */
         public function getPassword(): ?string {}
 
-        /** @throws \Uri\WhatWg\InvalidUrlException */
+        /**
+         * @link https://php.net/manual/en/uri-whatwg-url.withpassword.php
+         * @throws \Uri\WhatWg\InvalidUrlException
+         */
         public function withPassword(#[\SensitiveParameter] ?string $password): static {}
 
         /**
@@ -546,7 +597,10 @@ namespace Uri\WhatWg {
          */
         public function getUnicodeHost(): ?string {}
 
-        /** @throws \Uri\WhatWg\InvalidUrlException */
+        /**
+         * @link https://php.net/manual/en/uri-whatwg-url.withhost.php
+         * @throws \Uri\WhatWg\InvalidUrlException
+         */
         public function withHost(?string $host): static {}
 
         /**
@@ -560,7 +614,10 @@ namespace Uri\WhatWg {
          */
         public function getPort(): ?int {}
 
-        /** @throws \Uri\WhatWg\InvalidUrlException */
+        /**
+         * @link https://php.net/manual/en/uri-whatwg-url.withport.php
+         * @throws \Uri\WhatWg\InvalidUrlException
+         */
         public function withPort(?int $port): static {}
 
         /**
@@ -573,7 +630,10 @@ namespace Uri\WhatWg {
          */
         public function getPath(): string {}
 
-        /** @throws \Uri\WhatWg\InvalidUrlException */
+        /**
+         * @link https://php.net/manual/en/uri-whatwg-url.withpath.php
+         * @throws \Uri\WhatWg\InvalidUrlException
+         */
         public function withPath(string $path): static {}
 
         /**
@@ -587,7 +647,10 @@ namespace Uri\WhatWg {
          */
         public function getQuery(): ?string {}
 
-        /** @throws \Uri\WhatWg\InvalidUrlException */
+        /**
+         * @link https://php.net/manual/en/uri-whatwg-url.withquery.php
+         * @throws \Uri\WhatWg\InvalidUrlException
+         */
         public function withQuery(?string $query): static {}
 
         /**
@@ -601,7 +664,10 @@ namespace Uri\WhatWg {
          */
         public function getFragment(): ?string {}
 
-        /** @throws \Uri\WhatWg\InvalidUrlException */
+        /**
+         * @link https://php.net/manual/en/uri-whatwg-url.withfragment.php
+         * @throws \Uri\WhatWg\InvalidUrlException
+         */
         public function withFragment(?string $fragment): static {}
 
         /**
@@ -640,16 +706,25 @@ namespace Uri\WhatWg {
         public function toUnicodeString(): string {}
 
         /**
+         * @link https://php.net/manual/en/uri-whatwg-url.resolve.php
+         * @param string $uri A valid URL string (e.g. /foo or (e.g. https://example.com/foo) to
+         * apply on the current object.
          * @param array $softErrors
          *
          * @throws \Uri\WhatWg\InvalidUrlException
          */
         public function resolve(string $uri, &$softErrors = null): static {}
 
-        /** @throws \Exception */
+        /**
+         * @link https://php.net/manual/en/uri-whatwg-url.serialize.php
+         * @throws \Exception
+         */
         public function __serialize(): array {}
 
-        /** @throws \Exception */
+        /**
+         * @link https://php.net/manual/en/uri-whatwg-url.unserialize.php
+         * @throws \Exception
+         */
         public function __unserialize(array $data): void {}
 
         /**

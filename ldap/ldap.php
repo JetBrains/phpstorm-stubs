@@ -1324,6 +1324,7 @@ function ldap_control_paged_result_response(#[PhpVersionAware(['8.1' => '\LDAP\C
 
 /**
  * Escape a string for use in an LDAP filter or DN
+ * @link https://php.net/manual/en/function.ldap-escape.php
  * @param string $value The value to escape.
  * @param string $ignore [optional] Characters to ignore when escaping.
  * @param int $flags [optional] The context the escaped string will be used in: LDAP_ESCAPE_FILTER for filters to be used with ldap_search(), or LDAP_ESCAPE_DN for DNs. If neither flag is passed, all chars are escaped.
@@ -1413,6 +1414,7 @@ function ldap_modify_batch(
 ): bool {}
 
 /**
+ * @link https://php.net/manual/en/function.ldap-count-references.php
  * @param resource $ldap
  * @param resource $result
  * @return int returns the number of reference messages in a search result.
@@ -1424,6 +1426,7 @@ function ldap_count_references(
 ): int {}
 
 /**
+ * @link https://php.net/manual/en/function.ldap-exop-sync.php
  * @since 8.3
  */
 function ldap_exop_sync(\LDAP\Connection $ldap, string $request_oid, ?string $request_data = null, ?array $controls = null, &$response_data = null, &$response_oid = null): Result|bool {}

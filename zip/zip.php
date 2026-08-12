@@ -1036,6 +1036,7 @@ class ZipArchive implements Countable
     /**
      * Set the compression method of an entry defined by its name
      * https://secure.php.net/manual/en/ziparchive.setcompressionname.php
+     * @link https://php.net/manual/en/ziparchive.setcompressionname.php
      * @param string $name Name of the entry.
      * @param int $method The compression method. Either ZipArchive::CM_DEFAULT, ZipArchive::CM_STORE or ZipArchive::CM_DEFLATE.
      * @param int $compflags [optional] Compression flags. Currently unused.
@@ -1071,6 +1072,7 @@ class ZipArchive implements Countable
 
     /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
+     * @link https://php.net/manual/en/ziparchive.setpassword.php
      * @param string $password
      * @return bool
      */
@@ -1547,6 +1549,7 @@ class ZipArchive implements Countable
     public function clearError() {}
 
     /**
+     * @link https://php.net/manual/en/ziparchive.setarchiveflag.php
      * @param int $flag
      * @param int $value
      * @return bool
@@ -1558,6 +1561,7 @@ class ZipArchive implements Countable
     ) {}
 
     /**
+     * @link https://php.net/manual/en/ziparchive.getarchiveflag.php
      * @param int $flag
      * @param int $flags
      * @return int
@@ -1569,6 +1573,7 @@ class ZipArchive implements Countable
     ) {}
 
     /**
+     * @link https://php.net/manual/en/ziparchive.getstreamname.php
      * @param string $name
      * @param int $flags
      * @return void

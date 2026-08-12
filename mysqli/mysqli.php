@@ -31,6 +31,7 @@ final class mysqli_sql_exception extends RuntimeException
     protected $code;
 
     /**
+     * @link https://php.net/manual/en/mysqli-sql-exception.getsqlstate.php
      * @since 8.1
      */
     public function getSqlState(): string {}
@@ -1058,6 +1059,7 @@ class mysqli_result implements IteratorAggregate
 
     /**
      * Constructor (no docs available)
+     * @link https://php.net/manual/en/mysqli-result.construct.php
      * @param object $mysql
      * @param int $result_mode [optional]
      */
@@ -1372,6 +1374,7 @@ class mysqli_result implements IteratorAggregate
     /**
      * Fetch a single column from the next row of a result set
      *
+     * @link https://php.net/manual/en/mysqli-result.fetch-column.php
      * @param int $column [optional] <p>
      * 0-indexed number of the column you wish to retrieve from the row.
      * If no value is supplied, the first column will be returned.
@@ -1403,6 +1406,7 @@ class mysqli_result implements IteratorAggregate
     public function free_result(): void {}
 
     /**
+     * @link https://php.net/manual/en/mysqli-result.getiterator.php
      * @return Iterator
      * @since 8.0
      */
@@ -1477,6 +1481,7 @@ class mysqli_stmt
 
     /**
      * mysqli_stmt constructor
+     * @link https://php.net/manual/en/mysqli-stmt.construct.php
      * @param mysqli $mysql
      * @param string $query [optional]
      */

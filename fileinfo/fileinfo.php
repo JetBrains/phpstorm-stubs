@@ -10,6 +10,7 @@ use JetBrains\PhpStorm\Pure;
 class finfo
 {
     /**
+     * @link https://php.net/manual/en/finfo.construct.php
      * @param int $flags [optional]
      * @param string $magic_database [optional]
      */

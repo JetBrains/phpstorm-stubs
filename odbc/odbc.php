@@ -941,6 +941,7 @@ function odbc_field_precision(#[LanguageLevelTypeAware(['8.4' => '\Odbc\Result']
  * Determines if a string is properly quoted for an ODBC connection string value.
  * ODBC connection string quoting is performed using curly braces, and ending braces within a string must be escaped through
  * repeating them twice, similar to SQL quoting.
+ * @link https://php.net/manual/en/function.odbc-connection-string-is-quoted.php
  * @param string $str
  * @return bool
  */
@@ -951,6 +952,7 @@ function odbc_connection_string_is_quoted(string $str): bool {}
  *
  * Note that this does not check if the string is already quoted; an already quoted string will contain characters that
  * will make this function return true. You should call odbc_connection_string_is_quoted() to check.
+ * @link https://php.net/manual/en/function.odbc-connection-string-should-quote.php
  * @param string $str
  * @return bool
  */
@@ -963,6 +965,7 @@ function odbc_connection_string_should_quote(string $str): bool {}
  *
  * Note that this function does not check if the string is already quoted, nor if the string needs quoting.
  * For that, call odbc_connection_string_is_quoted() and odbc_connection_string_should_quote().
+ * @link https://php.net/manual/en/function.odbc-connection-string-quote.php
  * @param string $str
  * @return string
  */

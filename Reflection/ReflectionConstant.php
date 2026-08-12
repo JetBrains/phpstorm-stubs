@@ -77,21 +77,25 @@ class ReflectionConstant implements Reflector
     public function __toString(): string {}
 
     /**
+     * @link https://php.net/manual/en/reflectionconstant.getfilename.php
      * @since 8.5
      */
     public function getFileName(): string|false {}
 
     /**
+     * @link https://php.net/manual/en/reflectionconstant.getextension.php
      * @since 8.5
      */
     public function getExtension(): ?ReflectionExtension {}
 
     /**
+     * @link https://php.net/manual/en/reflectionconstant.getextensionname.php
      * @since 8.5
      */
     public function getExtensionName(): string|false {}
 
     /**
+     * @link https://php.net/manual/en/reflectionconstant.getattributes.php
      * @since 8.5
      */
     public function getAttributes(?string $name = null, int $flags = 0): array {}

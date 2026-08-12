@@ -1630,6 +1630,7 @@ namespace {
         public function pgsqlGetPid() {}
 
         /**
+         * @link https://php.net/manual/en/pdo.connect.php
          * @throws PDOException if the attempt to connect to the requested database fails, regardless of which PDO::ATTR_ERRMODE is currently set.
          * @since 8.4
          */
@@ -2128,6 +2129,7 @@ namespace {
         final public function __sleep() {}
 
         /**
+         * @link https://php.net/manual/en/pdostatement.getiterator.php
          * @return Iterator
          * @since 8.0
          */
@@ -2298,7 +2300,10 @@ namespace Pdo {
 
         public function loadExtension(string $name): void {}
 
-        /** @return resource|false */
+        /**
+         * @link https://php.net/manual/en/pdo-sqlite.openblob.php
+         * @return resource|false
+         */
         public function openBlob(
             string $table,
             string $column,
@@ -2520,6 +2525,7 @@ namespace Pdo {
 
         /**
          * Opens an existing large object stream. Must be called inside a transaction.
+         * @link https://php.net/manual/en/pdo-pgsql.lobopen.php
          * @return resource|false
          */
         public function lobOpen(string $oid, string $mode = "rb") {}
