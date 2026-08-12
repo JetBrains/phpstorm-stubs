@@ -505,6 +505,11 @@ namespace Uri\WhatWg {
     final readonly class Url
     {
         /**
+         * @param string $uri A valid URL string to parse (e.g. /foo or (e.g.
+         * https://example.com/foo).
+         * @param \Uri\WhatWg\Url|null $baseUrl When a string is passed, uri is applied on baseUrl,
+         * if uri is a relative-URL string. If either null is passed, or uri is a not a relative-URL
+         * string, then baseUrl doesn't have any effect.
          * @link https://php.net/manual/en/uri-whatwg-url.parse.php
          * @param array $errors
          */

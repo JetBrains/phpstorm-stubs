@@ -3622,18 +3622,41 @@ class IntlCalendar
  */
 class IntlIterator implements Iterator
 {
+    /**
+     * Get the current element
+     * @link https://php.net/manual/en/intliterator.current.php
+     * @return mixed
+     */
     #[TentativeType]
     public function current(): mixed {}
 
+    /**
+     * Get the current key
+     * @link https://php.net/manual/en/intliterator.key.php
+     * @return mixed
+     */
     #[TentativeType]
     public function key(): mixed {}
 
+    /**
+     * Move forward to the next element
+     * @link https://php.net/manual/en/intliterator.next.php
+     */
     #[TentativeType]
     public function next(): void {}
 
+    /**
+     * Rewind the iterator to the first element
+     * @link https://php.net/manual/en/intliterator.rewind.php
+     */
     #[TentativeType]
     public function rewind(): void {}
 
+    /**
+     * Check if current position is valid
+     * @link https://php.net/manual/en/intliterator.valid.php
+     * @return bool
+     */
     #[TentativeType]
     public function valid(): bool {}
 }
@@ -3663,6 +3686,10 @@ class IntlTimeZone
 
     /* Methods */
 
+    /**
+     * Private constructor to disallow direct instantiation
+     * @link https://php.net/manual/en/intltimezone.construct.php
+     */
     private function __construct() {}
 
     /**
@@ -7013,8 +7040,29 @@ function intltz_get_region(string $timezoneId): string|false {}
 #[LanguageAware(['8.3' => 'true'], default: 'bool')]
 function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, int $days) {}
 
+/**
+ * Translate a system timezone into a Windows timezone
+ *
+ * Translates a system timezone (e.g. "America/Los_Angeles") into a Windows timezone (e.g. "Pacific
+ * Standard Time").
+ *
+ * @link https://php.net/manual/en/intltimezone.getwindowsid.php
+ * @param string $timezoneId
+ * @return string|false Returns the Windows timezone or false on failure.
+ */
 function intltz_get_windows_id(string $timezoneId): string|false {}
 
+/**
+ * Translate a Windows timezone into a system timezone
+ *
+ * Translates a Windows timezone (e.g. "Pacific Standard Time") into a system timezone (e.g.
+ * "America/Los_Angeles").
+ *
+ * @link https://php.net/manual/en/intltimezone.getidforwindowsid.php
+ * @param string $timezoneId
+ * @param string|null $region
+ * @return string|false Returns the system timezone or false on failure.
+ */
 function intltz_get_id_for_windows_id(string $timezoneId, ?string $region = null): string|false {}
 
 /**

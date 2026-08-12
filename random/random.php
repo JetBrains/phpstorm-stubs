@@ -134,12 +134,33 @@ namespace Random\Engine
          */
         public function __construct(int|null $seed = null, int $mode = MT_RAND_MT19937) {}
 
+        /**
+         * Generate 32 bits of randomness
+         * @link https://php.net/manual/en/random-engine-mt19937.generate.php
+         * @return string A string representing an unsigned 32 bit integer in little-endian order.
+         */
         public function generate(): string {}
 
+        /**
+         * Serializes the Mt19937 object
+         * @link https://php.net/manual/en/random-engine-mt19937.serialize.php
+         * @return array
+         */
         public function __serialize(): array {}
 
+        /**
+         * Deserializes the data parameter into a Mt19937 object
+         * @link https://php.net/manual/en/random-engine-mt19937.unserialize.php
+         * @param array $data
+         * @return void No value is returned.
+         */
         public function __unserialize(array $data): void {}
 
+        /**
+         * Returns the internal state of the engine
+         * @link https://php.net/manual/en/random-engine-mt19937.debuginfo.php
+         * @return array
+         */
         public function __debugInfo(): array {}
     }
 
@@ -161,6 +182,11 @@ namespace Random\Engine
          */
         public function __construct(string|int|null $seed = null) {}
 
+        /**
+         * Generate 64 bits of randomness
+         * @link https://php.net/manual/en/random-engine-pcgoneseq128xslrr64.generate.php
+         * @return string A string representing an unsigned 64 bit integer in little-endian order.
+         */
         public function generate(): string {}
 
         /**
@@ -175,10 +201,26 @@ namespace Random\Engine
          */
         public function jump(int $advance): void {}
 
+        /**
+         * Serializes the PcgOneseq128XslRr64 object
+         * @link https://php.net/manual/en/random-engine-pcgoneseq128xslrr64.serialize.php
+         * @return array
+         */
         public function __serialize(): array {}
 
+        /**
+         * Deserializes the data parameter into a PcgOneseq128XslRr64 object
+         * @link https://php.net/manual/en/random-engine-pcgoneseq128xslrr64.unserialize.php
+         * @param array $data
+         * @return void No value is returned.
+         */
         public function __unserialize(array $data): void {}
 
+        /**
+         * Returns the internal state of the engine
+         * @link https://php.net/manual/en/random-engine-pcgoneseq128xslrr64.debuginfo.php
+         * @return array
+         */
         public function __debugInfo(): array {}
     }
 
@@ -199,6 +241,11 @@ namespace Random\Engine
          */
         public function __construct(string|int|null $seed = null) {}
 
+        /**
+         * Generate 64 bits of randomness
+         * @link https://php.net/manual/en/random-engine-xoshiro256starstar.generate.php
+         * @return string A string representing an unsigned 64 bit integer in little-endian order.
+         */
         public function generate(): string {}
 
         /**
@@ -223,10 +270,26 @@ namespace Random\Engine
          */
         public function jumpLong(): void {}
 
+        /**
+         * Serializes the Xoshiro256StarStar object
+         * @link https://php.net/manual/en/random-engine-xoshiro256starstar.serialize.php
+         * @return array
+         */
         public function __serialize(): array {}
 
+        /**
+         * Deserializes the data parameter into a Xoshiro256StarStar object
+         * @link https://php.net/manual/en/random-engine-xoshiro256starstar.unserialize.php
+         * @param array $data
+         * @return void No value is returned.
+         */
         public function __unserialize(array $data): void {}
 
+        /**
+         * Returns the internal state of the engine
+         * @link https://php.net/manual/en/random-engine-xoshiro256starstar.debuginfo.php
+         * @return array
+         */
         public function __debugInfo(): array {}
     }
 
@@ -282,6 +345,12 @@ namespace Random
     {
         public readonly Engine $engine;
 
+        /**
+         * Constructs a new Randomizer
+         * @link https://php.net/manual/en/random-randomizer.construct.php
+         * @param Engine|null $engine The Random\Engine to use to generate randomness. If engine is
+         * omitted or null, a new Random\Engine\Secure object will be used.
+         */
         public function __construct(?Engine $engine = null) {}
 
         /**
@@ -354,8 +423,19 @@ namespace Random
          */
         public function pickArrayKeys(array $array, int $num): array {}
 
+        /**
+         * Serializes the Randomizer object
+         * @link https://php.net/manual/en/random-randomizer.serialize.php
+         * @return array
+         */
         public function __serialize(): array {}
 
+        /**
+         * Deserializes the data parameter into a Randomizer object
+         * @link https://php.net/manual/en/random-randomizer.unserialize.php
+         * @param array $data
+         * @return void No value is returned.
+         */
         public function __unserialize(array $data): void {}
 
         /**

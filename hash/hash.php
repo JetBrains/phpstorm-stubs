@@ -472,6 +472,11 @@ final class HashContext
      */
     private function __construct() {}
 
+    /**
+     * Serializes the HashContext object
+     * @link https://php.net/manual/en/hashcontext.serialize.php
+     * @return array
+     */
     public function __serialize(): array {}
 
     /**

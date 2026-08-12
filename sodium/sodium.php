@@ -139,48 +139,188 @@ const SODIUM_CRYPTO_XOF_TURBOSHAKE256_BLOCKBYTES = 136;
 /** @since 8.6 */
 const SODIUM_CRYPTO_XOF_TURBOSHAKE256_STATEBYTES = 256;
 
+/**
+ * Adds an element
+ *
+ * Adds an element q to p. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-add.php
+ * @param string $p An element.
+ * @param string $q An element.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_add(string $p, string $q): string {}
 
+/**
+ * Maps a vector
+ *
+ * Maps a 64-bytes vector s to a group element. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-from-hash.php
+ * @param string $s A 64-bytes vector.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_from_hash(string $s): string {}
 
+/**
+ * Determines if a point on the ristretto255 curve
+ *
+ * Determines if a point on the ristretto255 curve, in canonical form, on the main subgroup, and
+ * that the point doesn't have a small order. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-is-valid-point.php
+ * @param string $s An Elliptic-curve point.
+ * @return bool Returns true if s is on the ristretto255 curve, false otherwise.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_is_valid_point(string $s): bool {}
 
+/**
+ * Generates a random key
+ *
+ * Generates a random key. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-random.php
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_random(): string {}
 
+/**
+ * Adds a scalar value
+ *
+ * Adds an element y to x. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-add.php
+ * @param string $x Scalar, representing the X coordinate.
+ * @param string $y Scalar, representing the Y coordinate.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_scalar_add(string $x, string $y): string {}
 
+/**
+ * The sodium_crypto_core_ristretto255_scalar_complement purpose
+ *
+ * Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-complement.php
+ * @param string $s Scalar value.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_scalar_complement(string $s): string {}
 
+/**
+ * Inverts a scalar value
+ *
+ * Inverts a scalar value. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-invert.php
+ * @param string $s Scalar value.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_scalar_invert(string $s): string {}
 
+/**
+ * Multiplies a scalar value
+ *
+ * Multiplies a scalar value. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-mul.php
+ * @param string $x Scalar, representing the X coordinate.
+ * @param string $y Scalar, representing the Y coordinate.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_scalar_mul(string $x, string $y): string {}
 
+/**
+ * Negates a scalar value
+ *
+ * Negates a scalar value. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-negate.php
+ * @param string $s Scalar value.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_scalar_negate(string $s): string {}
 
+/**
+ * Reduces a scalar value
+ *
+ * Reduces a scalar value. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-reduce.php
+ * @param string $s Scalar value.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_scalar_reduce(string $s): string {}
 
+/**
+ * Subtracts a scalar value
+ *
+ * Subtracts a scalar y from x. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-sub.php
+ * @param string $x Scalar, representing the X coordinate.
+ * @param string $y Scalar, representing the Y coordinate.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_scalar_sub(string $x, string $y): string {}
 
+/**
+ * Generates a random key
+ *
+ * Generates a random key. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-scalar-random.php
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_scalar_random(): string {}
 
+/**
+ * Subtracts an element
+ *
+ * Subtracts an element q from p. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-core-ristretto255-sub.php
+ * @param string $p An element.
+ * @param string $q An element.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_core_ristretto255_sub(string $p, string $q): string {}
 
+/**
+ * Computes a shared secret
+ *
+ * Calculates scalar n times point p. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-scalarmult-ristretto255.php
+ * @param string $n A scalar, which is typically a secret key.
+ * @param string $p A point (x-coordinate), which is typically a public key.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_scalarmult_ristretto255(string $n, string $p): string {}
 
+/**
+ * Calculates the public key from a secret key
+ *
+ * Given a secret key, calculates the corresponding public key. Available as of libsodium 1.0.18.
+ *
+ * @link https://php.net/manual/en/function.sodium-crypto-scalarmult-ristretto255-base.php
+ * @param string $n A secret key.
+ * @return string Returns a 32-byte random string.
+ */
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_scalarmult_ristretto255_base(string $n): string {}
 

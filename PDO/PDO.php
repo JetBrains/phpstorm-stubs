@@ -2298,6 +2298,12 @@ namespace Pdo {
             int $flags = 0
         ): bool {}
 
+        /**
+         * Description
+         * @link https://php.net/manual/en/pdo-sqlite.loadextension.php
+         * @param string $name Description.
+         * @return void No value is returned.
+         */
         public function loadExtension(string $name): void {}
 
         /**
