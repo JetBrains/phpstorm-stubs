@@ -2047,9 +2047,20 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     #[Deprecated("The function is deprecated", since: "8.4")]
     public function __wakeup(): void {}
 
+    /**
+     * Serializes the SplFixedArray object
+     * @link https://php.net/manual/en/splfixedarray.serialize.php
+     * @return array
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __serialize(): array {}
 
+    /**
+     * Deserializes the data parameter into an SplFixedArray object
+     * @link https://php.net/manual/en/splfixedarray.unserialize.php
+     * @param array $data The value being deserialized.
+     * @return void No value is returned.
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __unserialize(array $data): void {}
 

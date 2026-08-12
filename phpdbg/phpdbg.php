@@ -87,8 +87,25 @@ function phpdbg_exec(string $context) {}
  */
 function phpdbg_clear(): void {}
 
+/**
+ * Starts an oplog
+ * @link https://php.net/manual/en/function.phpdbg-start-oplog.php
+ * @return void No value is returned.
+ */
 function phpdbg_start_oplog(): void {}
 
+/**
+ * Ends an oplog
+ * @link https://php.net/manual/en/function.phpdbg-end-oplog.php
+ * @param array $options
+ * @return array|null
+ */
 function phpdbg_end_oplog(array $options = []): ?array {}
 
+/**
+ * Gets executable
+ * @link https://php.net/manual/en/function.phpdbg-get-executable.php
+ * @param array $options
+ * @return array
+ */
 function phpdbg_get_executable(array $options = []): array {}
