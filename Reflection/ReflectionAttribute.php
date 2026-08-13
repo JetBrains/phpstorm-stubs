@@ -3,6 +3,8 @@
 use JetBrains\PhpStorm\Pure;
 
 /**
+ * The ReflectionAttribute class provides information about an Attribute.
+ * @link https://php.net/manual/en/class.reflectionattribute.php
  * @since 8.0
  *
  * @template T of object

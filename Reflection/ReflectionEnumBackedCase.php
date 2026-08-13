@@ -3,6 +3,8 @@
 use JetBrains\PhpStorm\Pure;
 
 /**
+ * The ReflectionEnumBackedCase class reports information about an Enum backed case, which has a
+ * scalar equivalent.
  * @link https://php.net/manual/en/class.reflectionenumbackedcase.php
  * @since 8.1
  */

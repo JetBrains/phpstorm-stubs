@@ -150,7 +150,7 @@ namespace {
 
     /**
      * Generator objects are returned from generators, cannot be instantiated via new.
-     * @link https://secure.php.net/manual/en/class.generator.php
+     * @link https://php.net/manual/en/class.generator.php
      * @link https://wiki.php.net/rfc/generators
      *
      * @template-covariant TKey
@@ -236,6 +236,10 @@ namespace {
         public function __debugInfo(): array {}
     }
 
+    /**
+     * A ClosedGeneratorException is thrown when trying to retrieve a value from a closed Generator.
+     * @link https://php.net/manual/en/class.closedgeneratorexception.php
+     */
     class ClosedGeneratorException extends Exception {}
 }
 

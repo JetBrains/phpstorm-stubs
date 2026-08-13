@@ -7,7 +7,8 @@ use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
- * @link https://secure.php.net/manual/en/class.reflectionzendextension.php
+ * The ReflectionZendExtension class reports information about a zend extension.
+ * @link https://php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4
  */
 class ReflectionZendExtension implements Reflector

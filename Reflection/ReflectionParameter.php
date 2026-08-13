@@ -278,6 +278,10 @@ class ReflectionParameter implements Reflector
     public function isPromoted(): bool {}
 
     /**
+     * Gets Attributes
+     *
+     * Returns all attributes declared on this parameter as an array of ReflectionAttribute.
+     *
      * @link https://php.net/manual/en/reflectionparameter.getattributes.php
      * @template T
      *

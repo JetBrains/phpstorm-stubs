@@ -74,6 +74,10 @@ class ReflectionClassConstant implements Reflector
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string|object'], default: '')] $class, string $constant) {}
 
     /**
+     * Export
+     *
+     * Exports a reflection.
+     *
      * @link https://php.net/manual/en/reflectionclassconstant.export.php
      * @param string|object $class The reflection to export.
      * @param string $name The class constant name.
@@ -185,6 +189,10 @@ class ReflectionClassConstant implements Reflector
     public function __toString(): string {}
 
     /**
+     * Gets Attributes
+     *
+     * Returns all attributes declared on this class constant as an array of ReflectionAttribute.
+     *
      * @link https://php.net/manual/en/reflectionclassconstant.getattributes.php
      * @template T
      *
@@ -226,6 +234,10 @@ class ReflectionClassConstant implements Reflector
     public function isEnumCase(): bool {}
 
     /**
+     * Checks if class constant is final
+     *
+     * Checks if the class constant is final.
+     *
      * @link https://php.net/manual/en/reflectionclassconstant.isfinal.php
      * @return bool
      * @since 8.1
@@ -233,18 +245,30 @@ class ReflectionClassConstant implements Reflector
     public function isFinal(): bool {}
 
     /**
+     * Checks if class constant has a type
+     *
+     * Checks if the class constant has a type associated with it.
+     *
      * @link https://php.net/manual/en/reflectionclassconstant.hastype.php
      * @since 8.3
      */
     public function hasType(): bool {}
 
     /**
+     * Gets a class constant's type
+     *
+     * Gets the associated type of a class constant.
+     *
      * @link https://php.net/manual/en/reflectionclassconstant.gettype.php
      * @since 8.3
      */
     public function getType(): ?ReflectionType {}
 
     /**
+     * Checks if deprecated
+     *
+     * Checks whether the class constant is deprecated.
+     *
      * @link https://php.net/manual/en/reflectionclassconstant.isdeprecated.php
      * @since 8.4
      */

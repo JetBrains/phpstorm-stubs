@@ -607,6 +607,8 @@ define('XML_OPTION_PARSE_HUGE', 5);
 define('XML_SAX_IMPL', "libxml");
 
 /**
+ * A fully opaque class which replaces xml resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.xmlparser.php
  * @since 8.0
  */
 final class XMLParser {}

@@ -110,6 +110,8 @@ function shmop_write(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "reso
 function shmop_delete(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop): bool {}
 
 /**
+ * A fully opaque class which replaces shmop resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.shmop.php
  * @since 8.0
  */
 final class Shmop {}

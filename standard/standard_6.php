@@ -164,6 +164,7 @@ function stream_context_set_option($context, string $wrapper_or_options, string 
 function stream_context_set_option($stream_or_context, array $options) {}
 
 /**
+ * Sets options on the specified context
  * @link https://php.net/manual/en/function.stream-context-set-options.php
  * @since 8.3
  */

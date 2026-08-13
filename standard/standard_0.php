@@ -11,6 +11,15 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
+/**
+ * Created by unserialize when trying to unserialize an undefined class or a class that is not
+ * listed in the allowed_classes of unserialize's options array.
+ *
+ * Prior to PHP 7.2.0, using is_object on the __PHP_Incomplete_Class class would return false. As of
+ * PHP 7.2.0, true will be returned.
+ *
+ * @link https://php.net/manual/en/class.php-incomplete-class.php
+ */
 final class __PHP_Incomplete_Class
 {
     /**
@@ -19,6 +28,11 @@ final class __PHP_Incomplete_Class
     public $__PHP_Incomplete_Class_Name;
 }
 
+/**
+ * Children of this class are passed to stream_filter_register. Note that the __construct method is
+ * not called; instead, php_user_filter::onCreate should be used for initialization.
+ * @link https://php.net/manual/en/class.php-user-filter.php
+ */
 class php_user_filter
 {
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -29,6 +43,11 @@ class php_user_filter
     public $stream;
 
     /**
+     * Called when applying the filter
+     *
+     * This method is called whenever data is read from or written to the attached stream (such as
+     * with fread or fwrite).
+     *
      * @link https://php.net/manual/en/php-user-filter.filter.php
      * @param resource $in <p> is a resource pointing to a <i>bucket brigade</i< which contains one or more <i>bucket</i> objects containing data to be filtered.</p>
      * @param resource $out <p>is a resource pointing to a second bucket brigade into which your modified buckets should be placed.</p>
@@ -80,6 +99,11 @@ class php_user_filter
     ): int {}
 
     /**
+     * Called when creating the filter
+     *
+     * This method is called during instantiation of the filter class object. If your filter
+     * allocates or initializes any other resources (such as a buffer), this is the place to do it.
+     *
      * @link https://php.net/manual/en/php-user-filter.oncreate.php
      * @return bool
      */
@@ -87,6 +111,12 @@ class php_user_filter
     public function onCreate(): bool {}
 
     /**
+     * Called when closing the filter
+     *
+     * This method is called upon filter shutdown (typically, this is also during stream shutdown),
+     * and is executed after the flush method is called. If any resources were allocated or
+     * initialized during onCreate() this would be the time to destroy or dispose of them.
+     *
      * @link https://php.net/manual/en/php-user-filter.onclose.php
      */
     #[TentativeType]
@@ -103,6 +133,8 @@ class php_user_filter
     public function seek(int $offset, int $whence, int $chain): bool {}
 }
 /**
+ * A stream bucket is a chunk of a stream which can be extracted from bucket brigades.
+ * @link https://php.net/manual/en/class.streambucket.php
  * @since 8.4
  */
 final class StreamBucket
@@ -115,6 +147,7 @@ final class StreamBucket
 
 /**
  * Instances of Directory are created by calling the dir() function, not by the new operator.
+ * @link https://php.net/manual/en/class.directory.php
  */
 class Directory
 {
@@ -146,7 +179,7 @@ class Directory
      * Close directory handle.
      * Same as closedir(), only dir_handle defaults to $this.
      * @param resource $dir_handle [optional]
-     * @link https://secure.php.net/manual/en/directory.close.php
+     * @link https://php.net/manual/en/directory.close.php
      */
     #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
     public function close(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
@@ -155,7 +188,7 @@ class Directory
      * Rewind directory handle.
      * Same as rewinddir(), only dir_handle defaults to $this.
      * @param resource $dir_handle [optional]
-     * @link https://secure.php.net/manual/en/directory.rewind.php
+     * @link https://php.net/manual/en/directory.rewind.php
      */
     #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
     public function rewind(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
@@ -165,7 +198,7 @@ class Directory
      * Same as readdir(), only dir_handle defaults to $this.
      * @param resource $dir_handle [optional]
      * @return string|false
-     * @link https://secure.php.net/manual/en/directory.read.php
+     * @link https://php.net/manual/en/directory.read.php
      */
     #[LanguageLevelTypeAware(['8.0' => 'string|false'], default: '')]
     public function read(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
@@ -375,7 +408,7 @@ function wordwrap(string $string, int $width = 75, string $break = "\n", bool $c
  * Convert special characters to HTML entities
  * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @param string $string <p>
- * The {@link https://secure.php.net/manual/en/language.types.string.php string} being converted.
+ * The {@link https://php.net/manual/en/language.types.string.php string} being converted.
  * </p>
  * @param int $flags [optional] <p>
  * A bitmask of one or more of the following flags, which specify how to handle quotes,

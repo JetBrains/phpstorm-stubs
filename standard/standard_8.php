@@ -74,7 +74,7 @@ function closelog() {}
  * Registers a function that will be called when PHP starts sending output.
  * The callback is executed just after PHP prepares all headers to be sent,<br>
  * and before any other output is sent, creating a window to manipulate the outgoing headers before being sent.
- * @link https://secure.php.net/manual/en/function.header-register-callback.php
+ * @link https://php.net/manual/en/function.header-register-callback.php
  * @param callable $callback Function called just before the headers are sent.
  * @return bool true on success or false on failure.
  */
@@ -95,9 +95,9 @@ function header_register_callback(callable $callback): bool {}
  * Index 3 is a text string with the correct <b>height="yyy" width="xxx"</b> string<br>
  * that can be used directly in an IMG tag.<br>
  * On failure, FALSE is returned.
- * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
+ * @link https://php.net/manual/en/function.getimagesizefromstring.php
  * @since 5.4
- * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
+ * @link https://php.net/manual/en/function.getimagesizefromstring.php
  * @since 5.4
  */
 #[ArrayShape([0 => 'int', 1 => 'int', 2 => 'int', 3 => 'string', 'bits' => 'int', 'channels' => 'int', 'mime' => 'string'])]
@@ -109,7 +109,7 @@ function getimagesizefromstring(string $string, &$image_info = null): array|fals
  * @param int $size The desired new chunk size.
  * @return int|false Returns the previous chunk size on success.<br>
  * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
- * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
+ * @link https://php.net/manual/en/function.stream-set-chunk-size.php
  * @since 5.4
  * @throws \ValueError A ValueError is thrown if size is less than 1 or greater than PHP_INT_MAX.
  */
@@ -1125,6 +1125,10 @@ function array_merge(
 ): array {}
 
 /**
+ * Gets the first value of an array
+ *
+ * Get the first value of the given array.
+ *
  * @link https://php.net/manual/en/function.array-first.php
  * @template TKey
  * @template TValue
@@ -1137,6 +1141,10 @@ function array_merge(
 function array_first(array $array): mixed {}
 
 /**
+ * Gets the last value of an array
+ *
+ * Get the last value of the given array.
+ *
  * @link https://php.net/manual/en/function.array-last.php
  * @template TKey
  * @template TValue

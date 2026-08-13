@@ -526,6 +526,8 @@ function inflate_get_read_len(#[LanguageLevelTypeAware(["8.0" => "InflateContext
 function inflate_get_status(#[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context): int {}
 
 /**
+ * A fully opaque class which replaces zlib.inflate resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.inflatecontext.php
  * @since 8.0
  */
 final class InflateContext
@@ -538,6 +540,8 @@ final class InflateContext
 }
 
 /**
+ * A fully opaque class which replaces zlib.deflate resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.deflatecontext.php
  * @since 8.0
  */
 final class DeflateContext

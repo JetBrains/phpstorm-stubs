@@ -8,6 +8,7 @@ use JetBrains\PhpStorm\Pure;
 /**
  * <p>IntlChar provides access to a number of utility methods that can be used to access information about Unicode characters.</p>
  * <p>The methods and constants adhere closely to the names and behavior used by the underlying ICU library.</p>
+ * @link https://php.net/manual/en/class.intlchar.php
  * @since 7.0
  */
 class IntlChar
@@ -709,6 +710,10 @@ class IntlChar
     ): ?bool {}
 
     /**
+     * Get the "age" of the code point
+     *
+     * Gets the "age" of the code point.
+     *
      * @link https://php.net/manual/en/intlchar.charage.php
      * Get the "age" of the code point
      * @param int|string $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
@@ -720,6 +725,10 @@ class IntlChar
     public static function charAge(#[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $codepoint): ?array {}
 
     /**
+     * Get the decimal digit value of a decimal digit character
+     *
+     * Returns the decimal digit value of a decimal digit character.
+     *
      * @link https://php.net/manual/en/intlchar.chardigitvalue.php
      * Get the decimal digit value of a decimal digit character
      * @param int|string $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
@@ -769,6 +778,10 @@ class IntlChar
     public static function charDirection(#[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $codepoint): ?int {}
 
     /**
+     * Find Unicode character by name and return its code point value
+     *
+     * Finds a Unicode character by its name and returns its code point value.
+     *
      * @link https://php.net/manual/en/intlchar.charfromname.php
      * Find Unicode character by name and return its code point value
      * @param string $name <p>Full name of the Unicode character.</p>
@@ -791,6 +804,10 @@ class IntlChar
     ): ?int {}
 
     /**
+     * Get the "mirror-image" character for a code point
+     *
+     * Maps the specified character to a "mirror-image" character.
+     *
      * @link https://php.net/manual/en/intlchar.charmirror.php
      * Get the "mirror-image" character for a code point
      * @param int|string $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")

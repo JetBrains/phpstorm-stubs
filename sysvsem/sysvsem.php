@@ -65,6 +65,8 @@ function sem_release(#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], defaul
 function sem_remove(#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore): bool {}
 
 /**
+ * A fully opaque class which replaces a sysvsem resource as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.sysvsemaphore.php
  * @since 8.0
  */
 final class SysvSemaphore

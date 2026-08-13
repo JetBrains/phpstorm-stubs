@@ -77,7 +77,7 @@ $HTTP_GET_VARS = [];
  *
  * Variables provided to the script via HTTP POST. Analogous to the old $HTTP_POST_VARS array
  * (which is still available, but deprecated).
- * @link https://secure.php.net/manual/en/language.variables.predefined.php
+ * @link https://php.net/manual/en/language.variables.predefined.php
  *
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>

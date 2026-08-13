@@ -495,12 +495,18 @@ final class HashContext
     public function __serialize(): array {}
 
     /**
+     * Deserializes the data parameter into a HashContext object
      * @link https://php.net/manual/en/hashcontext.unserialize.php
      * @param array $data
      */
     public function __unserialize(#[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $data): void {}
 
     /**
+     * Returns debugging information about the hashing context
+     *
+     * This method is not meant to be called directly; it is invoked by var_dump and related
+     * functions when inspecting a HashContext instance.
+     *
      * @link https://php.net/manual/en/hashcontext.debuginfo.php
      * @since 8.4
      */

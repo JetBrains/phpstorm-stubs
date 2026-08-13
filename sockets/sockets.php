@@ -261,6 +261,7 @@ function socket_select(?array &$read, ?array &$write, ?array &$except, ?int $sec
 function socket_create(int $domain, int $type, int $protocol): Socket|false {}
 
 /**
+ * Export a socket into a stream that encapsulates a socket
  * @link https://php.net/manual/en/function.socket-export-stream.php
  * @param resource|Socket $socket
  * @return resource|Socket|false
@@ -710,7 +711,7 @@ function socket_send(Socket $socket, string $data, int $length, int $flags): int
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Send a message
- * @link https://secure.php.net/manual/en/function.socket-sendmsg.php
+ * @link https://php.net/manual/en/function.socket-sendmsg.php
  * @param resource|Socket $socket
  * @param array $message
  * @param int $flags
@@ -800,7 +801,7 @@ function socket_recvfrom(Socket $socket, &$data, int $length, int $flags, &$addr
 
 /**
  * Read a message
- * @link https://secure.php.net/manual/en/function.socket-recvmsg.php
+ * @link https://php.net/manual/en/function.socket-recvmsg.php
  * @param resource|Socket $socket
  * @param array &$message
  * @param int $flags
@@ -1402,6 +1403,7 @@ function socket_wsaprotocol_info_import($info_id) {}
 function socket_wsaprotocol_info_release($info_id) {}
 
 /**
+ * Determines whether socket is at out-of-band mark
  * @link https://php.net/manual/en/function.socket-atmark.php
  * @since 8.3
  */
@@ -2421,6 +2423,8 @@ const SHUT_WR = 1;
 const SHUT_RDWR = 2;
 
 /**
+ * A fully opaque class which replaces Socket resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.socket.php
  * @since 8.0
  */
 final class Socket
@@ -2433,6 +2437,8 @@ final class Socket
 }
 
 /**
+ * A fully opaque class which replaces AddressInfo resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.addressinfo.php
  * @since 8.0
  */
 final class AddressInfo

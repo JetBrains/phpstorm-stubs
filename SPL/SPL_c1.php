@@ -1078,6 +1078,7 @@ class SplTempFileObject extends SplFileObject
 }
 
 /**
+ * The SplDoublyLinkedList class provides the main functionalities of a doubly linked list.
  * @template TValue
  * The SplDoublyLinkedList class provides the main functionalities of a doubly linked list.
  * @link https://php.net/manual/en/class.spldoublylinkedlist.php
@@ -1345,6 +1346,8 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
 }
 
 /**
+ * The SplQueue class provides the main functionalities of a queue implemented using a doubly linked
+ * list by setting the iterator mode to SplDoublyLinkedList::IT_MODE_FIFO.
  * @template TValue
  * The SplQueue class provides the main functionalities of a queue implemented using a doubly linked list.
  * @link https://php.net/manual/en/class.splqueue.php
@@ -1386,6 +1389,8 @@ class SplQueue extends SplDoublyLinkedList
 }
 
 /**
+ * The SplStack class provides the main functionalities of a stack implemented using a doubly linked
+ * list by setting the iterator mode to SplDoublyLinkedList::IT_MODE_LIFO.
  * @template TValue
  * The SplStack class provides the main functionalities of a stack implemented using a doubly linked list.
  * @link https://php.net/manual/en/class.splstack.php
@@ -1408,6 +1413,7 @@ class SplStack extends SplDoublyLinkedList
 }
 
 /**
+ * The SplHeap class provides the main functionalities of a Heap.
  * @template TValue
  * The SplHeap class provides the main functionalities of an Heap.
  * @link https://php.net/manual/en/class.splheap.php
@@ -1532,6 +1538,7 @@ abstract class SplHeap implements Iterator, Countable
     );
 
     /**
+     * Tells if the heap is in a corrupted state
      * @link https://php.net/manual/en/splheap.iscorrupted.php
      * @return bool
      * @since 7.0
@@ -1561,6 +1568,7 @@ abstract class SplHeap implements Iterator, Countable
 }
 
 /**
+ * The SplMinHeap class provides the main functionalities of a heap, keeping the minimum on the top.
  * @template TValue
  * The SplMinHeap class provides the main functionalities of a heap, keeping the minimum on the top.
  * @link https://php.net/manual/en/class.splminheap.php
@@ -1683,6 +1691,7 @@ class SplMinHeap extends SplHeap
 }
 
 /**
+ * The SplMaxHeap class provides the main functionalities of a heap, keeping the maximum on the top.
  * @template TValue
  * The SplMaxHeap class provides the main functionalities of a heap, keeping the maximum on the top.
  * @link https://php.net/manual/en/class.splmaxheap.php
@@ -1712,6 +1721,8 @@ class SplMaxHeap extends SplHeap
 }
 
 /**
+ * The SplPriorityQueue class provides the main functionalities of a prioritized queue, implemented
+ * using a max heap.
  * @template TPriority
  * @template TValue
  * The SplPriorityQueue class provides the main functionalities of an
@@ -1856,6 +1867,7 @@ class SplPriorityQueue implements Iterator, Countable
     public function recoverFromCorruption(): true {}
 
     /**
+     * Tells if the priority queue is in a corrupted state
      * @link https://php.net/manual/en/splpriorityqueue.iscorrupted.php
      * @return bool
      * @since 7.0
@@ -1864,6 +1876,7 @@ class SplPriorityQueue implements Iterator, Countable
     public function isCorrupted(): bool {}
 
     /**
+     * Get the flags of extraction
      * @link https://php.net/manual/en/splpriorityqueue.getextractflags.php
      * @return int
      * @since 7.0
@@ -1893,6 +1906,10 @@ class SplPriorityQueue implements Iterator, Countable
 }
 
 /**
+ * The SplFixedArray class provides the main functionalities of array. The main difference between a
+ * SplFixedArray and a normal PHP array is that the SplFixedArray must be resized manually and
+ * allows only integers within the range as indexes. The advantage is that it uses less memory than
+ * a standard array.
  * @template TValue
  * The SplFixedArray class provides the main functionalities of array. The
  * main differences between a SplFixedArray and a normal PHP array is that
@@ -2092,6 +2109,10 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     public function __unserialize(array $data): void {}
 
     /**
+     * Retrieve the iterator to go through the array
+     *
+     * Returns the iterator to go through the array.
+     *
      * @link https://php.net/manual/en/splfixedarray.getiterator.php
      * @since 8.0
      * @return Iterator<int, TValue>
@@ -2169,6 +2190,9 @@ interface SplSubject
 }
 
 /**
+ * The SplObjectStorage class provides a map from objects to data or, by ignoring data, an object
+ * set. This dual purpose can be useful in many cases involving the need to uniquely identify
+ * objects.
  * @template TObject of object
  * @template TValue
  * The SplObjectStorage class provides a map from objects to data or, by
@@ -2434,6 +2458,10 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
     public function __debugInfo(): array {}
 
     /**
+     * Seeks iterator to a position
+     *
+     * Seeks to a given position in the iterator.
+     *
      * @link https://php.net/manual/en/splobjectstorage.seek.php
      * @since 8.4
      * @throws \OutOfBoundsException Throws an OutOfBoundsException if the offset is not seekable.

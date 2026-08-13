@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * Formats, orders, and punctuates a list of items according to locale-specific rules. Requires ICU
+ * 67 or later.
+ * @link https://php.net/manual/en/class.intllistformatter.php
  * @since 8.5
  */
 final class IntlListFormatter

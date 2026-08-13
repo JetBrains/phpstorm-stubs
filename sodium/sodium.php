@@ -497,6 +497,12 @@ function sodium_crypto_auth(
 function sodium_crypto_auth_keygen(): string {}
 
 /**
+ * Creates a new sodium keypair
+ *
+ * Create a new sodium keypair consisting of the secret key (32 bytes) followed by the public key
+ * (32 bytes). The keys can be retrieved by calling sodium_crypto_kx_secretkey and
+ * sodium_crypto_kx_publickey, respectively.
+ *
  * @link https://php.net/manual/en/function.sodium-crypto-kx-keypair.php
  * @since 7.2
  * @return string
@@ -506,6 +512,7 @@ function sodium_crypto_auth_keygen(): string {}
 function sodium_crypto_kx_keypair(): string {}
 
 /**
+ * Extract the public key from a crypto_kx keypair
  * @link https://php.net/manual/en/function.sodium-crypto-kx-publickey.php
  * @since 7.2
  * @param string $key_pair
@@ -516,6 +523,7 @@ function sodium_crypto_kx_keypair(): string {}
 function sodium_crypto_kx_publickey(string $key_pair): string {}
 
 /**
+ * Extract the secret key from a crypto_kx keypair.
  * @link https://php.net/manual/en/function.sodium-crypto-kx-secretkey.php
  * @param string $key_pair
  * @return string
@@ -525,6 +533,7 @@ function sodium_crypto_kx_publickey(string $key_pair): string {}
 function sodium_crypto_kx_secretkey(string $key_pair): string {}
 
 /**
+ * Description
  * @link https://php.net/manual/en/function.sodium-crypto-kx-seed-keypair.php
  * @since 7.2
  * @param string $seed
@@ -535,6 +544,10 @@ function sodium_crypto_kx_secretkey(string $key_pair): string {}
 function sodium_crypto_kx_seed_keypair(string $seed): string {}
 
 /**
+ * Calculate the server-side session keys.
+ *
+ * Calculate the server-side session keys, using the X25519 + BLAKE2b key-exchange method.
+ *
  * @link https://php.net/manual/en/function.sodium-crypto-kx-server-session-keys.php
  * @since 7.2
  * @param string $server_key_pair
@@ -554,6 +567,10 @@ function sodium_crypto_kx_server_session_keys(string $server_key_pair, string $c
 function sodium_crypto_generichash_keygen(): string {}
 
 /**
+ * Calculate the client-side session keys.
+ *
+ * Calculate the client-side session keys, using the X25519 + BLAKE2b key-exchange method.
+ *
  * @link https://php.net/manual/en/function.sodium-crypto-kx-client-session-keys.php
  * @param string $client_key_pair
  * @param string $server_key
@@ -564,6 +581,10 @@ function sodium_crypto_generichash_keygen(): string {}
 function sodium_crypto_kx_client_session_keys(string $client_key_pair, string $server_key): array {}
 
 /**
+ * Derive a subkey
+ *
+ * Derive a subkey from a root key and additional context.
+ *
  * @link https://www.php.net/manual/en/function.sodium-crypto-kdf-derive-from-key.php
  * @param int $subkey_length
  * @param int $subkey_id
@@ -1301,6 +1322,10 @@ function sodium_crypto_aead_chacha20poly1305_keygen(): string {}
 function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
 
 /**
+ * (Preferred) Verify then decrypt with XChaCha20-Poly1305
+ *
+ * Verify then decrypt with ChaCha20-Poly1305 (eXtended-nonce variant).
+ *
  * @link https://php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-decrypt.php
  * @param string $ciphertext
  * @param string $additional_data
@@ -1314,6 +1339,10 @@ function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
 function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(string $ciphertext, string $additional_data, string $nonce, string $key): string|false {}
 
 /**
+ * (Preferred) Encrypt then authenticate with XChaCha20-Poly1305
+ *
+ * Encrypt then authenticate with XChaCha20-Poly1305 (eXtended-nonce variant).
+ *
  * @link https://php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.php
  * @param string $message
  * @param string $additional_data
@@ -1327,6 +1356,11 @@ function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(string $ciphertext, s
 function sodium_crypto_aead_xchacha20poly1305_ietf_encrypt(string $message, string $additional_data, string $nonce, string $key): string {}
 
 /**
+ * Generate a random XChaCha20-Poly1305 key.
+ *
+ * Generate a random key for use with sodium_crypto_aead_xchacha20poly1305_ietf_encrypt and
+ * sodium_crypto_aead_xchacha20poly1305_ietf_decrypt.
+ *
  * @link https://php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-keygen.php
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-keygen.php
@@ -1334,6 +1368,10 @@ function sodium_crypto_aead_xchacha20poly1305_ietf_encrypt(string $message, stri
 function sodium_crypto_aead_xchacha20poly1305_ietf_keygen(): string {}
 
 /**
+ * Determine whether or not to rehash a password
+ *
+ * Determine whether or not to rehash a password, based on the current hash opslimit and memlimit.
+ *
  * @link https://php.net/manual/en/function.sodium-crypto-pwhash-str-needs-rehash.php
  * @param string $password
  * @param int $opslimit
@@ -1345,6 +1383,7 @@ function sodium_crypto_aead_xchacha20poly1305_ietf_keygen(): string {}
 function sodium_crypto_pwhash_str_needs_rehash(string $password, int $opslimit, int $memlimit): bool {}
 
 /**
+ * Generate a random secretstream key.
  * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-keygen.php
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-keygen.php
@@ -1352,6 +1391,7 @@ function sodium_crypto_pwhash_str_needs_rehash(string $password, int $opslimit, 
 function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
 
 /**
+ * Initialize a secretstream context for encryption
  * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-push.php
  * @param string $key
  * @return array
@@ -1385,6 +1425,7 @@ function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): ar
 function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, #[\SensitiveParameter] string $message, string $additional_data = "", int $tag = SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_MESSAGE): string {}
 
 /**
+ * Initialize a secretstream context for decryption
  * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-pull.php
  * @param string $header
  * @param string $key
@@ -1419,6 +1460,10 @@ function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, 
 function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, string $ciphertext, string $additional_data = ""): array|false {}
 
 /**
+ * Explicitly rotate the key in the secretstream state
+ *
+ * Explicitly rotate the key in the secretstream state. Overwrites the value passed in.
+ *
  * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-rekey.php
  * @param string &$state
  * @throws SodiumException
@@ -1428,6 +1473,12 @@ function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, strin
 function sodium_crypto_secretstream_xchacha20poly1305_rekey(string &$state): void {}
 
 /**
+ * Encodes a raw binary string with base64.
+ *
+ * Converts a raw binary string into a base64-encoded string. Unlike base64_encode,
+ * sodium_bin2base64 is constant-time (a property that is important for any code that touches
+ * cryptographic inputs, such as plaintexts or keys) and supports multiple character sets.
+ *
  * @link https://php.net/manual/en/function.sodium-bin2base64.php
  * @param string $string
  * @param int $id
@@ -1439,6 +1490,12 @@ function sodium_crypto_secretstream_xchacha20poly1305_rekey(string &$state): voi
 function sodium_bin2base64(string $string, int $id): string {}
 
 /**
+ * Decodes a base64-encoded string into raw binary.
+ *
+ * Converts a base64 encoded string into raw binary. Unlike base64_decode, sodium_base642bin is
+ * constant-time (a property that is important for any code that touches cryptographic inputs, such
+ * as plaintexts or keys) and supports multiple character sets.
+ *
  * @link https://php.net/manual/en/function.sodium-base642bin.php
  * @param string $string
  * @param int $id
@@ -1736,4 +1793,8 @@ function sodium_crypto_xof_turboshake256_squeeze(string &$state, int $length): s
  */
 function sodium_crypto_xof_turboshake256_update(string &$state, string $message): true {}
 
+/**
+ * Exceptions thrown by the sodium functions.
+ * @link https://php.net/manual/en/class.sodiumexception.php
+ */
 class SodiumException extends Exception {}

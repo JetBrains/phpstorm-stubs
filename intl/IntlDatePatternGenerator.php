@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * Generates localized date and/or time format pattern strings suitable for use in
+ * IntlDateFormatter.
+ * @link https://php.net/manual/en/class.intldatepatterngenerator.php
  * @since 8.1
  */
 class IntlDatePatternGenerator

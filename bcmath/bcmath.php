@@ -264,12 +264,20 @@ namespace {
     function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null) {}
 
     /**
+     * Round down arbitrary precision number
+     *
+     * Returns the next lowest integer value by rounding down num if necessary.
+     *
      * @link https://php.net/manual/en/function.bcfloor.php
      * @since 8.4
      */
     function bcfloor(string $num): string {}
 
     /**
+     * Round up arbitrary precision number
+     *
+     * Returns the next highest integer value by rounding up num if necessary.
+     *
      * @link https://php.net/manual/en/function.bcceil.php
      * @since 8.4
      * @throws \ValueError This function throws a ValueError if num is not a well-formed BCMath
@@ -278,6 +286,11 @@ namespace {
     function bcceil(string $num): string {}
 
     /**
+     * Round arbitrary precision number
+     *
+     * Returns the rounded value of num to specified precision (number of digits after the decimal
+     * point). precision can also be negative or zero (default).
+     *
      * @link https://php.net/manual/en/function.bcround.php
      * @since 8.4
      * @throws \ValueError This function throws a ValueError in the following cases: num is not a
@@ -286,6 +299,10 @@ namespace {
     function bcround(string $num, int $precision = 0, RoundingMode $mode = RoundingMode::HalfAwayFromZero): string {}
 
     /**
+     * Get the quotient and modulus of an arbitrary precision number
+     *
+     * Get the quotient and remainder of dividing num1 by num2.
+     *
      * @link https://php.net/manual/en/function.bcdivmod.php
      * @return string[]
      */
@@ -294,6 +311,9 @@ namespace {
 
 namespace BcMath {
     /**
+     * A class for an arbitrary precision number. These objects support overloaded arithmetic and
+     * comparison operators.
+     * @link https://php.net/manual/en/class.bcmath-number.php
      * @since 8.4
      */
     final readonly class Number implements \Stringable
@@ -303,6 +323,10 @@ namespace BcMath {
         public readonly int $scale;
 
         /**
+         * Creates a BcMath\Number object
+         *
+         * Creates a BcMath\Number object from an int or string value.
+         *
          * @link https://php.net/manual/en/bcmath-number.construct.php
          * @param int|numeric-string $num
          * @throws \ValueError
@@ -310,6 +334,10 @@ namespace BcMath {
         public function __construct(string|int $num) {}
 
         /**
+         * Adds an arbitrary precision number
+         *
+         * Adds $this and num.
+         *
          * @link https://php.net/manual/en/bcmath-number.add.php
          * @param Number|int|numeric-string $num
          * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
@@ -319,6 +347,10 @@ namespace BcMath {
         public function add(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
+         * Subtracts an arbitrary precision number
+         *
+         * Subtracts num from $this.
+         *
          * @link https://php.net/manual/en/bcmath-number.sub.php
          * @param Number|int|numeric-string $num
          * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
@@ -328,6 +360,10 @@ namespace BcMath {
         public function sub(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
+         * Multiplies an arbitrary precision number
+         *
+         * Multiplies $this by num.
+         *
          * @link https://php.net/manual/en/bcmath-number.mul.php
          * @param Number|int|numeric-string $num
          * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
@@ -337,6 +373,10 @@ namespace BcMath {
         public function mul(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
+         * Divides by an arbitrary precision number
+         *
+         * Divides $this by num.
+         *
          * @link https://php.net/manual/en/bcmath-number.div.php
          * @param Number|int|numeric-string $num
          * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
@@ -347,6 +387,11 @@ namespace BcMath {
         public function div(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
+         * Gets the modulus of an arbitrary precision number
+         *
+         * Gets the remainder of dividing $this by num. Unless num is 0, the result has the same
+         * sign as $this.
+         *
          * @link https://php.net/manual/en/bcmath-number.mod.php
          * @param Number|int|numeric-string $num
          * @param int|null $scale
@@ -356,6 +401,10 @@ namespace BcMath {
         public function mod(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
+         * Gets the quotient and modulus of an arbitrary precision number
+         *
+         * Gets the quotient and remainder of dividing $this by num.
+         *
          * @link https://php.net/manual/en/bcmath-number.divmod.php
          * @param Number|int|numeric-string $num
          * @param int|null $scale
@@ -366,6 +415,11 @@ namespace BcMath {
         public function divmod(Number|string|int $num, ?int $scale = null): array {}
 
         /**
+         * Raises an arbitrary precision number, reduced by a specified modulus
+         *
+         * Use the fast-exponentiation method to raise $this to the power exponent with respect to
+         * the modulus modulus.
+         *
          * @link https://php.net/manual/en/bcmath-number.powmod.php
          * @param Number|int|numeric-string $exponent
          * @param Number|int|numeric-string $modulus
@@ -377,6 +431,10 @@ namespace BcMath {
         public function powmod(Number|string|int $exponent, Number|string|int $modulus, ?int $scale = null): Number {}
 
         /**
+         * Raises an arbitrary precision number
+         *
+         * Raises $this to the exponent power.
+         *
          * @link https://php.net/manual/en/bcmath-number.pow.php
          * @param Number|int|numeric-string $exponent
          * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
@@ -387,6 +445,10 @@ namespace BcMath {
         public function pow(Number|string|int $exponent, ?int $scale = null): Number {}
 
         /**
+         * Gets the square root of an arbitrary precision number
+         *
+         * Return the square root of $this.
+         *
          * @link https://php.net/manual/en/bcmath-number.sqrt.php
          * @throws \ValueError
          */
@@ -415,12 +477,22 @@ namespace BcMath {
         public function ceil(): Number {}
 
         /**
+         * Rounds an arbitrary precision number
+         *
+         * Returns the rounded value of $this to specified precision (number of digits after the
+         * decimal point). precision can also be negative or zero (default).
+         *
          * @link https://php.net/manual/en/bcmath-number.round.php
          * @throws \ValueError
          */
         public function round(int $precision = 0, \RoundingMode $mode = \RoundingMode::HalfAwayFromZero): Number {}
 
         /**
+         * Compares two arbitrary precision numbers
+         *
+         * Compare two arbitrary precision numbers. This method behaves similar to the spaceship
+         * operator.
+         *
          * @link https://php.net/manual/en/bcmath-number.compare.php
          * @param Number|int|numeric-string $num
          * @param int|null $scale Specify the scale to use for comparison. If null, all digits are
@@ -438,12 +510,17 @@ namespace BcMath {
         public function __toString(): string {}
 
         /**
+         * Serializes a BcMath\Number object
+         *
+         * Serializes $this.
+         *
          * @link https://php.net/manual/en/bcmath-number.serialize.php
          * @return array{value:numeric-string}
          */
         public function __serialize(): array {}
 
         /**
+         * Deserializes a data parameter into a BcMath\Number object
          * @link https://php.net/manual/en/bcmath-number.unserialize.php
          * @param array{value:numeric-string} $data
          * @throws \ValueError This method throws a ValueError if invalid serialized data is passed.

@@ -234,6 +234,11 @@ function json_last_error(): int {}
 function json_last_error_msg(): string {}
 
 /**
+ * Checks if a string contains valid JSON
+ *
+ * Returns whether the given string is syntactically valid JSON. If json_validate returns true,
+ * json_decode will successfully decode the given string when using the same depth and flags.
+ *
  * @link https://php.net/manual/en/function.json-validate.php
  * @since 8.3
  * @throws \ValueError If depth is outside the allowed range, a ValueError is thrown. If flags is

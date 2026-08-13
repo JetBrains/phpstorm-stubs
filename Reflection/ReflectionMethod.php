@@ -314,6 +314,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     public function hasPrototype(): bool {}
 
     /**
+     * Creates a new ReflectionMethod
      * @link https://php.net/manual/en/reflectionmethod.createfrommethodname.php
      * @since 8.3
      * @throws \ReflectionException A ReflectionException is thrown if the given method does not

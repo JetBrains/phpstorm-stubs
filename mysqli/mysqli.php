@@ -12,6 +12,7 @@ use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
  * mysqli_sql_exception
+ * @link https://php.net/manual/en/class.mysqli-sql-exception.php
  */
 final class mysqli_sql_exception extends RuntimeException
 {
@@ -31,6 +32,12 @@ final class mysqli_sql_exception extends RuntimeException
     protected $code;
 
     /**
+     * Returns the SQLSTATE error code
+     *
+     * Returns a string containing the SQLSTATE error code for the last error. The error code
+     * consists of five characters. The values are specified by ANSI SQL and ODBC. For a list of
+     * possible values, see .
+     *
      * @link https://php.net/manual/en/mysqli-sql-exception.getsqlstate.php
      * @since 8.1
      */
@@ -189,7 +196,7 @@ class mysqli
 
     /**
      * @var array A list of errors, each as an associative array containing the errno, error, and sqlstate.
-     * @link https://secure.php.net/manual/en/mysqli.error-list.php
+     * @link https://php.net/manual/en/mysqli.error-list.php
      */
     #[LanguageLevelTypeAware(['8.1' => 'array'], default: '')]
     public $error_list;
@@ -227,7 +234,7 @@ class mysqli
 
     /**
      * Starts a transaction
-     * @link https://secure.php.net/manual/en/mysqli.begin-transaction.php
+     * @link https://php.net/manual/en/mysqli.begin-transaction.php
      * @param int $flags [optional]
      * @param string $name [optional]
      * @return bool true on success or false on failure.
@@ -302,6 +309,10 @@ class mysqli
     ): bool {}
 
     /**
+     * Open a new connection to the MySQL server
+     *
+     * Opens a connection to the MySQL Server.
+     *
      * @link https://php.net/manual/en/function.mysqli-connect.php
      * @param string|null $hostname [optional]
      * @param string|null $username [optional]
@@ -783,7 +794,7 @@ class mysqli
      * @param string $string The string to be escaped.
      * Characters encoded are NUL (ASCII 0), \n, \r, \, ', ", and Control-Z.
      * @return string
-     * @link https://secure.php.net/manual/en/mysqli.real-escape-string.php
+     * @link https://php.net/manual/en/mysqli.real-escape-string.php
      */
     #[TentativeType]
     public function escape_string(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string): string {}
@@ -831,7 +842,7 @@ class mysqli
 
     /**
      * Set a named transaction savepoint
-     * @link https://secure.php.net/manual/en/mysqli.savepoint.php
+     * @link https://php.net/manual/en/mysqli.savepoint.php
      * @param string $name
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 5.5
@@ -871,7 +882,7 @@ class mysqli
 
     /**
      * Used for establishing secure connections using SSL
-     * @link https://secure.php.net/manual/en/mysqli.ssl-set.php
+     * @link https://php.net/manual/en/mysqli.ssl-set.php
      * @param string|null $key <p>
      * The path name to the key file.
      * </p>
@@ -957,6 +968,10 @@ class mysqli
     public function use_result(): mysqli_result|false {}
 
     /**
+     * Refreshes
+     *
+     * Flushes tables or caches, or resets the replication server information.
+     *
      * @link https://php.net/manual/en/mysqli.refresh
      * @param int $flags MYSQLI_REFRESH_*
      * @return bool TRUE if the refresh was a success, otherwise FALSE
@@ -1345,6 +1360,12 @@ class mysqli_result implements IteratorAggregate
     public function fetch_assoc(): array|false|null {}
 
     /**
+     * Fetch the next row of a result set as an object
+     *
+     * Fetches one row of data from the result set and returns it as an object, where each property
+     * represents the name of the result set's column. Each subsequent call to this function will
+     * return the next row within the result set, or null if there are no more rows.
+     *
      * @template T of object
      *
      * Fetch the next row of a result set as an object
@@ -1409,6 +1430,7 @@ class mysqli_result implements IteratorAggregate
     public function free_result(): void {}
 
     /**
+     * Retrieve an external iterator
      * @link https://php.net/manual/en/mysqli-result.getiterator.php
      * @return Iterator
      * @since 8.0
@@ -1781,7 +1803,7 @@ class mysqli_stmt
 
 /**
  * Gets the number of affected rows in a previous MySQL operation
- * @link https://secure.php.net/manual/en/mysqli.affected-rows.php
+ * @link https://php.net/manual/en/mysqli.affected-rows.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string|int An integer greater than zero indicates the number of rows affected or retrieved.
  * Zero indicates that no records were updated for an UPDATE statement,
@@ -1792,7 +1814,7 @@ function mysqli_affected_rows(mysqli $mysql): string|int {}
 
 /**
  * Turns on or off auto-committing database modifications
- * @link https://secure.php.net/manual/en/mysqli.autocommit.php
+ * @link https://php.net/manual/en/mysqli.autocommit.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param bool $enable Whether to turn on auto-commit or not.
  * @return bool
@@ -1801,7 +1823,7 @@ function mysqli_autocommit(mysqli $mysql, bool $enable): bool {}
 
 /**
  * Starts a transaction
- * @link https://secure.php.net/manual/en/mysqli.begin-transaction.php
+ * @link https://php.net/manual/en/mysqli.begin-transaction.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param int $flags [optional]
  * @param string|null $name [optional]
@@ -1927,7 +1949,7 @@ function mysqli_error_list(mysqli $mysql): array {}
 
 /**
  * Returns a list of errors from the last statement executed
- * @link https://secure.php.net/manual/en/mysqli-stmt.error-list.php
+ * @link https://php.net/manual/en/mysqli-stmt.error-list.php
  * @param mysqli_stmt $statement A statement identifier returned by mysqli_stmt_init().
  * @return array A list of errors, each as an associative array containing the errno, error, and sqlstate.
  * @since 5.4
@@ -1936,7 +1958,7 @@ function mysqli_stmt_error_list(mysqli_stmt $statement): array {}
 
 /**
  * Returns a string description of the last error
- * @link https://secure.php.net/manual/en/mysqli.error.php
+ * @link https://php.net/manual/en/mysqli.error.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string
  */
@@ -2006,7 +2028,7 @@ function mysqli_execute_query(mysqli $mysql, string $query, ?array $params = nul
 
 /**
  * Returns the next field in the result set
- * @link https://secure.php.net/manual/en/mysqli-result.fetch-field.php
+ * @link https://php.net/manual/en/mysqli-result.fetch-field.php
  * @param mysqli_result $result A mysqli_result object returned by mysqli_query(),
  * mysqli_store_result(), mysqli_use_result() or mysqli_stmt_get_result().
  * @return object|false Returns an object which contains field definition information or FALSE if no field information is available.
@@ -2015,7 +2037,7 @@ function mysqli_fetch_field(mysqli_result $result): object|false {}
 
 /**
  * Returns an array of objects representing the fields in a result set
- * @link https://secure.php.net/manual/en/mysqli-result.fetch-fields.php
+ * @link https://php.net/manual/en/mysqli-result.fetch-fields.php
  * @param mysqli_result $result A mysqli_result object returned by mysqli_query(),
  * mysqli_store_result(), mysqli_use_result() or mysqli_stmt_get_result().
  * @return array Returns an array of objects which contains field definition information.
@@ -2024,7 +2046,7 @@ function mysqli_fetch_fields(mysqli_result $result): array {}
 
 /**
  * Fetch meta-data for a single field
- * @link https://secure.php.net/manual/en/mysqli-result.fetch-field-direct.php
+ * @link https://php.net/manual/en/mysqli-result.fetch-field-direct.php
  * @param mysqli_result $result A mysqli_result object returned by mysqli_query(),
  * mysqli_store_result(), mysqli_use_result() or mysqli_stmt_get_result().
  * @param int $index The field number. This value must be in the range from 0 to number of fields - 1.
@@ -2077,6 +2099,12 @@ function mysqli_fetch_array(mysqli_result $result, int $mode = MYSQLI_BOTH): arr
 function mysqli_fetch_assoc(mysqli_result $result): array|null|false {}
 
 /**
+ * Fetch the next row of a result set as an object
+ *
+ * Fetches one row of data from the result set and returns it as an object, where each property
+ * represents the name of the result set's column. Each subsequent call to this function will return
+ * the next row within the result set, or null if there are no more rows.
+ *
  * @template T of object
  *
  * Fetch the next row of a result set as an object
@@ -2537,7 +2565,7 @@ function mysqli_reap_async_query(mysqli $mysql): mysqli_result|bool {}
 
 /**
  * Removes the named savepoint from the set of savepoints of the current transaction
- * @link https://secure.php.net/manual/en/mysqli.release-savepoint.php
+ * @link https://php.net/manual/en/mysqli.release-savepoint.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $name
  * @return bool Returns TRUE on success or FALSE on failure.
@@ -2557,7 +2585,7 @@ function mysqli_rollback(mysqli $mysql, int $flags = 0, ?string $name = null): b
 
 /**
  * Set a named transaction savepoint
- * @link https://secure.php.net/manual/en/mysqli.savepoint.php
+ * @link https://php.net/manual/en/mysqli.savepoint.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $name
  * @return bool Returns TRUE on success or FALSE on failure.
@@ -2788,7 +2816,7 @@ function mysqli_stat(mysqli $mysql): string|false {}
 
 /**
  * Used for establishing secure connections using SSL
- * @link https://secure.php.net/manual/en/mysqli.ssl-set.php
+ * @link https://php.net/manual/en/mysqli.ssl-set.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string|null $key The path name to the key file
  * @param string|null $certificate The path name to the certificate file

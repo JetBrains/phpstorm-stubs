@@ -334,7 +334,15 @@ define('ENCHANT_MYSPELL', 1);
  */
 define('ENCHANT_ISPELL', 2);
 
+/**
+ * A fully opaque class which replaces enchant_broker resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.enchantbroker.php
+ */
 final class EnchantBroker {}
 
+/**
+ * A fully opaque class which replaces enchant_dict resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.enchantdictionary.php
+ */
 final class EnchantDictionary {}
 // End of enchant v.1.1.0

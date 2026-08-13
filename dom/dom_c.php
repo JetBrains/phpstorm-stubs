@@ -300,6 +300,10 @@ class DOMNode
     public function hasAttributes(): bool {}
 
     /**
+     * Compares the position of two nodes
+     *
+     * Compares the position of the other node relative to this node.
+     *
      * @link https://php.net/manual/en/domnode.comparedocumentposition.php
      * @return int
      */
@@ -364,9 +368,9 @@ class DOMNode
     public function lookupNamespaceUri($prefix) {}
 
     /**
+     * Checks that both nodes are equal
      * @link https://php.net/manual/en/domnode.isequalnode.php
      * @param DOMNode|null $otherNode The node.
-     * @param DOMNode|null $arg
      * @return bool
      */
     #[LanguageLevelTypeAware(['8.3' => 'bool'], default: '')]
@@ -390,7 +394,7 @@ class DOMNode
     /**
      * Gets an XPath location path for the node
      * @return string|null the XPath, or NULL in case of an error.
-     * @link https://secure.php.net/manual/en/domnode.getnodepath.php
+     * @link https://php.net/manual/en/domnode.getnodepath.php
      */
     #[TentativeType]
     public function getNodePath(): ?string {}
@@ -422,8 +426,8 @@ class DOMNode
 
     /**
      * Canonicalize nodes to a file.
-     * @link https://www.php.net/manual/en/domnode.c14nfile
-     * @param string $uri Number of bytes written or FALSE on failure
+     * @link https://www.php.net/manual/en/domnode.c14nfile.php
+     * @param string $uri Path to write the output to.
      * @param bool $exclusive [optional] Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.
      * @param bool $withComments [optional]  Retain comments in output.
      * @param null|array $xpath [optional] An array of xpaths to filter the nodes by.
@@ -440,18 +444,21 @@ class DOMNode
     ): int|false {}
 
     /**
+     * Checks if node contains other node
      * @link https://php.net/manual/en/domnode.contains.php
      * @since 8.3
      */
     public function contains(DOMNode|DOMNameSpaceNode|null $other): bool {}
 
     /**
+     * Get root node
      * @link https://php.net/manual/en/domnode.getrootnode.php
      * @since 8.3
      */
     public function getRootNode(?array $options = null): DOMNode {}
 
     /**
+     * Forbids serialization unless serialization methods are implemented in a subclass
      * @link https://php.net/manual/en/domnode.sleep.php
      * @since 8.1
      * @throws \Error Throws an Error exception when called.
@@ -459,6 +466,7 @@ class DOMNode
     public function __sleep(): array {}
 
     /**
+     * Forbids unserialization unless unserialization methods are implemented in a subclass
      * @link https://php.net/manual/en/domnode.wakeup.php
      * @since 8.1
      * @throws \Error Throws an Error exception when called.
@@ -661,6 +669,7 @@ class DOMNameSpaceNode
     public bool $isConnected;
 
     /**
+     * Forbids serialization unless serialization methods are implemented in a subclass
      * @link https://php.net/manual/en/domnamespacenode.sleep.php
      * @since 8.1
      * @throws \Error Throws an Error exception when called.
@@ -668,6 +677,7 @@ class DOMNameSpaceNode
     public function __sleep(): array {}
 
     /**
+     * Forbids unserialization unless unserialization methods are implemented in a subclass
      * @link https://php.net/manual/en/domnamespacenode.wakeup.php
      * @since 8.1
      * @throws \Error Throws an Error exception when called.
@@ -1354,10 +1364,6 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @param int $flags A bitmask of Libxml schema validation flags. Currently the only supported
      * value is LIBXML_SCHEMA_CREATE. Available since Libxml 2.6.14.
-     * @param int $options [optional] <p>
-     * Bitwise OR
-     * of the libxml option constants.
-     * </p>
      * @return bool true on success or false on failure.
      */
     #[TentativeType]
@@ -1458,6 +1464,10 @@ class DOMNodeList implements IteratorAggregate, Countable
     public function item(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index) {}
 
     /**
+     * Get number of nodes in the list
+     *
+     * Gets the number of nodes in the list.
+     *
      * @link https://php.net/manual/en/domnodelist.count.php
      * @return int<0, max>
      * @since 7.2
@@ -1466,6 +1476,10 @@ class DOMNodeList implements IteratorAggregate, Countable
     public function count(): int {}
 
     /**
+     * Retrieve an external iterator
+     *
+     * Returns an external iterator for the node list.
+     *
      * @link https://php.net/manual/en/domnodelist.getiterator.php
      * @return Iterator<int, TNode>
      * @since 8.0
@@ -1566,6 +1580,10 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function removeNamedItemNS($namespace, $localName) {}
 
     /**
+     * Get number of nodes in the map
+     *
+     * Gets the number of nodes in the map.
+     *
      * @link https://php.net/manual/en/domnamednodemap.count.php
      * @return int<0,max>
      * @since 7.2
@@ -1574,6 +1592,10 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function count(): int {}
 
     /**
+     * Retrieve an external iterator
+     *
+     * Returns an external iterator for the named node map.
+     *
      * @link https://php.net/manual/en/domnamednodemap.getiterator.php
      * @return Iterator<string, TNode>
      * @since 8.0
@@ -2244,24 +2266,37 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
     ) {}
 
     /**
+     * Get attribute names
      * @link https://php.net/manual/en/domelement.getattributenames.php
      * @since 8.3
      */
     public function getAttributeNames(): array {}
 
     /**
+     * Toggle attribute
+     *
+     * Toggle the attribute.
+     *
      * @link https://php.net/manual/en/domelement.toggleattribute.php
      * @since 8.3
      */
     public function toggleAttribute(string $qualifiedName, ?bool $force = null): bool {}
 
     /**
+     * Insert adjacent element
+     *
+     * Inserts an element at a relative position given by where.
+     *
      * @link https://php.net/manual/en/domelement.insertadjacentelement.php
      * @since 8.3
      */
     public function insertAdjacentElement(string $where, DOMElement $element): ?DOMElement {}
 
     /**
+     * Insert adjacent text
+     *
+     * Inserts text at a relative position given by where.
+     *
      * @link https://php.net/manual/en/domelement.insertadjacenttext.php
      * @since 8.3
      */
@@ -2397,14 +2432,14 @@ class DOMConfiguration
 
 /**
  * The DOMCdataSection inherits from DOMText for textural representation of CData constructs.
- * @link https://secure.php.net/manual/en/class.domcdatasection.php
+ * @link https://php.net/manual/en/class.domcdatasection.php
  */
 class DOMCdataSection extends DOMText
 {
     /**
-     * The value of the CDATA node. If not supplied, an empty CDATA node is created.
+     * Constructs a new DOMCdataSection object
      * @param string $data The value of the CDATA node. If not supplied, an empty CDATA node is created.
-     * @link https://secure.php.net/manual/en/domcdatasection.construct.php
+     * @link https://php.net/manual/en/domcdatasection.construct.php
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 }
@@ -2728,12 +2763,21 @@ class DOMXPath
     public function registerPhpFunctions(#[LanguageLevelTypeAware(['8.0' => 'string|array|null'], default: '')] $restrict = null): void {}
 
     /**
+     * Register a PHP functions as namespaced XPath function
+     *
+     * This method enables the ability to use a PHP function as a namespaced XPath function inside
+     * XPath expressions.
+     *
      * @link https://php.net/manual/en/domxpath.registerphpfunctionns.php
      * @since 8.4
      */
     public function registerPhpFunctionNS(string $namespaceURI, string $name, callable $callable): void {}
 
     /**
+     * Quotes a string for use in an XPath expression
+     *
+     * Quotes str for use in an XPath expression.
+     *
      * @link https://php.net/manual/en/domxpath.quote.php
      * @since 8.4
      */
@@ -2772,6 +2816,7 @@ interface DOMParentNode
     public function prepend(...$nodes): void;
 
     /**
+     * Replace children in node
      * @link https://php.net/manual/en/domparentnode.replacechildren.php
      * @since 8.3
      */

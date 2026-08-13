@@ -1572,6 +1572,7 @@ function imap_mutf7_to_utf8(string $string): string|false {}
 function imap_utf8_to_mutf7(string $string): string|false {}
 
 /**
+ * Check if the IMAP stream is still valid
  * @link https://php.net/manual/en/function.imap-is-open.php
  * @since 8.2
  */

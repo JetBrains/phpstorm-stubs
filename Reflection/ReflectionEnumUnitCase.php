@@ -3,6 +3,8 @@
 use JetBrains\PhpStorm\Pure;
 
 /**
+ * The ReflectionEnumUnitCase class reports information about an Enum unit case, which has no scalar
+ * equivalent.
  * @link https://php.net/manual/en/class.reflectionenumunitcase.php
  * @since 8.1
  */
@@ -28,6 +30,7 @@ class ReflectionEnumUnitCase extends ReflectionClassConstant
     public function getValue(): UnitEnum {}
 
     /**
+     * Gets the reflection of the enum of this case
      * @link https://php.net/manual/en/reflectionenumunitcase.getenum.php
      * @return ReflectionEnum
      */

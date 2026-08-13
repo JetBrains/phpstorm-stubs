@@ -346,7 +346,7 @@ function is_callable(mixed $value, bool $syntax_only = false, &$callable_name = 
 
 /**
  * Verify that the contents of a variable is a countable value
- * @link https://secure.php.net/is_countable
+ * @link https://php.net/is_countable
  *
  * @param mixed $value The value to check
  * @return bool <b>TRUE</b> if $var is countable, <b>FALSE</b> otherwise.
