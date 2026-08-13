@@ -169,6 +169,8 @@ function jdmonthname(int $julian_day, int $mode): string {}
  * </p>
  * @param int $mode [optional] Allows Easter dates to be calculated based on the Julian calendar when set to CAL_EASTER_ALWAYS_JULIAN
  * @return int The easter date as a unix timestamp.
+ * @throws \ValueError A ValueError is thrown if the year is earlier than 1970 or later than 2037
+ * when running on a 32-bit system, or later than 2,000,000,000 on a 64-bit system.
  */
 function easter_date(?int $year = null, #[PhpStormStubsElementAvailable(from: '8.0')] int $mode = CAL_EASTER_DEFAULT): int {}
 
@@ -206,6 +208,7 @@ function unixtojd(?int $timestamp = null): int|false {}
  * A julian day number between 2440588 and 2465342.
  * </p>
  * @return int The unix timestamp for the start of the given julian day.
+ * @throws \ValueError If julian_day is outside of the allowed range, a ValueError is thrown.
  */
 function jdtounix(int $julian_day): int {}
 

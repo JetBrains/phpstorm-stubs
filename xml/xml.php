@@ -543,6 +543,9 @@ function xml_parser_free(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], defaul
  * @return bool This function returns <b>FALSE</b> if <i>parser</i> does not
  * refer to a valid parser, or if the option could not be set. Else the
  * option is set and <b>TRUE</b> is returned.
+ * @throws \ValueError Throws a ValueError when an invalid value is passed to option. Prior to PHP
+ * 8.0.0, passing an invalid value to option generated an E_WARNING and made the function return
+ * false.
  */
 function xml_parser_set_option(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, int $option, $value): bool {}
 
@@ -557,6 +560,9 @@ function xml_parser_set_option(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], 
  * not refer to a valid parser or if <i>option</i> isn't
  * valid (generates also a <b>E_WARNING</b>).
  * Else the option's value is returned.
+ * @throws \ValueError Throws a ValueError when an invalid value is passed to option. Prior to PHP
+ * 8.0.0, passing an invalid value to option generated a E_WARNING as well as making the function
+ * return false.
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.3" => "string|int|bool"], default: "string|int")]

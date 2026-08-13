@@ -111,6 +111,7 @@ function getimagesizefromstring(string $string, &$image_info = null): array|fals
  * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
  * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
  * @since 5.4
+ * @throws \ValueError A ValueError is thrown if size is less than 1 or greater than PHP_INT_MAX.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
 function stream_set_chunk_size($stream, int $size) {}
@@ -589,6 +590,10 @@ function shuffle(array &$array) {}
  * it will be passed as the third parameter to the callback
  * funcname.
  * </p>
+ * @throws \ArgumentCountError As of PHP 7.1.0, an ArgumentCountError will be thrown if the callback
+ * function requires more than 2 parameters (the value and key of the array member), or more than 3
+ * parameters if the arg is also passed. Previously, in this case an error of level E_WARNING would
+ * be generated each time array_walk calls callback.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function array_walk(object|array &$array, callable $callback, mixed $arg) {}
@@ -740,6 +745,7 @@ function key(object|array $array): string|int|null {}
  * @param mixed ...$values any comparable value
  * @return mixed min returns the numerically lowest of the
  * parameter values.
+ * @throws \ValueError If an empty array is passed, min throws a ValueError.
  */
 #[Pure]
 function min(
@@ -755,6 +761,7 @@ function min(
  * @param mixed ...$values any comparable value
  * @return mixed max returns the numerically highest of the
  * parameter values, either within a arg array or two arguments.
+ * @throws \ValueError If an empty array is passed, max throws a ValueError.
  */
 #[Pure]
 function max(
@@ -890,6 +897,7 @@ function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[PhpS
  * Value to use for filling
  * </p>
  * @return array the filled array
+ * @throws \ValueError Throws a ValueError if count is out of range.
  */
 #[Pure]
 function array_fill(int $start_index, int $count, mixed $value): array {}
@@ -926,6 +934,13 @@ function array_fill_keys(array $keys, mixed $value): array {}
  * </p>
  * @return array an array of elements from start to
  * end, inclusive.
+ * @throws \ValueError If step is 0, a ValueError is thrown. If start, end, or step is not
+ * is_finite, a ValueError is thrown. If step is negative, but the produced range is increasing
+ * (i.e. $start <= $end), a ValueError is thrown. If start or end is the empty string '', an
+ * E_WARNING is emitted and the empty string will be interpreted as 0. If start or end is a
+ * non-numeric string with more than one byte, an E_WARNING is emitted. If start or end is a string
+ * that is implicitly cast to an int because the other boundary value is a number, an E_WARNING is
+ * emitted. If step is a float, and start and end are non-numeric string, an E_WARNING is emitted.
  */
 #[Pure]
 function range(

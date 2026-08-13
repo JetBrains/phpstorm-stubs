@@ -337,6 +337,13 @@ function strchr(string $haystack, string $needle, bool $before_needle = false): 
  * </p>
  * @return string a string produced according to the formatting string
  * format.
+ * @throws \ValueError As of PHP 8.0.0, a ValueError is thrown if the number of arguments is zero.
+ * Prior to PHP 8.0.0, a E_WARNING was emitted instead. As of PHP 8.0.0, a ValueError is thrown if
+ * [width] is less than zero or bigger than PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted
+ * instead. As of PHP 8.0.0, a ValueError is thrown if [precision] is less than zero or bigger than
+ * PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted instead.
+ * @throws \ArgumentCountError As of PHP 8.0.0, a ArgumentCountError is thrown when less arguments
+ * are given than required. Prior to PHP 8.0.0, false was returned and a E_WARNING emitted instead.
  */
 #[Pure]
 function sprintf(
@@ -355,6 +362,13 @@ function sprintf(
  * @param string|int|float ...$values [optional] <p>
  * </p>
  * @return int the length of the outputted string.
+ * @throws \ValueError As of PHP 8.0.0, a ValueError is thrown if the number of arguments is zero.
+ * Prior to PHP 8.0.0, a E_WARNING was emitted instead. As of PHP 8.0.0, a ValueError is thrown if
+ * [width] is less than zero or bigger than PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted
+ * instead. As of PHP 8.0.0, a ValueError is thrown if [precision] is less than zero or bigger than
+ * PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted instead.
+ * @throws \ArgumentCountError As of PHP 8.0.0, a ArgumentCountError is thrown when less arguments
+ * are given than required. Prior to PHP 8.0.0, false was returned and a E_WARNING emitted instead.
  */
 function printf(string $format, mixed ...$values): int {}
 
@@ -368,6 +382,13 @@ function printf(string $format, mixed ...$values): int {}
  * @param array $values <p>
  * </p>
  * @return int the length of the outputted string.
+ * @throws \ValueError As of PHP 8.0.0, a ValueError is thrown if the number of arguments is zero.
+ * Prior to PHP 8.0.0, a E_WARNING was emitted instead. As of PHP 8.0.0, a ValueError is thrown if
+ * [width] is less than zero or bigger than PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted
+ * instead. As of PHP 8.0.0, a ValueError is thrown if [precision] is less than zero or bigger than
+ * PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted instead. As of PHP 8.0.0, a ValueError
+ * is thrown when less arguments are given than required. Prior to PHP 8.0.0, false was returned and
+ * a E_WARNING emitted instead.
  */
 function vprintf(string $format, array $values): int {}
 
@@ -383,6 +404,13 @@ function vprintf(string $format, array $values): int {}
  * @return string Return array values as a formatted string according to
  * format (which is described in the documentation
  * for sprintf).
+ * @throws \ValueError As of PHP 8.0.0, a ValueError is thrown if the number of arguments is zero.
+ * Prior to PHP 8.0.0, a E_WARNING was emitted instead. As of PHP 8.0.0, a ValueError is thrown if
+ * [width] is less than zero or bigger than PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted
+ * instead. As of PHP 8.0.0, a ValueError is thrown if [precision] is less than zero or bigger than
+ * PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted instead. As of PHP 8.0.0, a ValueError
+ * is thrown when less arguments are given than required. Prior to PHP 8.0.0, false was returned and
+ * a E_WARNING emitted instead.
  */
 #[Pure]
 function vsprintf(string $format, array $values): string {}
@@ -398,6 +426,13 @@ function vsprintf(string $format, array $values): string {}
  * @param mixed ...$values [optional] <p>
  * </p>
  * @return int the length of the string written.
+ * @throws \ValueError As of PHP 8.0.0, a ValueError is thrown if the number of arguments is zero.
+ * Prior to PHP 8.0.0, a E_WARNING was emitted instead. As of PHP 8.0.0, a ValueError is thrown if
+ * [width] is less than zero or bigger than PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted
+ * instead. As of PHP 8.0.0, a ValueError is thrown if [precision] is less than zero or bigger than
+ * PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted instead.
+ * @throws \ArgumentCountError As of PHP 8.0.0, a ArgumentCountError is thrown when less arguments
+ * are given than required. Prior to PHP 8.0.0, false was returned and a E_WARNING emitted instead.
  */
 function fprintf($stream, string $format, mixed ...$values): int {}
 
@@ -413,6 +448,13 @@ function fprintf($stream, string $format, mixed ...$values): int {}
  * @param array $values <p>
  * </p>
  * @return int the length of the outputted string.
+ * @throws \ValueError As of PHP 8.0.0, a ValueError is thrown if the number of arguments is zero.
+ * Prior to PHP 8.0.0, a E_WARNING was emitted instead. As of PHP 8.0.0, a ValueError is thrown if
+ * [width] is less than zero or bigger than PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted
+ * instead. As of PHP 8.0.0, a ValueError is thrown if [precision] is less than zero or bigger than
+ * PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted instead. As of PHP 8.0.0, a ValueError
+ * is thrown when less arguments are given than required. Prior to PHP 8.0.0, false was returned and
+ * a E_WARNING emitted instead.
  */
 function vfprintf($stream, string $format, array $values): int {}
 
@@ -673,6 +715,8 @@ function unlink(#[FileReference] string $filename, $context = null): bool {}
  * <p>
  * To get the output of the executed command, be sure to set and use the
  * output parameter.
+ * @throws \ValueError Emits an E_WARNING if exec is unable to execute the command. Throws a
+ * ValueError if command is empty or contains null bytes.
  */
 function exec(string $command, &$output = null, &$result_code = null): string|false {}
 
@@ -725,6 +769,8 @@ function escapeshellarg(string $arg): string {}
  * return status of the Unix command will be placed here.
  * </p>
  * @return bool|null null on success or false on failure.
+ * @throws \ValueError Will emit an E_WARNING if passthru is unable to execute the command. Throws a
+ * ValueError if command is empty or contains null bytes.
  */
 #[LanguageLevelTypeAware(['8.2' => 'null|false'], default: 'null|bool')]
 function passthru(string $command, &$result_code = null) {}
@@ -808,6 +854,8 @@ function shell_exec(string $command): string|false|null {}
  * @return resource|false a resource representing the process, which should be freed using
  * proc_close when you are finished with it. On failure
  * returns false.
+ * @throws \ValueError As of PHP 8.3.0, throws a ValueError if command is an array without at least
+ * one non-empty element.
  */
 function proc_open(array|string $command, array $descriptor_spec, &$pipes, ?string $cwd = null, ?array $env_vars = null, ?array $options = null) {}
 

@@ -612,6 +612,8 @@ class ReflectionClass implements Reflector
      * @link https://php.net/manual/en/reflectionclass.implementsinterface.php
      * @param string $interface The interface name.
      * @return bool Returns {@see true} on success or {@see false} on failure.
+     * @throws \ReflectionException ReflectionClass::implementsInterface throws an
+     * ReflectionException if interface is not an interface.
      */
     #[TentativeType]
     public function implementsInterface(#[LanguageLevelTypeAware(['8.0' => 'ReflectionClass|string'], default: '')] $interface): bool {}
@@ -713,6 +715,8 @@ class ReflectionClass implements Reflector
     /**
      * @link https://php.net/manual/en/reflectionclass.newlazyghost.php
      * @since 8.4
+     * @throws \Error An Error if the class is internal or extends an internal class except
+     * stdClass.
      */
     public function newLazyGhost(callable $initializer, int $options = 0): object {}
 
@@ -726,6 +730,9 @@ class ReflectionClass implements Reflector
     /**
      * @link https://php.net/manual/en/reflectionclass.resetaslazyghost.php
      * @since 8.4
+     * @throws \ReflectionException A ReflectionException if the object is lazy and non-initialized.
+     * @throws \Error An Error if the object is being initialized, or if the object properties are
+     * being iterated with foreach.
      */
     public function resetAsLazyGhost(object $object, callable $initializer, int $options = 0): void {}
 

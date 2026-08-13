@@ -505,11 +505,17 @@ function pcntl_waitid(int $idtype = P_ALL, ?int $id = null, &$info = [], int $fl
 /**
  * @link https://php.net/manual/en/function.pcntl-getcpuaffinity.php
  * @since 8.4
+ * @throws \ValueError A ValueError is thrown when process_id is an invalid process id or the cpu
+ * mask had failed to be created. If process_id is a process for which the current user has no
+ * allowed permission, a E_WARNING is emitted.
  */
 function pcntl_getcpuaffinity(?int $process_id = null): array|false {}
 /**
  * @link https://php.net/manual/en/function.pcntl-setcpuaffinity.php
  * @since 8.4
+ * @throws \TypeError A TypeError is thrown if one of the cpu id from the cpu_ids is invalid.
+ * @throws \ValueError A ValueError is thrown if process_id is an invalid process id or the cpu mask had failed to be
+ * created.
  */
 function pcntl_setcpuaffinity(?int $process_id = null, array $cpu_ids = []): bool {}
 /**

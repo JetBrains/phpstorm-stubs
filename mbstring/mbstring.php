@@ -88,6 +88,8 @@ function mb_language(?string $language = null): string|bool {}
  * true on success or false on failure.
  * If encoding is omitted, then
  * the current character encoding name is returned.
+ * @throws \ValueError As of PHP 8.0.0, a ValueError is thrown if the value of encoding is an
+ * invalid encoding. Prior to PHP 8.0.0, a E_WARNING was emitted instead.
  */
 function mb_internal_encoding(?string $encoding = null): string|bool {}
 
@@ -103,6 +105,7 @@ function mb_internal_encoding(?string $encoding = null): string|bool {}
  * @return array|false|string The character encoding name, as per the type.
  * If mb_http_input does not process specified
  * HTTP input, it returns false.
+ * @throws \ValueError Throws a ValueError if type is invalid.
  */
 #[Pure]
 function mb_http_input(?string $type = null): array|string|false {}
@@ -124,6 +127,7 @@ function mb_http_input(?string $type = null): array|string|false {}
  * mb_http_output returns the current HTTP output
  * character encoding. Otherwise,
  * true on success or false on failure.
+ * @throws \ValueError Throws a ValueError if encoding contains null bytes.
  */
 function mb_http_output(?string $encoding = null): string|bool {}
 
@@ -276,6 +280,8 @@ function mb_strlen(string $string, #[LanguageLevelTypeAware(['8.0' => 'string|nu
  * the first occurrence of needle in the
  * haystack string. If
  * needle is not found, it returns false.
+ * @throws \ValueError If offset is greater than the length of haystack, a ValueError will be
+ * thrown.
  */
 #[Pure]
 function mb_strpos(string $haystack, string $needle, int $offset = 0, ?string $encoding = null): int|false {}
@@ -298,6 +304,8 @@ function mb_strpos(string $haystack, string $needle, int $offset = 0, ?string $e
  * the last occurrence of needle in the
  * haystack string. If
  * needle is not found, it returns false.
+ * @throws \ValueError If offset is greater than the length of haystack, a ValueError will be
+ * thrown.
  */
 #[Pure]
 function mb_strrpos(string $haystack, string $needle, int $offset = 0, ?string $encoding = null): int|false {}
@@ -323,6 +331,8 @@ function mb_strrpos(string $haystack, string $needle, int $offset = 0, ?string $
  * @return int|false Return the numeric position of the first occurrence of
  * needle in the haystack
  * string, or false if needle is not found.
+ * @throws \ValueError If offset is greater than the length of haystack, a ValueError will be
+ * thrown.
  */
 #[Pure]
 function mb_stripos(string $haystack, string $needle, int $offset = 0, ?string $encoding = null): int|false {}
@@ -349,6 +359,8 @@ function mb_stripos(string $haystack, string $needle, int $offset = 0, ?string $
  * the last occurrence of needle in the
  * haystack string, or false
  * if needle is not found.
+ * @throws \ValueError If offset is greater than the length of haystack, a ValueError will be
+ * thrown.
  */
 #[Pure]
 function mb_strripos(string $haystack, string $needle, int $offset = 0, ?string $encoding = null): int|false {}
@@ -580,6 +592,8 @@ function mb_strimwidth(string $string, int $start, int $width, string $trim_mark
  * "ASCII,JIS,UTF-8,EUC-JP,SJIS".
  * </p>
  * @return array|string|false The encoded string.
+ * @throws \ValueError As of PHP 8.0.0, a ValueError is thrown if the value of to_encoding or
+ * from_encoding is an invalid encoding. Prior to PHP 8.0.0, a E_WARNING was emitted instead.
  */
 #[Pure]
 function mb_convert_encoding(array|string $string, string $to_encoding, array|string|null $from_encoding = null): array|string|false {}
@@ -623,6 +637,7 @@ function mb_list_encodings(): array {}
  * @param string $encoding The encoding type being checked, for aliases.
  * @return string[]|false a numerically indexed array of encoding aliases on success, or FALSE on failure
  * @link https://php.net/manual/en/function.mb-encoding-aliases.php
+ * @throws \ValueError Throws a ValueError if encoding is unknown.
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
@@ -741,6 +756,8 @@ function mb_encoding_aliases(string $encoding) {}
  * </p>
  * @param string|null $encoding [optional]
  * @return string The converted string.
+ * @throws \ValueError Throws a ValueError if the combination of different modes is invalid. For
+ * example "sS".
  */
 #[Pure]
 function mb_convert_kana(string $string, string $mode = 'KV', ?string $encoding = null): string {}
@@ -834,6 +851,7 @@ function mb_convert_variables(
  * @param null|string $encoding
  * @param bool $hex [optional]
  * @return string The converted string.
+ * @throws \ValueError Throws a ValueError if map is not a list of integers.
  */
 #[Pure]
 function mb_encode_numericentity(string $string, array $map, ?string $encoding = null, bool $hex = false): string {}
@@ -853,6 +871,7 @@ function mb_encode_numericentity(string $string, array $map, ?string $encoding =
  * this parameter is not used.
  * </p>
  * @return string|false|null The converted string.
+ * @throws \ValueError Throws a ValueError if map is not a list of integers.
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|false|null')]

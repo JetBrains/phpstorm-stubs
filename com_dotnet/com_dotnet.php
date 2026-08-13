@@ -140,6 +140,7 @@ function com_print_typeinfo($comobject, $dispinterface = null, $wantsink = false
  * @link https://php.net/manual/en/function.variant-abs.php
  * @param mixed $val
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_abs($val) {}
 
@@ -150,6 +151,7 @@ function variant_abs($val) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_add($left, $right) {}
 
@@ -160,6 +162,7 @@ function variant_add($left, $right) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_and($left, $right) {}
 
@@ -180,6 +183,7 @@ function variant_cast($variant, $type) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_cat($left, $right) {}
 
@@ -220,6 +224,7 @@ function variant_date_to_timestamp($variant) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_div($left, $right) {}
 
@@ -230,6 +235,7 @@ function variant_div($left, $right) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_eqv($left, $right) {}
 
@@ -239,6 +245,7 @@ function variant_eqv($left, $right) {}
  * @link https://php.net/manual/en/function.variant-fix.php
  * @param mixed $variant
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_fix($variant) {}
 
@@ -258,6 +265,7 @@ function variant_get_type($variant) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_idiv($left, $right) {}
 
@@ -268,6 +276,7 @@ function variant_idiv($left, $right) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_imp($left, $right) {}
 
@@ -277,6 +286,7 @@ function variant_imp($left, $right) {}
  * @link https://php.net/manual/en/function.variant-int.php
  * @param mixed $variant
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_int($variant) {}
 
@@ -287,6 +297,7 @@ function variant_int($variant) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_mod($left, $right) {}
 
@@ -297,6 +308,7 @@ function variant_mod($left, $right) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_mul($left, $right) {}
 
@@ -306,6 +318,7 @@ function variant_mul($left, $right) {}
  * @link https://php.net/manual/en/function.variant-neg.php
  * @param mixed $variant
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_neg($variant) {}
 
@@ -315,6 +328,7 @@ function variant_neg($variant) {}
  * @link https://php.net/manual/en/function.variant-not.php
  * @param mixed $variant
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_not($variant) {}
 
@@ -325,6 +339,7 @@ function variant_not($variant) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_or($left, $right) {}
 
@@ -335,6 +350,7 @@ function variant_or($left, $right) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_pow($left, $right) {}
 
@@ -375,6 +391,7 @@ function variant_set($variant, $value) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_sub($left, $right) {}
 
@@ -385,6 +402,7 @@ function variant_sub($left, $right) {}
  * @param mixed $left
  * @param mixed $right
  * @return mixed
+ * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_xor($left, $right) {}
 

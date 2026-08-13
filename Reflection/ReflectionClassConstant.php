@@ -69,6 +69,7 @@ class ReflectionClassConstant implements Reflector
      * @param string $constant The name of the class constant.
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.construct.php
+     * @throws \Exception Throws an Exception in case the given class constant does not exist.
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string|object'], default: '')] $class, string $constant) {}
 

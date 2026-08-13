@@ -599,6 +599,9 @@ class GlobIterator extends FilesystemIterator implements Countable
      * @link https://php.net/manual/en/globiterator.construct.php
      * @param $pattern
      * @param int $flags [optional]
+     * @throws \UnexpectedValueException Throws an UnexpectedValueException if the directory does
+     * not exist.
+     * @throws \ValueError Throws a ValueError if the directory is an empty string.
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
@@ -1095,6 +1098,8 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * @return void
      * @link https://php.net/spldoublylinkedlist.add
      * @since 5.5
+     * @throws \OutOfRangeException Throws OutOfRangeException when index is out of bounds or when
+     * index cannot be parsed as an integer.
      */
     #[TentativeType]
     public function add(
@@ -1106,6 +1111,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * Pops a node from the end of the doubly linked list
      * @link https://php.net/manual/en/spldoublylinkedlist.pop.php
      * @return TValue The value of the popped node.
+     * @throws \RuntimeException Throws RuntimeException when the data-structure is empty.
      */
     #[TentativeType]
     public function pop(): mixed {}
@@ -1114,6 +1120,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * Shifts a node from the beginning of the doubly linked list
      * @link https://php.net/manual/en/spldoublylinkedlist.shift.php
      * @return TValue The value of the shifted node.
+     * @throws \RuntimeException Throws RuntimeException when the data-structure is empty.
      */
     #[TentativeType]
     public function shift(): mixed {}
@@ -1144,6 +1151,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * Peeks at the node from the end of the doubly linked list
      * @link https://php.net/manual/en/spldoublylinkedlist.top.php
      * @return TValue The value of the last node.
+     * @throws \RuntimeException Throws RuntimeException when the data-structure is empty.
      */
     #[TentativeType]
     public function top(): mixed {}
@@ -1152,6 +1160,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * Peeks at the node from the beginning of the doubly linked list
      * @link https://php.net/manual/en/spldoublylinkedlist.bottom.php
      * @return TValue The value of the first node.
+     * @throws \RuntimeException Throws RuntimeException when the data-structure is empty.
      */
     #[TentativeType]
     public function bottom(): mixed {}
@@ -1211,6 +1220,8 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * The index with the value.
      * </p>
      * @return TValue The value at the specified <i>index</i>.
+     * @throws \OutOfRangeException Throws OutOfRangeException when index is out of bounds or when
+     * index cannot be parsed as an integer.
      */
     #[TentativeType]
     public function offsetGet($index): mixed {}
@@ -1225,6 +1236,8 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * The new value for the <i>index</i>.
      * </p>
      * @return void
+     * @throws \OutOfRangeException Throws OutOfRangeException when index is out of bounds or when
+     * index cannot be parsed as an integer.
      */
     #[TentativeType]
     public function offsetSet($index, #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value): void {}
@@ -1236,6 +1249,8 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * The index being unset.
      * </p>
      * @return void
+     * @throws \OutOfRangeException Throws OutOfRangeException when index is out of bounds or when
+     * index cannot be parsed as an integer.
      */
     #[TentativeType]
     public function offsetUnset($index): void {}
@@ -1404,6 +1419,7 @@ abstract class SplHeap implements Iterator, Countable
      * Extracts a node from top of the heap and sift up.
      * @link https://php.net/manual/en/splheap.extract.php
      * @return TValue The value of the extracted node.
+     * @throws \RuntimeException Throws RuntimeException when the data-structure is empty.
      */
     #[TentativeType]
     public function extract(): mixed {}
@@ -1424,6 +1440,7 @@ abstract class SplHeap implements Iterator, Countable
      * Peeks at the node from the top of the heap
      * @link https://php.net/manual/en/splheap.top.php
      * @return TValue The value of the node on the top.
+     * @throws \RuntimeException Throws RuntimeException when the data-structure is empty.
      */
     #[TentativeType]
     public function top(): mixed {}
@@ -1893,6 +1910,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * Constructs a new fixed array
      * @link https://php.net/manual/en/splfixedarray.construct.php
      * @param int $size [optional]
+     * @throws \ValueError Throws a ValueError when size is a negative integer.
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $size = 0) {}
 
@@ -1945,6 +1963,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * The new array size.
      * </p>
      * @return bool
+     * @throws \ValueError Throws ValueError when size is less than zero.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -1968,6 +1987,8 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * The index with the value.
      * </p>
      * @return TValue The value at the specified <i>index</i>.
+     * @throws \RuntimeException Throws RuntimeException when index is outside the defined size of
+     * the array or when index cannot be parsed as an integer.
      */
     #[TentativeType]
     public function offsetGet($index): mixed {}
@@ -1982,6 +2003,8 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * The new value for the <i>index</i>.
      * </p>
      * @return void
+     * @throws \RuntimeException Throws RuntimeException when index is outside the defined size of
+     * the array or when index cannot be parsed as an integer.
      */
     #[TentativeType]
     public function offsetSet($index, #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value): void {}
@@ -1993,6 +2016,8 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * The index being unset.
      * </p>
      * @return void
+     * @throws \RuntimeException Throws RuntimeException when index is outside the defined size of
+     * the array or when index cannot be parsed as an integer.
      */
     #[TentativeType]
     public function offsetUnset($index): void {}
@@ -2010,6 +2035,8 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * @link https://php.net/manual/en/splfixedarray.current.php
      * @return TValue The current element value.
      * @removed 8.0
+     * @throws \RuntimeException Throws RuntimeException when the internal array pointer points to
+     * an invalid index or is out of bounds.
      */
     public function current() {}
 
@@ -2365,6 +2392,8 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * The object to look for.
      * </p>
      * @return TValue The data previously associated with the object in the storage.
+     * @throws \UnexpectedValueException Throws UnexpectedValueException when object could not be
+     * found.
      */
     #[TentativeType]
     public function offsetGet($object): mixed {}
@@ -2377,6 +2406,8 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * </p>
      * @return string A string with the calculated identifier.
      * @since 5.4
+     * @throws \RuntimeException A RuntimeException is thrown when the returned value is not a
+     * string.
      */
     #[TentativeType]
     public function getHash(#[LanguageLevelTypeAware(['8.0' => 'object'], default: '')] $object): string {}
@@ -2405,6 +2436,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
     /**
      * @link https://php.net/manual/en/splobjectstorage.seek.php
      * @since 8.4
+     * @throws \OutOfBoundsException Throws an OutOfBoundsException if the offset is not seekable.
      */
     public function seek(int $offset): void {}
 }
@@ -2517,6 +2549,9 @@ class MultipleIterator implements Iterator
      * @link https://php.net/manual/en/multipleiterator.key.php
      * @return array An array of all registered iterator instances,
      * or false if no sub iterator is attached.
+     * @throws \RuntimeException A RuntimeException if the iterator is invalid (as of PHP 8.1.0), or
+     * mode MIT_NEED_ALL is set, and at least one attached iterator is not valid. Calling this
+     * method from triggers warning "Illegal type returned".
      */
     #[TentativeType]
     public function key(): array {}

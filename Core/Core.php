@@ -172,12 +172,17 @@ function str_contains(string $haystack, string $needle): bool {}
 /**
  * @link https://php.net/manual/en/function.str-decrement.php
  * @since 8.3
+ * @throws \ValueError A ValueError is thrown if string is empty. A ValueError is thrown if string
+ * is not an alphanumeric ASCII string. A ValueError is thrown if string cannot be decremented. For
+ * example, "A" or "0".
  */
 function str_decrement(string $string): string {}
 
 /**
  * @link https://php.net/manual/en/function.str-increment.php
  * @since 8.3
+ * @throws \ValueError A ValueError is thrown if string is empty. A ValueError is thrown if string
+ * is not an alphanumeric ASCII string.
  */
 function str_increment(string $string): string {}
 
@@ -381,6 +386,12 @@ function defined(string $constant_name): bool {}
  * instance.
  * If <i>object</i> is omitted when inside a class, the
  * name of that class is returned.</p>
+ * @throws \TypeError If get_class is called with anything other than an object, TypeError is
+ * raised. Prior to PHP 8.0.0, an E_WARNING level error was raised.
+ * @throws \Error If get_class is called with anything other than an object, TypeError is raised.
+ * Prior to PHP 8.0.0, an E_WARNING level error was raised. If get_class is called with no arguments
+ * from outside a class, an Error is thrown. Prior to PHP 8.0.0, an E_WARNING level error was
+ * raised.
  */
 #[Pure]
 function get_class(object $object): string {}
@@ -389,6 +400,8 @@ function get_class(object $object): string {}
  * the "Late Static Binding" class name
  * @link https://php.net/manual/en/function.get-called-class.php
  * @return string
+ * @throws \Error If get_called_class is called from outside a class, an Error is thrown. Prior to
+ * PHP 8.0.0, an E_WARNING level error was raised.
  */
 #[Pure]
 function get_called_class(): string {}
@@ -638,6 +651,8 @@ function get_class_methods(object|string $object_or_class): array {}
  * </p>
  * @return bool This function returns false if wrong <i>error_type</i> is
  * specified, true otherwise.
+ * @throws \ValueError This function throws a ValueError if error_level is not one of E_USER_ERROR,
+ * E_USER_WARNING, E_USER_NOTICE, E_USER_DEPRECATED.
  */
 #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
 function trigger_error(string $message, int $error_level = E_USER_NOTICE) {}

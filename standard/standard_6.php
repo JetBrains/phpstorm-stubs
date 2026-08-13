@@ -636,6 +636,8 @@ function stream_supports_lock($stream): bool {}
  * handle is supplied or false on other errors,
  * including end of file.
  * </p>
+ * @throws \ValueError Throws a ValueError if separator or enclosure is not one byte long. Throws a
+ * ValueError if escape is not one byte long or the empty string.
  */
 #[LanguageLevelTypeAware(['8.0' => 'array|false'], default: 'array|false|null')]
 function fgetcsv($stream, ?int $length = null, string $separator = ',', string $enclosure = '"', string $escape = '\\') {}

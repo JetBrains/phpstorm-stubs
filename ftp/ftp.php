@@ -509,6 +509,9 @@ function ftp_close(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defaul
  * message will be thrown if the <i>option</i> is not
  * supported or the passed <i>value</i> doesn't match the
  * expected value for the given <i>option</i>.
+ * @throws \ValueError A ValueError is thrown if the option is not supported.
+ * @throws \TypeError A TypeError is thrown
+ * if the passed value doesn't match the expected type for the given option.
  */
 #[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
 function ftp_set_option(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default: 'resource')] $ftp, #[EV(flags: [FTP_TIMEOUT_SEC, FTP_AUTOSEEK, FTP_USEPASVADDRESS])] int $option, $value) {}

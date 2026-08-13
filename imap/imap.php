@@ -86,6 +86,7 @@ function imap_reopen(
  * deletion. You can achieve the same thing by using
  * <b>imap_expunge</b>
  * </p>
+ * @throws \ValueError Throws a ValueError if flags is invalid.
  */
 #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_close(#[LanguageLevelTypeAware(['8.1' => '\IMAP\Connection'], default: 'resource')] $imap, int $flags = 0) {}
@@ -491,6 +492,7 @@ function imap_fetchstructure(#[LanguageLevelTypeAware(['8.1' => '\IMAP\Connectio
  * <b>IMAP_GC_ENV</b> (enveloppe and bodies),
  * <b>IMAP_GC_TEXTS</b> (texts).
  * </p>
+ * @throws \ValueError Throws a ValueError if flags is invalid.
  */
 #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_gc(
@@ -519,6 +521,7 @@ function imap_expunge(#[LanguageLevelTypeAware(['8.1' => '\IMAP\Connection'], de
  * to treat the <i>msg_number</i> argument as an
  * UID.
  * </p>
+ * @throws \ValueError Throws a ValueError if flags is invalid.
  */
 #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_delete(#[LanguageLevelTypeAware(['8.1' => '\IMAP\Connection'], default: 'resource')] $imap, string $message_nums, int $flags = 0) {}
@@ -886,6 +889,7 @@ function imap_mailboxmsginfo(#[LanguageLevelTypeAware(['8.1' => '\IMAP\Connectio
  * A bit mask that may contain the single option:
  * <b>ST_UID</b> - The sequence argument contains UIDs
  * instead of sequence numbers</p>
+ * @throws \ValueError Throws a ValueError if options is invalid.
  */
 #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_setflag_full(#[LanguageLevelTypeAware(['8.1' => '\IMAP\Connection'], default: 'resource')] $imap, string $sequence, string $flag, int $options = NIL) {}
@@ -908,6 +912,7 @@ function imap_setflag_full(#[LanguageLevelTypeAware(['8.1' => '\IMAP\Connection'
  * the single option:
  * <b>ST_UID</b> - The sequence argument contains UIDs
  * instead of sequence numbers</p>
+ * @throws \ValueError Throws a ValueError if options is invalid.
  */
 #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_clearflag_full(#[LanguageLevelTypeAware(['8.1' => '\IMAP\Connection'], default: 'resource')] $imap, string $sequence, string $flag, int $options = 0) {}

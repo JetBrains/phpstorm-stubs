@@ -1200,6 +1200,7 @@ function openssl_pkey_derive(
  * passwords, etc. true if it did, otherwise false
  * </p>
  * @return string|false the generated string of bytes on success, or false on failure.
+ * @throws \Exception openssl_random_pseudo_bytes throws an Exception on failure.
  */
 #[LanguageLevelTypeAware(["7.4" => "string"], default: "string|false")]
 function openssl_random_pseudo_bytes(int $length, &$strong_result = null) {}

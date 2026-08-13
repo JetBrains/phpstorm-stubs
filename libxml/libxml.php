@@ -77,6 +77,7 @@ class LibXMLError
  * <b>stream_context_create</b>)
  * </p>
  * @return void No value is returned.
+ * @throws \TypeError Throws a TypeError when a non-stream resource is passed to context.
  */
 function libxml_set_streams_context($context): void {}
 

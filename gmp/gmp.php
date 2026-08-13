@@ -48,6 +48,7 @@ function gmp_intval(GMP|string|int $num): int {}
  * Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.
  * @return void|false
  * @since 7.0
+ * @throws \ValueError Throws a ValueError if seed is invalid.
  */
 #[LanguageLevelTypeAware(['8.0' => 'void'], default: 'void|false')]
 function gmp_random_seed(GMP|string|int $seed): void {}
@@ -394,6 +395,7 @@ function gmp_prob_prime(GMP|string|int $num, int $repetitions = 10): int {}
  * a GMP object in PHP 5.6 and later,
  * or a numeric string provided that it is possible to convert the latter to a number.</p>
  * @return GMP A random GMP number.
+ * @throws \ValueError If bits is less than 1, a ValueError will be thrown.
  */
 function gmp_random_bits(int $bits): GMP {}
 
@@ -403,6 +405,7 @@ function gmp_random_bits(int $bits): GMP {}
  * @param GMP|string|int $min <p>A GMP number representing the lower bound for the random number</p>
  * @param GMP|string|int $max <p>A GMP number representing the upper bound for the random number</p>
  * @return GMP A random GMP number.
+ * @throws \ValueError If max is less than min, a ValueError will be thrown.
  */
 function gmp_random_range(GMP|string|int $min, GMP|string|int $max): GMP {}
 
@@ -740,6 +743,8 @@ function gmp_nextprime(GMP|string|int $num): GMP {}
  * @param int $k
  * @return GMP|false
  * @since 7.3
+ * @throws \ValueError Throws ValueError if k is negative. Prior to PHP 8.0.0, E_WARNING was issued
+ * instead.
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.0' => 'GMP'], default: 'GMP|false')]

@@ -172,6 +172,13 @@ class DOMNode
      * </p>
      * @return TNode|false The inserted node.
      * @meta
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if this node is readonly or if the previous parent of
+     * the node being inserted is readonly. DOM_HIERARCHY_REQUEST_ERR Raised if this node is of a
+     * type that does not allow children of the type of the node node, or if the node to append is
+     * one of this node's ancestors or this node itself. DOM_WRONG_DOCUMENT_ERR Raised if node was
+     * created from a different document than the one that created this node. DOM_NOT_FOUND_ERR
+     * Raised if child is not a child of this node.
      */
     public function insertBefore(
         DOMNode $node,
@@ -192,6 +199,13 @@ class DOMNode
      * </p>
      * @return TNode|false The old node or false if an error occur.
      * @meta
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if this node is readonly or if the previous parent of
+     * the node being inserted is readonly. DOM_HIERARCHY_REQUEST_ERR Raised if this node is of a
+     * type that does not allow children of the type of the node node, or if the node to put in is
+     * one of this node's ancestors or this node itself. DOM_WRONG_DOCUMENT_ERR Raised if node was
+     * created from a different document than the one that created this node. DOM_NOT_FOUND_ERR
+     * Raised if child is not a child of this node.
      */
     public function replaceChild(DOMNode $node, DOMNode $child) {}
 
@@ -204,6 +218,9 @@ class DOMNode
      * </p>
      * @return TNode|false If the child could be removed the functions returns the old child.
      * @meta
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if this node is readonly. DOM_NOT_FOUND_ERR Raised if
+     * child is not a child of this node.
      */
     public function removeChild(DOMNode $child) {}
 
@@ -216,6 +233,12 @@ class DOMNode
      * </p>
      * @return TNode|false The node added.
      * @meta
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if this node is readonly or if the previous parent of
+     * the node being inserted is readonly. DOM_HIERARCHY_REQUEST_ERR Raised if this node is of a
+     * type that does not allow children of the type of the node node, or if the node to append is
+     * one of this node's ancestors or this node itself. DOM_WRONG_DOCUMENT_ERR Raised if node was
+     * created from a different document than the one that created this node.
      */
     public function appendChild(DOMNode $node) {}
 
@@ -431,12 +454,14 @@ class DOMNode
     /**
      * @link https://php.net/manual/en/domnode.sleep.php
      * @since 8.1
+     * @throws \Error Throws an Error exception when called.
      */
     public function __sleep(): array {}
 
     /**
      * @link https://php.net/manual/en/domnode.wakeup.php
      * @since 8.1
+     * @throws \Error Throws an Error exception when called.
      */
     public function __wakeup(): void {}
 }
@@ -638,12 +663,14 @@ class DOMNameSpaceNode
     /**
      * @link https://php.net/manual/en/domnamespacenode.sleep.php
      * @since 8.1
+     * @throws \Error Throws an Error exception when called.
      */
     public function __sleep(): array {}
 
     /**
      * @link https://php.net/manual/en/domnamespacenode.wakeup.php
      * @since 8.1
+     * @throws \Error Throws an Error exception when called.
      */
     public function __wakeup(): void {}
 }
@@ -955,6 +982,8 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * The content of the processing instruction.
      * </p>
      * @return DOMProcessingInstruction|false The new DOMProcessingInstruction or false if an error occurred.
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_INVALID_CHARACTER_ERR Raised if target contains an invalid character.
      */
     public function createProcessingInstruction(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $target,
@@ -983,6 +1012,8 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMEntityReference|false The new DOMEntityReference or false if an error
      * occurred.
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_INVALID_CHARACTER_ERR Raised if name contains an invalid character.
      */
     public function createEntityReference(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
@@ -1014,6 +1045,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMNode|false The copied node or false, if it cannot be copied.
      * @meta
+     * @throws \DOMException DOMException is thrown if node cannot be imported.
      */
     public function importNode(
         DOMNode $node,
@@ -1099,6 +1131,8 @@ class DOMDocument extends DOMNode implements DOMParentNode
      *
      * @link https://php.net/manual/en/domdocument.adoptnode.php
      * @param DOMNode $node The node to transfer.
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NOT_SUPPORTED_ERR Raised if the node type is not supported for document transfers.
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.3' => 'DOMNode|false'], default: '')]
@@ -1209,6 +1243,8 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * Additional Options. Currently only LIBXML_NOEMPTYTAG is supported.
      * </p>
      * @return string|false the XML, or false if an error occurred.
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_WRONG_DOCUMENT_ERR Raised if node is from another document.
      */
     #[TentativeType]
     public function saveXML(
@@ -1586,6 +1622,9 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * @return string The specified substring. If the sum of offset
      * and count exceeds the length, then all 16-bit units
      * to the end of the data are returned.
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_INDEX_SIZE_ERR Raised if offset is negative or greater than the number of UTF-8
+     * codepoints in data, or if count is negative.
      */
     public function substringData(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset,
@@ -1613,6 +1652,9 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * The string to insert.
      * </p>
      * @return bool
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_INDEX_SIZE_ERR Raised if offset is negative or greater than the number of UTF-8
+     * codepoints in data.
      */
     #[TentativeType]
     public function insertData(
@@ -1632,6 +1674,9 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * the length, then all characters to the end of the data are deleted.
      * </p>
      * @return bool
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_INDEX_SIZE_ERR Raised if offset is negative or greater than the number of UTF-8
+     * codepoints in data, or if count is negative.
      */
     #[TentativeType]
     public function deleteData(
@@ -1654,6 +1699,9 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * The string with which the range must be replaced.
      * </p>
      * @return bool
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_INDEX_SIZE_ERR Raised if offset is negative or greater than the number of UTF-8
+     * codepoints in data, or if count is negative.
      */
     #[TentativeType]
     public function replaceData(
@@ -1868,6 +1916,8 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The value of the attribute.
      * </p>
      * @return DOMAttr|false The new DOMAttr or false if an error occurred.
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly.
      */
     public function setAttribute(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
@@ -1881,6 +1931,8 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The name of the attribute.
      * </p>
      * @return bool true on success or false on failure.
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly.
      */
     #[TentativeType]
     public function removeAttribute(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName): bool {}
@@ -1902,6 +1954,8 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The attribute node.
      * </p>
      * @return DOMAttr|null Old node if the attribute has been replaced or null.
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_WRONG_DOCUMENT_ERR Raised if attr belongs to a different document than the element.
      */
     public function setAttributeNode(DOMAttr $attr) {}
 
@@ -1912,6 +1966,9 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The attribute node.
      * </p>
      * @return bool true on success or false on failure.
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly. DOM_NOT_FOUND_ERR Raised if
+     * attr is not an attribute of the element.
      */
     public function removeAttributeNode(DOMAttr $attr) {}
 
@@ -1960,6 +2017,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The value of the attribute.
      * </p>
      * @return void
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly. DOM_NAMESPACE_ERR Raised if
+     * qualifiedName is a malformed qualified name, or if qualifiedName has a prefix and namespace
+     * is null.
      */
     #[TentativeType]
     public function setAttributeNS(
@@ -1978,6 +2039,8 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The local name.
      * </p>
      * @return void
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly.
      */
     #[TentativeType]
     public function removeAttributeNS(
@@ -2006,6 +2069,8 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @link https://php.net/manual/en/domelement.setattributenodens.php
      * @param DOMAttr $attr
      * @return DOMAttr the old node if the attribute has been replaced.
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_WRONG_DOCUMENT_ERR Raised if attr belongs to a different document than the element.
      */
     public function setAttributeNodeNS(DOMAttr $attr) {}
 
@@ -2068,6 +2133,9 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * ID, false otherwise.
      * </p>
      * @return void
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly. DOM_NOT_FOUND_ERR Raised if
+     * qualifiedName is not an attribute of this element.
      */
     #[TentativeType]
     public function setIdAttribute(
@@ -2089,6 +2157,9 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * ID, false otherwise.
      * </p>
      * @return void
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly. DOM_NOT_FOUND_ERR Raised if
+     * name is not an attribute of this element.
      */
     #[TentativeType]
     public function setIdAttributeNS(
@@ -2108,6 +2179,9 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * ID, false otherwise.
      * </p>
      * @return void
+     * @throws \DOMException May throw a DOMException with the following error codes:
+     * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly. DOM_NOT_FOUND_ERR Raised if
+     * name is not an attribute of this element.
      */
     #[TentativeType]
     public function setIdAttributeNode(DOMAttr $attr, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isId): void {}
@@ -2591,6 +2665,14 @@ class DOMXPath
      * the given XPath expression. Any expression which does not return nodes
      * will return an empty DOMNodeList. The return is false if the expression
      * is malformed or the contextnode is invalid.
+     * @throws \Error Throws an Error if a PHP callback is invoked but there were no callbacks
+     * registered, or if the named callback was not registered. Throws a TypeError if the
+     * php:function syntax is used and the handler name is not a string. Throws an Error if a
+     * non-DOM object was returned from a callback.
+     * @throws \TypeError Throws an Error if a PHP callback is invoked but there were no callbacks
+     * registered, or if the named callback was not registered. Throws a TypeError if the
+     * php:function syntax is used and the handler name is not a string. Throws an Error if a
+     * non-DOM object was returned from a callback.
      */
     #[TentativeType]
     public function query(
@@ -2635,6 +2717,12 @@ class DOMXPath
      * an array of function names.
      * </p>
      * @return void
+     * @throws \ValueError Throws a ValueError if a callback name is not valid. Throws a ValueError
+     * if options contains an invalid option. Throws a ValueError if overrideEncoding is an unknown
+     * encoding. Throws a TypeError if a given callback is not callable.
+     * @throws \TypeError Throws a ValueError if a callback name is not valid. Throws a ValueError
+     * if options contains an invalid option. Throws a ValueError if overrideEncoding is an unknown
+     * encoding. Throws a TypeError if a given callback is not callable.
      */
     #[TentativeType]
     public function registerPhpFunctions(#[LanguageLevelTypeAware(['8.0' => 'string|array|null'], default: '')] $restrict = null): void {}

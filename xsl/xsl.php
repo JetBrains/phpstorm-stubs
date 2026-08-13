@@ -46,6 +46,7 @@ class XSLTProcessor
      * <b>SimpleXMLElement</b> object.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \TypeError Throws a TypeError if stylesheet is not an XML object.
      */
     #[TentativeType]
     public function importStylesheet(#[LanguageLevelTypeAware(['8.0' => 'object'], default: '')] $stylesheet): bool {}
@@ -104,6 +105,7 @@ class XSLTProcessor
      * The new value of the XSLT parameter.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \ValueError Throws a ValueError if any of the arguments contain null bytes.
      */
     #[TentativeType]
     public function setParameter(

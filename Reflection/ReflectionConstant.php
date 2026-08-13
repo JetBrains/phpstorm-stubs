@@ -13,6 +13,8 @@ class ReflectionConstant implements Reflector
      *
      * @link https://php.net/manual/en/reflectionconstant.construct.php
      * @param string $name The name of the constant.
+     * @throws \ReflectionException Throws a ReflectionException in case the given constant does not
+     * exist.
      */
     public function __construct(string $name) {}
 

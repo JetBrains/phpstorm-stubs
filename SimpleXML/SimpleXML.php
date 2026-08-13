@@ -319,6 +319,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * Returns the current element
      * @link https://php.net/manual/en/simplexmliterator.current.php
      * @return static the current element as a <b>SimpleXMLElement</b> object.
+     * @throws \Error Throws an Error on failure.
      */
     #[Pure]
     #[TentativeType]
@@ -328,6 +329,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * Return current key
      * @link https://php.net/manual/en/simplexmliterator.key.php
      * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object
+     * @throws \Error Throws an Error on failure.
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|false')]
@@ -538,6 +540,7 @@ function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLEle
  * </p>
  * @return SimpleXMLElement|null a SimpleXMLElement or <b>FALSE</b> on failure.
  * @meta
+ * @throws \TypeError Throws a TypeError when passed a non-XML or non-HTML node.
  */
 function simplexml_import_dom(#[LanguageLevelTypeAware(['8.4' => 'object'], default: 'SimpleXMLElement|DOMNode')] $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
 

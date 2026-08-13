@@ -25,6 +25,7 @@ use JetBrains\PhpStorm\Pure;
  * @return string a string containing the calculated message digest as lowercase hexits
  * unless <i>binary</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
+ * @throws \ValueError Throws a ValueError exception if algo is unknown.
  */
 #[Pure]
 function hash(string $algo, string $data, bool $binary = false, #[PhpStormStubsElementAvailable('8.1')] array $options = []): string {}
@@ -84,6 +85,8 @@ function hash_file(string $algo, string $filename, bool $binary = false, #[PhpSt
  * @return string a string containing the calculated message digest as lowercase hexits
  * unless <i>binary</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
+ * @throws \ValueError Throws a ValueError exception if algo is unknown or is a non-cryptographic
+ * hash function.
  */
 #[Pure]
 function hash_hmac(string $algo, string $data, string $key, bool $binary = false): string {}
@@ -109,6 +112,8 @@ function hash_hmac(string $algo, string $data, string $key, bool $binary = false
  * @return string|false a string containing the calculated message digest as lowercase hexits
  * unless <i>binary</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
+ * @throws \ValueError Throws a ValueError exception if algo is unknown or is a non-cryptographic
+ * hash function.
  */
 #[Pure]
 function hash_hmac_file(string $algo, string $filename, string $key, bool $binary = false): string|false {}
@@ -136,6 +141,10 @@ function hash_hmac_file(string $algo, string $filename, string $key, bool $binar
  * @return HashContext|resource a Hashing Context resource for use with <b>hash_update</b>,
  * <b>hash_update_stream</b>, <b>hash_update_file</b>,
  * and <b>hash_final</b>.
+ * @throws \ValueError Throws a ValueError exception if algo is unknown or is a non-cryptographic
+ * hash function, or if key is empty. Passing configurations options of the wrong type in options
+ * will now emit an E_DEPRECATED error because they can be interpreted incorrectly. This will become
+ * a ValueError in the future.
  */
 #[Pure]
 #[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")]
@@ -249,6 +258,9 @@ function hash_algos(): array {}
  * @since 7.1
  * Generate a HKDF key derivation of a supplied key input
  * @link https://php.net/manual/en/function.hash-hkdf.php
+ * @throws \ValueError Throws a ValueError exception if key is empty, algo is
+ * unknown/non-cryptographic, length is less than 0 or too large (greater than 255 times the size of
+ * the hash function).
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
@@ -295,6 +307,9 @@ function hash_hmac_algos(): array {}
  * <i>binary</i> is set to <b>TRUE</b> in which case the raw
  * binary representation of the derived key is returned.
  * @since 5.5
+ * @throws \ValueError Throws a ValueError exception if the algorithm is unknown, the iterations
+ * parameter is less than or equal to 0, the length is less than 0 or the salt is too long (greater
+ * than INT_MAX - 4).
  */
 #[Pure]
 function hash_pbkdf2(

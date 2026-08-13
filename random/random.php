@@ -70,6 +70,7 @@ namespace {
      * </p>
      * @return int A random integer value between min (or 0)
      * and max (or mt_getrandmax, inclusive)
+     * @throws \ValueError If max is less than min, a ValueError will be thrown.
      */
     function mt_rand(int $min, int $max): int {}
 
@@ -179,6 +180,8 @@ namespace Random\Engine
          * interpreted as an unsigned 64 bit integer, and advancing the engine another step. string
          * Fills the state by interpreting a 16 byte string as a little-endian unsigned 128 bit
          * integer.
+         * @throws \ValueError If the length of a string seed is not 16 bytes, a ValueError will be
+         * thrown.
          */
         public function __construct(string|int|null $seed = null) {}
 
@@ -198,6 +201,7 @@ namespace Random\Engine
          * @link https://php.net/manual/en/random-engine-pcgoneseq128xslrr64.jump.php
          * @param int $advance The number of steps to move ahead; must be 0 or greater.
          * @return void No value is returned.
+         * @throws \ValueError If advance is less than 0, a ValueError will be thrown.
          */
         public function jump(int $advance): void {}
 
@@ -238,6 +242,8 @@ namespace Random\Engine
          * with four consecutive values generated with the SplitMix64 algorithm that was seeded with
          * seed interpreted as an unsigned 64 bit integer. string Fills the state by interpreting a
          * 32 byte string as four little-endian unsigned 64 bit integers.
+         * @throws \ValueError If the length of a string seed is not 32 bytes, a ValueError will be
+         * thrown. If a string seed consists of 32 NUL bytes ("\x00"), a ValueError will be thrown.
          */
         public function __construct(string|int|null $seed = null) {}
 
@@ -305,6 +311,8 @@ namespace Random\Engine
          *
          * @link https://php.net/manual/en/random-engine-secure.generate.php
          * @return string A string containing PHP_INT_SIZE cryptographically secure random bytes.
+         * @throws \Random\RandomException If an appropriate source of randomness cannot be found, a
+         * Random\RandomException will be thrown.
          */
         public function generate(): string {}
     }
@@ -330,6 +338,16 @@ namespace Random
          * with unsigned 64 bit integers internally. If the returned string contains more than 64
          * bit (8 byte) of randomness the exceeding bytes will be ignored. Other applications may be
          * able to process more than 64 bit at once.
+         * @throws \Random\RandomException If generating randomness fails, a Random\RandomException
+         * should be thrown. Any other Exception thrown during generation should be caught and
+         * wrapped into a Random\RandomException.
+         * @throws \Random\BrokenRandomEngineError If generating randomness fails, a
+         * Random\RandomException should be thrown. Any other Exception thrown during generation
+         * should be caught and wrapped into a Random\RandomException. If the returned string is
+         * empty, a Random\BrokenRandomEngineError will be thrown by the Random\Randomizer. If the
+         * implemented algorithm is severely biased, a Random\BrokenRandomEngineError may be thrown
+         * by the Random\Randomizer to prevent infinite loops if rejection sampling is required to
+         * return unbiased results.
          */
         public function generate(): string;
     }
@@ -359,6 +377,13 @@ namespace Random
          * @return int A positive integer between 0 and a maximum value depending on the number of
          * bytes returned from Random\Engine::generate. The exact maximum can be calculated as
          * 2$engine_bytes * 8 - 1 - 1.
+         * @throws \Random\RandomException To avoid inconsistencies, 32 bit PHP will throw
+         * Random\RandomException if the output size of Random\Engine::generate exceeds 32 bits, as
+         * the selected integer cannot be returned losslessly. This affects the native 64 bit
+         * engines Random\Engine\PcgOneseq128XslRr64 and Random\Engine\Xoshiro256StarStar. Any
+         * userland engine returning more than 4 bytes of randomness is also affected. Any
+         * Throwables thrown by the Random\Engine::generate method of the underlying
+         * Random\Randomizer::$engine.
          */
         public function nextInt(): int {}
 
@@ -369,6 +394,9 @@ namespace Random
          * @param int $max The highest value to be returned.
          * @return int A uniformly selected integer from the closed interval [min, max]. Both min
          * and max are possible return values.
+         * @throws \ValueError If max is less than min, a ValueError will be thrown. Any Throwables
+         * thrown by the Random\Engine::generate method of the underlying
+         * Random\Randomizer::$engine.
          */
         public function getInt(int $min, int $max): int {}
 
@@ -381,6 +409,9 @@ namespace Random
          * @param int $length The length of the random string that should be returned in bytes; must
          * be 1 or greater.
          * @return string A string containing the requested number of random bytes.
+         * @throws \ValueError If the value of length is less than 1, a ValueError will be thrown.
+         * Any Throwables thrown by the Random\Engine::generate method of the underlying
+         * Random\Randomizer::$engine.
          */
         public function getBytes(int $length): string {}
 
@@ -420,6 +451,9 @@ namespace Random
          * elements in array.
          * @return array An array containing num distinct array keys of array. The returned array
          * will be a list (array_is_list). It will be a subset of the array returned by array_keys.
+         * @throws \ValueError If num is less than 1 or greater than the number of elements in
+         * array, a ValueError will be thrown. Any Throwables thrown by the Random\Engine::generate
+         * method of the underlying Random\Randomizer::$engine.
          */
         public function pickArrayKeys(array $array, int $num): array {}
 
@@ -447,12 +481,20 @@ namespace Random
         /**
          * @link https://php.net/manual/en/random-randomizer.getfloat.php
          * @since 8.3
+         * @throws \ValueError If the value of min is not finite (is_finite), a ValueError will be
+         * thrown. If the value of max is not finite (is_finite), a ValueError will be thrown. If
+         * the requested interval does not contain any values, a ValueError will be thrown. Any
+         * Throwables thrown by the Random\Engine::generate method of the underlying
+         * Random\Randomizer::$engine.
          */
         public function getFloat(float $min, float $max, IntervalBoundary $boundary = IntervalBoundary::ClosedOpen): float {}
 
         /**
          * @link https://php.net/manual/en/random-randomizer.getbytesfromstring.php
          * @since 8.3
+         * @throws \ValueError If string is empty, a ValueError will be thrown. If the value of
+         * length is less than 1, a ValueError will be thrown. Any Throwables thrown by the
+         * Random\Engine::generate method of the underlying Random\Randomizer::$engine.
          */
         public function getBytesFromString(string $string, int $length): string {}
     }
