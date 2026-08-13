@@ -19,7 +19,7 @@
       ReflectionIntersectionType), which is legitimate on older runtimes.
 -->
 <phpunit bootstrap="vendor/autoload.php"
-         cacheResult="false"
+         recordTestRunHistory="false"
          failOnWarning="true"
          failOnRisky="true"
          failOnDeprecation="true"

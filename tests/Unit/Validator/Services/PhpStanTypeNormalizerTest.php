@@ -148,6 +148,17 @@ class PhpStanTypeNormalizerTest extends TestCase
             'typed array, 2d' => ['int[][]', 'array'],
             'typed array, class' => ['\\Foo[]', 'array'],
 
+            // A parenthesised element type needs its own rule: the suffix rule above requires word
+            // characters before the `[]` and cannot see a `)`. Without it the parentheses survived
+            // into the output and the leaf mapper read their contents as class names, e.g.
+            // getopt()'s type came out as the nonsense '(string|array|array)[]|false'.
+            'parenthesised union array' => ['(string|false)[]', 'array'],
+            'parenthesised, mixed suffixes' => ['(string|false|string[]|false[])[]|false', 'array|false'],
+            'parenthesised, nested' => ['((int|string)[])[]', 'array'],
+            'parenthesised, in union' => ['array{a: int}|(int|string)[]', 'array|array'],
+            // A callable's parentheses are not `[]`-suffixed, so the rule cannot swallow them.
+            'callable is not an array' => ['callable(int): (string|false)[]', 'callable'],
+
             // Class-constant value types are a value-level refinement the check cannot evaluate.
             'class constant' => ['\\Foo\\Bar::BAZ', 'mixed'],
             'class constant family' => ['Foo::BAR_*', 'mixed'],

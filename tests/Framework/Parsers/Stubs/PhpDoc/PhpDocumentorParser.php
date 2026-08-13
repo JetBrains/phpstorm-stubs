@@ -10,6 +10,14 @@ use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use phpDocumentor\Reflection\DocBlockFactory;
+use phpDocumentor\Reflection\PseudoTypes\Generic as GenericType;
+use phpDocumentor\Reflection\Type;
+use phpDocumentor\Reflection\TypeResolver;
+use phpDocumentor\Reflection\Types\AbstractList;
+use phpDocumentor\Reflection\Types\AggregatedType;
+use phpDocumentor\Reflection\Types\Array_;
+use phpDocumentor\Reflection\Types\Context;
+use phpDocumentor\Reflection\Types\Nullable;
 use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
 use StubTests\Framework\Parsers\Stubs\Versions\DeprecationParser;
 
@@ -20,6 +28,13 @@ use StubTests\Framework\Parsers\Stubs\Versions\DeprecationParser;
 class PhpDocumentorParser implements PhpDocParserInterface
 {
     private ?DocBlockFactory $factory = null;
+    private ?TypeResolver $typeResolver = null;
+
+    /**
+     * Empty context, matching what DocBlockFactory::createInstance() resolves types against, so
+     * {@see rendersStably()} re-resolves a rendering exactly as the factory originally did.
+     */
+    private ?Context $typeContext = null;
 
     /**
      * Get or create the DocBlockFactory instance (lazy initialization).
@@ -73,7 +88,7 @@ class PhpDocumentorParser implements PhpDocParserInterface
     /**
      * Fill in `@param`/`@return`/`@var` types that phpDocumentor dropped, reading them verbatim from
      * the raw docblock. Gaps are filled, and values phpDocumentor produced are also replaced when
-     * it collapsed a multi-argument generic (see {@see preferFaithfulType}); otherwise the value
+     * its rendering turns out to be lossy (see {@see preferFaithfulType}); otherwise the value
      * phpDocumentor already produced is kept.
      */
     private function recoverDroppedTypes(string $docComment, ParsedPhpDoc $parsed): void
@@ -116,16 +131,26 @@ class PhpDocumentorParser implements PhpDocParserInterface
      * Decide between phpDocumentor's resolved type and the verbatim type read from the raw
      * docblock.
      *
-     * phpDocumentor's Collection value object models only a value type and an optional key type,
-     * so any generic with more than two arguments is silently truncated: e.g.
-     * `\Generator<int, list<string>, void, void>` is rendered as `\Generator<void,void>` (the
-     * arguments are reversed and the surplus dropped). When the verbatim type is the same generic
-     * but carries more top-level arguments, it is the faithful one and wins. Whitespace-only or
-     * equivalent renderings keep phpDocumentor's output to avoid needless cache churn.
+     * phpDocumentor's rendering is authoritative only when it is *lossless*. Renderings that merely
+     * differ from the raw text (added `, ` after commas, FQN-prefixed identifiers, `T[]` rewritten
+     * as `array<T>`, redundant parentheses dropped) are normalisation, not loss, and are kept so the
+     * parsed cache does not churn. Three independent checks look for actual loss:
+     *
+     * 1. {@see rendersStably()} — a rendering that is not a fixed point has dropped something the
+     *    raw docblock still carries.
+     * 2. {@see rendersCompoundArrayAmbiguously()} — the one rendering bug that *is* a fixed point,
+     *    so check 1 cannot see it.
+     * 3. {@see decomposeGeneric()} — a truncated generic also renders stably; it is simply missing
+     *    arguments the raw text has. Retained for the pre-6.0 `Collection` behaviour and as cover
+     *    should generic truncation ever return.
      */
     private function preferFaithfulType(?string $current, string $verbatim): string
     {
         if ($current === null) {
+            return $verbatim;
+        }
+
+        if (!$this->rendersStably($current) || $this->rendersCompoundArrayAmbiguously($verbatim)) {
             return $verbatim;
         }
 
@@ -138,6 +163,124 @@ class PhpDocumentorParser implements PhpDocParserInterface
         }
 
         return $current;
+    }
+
+    /**
+     * Whether re-resolving a rendered type string reproduces it verbatim.
+     *
+     * Must be given phpDocumentor's raw rendering, *before* template names are unqualified by
+     * {@see \StubTests\Framework\PhpDoc\TemplateTypeNormalizer}: a bare `T` re-resolves to `\T`,
+     * which would read as instability when it is only the unqualification being undone.
+     *
+     * A type phpDocumentor cannot re-parse is treated as unstable — if the library will not accept
+     * its own output, that output is not something to store.
+     */
+    private function rendersStably(string $rendered): bool
+    {
+        if ($this->typeResolver === null) {
+            $this->typeResolver = new TypeResolver();
+            $this->typeContext = new Context('');
+        }
+
+        try {
+            return (string)$this->typeResolver->resolve($rendered, $this->typeContext) === $rendered;
+        } catch (\Throwable) {
+            return false;
+        }
+    }
+
+    /**
+     * Whether the type contains an array whose element type is a union or intersection, which
+     * phpDocumentor renders ambiguously.
+     *
+     * `Array_::__toString()` only reaches its unambiguous `array<…>` branch when the rendered
+     * element type does not already end in `[]`; otherwise it appends `[]` to the element string.
+     * For a compound element that is wrong at any nesting depth, because `A|B[]` parses as
+     * `A|(B[])` and never as `(A|B)[]`. So `(int|string[])[]` renders as `int|string[][]` — a
+     * different type — and `getopt()`'s `(string|false|string[]|false[])[]|false` additionally
+     * loses its trailing `|false` when re-parsed.
+     *
+     * This cannot be decided from the rendered string alone: `int|string[]` is a perfectly ordinary
+     * type that is indistinguishable from a corrupted `(int|string)[]`. Hence the check runs against
+     * the resolved object graph of the *raw* text, where the grouping is still explicit.
+     *
+     * Deliberately over-approximating: it flags every compound-element array, including ones whose
+     * element string does not end in `[]` and which therefore do render correctly, e.g.
+     * `(string|false)[]` → `array<string|false>`. Those keep the author's `(string|false)[]` instead,
+     * which is equally unambiguous and handled by
+     * {@see \StubTests\Framework\Validator\Services\PhpStanTypeNormalizer::strip()}. Narrowing the
+     * predicate would mean re-deriving which branch `Array_::__toString()` took, i.e. reimplementing
+     * the buggy logic in order to second-guess it. `getopt()` is the only stub affected either way.
+     *
+     * Deliberately `get_class()` rather than `instanceof`: every `Array_` subclass in type-resolver
+     * (`List_`, `NonEmptyArray`, `ArrayShape`, `CallableArray`, `PropertiesOf`, …) overrides
+     * `__toString()` and always brackets its arguments, as does `Iterable_`. Only plain `Array_`
+     * carries the ambiguous branch.
+     */
+    private function rendersCompoundArrayAmbiguously(string $verbatim): bool
+    {
+        if (!str_contains($verbatim, '[]')) {
+            return false;
+        }
+
+        if ($this->typeResolver === null) {
+            $this->typeResolver = new TypeResolver();
+            $this->typeContext = new Context('');
+        }
+
+        try {
+            $type = $this->typeResolver->resolve($verbatim, $this->typeContext);
+        } catch (\Throwable) {
+            return false;
+        }
+
+        return $this->containsCompoundElementArray($type);
+    }
+
+    /**
+     * Recursively look for a plain `Array_` with an aggregated (union/intersection) element type.
+     */
+    private function containsCompoundElementArray(Type $type): bool
+    {
+        if ($type::class === Array_::class) {
+            if ($type->getOriginalValueType() instanceof AggregatedType) {
+                return true;
+            }
+        }
+
+        if ($type instanceof AbstractList) {
+            foreach ([$type->getOriginalKeyType(), $type->getOriginalValueType()] as $nested) {
+                if ($nested !== null && $this->containsCompoundElementArray($nested)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        if ($type instanceof AggregatedType) {
+            foreach ($type as $member) {
+                if ($this->containsCompoundElementArray($member)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        if ($type instanceof Nullable) {
+            return $this->containsCompoundElementArray($type->getActualType());
+        }
+
+        if ($type instanceof GenericType) {
+            foreach ($type->getTypes() as $argument) {
+                if ($this->containsCompoundElementArray($argument)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     /**

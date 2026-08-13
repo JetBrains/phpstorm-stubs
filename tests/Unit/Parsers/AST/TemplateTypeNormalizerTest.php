@@ -97,11 +97,11 @@ PHP;
             $methods[$m->getName()] = $m;
         }
 
-        self::assertSame('iterable<TKey,TValue>', $methods['pairs']->getStubsMetadata()->getTypeFromPhpDoc());
+        self::assertSame('iterable<TKey, TValue>', $methods['pairs']->getStubsMetadata()->getTypeFromPhpDoc());
         self::assertSame('TValue', $methods['get']->getStubsMetadata()->getTypeFromPhpDoc());
         self::assertSame('TKey', $methods['get']->getParameters()[0]->getStubsMetadata()->getTypeFromPhpDoc());
         // Real class \Map kept FQN; class template TKey and method template TNewValue both bare
-        self::assertSame('\Map<TKey,TNewValue>', $methods['map']->getStubsMetadata()->getTypeFromPhpDoc());
+        self::assertSame('\Map<TKey, TNewValue>', $methods['map']->getStubsMetadata()->getTypeFromPhpDoc());
     }
 
     public function testClassPropertyAndMethodTemplatesAreStoredBare(): void

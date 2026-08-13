@@ -67,9 +67,10 @@ final class PhpStanTypeNormalizer
      * Strip phpstan/psalm-specific syntax, leaving a plain PHP type string.
      *
      * Handles, in order: conditional return types, callable/Closure signatures, the `?T`
-     * nullable shorthand, generic brackets `<…>`, array shapes `{…}`, typed-array suffix `[]`,
-     * class-constant value types, and finally the leaf-mapping table ({@see self::LEAF_MAP}). If any
-     * resulting component is `mixed`, the whole type collapses to `mixed`.
+     * nullable shorthand, generic brackets `<…>`, array shapes `{…}`, parenthesised element types
+     * `(…)[]`, typed-array suffix `[]`, class-constant value types, and finally the leaf-mapping
+     * table ({@see self::LEAF_MAP}). If any resulting component is `mixed`, the whole type
+     * collapses to `mixed`.
      */
     public static function strip(string $type): string
     {
@@ -81,9 +82,14 @@ final class PhpStanTypeNormalizer
         }
 
         // callable(...): T / Closure(...): T signatures → base keyword (before generic stripping).
-        // Tolerates one level of nested parentheses and an optional ": ReturnType".
-        $type = preg_replace('/\bcallable\s*\((?:[^()]*|\([^()]*\))*\)(\s*:\s*[^|&,\s]+)?/i', 'callable', $type);
-        $type = preg_replace('/\\\\?\bClosure\s*\((?:[^()]*|\([^()]*\))*\)(\s*:\s*[^|&,\s]+)?/', 'Closure', $type);
+        // Tolerates one level of nested parentheses in the parameter list and an optional
+        // ": ReturnType". The return type is matched either as a balanced parenthesised group with
+        // optional `[]` suffixes or as a plain token: the plain token alone stops at the first `|`,
+        // so a grouped return type such as `callable(int): (string|false)[]` left `|false)[]`
+        // dangling after the replacement and the stray brace reached the leaf mapper.
+        $returnType = '(?:\s*:\s*(?:\([^()]*\)(?:\[])*|[^|&,\s]+))?';
+        $type = preg_replace('/\bcallable\s*\((?:[^()]*|\([^()]*\))*\)' . $returnType . '/i', 'callable', $type);
+        $type = preg_replace('/\\\\?\bClosure\s*\((?:[^()]*|\([^()]*\))*\)' . $returnType . '/', 'Closure', $type);
 
         // ?T → T|null (PHP nullable shorthand sometimes used in PhpDoc)
         if (str_starts_with($type, '?') && !str_contains($type, '|')) {
@@ -102,6 +108,19 @@ final class PhpStanTypeNormalizer
         while ($prev !== $type) {
             $prev = $type;
             $type = preg_replace('/\{[^{}]*}/', '', $type);
+        }
+
+        // Parenthesised element type: (string|false)[] → array. Must run before the word-based
+        // suffix rule below, which requires word characters immediately before the `[]` and so
+        // cannot see a `)` as the array's element type — leaving the parentheses in the output,
+        // where the leaf mapper then reads their contents as class names. Iterated so nested
+        // forms such as ((int|string)[])[] collapse too. Callable/Closure signatures are already
+        // reduced to a bare keyword above, and their parentheses are never `[]`-suffixed anyway,
+        // so they cannot be caught here.
+        $prev = null;
+        while ($prev !== $type) {
+            $prev = $type;
+            $type = preg_replace('/\([^()]*\)(?:\[])+/', 'array', $type);
         }
 
         // Typed-array suffix: string[], int[][], \Foo[] → array.

@@ -34,7 +34,7 @@ class InterfaceExistsCheckTest extends CheckTestCase
         $interfaceId = '\Iterator';
 
         $stubs = $this->createStorageManagerMock();
-        $stubs->method('hasInterface')->with($interfaceId)->willReturn(true);
+        $stubs->expects($this->once())->method('hasInterface')->with($interfaceId)->willReturn(true);
 
         $result = $this->check->run($stubs, $interfaceId, '8.0');
 
@@ -47,7 +47,7 @@ class InterfaceExistsCheckTest extends CheckTestCase
         $interfaceId = '\Random\Engine';
 
         $stubs = $this->createStorageManagerMock();
-        $stubs->method('hasInterface')->with($interfaceId)->willReturn(true);
+        $stubs->expects($this->once())->method('hasInterface')->with($interfaceId)->willReturn(true);
 
         $result = $this->check->run($stubs, $interfaceId, '8.2');
 

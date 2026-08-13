@@ -31,7 +31,7 @@ class ClassExistsCheckTest extends CheckTestCase
         $className = 'DateTime';
 
         $stubsManager = $this->createStorageManagerMock();
-        $stubsManager->method('hasClass')->with($className)->willReturn(true);
+        $stubsManager->expects($this->once())->method('hasClass')->with($className)->willReturn(true);
 
         // Act
         $result = $this->check->run($stubsManager, $className, '8.0');
@@ -48,7 +48,7 @@ class ClassExistsCheckTest extends CheckTestCase
         $className = 'MissingClass';
 
         $stubsManager = $this->createStorageManagerMock();
-        $stubsManager->method('hasClass')->with($className)->willReturn(false);
+        $stubsManager->expects($this->once())->method('hasClass')->with($className)->willReturn(false);
 
         // Act
         $result = $this->check->run($stubsManager, $className, '8.0');
@@ -69,7 +69,7 @@ class ClassExistsCheckTest extends CheckTestCase
         $className = '\\Namespace\\MyClass';
 
         $stubsManager = $this->createStorageManagerMock();
-        $stubsManager->method('hasClass')->with($className)->willReturn(true);
+        $stubsManager->expects($this->once())->method('hasClass')->with($className)->willReturn(true);
 
         // Act
         $result = $this->check->run($stubsManager, $className, '8.0');
