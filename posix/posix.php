@@ -768,6 +768,7 @@ function posix_eaccess(string $filename, int $flags = 0): bool {}
  * @param int $name The name of the configurable limit, one of the following. POSIX_PC_LINK_MAX,
  * POSIX_PC_MAX_CANON, POSIX_PC_MAX_INPUT, POSIX_PC_NAME_MAX, POSIX_PC_PATH_MAX, POSIX_PC_PIPE_BUF,
  * POSIX_PC_CHOWN_RESTRICTED, POSIX_PC_NO_TRUNC, POSIX_PC_ALLOC_SIZE_MIN, POSIX_PC_SYMLINK_MAX.
+ * @throws \ValueError Throws a ValueError when resource is invalid.
  */
 function posix_fpathconf($file_descriptor, int $name): int|false {}
 
@@ -775,6 +776,7 @@ function posix_fpathconf($file_descriptor, int $name): int|false {}
  * Returns the value of a configurable limit from name for a path
  * @since 8.3
  * @link  https://www.php.net/manual/en/function.posix-pathconf.php
+ * @throws \ValueError Throws a ValueError when path is empty.
  */
 function posix_pathconf(string $path, int $name): int|false {}
 

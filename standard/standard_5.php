@@ -141,6 +141,8 @@ function gettype(mixed $value): string {}
  * </li>
  * </ul>
  * @return bool true on success or false on failure.
+ * @throws \ValueError Throws a ValueError if the value of type is not a valid type, as of PHP
+ * 8.0.0. Prior to PHP 8.0.0, a E_WARNING was emitted and false was returned.
  */
 function settype(mixed &$var, #[ExpectedValues(["bool", "boolean", "int", "integer", "float", "double", "string", "array", "object", "null"])] string $type): bool {}
 
@@ -992,6 +994,8 @@ function tmpfile() {}
  * use rtrim if you do not want the line ending
  * present.
  * </p>
+ * @throws \ValueError As of PHP 8.3.0, throws a ValueError if flags includes any invalid values,
+ * such as FILE_APPEND. Emits an E_WARNING level error if the file does not exist.
  */
 #[Pure(true)]
 function file(#[FileReference] string $filename, int $flags = 0, $context = null): array|false {}

@@ -24,6 +24,8 @@ function spl_classes(): array {}
  * </p>
  * @return void
  * @since 5.1
+ * @throws \LogicException Throws LogicException when the class is not found and there are no other
+ * autoloaders registered.
  */
 function spl_autoload(string $class, ?string $file_extensions = null): void {}
 

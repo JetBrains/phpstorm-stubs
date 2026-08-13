@@ -694,6 +694,8 @@ function pg_fetch_array(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Result'], def
  * <p>
  * <b>FALSE</b> is returned if <i>row</i> exceeds the number
  * of rows in the set, there are no more rows, or on any other error.
+ * @throws \ValueError A ValueError is thrown when the constructor_args is non-empty with the class
+ * not having a constructor.
  */
 function pg_fetch_object(
     #[LanguageLevelTypeAware(['8.1' => '\PgSql\Result'], default: 'resource')] $result,
@@ -1658,6 +1660,10 @@ function pg_meta_data(
  * <b>PGSQL_CONV_IGNORE_NOT_NULL</b>, combined.
  * </p>
  * @return array|false An array of converted values, or <b>FALSE</b> on error.
+ * @throws \ValueError A ValueError or TypeError is thrown when the value or type of field does not
+ * match properly with a PostgreSQL's type.
+ * @throws \TypeError A ValueError or TypeError is thrown when the value or type of field does not
+ * match properly with a PostgreSQL's type.
  */
 function pg_convert(
     #[LanguageLevelTypeAware(['8.1' => '\PgSql\Connection'], default: 'resource')] $connection,
@@ -1690,6 +1696,11 @@ function pg_convert(
  * </p>
  * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
  * via <i>options</i>.
+ * @throws \ValueError A ValueError is thrown when the specified table is invalid. A ValueError or
+ * TypeError is thrown when the value or type of field does not match properly with a PostgreSQL's
+ * type.
+ * @throws \TypeError A ValueError or TypeError is thrown when the value or type of field does not
+ * match properly with a PostgreSQL's type.
  */
 #[LanguageLevelTypeAware(['8.1' => '\PgSql\Result|string|bool'], default: 'resource|string|bool')]
 function pg_insert(
@@ -2121,6 +2132,7 @@ function pg_socket_poll($socket, int $read, int $write, int $timeout = -1): int 
 /**
  * @link https://php.net/manual/en/function.pg-set-chunked-rows-size.php
  * @since  8.4
+ * @throws \ValueError If size is less than 1, a ValueError will be thrown.
  */
 function pg_set_chunked_rows_size(PgSql\Connection $connection, int $size): bool {}
 /**

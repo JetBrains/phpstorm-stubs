@@ -21,6 +21,8 @@ namespace {
      * this has not been set.
      * </p>
      * @return string The sum of the two operands, as a string.
+     * @throws \ValueError This function throws a ValueError in the following cases: num1 or num2 is
+     * not a well-formed BCMath numeric string. scale is outside the valid range.
      */
     #[Pure]
     function bcadd(string $num1, string $num2, ?int $scale = null): string {}
@@ -171,6 +173,11 @@ namespace {
      * this has not been set.
      * </p>
      * @return string the result as a string.
+     * @throws \ValueError This function throws a ValueError in the following cases: num or exponent
+     * is not a well-formed BCMath numeric string; exponent has a fractional part; exponent or scale
+     * is outside the valid range
+     * @throws \DivisionByZeroError This function throws a DivisionByZeroError exception if num is 0
+     * and exponent is a negative value.
      */
     #[Pure]
     function bcpow(string $num, string $exponent, ?int $scale = null): string {}
@@ -184,6 +191,8 @@ namespace {
      * @param int|null $scale [optional]
      * @return string|null the square root as a string, or <b>NULL</b> if
      * <i>operand</i> is negative.
+     * @throws \ValueError This function throws a ValueError in the following cases: num is not a
+     * well-formed BCMath numeric string; num is less than 0; scale is outside the valid range
      */
     #[Pure]
     #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|null")]
@@ -194,6 +203,7 @@ namespace {
      * @link https://php.net/manual/en/function.bcscale.php
      * @param int $scale
      * @return int|bool
+     * @throws \ValueError This function throws a ValueError if scale is outside the valid range.
      */
     #[LanguageLevelTypeAware(['7.3' => 'int'], default: 'bool')]
     function bcscale(
@@ -243,6 +253,11 @@ namespace {
      * </p>
      * @return string|null the result as a string, or <b>NULL</b> if <i>modulus</i>
      * is 0 or <i>exponent</i> is negative.
+     * @throws \ValueError This function throws a ValueError in the following cases: num, exponent
+     * or modulus is not a well-formed BCMath numeric string; num, exponent or modulus has a
+     * fractional part; exponent is a negative value; scale is outside the valid range
+     * @throws \DivisionByZeroError This function throws a DivisionByZeroError exception if modulus
+     * is 0.
      */
     #[Pure]
     #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|null")]
@@ -257,12 +272,16 @@ namespace {
     /**
      * @link https://php.net/manual/en/function.bcceil.php
      * @since 8.4
+     * @throws \ValueError This function throws a ValueError if num is not a well-formed BCMath
+     * numeric string.
      */
     function bcceil(string $num): string {}
 
     /**
      * @link https://php.net/manual/en/function.bcround.php
      * @since 8.4
+     * @throws \ValueError This function throws a ValueError in the following cases: num is not a
+     * well-formed BCMath numeric string. An invalid mode is specified.
      */
     function bcround(string $num, int $precision = 0, RoundingMode $mode = RoundingMode::HalfAwayFromZero): string {}
 
@@ -427,6 +446,7 @@ namespace BcMath {
         /**
          * @link https://php.net/manual/en/bcmath-number.unserialize.php
          * @param array{value:numeric-string} $data
+         * @throws \ValueError This method throws a ValueError if invalid serialized data is passed.
          */
         public function __unserialize(array $data): void {}
     }

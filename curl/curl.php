@@ -2639,6 +2639,7 @@ function curl_multi_remove_handle(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiH
  * </p>
  * @return int On success, returns the number of descriptors contained in,
  * the descriptor sets. On failure, this function will return -1 on a select failure or timeout (from the underlying select system call).
+ * @throws \ValueError Throws a ValueError if timeout is less than 0 or greater than PHP_INT_MAX.
  */
 function curl_multi_select(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle, float $timeout = 1.0): int {}
 
@@ -2823,6 +2824,14 @@ function curl_multi_get_handles(CurlMultiHandle $multi_handle): array {}
 /**
  * @link https://php.net/manual/en/function.curl-share-init-persistent.php
  * @since 8.5
+ * @throws \ValueError If share_options is empty, this function throws a ValueError. If
+ * share_options contains a value not matching a CURL_LOCK_DATA_*, this function throws a
+ * ValueError. If share_options contains CURL_LOCK_DATA_COOKIE, this function throws a ValueError.
+ * If share_options contains a non-integer value, this function throws a TypeError.
+ * @throws \TypeError If share_options is empty, this function throws a ValueError. If share_options
+ * contains a value not matching a CURL_LOCK_DATA_*, this function throws a ValueError. If
+ * share_options contains CURL_LOCK_DATA_COOKIE, this function throws a ValueError. If share_options
+ * contains a non-integer value, this function throws a TypeError.
  */
 function curl_share_init_persistent(array $share_options): CurlSharePersistentHandle {}
 

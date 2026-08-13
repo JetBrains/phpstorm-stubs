@@ -2303,12 +2303,16 @@ namespace Pdo {
          * @link https://php.net/manual/en/pdo-sqlite.loadextension.php
          * @param string $name Description.
          * @return void No value is returned.
+         * @throws \Exception When does this function issue E_* level errors, and/or throw
+         * Exceptions.
          */
         public function loadExtension(string $name): void {}
 
         /**
          * @link https://php.net/manual/en/pdo-sqlite.openblob.php
          * @return resource|false
+         * @throws \Exception When does this function issue E_* level errors, and/or throw
+         * Exceptions.
          */
         public function openBlob(
             string $table,
@@ -2425,6 +2429,9 @@ namespace Pdo {
          * @param string $nullAs How to interpret SQL NULL values.
          * @param string|null $fields List of fields to insert.
          * @return bool Returns true on success or false on failure.
+         * @throws \PDOException If filename cannot be opened for reading, the failure is reported
+         * through the connection's error handling (see PDO::ATTR_ERRMODE); with
+         * PDO::ERRMODE_EXCEPTION a PDOException is thrown.
          */
         public function copyFromFile(
             string $tableName,
@@ -2466,6 +2473,9 @@ namespace Pdo {
          * @param string $nullAs How to interpret SQL NULL values.
          * @param string|null $fields List of fields to export.
          * @return bool Returns true on success or false on failure.
+         * @throws \PDOException If filename cannot be opened for writing, or cannot be written to,
+         * the failure is reported through the connection's error handling (see PDO::ATTR_ERRMODE);
+         * with PDO::ERRMODE_EXCEPTION a PDOException is thrown.
          */
         public function copyToFile(
             string $tableName,
@@ -2503,6 +2513,11 @@ namespace Pdo {
          * false. The row has a message field (the channel name) and a pid field (the process ID of
          * the notifying backend). If the notification carries a non-empty payload, the row also has
          * a payload field. With PDO::FETCH_NUM, these fields are at indexes 0, 1, and 2.
+         * @throws \ValueError A ValueError is thrown if fetchMode is not one of the valid
+         * PDO::FETCH_* constants. A ValueError is thrown if timeoutMilliseconds is less than 0. A
+         * E_WARNING is raised when timeoutMilliseconds is greater than the value that can be
+         * contained in a signed 32-bit integer, in which case it will be the maximum value of a
+         * signed 32-bit integer.
          */
         public function getNotify(int $fetchMode = \PDO::FETCH_DEFAULT, int $timeoutMilliseconds = 0): array|false {}
 

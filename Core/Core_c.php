@@ -726,6 +726,7 @@ final class Closure
     /**
      * @link https://php.net/manual/en/closure.getcurrent.php
      * @since 8.5
+     * @throws \Error Throws an Error if called outside of a closure context.
      */
     public static function getCurrent(): Closure {}
 }
@@ -821,6 +822,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      * @link https://php.net/manual/en/weakmap.offsetget.php
      * @param TKey $object Any object
      * @return TValue Value associated with the key object
+     * @throws \Error Throws an Error on failure.
      */
     #[Pure]
     public function offsetGet($object): mixed {}
@@ -849,6 +851,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      *
      * @link https://php.net/manual/en/weakmap.getiterator.php
      * @return Iterator<TKey, TValue>
+     * @throws \Exception Throws an Exception on failure.
      */
     #[Pure]
     public function getIterator(): Iterator {}
@@ -1238,6 +1241,7 @@ final class FiberError extends Error
     /**
      * Constructor to disallow direct instantiation
      * @link https://php.net/manual/en/fibererror.construct.php
+     * @throws \Error Throws an Error exception when called.
      */
     public function __construct() {}
 }

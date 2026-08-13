@@ -52,6 +52,8 @@ function strtolower(string $string): string {}
  * <p>
  * Returns <b>FALSE</b> if the needle was not found.
  * </p>
+ * @throws \ValueError If offset is greater than the length of haystack, a ValueError will be
+ * thrown.
  */
 #[Pure]
 function strpos(string $haystack, string $needle, int $offset = 0): int|false {}
@@ -78,6 +80,8 @@ function strpos(string $haystack, string $needle, int $offset = 0): int|false {}
  * </p>
  * @return int|false If needle is not found,
  * stripos will return boolean false.
+ * @throws \ValueError If offset is greater than the length of haystack, a ValueError will be
+ * thrown.
  */
 #[Pure]
 function stripos(string $haystack, string $needle, int $offset = 0): int|false {}
@@ -103,6 +107,8 @@ function stripos(string $haystack, string $needle, int $offset = 0): int|false {
  * <p>
  * Returns <b>FALSE</b> if the needle was not found.
  * </p>
+ * @throws \ValueError If offset is greater than the length of haystack, a ValueError will be
+ * thrown.
  */
 #[Pure]
 function strrpos(string $haystack, string $needle, int $offset = 0): int|false {}
@@ -132,6 +138,8 @@ function strrpos(string $haystack, string $needle, int $offset = 0): int|false {
  * </p>
  * <p>
  * If needle is not found, false is returned.
+ * @throws \ValueError If offset is greater than the length of haystack, a ValueError will be
+ * thrown.
  */
 #[Pure]
 function strripos(string $haystack, string $needle, int $offset = 0): int|false {}
@@ -409,6 +417,7 @@ function str_word_count(string $string, int $format = 0, ?string $characters = n
  * string, the entire string is returned as the first
  * (and only) array element.
  * </p>
+ * @throws \ValueError If length is less than 1, a ValueError will be thrown.
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]

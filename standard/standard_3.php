@@ -129,6 +129,8 @@ function floor(int|float $num) {}
  * PHP_ROUND_HALF_ODD.
  * </p>
  * @return float The rounded value
+ * @throws \ValueError The function throws a ValueError if mode is invalid. Prior to PHP 8.4.0, an
+ * invalid mode would silently default to PHP_ROUND_HALF_UP.
  */
 #[Pure]
 function round(

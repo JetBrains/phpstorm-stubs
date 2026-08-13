@@ -213,6 +213,8 @@ function bin2hex(string $string): string {}
  * this function will throw a ValueError.
  * Before PHP 8.0, an E_WARNING was raised instead, and the function returned false.
  * </p>
+ * @throws \ValueError If the specified number of seconds is negative, this function will throw a
+ * ValueError.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
 function sleep(int $seconds) {}
@@ -364,6 +366,7 @@ function flush(): void {}
  * (See second example).
  * </p>
  * @return string the given string wrapped at the specified length.
+ * @throws \ValueError If break is an empty string, a ValueError is thrown.
  */
 #[Pure]
 function wordwrap(string $string, int $width = 75, string $break = "\n", bool $cut_long_words = false): string {}
@@ -955,6 +958,9 @@ function iptcembed(string $iptc_data, string $filename, int $spool = 0): string|
  * <p>
  * On failure, false is returned.
  * </p>
+ * @throws \ValueError If accessing the filename image is impossible getimagesize will generate an
+ * error of level E_WARNING. On read error, getimagesize will generate an error of level E_NOTICE.
+ * As of PHP 8.0.0, a ValueError is thrown if filename is empty.
  */
 #[ArrayShape([0 => "int", 1 => "int", 2 => "int", 3 => "string", "bits" => "int", "channels" => "int", "mime" => "string"])]
 function getimagesize(#[FileReference] string $filename, &$image_info = null): array|false {}

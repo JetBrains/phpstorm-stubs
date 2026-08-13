@@ -1039,6 +1039,7 @@ function imagecreatefromgd2part(string $filename, int $x, int $y, int $width, in
  * disable or activate all filters.
  * </p>
  * @return bool true on success or false on failure.
+ * @throws \ValueError Throws a ValueError if quality is invalid.
  */
 function imagepng(GdImage $image, $file = null, int $quality = -1, int $filters = -1): bool {}
 
@@ -1055,6 +1056,7 @@ function imagepng(GdImage $image, $file = null, int $quality = -1, int $filters 
  * </p>
  * @return bool true on success or false on failure.
  * @since 5.4
+ * @throws \ValueError Throws a ValueError if quality is invalid.
  */
 function imagewebp(GdImage $image, $file = null, int $quality = -1): bool {}
 
@@ -1088,6 +1090,7 @@ function imagegif(GdImage $image, $file = null): bool {}
  * default is the default IJG quality value (about 75).
  * </p>
  * @return bool true on success or false on failure.
+ * @throws \ValueError Throws a ValueError if quality is invalid.
  */
 function imagejpeg(GdImage $image, $file = null, int $quality = -1): bool {}
 
@@ -2247,6 +2250,8 @@ function imagexbm(GdImage $image, ?string $filename, ?int $foreground_color = nu
  * the image.</p>
  * @param int ...$args
  * @return bool true on success or false on failure.
+ * @throws \ValueError Throws a ValueError if sub or plus would cause over-/underflow with the
+ * IMG_FILTER_SCATTER filter.
  */
 function imagefilter(
     GdImage $image,
@@ -3004,6 +3009,7 @@ define('IMG_WEBP_LOSSLESS', 101);
  * @param int $speed speed is optional, and ranges from 0 (slow, smaller file) to 10 (fast, larger file). If -1 is provided, the default value 6 is used.
  * @return bool Returns true on success or false on failure. However, if libgd fails to output the image, this function returns true.
  * @since 8.1
+ * @throws \ValueError Throws a ValueError if quality or speed is invalid.
  */
 function imageavif(GdImage $image, string|null $file = null, int $quality = -1, int $speed = -1): bool {}
 
@@ -3140,6 +3146,8 @@ function imagepalettetotruecolor(GdImage $image): bool {}
  *@link https://secure.php.net/manual/en/function.imagescale.php
  * @since 5.5
  * Scale an image using the given new width and height
+ * @throws \ValueError Throws a ValueError if width or height would cause over-/underflow. Throws a
+ * ValueError if mode is invalid.
  */
 function imagescale(GdImage $image, int $width, int $height = -1, int $mode = IMG_BILINEAR_FIXED): GdImage|false {}
 

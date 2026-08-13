@@ -171,6 +171,10 @@ final class TokenList implements \IteratorAggregate, \Countable
      * @link https://php.net/manual/en/dom-tokenlist.add.php
      * @param string $tokens The tokens to add.
      * @return void No value is returned.
+     * @throws \ValueError Throws a ValueError if a token contains any null bytes. Throws a
+     * @throws \DOMException with code Dom\SYNTAX_ERR if a token is the empty string. Throws a
+     * @throws \DOMException with code Dom\INVALID_CHARACTER_ERR if a token contains any ASCII
+     * whitespace.
      */
     public function add(string ...$tokens): void {}
 
@@ -182,6 +186,10 @@ final class TokenList implements \IteratorAggregate, \Countable
      * @link https://php.net/manual/en/dom-tokenlist.remove.php
      * @param string $tokens The tokens to remove.
      * @return void No value is returned.
+     * @throws \ValueError Throws a ValueError if a token contains any null bytes. Throws a
+     * @throws \DOMException with code Dom\SYNTAX_ERR if a token is the empty string. Throws a
+     * @throws \DOMException with code Dom\INVALID_CHARACTER_ERR if a token contains any ASCII
+     * whitespace.
      */
     public function remove(string ...$tokens): void {}
 
@@ -195,6 +203,10 @@ final class TokenList implements \IteratorAggregate, \Countable
      * @param bool|null $force If force is provided, setting it to true will add the token, and
      * setting it to false will remove the token.
      * @return bool Returns true if the token is in the list after the call, false otherwise.
+     * @throws \ValueError Throws a ValueError if a token contains any null bytes. Throws a
+     * @throws \DOMException with code Dom\SYNTAX_ERR if a token is the empty string. Throws a
+     * @throws \DOMException with code Dom\INVALID_CHARACTER_ERR if a token contains any ASCII
+     * whitespace.
      */
     public function toggle(string $token, ?bool $force = null): bool {}
 
@@ -204,6 +216,10 @@ final class TokenList implements \IteratorAggregate, \Countable
      * @param string $token The token to replace.
      * @param string $newToken The new token.
      * @return bool Returns true if token was in the list, false otherwise.
+     * @throws \ValueError Throws a ValueError if a token contains any null bytes. Throws a
+     * @throws \DOMException with code Dom\SYNTAX_ERR if a token is the empty string. Throws a
+     * @throws \DOMException with code Dom\INVALID_CHARACTER_ERR if a token contains any ASCII
+     * whitespace.
      */
     public function replace(string $token, string $newToken): bool {}
 
@@ -215,6 +231,8 @@ final class TokenList implements \IteratorAggregate, \Countable
      * @link https://php.net/manual/en/dom-tokenlist.supports.php
      * @param string $token The token.
      * @return bool Returns true on success or false on failure.
+     * @throws \TypeError Throws a TypeError when the attribute does not define a supported tokens
+     * list.
      */
     public function supports(string $token): bool {}
     public string $value;
@@ -280,6 +298,8 @@ interface ParentNode
      * @param string $selectors A string containing one or more CSS selectors.
      * @return Element|null Returns the first Dom\Element that matches selectors. Returns null if no
      * element matches.
+     * @throws \DOMException Throws a DOMException with code Dom\SYNTAX_ERR when selectors is not a
+     * valid CSS selector string.
      */
     public function querySelector(string $selectors): ?Element;
 
@@ -560,6 +580,10 @@ final class HTMLDocument extends Document
      * @param string|null $overrideEncoding The encoding that the document was created in. If not
      * provided, it will attempt to determine the encoding that is most likely used.
      * @return HTMLDocument The parsed document as an Dom\HTMLDocument instance.
+     * @throws \ValueError Throws a ValueError if path contains null bytes or contains "%00". Throws
+     * a ValueError if options contains an invalid option. Throws a ValueError if overrideEncoding
+     * is an unknown encoding.
+     * @throws \Exception Throws an Exception if the file could not be opened.
      */
     public static function createFromFile(string $path, int $options = 0, ?string $overrideEncoding = null): HTMLDocument {}
 
@@ -576,6 +600,8 @@ final class HTMLDocument extends Document
      * @param string|null $overrideEncoding The encoding that the document was created in. If not
      * provided, it will attempt to determine the encoding that is most likely used.
      * @return HTMLDocument The parsed document as an Dom\HTMLDocument instance.
+     * @throws \ValueError Throws a ValueError if options contains an invalid option. Throws a
+     * ValueError if overrideEncoding is an unknown encoding.
      */
     public static function createFromString(string $source, int $options = 0, ?string $overrideEncoding = null): HTMLDocument {}
 
@@ -598,6 +624,8 @@ final class HTMLDocument extends Document
      * @param int $options Additional Options. The LIBXML_NOEMPTYTAG and LIBXML_NOXMLDECL options
      * are supported. Prior to PHP 8.3.0, only the LIBXML_NOEMPTYTAG option is supported.
      * @return int|false The number of bytes written on success, or false on failure.
+     * @throws \ValueError Throws a ValueError if filename is an empty string or contains any null
+     * bytes.
      */
     public function saveXmlFile(string $filename, int $options = 0): int|false {}
 
@@ -615,6 +643,8 @@ final class HTMLDocument extends Document
      * @link https://php.net/manual/en/dom-htmldocument.savehtmlfile.php
      * @param string $filename The path to the file to save to.
      * @return int|false The number of bytes written on success, or false on failure.
+     * @throws \ValueError Throws a ValueError if filename is an empty string or contains any null
+     * bytes.
      */
     public function saveHtmlFile(string $filename): int|false {}
 }
@@ -786,6 +816,10 @@ class Attr extends Node
      * @param string|null $namespaceURI The new namespace URI of the attribute.
      * @param string $qualifiedName The new qualified name of the attribute.
      * @return void No value is returned.
+     * @throws \DOMException DOMException with code Dom\NAMESPACE_ERR Raised if there is an error
+     * with the namespace, as determined by qualifiedName. DOMException with code
+     * Dom\INVALID_MODIFICATION_ERR Raised if there already exists an attribute in the element with
+     * the same qualified name.
      */
     public function rename(?string $namespaceURI, string $qualifiedName): void {}
 }

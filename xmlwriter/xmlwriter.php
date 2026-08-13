@@ -625,6 +625,7 @@ class XMLWriter
     /**
      * @link https://php.net/manual/en/xmlwriter.tostream.php
      * @since 8.4
+     * @throws \TypeError Passing a resource that is not a stream to stream will throw a TypeError.
      */
     public static function toStream($stream): static {}
 }

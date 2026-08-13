@@ -13,6 +13,7 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  * @return string If successful, this function returns the current message
  * domain, after possibly changing it.
+ * @throws \ValueError Throws a ValueError if domain is the empty string.
  */
 function textdomain(?string $domain = null): string {}
 
@@ -50,6 +51,7 @@ function gettext(string $message): string {}
  * The message
  * </p>
  * @return string A string on success.
+ * @throws \ValueError Throws a ValueError if domain is the empty string.
  */
 function dgettext(string $domain, string $message): string {}
 
@@ -105,6 +107,7 @@ function ngettext(string $singular, string $plural, int $count): string {}
  * @param string $plural
  * @param int $count
  * @return string A string on success.
+ * @throws \ValueError Throws a ValueError if domain is the empty string.
  */
 #[Pure]
 function dngettext(string $domain, string $singular, string $plural, int $count): string {}
@@ -134,6 +137,7 @@ function dcngettext(string $domain, string $singular, string $plural, int $count
  * The code set. Since 8.0.3 is nullable.  If null is passed, the currently set encoding is returned.
  * </p>
  * @return string|false A string on success.
+ * @throws \ValueError Throws a ValueError if domain is the empty string.
  */
 function bind_textdomain_codeset(string $domain, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $codeset = null): string|false {}
 

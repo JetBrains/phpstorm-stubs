@@ -1062,6 +1062,9 @@ class mysqli_result implements IteratorAggregate
      * @link https://php.net/manual/en/mysqli-result.construct.php
      * @param object $mysql
      * @param int $result_mode [optional]
+     * @throws \mysqli_sql_exception If mysqli error reporting is enabled (MYSQLI_REPORT_ERROR) and
+     * the requested operation fails, a warning is generated. If, in addition, the mode is set to
+     * MYSQLI_REPORT_STRICT, a mysqli_sql_exception is thrown instead.
      */
     public function __construct(
         #[PhpStormStubsElementAvailable(from: '8.0')] mysqli $mysql,
@@ -1484,6 +1487,9 @@ class mysqli_stmt
      * @link https://php.net/manual/en/mysqli-stmt.construct.php
      * @param mysqli $mysql
      * @param string $query [optional]
+     * @throws \mysqli_sql_exception If mysqli error reporting is enabled (MYSQLI_REPORT_ERROR) and
+     * the requested operation fails, a warning is generated. If, in addition, the mode is set to
+     * MYSQLI_REPORT_STRICT, a mysqli_sql_exception is thrown instead.
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'mysqli'], default: '')] $mysql,

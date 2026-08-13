@@ -27,6 +27,8 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * @return resource|false|Shmop On success <b>shmop_open</b> will return an id that you can
  * use to access the shared memory segment you've created. <b>FALSE</b> is
  * returned on failure.
+ * @throws \ValueError If mode is invalid, or size is less than or equal to zero, a ValueError is
+ * thrown. On other failures, E_WARNING is emitted.
  */
 #[LanguageLevelTypeAware(["8.0" => "Shmop|false"], default: "resource|false")]
 function shmop_open(int $key, string $mode, int $permissions, int $size) {}
@@ -45,6 +47,7 @@ function shmop_open(int $key, string $mode, int $permissions, int $size) {}
  * The number of bytes to read
  * </p>
  * @return string|false the data or <b>FALSE</b> on failure.
+ * @throws \ValueError If offset or size are out of range, a ValueError is thrown.
  */
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
 function shmop_read(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop, int $offset, int $size) {}
@@ -89,6 +92,8 @@ function shmop_size(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resou
  * </p>
  * @return int|false The size of the written <i>data</i>, or <b>FALSE</b> on
  * failure.
+ * @throws \ValueError If offset is out of range, or a read-only shared memory segment should be
+ * written to, a ValueError is thrown.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
 function shmop_write(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop, string $data, int $offset) {}

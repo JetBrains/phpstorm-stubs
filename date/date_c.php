@@ -555,6 +555,8 @@ class DateTimeImmutable implements DateTimeInterface
     /**
      * @link https://php.net/manual/en/datetimeimmutable.createfromtimestamp.php
      * @since 8.4
+     * @throws \DateRangeError If the timestamp is outside the range [PHP_INT_MIN, PHP_INT_MAX], a
+     * DateRangeError is thrown.
      */
     #[TentativeType]
     public static function createFromTimestamp(int|float $timestamp): static {}
@@ -568,6 +570,8 @@ class DateTimeImmutable implements DateTimeInterface
     /**
      * @link https://php.net/manual/en/datetimeimmutable.setmicrosecond.php
      * @since 8.4
+     * @throws \DateRangeError If the microsecond is outside the range [0, 999999], a DateRangeError
+     * is thrown.
      */
     #[\NoDiscard(message: "as DateTimeImmutable::setMicrosecond() does not modify the object itself")]
     public function setMicrosecond(int $microsecond): static {}
@@ -972,6 +976,8 @@ class DateTime implements DateTimeInterface
     /**
      * @link https://php.net/manual/en/datetime.createfromtimestamp.php
      * @since 8.4
+     * @throws \DateRangeError If the timestamp is outside the range [PHP_INT_MIN, PHP_INT_MAX], a
+     * DateRangeError is thrown.
      */
     #[TentativeType]
     public static function createFromTimestamp(int|float $timestamp): static {}
@@ -985,6 +991,8 @@ class DateTime implements DateTimeInterface
     /**
      * @link https://php.net/manual/en/datetime.setmicrosecond.php
      * @since 8.4
+     * @throws \DateRangeError If the microsecond is outside the range [0, 999999], a DateRangeError
+     * is thrown.
      */
     public function setMicrosecond(int $microsecond): static {}
 }
@@ -1384,6 +1392,8 @@ class DatePeriod implements IteratorAggregate
     /**
      * @link https://php.net/manual/en/dateperiod.createfromiso8601string.php
      * @since 8.3
+     * @throws \DateMalformedPeriodStringException Throws an DateMalformedPeriodStringException when
+     * the specification cannot be parsed as a valid ISO 8601 period.
      */
     public static function createFromISO8601String(string $specification, int $options = 0): static {}
 }

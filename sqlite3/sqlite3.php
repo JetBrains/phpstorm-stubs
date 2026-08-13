@@ -438,6 +438,7 @@ class SQLite3
      * An optional encryption key used when encrypting and decrypting an
      * SQLite database.
      * </p>
+     * @throws \Exception Throws an Exception on failure.
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
@@ -512,6 +513,7 @@ class SQLite3Stmt
      * Closes the prepared statement
      * @link https://php.net/manual/en/sqlite3stmt.close.php
      * @return bool <b>TRUE</b>
+     * @throws \Error An Error is thrown if the method is called on an uninitialized object.
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
@@ -629,6 +631,8 @@ class SQLite3Stmt
      * @param bool $expand Whether to retrieve the expanded SQL. Passing TRUE is only supported as of libsqlite 3.14.
      * @return string|false Returns the SQL of the prepared statement, or FALSE on failure.
      * @since 7.4
+     * @throws \Exception If expand is true, but the libsqlite version is less than 3.14, an error
+     * of level E_WARNING or an Exception is issued, according to SQLite3::enableExceptions.
      */
     #[TentativeType]
     public function getSQL(bool $expand = false): string|false {}
@@ -721,6 +725,7 @@ class SQLite3Result
      * Closes the result set
      * @link https://php.net/manual/en/sqlite3result.finalize.php
      * @return bool <b>TRUE</b>.
+     * @throws \Error An Error is thrown if the method is called on an uninitialized object.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]

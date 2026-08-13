@@ -306,6 +306,9 @@ class ReflectionProperty implements Reflector
      * @return bool Returns {@see false} for typed properties prior to initialization, and for properties that have
      * been explicitly {@see unset()}. For all other properties {@see true} will be returned.
      * @since 7.4
+     * @throws \ReflectionException Throws a ReflectionException if the property is inaccessible.
+     * You can make a protected or private property accessible using
+     * ReflectionProperty::setAccessible.
      */
     #[Pure]
     #[TentativeType]
@@ -379,12 +382,16 @@ class ReflectionProperty implements Reflector
     /**
      * @link https://php.net/manual/en/reflectionproperty.getrawvalue.php
      * @since 8.4
+     * @throws \Error If the property is virtual, an Error will be thrown, as there is no raw value
+     * to retrieve.
      */
     public function getRawValue(object $object): mixed {}
 
     /**
      * @link https://php.net/manual/en/reflectionproperty.setrawvalue.php
      * @since 8.4
+     * @throws \Error If the property is virtual, an Error will be thrown, as there is no raw value
+     * to set.
      */
     public function setRawValue(object $object, mixed $value): void {}
 

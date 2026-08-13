@@ -104,6 +104,7 @@ class EmptyIterator implements Iterator
      * Return the current element
      * @link https://php.net/manual/en/iterator.current.php
      * @return mixed Can return any type.
+     * @throws \Exception Throws an Exception if called.
      */
     #[TentativeType]
     public function current(): never {}
@@ -120,6 +121,7 @@ class EmptyIterator implements Iterator
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
      * @return mixed The key of the current element.
+     * @throws \Exception Throws an Exception if called.
      */
     #[TentativeType]
     public function key(): never {}
@@ -401,6 +403,7 @@ class RecursiveIteratorIterator implements OuterIterator
      * for any depth.
      * </p>
      * @return void
+     * @throws \Exception Emits an Exception if maxDepth is less than -1.
      */
     #[TentativeType]
     public function setMaxDepth(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxDepth = -1): void {}
@@ -656,6 +659,8 @@ interface SeekableIterator extends Iterator
      * The position to seek to.
      * </p>
      * @return void
+     * @throws \OutOfBoundsException Implementations should throw an OutOfBoundsException if the
+     * offset is not seekable.
      */
     #[TentativeType]
     public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): void;
@@ -674,6 +679,8 @@ class LimitIterator extends IteratorIterator
      * @param Iterator $iterator The iterator to limit.
      * @param int $offset [optional] The offset to start at. Must be zero or greater.
      * @param int $limit [optional] The number of items to iterate. Must be -1 or greater. -1, the default, means no limit.
+     * @throws \ValueError Throws a ValueError if the offset is less than 0 or the limit is less
+     * than -1.
      */
     public function __construct(
         Iterator $iterator,
@@ -728,6 +735,8 @@ class LimitIterator extends IteratorIterator
      * The position to seek to.
      * </p>
      * @return int the offset position after seeking.
+     * @throws \OutOfBoundsException Throws an OutOfBoundsException if the position is outside of
+     * the limits specified in LimitIterator::__construct.
      */
     #[TentativeType]
     public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): int {}
@@ -1191,6 +1200,8 @@ class RegexIterator extends FilterIterator
      * @param int $mode [optional] Operation mode, see RegexIterator::setMode() for a list of modes.
      * @param int $flags [optional] Special flags, see RegexIterator::setFlags() for a list of available flags.
      * @param int $pregFlags [optional] The regular expression flags. These flags depend on the operation mode parameter
+     * @throws \InvalidArgumentException Throws an InvalidArgumentException if the pattern argument
+     * is invalid.
      */
     public function __construct(
         Iterator $iterator,
@@ -1371,6 +1382,8 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
      * Returns an iterator for the current entry.
      * @link https://php.net/manual/en/recursiveregexiterator.getchildren.php
      * @return RecursiveRegexIterator An iterator for the current entry, if it can be iterated over by the inner iterator.
+     * @throws \InvalidArgumentException An InvalidArgumentException will be thrown if the current
+     * entry does not contain a value that can be iterated over by the inner iterator.
      */
     #[TentativeType]
     public function getChildren(): RecursiveRegexIterator {}
@@ -2103,6 +2116,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * The position to seek to.
      * </p>
      * @return void
+     * @throws \OutOfBoundsException Throws an OutOfBoundsException if the offset is not seekable.
      */
     #[TentativeType]
     public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): void {}
@@ -2152,6 +2166,8 @@ class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
      * Returns an iterator for the current entry if it is an array or an object.
      * @link https://php.net/manual/en/recursivearrayiterator.getchildren.php
      * @return RecursiveArrayIterator|null An iterator for the current entry, if it is an array or object.
+     * @throws \InvalidArgumentException An InvalidArgumentException will be thrown if the current
+     * entry does not contain an array or an object.
      */
     #[TentativeType]
     public function getChildren(): ?RecursiveArrayIterator {}

@@ -426,6 +426,8 @@ class XMLReader
      * @return XMLReader|bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
      * <b>XMLReader</b> or <b>FALSE</b> on failure.
      * @since 5.1
+     * @throws \ValueError Passing an invalid encoding will throw a ValueError. This method may be
+     * called statically, but prior to PHP 8.0.0, will issue an E_DEPRECATED error in this case.
      */
     public static function open(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $uri,
@@ -549,6 +551,8 @@ class XMLReader
      * @return XMLReader|bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
      * <b>XMLReader</b> or <b>FALSE</b> on failure.
      * @since 5.1
+     * @throws \ValueError Passing an invalid encoding will throw a ValueError. This method may be
+     * called statically, but prior to PHP 8.0.0, will issue an E_DEPRECATED error in this case.
      */
     public static function XML(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
@@ -571,18 +575,22 @@ class XMLReader
     /**
      * @link https://php.net/manual/en/xmlreader.fromuri.php
      * @since 8.4
+     * @throws \ValueError Passing an invalid encoding will throw a ValueError.
      */
     public static function fromUri(string $uri, ?string $encoding = null, int $flags = 0): static {}
 
     /**
      * @link https://php.net/manual/en/xmlreader.fromstream.php
      * @since 8.4
+     * @throws \ValueError Passing an invalid encoding will throw a ValueError.
+     * @throws \TypeError Passing a resource that is not a stream to stream will throw a TypeError.
      */
     public static function fromStream($stream, ?string $encoding = null, int $flags = 0, ?string $documentUri = null): static {}
 
     /**
      * @link https://php.net/manual/en/xmlreader.fromstring.php
      * @since 8.4
+     * @throws \ValueError Passing an invalid encoding will throw a ValueError.
      */
     public static function fromString(string $source, ?string $encoding = null, int $flags = 0): static {}
 }

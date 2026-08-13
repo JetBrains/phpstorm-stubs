@@ -1072,6 +1072,7 @@ function date_parse(string $datetime) {}
  * String representing the date.
  * </p>
  * @return array associative array with detailed info about given date.
+ * @throws \ValueError This functions throws ValueError when the datetime contains NULL-bytes.
  */
 #[Pure(true)]
 #[ArrayShape([

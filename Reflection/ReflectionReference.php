@@ -26,6 +26,9 @@ final class ReflectionReference
      * @param array $array The array which contains the potential reference.
      * @param int|string $key The key; either an integer or a string.
      * @return ReflectionReference|null
+     * @throws \TypeError If array is not an array, or key is not an integer or string, a TypeError
+     * is thrown.
+     * @throws \ReflectionException If $array[$key] does not exist, a ReflectionException is thrown.
      */
     public static function fromArrayElement(
         array $array,

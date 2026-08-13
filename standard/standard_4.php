@@ -176,6 +176,10 @@ function serialize(mixed $value): string {}
  * <p>
  * In case the passed string is not unserializeable, false is returned and
  * E_NOTICE is issued.</p>
+ * @throws \TypeError As of PHP 8.4.0, if the allowed_classes element of options is not an array of
+ * class names, unserialize throws TypeErrors and ValueErrors.
+ * @throws \ValueError As of PHP 8.4.0, if the allowed_classes element of options is not an array of
+ * class names, unserialize throws TypeErrors and ValueErrors.
  */
 function unserialize(string $data, #[PhpStormStubsElementAvailable(from: '7.0')] array $options = []): mixed {}
 
@@ -644,6 +648,8 @@ function setcookie(string $name, string $value = "", int $expires_or_options = 0
  *  </code>
  *
  * @since 7.3
+ * @throws \ValueError If the options array contains unsupported keys: Prior to PHP 8.0.0, an
+ * E_WARNING was generated. As of PHP 8.0.0, a ValueError is thrown.
  */
 function setcookie(string $name, string $value = '', array $options = []): bool {}
 

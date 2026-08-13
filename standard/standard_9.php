@@ -238,6 +238,7 @@ function array_change_key_case(array $array, int $case = CASE_LOWER): array {}
  * returns the key for a random entry. Otherwise, it returns an array
  * of keys for the random entries. This is done so that you can pick
  * random keys as well as values out of the array.
+ * @throws \ValueError Throws a ValueError if array is empty, or if num is out of range.
  */
 function array_rand(array $array, int $num = 1): array|string|int {}
 
@@ -767,6 +768,7 @@ function array_map(
  * </p>
  * @return array a multidimensional numerically indexed array, starting with zero,
  * with each dimension containing size elements.
+ * @throws \ValueError If length is less than 1, a ValueError will be thrown.
  */
 #[Pure]
 function array_chunk(array $array, int $length, bool $preserve_keys = false): array {}
@@ -970,6 +972,7 @@ class AssertionError extends Error {}
  * An optional new value for the option.
  * </p>
  * @return mixed The original setting of any option.
+ * @throws \ValueError If option is not a valid option a ValueError is thrown.
  */
 #[Deprecated(since: "8.3")]
 function assert_options(int $option, mixed $value): mixed {}

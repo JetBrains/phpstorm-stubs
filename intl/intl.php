@@ -2706,6 +2706,8 @@ class Spoofchecker
     /**
      * @link https://php.net/manual/en/spoofchecker.setallowedchars.php
      * @since 8.4
+     * @throws \ValueError Throws a ValueError if pattern is not a valid character set pattern, or
+     * if patternOptions is not a valid combination of options.
      */
     public function setAllowedChars(string $pattern, int $patternOptions = 0): void {}
 }
@@ -3599,6 +3601,7 @@ class IntlCalendar
      * @link https://www.php.net/manual/en/intlcalendar.setminimaldaysinfirstweek.php
      * @param int $days
      * @return bool
+     * @throws \ValueError ValueError if days is out of range (less than 1 or more than 7).
      */
     #[LanguageAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -7068,6 +7071,7 @@ function intltz_get_id_for_windows_id(string $timezoneId, ?string $region = null
 /**
  * @link https://php.net/manual/en/function.grapheme-str-split.php
  * @since 8.4
+ * @throws \ValueError If length is less than 1, a ValueError will be thrown.
  */
 function grapheme_str_split(string $string, int $length = 1): array|false {}
 

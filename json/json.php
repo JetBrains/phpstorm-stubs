@@ -125,6 +125,8 @@ function json_encode(mixed $value, int $flags = 0, int $depth = 512): string|fal
  * @return mixed Returns the value encoded in <i>json</i> as an appropriate PHP type. Unquoted values true, <b>FALSE</b>
  * and <b>NULL</b> are returned as <b>TRUE</b>, <b>FALSE</b> and <b>NULL</b> respectively. <b>NULL</b> is returned
  * if the <i>json</i> cannot be decoded or if the encoded data is deeper than the nesting limit.
+ * @throws \ValueError If depth is outside the allowed range, a ValueError is thrown as of PHP
+ * 8.0.0, while previously, an error of level E_WARNING was raised.
  */
 function json_decode(#[Language("JSON")] string $json, ?bool $associative = null, int $depth = 512, int $flags = 0): mixed {}
 
@@ -234,6 +236,8 @@ function json_last_error_msg(): string {}
 /**
  * @link https://php.net/manual/en/function.json-validate.php
  * @since 8.3
+ * @throws \ValueError If depth is outside the allowed range, a ValueError is thrown. If flags is
+ * not a valid flag, a ValueError is thrown.
  */
 function json_validate(#[Language("JSON")] string $json, int $depth = 512, int $flags = 0): bool {}
 

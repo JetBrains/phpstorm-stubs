@@ -24,6 +24,8 @@ final class IntlListFormatter
      * @param int $width The list width. One of the IntlListFormatter::WIDTH_* constants:
      * IntlListFormatter::WIDTH_WIDE, IntlListFormatter::WIDTH_SHORT, or
      * IntlListFormatter::WIDTH_NARROW.
+     * @throws \IntlException Throws an IntlException if the formatter cannot be created (e.g.
+     * invalid locale or ICU version is below 67).
      */
     public function __construct(string $locale, int $type = IntlListFormatter::TYPE_AND, int $width = IntlListFormatter::WIDTH_WIDE) {}
 
