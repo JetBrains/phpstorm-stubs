@@ -13,6 +13,7 @@ namespace {
      * access native variables and create/access data structures defined
      * in the C language.
      *
+     * @link https://php.net/manual/en/class.ffi.php
      * @since 7.4
      */
     final class FFI

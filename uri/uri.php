@@ -2,16 +2,22 @@
 
 namespace Uri {
     /**
+     * The base class for Exceptions that occur during processing of URIs.
+     * @link https://php.net/manual/en/class.uri-uriexception.php
      * @since 8.5
      */
     class UriException extends \Exception {}
 
     /**
+     * The base class for Errors that occur during processing of URIs.
+     * @link https://php.net/manual/en/class.uri-urierror.php
      * @since 8.5
      */
     class UriError extends \Error {}
 
     /**
+     * Indicates that a given URI is invalid or that an operation would result in an invalid URI.
+     * @link https://php.net/manual/en/class.uri-invaliduriexception.php
      * @since 8.5
      */
     class InvalidUriException extends \Uri\UriException {}
@@ -49,6 +55,10 @@ namespace Uri\Rfc3986 {
         public static function parse(string $uri, ?\Uri\Rfc3986\Uri $baseUrl = null): ?static {}
 
         /**
+         * Construct the Uri object
+         *
+         * Constructs the Uri\Rfc3986\Uri object.
+         *
          * @link https://php.net/manual/en/uri-rfc3986-uri.construct.php
          * @throws \Uri\InvalidUriException
          */
@@ -77,6 +87,10 @@ namespace Uri\Rfc3986 {
         public function getRawScheme(): ?string {}
 
         /**
+         * Modify the scheme component
+         *
+         * Creates a new URI and modifies its scheme component.
+         *
          * @link https://php.net/manual/en/uri-rfc3986-uri.withscheme.php
          * @throws \Uri\InvalidUriException
          */
@@ -105,6 +119,10 @@ namespace Uri\Rfc3986 {
         public function getRawUserInfo(): ?string {}
 
         /**
+         * Modify the userinfo component
+         *
+         * Creates a new URI and modifies its userinfo component.
+         *
          * @link https://php.net/manual/en/uri-rfc3986-uri.withuserinfo.php
          * @throws \Uri\InvalidUriException
          */
@@ -184,6 +202,10 @@ namespace Uri\Rfc3986 {
         public function getRawHost(): ?string {}
 
         /**
+         * Modify the host component
+         *
+         * Creates a new URI and modifies its host component.
+         *
          * @link https://php.net/manual/en/uri-rfc3986-uri.withhost.php
          * @throws \Uri\InvalidUriException
          */
@@ -201,6 +223,10 @@ namespace Uri\Rfc3986 {
         public function getPort(): ?int {}
 
         /**
+         * Modify the port component
+         *
+         * Creates a new URI and modifies its port component.
+         *
          * @link https://php.net/manual/en/uri-rfc3986-uri.withport.php
          * @throws \Uri\InvalidUriException
          */
@@ -227,6 +253,10 @@ namespace Uri\Rfc3986 {
         public function getRawPath(): string {}
 
         /**
+         * Modify the path component
+         *
+         * Creates a new URI and modifies its path component.
+         *
          * @link https://php.net/manual/en/uri-rfc3986-uri.withpath.php
          * @throws \Uri\InvalidUriException
          */
@@ -255,6 +285,10 @@ namespace Uri\Rfc3986 {
         public function getRawQuery(): ?string {}
 
         /**
+         * Modify the query component
+         *
+         * Creates a new URI and modifies its query component.
+         *
          * @link https://php.net/manual/en/uri-rfc3986-uri.withquery.php
          * @throws \Uri\InvalidUriException
          */
@@ -283,6 +317,10 @@ namespace Uri\Rfc3986 {
         public function getRawFragment(): ?string {}
 
         /**
+         * Modify the fragment component
+         *
+         * Creates a new URI and modifies its fragment component.
+         *
          * @link https://php.net/manual/en/uri-rfc3986-uri.withfragment.php
          * @throws \Uri\InvalidUriException
          */
@@ -323,18 +361,31 @@ namespace Uri\Rfc3986 {
         public function toRawString(): string {}
 
         /**
+         * Resolve a URI with the current object as the base URL
+         *
+         * Resolves a URI - which may potentially be a relative reference - with the current object
+         * as the base URL.
+         *
          * @link https://php.net/manual/en/uri-rfc3986-uri.resolve.php
          * @throws \Uri\InvalidUriException
          */
         public function resolve(string $uri): static {}
 
         /**
+         * Serialize the Uri object
+         *
+         * Serializes the Uri\Rfc3986\Uri object.
+         *
          * @link https://php.net/manual/en/uri-rfc3986-uri.serialize.php
          * @throws \Exception
          */
         public function __serialize(): array {}
 
         /**
+         * Deserialize the data parameter into a Uri object
+         *
+         * Deserializes a data parameter into a Uri\Rfc3986\Uri object.
+         *
          * @link https://php.net/manual/en/uri-rfc3986-uri.unserialize.php
          * @throws \Exception
          */
@@ -418,6 +469,9 @@ namespace Uri\Rfc3986 {
 
 namespace Uri\WhatWg {
     /**
+     * Indicates that a given URL is invalid or that an operation would result in an invalid URL
+     * according to the WHATWG URL Standard.
+     * @link https://php.net/manual/en/class.uri-whatwg-invalidurlexception.php
      * @since 8.5
      */
     class InvalidUrlException extends \Uri\InvalidUriException
@@ -477,6 +531,8 @@ namespace Uri\WhatWg {
     }
 
     /**
+     * Provides details about errors that were detected when parsing a URL with Uri\WhatWg\Url.
+     * @link https://php.net/manual/en/class.uri-whatwg-urlvalidationerror.php
      * @since 8.5
      */
     final readonly class UrlValidationError
@@ -505,6 +561,10 @@ namespace Uri\WhatWg {
     final readonly class Url
     {
         /**
+         * Parse a URL
+         *
+         * Parses a URL.
+         *
          * @param string $uri A valid URL string to parse (e.g. /foo or (e.g.
          * https://example.com/foo).
          * @param \Uri\WhatWg\Url|null $baseUrl When a string is passed, uri is applied on baseUrl,
@@ -516,6 +576,10 @@ namespace Uri\WhatWg {
         public static function parse(string $uri, ?\Uri\WhatWg\Url $baseUrl = null, &$errors = null): ?static {}
 
         /**
+         * Construct the Url object
+         *
+         * Constructs the Uri\Rfc3986\Uri object.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.construct.php
          * @param string $uri A valid URL string to parse (e.g. /foo or (e.g.
          * https://example.com/foo).
@@ -540,6 +604,10 @@ namespace Uri\WhatWg {
         public function getScheme(): string {}
 
         /**
+         * Modify the scheme component
+         *
+         * Creates a new URL and modifies its scheme component.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.withscheme.php
          * @throws \Uri\WhatWg\InvalidUrlException
          */
@@ -557,6 +625,10 @@ namespace Uri\WhatWg {
         public function getUsername(): ?string {}
 
         /**
+         * Modify the username component
+         *
+         * Creates a new URL and modifies its username component.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.withusername.php
          * @throws \Uri\WhatWg\InvalidUrlException
          */
@@ -574,6 +646,10 @@ namespace Uri\WhatWg {
         public function getPassword(): ?string {}
 
         /**
+         * Modify the password component
+         *
+         * Creates a new URL and modifies its password component.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.withpassword.php
          * @throws \Uri\WhatWg\InvalidUrlException
          */
@@ -603,6 +679,10 @@ namespace Uri\WhatWg {
         public function getUnicodeHost(): ?string {}
 
         /**
+         * Modify the host component
+         *
+         * Creates a new URL and modifies its host component.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.withhost.php
          * @throws \Uri\WhatWg\InvalidUrlException
          */
@@ -620,6 +700,10 @@ namespace Uri\WhatWg {
         public function getPort(): ?int {}
 
         /**
+         * Modify the port component
+         *
+         * Creates a new URL and modifies its port component.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.withport.php
          * @throws \Uri\WhatWg\InvalidUrlException
          */
@@ -636,6 +720,10 @@ namespace Uri\WhatWg {
         public function getPath(): string {}
 
         /**
+         * Modify the path component
+         *
+         * Creates a new URL and modifies its path component.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.withpath.php
          * @throws \Uri\WhatWg\InvalidUrlException
          */
@@ -653,6 +741,10 @@ namespace Uri\WhatWg {
         public function getQuery(): ?string {}
 
         /**
+         * Modify the query component
+         *
+         * Creates a new URL and modifies its query component.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.withquery.php
          * @throws \Uri\WhatWg\InvalidUrlException
          */
@@ -670,6 +762,10 @@ namespace Uri\WhatWg {
         public function getFragment(): ?string {}
 
         /**
+         * Modify the fragment component
+         *
+         * Creates a new URL and modifies its fragment component.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.withfragment.php
          * @throws \Uri\WhatWg\InvalidUrlException
          */
@@ -711,6 +807,11 @@ namespace Uri\WhatWg {
         public function toUnicodeString(): string {}
 
         /**
+         * Resolve a URL with the current object as the base URL
+         *
+         * Resolves a valid URL string - which may potentially be a relative-URL string - with the
+         * current object as the base URL.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.resolve.php
          * @param string $uri A valid URL string (e.g. /foo or (e.g. https://example.com/foo) to
          * apply on the current object.
@@ -721,12 +822,20 @@ namespace Uri\WhatWg {
         public function resolve(string $uri, &$softErrors = null): static {}
 
         /**
+         * Serialize the Url object
+         *
+         * Serializes the Uri\WhatWg\Url object.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.serialize.php
          * @throws \Exception
          */
         public function __serialize(): array {}
 
         /**
+         * Deserialize the data parameter into a Url object
+         *
+         * Deserializes a data parameter into a Uri\WhatWg\Url object.
+         *
          * @link https://php.net/manual/en/uri-whatwg-url.unserialize.php
          * @throws \Exception
          */

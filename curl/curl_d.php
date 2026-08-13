@@ -215,7 +215,7 @@ define('CURLOPT_NETRC', 51);
 /**
  * A bitmask of 1 (301 Moved Permanently), 2 (302 Found) and 4 (303 See Other) if the HTTP POST method should be maintained
  * when <b>CURLOPT_FOLLOWLOCATION</b> is set and a specific type of redirect occurs.
- * @link https://secure.php.net/manual/en/function.curl-setopt.php
+ * @link https://php.net/manual/en/function.curl-setopt.php
  * @since 5.3
  */
 define('CURLOPT_POSTREDIR', 161);

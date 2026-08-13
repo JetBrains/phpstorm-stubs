@@ -808,9 +808,17 @@ define('GMP_VERSION', "6.3.0");
 
 define('GMP_MPIR_VERSION', '3.0.0');
 
+/**
+ * A GMP number. These objects support overloaded arithmetic, bitwise and comparison operators.
+ * @link https://php.net/manual/en/class.gmp.php
+ */
 final class GMP
 {
     /**
+     * Create GMP number
+     *
+     * Creates a GMP number from an integer or string.
+     *
      * @link https://php.net/manual/en/gmp.construct.php
      * @since 8.2
      */

@@ -4,6 +4,7 @@
  * A class for working with PHP tokens, which is an alternative to
  * the {@see token_get_all()} function.
  *
+ * @link https://php.net/manual/en/class.phptoken.php
  * @since 8.0
  */
 class PhpToken implements Stringable
@@ -30,6 +31,7 @@ class PhpToken implements Stringable
     public int $pos;
 
     /**
+     * Returns a new PhpToken object
      * @link https://php.net/manual/en/phptoken.construct.php
      * @param int $id An integer identifier
      * @param string $text Textual content

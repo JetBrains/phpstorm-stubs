@@ -7,9 +7,17 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
+/**
+ * This class provides an object-oriented interface into the fileinfo functions.
+ * @link https://php.net/manual/en/class.finfo.php
+ */
 class finfo
 {
     /**
+     * Alias of finfo_open
+     *
+     * This function is an alias of: finfo_open
+     *
      * @link https://php.net/manual/en/finfo.construct.php
      * @param int $flags [optional]
      * @param string $magic_database [optional]

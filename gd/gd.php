@@ -2281,6 +2281,14 @@ function imagefilter(
 function imageconvolution(GdImage $image, array $matrix, float $divisor, float $offset): bool {}
 
 /**
+ * Get or set the resolution of the image
+ *
+ * imageresolution allows to set and get the resolution of an image in DPI (dots per inch). If the
+ * optional parameters are null, the current resolution is returned as an indexed array. If only
+ * resolution_x is not null, the horizontal and vertical resolution are set to this value. If none
+ * of the optional parameters are null, the horizontal and vertical resolution are set to these
+ * values, respectively.
+ *
  * @param resource|GdImage $image An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
  * @param int|null $resolution_x The horizontal resolution in DPI.
  * @param int|null $resolution_y The vertical resolution in DPI.
@@ -2374,6 +2382,11 @@ function imagecreatefrombmp(string $filename): GdImage|false {}
 function imagebmp(GdImage $image, $file = null, bool $compressed = true): bool {}
 
 /**
+ * Create a new image from file or URL
+ *
+ * imagecreatefromtga returns an image object representing the image obtained from the given
+ * filename.
+ *
  * @link https://php.net/manual/en/function.imagecreatefromtga.php
  * @param string $filename
  * @return resource|GdImage|false
@@ -3015,9 +3028,9 @@ function imageavif(GdImage $image, string|null $file = null, int $quality = -1, 
 
 /**
  * Return an image containing the affine tramsformed src image, using an optional clipping area
- * @link https://secure.php.net/manual/en/function.imageaffine.php
+ * @link https://php.net/manual/en/function.imageaffine.php
  * @param resource|GdImage $image <p>An image resource, returned by one of the image creation functions,
- * such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.</p>
+ * such as {@link https://php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.</p>
  * @param array $affine <p>Array with keys 0 to 5.</p>
  * @param array|null $clip [optional] <p>Array with keys "x", "y", "width" and "height".</p>
  * @return resource|GdImage|false Return affined image resource on success or FALSE on failure.
@@ -3026,7 +3039,7 @@ function imageaffine(GdImage $image, array $affine, ?array $clip = null): GdImag
 
 /**
  * Concat two matrices (as in doing many ops in one go)
- * @link https://secure.php.net/manual/en/function.imageaffinematrixconcat.php
+ * @link https://php.net/manual/en/function.imageaffinematrixconcat.php
  * @param array $matrix1 <p>Array with keys 0 to 5.</p>
  * @param array $matrix2 <p>Array with keys 0 to 5.</p>
  * @return float[]|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
@@ -3036,7 +3049,7 @@ function imageaffinematrixconcat(array $matrix1, array $matrix2): array|false {}
 
 /**
  * Return an image containing the affine tramsformed src image, using an optional clipping area
- * @link https://secure.php.net/manual/en/function.imageaffinematrixget.php
+ * @link https://php.net/manual/en/function.imageaffinematrixget.php
  * @param int $type <p> One of <b>IMG_AFFINE_*</b> constants.</p>
  * @param mixed $options
  * @return float[]|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
@@ -3050,9 +3063,9 @@ function imageaffinematrixget(
 
 /**
  * Crop an image using the given coordinates and size, x, y, width and height
- * @link https://secure.php.net/manual/en/function.imagecrop.php
+ * @link https://php.net/manual/en/function.imagecrop.php
  * @param resource|GdImage $image <p>
- * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * An image resource, returned by one of the image creation functions, such as {@link https://php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @param array $rectangle <p>Array with keys "x", "y", "width" and "height".</p>
  * @return resource|GdImage|false Return cropped image resource on success or FALSE on failure.
@@ -3062,9 +3075,9 @@ function imagecrop(GdImage $image, array $rectangle): GdImage|false {}
 
 /**
  * Crop an image automatically using one of the available modes
- * @link https://secure.php.net/manual/en/function.imagecropauto.php
+ * @link https://php.net/manual/en/function.imagecropauto.php
  * @param resource|GdImage $image <p>
- * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * An image resource, returned by one of the image creation functions, such as {@link https://php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @param int $mode [optional] <p>
  * One of <b>IMG_CROP_*</b> constants.
@@ -3083,9 +3096,9 @@ function imagecropauto(GdImage $image, int $mode = IMG_CROP_DEFAULT, float $thre
 
 /**
  * Flips an image using a given mode
- * @link https://secure.php.net/manual/en/function.imageflip.php
+ * @link https://php.net/manual/en/function.imageflip.php
  * @param resource|GdImage $image <p>
- * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * An image resource, returned by one of the image creation functions, such as {@link https://php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @param int $mode <p>
  * Flip mode, this can be one of the <b>IMG_FLIP_*</b> constants:
@@ -3126,9 +3139,9 @@ function imageflip(GdImage $image, int $mode) {}
 
 /**
  * Converts a palette based image to true color
- * @link https://secure.php.net/manual/en/function.imagepalettetotruecolor.php
+ * @link https://php.net/manual/en/function.imagepalettetotruecolor.php
  * @param resource|GdImage $image <p>
- * An image resource, returnd by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * An image resource, returnd by one of the image creation functions, such as {@link https://php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @return bool Returns <b>TRUE</b> if the convertion was complete, or if the source image already is a true color image, otherwise <b>FALSE</b> is returned.
  * @since 5.5
@@ -3136,14 +3149,18 @@ function imageflip(GdImage $image, int $mode) {}
 function imagepalettetotruecolor(GdImage $image): bool {}
 
 /**
+ * Scale an image using the given new width and height
+ *
+ * imagescale scales an image using the given interpolation algorithm.
+ *
  * @param resource|GdImage $image <p>
- * An image resource, returnd by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * An image resource, returnd by one of the image creation functions, such as {@link https://php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @param int $width
  * @param int $height [optional]
  * @param int $mode [optional] One of <b>IMG_NEAREST_NEIGHBOUR</b>, <b>IMG_BILINEAR_FIXED</b>, <b>IMG_BICUBIC</b>, <b>IMG_BICUBIC_FIXED</b> or anything else (will use two pass).
  * @return resource|GdImage|false Return scaled image resource on success or <b>FALSE</b> on failure.
- *@link https://secure.php.net/manual/en/function.imagescale.php
+ *@link https://php.net/manual/en/function.imagescale.php
  * @since 5.5
  * Scale an image using the given new width and height
  * @throws \ValueError Throws a ValueError if width or height would cause over-/underflow. Throws a
@@ -3153,9 +3170,9 @@ function imagescale(GdImage $image, int $width, int $height = -1, int $mode = IM
 
 /**
  * Set the interpolation method
- * @link https://secure.php.net/manual/en/function.imagesetinterpolation.php
+ * @link https://php.net/manual/en/function.imagesetinterpolation.php
  * @param resource|GdImage $image <p>
- * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * An image resource, returned by one of the image creation functions, such as {@link https://php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @param int $method <p>
  * The interpolation method, which can be one of the following:
@@ -3231,6 +3248,8 @@ function imagescale(GdImage $image, int $width, int $height = -1, int $mode = IM
 function imagesetinterpolation(GdImage $image, int $method = IMG_BILINEAR_FIXED): bool {}
 
 /**
+ * A fully opaque class which replaces gd resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.gdimage.php
  * @since 8.0
  */
 final class GdImage

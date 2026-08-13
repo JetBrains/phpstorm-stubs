@@ -251,6 +251,10 @@ function openssl_spki_export(string $spki): string|false {}
 function openssl_x509_read(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate) {}
 
 /**
+ * Calculates the fingerprint, or digest, of a given X.509 certificate
+ *
+ * openssl_x509_fingerprint returns the digest of certificate as a string.
+ *
  * @link https://php.net/manual/en/function.openssl-x509-fingerprint.php
  * @param string $certificate
  * @param string $digest_algo [optional] hash method
@@ -890,7 +894,7 @@ function openssl_open(
 
 /**
  * Generates a PKCS5 v2 PBKDF2 string, defaults to SHA-1
- * @link https://secure.php.net/manual/en/function.openssl-pbkdf2.php
+ * @link https://php.net/manual/en/function.openssl-pbkdf2.php
  * @param string $password
  * @param string $salt
  * @param int $key_length
@@ -1172,6 +1176,11 @@ function openssl_get_cipher_methods(bool $aliases = false): array {}
 function openssl_dh_compute_key(string $public_key, #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey"], default: "resource")] $private_key): string|false {}
 
 /**
+ * Computes shared secret for public value of remote and local DH or ECDH key
+ *
+ * openssl_pkey_derive takes a set of a public_key and private_key and derives a shared secret, for
+ * either DH or EC keys.
+ *
  * @link https://php.net/manual/en/function.openssl-pkey-derive.php
  * @param OpenSSLAsymmetricKey|OpenSSLCertificate|array|string $public_key
  * @param OpenSSLAsymmetricKey|OpenSSLCertificate|array|string $private_key
@@ -1247,6 +1256,7 @@ function openssl_get_cert_locations(): array {}
 function openssl_get_curve_names(): array|false {}
 
 /**
+ * Export the PKCS7 file to an array of PEM certificates
  * @link https://php.net/manual/en/function.openssl-pkcs7-read.php
  * @param string $data
  * @param array &$certificates
@@ -1558,6 +1568,8 @@ define('PKCS7_NO_DUAL_CONTENT', 65536);
 define('OPENSSL_PKCS1_PSS_PADDING', 6);
 define('CURLOPT_INFILESIZE_LARGE', 30115);
 /**
+ * A fully opaque class which replaces OpenSSL X.509 resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.opensslcertificate.php
  * @since 8.0
  */
 final class OpenSSLCertificate
@@ -1570,6 +1582,8 @@ final class OpenSSLCertificate
 }
 
 /**
+ * A fully opaque class which replaces OpenSSL X.509 CSR resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.opensslcertificatesigningrequest.php
  * @since 8.0
  */
 final class OpenSSLCertificateSigningRequest
@@ -1582,6 +1596,8 @@ final class OpenSSLCertificateSigningRequest
 }
 
 /**
+ * A fully opaque class which replaces OpenSSL key resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.opensslasymmetrickey.php
  * @since 8.0
  */
 final class OpenSSLAsymmetricKey

@@ -271,6 +271,12 @@ class SoapClient
     ) {}
 
     /**
+     * Calls a SOAP function (deprecated)
+     *
+     * Calling this method directly is deprecated. Usually, SOAP functions can be called as methods
+     * of the SoapClient object; in situations where this is not possible or additional options are
+     * needed, use SoapClient::__soapCall.
+     *
      * @link https://php.net/manual/en/soapclient.call.php
      * @param string $name
      * @param array $args
@@ -823,6 +829,10 @@ class SoapServer
     public function addSoapHeader(SoapHeader $header): void {}
 
     /**
+     * Returns last SOAP response
+     *
+     * Returns the XML sent in the last SOAP response.
+     *
      * @link https://php.net/manual/en/soapserver.getlastresponse.php
      * @since 8.4
      */

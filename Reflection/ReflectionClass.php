@@ -8,6 +8,7 @@ use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
+ * The ReflectionClass class reports information about a class.
  * @template T of object
  * The <b>ReflectionClass</b> class reports information about a class.
  *
@@ -436,6 +437,10 @@ class ReflectionClass implements Reflector
     public function isFinal(): bool {}
 
     /**
+     * Checks if class is readonly
+     *
+     * Checks if a class is readonly.
+     *
      * @link https://php.net/manual/en/reflectionclass.isreadonly.php
      * @return bool
      */
@@ -670,6 +675,10 @@ class ReflectionClass implements Reflector
     public function getShortName(): string {}
 
     /**
+     * Gets Attributes
+     *
+     * Returns all attributes declared on this class as an array of ReflectionAttribute.
+     *
      * @link https://php.net/manual/en/reflectionclass.getattributes.php
      * @template T
      *
@@ -713,6 +722,13 @@ class ReflectionClass implements Reflector
     public function isEnum(): bool {}
 
     /**
+     * Creates a new lazy ghost instance
+     *
+     * Creates a new lazy ghost instance of the class, attaching the initializer to it. The
+     * constructor is not called, and properties are not set to their default value. However, the
+     * object will be automatically initialized by invoking the initializer the first time its state
+     * is observed or modified. See Initialization Triggers and Initialization Sequence.
+     *
      * @link https://php.net/manual/en/reflectionclass.newlazyghost.php
      * @since 8.4
      * @throws \Error An Error if the class is internal or extends an internal class except
@@ -721,6 +737,15 @@ class ReflectionClass implements Reflector
     public function newLazyGhost(callable $initializer, int $options = 0): object {}
 
     /**
+     * Creates a new lazy proxy instance
+     *
+     * Creates a new lazy proxy instance of the class, attaching the factory function to it. The
+     * constructor is not called, and properties are not set to their default values. When an
+     * attempt is made to observe or modify the proxy's state for the first time, the factory
+     * function is called to provide a real instance, which is then attached to the proxy. After
+     * this, all subsequent interactions with the proxy are forwarded to the real instance. See
+     * Initialization Triggers and Initialization Sequence.
+     *
      * @link https://php.net/manual/en/reflectionclass.newlazyproxy.php
      * @return T
      * @since 8.4
@@ -728,6 +753,10 @@ class ReflectionClass implements Reflector
     public function newLazyProxy(callable $factory, int $options = 0): object {}
 
     /**
+     * Resets an object and marks it as lazy
+     *
+     * Resets an existing object and marks it as lazy.
+     *
      * @link https://php.net/manual/en/reflectionclass.resetaslazyghost.php
      * @since 8.4
      * @throws \ReflectionException A ReflectionException if the object is lazy and non-initialized.
@@ -737,30 +766,51 @@ class ReflectionClass implements Reflector
     public function resetAsLazyGhost(object $object, callable $initializer, int $options = 0): void {}
 
     /**
+     * Resets an object and marks it as lazy
+     *
+     * The behavior of this method is the same as ReflectionClass::resetAsLazyGhost except that it
+     * uses the proxy strategy.
+     *
      * @link https://php.net/manual/en/reflectionclass.resetaslazyproxy.php
      * @since 8.4
      */
     public function resetAsLazyProxy(object $object, callable $factory, int $options = 0): void {}
 
     /**
+     * Forces initialization of a lazy object
+     *
+     * Forces initialization of the specified object. This method has no effect if the object is not
+     * lazy or has already been initialized. Otherwise, initialization proceeds as described in the
+     * Initialization Sequence.
+     *
      * @link https://php.net/manual/en/reflectionclass.initializelazyobject.php
      * @since 8.4
      */
     public function initializeLazyObject(object $object): object {}
 
     /**
+     * Checks if an object is lazy and uninitialized
      * @link https://php.net/manual/en/reflectionclass.isuninitializedlazyobject.php
      * @since 8.4
      */
     public function isUninitializedLazyObject(object $object): bool {}
 
     /**
+     * Marks a lazy object as initialized without calling the initializer or factory
+     *
+     * Marks a lazy object as initialized without calling the initializer or factory. This has no
+     * effect if object is not lazy or is already initialized.
+     *
      * @link https://php.net/manual/en/reflectionclass.marklazyobjectasinitialized.php
      * @since 8.4
      */
     public function markLazyObjectAsInitialized(object $object): object {}
 
     /**
+     * Gets lazy initializer
+     *
+     * Gets the lazy initializer or factory attached to object.
+     *
      * @link https://php.net/manual/en/reflectionclass.getlazyinitializer.php
      * @since 8.4
      */

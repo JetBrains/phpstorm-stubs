@@ -755,6 +755,10 @@ function posix_initgroups(string $username, int $group_id): bool {}
 function posix_sysconf(int $conf_id): int {}
 
 /**
+ * Determine accessibility of a file
+ *
+ * posix_eaccess checks the effective user's permission of a file
+ *
  * @since 8.3
  * @link  https://www.php.net/manual/en/function.posix-eaccess.php
  */

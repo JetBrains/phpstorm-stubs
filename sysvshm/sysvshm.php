@@ -106,6 +106,8 @@ function shm_get_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], def
 function shm_remove_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], default: "resource")] $shm, int $key): bool {}
 
 /**
+ * A fully opaque class which replaces a sysvshm resource as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.sysvsharedmemory.php
  * @since 8.0
  */
 final class SysvSharedMemory

@@ -133,6 +133,11 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function getClosureScopeClass(): ?ReflectionClass {}
 
     /**
+     * Returns the class corresponding to static:: inside a closure
+     *
+     * Returns the class as a ReflectionClass that corresponds to resolving the class name
+     * corresponding to static:: inside the Closure.
+     *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getclosurecalledclass.php
      * @return ReflectionClass|null Returns the class on success or {@see null}
      * on failure.
@@ -317,6 +322,11 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function hasReturnType(): bool {}
 
     /**
+     * Gets Attributes
+     *
+     * Returns all attributes declared on this function or method as an array of
+     * ReflectionAttribute.
+     *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getattributes.php
      * @template T
      *

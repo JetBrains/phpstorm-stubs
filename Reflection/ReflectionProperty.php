@@ -343,6 +343,12 @@ class ReflectionProperty implements Reflector
     private function __clone(): void {}
 
     /**
+     * Checks if property has a default value declared
+     *
+     * Checks whether the property was declared with a default value, including an implicit null
+     * default value. Only returns false for typed properties without default value (or dynamic
+     * properties).
+     *
      * @link https://php.net/manual/en/reflectionproperty.hasdefaultvalue.php
      * @return bool
      * @since 8.0
@@ -350,6 +356,10 @@ class ReflectionProperty implements Reflector
     public function hasDefaultValue(): bool {}
 
     /**
+     * Returns the default value declared for a property
+     *
+     * Gets the implicit or explicitly declared default value for a property.
+     *
      * @link https://php.net/manual/en/reflectionproperty.getdefaultvalue.php
      * @return mixed
      * @since 8.0
@@ -359,6 +369,10 @@ class ReflectionProperty implements Reflector
     public function getDefaultValue(): mixed {}
 
     /**
+     * Gets Attributes
+     *
+     * Returns all attributes declared on this class property as an array of ReflectionAttribute.
+     *
      * @link https://php.net/manual/en/reflectionproperty.getattributes.php
      * @template T
      *
@@ -373,6 +387,10 @@ class ReflectionProperty implements Reflector
     public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
+     * Checks if property is readonly
+     *
+     * Checks whether the property is readonly.
+     *
      * @link https://php.net/manual/en/reflectionproperty.isreadonly.php
      * @return bool
      * @since 8.1
@@ -380,6 +398,7 @@ class ReflectionProperty implements Reflector
     public function isReadOnly(): bool {}
 
     /**
+     * Returns the value of a property, bypassing a get hook if defined
      * @link https://php.net/manual/en/reflectionproperty.getrawvalue.php
      * @since 8.4
      * @throws \Error If the property is virtual, an Error will be thrown, as there is no raw value
@@ -388,6 +407,7 @@ class ReflectionProperty implements Reflector
     public function getRawValue(object $object): mixed {}
 
     /**
+     * Sets the value of a property, bypassing a set hook if defined
      * @link https://php.net/manual/en/reflectionproperty.setrawvalue.php
      * @since 8.4
      * @throws \Error If the property is virtual, an Error will be thrown, as there is no raw value
@@ -396,90 +416,142 @@ class ReflectionProperty implements Reflector
     public function setRawValue(object $object, mixed $value): void {}
 
     /**
+     * Determines if a property is abstract
      * @link https://php.net/manual/en/reflectionproperty.isabstract.php
      * @since 8.4
      */
     public function isAbstract(): bool {}
 
     /**
+     * Determines if a property is virtual
      * @link https://php.net/manual/en/reflectionproperty.isvirtual.php
      * @since 8.4
      */
     public function isVirtual(): bool {}
 
     /**
+     * Returns the parameter type of a setter hook
+     *
+     * Returns the parameter type of a set hook. If no set hook is defined, it behaves identically
+     * to ReflectionProperty::getType.
+     *
      * @link https://php.net/manual/en/reflectionproperty.getsettabletype.php
      * @since 8.4
      */
     public function getSettableType(): ?ReflectionType {}
 
     /**
+     * Returns whether the property has any hooks defined
      * @link https://php.net/manual/en/reflectionproperty.hashooks.php
      * @since 8.4
      */
     public function hasHooks(): bool {}
 
     /**
+     * Returns an array of all hooks on this property
+     *
+     * Returns a list of all hooks on this property.
+     *
      * @link https://php.net/manual/en/reflectionproperty.gethooks.php
      * @since 8.4
      */
     public function getHooks(): array {}
 
     /**
+     * Returns whether the property has a given hook defined
      * @link https://php.net/manual/en/reflectionproperty.hashook.php
      * @since 8.4
      */
     public function hasHook(PropertyHookType $type): bool {}
 
     /**
+     * Returns a reflection object for a specified hook
+     *
+     * Gets the reflection of the property's hook, if any.
+     *
      * @link https://php.net/manual/en/reflectionproperty.gethook.php
      * @since 8.4
      */
     public function getHook(PropertyHookType $type): ?ReflectionMethod {}
 
     /**
+     * Checks if property is private for writing
+     *
+     * Checks whether the property is private for writing.
+     *
      * @link https://php.net/manual/en/reflectionproperty.isprivateset.php
      * @since 8.4
      */
     public function isPrivateSet(): bool {}
 
     /**
+     * Checks whether the property is protected for writing
      * @link https://php.net/manual/en/reflectionproperty.isprotectedset.php
      * @since 8.4
      */
     public function isProtectedSet(): bool {}
 
     /**
+     * Set raw property value without triggering lazy initialization
+     *
+     * Sets (changes) the property's value without triggering lazy initialization and without
+     * calling hook functions. The property is marked as non-lazy and can be accessed afterwards
+     * without triggering lazy initialization. The property must not be dynamic, static, or virtual,
+     * and the object must be an instance of a user defined class or stdClass.
+     *
      * @link https://php.net/manual/en/reflectionproperty.setrawvaluewithoutlazyinitialization.php
      * @since 8.4
      */
     public function setRawValueWithoutLazyInitialization(object $object, mixed $value): void {}
 
     /**
+     * Marks property as non-lazy
+     *
+     * Marks a property as non-lazy such that it can be accessed directly without triggering lazy
+     * initialization. The property is initialized to its default value, if any. The property must
+     * not be dynamic, static, or virtual, and the object must be an instance of a user defined
+     * class or stdClass.
+     *
      * @link https://php.net/manual/en/reflectionproperty.skiplazyinitialization.php
      * @since 8.4
      */
     public function skipLazyInitialization(object $object): void {}
 
     /**
+     * Checks if property is a dynamic property
+     *
+     * Checks whether the property was declared at run-time, or whether the property was declared at
+     * compile-time.
+     *
      * @link https://php.net/manual/en/reflectionproperty.isdynamic.php
      * @since 8.4
      */
     public function isDynamic(): bool {}
 
     /**
+     * Determines if this property is final or not
+     *
+     * Returns whether the property is final. If the property is marked private(set), then it will
+     * also be implicitly final.
+     *
      * @link https://php.net/manual/en/reflectionproperty.isfinal.php
      * @since 8.4
      */
     public function isFinal(): bool {}
 
     /**
+     * Checks whether a property is lazy
      * @link https://php.net/manual/en/reflectionproperty.islazy.php
      * @since 8.4
      */
     public function isLazy(object $object): bool {}
 
     /**
+     * Gets the mangled name of the property
+     *
+     * Returns the mangled (internal) name of the property, which encodes the visibility scope for
+     * private and protected properties.
+     *
      * @link https://php.net/manual/en/reflectionproperty.getmangledname.php
      * @since 8.5
      */

@@ -2077,6 +2077,8 @@ function pg_consume_input(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Connection'
 function pg_flush(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Connection'], default: 'resource')] $connection): int|bool {}
 
 /**
+ * Determines the visibility of the context's error messages returned by pg_last_error and
+ * pg_result_error
  * @link https://php.net/manual/en/function.pg-set-error-context-visibility.php
  * @since 8.3
  */
@@ -2103,22 +2105,44 @@ function pg_exit_pipeline_mode(PgSql\Connection $connection): bool {}
 function pg_enter_pipeline_mode(PgSql\Connection $connection): bool {}
 
 /**
+ * Returns the amount of memory allocated for a query result
+ *
+ * Returns the amount of memory, in bytes, allocated to the specified query result PgSql\Result
+ * instance. This value is the same amount that would be freed by pg_free_result.
+ *
  * @link https://php.net/manual/en/function.pg-result-memory-size.php
  * @since 8.4
  */
 function pg_result_memory_size(PgSql\Result $result): int {}
 /**
+ * Change a PostgreSQL user's password
+ *
+ * pg_change_password changes the password of a PostgreSQL user. This function uses the
+ * PQchangePassword libpq function which handles password encryption automatically based on the
+ * server's settings.
+ *
  * @link https://php.net/manual/en/function.pg-change-password.php
  * @since 8.4
  */
 function pg_change_password(PgSql\Connection $connection, string $user, #[\SensitiveParameter] string $password): bool {}
 /**
+ * Send data to the server during a COPY operation
+ *
+ * Sends data to the server during a COPY FROM STDIN operation. A COPY command must have been issued
+ * via pg_query before calling this function.
+ *
  * @link https://php.net/manual/en/function.pg-put-copy-data.php
  * @since 8.4
  */
 function pg_put_copy_data(PgSql\Connection $connection, string $cmd): int {}
 
 /**
+ * Poll a PostgreSQL connection socket for read/write readiness
+ *
+ * Polls a PostgreSQL connection socket for read and/or write readiness. The socket can be obtained
+ * using pg_socket. This function is useful for implementing non-blocking, asynchronous query
+ * workflows.
+ *
  * @link https://php.net/manual/en/function.pg-socket-poll.php
  * @since  8.4
  * @param resource $socket
@@ -2130,12 +2154,23 @@ function pg_put_copy_data(PgSql\Connection $connection, string $cmd): int {}
 function pg_socket_poll($socket, int $read, int $write, int $timeout = -1): int {}
 
 /**
+ * Set the query results to be retrieved in chunk mode
+ *
+ * Set the query results to be retrieved in chunk mode. The query results returned afterward will be
+ * divided into multiple chunks, each containing up to size rows. This function must be called
+ * before retrieving results with pg_get_result. This function is only available when libpq is
+ * version 17 or higher.
+ *
  * @link https://php.net/manual/en/function.pg-set-chunked-rows-size.php
  * @since  8.4
  * @throws \ValueError If size is less than 1, a ValueError will be thrown.
  */
 function pg_set_chunked_rows_size(PgSql\Connection $connection, int $size): bool {}
 /**
+ * Signal the completion of a COPY operation to the server
+ *
+ * Sends an end-of-data indication to the server during a COPY FROM STDIN operation.
+ *
  * @link https://php.net/manual/en/function.pg-put-copy-end.php
  * @since 8.4
  */
@@ -2147,6 +2182,11 @@ function pg_put_copy_end(PgSql\Connection $connection, ?string $error = null): i
 function pg_close_stmt(Pgsql\Connection $connection, string $statement_name): PgSql\Result|false {}
 
 /**
+ * Returns the JIT information of the server
+ *
+ * pg_jit returns an array with the JIT (Just-In-Time compilation) information of the PostgreSQL
+ * server.
+ *
  * @link https://php.net/manual/en/function.pg-jit.php
  * @since 8.4
  * @return array<string, string|null>

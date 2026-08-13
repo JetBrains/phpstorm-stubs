@@ -1630,6 +1630,11 @@ namespace {
         public function pgsqlGetPid() {}
 
         /**
+         * Connect to a database and return a PDO subclass for drivers that support it
+         *
+         * Creates an instance of a PDO subclass for the database being connected to, if it exists,
+         * otherwise returns a generic PDO instance.
+         *
          * @link https://php.net/manual/en/pdo.connect.php
          * @throws PDOException if the attempt to connect to the requested database fails, regardless of which PDO::ATTR_ERRMODE is currently set.
          * @since 8.4
@@ -1909,6 +1914,11 @@ namespace {
         ): array {}
 
         /**
+         * Fetches the next row and returns it as an object
+         *
+         * Fetches the next row and returns it as an object. This function is an alternative to
+         * PDOStatement::fetch with PDO::FETCH_CLASS or PDO::FETCH_OBJ style.
+         *
          * @template T
          *
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.4)<br/>
@@ -2129,6 +2139,7 @@ namespace {
         final public function __sleep() {}
 
         /**
+         * Gets result set iterator
          * @link https://php.net/manual/en/pdostatement.getiterator.php
          * @return Iterator
          * @since 8.0
@@ -2138,6 +2149,17 @@ namespace {
         public function connect() {}
     }
 
+    /**
+     * Represents a row from a result set returned by PDOStatement::fetch called with
+     * PDO::FETCH_LAZY fetch mode.
+     *
+     * Objects of this class cannot be instantiated and are not serializable. The PDORow object
+     * allows access to the returned data as if both PDO::FETCH_OBJ and PDO::FETCH_BOTH mode were
+     * used. This means that the returned data can be accessed as object properties, and as an array
+     * both indexed by the column name and a column offset number.
+     *
+     * @link https://php.net/manual/en/class.pdorow.php
+     */
     final class PDORow
     {
         #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -2162,6 +2184,13 @@ namespace Pdo {
     use PDO;
 
     /**
+     * A PDO subclass representing a connection using the SQLite PDO driver.
+     *
+     * This driver supports a dedicated SQL query parser for the SQLite dialect. It can handle the
+     * following: Single, double-quoted, and backtick literals, with doubling as escaping mechanism.
+     * Square brackets quoting for identifiers. Two-dashes and C-style comments (non-nested).
+     *
+     * @link https://php.net/manual/en/class.pdo-sqlite.php
      * @since 8.4
      */
     class Sqlite extends PDO
@@ -2309,6 +2338,7 @@ namespace Pdo {
         public function loadExtension(string $name): void {}
 
         /**
+         * Description
          * @link https://php.net/manual/en/pdo-sqlite.openblob.php
          * @return resource|false
          * @throws \Exception When does this function issue E_* level errors, and/or throw
@@ -2329,6 +2359,14 @@ namespace Pdo {
     }
 
     /**
+     * A PDO subclass representing a connection using the MySQL PDO driver.
+     *
+     * This driver supports a dedicated SQL query parser for the MySQL dialect. It can handle the
+     * following: Single and double-quoted literals with both doubling and backslash as escaping
+     * mechanisms Backtick literals with doubling as escaping mechanism Two-dashes, C-style
+     * comments, and Hash-comments.
+     *
+     * @link https://php.net/manual/en/class.pdo-mysql.php
      * @since 8.4
      */
     class Mysql extends PDO
@@ -2371,6 +2409,14 @@ namespace Pdo {
     }
 
     /**
+     * A PDO subclass representing a connection using the PostgreSQL PDO driver.
+     *
+     * This driver supports a dedicated SQL query parser for the PostgreSQL dialect. It can handle
+     * the following: Single and double-quoted literals, with doubling as escaping mechanism C-style
+     * “escape” string literals Dollar-quoted string literals Two-dashes and C-style comments
+     * (non-nested). Support for ?? as escape sequence for the ? operator.
+     *
+     * @link https://php.net/manual/en/class.pdo-pgsql.php
      * @since 8.4
      */
     class Pgsql extends PDO
@@ -2582,6 +2628,8 @@ namespace Pdo {
     }
 
     /**
+     * A PDO subclass representing a connection using the Firebird PDO driver.
+     * @link https://php.net/manual/en/class.pdo-firebird.php
      * @since 8.4
      */
     class Firebird extends PDO
@@ -2607,6 +2655,8 @@ namespace Pdo {
     }
 
     /**
+     * A PDO subclass representing a connection using the DBLib PDO driver.
+     * @link https://php.net/manual/en/class.pdo-dblib.php
      * @since 8.4
      */
     class Dblib extends PDO
@@ -2621,6 +2671,8 @@ namespace Pdo {
     }
 
     /**
+     * A PDO subclass representing a connection using the ODBC PDO driver.
+     * @link https://php.net/manual/en/class.pdo-odbc.php
      * @since 8.4
      */
     class Odbc extends PDO

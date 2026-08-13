@@ -134,6 +134,7 @@ interface SessionIdInterface
  * defines a prototype for updating the life time of an existing session.
  * In order to use the lazy_write option must be enabled and a custom session
  * handler must implement this interface.
+ * @link https://php.net/manual/en/class.sessionupdatetimestamphandlerinterface.php
  * @since 7.0
  */
 interface SessionUpdateTimestampHandlerInterface

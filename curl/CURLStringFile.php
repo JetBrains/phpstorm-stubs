@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * CURLStringFile makes it possible to upload a file directly from a variable. This is similar to
+ * CURLFile, but works with the contents of the file, not filename. This class or CURLFile should be
+ * used to upload the contents of the file with CURLOPT_POSTFIELDS.
+ * @link https://php.net/manual/en/class.curlstringfile.php
  * @since 8.1
  */
 class CURLStringFile

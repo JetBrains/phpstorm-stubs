@@ -1,5 +1,7 @@
 <?php
 /**
+ * The ReflectionConstant class reports information about a global constant.
+ * @link https://php.net/manual/en/class.reflectionconstant.php
  * @since 8.4
  */
 class ReflectionConstant implements Reflector
@@ -79,24 +81,40 @@ class ReflectionConstant implements Reflector
     public function __toString(): string {}
 
     /**
+     * Gets name of the defining file
+     *
+     * Gets the filename of the file in which the constant has been defined.
+     *
      * @link https://php.net/manual/en/reflectionconstant.getfilename.php
      * @since 8.5
      */
     public function getFileName(): string|false {}
 
     /**
+     * Gets ReflectionExtension of the defining extension
+     *
+     * Gets a ReflectionExtension object for the extension which defined the constant.
+     *
      * @link https://php.net/manual/en/reflectionconstant.getextension.php
      * @since 8.5
      */
     public function getExtension(): ?ReflectionExtension {}
 
     /**
+     * Gets name of the defining extension
+     *
+     * Gets the name of the extension which defined the constant.
+     *
      * @link https://php.net/manual/en/reflectionconstant.getextensionname.php
      * @since 8.5
      */
     public function getExtensionName(): string|false {}
 
     /**
+     * Gets Attributes
+     *
+     * Returns all attributes declared on this global constant as an array of ReflectionAttribute.
+     *
      * @link https://php.net/manual/en/reflectionconstant.getattributes.php
      * @since 8.5
      */

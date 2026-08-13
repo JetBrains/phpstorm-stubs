@@ -611,18 +611,30 @@ class XMLWriter
     public function flush(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $empty = true): string|int {}
 
     /**
+     * Create new XMLWriter using a URI for output
+     *
+     * Creates a new XMLWriter using a URI for output.
+     *
      * @link https://php.net/manual/en/xmlwriter.touri.php
      * @since 8.4
      */
     public static function toUri(string $uri): static {}
 
     /**
+     * Create new XMLWriter using memory for string output
+     *
+     * Creates a new XMLWriter using memory for string output.
+     *
      * @link https://php.net/manual/en/xmlwriter.tomemory.php
      * @since 8.4
      */
     public static function toMemory(): static {}
 
     /**
+     * Create new XMLWriter using a stream for output
+     *
+     * Creates a new XMLWriter using a stream for output.
+     *
      * @link https://php.net/manual/en/xmlwriter.tostream.php
      * @since 8.4
      * @throws \TypeError Passing a resource that is not a stream to stream will throw a TypeError.

@@ -273,6 +273,8 @@ define('MSG_NOERROR', 2);
 define('MSG_EXCEPT', 4);
 
 /**
+ * A fully opaque class which replaces a sysvmsg queue resource as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.sysvmessagequeue.php
  * @since 8.0
  */
 final class SysvMessageQueue

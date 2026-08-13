@@ -284,6 +284,10 @@ function memory_get_usage(bool $real_usage = false): int {}
 function memory_get_peak_usage(bool $real_usage = false): int {}
 
 /**
+ * Reset the peak memory usage
+ *
+ * Resets the peak memory usage returned by the memory_get_peak_usage function.
+ *
  * @link https://php.net/manual/en/function.memory-reset-peak-usage.php
  * @since 8.2
  */
@@ -383,7 +387,7 @@ function highlight_string(string $string, bool $return = false) {}
 
 /**
  * Get the system's high resolution time
- * @link https://secure.php.net/manual/en/function.hrtime.php
+ * @link https://php.net/manual/en/function.hrtime.php
  * @param bool $as_number <p>Whether the high resolution time should be returned as array or number.<p>
  * @since 7.3
  * @return int[]|int|float|false Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
@@ -501,6 +505,10 @@ function ini_alter(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|in
 function ini_restore(string $option): void {}
 
 /**
+ * Get interpreted size from ini shorthand syntax
+ *
+ * Returns the interpreted size in bytes on success from an ini shorthand.
+ *
  * @link https://php.net/manual/en/function.ini-parse-quantity.php
  * @param string $shorthand
  * @return int
@@ -920,6 +928,10 @@ function is_uploaded_file(string $filename): bool {}
 function move_uploaded_file(string $from, string $to): bool {}
 
 /**
+ * Get network interfaces
+ *
+ * Returns an enumeration of network interfaces (adapters) on the local machine.
+ *
  * @link https://php.net/manual/en/function.net-get-interfaces.php
  * @return array|false
  * @since 7.3

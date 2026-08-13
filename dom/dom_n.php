@@ -3,6 +3,12 @@
 namespace Dom;
 
 /**
+ * This class provides a number of methods for performing operations that are independent of any
+ * particular instance of the document object model.
+ *
+ * This is the modern, spec-compliant equivalent of DOMImplementation.
+ *
+ * @link https://php.net/manual/en/class.dom-implementation.php
  * @since 8.4
  */
 class Implementation
@@ -15,6 +21,9 @@ class Implementation
 }
 
 /**
+ * This represents immutable information about namespaces of an element. This decouples namespaces
+ * from attributes, which was incorrectly intertwined for the old DOM classes.
+ * @link https://php.net/manual/en/class.dom-namespaceinfo.php
  * @since 8.4
  */
 final readonly class NamespaceInfo
@@ -27,6 +36,11 @@ final readonly class NamespaceInfo
 }
 
 /**
+ * Represents a live list of nodes.
+ *
+ * This is the modern, spec-compliant equivalent of DOMNodeList.
+ *
+ * @link https://php.net/manual/en/class.dom-nodelist.php
  * @since 8.4
  * @template TNode of Node Should be template-covariant but DocBlock::getTagsByName() does not support it
  * @implements \IteratorAggregate<int, TNode>
@@ -46,6 +60,8 @@ class NodeList implements \IteratorAggregate, \Countable
     public function item(int $index): ?Node {}
 }
 /**
+ * Represents the set of attributes on an element.
+ * @link https://php.net/manual/en/class.dom-namednodemap.php
  * @since 8.4
  * @implements \IteratorAggregate<array-key, Attr>
  */
@@ -67,6 +83,8 @@ class NamedNodeMap implements \IteratorAggregate, \Countable
     public function getIterator(): \Iterator {}
 }
 /**
+ * Represents a named node map for entities and notation nodes of the DTD.
+ * @link https://php.net/manual/en/class.dom-dtdnamednodemap.php
  * @since 8.4
  *
  * @template TDtdNode of Entity|Notation Should be template-covariant but DocBlock::getTagsByName() does not support it
@@ -91,6 +109,8 @@ class DtdNamedNodeMap implements \IteratorAggregate, \Countable
     public function getIterator(): \Iterator {}
 }
 /**
+ * Represents a static set of elements.
+ * @link https://php.net/manual/en/class.dom-htmlcollection.php
  * @since 8.4
  * @implements \IteratorAggregate<array-key, Element>
  */
@@ -110,6 +130,11 @@ class HTMLCollection implements \IteratorAggregate, \Countable
     public function getIterator(): \Iterator {}
 }
 /**
+ * Allows to use XPath 1.0 queries on HTML or XML documents.
+ *
+ * This is the modern, spec-compliant equivalent of DOMXPath.
+ *
+ * @link https://php.net/manual/en/class.dom-xpath.php
  * @since 8.4
  */
 final class XPath
@@ -134,6 +159,8 @@ final class XPath
     public static function quote(string $str): string {}
 }
 /**
+ * Represents a set of tokens in an attribute (e.g. class names).
+ * @link https://php.net/manual/en/class.dom-tokenlist.php
  * @since 8.4
  */
 final class TokenList implements \IteratorAggregate, \Countable
@@ -252,6 +279,8 @@ final class TokenList implements \IteratorAggregate, \Countable
     public function getIterator(): \Iterator {}
 }
 /**
+ * This is the modern, spec-compliant equivalent of DOMParentNode.
+ * @link https://php.net/manual/en/class.dom-parentnode.php
  * @since 8.4
  */
 interface ParentNode
@@ -304,12 +333,18 @@ interface ParentNode
     public function querySelector(string $selectors): ?Element;
 
     /**
+     * Returns a collection of elements that match the CSS selectors
+     *
+     * Returns a collection of elements that match the CSS selectors specified in selectors.
+     *
      * @link https://php.net/manual/en/dom-parentnode.queryselectorall.php
      * @return NodeList<Element>
      */
     public function querySelectorAll(string $selectors): NodeList;
 }
 /**
+ * This is the modern, spec-compliant equivalent of DOMChildNode.
+ * @link https://php.net/manual/en/class.dom-childnode.php
  * @since 8.4
  */
 interface ChildNode
@@ -371,6 +406,8 @@ enum AdjacentPosition implements \BackedEnum, \UnitEnum
     public static function tryFrom(string|int $value): ?static {}
 }
 /**
+ * This is the modern, spec-compliant equivalent of DOMNode.
+ * @link https://php.net/manual/en/class.dom-node.php
  * @since 8.4
  */
 class Node
@@ -442,6 +479,11 @@ class Node
     public function __wakeup(): void {}
 }
 /**
+ * This represents a document fragment, which can be used as a container for other nodes.
+ *
+ * This is the modern, spec-compliant equivalent of DOMDocumentFragment.
+ *
+ * @link https://php.net/manual/en/class.dom-documentfragment.php
  * @since 8.4
  */
 class DocumentFragment extends Node implements ParentNode
@@ -469,6 +511,12 @@ class DocumentFragment extends Node implements ParentNode
     public function querySelectorAll(string $selectors): NodeList {}
 }
 /**
+ * Represents an entire HTML or XML document; serves as the root of the document tree.
+ *
+ * This is the modern, spec-compliant equivalent of DOMDocument. It is the base class for
+ * Dom\XMLDocument and Dom\HTMLDocument.
+ *
+ * @link https://php.net/manual/en/class.dom-document.php
  * @since 8.4
  */
 class Document extends Node implements ParentNode
@@ -551,6 +599,8 @@ class Document extends Node implements ParentNode
     public string $title;
 }
 /**
+ * Represents an HTML document.
+ * @link https://php.net/manual/en/class.dom-htmldocument.php
  * @since 8.4
  */
 final class HTMLDocument extends Document
@@ -649,6 +699,8 @@ final class HTMLDocument extends Document
     public function saveHtmlFile(string $filename): int|false {}
 }
 /**
+ * Represents an XML document.
+ * @link https://php.net/manual/en/class.dom-xmldocument.php
  * @since 8.4
  */
 final class XMLDocument extends Document
@@ -674,6 +726,12 @@ final class XMLDocument extends Document
     public function saveXmlFile(string $filename, int $options = 0): int|false {}
 }
 /**
+ * Represents nodes with character data. No nodes directly correspond to this class, but other nodes
+ * do inherit from it.
+ *
+ * This is the modern, spec-compliant equivalent of DOMCharacterData.
+ *
+ * @link https://php.net/manual/en/class.dom-characterdata.php
  * @since 8.4
  */
 class CharacterData extends Node implements ChildNode
@@ -783,6 +841,11 @@ class CharacterData extends Node implements ChildNode
     public function replaceWith(Node|string ...$nodes): void {}
 }
 /**
+ * Dom\Attr represents an attribute in the Dom\Element object.
+ *
+ * This is the modern, spec-compliant equivalent of DOMAttr.
+ *
+ * @link https://php.net/manual/en/class.dom-attr.php
  * @since 8.4
  */
 class Attr extends Node
@@ -824,6 +887,11 @@ class Attr extends Node
     public function rename(?string $namespaceURI, string $qualifiedName): void {}
 }
 /**
+ * Represents an element.
+ *
+ * This is the modern, spec-compliant equivalent of DOMElement.
+ *
+ * @link https://php.net/manual/en/class.dom-element.php
  * @since 8.4
  */
 class Element extends Node implements ParentNode, ChildNode
@@ -940,10 +1008,17 @@ class Element extends Node implements ParentNode, ChildNode
     public function insertAdjacentHTML(\Dom\AdjacentPosition $where, string $string): void {}
 }
 /**
+ * Represents an element in the HTML namespace.
+ * @link https://php.net/manual/en/class.dom-htmlelement.php
  * @since 8.4
  */
 class HTMLElement extends Element {}
 /**
+ * The Dom\Text class inherits from Dom\CharacterData and represents a text node.
+ *
+ * This is the modern, spec-compliant equivalent of DOMText.
+ *
+ * @link https://php.net/manual/en/class.dom-text.php
  * @since 8.4
  */
 class Text extends CharacterData
@@ -963,14 +1038,30 @@ class Text extends CharacterData
     public string $wholeText;
 }
 /**
+ * Represents comment nodes, characters delimited by <!-- and -->.
+ *
+ * This is the modern, spec-compliant equivalent of DOMComment.
+ *
+ * @link https://php.net/manual/en/class.dom-comment.php
  * @since 8.4
  */
 class Comment extends CharacterData {}
 /**
+ * The Dom\CDATASection class inherits from Dom\Text for textual representation of CData constructs.
+ *
+ * This is the modern, spec-compliant equivalent of DOMCdataSection.
+ *
+ * @link https://php.net/manual/en/class.dom-cdatasection.php
  * @since 8.4
  */
 class CDATASection extends Text {}
 /**
+ * Each Dom\Document has a doctype attribute whose value is either null or a Dom\DocumentType
+ * object.
+ *
+ * This is the modern, spec-compliant equivalent of DOMImplementation.
+ *
+ * @link https://php.net/manual/en/class.dom-documenttype.php
  * @since 8.4
  */
 class DocumentType extends Node implements ChildNode
@@ -999,6 +1090,11 @@ class Notation extends Node
     public string $systemId;
 }
 /**
+ * This interface represents a known entity, either parsed or unparsed, in an XML document.
+ *
+ * This is the modern, spec-compliant equivalent of DOMEntity.
+ *
+ * @link https://php.net/manual/en/class.dom-entity.php
  * @since 8.4
  */
 class Entity extends Node
@@ -1008,10 +1104,18 @@ class Entity extends Node
     public ?string $notationName;
 }
 /**
+ * This is the modern, spec-compliant equivalent of DOMEntityReference.
+ * @link https://php.net/manual/en/class.dom-entityreference.php
  * @since 8.4
  */
 class EntityReference extends Node {}
 /**
+ * This represents a processing instruction (PI) node. These are meant to indicate data areas meant
+ * for processing by specific applications.
+ *
+ * This is the modern, spec-compliant equivalent of DOMProcessingInstruction.
+ *
+ * @link https://php.net/manual/en/class.dom-processinginstruction.php
  * @since 8.4
  */
 class ProcessingInstruction extends CharacterData
@@ -1039,6 +1143,12 @@ class RandomException {}
  */
 class Mysql {}
 /**
+ * Gets a Dom\Attr or Dom\Element object from a SimpleXMLElement object
+ *
+ * This function takes the given attribute or element node (a SimpleXMLElement instance) and creates
+ * a Dom\Attr or Dom\Element node, respectively. The new Dom\Node refers to the same underlying XML
+ * node as the SimpleXMLElement.
+ *
  * @link https://php.net/manual/en/function.dom-ns-import-simplexml.php
  * @since 8.4
  */

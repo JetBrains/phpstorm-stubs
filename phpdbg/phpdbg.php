@@ -71,6 +71,7 @@ function phpdbg_color(int $element, string $color): void {}
 function phpdbg_prompt(string $string): void {}
 
 /**
+ * Attempts to set the execution context
  * @link https://php.net/manual/en/function.phpdbg-exec.php
  * @return string|bool
  */

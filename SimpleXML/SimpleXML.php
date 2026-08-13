@@ -344,6 +344,10 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     public function next(): void {}
 
     /**
+     * Checks whether the current element has sub elements
+     *
+     * This method checks whether the current SimpleXMLElement element has sub-elements.
+     *
      * @link https://php.net/manual/en/simplexmlelement.haschildren.php
      * @return bool
      * @since 8.0
@@ -353,6 +357,11 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     public function hasChildren(): bool {}
 
     /**
+     * Returns the sub-elements of the current element
+     *
+     * This method returns a SimpleXMLElement object containing sub-elements of the current
+     * SimpleXMLElement element.
+     *
      * @link https://php.net/manual/en/simplexmlelement.getchildren.php
      * @since 8.0
      */

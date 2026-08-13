@@ -156,6 +156,16 @@ function mysql_select_db($database_name, $link_identifier = null) {}
 function mysql_query($query, $link_identifier = null) {}
 
 /**
+ * Send an SQL query to MySQL without fetching and buffering the result rows
+ *
+ * mysql_unbuffered_query sends the SQL query query to MySQL without automatically fetching and
+ * buffering the result rows as mysql_query does. This saves a considerable amount of memory with
+ * SQL queries that produce large result sets, and you can start working on the result set
+ * immediately after the first row has been retrieved as you don't have to wait until the complete
+ * SQL query has been performed. To use mysql_unbuffered_query while multiple database connections
+ * are open, you must specify the optional parameter link_identifier to identify which connection
+ * you want to use.
+ *
  * @deprecated 5.5
  * Send an SQL query to MySQL without fetching and buffering the result rows.
  * @link https://php.net/manual/en/function.mysql-unbuffered-query.php
@@ -444,6 +454,11 @@ function mysql_fetch_array($result, $result_type = MYSQL_BOTH) {}
 function mysql_fetch_assoc($result) {}
 
 /**
+ * Fetch a result row as an object
+ *
+ * Returns an object with properties that correspond to the fetched row and moves the internal data
+ * pointer ahead.
+ *
  * @template T of object
  *
  * Fetch a result row as an object

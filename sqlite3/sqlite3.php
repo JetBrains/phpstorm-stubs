@@ -7,6 +7,8 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
+ * Represents a SQLite3 specific exception.
+ * @link https://php.net/manual/en/class.sqlite3exception.php
  * @since 8.3
  */
 class SQLite3Exception extends \Exception {}
@@ -466,6 +468,12 @@ class SQLite3
     ): bool {}
 
     /**
+     * Backup one database to another database
+     *
+     * SQLite3::backup copies the contents of one database into another, overwriting the contents of
+     * the destination database. It is useful either for creating backups of databases or for
+     * copying in-memory databases to or from persistent files.
+     *
      * @link https://php.net/manual/en/sqlite3.backup.php
      * @param SQLite3 $destination
      * @param string $sourceDatabase
@@ -477,6 +485,17 @@ class SQLite3
     public function backup(SQLite3 $destination, string $sourceDatabase = 'main', string $destinationDatabase = 'main'): bool {}
 
     /**
+     * Configures a callback to be used as an authorizer to limit what a statement can do
+     *
+     * Sets a callback that will be called by SQLite every time an action is performed (reading,
+     * deleting, updating, etc.). This is used when preparing a SQL statement from an untrusted
+     * source to ensure that the SQL statements do not try to access data they are not allowed to
+     * see, or that they do not try to execute malicious statements that damage the database. For
+     * example, an application may allow a user to enter arbitrary SQL queries for evaluation by a
+     * database. But the application does not want the user to be able to make arbitrary changes to
+     * the database. An authorizer could then be put in place while the user-entered SQL is being
+     * prepared that disallows everything except SELECT statements.
+     *
      * @link https://php.net/manual/en/sqlite3.setauthorizer.php
      * @param null|callable $callback
      * @return bool
@@ -615,6 +634,10 @@ class SQLite3Stmt
     public function readOnly(): bool {}
 
     /**
+     * Constructs an SQLite3Stmt object
+     *
+     * SQLite3Stmt instances are created by SQLite3::prepare.
+     *
      * @link https://php.net/manual/en/sqlite3stmt.construct.php
      * @param SQLite3 $sqlite3
      * @param string $query

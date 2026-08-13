@@ -114,7 +114,7 @@ function array_count_values(array $array): array {}
 
 /**
  * Return the values from a single column in the input array
- * @link https://secure.php.net/manual/en/function.array-column.php
+ * @link https://php.net/manual/en/function.array-column.php
  * @param array $array <p>A multi-dimensional array (record set) from which to pull a column of values.</p>
  * @param string|int|null $column_key <p>The column of values to return. This value may be the integer key of the column you wish to retrieve, or it may be the string key name for an associative array. It may also be NULL to return complete arrays (useful together with index_key to reindex the array).</p>
  * @param string|int|null $index_key [optional] <p>The column to use as the index/keys for the returned array. This value may be the integer key of the column, or it may be the string key name.</p>
@@ -829,7 +829,7 @@ function array_key_exists($key, #[LanguageLevelTypeAware(["8.0" => "array"], def
  *
  * Get the first key of the given array without affecting the internal array pointer.
  *
- * @link https://secure.php.net/array_key_first
+ * @link https://php.net/array_key_first
  * @param array $array An array
  * @return string|int|null Returns the first key of array if the array is not empty; NULL otherwise.
  * @since 7.3
@@ -842,7 +842,7 @@ function array_key_first(array $array): string|int|null {}
  *
  * Get the last key of the given array without affecting the internal array pointer.
  *
- * @link https://secure.php.net/array_key_last
+ * @link https://php.net/array_key_last
  * @param array $array An array
  * @return string|int|null Returns the last key of array if the array is not empty; NULL otherwise.
  * @since 7.3
@@ -851,7 +851,12 @@ function array_key_first(array $array): string|int|null {}
 function array_key_last(array $array): string|int|null {}
 
 /**
- * @link https://secure.php.net/array_is_list
+ * Checks whether a given array is a list
+ *
+ * Determines if the given array is a list. An array is considered a list if its keys consist of
+ * consecutive numbers from 0 to count($array)-1.
+ *
+ * @link https://php.net/array_is_list
  * @param array $array An array
  * @return bool return true if the array keys are 0 .. count($array)-1 in that order.
  * For other arrays, it returns false. For non-arrays, it throws a TypeError.

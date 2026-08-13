@@ -1414,6 +1414,7 @@ function ldap_modify_batch(
 ): bool {}
 
 /**
+ * Counts the number of references in a search result
  * @link https://php.net/manual/en/function.ldap-count-references.php
  * @param resource $ldap
  * @param resource $result
@@ -1426,6 +1427,11 @@ function ldap_count_references(
 ): int {}
 
 /**
+ * Performs an extended operation
+ *
+ * Performs an extended operation on the specified ldap with request_oid the OID of the operation
+ * and request_data the data.
+ *
  * @link https://php.net/manual/en/function.ldap-exop-sync.php
  * @since 8.3
  */

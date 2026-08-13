@@ -238,6 +238,12 @@ function pcntl_wifsignaled(int $status): bool {}
 function pcntl_wexitstatus(int $status): int|false {}
 
 /**
+ * Checks whether the child process has continued from a job control stop
+ *
+ * Checks whether the child process which caused the return of pcntl_waitpid has continued from a
+ * job control stop. This function is only useful if the call to pcntl_waitpid was done using the
+ * WCONTINUED option.
+ *
  * @link https://php.net/manual/en/function.pcntl-wifcontinued.php
  * @param int $status
  * @return bool
@@ -490,6 +496,12 @@ function pcntl_async_signals(
 function pcntl_signal_get_handler(int $signal) {}
 
 /**
+ * Dissociates parts of the process execution context
+ *
+ * pcntl_unshare allows a process to disassociate parts of its execution context that are currently
+ * being shared with other processes. The main use of pcntl_unshare is to allow a process to control
+ * its shared execution context without creating a new process.
+ *
  * @link https://php.net/manual/en/function.pcntl-unshare.php
  * @param int $flags
  * @return bool
@@ -498,11 +510,20 @@ function pcntl_signal_get_handler(int $signal) {}
 function pcntl_unshare(int $flags): bool {}
 
 /**
+ * Waits for a child process to change state
+ *
+ * Obtains status information pertaining to termination, stop, and/or continue events in one of the
+ * caller's child processes.
+ *
  * @link https://php.net/manual/en/function.pcntl-waitid.php
  * @since 8.4
  */
 function pcntl_waitid(int $idtype = P_ALL, ?int $id = null, &$info = [], int $flags = WEXITED, #[PhpStormStubsElementAvailable(from: '8.5')] &$resource_usage = []): bool {}
 /**
+ * Get the cpu affinity of a process
+ *
+ * Retrieve the cpu affinity of the process_id.
+ *
  * @link https://php.net/manual/en/function.pcntl-getcpuaffinity.php
  * @since 8.4
  * @throws \ValueError A ValueError is thrown when process_id is an invalid process id or the cpu
@@ -511,6 +532,10 @@ function pcntl_waitid(int $idtype = P_ALL, ?int $id = null, &$info = [], int $fl
  */
 function pcntl_getcpuaffinity(?int $process_id = null): array|false {}
 /**
+ * Set the cpu affinity of a process
+ *
+ * Sets the cpu affinity for the process_id with the cpu affinity mask given by cpu_ids.
+ *
  * @link https://php.net/manual/en/function.pcntl-setcpuaffinity.php
  * @since 8.4
  * @throws \TypeError A TypeError is thrown if one of the cpu id from the cpu_ids is invalid.
@@ -519,6 +544,11 @@ function pcntl_getcpuaffinity(?int $process_id = null): array|false {}
  */
 function pcntl_setcpuaffinity(?int $process_id = null, array $cpu_ids = []): bool {}
 /**
+ * Get the CPU number on which the calling process last executed
+ *
+ * pcntl_getcpu returns the number of the CPU on which the calling process was last executed. This
+ * function uses the sched_getcpu(3) system call available on Linux.
+ *
  * @link https://php.net/manual/en/function.pcntl-getcpu.php
  * @since 8.4
  */
