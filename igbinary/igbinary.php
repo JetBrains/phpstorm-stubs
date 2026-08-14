@@ -10,7 +10,7 @@
  * You can even serialize() arrays that contain references to itself.
  * Circular references inside the array/object you are serialize()ing will also be stored.
  *
- * If object implements {@link https://secure.php.net/~helly/php/ext/spl/interfaceSerializable.html Serializable} -interface,
+ * If object implements {@link https://php.net/manual/en/class.serializable.php Serializable} -interface,
  * PHP will call the member function serialize to get serialized representation of object.
  *
  * When serializing objects, PHP will attempt to call the member function __sleep prior to serialization.
@@ -33,7 +33,7 @@ function igbinary_serialize($value) {}
  * @param string $str The serialized string.
  * @return mixed|false The converted value is returned, and can be a boolean, integer, float, string, array, object or <b>false</b> by empty string input.
  * @link https://secure.php.net/manual/en/function.unserialize.php PHP default unserialize
- * @link https://secure.php.net/~helly/php/ext/spl/interfaceSerializable.html Serializable
+ * @link https://php.net/manual/en/class.serializable.php Serializable
  */
 function igbinary_unserialize($str) {}
 

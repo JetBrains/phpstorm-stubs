@@ -49,7 +49,7 @@ class LuaSandbox
      * <p>For more information about calling Lua functions and the return values,
      * see <code>LuaSandboxFunction::call()</code>.</p>
      *
-     * @link https://www.php.net/manual/en/luasandbox.callFunction.php
+     * @link https://php.net/manual/en/luasandbox.callfunction.php
      * @param string $name <p>Lua variable name.</p>
      * @param mixed[] $arguments <p>Arguments to the function.</p>
      * @return array|bool <p>Returns an array of values returned by the Lua function,
@@ -62,7 +62,7 @@ class LuaSandbox
     /**
      * Disable the profiler.
      *
-     * @link https://www.php.net/manual/en/luasandbox.disableProfiler.php
+     * @link https://php.net/manual/en/luasandbox.disableprofiler.php
      * @since luasandbox >= 1.1.0
      * @see LuaSandbox::enableProfiler()
      * @see LuaSandbox::getProfilerFunctionReport()
@@ -187,7 +187,7 @@ class LuaSandbox
      *
      * <p>This is the equivalent of standard Lua's <code>loadstring()</code> function.</p>
      *
-     * @link https://www.php.net/manual/en/luasandbox.loadString.php
+     * @link https://php.net/manual/en/luasandbox.loadstring.php
      * @param string $code <p>Lua code.</p>
      * @param string $chunkName [optional] <p>Name for the loaded chunk, for use in error traces.</p>
      * @return LuaSandboxFunction <p>Returns a <code>LuaSandboxFunction</code> which, when executed,
@@ -303,7 +303,7 @@ class LuaSandbox
      * <p>For more information about calling Lua functions and the return values,
      * see <code>LuaSandboxFunction::call()</code>.</p>
      *
-     * @link https://www.php.net/manual/en/luasandbox.wrapPhpFunction.php
+     * @link https://php.net/manual/en/luasandbox.wrapphpfunction.php
      * @param callable $function <p>Callable to wrap.</p>
      * @return LuaSandboxFunction
      * @since luasandbox >= 1.2.0

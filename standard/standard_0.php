@@ -1282,7 +1282,7 @@ function phpcredits(int $flags = CREDITS_ALL) {}
 /**
  * Gets the logo guid
  * @removed 5.5
- * @link https://php.net/manual/en/function.php-logo-guid.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.php-logo-guid
  * @return string PHPE9568F34-D428-11d2-A769-00AA001ACF42.
  */
 #[Pure]
@@ -1301,7 +1301,7 @@ function php_egg_logo_guid() {}
 /**
  * Gets the Zend guid
  * @removed 5.5
- * @link https://php.net/manual/en/function.zend-logo-guid.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.zend-logo-guid
  * @return string PHPE9568F35-D428-11d2-A769-00AA001ACF42.
  */
 function zend_logo_guid(): string {}

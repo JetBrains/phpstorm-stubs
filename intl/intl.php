@@ -2233,7 +2233,7 @@ class IntlDateFormatter
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Sets the time zone to use
-     * @link https://php.net/manual/en/intldateformatter.settimezoneid.php
+     * @link https://php-legacy-docs.zend.com/manual/php5/en/intldateformatter.settimezoneid
      * @param string $zone <p>
      * The time zone ID string of the time zone to use.
      * If <b>NULL</b> or the empty string, the default time zone for the runtime is used.
@@ -3333,7 +3333,7 @@ class IntlCalendar
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
      * @return int|false
-     * An {@link https://php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
+     * An {@link https://php.net/manual/en/language.types.integer.php int} representing a field value in the field's
      * unit or <b>FALSE</b> on failure.
      */
     #[Pure]
@@ -4668,7 +4668,7 @@ function normalizer_is_normalized(string $string, int $form = Normalizer::FORM_C
 
 /**
  * Gets the default locale value from the intl global 'default_locale'
- * @link https://php.net/manual/en/function.locale-get-default.php
+ * @link https://php.net/manual/en/locale.getdefault.php
  * @return string a string with the current Locale.
  */
 #[Pure]
@@ -4677,7 +4677,7 @@ function locale_get_default(): string {}
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set the default runtime Locale
- * @link https://php.net/manual/en/function.locale-set-default.php
+ * @link https://php.net/manual/en/locale.setdefault.php
  * @param string $locale <p>
  * The new Locale name. A comprehensive list of the supported locales is
  * available at .
@@ -5266,7 +5266,7 @@ function datefmt_get_timezone(IntlDateFormatter $formatter): IntlTimeZone|false 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Sets the time zone to use
- * @link https://php.net/manual/en/intldateformatter.settimezoneid.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/intldateformatter.settimezoneid
  * @param MessageFormatter $mf
  * @param string $zone <p>
  * The time zone ID string of the time zone to use.
@@ -6234,7 +6234,7 @@ function intlcal_get(IntlCalendar $calendar, int $field) {}
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
  * @return int
- * <p>An {@link https://php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
+ * <p>An {@link https://php.net/manual/en/language.types.integer.php int} representing a field value in the field's
  * unit or <b>FALSE</b> on failure.
  * </p>
  * @since 5.5
@@ -7561,62 +7561,62 @@ define('INTL_IDNA_VARIANT_UTS46', 1);
  */
 define('IDNA_ERROR_EMPTY_LABEL', 1);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_LABEL_TOO_LONG', 2);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_DOMAIN_NAME_TOO_LONG', 4);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_LEADING_HYPHEN', 8);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_TRAILING_HYPHEN', 16);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_HYPHEN_3_4', 32);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_LEADING_COMBINING_MARK', 64);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_DISALLOWED', 128);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_PUNYCODE', 256);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_LABEL_HAS_DOT', 512);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_INVALID_ACE_LABEL', 1024);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_BIDI', 2048);
 /**
- * @link https://php.net/manual/en/migration54.global-constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  * @since 5.4
  */
 define('IDNA_ERROR_CONTEXTJ', 4096);
@@ -7928,7 +7928,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
-     * @link https://php.net/manual/en/intlrulebasedbreakiterator.getrulesstatus.php
+     * @link https://php.net/manual/en/intlrulebasedbreakiterator.getrulestatus.php
      * Get the largest status value from the break rules that determined the current break position
      * @return int
      */

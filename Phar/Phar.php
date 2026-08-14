@@ -1522,7 +1522,7 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns the number of entries (files) in the Phar archive
-     * @link https://php.net/manual/en/phardata.count.php
+     * @link https://php.net/manual/en/phar.count.php
      * @param int $mode [optional]
      * @return int<0,max> The number of files contained within this phar, or 0 (the number zero)
      * if none.

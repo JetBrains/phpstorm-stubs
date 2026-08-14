@@ -182,7 +182,7 @@ class OCI_Lob
     /**
      * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
      * Alias of {@see OCI_Lob::export}
-     * @link https://php.net/manual/en/oci-lob.writetofile.php
+     * @link https://php-legacy-docs.zend.com/manual/php5/en/oci-lob.writetofile
      * @param $filename
      * @param $start [optional]
      * @param $length [optional]
@@ -260,7 +260,7 @@ class OCI_Lob
     /**
      * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
      * Alias of {@see OCI_Lob::import}
-     * @link https://php.net/manual/en/oci-lob.savefile.php
+     * @link https://php-legacy-docs.zend.com/manual/php5/en/oci-lob.savefile
      * @param $filename
      * @return bool Return true on success and false on failure
      */

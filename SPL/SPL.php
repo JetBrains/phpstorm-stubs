@@ -566,7 +566,7 @@ abstract class FilterIterator extends IteratorIterator
 
     /**
      * Get the inner iterator
-     * @link https://php.net/manual/en/filteriterator.getinneriterator.php
+     * @link https://php-legacy-docs.zend.com/manual/php5/en/filteriterator.getinneriterator
      * @return Iterator The inner iterator.
      */
     #[TentativeType]
@@ -751,7 +751,7 @@ class LimitIterator extends IteratorIterator
 
     /**
      * Get inner iterator
-     * @link https://php.net/manual/en/limititerator.getinneriterator.php
+     * @link https://php-legacy-docs.zend.com/manual/php5/en/limititerator.getinneriterator
      * @return Iterator The inner iterator passed to <b>LimitIterator::__construct</b>.
      */
     #[TentativeType]
@@ -863,7 +863,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
 
     /**
      * Returns the inner iterator
-     * @link https://php.net/manual/en/cachingiterator.getinneriterator.php
+     * @link https://php-legacy-docs.zend.com/manual/php5/en/cachingiterator.getinneriterator
      * @return Iterator an object implementing the Iterator interface.
      */
     #[TentativeType]
@@ -1033,7 +1033,7 @@ class NoRewindIterator extends IteratorIterator
 
     /**
      * Get the inner iterator
-     * @link https://php.net/manual/en/norewinditerator.getinneriterator.php
+     * @link https://php-legacy-docs.zend.com/manual/php5/en/norewinditerator.getinneriterator
      * @return Iterator The inner iterator, as passed to <b>NoRewindIterator::__construct</b>.
      */
     #[TentativeType]
@@ -1105,7 +1105,7 @@ class AppendIterator extends IteratorIterator
 
     /**
      * Gets an inner iterator
-     * @link https://php.net/manual/en/appenditerator.getinneriterator.php
+     * @link https://php-legacy-docs.zend.com/manual/php5/en/appenditerator.getinneriterator
      * @return Iterator the current inner Iterator.
      */
     #[TentativeType]
