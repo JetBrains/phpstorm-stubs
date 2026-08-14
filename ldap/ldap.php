@@ -785,7 +785,7 @@ function ldap_mod_add(
 /**
  * Add attribute values to current attributes
  * Does the same thing as ldap_mod_add() but returns the LDAP result resource to be parsed with ldap_parse_result().
- * @link https://php.net/manual/en/function.ldap-mod-add-ext.php
+ * @link https://php.net/manual/en/function.ldap-mod-add.php
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
@@ -828,7 +828,7 @@ function ldap_mod_replace(
 /**
  * Replace attribute values with new ones
  * Does the same thing as ldap_mod_replace() but returns the LDAP result resource to be parsed with ldap_parse_result().
- * @link https://php.net/manual/en/function.ldap-mod-replace-ext.php
+ * @link https://php.net/manual/en/function.ldap-mod-replace.php
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
@@ -866,7 +866,7 @@ function ldap_mod_del(
 /**
  * Delete attribute values from current attributes
  * Does the same thing as ldap_mod_del() but returns the LDAP result resource to be parsed with ldap_parse_result().
- * @link https://php.net/manual/en/function.ldap-mod-del-ext.php
+ * @link https://php.net/manual/en/function.ldap-mod-del.php
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>

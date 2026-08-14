@@ -846,7 +846,7 @@ define('SQLITE3_OPEN_CREATE', 4);
  * Specifies that a function created with {@see SQLite3::createFunction()} is deterministic,
  * i.e. it always returns the same result given the same inputs within a single SQL statement.
  * @since 7.1.4
- * @link https://php.net/manual/en/sqlite.constants.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/sqlite.constants
  */
 define('SQLITE3_DETERMINISTIC', 2048);
 

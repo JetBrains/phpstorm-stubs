@@ -1368,7 +1368,7 @@ namespace Ds;
          *
          * @return bool Returns TRUE if the key could found, FALSE otherwise.
          *
-         * @link https://www.php.net/manual/en/ds-map.hasKey.php
+         * @link https://php.net/manual/en/ds-map.haskey.php
          */
         public function hasKey($key): bool {}
 
@@ -1379,7 +1379,7 @@ namespace Ds;
          *
          * @return bool Returns TRUE if the value could found, FALSE otherwise.
          *
-         * @link https://www.php.net/manual/en/ds-map.hasValue.php
+         * @link https://php.net/manual/en/ds-map.hasvalue.php
          */
         public function hasValue($value): bool {}
 

@@ -26,21 +26,21 @@ class ReflectionClass implements Reflector
     /**
      * Indicates class that is abstract because it has some abstract methods.
      *
-     * @link https://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.constants.is-implicit-abstract
+     * @link https://php.net/manual/en/class.reflectionclass.php#reflectionclass.constants.is-implicit-abstract
      */
     public const IS_IMPLICIT_ABSTRACT = 16;
 
     /**
      * Indicates class that is abstract because of its definition.
      *
-     * @link https://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.constants.is-explicit-abstract
+     * @link https://php.net/manual/en/class.reflectionclass.php#reflectionclass.constants.is-explicit-abstract
      */
     public const IS_EXPLICIT_ABSTRACT = 64;
 
     /**
      * Indicates final class.
      *
-     * @link https://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.constants.is-final
+     * @link https://php.net/manual/en/class.reflectionclass.php#reflectionclass.constants.is-final
      */
     public const IS_FINAL = 32;
 
@@ -695,7 +695,7 @@ class ReflectionClass implements Reflector
     /**
      * Clones object
      *
-     * @link https://php.net/manual/en/reflectionclass.clone.php
+     * @link https://php.net/manual/en/class.reflectionclass.php
      * @return void
      */
     #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
@@ -704,7 +704,7 @@ class ReflectionClass implements Reflector
     /**
      * Clones object
      *
-     * @link https://php.net/manual/en/reflectionclass.clone.php
+     * @link https://php.net/manual/en/class.reflectionclass.php
      * @return void
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]

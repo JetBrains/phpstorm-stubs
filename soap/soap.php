@@ -601,7 +601,7 @@ class SoapServer
 {
     /**
      * SoapServer constructor
-     * @link https://php.net/manual/en/soapserver.soapserver.php
+     * @link https://php.net/manual/en/soapserver.construct.php
      * @param mixed $wsdl <p>
      * To use the SoapServer in WSDL mode, pass the URI of a WSDL file.
      * Otherwise, pass <b>NULL</b> and set the uri option to the
@@ -646,7 +646,7 @@ class SoapServer
 
     /**
      * SoapServer constructor
-     * @link https://php.net/manual/en/soapserver.soapserver.php
+     * @link https://php.net/manual/en/soapserver.construct.php
      * @param mixed $wsdl <p>
      * To use the SoapServer in WSDL mode, pass the URI of a WSDL file.
      * Otherwise, pass <b>NULL</b> and set the uri option to the
@@ -900,7 +900,7 @@ class SoapFault extends Exception
 
     /**
      * SoapFault constructor
-     * @link https://php.net/manual/en/soapfault.soapfault.php
+     * @link https://php.net/manual/en/soapfault.construct.php
      * @param string $code <p>
      * The error code of the <b>SoapFault</b>.
      * </p>
@@ -937,7 +937,7 @@ class SoapFault extends Exception
 
     /**
      * SoapFault constructor
-     * @link https://php.net/manual/en/soapfault.soapfault.php
+     * @link https://php.net/manual/en/soapfault.construct.php
      * @param string $faultcode <p>
      * The error code of the <b>SoapFault</b>.
      * </p>
@@ -992,7 +992,7 @@ class SoapParam
 
     /**
      * SoapParam constructor
-     * @link https://php.net/manual/en/soapparam.soapparam.php
+     * @link https://php.net/manual/en/soapparam.construct.php
      * @param mixed $data <p>
      * The data to pass or return. This parameter can be passed directly as PHP
      * value, but in this case it will be named as paramN and
@@ -1010,7 +1010,7 @@ class SoapParam
 
     /**
      * SoapParam constructor
-     * @link https://php.net/manual/en/soapparam.soapparam.php
+     * @link https://php.net/manual/en/soapparam.construct.php
      * @param mixed $data <p>
      * The data to pass or return. This parameter can be passed directly as PHP
      * value, but in this case it will be named as paramN and
@@ -1063,7 +1063,7 @@ class SoapHeader
 
     /**
      * SoapHeader constructor
-     * @link https://www.php.net/manual/en/soapheader.construct.php
+     * @link https://php.net/manual/en/soapheader.construct.php
      * @param string $namespace <p>
      * The namespace of the SOAP header element.
      * </p>
@@ -1091,7 +1091,7 @@ class SoapHeader
 
     /**
      * SoapHeader constructor
-     * @link https://php.net/manual/en/soapheader.soapheader.php
+     * @link https://php.net/manual/en/soapheader.construct.php
      * @param string $namespace <p>
      * The namespace of the SOAP header element.
      * </p>

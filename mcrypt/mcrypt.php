@@ -5,7 +5,7 @@ use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Encrypt/decrypt data in ECB mode
- * @link https://php.net/manual/en/function.mcrypt-ecb.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mcrypt-ecb
  * @param string|int $cipher
  * @param string $key
  * @param string $data
@@ -18,7 +18,7 @@ function mcrypt_ecb($cipher, $key, $data, $mode) {}
 
 /**
  * Encrypt/decrypt data in CBC mode
- * @link https://php.net/manual/en/function.mcrypt-cbc.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mcrypt-cbc
  * @param int|string $cipher
  * @param string $key
  * @param string $data
@@ -32,7 +32,7 @@ function mcrypt_cbc($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
  * Encrypt/decrypt data in CFB mode
- * @link https://php.net/manual/en/function.mcrypt-cfb.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mcrypt-cfb
  * @param int|string $cipher
  * @param string $key
  * @param string $data
@@ -46,7 +46,7 @@ function mcrypt_cfb($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
  * Encrypt/decrypt data in OFB mode
- * @link https://php.net/manual/en/function.mcrypt-ofb.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mcrypt-ofb
  * @param int|string $cipher
  * @param string $key
  * @param string $data
@@ -352,7 +352,7 @@ function mdecrypt_generic($td, $data) {}
 
 /**
  * This function terminates encryption
- * @link https://php.net/manual/en/function.mcrypt-generic-end.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mcrypt-generic-end
  * @param resource $td
  * @return bool
  * @removed 7.0

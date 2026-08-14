@@ -118,7 +118,7 @@ function stream_set_chunk_size($stream, int $size) {}
 
 /**
  * Initializes all syslog related variables
- * @link https://php.net/manual/en/function.define-syslog-variables.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.define-syslog-variables
  * @return void
  * @removed 5.4
  */

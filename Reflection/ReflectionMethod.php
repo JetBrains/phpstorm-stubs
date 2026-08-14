@@ -159,7 +159,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is static
      *
-     * @link https://php.net/manual/en/reflectionmethod.isstatic.php
+     * @link https://php-legacy-docs.zend.com/manual/php5/en/reflectionmethod.isstatic
      * @return bool Returns {@see true} if the method is static, otherwise {@see false}
      */
     #[Pure]

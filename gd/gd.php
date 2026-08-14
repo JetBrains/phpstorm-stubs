@@ -1944,7 +1944,7 @@ function imagefttext(GdImage $image, float $size, float $angle, int $x, int $y, 
 
 /**
  * Load a PostScript Type 1 font from file
- * @link https://php.net/manual/en/function.imagepsloadfont.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.imagepsloadfont
  * @param string $filename <p>
  * Path to the Postscript font file.
  * </p>
@@ -1956,7 +1956,7 @@ function imagepsloadfont($filename) {}
 
 /**
  * Free memory used by a PostScript Type 1 font
- * @link https://php.net/manual/en/function.imagepsfreefont.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.imagepsfreefont
  * @param resource|GdImage $font_index <p>
  * A font resource, returned by imagepsloadfont.
  * </p>
@@ -1967,7 +1967,7 @@ function imagepsfreefont($font_index) {}
 
 /**
  * Change the character encoding vector of a font
- * @link https://php.net/manual/en/function.imagepsencodefont.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.imagepsencodefont
  * @param resource|GdImage $font_index <p>
  * A font resource, returned by imagepsloadfont.
  * </p>
@@ -1984,7 +1984,7 @@ function imagepsencodefont($font_index, $encodingfile) {}
 
 /**
  * Extend or condense a font
- * @link https://php.net/manual/en/function.imagepsextendfont.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.imagepsextendfont
  * @param resource|GdImage $font_index <p>
  * A font resource, returned by imagepsloadfont.
  * </p>
@@ -1998,7 +1998,7 @@ function imagepsextendfont($font_index, $extend) {}
 
 /**
  * Slant a font
- * @link https://php.net/manual/en/function.imagepsslantfont.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.imagepsslantfont
  * @param resource|GdImage $font_index <p>
  * A font resource, returned by imagepsloadfont.
  * </p>
@@ -2012,7 +2012,7 @@ function imagepsslantfont($font_index, $slant) {}
 
 /**
  * Draws a text over an image using PostScript Type1 fonts
- * @link https://php.net/manual/en/function.imagepstext.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.imagepstext
  * @param resource|GdImage $image
  * @param string $text <p>
  * The text to be written.
@@ -2085,7 +2085,7 @@ function imagepstext($image, $text, $font_index, $size, $foreground, $background
 
 /**
  * Give the bounding box of a text rectangle using PostScript Type1 fonts
- * @link https://php.net/manual/en/function.imagepsbbox.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.imagepsbbox
  * @param string $text <p>
  * The text to be written.
  * </p>

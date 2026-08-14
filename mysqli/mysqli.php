@@ -2184,7 +2184,7 @@ function mysqli_free_result(mysqli_result $result): void {}
 /**
  * Returns client Zval cache statistics
  * Available only with mysqlnd.
- * @link https://php.net/manual/en/function.mysqli-get-cache-stats.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mysqli-get-cache-stats
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return array|false an array with client Zval cache stats if success, false otherwise.
  * @removed 5.4
@@ -2350,7 +2350,7 @@ function mysqli_kill(mysqli $mysql, int $process_id): bool {}
 
 /**
  * Unsets user defined handler for load local infile command
- * @link https://php.net/manual/en/mysqli.set-local-infile-default.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/mysqli.set-local-infile-default
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return void
  * @removed 5.5
@@ -2359,7 +2359,7 @@ function mysqli_set_local_infile_default(mysqli $mysql) {}
 
 /**
  * Set callback function for LOAD DATA LOCAL INFILE command
- * @link https://php.net/manual/en/mysqli.set-local-infile-handler.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/mysqli.set-local-infile-handler
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param callable $read_func
  * @return bool
@@ -2961,7 +2961,7 @@ function mysqli_refresh(mysqli $mysql, int $flags): bool {}
 
 /**
  * Alias for <b>mysqli_stmt_bind_param</b>
- * @link https://php.net/manual/en/function.mysqli-bind-param.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mysqli-bind-param
  * @param mysqli_stmt $statement
  * @param string $types
  * @removed 5.4
@@ -2971,7 +2971,7 @@ function mysqli_bind_param(mysqli_stmt $statement, string $types) {}
 
 /**
  * Alias for <b>mysqli_stmt_bind_result</b>
- * @link https://php.net/manual/en/function.mysqli-bind-result.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mysqli-bind-result
  * @param mysqli_stmt $statement
  * @param string $types
  * @param mixed &$var1
@@ -2982,7 +2982,7 @@ function mysqli_bind_result(mysqli_stmt $statement, string $types, mixed &$var1)
 
 /**
  * Alias of <b>mysqli_character_set_name</b>
- * @link https://php.net/manual/en/function.mysqli-client-encoding.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mysqli-client-encoding
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string
  * @removed 5.4
@@ -3005,7 +3005,7 @@ function mysqli_escape_string(
 
 /**
  * Alias for <b>mysqli_stmt_fetch</b>
- * @link https://php.net/manual/en/function.mysqli-fetch.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mysqli-fetch
  * @param mysqli_stmt $statement
  * @return bool
  * @removed 5.4
@@ -3015,7 +3015,7 @@ function mysqli_fetch(mysqli_stmt $statement): bool {}
 
 /**
  * Alias for <b>mysqli_stmt_param_count</b>
- * @link https://php.net/manual/en/function.mysqli-param-count.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mysqli-param-count
  * @param mysqli_stmt $statement
  * @return int
  * @removed 5.4
@@ -3025,7 +3025,7 @@ function mysqli_param_count(mysqli_stmt $statement): int {}
 
 /**
  * Alias for <b>mysqli_stmt_result_metadata</b>
- * @link https://php.net/manual/en/function.mysqli-get-metadata.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mysqli-get-metadata
  * @param mysqli_stmt $statement
  * @return mysqli_result|false Returns a result object or FALSE if an error occurred
  * @removed 5.4
@@ -3035,7 +3035,7 @@ function mysqli_get_metadata(mysqli_stmt $statement): false|mysqli_result {}
 
 /**
  * Alias for <b>mysqli_stmt_send_long_data</b>
- * @link https://php.net/manual/en/function.mysqli-send-long-data.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mysqli-send-long-data
  * @param mysqli_stmt $statement
  * @param int $param_num
  * @param string $data

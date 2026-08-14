@@ -89,7 +89,7 @@ class CURLFile
     public function setPostFilename(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $posted_filename): void {}
 
     /**
-     * @link https://php.net/manual/en/curlfile.wakeup.php
+     * @link https://php-legacy-docs.zend.com/manual/php5/en/curlfile.wakeup
      * Unserialization handler
      * @since 5.5
      */

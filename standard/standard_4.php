@@ -55,7 +55,7 @@ function call_user_func_array(callable $callback, array $args): mixed {}
 
 /**
  * Call a user method on an specific object
- * @link https://php.net/manual/en/function.call-user-method.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.call-user-method
  * @param string $method_name
  * @param object &$obj
  * @param mixed ...$parameter [optional]
@@ -68,7 +68,7 @@ function call_user_method(string $method_name, object &$obj, ...$parameter): mix
 
 /**
  * Call a user method given with an array of parameters
- * @link https://php.net/manual/en/function.call-user-method-array.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.call-user-method-array
  * @param string $method_name
  * @param object &$obj
  * @param array $params

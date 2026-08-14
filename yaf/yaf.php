@@ -1594,7 +1594,7 @@ abstract class Yaf_Request_Abstract
     public function isCli() {}
 
     /**
-     * @link https://secure.php.net/manual/en/yaf-request-abstract.isdispached.php
+     * @link https://php.net/manual/en/yaf-request-abstract.isdispatched.php
      *
      * @return bool
      */
@@ -1663,7 +1663,7 @@ abstract class Yaf_Request_Abstract
     public function getException() {}
 
     /**
-     * @link https://secure.php.net/manual/en/yaf-request-abstract.getmoudlename.php
+     * @link https://php.net/manual/en/yaf-request-abstract.getmodulename.php
      *
      * @return string
      */
@@ -3054,36 +3054,36 @@ class Yaf_Exception_TypeError extends Yaf_Exception {}
 class Yaf_Exception_StartupError extends Yaf_Exception {}
 
 /**
- * @link https://secure.php.net/manual/en/class.yaf-exception-routefaild.php
+ * @link https://php.net/manual/en/class.yaf-exception-routerfailed.php
  */
 class Yaf_Exception_RouterFailed extends Yaf_Exception {}
 
 /**
- * @link https://secure.php.net/manual/en/class.yaf-exception-dispatchfaild.php
+ * @link https://php.net/manual/en/class.yaf-exception-dispatchfailed.php
  */
 class Yaf_Exception_DispatchFailed extends Yaf_Exception {}
 
 /**
- * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild.php
+ * @link https://php.net/manual/en/class.yaf-exception-loadfailed.php
  */
 class Yaf_Exception_LoadFailed extends Yaf_Exception {}
 
 /**
- * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-module.php
+ * @link https://php.net/manual/en/class.yaf-exception-loadfailed-module.php
  */
 class Yaf_Exception_LoadFailed_Module extends Yaf_Exception_LoadFailed {}
 
 /**
- * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-controller.php
+ * @link https://php.net/manual/en/class.yaf-exception-loadfailed-controller.php
  */
 class Yaf_Exception_LoadFailed_Controller extends Yaf_Exception_LoadFailed {}
 
 /**
- * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-action.php
+ * @link https://php.net/manual/en/class.yaf-exception-loadfailed-action.php
  */
 class Yaf_Exception_LoadFailed_Action extends Yaf_Exception_LoadFailed {}
 
 /**
- * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-view.php
+ * @link https://php.net/manual/en/class.yaf-exception-loadfailed-view.php
  */
 class Yaf_Exception_LoadFailed_View extends Yaf_Exception_LoadFailed {}

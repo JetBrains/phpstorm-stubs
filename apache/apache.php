@@ -73,7 +73,7 @@ function apache_note($note_name, $note_value = '') {}
  * Reset the Apache write timer
  * apache_reset_timeout() resets the Apache write timer, which defaults to 300 seconds. With set_time_limit(0); ignore_user_abort(true) and periodic apache_reset_timeout() calls, Apache can theoretically run forever.
  * This function requires Apache 1.
- * @link https://php.net/manual/en/function.apache-reset-timeout.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.apache-reset-timeout
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function apache_reset_timeout() {}

@@ -973,7 +973,7 @@ function get_cfg_var(string $option): array|string|false {}
 /**
  * Alias:
  * {@see set_magic_quotes_runtime}
- * @link https://php.net/manual/en/function.magic-quotes-runtime.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.magic-quotes-runtime
  * @param bool $new_setting
  * @removed 7.0
  */
@@ -982,7 +982,7 @@ function magic_quotes_runtime(bool $new_setting) {}
 
 /**
  * Sets the current active configuration setting of magic_quotes_runtime
- * @link https://php.net/manual/en/function.set-magic-quotes-runtime.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.set-magic-quotes-runtime
  * @param bool $new_setting <p>
  * false for off, true for on.
  * </p>
@@ -1011,7 +1011,7 @@ function get_magic_quotes_runtime(): int {}
 
 /**
  * Import GET/POST/Cookie variables into the global scope
- * @link https://php.net/manual/en/function.import-request-variables.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.import-request-variables
  * @param string $types <p>
  * Using the types parameter, you can specify
  * which request variables to import. You can use 'G', 'P' and 'C'

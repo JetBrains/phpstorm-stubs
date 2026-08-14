@@ -87,7 +87,7 @@ final class RarArchive implements Traversable
      *
      * Check whether the RAR archive is solid. Individual file extraction is slower on solid archives
      *
-     * @link https://php.net/manual/enrararchive.issolid.php
+     * @link https://php.net/manual/en/rararchive.issolid.php
      *
      * @return bool TRUE if the archive is solid, FALSE otherwise
      */

@@ -77,7 +77,19 @@ Execute `docker compose -f docker-compose.yml run --rm test_runner php tests/Fra
 
 contains material by the PHP Documentation Group, licensed with [CC-BY 3.0] 
 
+### Links to retired documentation
+Some `@link` tags point at [php-legacy-docs.zend.com] instead of php.net. Those symbols
+belong to extensions whose manual pages were retired (pdflib, ncurses, mongo, mssql,
+sybase, SplType, judy, apcu, ming, …) or to functions removed from PHP; the pages no
+longer exist on php.net and the links 404. The legacy archive is the same PHP
+Documentation Group material under the same CC-BY 3.0 licence, so these links are
+preserved deliberately — please do not repoint them at php.net.
+
+Prefer the legacy page for the *exact* symbol over a live parent or sibling page. Fall
+back to a parent page only when neither host documents the symbol.
+
 [PHPDOC]:https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md
 [Apache 2]:https://www.apache.org/licenses/LICENSE-2.0
 [Relevant open issues]:https://youtrack.jetbrains.com/issues/WI?q=%23Unresolved+Subsystem%3A+%7BPHP+lib+stubs%7D+order+by%3A+votes+
 [CC-BY 3.0]:https://www.php.net/manual/en/cc.license.php
+[php-legacy-docs.zend.com]:https://php-legacy-docs.zend.com
