@@ -413,7 +413,8 @@ function wordwrap(string $string, int $width = 75, string $break = "\n", bool $c
  * @param int $flags [optional] <p>
  * A bitmask of one or more of the following flags, which specify how to handle quotes,
  * invalid code unit sequences and the used document type. The default is
- * <em><b>ENT_COMPAT | ENT_HTML401</b></em>.
+ * <em><b>ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401</b></em>
+ * (it was <em><b>ENT_COMPAT | ENT_HTML401</b></em> prior to PHP 8.1).
  * </p><table>
  * <caption><b>Available <em>flags</em> constants</b></caption>
  * <thead>
@@ -521,7 +522,7 @@ function wordwrap(string $string, int $width = 75, string $break = "\n", bool $c
  * @return string The converted string.
  */
 #[Pure]
-function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding = null, bool $double_encode = true): string {}
+function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE|ENT_HTML401, ?string $encoding = null, bool $double_encode = true): string {}
 
 /**
  * Convert all applicable characters to HTML entities
@@ -531,11 +532,13 @@ function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE
  * </p>
  * @param int $flags [optional] <p>
  * Like htmlspecialchars, the optional second
- * quote_style parameter lets you define what will
- * be done with 'single' and "double" quotes. It takes on one of three
- * constants with the default being ENT_COMPAT:
+ * flags parameter lets you define what will
+ * be done with 'single' and "double" quotes, invalid code unit sequences and the
+ * used document type. The default is
+ * ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401
+ * (it was ENT_COMPAT | ENT_HTML401 prior to PHP 8.1):
  * <table>
- * Available quote_style constants
+ * Available flags constants
  * <tr valign="top">
  * <td>Constant Name</td>
  * <td>Description</td>
@@ -552,6 +555,11 @@ function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE
  * <td>ENT_NOQUOTES</td>
  * <td>Will leave both double and single quotes unconverted.</td>
  * </tr>
+ * <tr valign="top">
+ * <td>ENT_SUBSTITUTE</td>
+ * <td>Replace invalid code unit sequences with a Unicode Replacement Character
+ * U+FFFD (UTF-8) or &amp;#FFFD; (otherwise) instead of returning an empty string.</td>
+ * </tr>
  * </table>
  * </p>
  * @param string|null $encoding [optional] <p>
@@ -567,7 +575,7 @@ function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE
  * @return string the encoded string.
  */
 #[Pure]
-function htmlentities(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding = null, bool $double_encode = true): string {}
+function htmlentities(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE|ENT_HTML401, ?string $encoding = null, bool $double_encode = true): string {}
 
 /**
  * Convert HTML entities  to their corresponding characters
@@ -576,12 +584,13 @@ function htmlentities(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?s
  * The input string.
  * </p>
  * @param int $flags [optional] <p>
- * The optional second quote_style parameter lets
- * you define what will be done with 'single' and "double" quotes. It takes
- * on one of three constants with the default being
- * ENT_COMPAT:
+ * The optional second flags parameter lets
+ * you define what will be done with 'single' and "double" quotes and which
+ * document type to use. The default is
+ * ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401
+ * (it was ENT_COMPAT | ENT_HTML401 prior to PHP 8.1):
  * <table>
- * Available quote_style constants
+ * Available flags constants
  * <tr valign="top">
  * <td>Constant Name</td>
  * <td>Description</td>
@@ -608,7 +617,7 @@ function htmlentities(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?s
  * @return string the decoded string.
  */
 #[Pure]
-function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding = null): string {}
+function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE|ENT_HTML401, ?string $encoding = null): string {}
 
 /**
  * Convert special HTML entities back to characters
@@ -617,17 +626,19 @@ function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITU
  * The string to decode
  * </p>
  * @param int $flags [optional] <p>
- * The quote style. One of the following constants:
+ * A bitmask of one or more of the following flags, which specify how to handle
+ * quotes and which document type to use. The default is
+ * ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401
+ * (it was ENT_COMPAT | ENT_HTML401 prior to PHP 8.1):
  * <table>
- * quote_style constants
+ * flags constants
  * <tr valign="top">
  * <td>Constant Name</td>
  * <td>Description</td>
  * </tr>
  * <tr valign="top">
  * <td>ENT_COMPAT</td>
- * <td>Will convert double-quotes and leave single-quotes alone
- * (default)</td>
+ * <td>Will convert double-quotes and leave single-quotes alone</td>
  * </tr>
  * <tr valign="top">
  * <td>ENT_QUOTES</td>
@@ -642,7 +653,7 @@ function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITU
  * @return string the decoded string.
  */
 #[Pure]
-function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE): string {}
+function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE|ENT_HTML401): string {}
 
 /**
  * Returns the translation table used by <function>htmlspecialchars</function> and <function>htmlentities</function>
@@ -820,7 +831,7 @@ function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUB
 #[Pure]
 function get_html_translation_table(
     int $table = 0,
-    int $flags = ENT_QUOTES|ENT_SUBSTITUTE,
+    int $flags = ENT_QUOTES|ENT_SUBSTITUTE|ENT_HTML401,
     #[PhpStormStubsElementAvailable(from: '7.0')] string $encoding = "UTF-8"
 ): array {}
 
