@@ -3,215 +3,377 @@
 // Start of judy.
 
 /**
- * Class Judy.
- * @link https://php.net/manual/en/class.judy.php
+ * Return the PHP Judy extension version string.
+ * @link https://github.com/orieg/php-judy/blob/main/API.md
  */
-class Judy implements ArrayAccess
+function judy_version(): string {}
+
+/**
+ * Return the Judy type constant for the given array.
+ * @link https://github.com/orieg/php-judy/blob/main/API.md
+ * @param mixed $array A Judy object to inspect.
+ * @return int One of the Judy type constants.
+ */
+function judy_type(mixed $array): int {}
+
+/**
+ * Judy arrays are fast, memory-efficient, ordered sparse dynamic arrays.
+ * A Judy object can be accessed like a PHP array and iterated with foreach.
+ * @link https://github.com/orieg/php-judy/blob/main/API.md
+ */
+class Judy implements ArrayAccess, Countable, Iterator, JsonSerializable
 {
     /**
-     * Define the Judy Array as a Bitset with keys as Integer and Values as a Boolean.
-     * @link https://php.net/manual/en/class.judy.php#judy.constants.bitset
+     * Judy array as a bitset, with integer keys and boolean values.
      */
     public const BITSET = 1;
 
     /**
-     * Define the Judy Array with key/values as Integer, and Integer only.
-     * @link https://php.net/manual/en/class.judy.php#judy.constants.int-to-int
+     * Judy array with integer keys and integer values.
      */
     public const INT_TO_INT = 2;
 
     /**
-     * Define the Judy Array with keys as Integer and Values of any type.
-     * @link https://php.net/manual/en/class.judy.php#judy.constants.int-to-mixed
+     * Judy array with integer keys and values of any type.
      */
     public const INT_TO_MIXED = 3;
 
     /**
-     * Define the Judy Array with keys as a String and Values as Integer, and Integer only.
-     * @link https://php.net/manual/en/class.judy.php#judy.constants.string-to-int
+     * Judy array with string keys and integer values (sorted, trie-based).
      */
     public const STRING_TO_INT = 4;
 
     /**
-     * Define the Judy Array with keys as a String and Values of any type.
-     * @link https://php.net/manual/en/class.judy.php#judy.constants.string-to-mixed
+     * Judy array with string keys and values of any type (sorted, trie-based).
      */
     public const STRING_TO_MIXED = 5;
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Construct a new Judy object. A Judy object can be accessed like a PHP Array.
-     * @link https://php.net/manual/en/judy.construct.php
-     * @param int $judy_type <p>The Judy type to be used.</p>
+     * Judy array with integer keys and packed integer values.
      */
-    public function __construct($judy_type) {}
+    public const INT_TO_PACKED = 6;
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Destruct a Judy object.
-     * @link https://php.net/manual/en/judy.destruct.php
+     * Judy array with string keys and values of any type (unsorted, hash-based).
+     */
+    public const STRING_TO_MIXED_HASH = 7;
+
+    /**
+     * Judy array with string keys and integer values (unsorted, hash-based).
+     */
+    public const STRING_TO_INT_HASH = 8;
+
+    /**
+     * Judy array with string keys and values of any type (adaptive storage).
+     */
+    public const STRING_TO_MIXED_ADAPTIVE = 9;
+
+    /**
+     * Judy array with string keys and integer values (adaptive storage).
+     */
+    public const STRING_TO_INT_ADAPTIVE = 10;
+
+    /**
+     * Create a new Judy array of the specified type.
+     * @param int $type One of the Judy type constants (e.g. Judy::INT_TO_INT).
+     */
+    public function __construct(int $type) {}
+
+    /**
+     * Free the Judy array and release all associated resources.
      */
     public function __destruct() {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Locate the Nth index present in the Judy array.
-     * @link https://php.net/manual/en/judy.bycount.php
-     * @param int $nth_index <p>Nth index to return. If nth_index equal 1, then it will return the first index in the array.</p>
-     * @return int <p>Return the index at the given Nth position.</p>
+     * Return the type constant of this Judy array.
+     * @return int One of the Judy type constants.
      */
-    public function byCount($nth_index) {}
+    public function getType(): int {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Count the number of elements in the Judy array.
-     * @link https://php.net/manual/en/judy.count.php
-     * @param int $index_start [optional] <p>Start counting from the given index. Default is first index.</p>
-     * @param int $index_end [optional] <p>Stop counting when reaching this index. Default is last index.</p>
-     * @return int <p>Return the number of elements.</p>
-     */
-    public function count($index_start = 0, $index_end = -1) {}
-
-    /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Search (inclusive) for the first index present that is equal to or greater than the passed Index.
-     * @link https://php.net/manual/en/judy.first.php
-     * @param mixed $index [optional] <p>The index can be an integer or a string corresponding to the index where to start the search.</p>
-     * @return mixed <p>Return the corresponding index in the array.</p>
-     */
-    public function first($index = 0) {}
-
-    /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Search (inclusive) for the first absent index that is equal to or greater than the passed Index.
-     * @link https://php.net/manual/en/judy.firstempty.php
-     * @param mixed $index [optional] <p>The index can be an integer or a string corresponding to the index where to start the search.</p>
-     * @return mixed <p>Return the corresponding index in the array.</p>
-     */
-    public function firstEmpty($index = 0) {}
-
-    /**
-     * (PECL judy &gt;= 0.1.1)<br/>
      * Free the entire Judy array.
-     * @link https://php.net/manual/en/judy.free.php
+     * @return int The number of bytes freed.
      */
-    public function free() {}
+    public function free(): int {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Return an integer corresponding to the Judy type of the current object.
-     * @link https://php.net/manual/en/judy.gettype.php
-     * @return int <p>Return an integer corresponding to a Judy type.</p>
+     * Return the memory used by the internal Judy structure.
+     * @return int|null Memory used in bytes, or null for string-keyed types
+     * (JudySL/JudyHS do not provide memory accounting).
      */
-    public function getType() {}
+    public function memoryUsage(): ?int {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Search (inclusive) for the last index present that is equal to or less than the passed Index.
-     * @link https://php.net/manual/en/judy.last.php
-     * @param int|string $index [optional] <p>The index can be an integer or a string corresponding to the index where to start the search.</p>
-     * @return mixed <p>Return the corresponding index in the array.</p>
+     * Return the number of elements, optionally within a key range
+     * (integer-keyed types only).
+     * @param mixed $index_start [optional] Start counting from the given index.
+     * @param mixed $index_end [optional] Stop counting at the given index.
+     * @return int The number of elements.
      */
-    public function last($index = -1) {}
+    public function size(mixed $index_start = 0, mixed $index_end = -1): int {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Search (inclusive) for the last absent index that is equal to or less than the passed Index.
-     * @link https://php.net/manual/en/judy.lastempty.php
-     * @param int|string $index [optional] <p>The index can be an integer or a string corresponding to the index where to start the search.</p>
-     * @return mixed <p>Return the corresponding index in the array.</p>
+     * Return the number of elements. Implements Countable.
      */
-    public function lastEmpty($index = -1) {}
+    public function count(): int {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Return the memory used by the Judy array.
-     * @link https://php.net/manual/en/judy.memoryusage.php
-     * @return int <p>Return the memory used in bytes.</p>
+     * Locate the Nth index present in the array (1-based).
+     * @param mixed $nth_index The ordinal position to look up.
+     * @return mixed The index at the given position. Only supported for
+     * integer-keyed types; returns null for string-keyed types.
      */
-    public function memoryUsage() {}
+    public function byCount(mixed $nth_index): mixed {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Search (exclusive) for the next index present that is greater than the passed Index.
-     * @link https://php.net/manual/en/judy.next.php
-     * @param mixed $index <p>The index can be an integer or a string corresponding to the index where to start the search.</p>
-     * @return mixed <p>Return the corresponding index in the array.</p>
+     * Search (inclusive) for the first index present that is equal to or
+     * greater than the given index.
+     * @param mixed $index [optional] Integer or string index to start from.
+     * @return mixed The corresponding index in the array.
      */
-    public function next($index) {}
+    public function first(mixed $index = null): mixed {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Search (exclusive) for the next absent index that is greater than the passed Index.
-     * @link https://php.net/manual/en/judy.nextempty.php
-     * @param int|string $index <p>The index can be an integer or a string corresponding to the index where to start the search.</p>
-     * @return mixed <p>Return the corresponding index in the array.</p>
+     * Search (exclusive) for the next index present that is greater than
+     * the given index.
+     * @param mixed $index Integer or string index to start from.
+     * @return mixed The corresponding index in the array.
      */
-    public function nextEmpty($index) {}
+    public function searchNext(mixed $index): mixed {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Whether or not an offset exists.
-     * @link https://php.net/manual/en/judy.offsetexists.php
-     * @param mixed $offset <p>An offset to check for.</p>
-     * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
+     * Search (inclusive) for the last index present that is equal to or
+     * less than the given index.
+     * @param mixed $index [optional] Integer or string index to start from.
+     * @return mixed The corresponding index in the array.
      */
-    public function offsetExists($offset) {}
+    public function last(mixed $index = null): mixed {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Returns the value at specified offset.
-     * @link https://php.net/manual/en/judy.offsetget.php
-     * @param mixed $offset <p>An offset to check for.</p>
-     * @return mixed <p>Can return all value types.</p>
+     * Search (exclusive) for the previous index present that is less than
+     * the given index.
+     * @param mixed $index Integer or string index to start from.
+     * @return mixed The corresponding index in the array.
      */
-    public function offsetGet($offset) {}
+    public function prev(mixed $index): mixed {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Assigns a value to the specified offset.
-     * @link https://php.net/manual/en/judy.offsetset.php
-     * @param mixed $offset <p>The offset to assign the value to.</p>
-     * @param mixed $value <p>The value to set.</p>
+     * Search (inclusive) for the first absent index that is equal to or
+     * greater than the given index. Integer-keyed types only.
+     * @param mixed $index [optional] Integer index to start from.
+     * @return mixed The corresponding absent index, or null for string-keyed types.
      */
-    public function offsetSet($offset, $value) {}
+    public function firstEmpty(mixed $index = null): mixed {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Unsets an offset.
-     * @link https://php.net/manual/en/judy.offsetunset.php
-     * @param mixed $offset <p>The offset to assign the value to.</p>
+     * Search (exclusive) for the next absent index greater than the given
+     * index. Integer-keyed types only.
+     * @param mixed $index Integer index to start from.
+     * @return mixed The corresponding absent index, or null for string-keyed types.
      */
-    public function offsetUnset($offset) {}
+    public function nextEmpty(mixed $index): mixed {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Search (exclusive) for the previous index present that is less than the passed Index.
-     * @link https://php.net/manual/en/judy.prev.php
-     * @param mixed $index <p>The index can be an integer or a string corresponding to the index where to start the search.</p>
-     * @return mixed <p>Return the corresponding index in the array.</p>
+     * Search (inclusive) for the last absent index that is equal to or
+     * less than the given index. Integer-keyed types only.
+     * @param mixed $index [optional] Integer index to start from.
+     * @return mixed The corresponding absent index, or null for string-keyed types.
      */
-    public function prev($index) {}
+    public function lastEmpty(mixed $index = null): mixed {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Search (exclusive) for the previous index absent that is less than the passed Index.
-     * @link https://php.net/manual/en/judy.prevempty.php
-     * @param mixed $index <p>The index can be an integer or a string corresponding to the index where to start the search.</p>
-     * @return mixed <p>Return the corresponding index in the array.</p>
+     * Search (exclusive) for the previous absent index less than the given
+     * index. Integer-keyed types only.
+     * @param mixed $index Integer index to start from.
+     * @return mixed The corresponding absent index, or null for string-keyed types.
      */
-    public function prevEmpty($index) {}
+    public function prevEmpty(mixed $index): mixed {}
 
     /**
-     * (PECL judy &gt;= 0.1.1)<br/>
-     * Count the number of elements in the Judy array.<br/>
-     * This method is an alias of      const count.
-     * @link https://php.net/manual/en/judy.size.php
-     * @param int $index_start [optional] <p>Start counting from the given index. Default is first index.</p>
-     * @param int $index_end [optional] <p>Stop counting when reaching this index. Default is last index.</p>
-     * @return int <p>Return the number of elements.</p>
+     * Return a new Judy array containing all indices present in either array.
+     * For integer-valued types, values from the other array overwrite on
+     * duplicate keys.
      */
-    public function size($index_start = 0, $index_end = -1) {}
+    public function union(Judy $other): Judy {}
+
+    /**
+     * Return a new Judy array containing only indices present in both arrays.
+     * For integer-valued types, values from this array are used.
+     */
+    public function intersect(Judy $other): Judy {}
+
+    /**
+     * Return a new Judy array containing indices present in this array but
+     * not in the other.
+     */
+    public function diff(Judy $other): Judy {}
+
+    /**
+     * Return a new Judy array containing indices present in exactly one of
+     * the arrays (symmetric difference).
+     */
+    public function xor(Judy $other): Judy {}
+
+    /**
+     * Merge another Judy array into this one in-place. Both arrays must use
+     * the same key category (both integer-keyed or both string-keyed).
+     * Existing keys are overwritten.
+     */
+    public function mergeWith(Judy $other): void {}
+
+    /**
+     * Return a new Judy array containing entries in the [$start, $end]
+     * range (inclusive). For string-keyed types, comparison is lexicographic.
+     */
+    public function slice(mixed $start, mixed $end): Judy {}
+
+    /**
+     * Check whether the given offset exists in the array.
+     */
+    public function offsetExists(mixed $offset): bool {}
+
+    /**
+     * Return the value at the given offset.
+     */
+    public function offsetGet(mixed $offset): mixed {}
+
+    /**
+     * Set the value at the given offset.
+     */
+    public function offsetSet(mixed $offset, mixed $value): void {}
+
+    /**
+     * Remove the element at the given offset.
+     */
+    public function offsetUnset(mixed $offset): void {}
+
+    /**
+     * Return data suitable for json_encode(). Implements JsonSerializable.
+     */
+    public function jsonSerialize(): mixed {}
+
+    /**
+     * Return serialization data as ['type' => int, 'data' => array].
+     */
+    public function __serialize(): array {}
+
+    /**
+     * Restore a Judy array from serialized data.
+     */
+    public function __unserialize(array $data): void {}
+
+    /**
+     * Convert the Judy array to a native PHP array. Uses native C iteration
+     * internally, faster than a manual foreach.
+     */
+    public function toArray(): array {}
+
+    /**
+     * Create a new Judy array from a PHP array.
+     * @param int $type One of the Judy type constants.
+     * @param array $data Key-value pairs to populate the array with.
+     */
+    public static function fromArray(int $type, array $data): Judy {}
+
+    /**
+     * Bulk-insert entries from a PHP array into this Judy array.
+     */
+    public function putAll(array $data): void {}
+
+    /**
+     * Retrieve multiple values at once.
+     * @param array $keys Keys to look up.
+     * @return array Associative array mapping each requested key to its
+     * value (or null if absent).
+     */
+    public function getAll(array $keys): array {}
+
+    /**
+     * Atomically increment the value at the given key. If the key does not
+     * exist, it is created with the given amount. The amount may be negative.
+     * @return int The new value.
+     */
+    public function increment(mixed $key, int $amount = 1): int {}
+
+    /**
+     * Rewind the iterator to the first element.
+     */
+    public function rewind(): void {}
+
+    /**
+     * Check whether the current iterator position is valid.
+     */
+    public function valid(): bool {}
+
+    /**
+     * Return the value at the current iterator position.
+     */
+    public function current(): mixed {}
+
+    /**
+     * Return the key at the current iterator position.
+     */
+    public function key(): mixed {}
+
+    /**
+     * Advance the iterator to the next element.
+     */
+    public function next(): void {}
+
+    /**
+     * Return all keys as a PHP array.
+     */
+    public function keys(): array {}
+
+    /**
+     * Return all values as a PHP array.
+     */
+    public function values(): array {}
+
+    /**
+     * Call a callback for each element, iterating in C. The callback
+     * receives ($key, $value) for each element.
+     */
+    public function forEach(callable $callback): void {}
+
+    /**
+     * Return a new Judy array containing only elements matching the predicate.
+     */
+    public function filter(callable $predicate): Judy {}
+
+    /**
+     * Return a new Judy array with values transformed by the callback.
+     */
+    public function map(callable $transform): Judy {}
+
+    /**
+     * Return the sum of all values in the array. For BITSET, returns the
+     * population count.
+     */
+    public function sumValues(): int|float {}
+
+    /**
+     * Return the average of all values, or null if the array is empty.
+     * For BITSET, always returns 1.0.
+     */
+    public function averageValues(): ?float {}
+
+    /**
+     * Return the number of keys in the [$start, $end] range (inclusive).
+     * Integer-keyed types only.
+     */
+    public function populationCount(mixed $start = 0, mixed $end = -1): int {}
+
+    /**
+     * Delete all keys in the [$start, $end] range (inclusive).
+     * @return int The number of elements deleted.
+     */
+    public function deleteRange(mixed $start, mixed $end): int {}
+
+    /**
+     * Check if two Judy arrays have identical type, size, and key-value pairs.
+     */
+    public function equals(Judy $other): bool {}
 }
 
 // End of judy.
