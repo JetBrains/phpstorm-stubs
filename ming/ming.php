@@ -345,7 +345,7 @@ class SWFVideoStream
  * @param int $threshold <p>
  * The Threshold. Lower is more accurate, hence larger file size.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function ming_setcubicthreshold($threshold) {}
 
@@ -355,7 +355,7 @@ function ming_setcubicthreshold($threshold) {}
  * @param float $scale <p>
  * The scale to be set.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function ming_setscale($scale) {}
 
@@ -365,7 +365,7 @@ function ming_setscale($scale) {}
  * @param int $version <p>
  * SWF version to use.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function ming_useswfversion($version) {}
 
@@ -384,7 +384,7 @@ function ming_keypress($char) {}
  * @param int $use <p>
  * Its description
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function ming_useconstants($use) {}
 
@@ -395,7 +395,7 @@ function ming_useconstants($use) {}
  * The new compression level. Should be a value between 1 and 9
  * inclusive.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function ming_setswfcompression($level) {}
 

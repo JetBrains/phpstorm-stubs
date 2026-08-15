@@ -165,28 +165,28 @@ namespace {
         /**
          * Throws an exception if the generator is currently after the first yield.
          * @link https://php.net/manual/en/generator.rewind.php
-         * @return void
+         * @return void No value is returned.
          */
         public function rewind(): void {}
 
         /**
          * Returns false if the generator has been closed, true otherwise.
          * @link https://php.net/manual/en/generator.valid.php
-         * @return bool
+         * @return bool Returns false if the iterator has been closed. Otherwise returns true.
          */
         public function valid(): bool {}
 
         /**
          * Returns whatever was passed to yield or null if nothing was passed or the generator is already closed.
          * @link https://php.net/manual/en/generator.current.php
-         * @return TYield|null
+         * @return TYield|null Returns the yielded value.
          */
         public function current(): mixed {}
 
         /**
          * Returns the yielded key or, if none was specified, an auto-incrementing key or null if the generator is already closed.
          * @link https://php.net/manual/en/generator.key.php
-         * @return TKey|null
+         * @return TKey|null Returns the yielded key.
          */
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: 'string|float|int|bool|null')]
         public function key() {}
@@ -194,15 +194,16 @@ namespace {
         /**
          * Resumes the generator (unless the generator is already closed).
          * @link https://php.net/manual/en/generator.next.php
-         * @return void
+         * @return void No value is returned.
          */
         public function next(): void {}
 
         /**
          * Sets the return value of the yield expression and resumes the generator (unless the generator is already closed).
          * @link https://php.net/manual/en/generator.send.php
-         * @param TSend $value
-         * @return TYield|null
+         * @param TSend $value Value to send into the generator. This value will be the return value
+         * of the yield expression the generator is currently at.
+         * @return TYield|null Returns the yielded value.
          */
         public function send(mixed $value): mixed {}
 
@@ -217,7 +218,7 @@ namespace {
          * Returns whatever was passed to return or null if nothing.
          * Throws an exception if the generator is still valid.
          * @link https://wiki.php.net/rfc/generator-return-expressions
-         * @return TReturn
+         * @return TReturn Returns the generator's return value once it has finished executing.
          * @since 7.0
          */
         public function getReturn(): mixed {}
@@ -226,7 +227,7 @@ namespace {
          * Serialize callback
          * Throws an exception as generators can't be serialized.
          * @link https://php.net/manual/en/generator.wakeup.php
-         * @return void
+         * @return void No value is returned.
          */
         public function __wakeup() {}
 

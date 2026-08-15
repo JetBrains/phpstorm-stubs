@@ -91,7 +91,7 @@ function pspell_new_config(#[LanguageLevelTypeAware(['8.1' => '\PSpell\Config'],
 /**
  * Check a word
  * @link https://php.net/manual/en/function.pspell-check.php
- * @param \PSpell\Dictionary|int $dictionary
+ * @param \PSpell\Dictionary|int $dictionary An PSpell\Dictionary instance.
  * @param string $word <p>
  * The tested word.
  * </p>
@@ -102,7 +102,7 @@ function pspell_check(#[LanguageLevelTypeAware(['8.1' => '\PSpell\Dictionary'], 
 /**
  * Suggest spellings of a word
  * @link https://php.net/manual/en/function.pspell-suggest.php
- * @param \PSpell\Dictionary|int $dictionary
+ * @param \PSpell\Dictionary|int $dictionary An PSpell\Dictionary instance.
  * @param string $word <p>
  * The tested word.
  * </p>
@@ -130,7 +130,7 @@ function pspell_store_replacement(#[LanguageLevelTypeAware(['8.1' => '\PSpell\Di
 /**
  * Add the word to a personal wordlist
  * @link https://php.net/manual/en/function.pspell-add-to-personal.php
- * @param \PSpell\Dictionary|int $dictionary
+ * @param \PSpell\Dictionary|int $dictionary An PSpell\Dictionary instance.
  * @param string $word <p>
  * The added word.
  * </p>
@@ -141,7 +141,7 @@ function pspell_add_to_personal(#[LanguageLevelTypeAware(['8.1' => '\PSpell\Dict
 /**
  * Add the word to the wordlist in the current session
  * @link https://php.net/manual/en/function.pspell-add-to-session.php
- * @param \PSpell\Dictionary|int $dictionary
+ * @param \PSpell\Dictionary|int $dictionary An PSpell\Dictionary instance.
  * @param string $word <p>
  * The added word.
  * </p>
@@ -152,7 +152,7 @@ function pspell_add_to_session(#[LanguageLevelTypeAware(['8.1' => '\PSpell\Dicti
 /**
  * Clear the current session
  * @link https://php.net/manual/en/function.pspell-clear-session.php
- * @param \PSpell\Dictionary|int $dictionary
+ * @param \PSpell\Dictionary|int $dictionary An PSpell\Dictionary instance.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pspell_clear_session(#[LanguageLevelTypeAware(['8.1' => '\PSpell\Dictionary'], default: 'int')] $dictionary): bool {}
@@ -201,7 +201,7 @@ function pspell_config_create(string $language, string $spelling = "", string $j
 /**
  * Consider run-together words as valid compounds
  * @link https://php.net/manual/en/function.pspell-config-runtogether.php
- * @param \PSpell\Config|int $config
+ * @param \PSpell\Config|int $config An PSpell\Config instance.
  * @param bool $allow <p>
  * <b>TRUE</b> if run-together words should be treated as legal compounds,
  * <b>FALSE</b> otherwise.
@@ -213,7 +213,7 @@ function pspell_config_runtogether(#[LanguageLevelTypeAware(['8.1' => '\PSpell\C
 /**
  * Change the mode number of suggestions returned
  * @link https://php.net/manual/en/function.pspell-config-mode.php
- * @param \PSpell\Config|int $config
+ * @param \PSpell\Config|int $config An PSpell\Config instance.
  * @param int $mode <p>
  * The mode parameter is the mode in which spellchecker will work.
  * There are several modes available:
@@ -226,7 +226,7 @@ function pspell_config_mode(#[LanguageLevelTypeAware(['8.1' => '\PSpell\Config']
 /**
  * Ignore words less than N characters long
  * @link https://php.net/manual/en/function.pspell-config-ignore.php
- * @param \PSpell\Config|int $config
+ * @param \PSpell\Config|int $config An PSpell\Config instance.
  * @param int $min_length <p>
  * Words less than <i>n</i> characters will be skipped.
  * </p>
@@ -237,7 +237,7 @@ function pspell_config_ignore(#[LanguageLevelTypeAware(['8.1' => '\PSpell\Config
 /**
  * Set a file that contains personal wordlist
  * @link https://php.net/manual/en/function.pspell-config-personal.php
- * @param \PSpell\Config|int $config
+ * @param \PSpell\Config|int $config An PSpell\Config instance.
  * @param string $filename <p>
  * The personal wordlist. If the file does not exist, it will be created.
  * The file should be writable by whoever PHP runs as (e.g. nobody).
@@ -267,7 +267,7 @@ function pspell_config_data_dir(#[LanguageLevelTypeAware(['8.1' => '\PSpell\Conf
 /**
  * Set a file that contains replacement pairs
  * @link https://php.net/manual/en/function.pspell-config-repl.php
- * @param \PSpell\Config|int $config
+ * @param \PSpell\Config|int $config An PSpell\Config instance.
  * @param string $filename <p>
  * The file should be writable by whoever PHP runs as (e.g. nobody).
  * </p>
@@ -279,7 +279,7 @@ function pspell_config_repl(#[LanguageLevelTypeAware(['8.1' => '\PSpell\Config']
  * Determine whether to save a replacement pairs list
  * along with the wordlist
  * @link https://php.net/manual/en/function.pspell-config-save-repl.php
- * @param \PSpell\Config|int $config
+ * @param \PSpell\Config|int $config An PSpell\Config instance.
  * @param bool $save <p>
  * <b>TRUE</b> if replacement pairs should be saved, <b>FALSE</b> otherwise.
  * </p>

@@ -143,7 +143,7 @@ function libxml_disable_entity_loader(bool $disable = true): bool {}
  * This callback should return a resource, a string from which a resource can be
  * opened, or <b>NULL</b>.
  * </p>
- * @return bool
+ * @return bool Always returns true.
  * @since 5.4
  */
 #[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
@@ -156,7 +156,9 @@ function libxml_set_external_entity_loader(?callable $resolver_function) {}
  * of the application.
  *
  * @link https://php.net/manual/en/function.libxml-get-external-entity-loader.php
- * @return callable|null
+ * @return callable|null The external entity loader previously installed by
+ * libxml_set_external_entity_loader. If that function was never called, or if it was called with
+ * null, null will be returned.
  * @since 8.2
  */
 function libxml_get_external_entity_loader(): ?callable {}

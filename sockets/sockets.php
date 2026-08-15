@@ -523,7 +523,7 @@ function socket_getpeername(Socket $socket, &$address, &$port = null): bool {}
 /**
  * Initiates a connection on a socket
  * @link https://php.net/manual/en/function.socket-connect.php
- * @param resource|Socket $socket
+ * @param resource|Socket $socket A Socket instance created with socket_create.
  * @param string $address <p>
  * The <i>address</i> parameter is either an IPv4 address
  * in dotted-quad notation (e.g. 127.0.0.1) if
@@ -1370,9 +1370,9 @@ function socket_setopt(Socket $socket, int $level, int $option, $value): bool {}
  *
  * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-export.php
  *
- * @param resource|Socket $socket
+ * @param resource|Socket $socket A Socket instance.
  * @param int $target_pid
- * @return string|false
+ * @return string|false Returns an identifier to be used for the import, or false on failure
  *
  * @since 7.3
  */
@@ -1383,8 +1383,9 @@ function socket_wsaprotocol_info_export($socket, $target_pid) {}
  *
  * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-import.php
  *
- * @param string $info_id
- * @return resource|Socket|false
+ * @param string $info_id The ID which has been returned by a former call to
+ * socket_wsaprotocol_info_export.
+ * @return resource|Socket|false Returns a Socket instance on success, or false on failure
  *
  * @since 7.3
  */
@@ -1395,8 +1396,9 @@ function socket_wsaprotocol_info_import($info_id) {}
  *
  * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-release.php
  *
- * @param string $info_id
- * @return bool
+ * @param string $info_id The ID which has been returned by a former call to
+ * socket_wsaprotocol_info_export.
+ * @return bool Returns true on success or false on failure.
  *
  * @since 7.3
  */

@@ -25,7 +25,8 @@ final class ReflectionReference
      * @link https://php.net/manual/en/reflectionreference.fromarrayelement.php
      * @param array $array The array which contains the potential reference.
      * @param int|string $key The key; either an integer or a string.
-     * @return ReflectionReference|null
+     * @return ReflectionReference|null Returns a ReflectionReference instance if $array[$key] is a
+     * reference, or null otherwise.
      * @throws \TypeError If array is not an array, or key is not an integer or string, a TypeError
      * is thrown.
      * @throws \ReflectionException If $array[$key] does not exist, a ReflectionException is thrown.

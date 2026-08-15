@@ -37,9 +37,9 @@ function enchant_broker_get_error(EnchantBroker $broker): string|false {}
 /**
  * Set the directory path for a given backend
  * @link https://www.php.net/manual/en/function.enchant-broker-set-dict-path.php
- * @param resource|EnchantBroker $broker
- * @param int $type
- * @param string $path
+ * @param resource|EnchantBroker $broker An Enchant broker returned by enchant_broker_init.
+ * @param int $type The type of the dictionaries, i.e. ENCHANT_MYSPELL or ENCHANT_ISPELL.
+ * @param string $path The path of the dictionary directory.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[Deprecated(since: '8.0', reason: 'Relying on this function is highly discouraged.')]
@@ -48,9 +48,9 @@ function enchant_broker_set_dict_path(EnchantBroker $broker, int $type, string $
 /**
  * Get the directory path for a given backend
  * @link https://www.php.net/manual/en/function.enchant-broker-get-dict-path.php
- * @param resource|EnchantBroker $broker
- * @param int $type
- * @return string|false
+ * @param resource|EnchantBroker $broker An Enchant broker returned by enchant_broker_init.
+ * @param int $type The type of the dictionaries, i.e. ENCHANT_MYSPELL or ENCHANT_ISPELL.
+ * @return string|false Returns the path of the dictionary directory on success or false on failure.
  */
 #[Deprecated(since: '8.0', reason: 'Relying on this function is highly discouraged.')]
 function enchant_broker_get_dict_path(EnchantBroker $broker, int $type): string|false {}
@@ -146,7 +146,7 @@ function enchant_broker_set_ordering(EnchantBroker $broker, string $tag, string 
  * @param resource|EnchantBroker $broker <p>
  * Broker resource
  * </p>
- * @return array
+ * @return array Returns an array of available Enchant providers with their details.
  */
 function enchant_broker_describe(EnchantBroker $broker): array {}
 
@@ -208,7 +208,7 @@ function enchant_dict_add_to_personal(EnchantDictionary $dictionary, string $wor
  * @param string $word <p>
  * The word to add
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function enchant_dict_add_to_session(EnchantDictionary $dictionary, string $word): void {}
 
@@ -222,7 +222,7 @@ function enchant_dict_add_to_session(EnchantDictionary $dictionary, string $word
  * @param string $word <p>
  * The word to add
  * </p>
- * @return void
+ * @return void Returns true on success or false on failure.
  * @since 8.0
  */
 function enchant_dict_add(EnchantDictionary $dictionary, string $word): void {}
@@ -260,7 +260,7 @@ function enchant_dict_is_in_session(EnchantDictionary $dictionary, string $word)
  * @param string $correct <p>
  * The correct word
  * </p>
- * @return void
+ * @return void Returns true on success or false on failure.
  */
 function enchant_dict_store_replacement(EnchantDictionary $dictionary, string $misspelled, string $correct): void {}
 

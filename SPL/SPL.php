@@ -263,7 +263,8 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Construct a RecursiveIteratorIterator
      * @link https://php.net/manual/en/recursiveiteratoriterator.construct.php
-     * @param Traversable $iterator
+     * @param Traversable $iterator The iterator being constructed from. Either a RecursiveIterator
+     * or IteratorAggregate.
      * @param int $mode [optional] The operation mode. See class constants for details.
      * @param int $flags [optional] A bitmask of special flags. See class constants for details.
      * @since 5.1
@@ -447,7 +448,7 @@ class IteratorIterator implements OuterIterator
     /**
      * Create an iterator from anything that is traversable
      * @link https://php.net/manual/en/iteratoriterator.construct.php
-     * @param Traversable $iterator
+     * @param Traversable $iterator The traversable iterator.
      * @param string|null $class [optional]
      */
     public function __construct(Traversable $iterator, #[PhpStormStubsElementAvailable(from: '8.0')] ?string $class = null) {}
@@ -463,7 +464,7 @@ class IteratorIterator implements OuterIterator
     /**
      * Rewind to the first element
      * @link https://php.net/manual/en/iteratoriterator.rewind.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function rewind(): void {}
@@ -495,7 +496,7 @@ class IteratorIterator implements OuterIterator
     /**
      * Forward to the next element
      * @link https://php.net/manual/en/iteratoriterator.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -520,7 +521,7 @@ abstract class FilterIterator extends IteratorIterator
     /**
      * Construct a filterIterator
      * @link https://php.net/manual/en/filteriterator.construct.php
-     * @param Iterator $iterator
+     * @param Iterator $iterator The iterator that is being filtered.
      */
     public function __construct(Iterator $iterator) {}
 
@@ -584,7 +585,7 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Recursi
     /**
      * Create a RecursiveFilterIterator from a RecursiveIterator
      * @link https://php.net/manual/en/recursivefilteriterator.construct.php
-     * @param RecursiveIterator $iterator
+     * @param RecursiveIterator $iterator The RecursiveIterator to be filtered.
      */
     public function __construct(RecursiveIterator $iterator) {}
 
@@ -622,7 +623,7 @@ class ParentIterator extends RecursiveFilterIterator
     /**
      * Constructs a ParentIterator
      * @link https://php.net/manual/en/parentiterator.construct.php
-     * @param RecursiveIterator $iterator
+     * @param RecursiveIterator $iterator The iterator being constructed upon.
      */
     public function __construct(RecursiveIterator $iterator) {}
 
@@ -658,7 +659,7 @@ interface SeekableIterator extends Iterator
      * @param int $offset <p>
      * The position to seek to.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \OutOfBoundsException Implementations should throw an OutOfBoundsException if the
      * offset is not seekable.
      */
@@ -691,7 +692,7 @@ class LimitIterator extends IteratorIterator
     /**
      * Rewind the iterator to the specified starting offset
      * @link https://php.net/manual/en/limititerator.rewind.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function rewind(): void {}
@@ -723,7 +724,7 @@ class LimitIterator extends IteratorIterator
     /**
      * Move the iterator forward
      * @link https://php.net/manual/en/limititerator.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -987,14 +988,14 @@ class NoRewindIterator extends IteratorIterator
     /**
      * Construct a NoRewindIterator
      * @link https://php.net/manual/en/norewinditerator.construct.php
-     * @param Iterator $iterator
+     * @param Iterator $iterator The iterator being used.
      */
     public function __construct(Iterator $iterator) {}
 
     /**
      * Prevents the rewind operation on the inner iterator.
      * @link https://php.net/manual/en/norewinditerator.rewind.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function rewind(): void {}
@@ -1058,7 +1059,7 @@ class AppendIterator extends IteratorIterator
      * @param Iterator $iterator <p>
      * The iterator to append.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function append(Iterator $iterator): void {}
@@ -1066,7 +1067,7 @@ class AppendIterator extends IteratorIterator
     /**
      * Rewinds the Iterator
      * @link https://php.net/manual/en/appenditerator.rewind.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function rewind(): void {}
@@ -1098,7 +1099,7 @@ class AppendIterator extends IteratorIterator
     /**
      * Moves to the next element
      * @link https://php.net/manual/en/appenditerator.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -1139,14 +1140,14 @@ class InfiniteIterator extends IteratorIterator
     /**
      * Constructs an InfiniteIterator
      * @link https://php.net/manual/en/infiniteiterator.construct.php
-     * @param Iterator $iterator
+     * @param Iterator $iterator The iterator to infinitely iterate over.
      */
     public function __construct(Iterator $iterator) {}
 
     /**
      * Moves the inner Iterator forward or rewinds it
      * @link https://php.net/manual/en/infiniteiterator.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -1275,7 +1276,7 @@ class RegexIterator extends FilterIterator
      * </tr>
      * </table>
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function setMode(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode): void {}
@@ -1312,7 +1313,7 @@ class RegexIterator extends FilterIterator
      * </tr>
      * </table>
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function setFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags): void {}
@@ -1341,7 +1342,7 @@ class RegexIterator extends FilterIterator
      * The regular expression flags. See <b>RegexIterator::__construct</b>
      * for an overview of available flags.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function setPregFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $pregFlags): void {}
@@ -1407,7 +1408,8 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Construct a RecursiveTreeIterator
      * @link https://php.net/manual/en/recursivetreeiterator.construct.php
-     * @param RecursiveIterator|IteratorAggregate $iterator
+     * @param RecursiveIterator|IteratorAggregate $iterator The RecursiveIterator or
+     * IteratorAggregate to iterate over.
      * @param int $flags [optional] Flags to control the behavior of the RecursiveTreeIterator object.
      * @param int $cachingIteratorFlags [optional] Flags to affect the behavior of the {@see RecursiveCachingIterator} used internally.
      * @param int $mode [optional] Flags to affect the behavior of the {@see RecursiveIteratorIterator} used internally.
@@ -1632,7 +1634,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param TValue $value <p>
      * The new value for the <i>index</i>.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function offsetSet(
@@ -1646,7 +1648,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param TKey $key <p>
      * The index being unset.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function offsetUnset(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key): void {}
@@ -1657,7 +1659,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param TValue $value <p>
      * The value being appended.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function append(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value): void {}
@@ -1721,7 +1723,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * </tr>
      * </table>
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function setFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags): void {}
@@ -1858,7 +1860,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param class-string<ArrayIterator> $iteratorClass <p>
      * The classname of the array iterator to use when iterating over this object.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function setIteratorClass(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $iteratorClass): void {}
@@ -1944,7 +1946,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param TKey $key <p>
      * The offset to unset.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function offsetUnset(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key): void {}
@@ -1995,7 +1997,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * when accessed as list (var_dump, foreach, etc.).
      * 1 = Array indices can be accessed as properties in read/write.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function setFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags): void {}
@@ -2076,7 +2078,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Rewind array back to the start
      * @link https://php.net/manual/en/arrayiterator.rewind.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function rewind(): void {}
@@ -2100,7 +2102,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Move to next entry
      * @link https://php.net/manual/en/arrayiterator.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -2108,7 +2110,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Check whether array contains more entries
      * @link https://php.net/manual/en/arrayiterator.valid.php
-     * @return bool
+     * @return bool Returns true if the iterator is valid, otherwise false
      */
     #[TentativeType]
     public function valid(): bool {}
@@ -2119,7 +2121,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param int $offset <p>
      * The position to seek to.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \OutOfBoundsException Throws an OutOfBoundsException if the offset is not seekable.
      */
     #[TentativeType]

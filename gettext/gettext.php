@@ -87,9 +87,10 @@ function bindtextdomain(string $domain, #[LanguageLevelTypeAware(['8.0' => 'stri
 /**
  * Plural version of gettext
  * @link https://php.net/manual/en/function.ngettext.php
- * @param string $singular
- * @param string $plural
- * @param int $count
+ * @param string $singular The singular message ID.
+ * @param string $plural The plural message ID.
+ * @param int $count The number (e.g. item count) to determine the translation for the respective
+ * grammatical number.
  * @return string correct plural form of message identified by
  * <i>msgid1</i> and <i>msgid2</i>
  * for count <i>n</i>.

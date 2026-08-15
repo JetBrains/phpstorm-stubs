@@ -89,8 +89,8 @@ function ldap_parse_exop(
 /**
  * Translate 8859 characters to t61 characters
  * @link https://www.php.net/manual/en/function.ldap-8859-to-t61.php
- * @param string $value
- * @return string
+ * @param string $value The text to be translated.
+ * @return string Return the t61 translation of value, or false on failure.
  */
 function ldap_8859_to_t61(string $value): string {}
 
@@ -158,7 +158,7 @@ function ldap_bind(#[PhpVersionAware(['8.1' => '\LDAP\Connection'], default: 're
  * @param string|null $dn [optional]
  * @param string|null $password [optional]
  * @param array|null $controls Array of LDAP Controls to send with the request.
- * @return resource|false
+ * @return resource|false Returns an LDAP\Result instance, or false on failure.
  * @since 7.3
  */
 #[PhpVersionAware(['8.1' => '\LDAP\Result|false'], default: 'resource|false')]
@@ -414,7 +414,7 @@ function ldap_search(
 /**
  * Free result memory
  * @link https://php.net/manual/en/function.ldap-free-result.php
- * @param resource|Result $result
+ * @param resource|Result $result An LDAP\Result instance, returned by ldap_list or ldap_search.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[PhpVersionAware(['8.6' => 'true'], default: 'bool')]
@@ -446,7 +446,7 @@ function ldap_count_entries(
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
- * @param resource $result
+ * @param resource $result An LDAP\Result instance, returned by ldap_list or ldap_search.
  * @return resource|false the result entry identifier for the first entry on success and
  * <b>FALSE</b> on error.
  */
@@ -462,7 +462,7 @@ function ldap_first_entry(
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
- * @param resource $entry
+ * @param resource $entry An LDAP\ResultEntry instance.
  * @return resource|false entry identifier for the next entry in the result whose entries
  * are being read starting with <b>ldap_first_entry</b>. If
  * there are no more entries in the result then it returns <b>FALSE</b>.
@@ -479,7 +479,7 @@ function ldap_next_entry(
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
- * @param resource $result
+ * @param resource $result An LDAP\Result instance, returned by ldap_list or ldap_search.
  * @return array|false a complete result information in a multi-dimensional array on
  * success and <b>FALSE</b> on error.
  * </p>
@@ -510,7 +510,7 @@ function ldap_get_entries(
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
- * @param resource $entry
+ * @param resource $entry An LDAP\ResultEntry instance.
  * @return string|false the first attribute in the entry on success and <b>FALSE</b> on
  * error.
  */
@@ -525,7 +525,7 @@ function ldap_first_attribute(
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
- * @param resource $entry
+ * @param resource $entry An LDAP\ResultEntry instance.
  * @return string|false the next attribute in an entry on success and <b>FALSE</b> on
  * error.
  */
@@ -540,7 +540,7 @@ function ldap_next_attribute(
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
- * @param resource $entry
+ * @param resource $entry An LDAP\ResultEntry instance.
  * @return array a complete entry information in a multi-dimensional array
  * on success and <b>FALSE</b> on error.
  */
@@ -555,7 +555,7 @@ function ldap_get_attributes(
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
- * @param resource $entry
+ * @param resource $entry An LDAP\ResultEntry instance.
  * @param string $attribute
  * @return array|false an array of values for the attribute on success and <b>FALSE</b> on
  * error. The number of values can be found by indexing "count" in the
@@ -582,7 +582,7 @@ function ldap_get_values(
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
- * @param resource $entry
+ * @param resource $entry An LDAP\ResultEntry instance.
  * @param string $attribute
  * @return array|false an array of values for the attribute on success and <b>FALSE</b> on
  * error. Individual values are accessed by integer index in the array. The
@@ -601,7 +601,7 @@ function ldap_get_values_len(
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
- * @param resource $entry
+ * @param resource $entry An LDAP\ResultEntry instance.
  * @return string|false the DN of the result entry and <b>FALSE</b> on error.
  */
 function ldap_get_dn(
@@ -691,7 +691,7 @@ function ldap_add(
  * </code>
  * </p>
  * @param array|null $controls Array of LDAP Controls to send with the request.
- * @return resource|false
+ * @return resource|false Returns an LDAP\Result instance, or false on failure.
  * @since 7.3
  */
 #[PhpVersionAware(['8.1' => '\LDAP\Result|false'], default: 'resource|false')]
@@ -731,7 +731,7 @@ function ldap_delete(
  * The distinguished name of an LDAP entity.
  * </p>
  * @param array|null $controls Array of LDAP Controls to send with the request.
- * @return resource|false
+ * @return resource|false Returns an LDAP\Result instance, or false on failure.
  * @since 7.3
  */
 #[PhpVersionAware(['8.1' => '\LDAP\Result|false'], default: 'resource|false')]
@@ -771,7 +771,9 @@ function ldap_modify(
  * @param string $dn <p>
  * The distinguished name of an LDAP entity.
  * </p>
- * @param array $entry
+ * @param array $entry An associative array listing the attribute values to add. If an attribute was
+ * not existing yet it will be added. If an attribute is existing you can only add values to it if
+ * it supports multiple values.
  * @param array|null $controls Array of LDAP Controls to send with the request.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -794,7 +796,7 @@ function ldap_mod_add(
  * </p>
  * @param array $entry
  * @param array|null $controls Array of LDAP Controls to send with the request.
- * @return resource|false
+ * @return resource|false Returns an LDAP\Result instance, or false on failure.
  * @since 7.3
  */
 #[PhpVersionAware(['8.1' => '\LDAP\Result|false'], default: 'resource|false')]
@@ -814,7 +816,9 @@ function ldap_mod_add_ext(
  * @param string $dn <p>
  * The distinguished name of an LDAP entity.
  * </p>
- * @param array $entry
+ * @param array $entry An associative array listing the attributes to replace. Sending an empty
+ * array as value will remove the attribute, while sending an attribute not existing yet on this
+ * entry will add it.
  * @param array|null $controls Array of LDAP Controls to send with the request.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -837,7 +841,7 @@ function ldap_mod_replace(
  * </p>
  * @param array $entry
  * @param array|null $controls Array of LDAP Controls to send with the request.
- * @return resource|false
+ * @return resource|false Returns an LDAP\Result instance, or false on failure.
  * @since 7.3
  */
 #[PhpVersionAware(['8.1' => '\LDAP\Result|false'], default: 'resource|false')]
@@ -875,7 +879,7 @@ function ldap_mod_del(
  * </p>
  * @param array $entry
  * @param array|null $controls Array of LDAP Controls to send with the request.
- * @return resource|false
+ * @return resource|false Returns an LDAP\Result instance, or false on failure.
  * @since 7.3
  */
 #[PhpVersionAware(['8.1' => '\LDAP\Result|false'], default: 'resource|false')]
@@ -1010,7 +1014,7 @@ function ldap_rename(
  * is retained as non-distinguished values of the entry.
  * </p>
  * @param array|null $controls Array of LDAP Controls to send with the request.
- * @return resource|false
+ * @return resource|false Returns an LDAP\Result instance, or false on failure.
  * @since 7.3
  */
 #[PhpVersionAware(['8.1' => '\LDAP\Result|false'], default: 'resource|false')]
@@ -1241,14 +1245,15 @@ function ldap_parse_reference(
 /**
  * Extract information from result
  * @link https://php.net/manual/en/function.ldap-parse-result.php
- * @param resource $ldap
- * @param resource $result
- * @param int &$error_code
+ * @param resource $ldap An LDAP\Connection instance, returned by ldap_connect.
+ * @param resource $result An LDAP\Result instance, returned by ldap_list or ldap_search.
+ * @param int &$error_code A reference to a variable that will be set to the LDAP error code in the
+ * result, or 0 if no error occurred.
  * @param string &$matched_dn [optional]
  * @param string &$error_message [optional]
  * @param array &$referrals [optional]
  * @param array &$controls An array of LDAP Controls which have been sent with the response.
- * @return bool
+ * @return bool Returns true on success or false on failure.
  */
 function ldap_parse_result(
     #[PhpVersionAware(['8.1' => '\LDAP\Connection'], default: 'resource')] $ldap,
@@ -1328,7 +1333,7 @@ function ldap_control_paged_result_response(#[PhpVersionAware(['8.1' => '\LDAP\C
  * @param string $value The value to escape.
  * @param string $ignore [optional] Characters to ignore when escaping.
  * @param int $flags [optional] The context the escaped string will be used in: LDAP_ESCAPE_FILTER for filters to be used with ldap_search(), or LDAP_ESCAPE_DN for DNs. If neither flag is passed, all chars are escaped.
- * @return string
+ * @return string Returns the escaped string.
  * @since 5.6
  */
 function ldap_escape(string $value, string $ignore = "", int $flags = 0): string {}
@@ -1416,8 +1421,8 @@ function ldap_modify_batch(
 /**
  * Counts the number of references in a search result
  * @link https://php.net/manual/en/function.ldap-count-references.php
- * @param resource $ldap
- * @param resource $result
+ * @param resource $ldap An LDAP\Connection instance, returned by ldap_connect.
+ * @param resource $result An LDAP\Result instance, returned by ldap_list or ldap_search.
  * @return int returns the number of reference messages in a search result.
  * @since 8.0
  */

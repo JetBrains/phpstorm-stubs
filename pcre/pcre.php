@@ -388,7 +388,7 @@ function preg_replace_callback(
  * Perform a regular expression search and replace using callbacks
  * @link https://php.net/manual/en/function.preg-replace-callback-array.php
  * @param callable[] $pattern An associative array mapping patterns (keys) to callbacks (values)
- * @param string|string[] $subject
+ * @param string|string[] $subject The string or an array with strings to search and replace.
  * @param int $limit [optional]
  * @param int &$count [optional]
  * @param int $flags [optional]

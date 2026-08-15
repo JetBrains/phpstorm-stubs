@@ -42,7 +42,7 @@ class Parser
      * Process next parser rule.
      *
      * @link https://php.net/manual/en/parle-parser.advance.php
-     * @return void
+     * @return void No value is returned.
      */
     public function advance(): void {}
 
@@ -53,7 +53,7 @@ class Parser
      * The rule set becomes readonly and the parser is ready to start.
      *
      * @link https://php.net/manual/en/parle-parser.build.php
-     * @return void
+     * @return void No value is returned.
      */
     public function build(): void {}
 
@@ -63,7 +63,7 @@ class Parser
      * @link https://php.net/manual/en/parle-parser.consume.php
      * @param string $data Data to be parsed.
      * @param Lexer $lexer A lexer object containing the lexing rules prepared for the particular grammar.
-     * @return void
+     * @return void No value is returned.
      */
     public function consume(string $data, Lexer $lexer): void {}
 
@@ -71,7 +71,7 @@ class Parser
      * Dump the current grammar to stdout.
      *
      * @link https://php.net/manual/en/parle-parser.dump.php
-     * @return void
+     * @return void No value is returned.
      */
     public function dump(): void {}
 
@@ -79,7 +79,7 @@ class Parser
      * Retrieve the error information in case Parle\Parser::action() returned the error action.
      *
      * @link https://php.net/manual/en/parle-parser.errorinfo.php
-     * @return ErrorInfo
+     * @return ErrorInfo Returns an instance of Parle\ErrorInfo.
      */
     public function errorInfo(): ErrorInfo {}
 
@@ -88,7 +88,7 @@ class Parser
      *
      * @link https://php.net/manual/en/parle-parser.left.php
      * @param string $token Token name.
-     * @return void
+     * @return void No value is returned.
      */
     public function left(string $token): void {}
 
@@ -97,7 +97,7 @@ class Parser
      *
      * @link https://php.net/manual/en/parle-parser.nonassoc.php
      * @param string $token Token name.
-     * @return void
+     * @return void No value is returned.
      */
     public function nonassoc(string $token): void {}
 
@@ -107,7 +107,7 @@ class Parser
      *
      * @link https://php.net/manual/en/parle-parser.precedence.php
      * @param string $token
-     * @return void
+     * @return void No value is returned.
      */
     public function precedence(string $token): void {}
 
@@ -127,7 +127,7 @@ class Parser
      *
      * @link https://php.net/manual/en/parle-parser.reset.php
      * @param int $tokenId Token id.
-     * @return void
+     * @return void No value is returned.
      */
     public function reset(int $tokenId): void {}
 
@@ -136,7 +136,7 @@ class Parser
      *
      * @link https://php.net/manual/en/parle-parser.right.php
      * @param string $token Token name.
-     * @return void
+     * @return void No value is returned.
      */
     public function right(string $token): void {}
 
@@ -155,7 +155,7 @@ class Parser
      *
      * @link https://php.net/manual/en/parle-parser.token.php
      * @param string $token Token name.
-     * @return void
+     * @return void No value is returned.
      */
     public function token(string $token): void {}
 

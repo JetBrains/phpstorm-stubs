@@ -32,7 +32,7 @@ class ReflectionEnumUnitCase extends ReflectionClassConstant
     /**
      * Gets the reflection of the enum of this case
      * @link https://php.net/manual/en/reflectionenumunitcase.getenum.php
-     * @return ReflectionEnum
+     * @return ReflectionEnum A ReflectionEnum instance describing the Enum this case belongs to.
      */
     #[Pure]
     public function getEnum(): ReflectionEnum {}

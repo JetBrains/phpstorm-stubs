@@ -338,7 +338,8 @@ interface ParentNode
      * Returns a collection of elements that match the CSS selectors specified in selectors.
      *
      * @link https://php.net/manual/en/dom-parentnode.queryselectorall.php
-     * @return NodeList<Element>
+     * @return NodeList<Element> Returns a static collection of elements that match the CSS
+     * selectors specified in selectors.
      */
     public function querySelectorAll(string $selectors): NodeList;
 }

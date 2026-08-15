@@ -110,7 +110,8 @@ function apc_define_constants($key, array $constants, $case_sensitive = true) {}
  * the stored variable will be expunged from the cache (on the next request). If no ttl is supplied
  * (or if the ttl is 0), the value will persist until it is removed from the cache manually,
  * or otherwise fails to exist in the cache (clear, restart, etc.).
- * @return bool
+ * @return bool Returns TRUE if something has effectively been added into the cache, FALSE
+ * otherwise. Second syntax returns array with error keys.
  */
 function apc_add($key, $var, $ttl = 0) {}
 
@@ -153,8 +154,10 @@ function apc_exists($keys) {}
  * Returns True/False, or for an Array an Array of failed files.
  *
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.apc-delete-file
- * @param string|string[]|APCIterator $keys
- * @return bool|string[]
+ * @param string|string[]|APCIterator $keys The files to be deleted. Accepts a string, array of
+ * strings, or an APCIterator object.
+ * @return bool|string[] Returns TRUE on success or FALSE on failure. Or if keys is an array, then
+ * an empty array is returned on success, or an array of failed files is returned.
  */
 function apc_delete_file($keys) {}
 
@@ -181,10 +184,10 @@ function apc_dec($key, $step = 1, &$success = null) {}
 /**
  * Updates an old value with a new value
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.apc-cas
- * @param string $key
- * @param int $old
- * @param int $new
- * @return bool
+ * @param string $key The key of the value being updated.
+ * @param int $old The old value (the value currently stored).
+ * @param int $new The new value to update to.
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function apc_cas($key, $old, $new) {}
 
@@ -567,13 +570,14 @@ function apcu_cache_info($limited = false) {}
  *
  * @link https://www.php.net/manual/en/function.apcu-enabled.php
  *
- * @return bool
+ * @return bool Returns true when APCu is usable in the current environment, false otherwise.
  */
 function apcu_enabled() {}
 
 /**
- * @param string $key
- * @return array|null
+ * @param string $key The key to retrieve information for.
+ * @return array|null An array containing the detailed information about the cache key, or null if
+ * the key does not exist.
  */
 function apcu_key_info($key) {}
 

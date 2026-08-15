@@ -335,8 +335,12 @@ class gnupg_keylistiterator implements Iterator
 /**
  * Initialize a connection
  * @link https://www.php.net/manual/en/function.gnupg-init.php
- * @param $options
- * @return resource
+ * @param array|null $options Must be an associative array. It is used to change the default configuration of
+ * the crypto engine. Configuration overrides key type description file_name string It is the file
+ * name of the executable program implementing this protocol which is usually path of the gpg
+ * executable. home_dir string It is the directory name of the configuration directory. It also
+ * overrides GNUPGHOME environment variable that is used for the same purpose.
+ * @return resource A GnuPG resource connection used by other GnuPG functions.
  */
 function gnupg_init($options = null) {}
 

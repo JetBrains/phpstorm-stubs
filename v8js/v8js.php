@@ -14,10 +14,18 @@ class V8Js
     /**
      * Initializes and starts V8 engine and returns new V8Js object with it's own V8 context.
      * Snapshots are supported by V8 4.3.7 and higher.
-     * @param string $object_name
-     * @param array $variables
-     * @param array $extensions
-     * @param bool $report_uncaught_exceptions
+     * @param string $object_name The name of the object passed to Javascript.
+     * @param array $variables Map of PHP variables that will be available in Javascript. Must be an
+     * associative array in format array("name-for-js" => "name-of-php-variable"). Defaults to empty
+     * array.
+     * @param array $extensions List of extensions registered using V8Js::registerExtension which
+     * should be available in the Javascript context of the created V8Js object. Extensions
+     * registered to be enabled automatically do not need to be listed in this array. Also if an
+     * extension has dependencies, those dependencies can be omitted as well. Defaults to empty
+     * array.
+     * @param bool $report_uncaught_exceptions Controls whether uncaught Javascript exceptions are
+     * reported immediately or not. Defaults to true. If set to false the uncaught exception can be
+     * accessed using V8Js::getPendingException.
      * @param string $snapshot_blob
      */
     public function __construct($object_name = "PHP", array $variables = [], array $extensions = [], $report_uncaught_exceptions = true, $snapshot_blob = null) {}
@@ -44,12 +52,15 @@ class V8Js
     /**
      * Compiles and executes script in object's context with optional identifier string.
      * A time limit (milliseconds) and/or memory limit (bytes) can be provided to restrict execution. These options will throw a V8JsTimeLimitException or V8JsMemoryLimitException.
-     * @param string $script
-     * @param string $identifier
-     * @param int $flags
+     * @param string $script The code string to be executed.
+     * @param string $identifier Identifier string for the executed code. Used for debugging.
+     * @param int $flags Execution flags. This value must be one of the V8Js::FLAG_* constants,
+     * defaulting to V8Js::FLAG_NONE. V8Js::FLAG_NONE: no flags V8Js::FLAG_FORCE_ARRAY: forces all
+     * Javascript objects passed to PHP to be associative arrays
      * @param int $time_limit in milliseconds
      * @param int $memory_limit in bytes
-     * @return mixed
+     * @return mixed Returns the last variable instantiated in the Javascript code converted to
+     * matching PHP variable type.
      */
     public function executeString($script, $identifier = '', $flags = V8Js::FLAG_NONE, $time_limit = 0, $memory_limit = 0) {}
 
@@ -93,7 +104,7 @@ class V8Js
 
     /**
      * Returns uncaught pending exception or null if there is no pending exception.
-     * @return V8JsScriptException|null
+     * @return V8JsScriptException|null Either V8JsException or null.
      */
     public function getPendingException() {}
 
@@ -108,17 +119,22 @@ class V8Js
      * Registers persistent context independent global Javascript extension.
      * NOTE! These extensions exist until PHP is shutdown and they need to be registered before V8 is initialized.
      * For best performance V8 is initialized only once per process thus this call has to be done before any V8Js objects are created!
-     * @param string $extension_name
+     * @param string $extension_name Name of the extension to be registered.
      * @param string $code
-     * @param array $dependencies
-     * @param bool $auto_enable
-     * @return bool
+     * @param array $dependencies Array of extension names the extension to be registered depends
+     * on. Any such extension is enabled automatically when this extension is loaded. All
+     * extensions, including the dependencies, must be registered before any V8Js are created which
+     * use them.
+     * @param bool $auto_enable If set to true, the extension will be enabled automatically in all
+     * V8Js contexts.
+     * @return bool Returns true if extension was registered successfully, false otherwise.
      */
     public static function registerExtension($extension_name, $code, array $dependencies = [], $auto_enable = false) {}
 
     /**
      * Returns extensions successfully registered with V8Js::registerExtension().
-     * @return string[]
+     * @return string[] Returns an array of registered extensions or an empty array if there are
+     * none.
      */
     public static function getExtensions() {}
 

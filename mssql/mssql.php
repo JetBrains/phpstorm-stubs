@@ -415,7 +415,7 @@ function mssql_next_result($result_id) {}
  * @param int $severity <p>
  * The new error severity.
  * </p>
- * @return void
+ * @return void No value is returned.
  * @removed 7.0
  */
 function mssql_min_error_severity($severity) {}
@@ -427,7 +427,7 @@ function mssql_min_error_severity($severity) {}
  * @param int $severity <p>
  * The new message severity.
  * </p>
- * @return void
+ * @return void No value is returned.
  * @removed 7.0
  */
 function mssql_min_message_severity($severity) {}

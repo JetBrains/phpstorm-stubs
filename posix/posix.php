@@ -768,7 +768,9 @@ function posix_eaccess(string $filename, int $flags = 0): bool {}
  * Returns the value of a configurable limit
  * @link  https://www.php.net/manual/en/function.posix-fpathconf.php
  * @since 8.3
- * @param resource|int $file_descriptor
+ * @param resource|int $file_descriptor The file descriptor, which is expected to be either a file
+ * resource or an int. An int will be assumed to be a file descriptor that can be passed directly to
+ * the underlying system call.
  * @param int $name The name of the configurable limit, one of the following. POSIX_PC_LINK_MAX,
  * POSIX_PC_MAX_CANON, POSIX_PC_MAX_INPUT, POSIX_PC_NAME_MAX, POSIX_PC_PATH_MAX, POSIX_PC_PIPE_BUF,
  * POSIX_PC_CHOWN_RESTRICTED, POSIX_PC_NO_TRUNC, POSIX_PC_ALLOC_SIZE_MIN, POSIX_PC_SYMLINK_MAX.

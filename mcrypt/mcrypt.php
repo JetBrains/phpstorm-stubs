@@ -61,9 +61,10 @@ function mcrypt_ofb($cipher, $key, $data, $mode, $iv = null) {}
 /**
  * Get the key size of the specified cipher
  * @link https://php.net/manual/en/function.mcrypt-get-key-size.php
- * @param int|string $cipher
+ * @param int|string $cipher One of the MCRYPT_ciphername constants, or the name of the algorithm as
+ * string.
  * @param string $module
- * @return int
+ * @return int Returns the maximum supported key size of the algorithm in bytes or false on failure.
  * @removed 7.2
  */
 #[Deprecated(since: '7.1')]
@@ -344,7 +345,7 @@ function mcrypt_generic($td, $data) {}
  * @param string $data <p>
  * Encrypted data.
  * </p>
- * @return string
+ * @return string Returns decrypted string.
  * @removed 7.2
  */
 #[Deprecated(since: '7.1')]

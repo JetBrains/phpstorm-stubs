@@ -571,7 +571,8 @@ namespace Uri\WhatWg {
          * if uri is a relative-URL string. If either null is passed, or uri is a not a relative-URL
          * string, then baseUrl doesn't have any effect.
          * @link https://php.net/manual/en/uri-whatwg-url.parse.php
-         * @param array $errors
+         * @param array $errors An array to pass a list of Uri\WhatWg\UrlValidationError instances
+         * by reference to provide extended information about the errors triggered during parsing.
          */
         public static function parse(string $uri, ?\Uri\WhatWg\Url $baseUrl = null, &$errors = null): ?static {}
 
@@ -586,7 +587,9 @@ namespace Uri\WhatWg {
          * @param \Uri\WhatWg\Url|null $baseUrl When a string is passed, uri is applied on baseUrl,
          * if uri is a relative-URL string. If either null is passed, or uri is a not a relative-URL
          * string, then baseUrl doesn't have any effect.
-         * @param array $softErrors
+         * @param array $softErrors An array to pass a list of Uri\WhatWg\UrlValidationError
+         * instances by reference to provide extended information about the errors triggered during
+         * parsing.
          *
          * @throws \Uri\WhatWg\InvalidUrlException
          */
@@ -815,7 +818,9 @@ namespace Uri\WhatWg {
          * @link https://php.net/manual/en/uri-whatwg-url.resolve.php
          * @param string $uri A valid URL string (e.g. /foo or (e.g. https://example.com/foo) to
          * apply on the current object.
-         * @param array $softErrors
+         * @param array $softErrors An array to pass a list of Uri\WhatWg\UrlValidationError
+         * instances by reference to provide extended information about the soft errors triggered
+         * during reference resolution.
          *
          * @throws \Uri\WhatWg\InvalidUrlException
          */

@@ -98,7 +98,7 @@ function session_regenerate_id(bool $delete_old_session = false): bool {}
  * PHP > 5.4.0 <br/>
  * Session shutdown function
  * @link https://php.net/manual/en/function.session-register-shutdown.php
- * @return void
+ * @return void No value is returned.
  */
 function session_register_shutdown(): void {}
 

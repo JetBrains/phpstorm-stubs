@@ -47,7 +47,7 @@ class Process
     /**
      * @param mixed $signal_no
      * @param mixed $callback
-     * @return mixed
+     * @return mixed If signal sent successfully, it returns TRUE, otherwise it returns FALSE.
      */
     public static function signal($signal_no, $callback) {}
 
@@ -59,9 +59,9 @@ class Process
     public static function alarm($usec, $type = null) {}
 
     /**
-     * @param mixed $pid
-     * @param mixed|null $signal_no
-     * @return mixed
+     * @param mixed $pid Process pid
+     * @param mixed|null $signal_no Signal to be sent
+     * @return mixed Returns true on success or false on failure.
      */
     public static function kill($pid, $signal_no = null) {}
 
@@ -112,7 +112,7 @@ class Process
     public function useQueue($key = null, $mode = null, $capacity = null) {}
 
     /**
-     * @return mixed
+     * @return mixed The array of status of the message queue.
      */
     public function statQueue() {}
 
@@ -174,8 +174,8 @@ class Process
     public function exportSocket() {}
 
     /**
-     * @param mixed $process_name
-     * @return mixed
+     * @param mixed $process_name Set name of the process.
+     * @return mixed Returns true on success or false on failure.
      */
     public function name($process_name) {}
 }

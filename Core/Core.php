@@ -135,9 +135,9 @@ function strncasecmp(string $string1, string $string2, int $length): int {}
  * $needle string or {@see false} otherwise.
  *
  * @link https://php.net/manual/en/function.str-starts-with.php
- * @param string $haystack
- * @param string $needle
- * @return bool
+ * @param string $haystack The string to search in.
+ * @param string $needle The substring to search for in the haystack.
+ * @return bool Returns true if haystack begins with needle, false otherwise.
  * @since 8.0
  */
 #[Pure]
@@ -148,9 +148,9 @@ function str_starts_with(string $haystack, string $needle): bool {}
  * $needle string or {@see false} otherwise.
  *
  * @link https://php.net/manual/en/function.str-ends-with.php
- * @param string $haystack
- * @param string $needle
- * @return bool
+ * @param string $haystack The string to search in.
+ * @param string $needle The substring to search for in the haystack.
+ * @return bool Returns true if haystack ends with needle, false otherwise.
  * @since 8.0
  */
 #[Pure]
@@ -161,9 +161,9 @@ function str_ends_with(string $haystack, string $needle): bool {}
  * (true/false) whether or not the $needle was found.
  *
  * @link https://php.net/manual/en/function.str-contains.php
- * @param string $haystack
- * @param string $needle
- * @return bool
+ * @param string $haystack The string to search in.
+ * @param string $needle The substring to search for in the haystack.
+ * @return bool Returns true if needle is in haystack, false otherwise.
  * @since 8.0
  */
 #[Pure]
@@ -407,7 +407,7 @@ function get_class(object $object): string {}
 /**
  * the "Late Static Binding" class name
  * @link https://php.net/manual/en/function.get-called-class.php
- * @return string
+ * @return string Returns the class name.
  * @throws \Error If get_called_class is called from outside a class, an Error is thrown. Prior to
  * PHP 8.0.0, an E_WARNING level error was raised.
  */
@@ -976,7 +976,8 @@ function get_extension_funcs(string $extension): array|false {}
  * )
  * </pre>
  * </p>
- * @return array
+ * @return array Returns an array of constant name => constant value array, optionally grouped by
+ * extension name registering the constant.
  */
 #[Pure(true)]
 function get_defined_constants(bool $categorize = false): array {}
@@ -1102,7 +1103,7 @@ function debug_backtrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT, int $lim
  * As of 5.4.0, this parameter can be used to limit the number of stack frames printed.
  * By default (<i>limit</i> = 0) it prints all stack frames.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function debug_print_backtrace(
     int $options = 0,
@@ -1127,14 +1128,14 @@ function gc_enabled(): bool {}
 /**
  * Activates the circular reference collector
  * @link https://php.net/manual/en/function.gc-enable.php
- * @return void
+ * @return void No value is returned.
  */
 function gc_enable(): void {}
 
 /**
  * Deactivates the circular reference collector
  * @link https://php.net/manual/en/function.gc-disable.php
- * @return void
+ * @return void No value is returned.
  */
 function gc_disable(): void {}
 

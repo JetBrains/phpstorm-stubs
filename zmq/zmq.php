@@ -374,7 +374,7 @@ class ZMQContext
      * @param int $type <b>ZMQ::SOCKET_*</b> constant to specify socket type.
      * @param string $persistent_id If persistent_id is specified the socket will be persisted over multiple requests.
      * @param callable $on_new_socket Callback function, which is executed when a new socket structure is created. This function does not get invoked if the underlying persistent connection is re-used. The callback takes ZMQSocket and persistent_id as two arguments.
-     * @return ZMQSocket
+     * @return ZMQSocket Returns a ZMQSocket object.
      * @throws ZMQSocketException
      */
     public function getSocket($type, $persistent_id = null, $on_new_socket = null) {}
@@ -395,7 +395,7 @@ class ZMQContext
      * @link https://secure.php.net/manual/en/zmqcontext.setopt.php
      * @param int $key One of the <b>ZMQ::CTXOPT_*<b> constants.
      * @param mixed $value The value of the parameter.
-     * @return ZMQContext
+     * @return ZMQContext Returns the current object. Throws ZMQContextException on error.
      * @throws ZMQContextException
      */
     public function setOpt($key, $value) {}
@@ -431,7 +431,7 @@ class ZMQSocket
      * @link https://secure.php.net/manual/en/zmqsocket.bind.php
      * @param string $dsn The bind dsn, for example transport://address.
      * @param bool $force Tries to bind even if the socket has already been bound to the given endpoint.
-     * @return ZMQSocket
+     * @return ZMQSocket Returns the current object. Throws ZMQSocketException on error.
      * @throws ZMQSocketException if binding fails
      */
     public function bind($dsn, $force = false) {}
@@ -444,7 +444,7 @@ class ZMQSocket
      * @link https://secure.php.net/manual/en/zmqsocket.connect.php
      * @param string $dsn The bind dsn, for example transport://address.
      * @param bool $force Tries to bind even if the socket has already been bound to the given endpoint.
-     * @return ZMQSocket
+     * @return ZMQSocket Returns the current object.
      * @throws ZMQSocketException If connection fails
      */
     public function connect($dsn, $force = false) {}
@@ -456,7 +456,7 @@ class ZMQSocket
      * where transport is one of the following: inproc, ipc, tcp, pgm or epgm.
      * @link https://secure.php.net/manual/en/zmqsocket.disconnect.php
      * @param string $dsn The bind dsn, for example transport://address.
-     * @return ZMQSocket
+     * @return ZMQSocket Returns the current object. Throws ZMQSocketException on error.
      * @throws ZMQSocketException If connection fails
      */
     public function disconnect($dsn) {}
@@ -542,7 +542,8 @@ class ZMQSocket
      * @link https://secure.php.net/manual/en/zmqsocket.send.php
      * @param string $message The message to send
      * @param int $mode Pass mode flags to receive multipart messages or non-blocking operation. See ZMQ::MODE_* constants.     *
-     * @return ZMQSocket
+     * @return ZMQSocket Returns the current object. Throws ZMQSocketException on error. If
+     * ZMQ::MODE_NOBLOCK is used and the operation would block boolean false shall be returned.
      * @throws ZMQSocketException if sending message fails
      */
     public function send($message, $mode = 0) {}
@@ -553,7 +554,8 @@ class ZMQSocket
      * @link https://secure.php.net/manual/en/zmqsocket.sendmulti.php
      * @param array $message The message to send - an array of strings
      * @param int $mode Pass mode flags to receive multipart messages or non-blocking operation. See ZMQ::MODE_* constants.     *
-     * @return ZMQSocket
+     * @return ZMQSocket Returns the current object. Throws ZMQSocketException on error. If
+     * ZMQ::MODE_NOBLOCK is used and the operation would block boolean false shall be returned.
      * @throws ZMQSocketException if sending message fails
      */
     public function sendmulti(array $message, $mode = 0) {}
@@ -562,7 +564,7 @@ class ZMQSocket
      * Sets a ZMQ socket option. The type of the value depends on the key.
      * @param int $key One of the <b>ZMQ::SOCKOPT_*</b> constants.
      * @param mixed $value The value of the parameter.
-     * @return ZMQSocket
+     * @return ZMQSocket Returns the current object. Throws ZMQSocketException on error.
      * @throws ZMQSocketException
      * @see ZMQ Constant Types for more information.
      * @link https://secure.php.net/manual/en/zmqsocket.setsockopt.php
@@ -575,7 +577,7 @@ class ZMQSocket
      * where transport is one of the following: inproc, ipc, tcp, pgm or epgm.
      * @link https://secure.php.net/manual/en/zmqsocket.unbind.php
      * @param string $dsn The previously bound dsn, for example transport://address.
-     * @return ZMQSocket
+     * @return ZMQSocket Returns the current object. Throws ZMQSocketException on error.
      * @throws ZMQSocketException if binding fails
      */
     public function unbind($dsn) {}
@@ -622,7 +624,8 @@ class ZMQPoll
      * Returns an array containing ids for the items that had errors in the last poll.
      * Empty array is returned if there were no errors.
      * @link https://secure.php.net/manual/en/zmqpoll.getlasterrors.php
-     * @return int[]
+     * @return int[] Returns an array containing ids for the items that had errors in the last poll.
+     * Empty array is returned if there were no errors.
      */
     public function getLastErrors() {}
 
@@ -637,7 +640,7 @@ class ZMQPoll
      * @param array &$writable Array where writable ZMQSockets/PHP streams are returned. The array will be cleared at the beginning of the operation.
      * @param int $timeout Timeout for the operation. -1 means that poll waits until at least one item has activity. Please note that starting from version 1.0.0 the poll timeout is defined in milliseconds, rather than microseconds.
      * @throws ZMQPollException if polling fails
-     * @return int
+     * @return int Returns an integer representing the amount of items with activity.
      */
     public function poll(array &$readable, array &$writable, $timeout = -1) {}
 
@@ -729,7 +732,7 @@ class ZMQDevice
      * @param callable $cb_func Callback function to invoke when the device is idle. Returning false or a value that evaluates to false from this function will cause the device to stop.
      * @param int $timeout How often to invoke the idle callback in milliseconds. The idle callback is invoked periodically when there is no activity on the device. The timeout value guarantees that there is at least this amount of milliseconds between invocations of the callback function.
      * @param mixed $user_data Additional data to pass to the callback function.
-     * @return ZMQDevice
+     * @return ZMQDevice On success this method returns the current object.
      */
     public function setTimerCallback($cb_func, $timeout, $user_data) {}
 
@@ -738,7 +741,7 @@ class ZMQDevice
      * Added in ZMQ extension version 1.1.0.
      * @link https://secure.php.net/manual/en/zmqdevice.settimertimeout.php
      * @param int $timeout The timer callback timeout value.
-     * @return ZMQDevice
+     * @return ZMQDevice On success this method returns the current object.
      */
     public function setTimerTimeout($timeout) {}
 }

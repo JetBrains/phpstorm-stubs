@@ -44,7 +44,7 @@ class ReflectionAttribute implements Reflector
      * Returns the target of the attribute as a bit mask format.
      *
      * @link https://php.net/manual/en/reflectionattribute.gettarget.php
-     * @return int
+     * @return int Gets target of the attribute as bitmask of Attribute::TARGET_* constants.
      * @since 8.0
      */
     #[Pure]
@@ -54,7 +54,7 @@ class ReflectionAttribute implements Reflector
      * Returns {@see true} if the attribute is repeated.
      *
      * @link https://php.net/manual/en/reflectionattribute.isrepeated.php
-     * @return bool
+     * @return bool Returns true when attribute is used repeatedly, otherwise false.
      * @since 8.0
      */
     #[Pure]
@@ -64,7 +64,7 @@ class ReflectionAttribute implements Reflector
      * Gets list of passed attribute's arguments.
      *
      * @link https://php.net/manual/en/reflectionattribute.getarguments.php
-     * @return array
+     * @return array The arguments passed to attribute.
      * @since 8.0
      */
     #[Pure]
@@ -74,7 +74,7 @@ class ReflectionAttribute implements Reflector
      * Creates a new instance of the attribute with passed arguments
      *
      * @link https://php.net/manual/en/reflectionattribute.newinstance.php
-     * @return T
+     * @return T New instance of the attribute.
      * @since 8.0
      */
     public function newInstance(): object {}

@@ -278,9 +278,15 @@ class SoapClient
      * needed, use SoapClient::__soapCall.
      *
      * @link https://php.net/manual/en/soapclient.call.php
-     * @param string $name
-     * @param array $args
-     * @return mixed
+     * @param string $name The name of the SOAP function to call.
+     * @param array $args An array of the arguments to pass to the function. This can be either an
+     * ordered or an associative array. Note that most SOAP servers require parameter names to be
+     * provided, in which case this must be an associative array.
+     * @return mixed SOAP functions may return one, or multiple values. If only one value is
+     * returned by the SOAP function, the return value will be a scalar. If multiple values are
+     * returned, an associative array of named output parameters is returned instead. On error, if
+     * the SoapClient object was constructed with the exceptions option set to false, a SoapFault
+     * object will be returned.
      * @since 5.0
      */
     #[Deprecated]

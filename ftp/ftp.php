@@ -8,7 +8,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 /**
  * append the contents of a file to another file on the ftp server
  * @link https://php.net/manual/en/function.ftp-append.php
- * @param resource $ftp
+ * @param resource $ftp An FTP\Connection instance.
  * @param string $remote_filename
  * @param string $local_filename
  * @param int $mode Optional since PHP 7.3
@@ -26,9 +26,10 @@ function ftp_append(
 /**
  * returns a list of files in the given directory
  * @link https://php.net/manual/en/function.ftp-mlsd.php
- * @param resource $ftp
- * @param string $directory
- * @return array|false
+ * @param resource $ftp An FTP\Connection instance.
+ * @param string $directory The directory to be listed.
+ * @return array|false Returns an array of arrays with file infos from the specified directory on
+ * success or false on error.
  * @since 7.2
  */
 function ftp_mlsd(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default: 'resource')] $ftp, string $directory): array|false {}

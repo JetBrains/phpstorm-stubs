@@ -8,7 +8,9 @@
  * @param bool $associative When true, JSON objects will be returned as associative arrays.
  *                          When false, JSON objects will be returned as objects.
  * @param int $depth the maximum nesting depth of the structure being decoded.
- * @return array|stdClass|string|float|int|bool|null
+ * @return array|stdClass|string|float|int|bool|null Returns the value encoded in json in
+ * appropriate PHP type. Values true, false and null are returned as true, false and null
+ * respectively.
  * @throws SimdJsonException for invalid JSON
  *                           (or $json over 4GB long, or out of range integer/float)
  * @throws SimdJsonValueError for invalid $depth
@@ -20,7 +22,7 @@ function simdjson_decode(string $json, bool $associative = false, int $depth = 5
  *
  * @param string $json The JSON string being decoded
  * @param int $depth the maximum nesting depth of the structure being decoded.
- * @return bool
+ * @return bool Returns true if json is a valid JSON string, false otherwise.
  * @throws SimdJsonValueError for invalid $depth
  */
 function simdjson_is_valid(string $json, int $depth = 512): bool {}
@@ -34,7 +36,8 @@ function simdjson_is_valid(string $json, int $depth = 512): bool {}
  * @param bool $throw_if_uncountable If true, then throw SimdJsonException instead of
 returning 0 for JSON pointers
 to values that are neither objects nor arrays.
- * @return int
+ * @return int Returns an integer with the number of elements of the value at the given JSON
+ * pointer.
  * @throws SimdJsonException for invalid JSON or invalid JSON pointer
  *                           (or document over 4GB, or out of range integer/float)
  * @throws SimdJsonValueError for invalid $depth

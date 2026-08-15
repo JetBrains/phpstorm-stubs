@@ -16,9 +16,11 @@ abstract class SplType
     /**
      * Creates a new value of some type
      *
-     * @param mixed $initial_value
+     * @param mixed $initial_value Type and default value depends on the extension class.
      * @param bool $strict  If set to true then will throw UnexpectedValueException if value of other type will be assigned. True by default
      * @link https://php-legacy-docs.zend.com/manual/php5/en/spltype.construct
+     * @throws \UnexpectedValueException Throws an UnexpectedValueException if incompatible type is
+     * given.
      */
     public function __construct($initial_value = self::__default, $strict = true) {}
 }

@@ -13,7 +13,7 @@ class ReflectionIntersectionType extends ReflectionType
      * Returns the reflections of types included in the intersection type.
      *
      * @link https://php.net/manual/en/reflectionintersectiontype.gettypes.php
-     * @return ReflectionType[]
+     * @return ReflectionType[] An array of ReflectionType objects.
      */
     #[Pure]
     public function getTypes(): array {}

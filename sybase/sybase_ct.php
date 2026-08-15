@@ -29,7 +29,7 @@ function sybase_pconnect($servername = null, $username = null, $password = null,
  * Closes a Sybase connection
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sybase-close
  * @param resource $link_identifier [optional]
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  * @removed 7.0
  */
 function sybase_close($link_identifier = null) {}
@@ -39,7 +39,7 @@ function sybase_close($link_identifier = null) {}
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sybase-select-db
  * @param string $database_name
  * @param resource $link_identifier [optional]
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  * @removed 7.0
  */
 function sybase_select_db($database_name, $link_identifier = null) {}
@@ -69,7 +69,7 @@ function sybase_unbuffered_query($query, $link_identifier, $store_result = null)
  * Frees result memory
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sybase-free-result
  * @param resource $result
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  * @removed 7.0
  */
 function sybase_free_result($result) {}
@@ -142,7 +142,7 @@ function sybase_fetch_object($result, $object = null) {}
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sybase-data-seek
  * @param resource $result_identifier
  * @param int $row_number
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  * @removed 7.0
  */
 function sybase_data_seek($result_identifier, $row_number) {}
@@ -162,7 +162,7 @@ function sybase_fetch_field($result, $field_offset = null) {}
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sybase-field-seek
  * @param resource $result
  * @param int $field_offset
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  * @removed 7.0
  */
 function sybase_field_seek($result, $field_offset) {}
@@ -172,8 +172,10 @@ function sybase_field_seek($result, $field_offset) {}
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sybase-result
  * @param resource $result
  * @param int $row
- * @param mixed $field
- * @return string
+ * @param mixed $field The field argument can be the field's offset, or the field's name, or the
+ * field's table dot field's name (tablename.fieldname). If the column name has been aliased
+ * ('select foo as bar from...'), use the alias instead of the column name.
+ * @return string sybase_result() returns the contents of one cell from a Sybase result set.
  * @removed 7.0
  */
 function sybase_result($result, $row, $field) {}
@@ -191,7 +193,7 @@ function sybase_affected_rows($link_identifier = null) {}
  * Sets minimum client severity
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sybase-min-client-severity
  * @param int $severity
- * @return void
+ * @return void No value is returned.
  * @removed 7.0
  */
 function sybase_min_client_severity($severity) {}
@@ -200,7 +202,7 @@ function sybase_min_client_severity($severity) {}
  * Sets minimum server severity
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sybase-min-server-severity
  * @param int $severity
- * @return void
+ * @return void No value is returned.
  * @removed 7.0
  */
 function sybase_min_server_severity($severity) {}
@@ -208,9 +210,11 @@ function sybase_min_server_severity($severity) {}
 /**
  * Sets the handler called when a server message is raised
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sybase-set-message-handler
- * @param callable $handler
+ * @param callable $handler The handler expects five arguments in the following order: message
+ * number, severity, state, line number and description. The first four are integers. The last is a
+ * string. If the function returns FALSE, PHP generates an ordinary error message.
  * @param resource $connection [optional]
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  * @removed 7.0
  */
 function sybase_set_message_handler($handler, $connection = null) {}
@@ -219,7 +223,7 @@ function sybase_set_message_handler($handler, $connection = null) {}
  * Sets the deadlock retry count
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sybase-deadlock-retry-count
  * @param int $retry_count
- * @return void
+ * @return void No value is returned.
  * @removed 7.0
  */
 function sybase_deadlock_retry_count($retry_count) {}

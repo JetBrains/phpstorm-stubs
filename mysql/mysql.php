@@ -344,7 +344,8 @@ function mysql_insert_id($link_identifier = null) {}
 /**
  * Get result data
  * @link https://php.net/manual/en/function.mysql-result.php
- * @param resource $result
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
  * @param int $row <p>
  * The row number from the result that's being retrieved. Row numbers
  * start at 0.
@@ -378,7 +379,8 @@ function mysql_num_rows($result) {}
 /**
  * Get number of fields in result
  * @link https://php.net/manual/en/function.mysql-num-fields.php
- * @param resource $result
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
  * @return int the number of fields in the result set resource on
  * success or false on failure.
  * @removed 7.0
@@ -389,7 +391,8 @@ function mysql_num_fields($result) {}
 /**
  * Get a result row as an enumerated array
  * @link https://php.net/manual/en/function.mysql-fetch-row.php
- * @param resource $result
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
  * @return array an numerical array of strings that corresponds to the fetched row, or
  * false if there are no more rows.
  * </p>
@@ -406,7 +409,8 @@ function mysql_fetch_row($result) {}
 /**
  * Fetch a result row as an associative array, a numeric array, or both
  * @link https://php.net/manual/en/function.mysql-fetch-array.php
- * @param resource $result
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
  * @param int $result_type [optional] <p>
  * The type of array that is to be fetched. It's a constant and can
  * take the following values: <b>MYSQL_ASSOC</b>,
@@ -436,7 +440,8 @@ function mysql_fetch_array($result, $result_type = MYSQL_BOTH) {}
 /**
  * Fetch a result row as an associative array
  * @link https://php.net/manual/en/function.mysql-fetch-assoc.php
- * @param resource $result
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
  * @return array an associative array of strings that corresponds to the fetched row, or
  * false if there are no more rows.
  * </p>
@@ -463,7 +468,8 @@ function mysql_fetch_assoc($result) {}
  *
  * Fetch a result row as an object
  * @link https://php.net/manual/en/function.mysql-fetch-object.php
- * @param resource $result
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
  * @param class-string<T> $class_name [optional] <p>
  * The name of the class to instantiate, set the properties of and return.
  * If not specified, a <b>stdClass</b> object is returned.
@@ -488,7 +494,8 @@ function mysql_fetch_object($result, $class_name = 'stdClass', ?array $params = 
 /**
  * Move internal result pointer
  * @link https://php.net/manual/en/function.mysql-data-seek.php
- * @param resource $result
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
  * @param int $row_number <p>
  * The desired row number of the new result pointer.
  * </p>
@@ -501,7 +508,8 @@ function mysql_data_seek($result, $row_number) {}
 /**
  * Get the length of each output in a result
  * @link https://php.net/manual/en/function.mysql-fetch-lengths.php
- * @param resource $result
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
  * @return array|false An array of lengths on success or false on failure.
  * @removed 7.0
  */
@@ -511,7 +519,8 @@ function mysql_fetch_lengths($result) {}
 /**
  * Get column information from a result and return as an object
  * @link https://php.net/manual/en/function.mysql-fetch-field.php
- * @param resource $result
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
  * @param int $field_offset [optional] <p>
  * The numerical field offset. If the field offset is not specified, the
  * next field that was not yet retrieved by this function is retrieved.
@@ -542,8 +551,10 @@ function mysql_fetch_field($result, $field_offset = 0) {}
 /**
  * Set result pointer to a specified field offset
  * @link https://php.net/manual/en/function.mysql-field-seek.php
- * @param resource $result
- * @param int $field_offset
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
+ * @param int $field_offset The numerical field offset. The field_offset starts at 0. If
+ * field_offset does not exist, an error of level E_WARNING is also issued.
  * @return bool true on success or false on failure.
  * @removed 7.0
  */
@@ -553,7 +564,8 @@ function mysql_field_seek($result, $field_offset) {}
 /**
  * Free result memory
  * @link https://php.net/manual/en/function.mysql-free-result.php
- * @param resource $result
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
  * @return bool true on success or false on failure.
  * <p>
  * If a non-resource is used for the result, an
@@ -569,8 +581,10 @@ function mysql_free_result($result) {}
 /**
  * Get the name of the specified field in a result
  * @link https://php.net/manual/en/function.mysql-field-name.php
- * @param resource $result
- * @param int $field_offset
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
+ * @param int $field_offset The numerical field offset. The field_offset starts at 0. If
+ * field_offset does not exist, an error of level E_WARNING is also issued.
  * @return string|false The name of the specified field index on success or false on failure.
  * @removed 7.0
  */
@@ -580,8 +594,10 @@ function mysql_field_name($result, $field_offset) {}
 /**
  * Get name of the table the specified field is in
  * @link https://php.net/manual/en/function.mysql-field-table.php
- * @param resource $result
- * @param int $field_offset
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
+ * @param int $field_offset The numerical field offset. The field_offset starts at 0. If
+ * field_offset does not exist, an error of level E_WARNING is also issued.
  * @return string The name of the table on success.
  * @removed 7.0
  */
@@ -591,8 +607,10 @@ function mysql_field_table($result, $field_offset) {}
 /**
  * Returns the length of the specified field
  * @link https://php.net/manual/en/function.mysql-field-len.php
- * @param resource $result
- * @param int $field_offset
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
+ * @param int $field_offset The numerical field offset. The field_offset starts at 0. If
+ * field_offset does not exist, an error of level E_WARNING is also issued.
  * @return int|false The length of the specified field index on success or false on failure.
  * @removed 7.0
  */
@@ -602,8 +620,10 @@ function mysql_field_len($result, $field_offset) {}
 /**
  * Get the type of the specified field in a result
  * @link https://php.net/manual/en/function.mysql-field-type.php
- * @param resource $result
- * @param int $field_offset
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
+ * @param int $field_offset The numerical field offset. The field_offset starts at 0. If
+ * field_offset does not exist, an error of level E_WARNING is also issued.
  * @return string The returned field type
  * will be one of "int", "real",
  * "string", "blob", and others as
@@ -617,8 +637,10 @@ function mysql_field_type($result, $field_offset) {}
 /**
  * Get the flags associated with the specified field in a result
  * @link https://php.net/manual/en/function.mysql-field-flags.php
- * @param resource $result
- * @param int $field_offset
+ * @param resource $result The result resource that is being evaluated. This result comes from a
+ * call to mysql_query.
+ * @param int $field_offset The numerical field offset. The field_offset starts at 0. If
+ * field_offset does not exist, an error of level E_WARNING is also issued.
  * @return string|false a string of flags associated with the result or false on failure.
  * <p>
  * The following flags are reported, if your version of MySQL

@@ -34,7 +34,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * Clones function
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
-     * @return void
+     * @return void No value is returned.
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]
     private function __clone(): void {}
@@ -334,7 +334,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      *
      * @param class-string<T>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
+     * @return ReflectionAttribute<T>[] Array of attributes, as a ReflectionAttribute object.
      * @since 8.0
      */
     #[Pure]

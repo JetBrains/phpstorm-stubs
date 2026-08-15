@@ -384,7 +384,7 @@ function stream_socket_server(string $address, &$error_code = null, &$error_mess
 /**
  * Accept a connection on a socket created by {@see stream_socket_server}
  * @link https://php.net/manual/en/function.stream-socket-accept.php
- * @param resource $socket
+ * @param resource $socket The server socket to accept a connection from.
  * @param float|null $timeout [optional] <p>
  * Override the default socket accept timeout. Time should be given in
  * seconds.

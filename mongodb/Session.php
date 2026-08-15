@@ -155,7 +155,8 @@ final class Session
     /**
      * Returns whether a multi-document transaction is in progress.
      * @link https://secure.php.net/manual/en/mongodb-driver-session.isintransaction.php
-     * @return bool
+     * @return bool Returns true if a transaction is currently in progress for this session, and
+     * false otherwise.
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException
      * @since 1.6.0
      */
@@ -164,8 +165,18 @@ final class Session
     /**
      * Starts a transaction
      * @link https://secure.php.net/manual/en/mongodb-driver-session.starttransaction.php
-     * @param array|object $options
-     * @return void
+     * @param array|object $options Options can be passed as argument to this method. Each element
+     * in this options array overrides the corresponding option from the "defaultTransactionOptions"
+     * option, if set when starting the session with MongoDB\Driver\Manager::startSession. options
+     * Option Type Description maxCommitTimeMS integer The maximum amount of time in milliseconds to
+     * allow a single commitTransaction command to run. If specified, maxCommitTimeMS must be a
+     * signed 32-bit integer greater than or equal to zero. readConcern MongoDB\Driver\ReadConcern A
+     * read concern to apply to the operation. This option is available in MongoDB 3.2+ and will
+     * result in an exception at execution time if specified for an older server version.
+     * readPreference MongoDB\Driver\ReadPreference A read preference to use for selecting a server
+     * for the operation. writeConcern MongoDB\Driver\WriteConcern A write concern to apply to the
+     * operation.
+     * @return void No value is returned.
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
      * @throws \MongoDB\Driver\Exception\CommandException If the the transaction could not be started because of a server-side problem (e.g. a lock could not be obtained).
      * @throws \MongoDB\Driver\Exception\RuntimeException If the the transaction could not be started (e.g. a transaction was already started).

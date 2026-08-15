@@ -8,11 +8,12 @@
  * @link https://php.net/manual/en/function.array-find.php
  * @template TKey
  * @template TValue
- * @param array<TKey, TValue> $array
+ * @param array<TKey, TValue> $array The array that should be searched.
  * @param callable(TValue, TKey): bool $callback The callback function to call to check each element, which must be of
  * the following signature: boolcallback mixedvalue mixedkey If this function returns true, the
  * value is returned from array_find and the callback will not be called for further elements.
- * @return TValue|null
+ * @return TValue|null The function returns the value of the first element for which the callback
+ * returns true. If no matching element is found the function returns null.
  * @since 8.4
  */
 function array_find(array $array, callable $callback): mixed {}
@@ -23,11 +24,12 @@ function array_find(array $array, callable $callback): mixed {}
  * @link https://php.net/manual/en/function.array-find-key.php
  * @template TKey
  * @template TValue
- * @param array<TKey, TValue> $array
+ * @param array<TKey, TValue> $array The array that should be searched.
  * @param callable(TValue, TKey): bool $callback The callback function to call to check each element, which must be of
  * the following signature: boolcallback mixedvalue mixedkey If this function returns true, the key
  * is returned from array_find_key and the callback will not be called for further elements.
- * @return TKey|null
+ * @return TKey|null The function returns the key of the first element for which the callback
+ * returns true. If no matching element is found the function returns null.
  * @since 8.4
  */
 function array_find_key(array $array, callable $callback): mixed {}
@@ -40,11 +42,12 @@ function array_find_key(array $array, callable $callback): mixed {}
  * @link https://php.net/manual/en/function.array-any.php
  * @template TKey
  * @template TValue
- * @param array<TKey, TValue> $array
+ * @param array<TKey, TValue> $array The array that should be searched.
  * @param callable(TValue, TKey): bool $callback The callback function to call to check each element, which must be of
  * the following signature: boolcallback mixedvalue mixedkey If this function returns true, true is
  * returned from array_any and the callback will not be called for further elements.
- * @return bool
+ * @return bool The function returns true, if there is at least one element for which callback
+ * returns true. Otherwise the function returns false.
  * @since 8.4
  */
 function array_any(array $array, callable $callback): bool {}
@@ -55,11 +58,12 @@ function array_any(array $array, callable $callback): bool {}
  * @link https://php.net/manual/en/function.array-all.php
  * @template TKey
  * @template TValue
- * @param array<TKey, TValue> $array
+ * @param array<TKey, TValue> $array The array that should be searched.
  * @param callable(TValue, TKey): bool $callback The callback function to call to check each element, which must be of
  * the following signature: boolcallback mixedvalue mixedkey If this function returns false, false
  * is returned from array_all and the callback will not be called for further elements.
- * @return bool
+ * @return bool The function returns true, if callback returns true for all elements. Otherwise the
+ * function returns false.
  * @since 8.4
  */
 function array_all(array $array, callable $callback): bool {}
@@ -92,8 +96,11 @@ function http_clear_last_response_headers(): void {}
  *
  * @link https://php.net/manual/en/function.request-parse-body.php
  * @since 8.4
- * @param array|null $options
- * @return array<int, array>
+ * @param array|null $options The options parameter accepts an associative array to override the
+ * following global settings for parsing of the request body. max_file_uploads max_input_vars
+ * max_multipart_body_parts post_max_size upload_max_filesize
+ * @return array<int, array> request_parse_body returns an array pair with the equivalent of $_POST
+ * at index 0 and $_FILES at index 1.
  * @throws RequestParseBodyException if the request body uses an invalid/unsupported content type
  */
 function request_parse_body(?array $options = null): array {}

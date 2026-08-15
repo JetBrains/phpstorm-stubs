@@ -25,7 +25,7 @@ class Runtime
     public static function enableCoroutine($enable = true, int $flags = SWOOLE_HOOK_ALL) {}
 
     /**
-     * @return int
+     * @return int Returns the current hook flags as a bitmask.
      */
     public static function getHookFlags() {}
 

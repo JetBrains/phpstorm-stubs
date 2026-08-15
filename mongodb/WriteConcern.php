@@ -34,7 +34,18 @@ final class WriteConcern implements Serializable
     /**
      * Construct immutable WriteConcern
      * @link https://php.net/manual/en/mongodb-driver-writeconcern.construct.php
-     * @param string|int $w
+     * @param string|int $w Write concern Value Description 1 Requests acknowledgement that the
+     * write operation has propagated to the standalone mongod or the primary in a replica set. This
+     * is the default write concern for MongoDB. 0 Requests no acknowledgment of the write
+     * operation. However, this may return information about socket exceptions and networking errors
+     * to the application. <integer greater than 1> Numbers greater than 1 are valid only for
+     * replica sets to request acknowledgement from specified number of members, including the
+     * primary. MongoDB\Driver\WriteConcern::MAJORITY Requests acknowledgment that write operations
+     * have propagated to the majority of voting nodes, including the primary, and have been written
+     * to the on-disk journal for these nodes. Prior to MongoDB 3.0, this refers to the majority of
+     * replica set members (not just voting nodes). string A string value is interpereted as a tag
+     * set. Requests acknowledgement that the write operations have propagated to a replica set
+     * member with the specified tag.
      * @param int|null $wtimeout How long to wait (in milliseconds) for secondaries before failing.
      * @param bool|null $journal Wait until mongod has applied the write to the journal.
      * @throws InvalidArgumentException on argument parsing errors.

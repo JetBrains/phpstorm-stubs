@@ -59,7 +59,7 @@ function juliantojd(int $month, int $day, int $year): int {}
 /**
  * Converts a Julian day count to a Jewish calendar date
  * @link https://php.net/manual/en/function.jdtojewish.php
- * @param int $julian_day
+ * @param int $julian_day A julian day number as integer
  * @param bool $hebrew [optional] <p>
  * If the <i>hebrew</i> parameter is set to <b>TRUE</b>, the
  * <i>fl</i> parameter is used for Hebrew, string based,
@@ -94,7 +94,7 @@ function jewishtojd(int $month, int $day, int $year): int {}
 /**
  * Converts a Julian Day Count to the French Republican Calendar
  * @link https://php.net/manual/en/function.jdtofrench.php
- * @param int $julian_day
+ * @param int $julian_day A julian day number as integer
  * @return string The french revolution date as a string in the form "month/day/year"
  */
 function jdtofrench(int $julian_day): string {}
@@ -155,8 +155,8 @@ function jddayofweek(int $julian_day, int $mode = CAL_DOW_DAYNO): string|int {}
 /**
  * Returns a month name
  * @link https://php.net/manual/en/function.jdmonthname.php
- * @param int $julian_day
- * @param int $mode
+ * @param int $julian_day The Julian Day to operate on
+ * @param int $mode The calendar mode (see table above).
  * @return string The month name for the given Julian Day and <i>calendar</i>.
  */
 function jdmonthname(int $julian_day, int $mode): string {}

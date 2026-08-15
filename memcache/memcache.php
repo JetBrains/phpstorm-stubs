@@ -396,7 +396,7 @@ class Memcache extends MemcachePool
  * @param int $timeout [optional] <p>
  * Value in seconds which will be used for connecting to the daemon.
  * </p>
- * @return Memcache
+ * @return Memcache Returns true on success or false on failure.
  */
 function memcache_connect($host, $port, $timeout = 1) {}
 

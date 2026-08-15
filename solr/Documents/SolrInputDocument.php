@@ -63,7 +63,7 @@ final class SolrInputDocument
      * @param SolrInputDocument $child <p>
      * A SolrInputDocument object.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws SolrIllegalArgumentException
      * @throws SolrException
      */
@@ -76,7 +76,7 @@ final class SolrInputDocument
      * @param array &$docs <p>
      * An array of SolrInputDocument objects.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws SolrIllegalArgumentException
      * @throws SolrException
      */

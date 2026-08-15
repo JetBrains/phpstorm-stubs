@@ -119,7 +119,8 @@ function stream_set_chunk_size($stream, int $size) {}
 /**
  * Initializes all syslog related variables
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.define-syslog-variables
- * @return void
+ * @return void No value is returned. This function has been DEPRECATED as of PHP 5.3.0 and REMOVED
+ * as of PHP 5.4.0.
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]
@@ -211,14 +212,14 @@ function ob_start($callback = null, int $chunk_size = 0, int $flags = PHP_OUTPUT
 /**
  * Flush (send) the output buffer
  * @link https://php.net/manual/en/function.ob-flush.php
- * @return bool
+ * @return bool Returns true on success or false on failure.
  */
 function ob_flush(): bool {}
 
 /**
  * Clean (erase) the output buffer
  * @link https://php.net/manual/en/function.ob-clean.php
- * @return bool
+ * @return bool Returns true on success or false on failure.
  */
 function ob_clean(): bool {}
 
@@ -371,7 +372,7 @@ function ob_get_contents(): string|false {}
  * 1|<b>TRUE</b> to turn implicit flushing on, 0|<b>FALSE</b> turns it off.
  * <br><br>default: 1|<b>TRUE</b>
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function ob_implicit_flush(#[LanguageLevelTypeAware(["8.0" => "bool"], default: "int")] $enable = true): void {}
 
@@ -1132,8 +1133,8 @@ function array_merge(
  * @link https://php.net/manual/en/function.array-first.php
  * @template TKey
  * @template TValue
- * @param array<TKey, TValue> $array
- * @return TValue|null
+ * @param array<TKey, TValue> $array An array.
+ * @return TValue|null Returns the first value of array if the array is not empty; null otherwise.
  * @since 8.5
  * @meta
  */
@@ -1148,8 +1149,8 @@ function array_first(array $array): mixed {}
  * @link https://php.net/manual/en/function.array-last.php
  * @template TKey
  * @template TValue
- * @param array<TKey, TValue> $array
- * @return TValue|null
+ * @param array<TKey, TValue> $array An array.
+ * @return TValue|null Returns the last value of array if the array is not empty; null otherwise.
  * @since 8.5
  * @meta
  */

@@ -519,7 +519,7 @@ function inflate_get_read_len(#[LanguageLevelTypeAware(["8.0" => "InflateContext
  * Get decompression status
  * @link https://php.net/manual/en/function.inflate-get-status.php
  * @param InflateContext|resource $context
- * @return int
+ * @return int Returns decompression status.
  * @since 7.2
  */
 #[Pure]

@@ -16,7 +16,7 @@ class SplFileInfo implements Stringable
     /**
      * Construct a new SplFileInfo object
      * @link https://php.net/manual/en/splfileinfo.construct.php
-     * @param string $filename
+     * @param string $filename Path to the file.
      * @since 5.1
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename) {}
@@ -289,7 +289,7 @@ class SplFileInfo implements Stringable
      * @param class-string<T> $class [optional] <p>
      * The class name to use when openFile() is called.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @since 5.1
      */
     #[TentativeType]
@@ -302,7 +302,7 @@ class SplFileInfo implements Stringable
      * @param class-string<T> $class [optional] <p>
      * The class name to use.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @since 5.1
      */
     #[TentativeType]
@@ -342,7 +342,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Constructs a new directory iterator from a path
      * @link https://php.net/manual/en/directoryiterator.construct.php
-     * @param string $directory
+     * @param string $directory The path of the directory to traverse.
      * @throws UnexpectedValueException if the path cannot be opened.
      * @throws RuntimeException if the path is an empty string.
      */
@@ -360,7 +360,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Rewind the DirectoryIterator back to the start
      * @link https://php.net/manual/en/directoryiterator.rewind.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function rewind(): void {}
@@ -392,7 +392,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Move forward to next DirectoryIterator item
      * @link https://php.net/manual/en/directoryiterator.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -403,7 +403,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
      * @param int $offset <p>
      * The zero-based numeric position to seek to.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): void {}
@@ -431,7 +431,7 @@ class FilesystemIterator extends DirectoryIterator
     /**
      * Constructs a new filesystem iterator
      * @link https://php.net/manual/en/filesystemiterator.construct.php
-     * @param string $directory
+     * @param string $directory The path of the filesystem item to be iterated over.
      * @param int $flags [optional]
      * @throws UnexpectedValueException if the path cannot be found.
      */
@@ -443,7 +443,7 @@ class FilesystemIterator extends DirectoryIterator
     /**
      * Rewinds back to the beginning
      * @link https://php.net/manual/en/filesystemiterator.rewind.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function rewind(): void {}
@@ -451,7 +451,7 @@ class FilesystemIterator extends DirectoryIterator
     /**
      * Move to the next file
      * @link https://php.net/manual/en/filesystemiterator.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -489,7 +489,7 @@ class FilesystemIterator extends DirectoryIterator
      * The handling flags to set.
      * See the FilesystemIterator constants.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function setFlags(
@@ -508,7 +508,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
     /**
      * Constructs a RecursiveDirectoryIterator
      * @link https://php.net/manual/en/recursivedirectoryiterator.construct.php
-     * @param string $directory
+     * @param string $directory The path of the directory to be iterated over.
      * @param int $flags [optional]
      * @throws UnexpectedValueException if the path cannot be found or is not a directory.
      * @since 5.1
@@ -597,7 +597,7 @@ class GlobIterator extends FilesystemIterator implements Countable
     /**
      * Construct a directory using glob
      * @link https://php.net/manual/en/globiterator.construct.php
-     * @param $pattern
+     * @param $pattern A glob pattern.
      * @param int $flags [optional]
      * @throws \UnexpectedValueException Throws an UnexpectedValueException if the directory does
      * not exist.
@@ -667,7 +667,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Rewind the file to the first line
      * @link https://php.net/manual/en/splfileobject.rewind.php
-     * @return void
+     * @return void No value is returned.
      *
      * @throws RuntimeException If cannot be rewound
      */
@@ -775,7 +775,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @param string $escape [optional] <p>
      * The field escape character (one character only).
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function setCsvControl(
@@ -965,7 +965,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Read next line
      * @link https://php.net/manual/en/splfileobject.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -978,7 +978,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * SplFileObject constants
      * for the available flags.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function setFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags): void {}
@@ -997,7 +997,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @param int $maxLength <p>
      * The maximum length of a line.
      * </p>
-     * @return void
+     * @return void No value is returned.
      *
      * @throws DomainException When <i>maxLength</i> is less than zero.
      */
@@ -1038,7 +1038,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @param int $line <p>
      * The zero-based line number to seek to.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws LogicException If the <i>line</i> is negative
      */
     #[TentativeType]
@@ -1096,7 +1096,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * Add/insert a new value at the specified index
      * @param mixed $index The index where the new value is to be inserted.
      * @param TValue $value The new value for the index.
-     * @return void
+     * @return void No value is returned.
      * @link https://php.net/spldoublylinkedlist.add
      * @since 5.5
      * @throws \OutOfRangeException Throws OutOfRangeException when index is out of bounds or when
@@ -1132,7 +1132,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * @param TValue $value <p>
      * The value to push.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function push(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value): void {}
@@ -1143,7 +1143,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * @param TValue $value <p>
      * The value to unshift.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function unshift(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value): void {}
@@ -1190,7 +1190,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * </p>
      * The direction of the iteration (either one or the other):
      * <b>SplDoublyLinkedList::IT_MODE_LIFO</b> (Stack style)
-     * @return int
+     * @return int Returns the different modes and flags that affect the iteration.
      */
     #[TentativeType]
     public function setIteratorMode(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode): int {}
@@ -1236,7 +1236,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * @param TValue $value <p>
      * The new value for the <i>index</i>.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \OutOfRangeException Throws OutOfRangeException when index is out of bounds or when
      * index cannot be parsed as an integer.
      */
@@ -1249,7 +1249,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * @param mixed $index <p>
      * The index being unset.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \OutOfRangeException Throws OutOfRangeException when index is out of bounds or when
      * index cannot be parsed as an integer.
      */
@@ -1259,7 +1259,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Rewind iterator back to the start
      * @link https://php.net/manual/en/spldoublylinkedlist.rewind.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function rewind(): void {}
@@ -1283,7 +1283,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Move to next entry
      * @link https://php.net/manual/en/spldoublylinkedlist.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -1291,7 +1291,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Move to previous entry
      * @link https://php.net/manual/en/spldoublylinkedlist.prev.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function prev(): void {}
@@ -1361,7 +1361,7 @@ class SplQueue extends SplDoublyLinkedList
      * @param TValue $value <p>
      * The value to enqueue.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function enqueue(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value): void {}
@@ -1436,7 +1436,7 @@ abstract class SplHeap implements Iterator, Countable
      * @param TValue $value <p>
      * The value to insert.
      * </p>
-     * @return bool
+     * @return bool Always returns true.
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
@@ -1470,7 +1470,7 @@ abstract class SplHeap implements Iterator, Countable
     /**
      * Rewind iterator back to the start (no-op)
      * @link https://php.net/manual/en/splheap.rewind.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function rewind(): void {}
@@ -1494,7 +1494,7 @@ abstract class SplHeap implements Iterator, Countable
     /**
      * Move to the next node
      * @link https://php.net/manual/en/splheap.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -1510,7 +1510,7 @@ abstract class SplHeap implements Iterator, Countable
     /**
      * Recover from the corrupted state and allow further actions on the heap.
      * @link https://php.net/manual/en/splheap.recoverfromcorruption.php
-     * @return bool
+     * @return bool Always returns true.
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
@@ -1540,7 +1540,7 @@ abstract class SplHeap implements Iterator, Countable
     /**
      * Tells if the heap is in a corrupted state
      * @link https://php.net/manual/en/splheap.iscorrupted.php
-     * @return bool
+     * @return bool Returns true if the heap is corrupted, false otherwise.
      * @since 7.0
      */
     #[TentativeType]
@@ -1765,7 +1765,7 @@ class SplPriorityQueue implements Iterator, Countable
      * @param TPriority $priority <p>
      * The associated priority.
      * </p>
-     * @return true
+     * @return true Always returns true.
      */
     #[TentativeType]
     public function insert(
@@ -1782,7 +1782,7 @@ class SplPriorityQueue implements Iterator, Countable
      * <b>SplPriorityQueue::extract</b>.
      * </p>
      * <b>SplPriorityQueue::EXTR_DATA</b> (0x00000001): Extract the data
-     * @return int
+     * @return int Returns the flags of extraction.
      */
     #[TentativeType]
     public function setExtractFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags): int {}
@@ -1822,7 +1822,7 @@ class SplPriorityQueue implements Iterator, Countable
     /**
      * Rewind iterator back to the start (no-op)
      * @link https://php.net/manual/en/splpriorityqueue.rewind.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function rewind(): void {}
@@ -1846,7 +1846,7 @@ class SplPriorityQueue implements Iterator, Countable
     /**
      * Move to the next node
      * @link https://php.net/manual/en/splpriorityqueue.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -1869,7 +1869,7 @@ class SplPriorityQueue implements Iterator, Countable
     /**
      * Tells if the priority queue is in a corrupted state
      * @link https://php.net/manual/en/splpriorityqueue.iscorrupted.php
-     * @return bool
+     * @return bool Returns true if the priority queue is corrupted, false otherwise.
      * @since 7.0
      */
     #[TentativeType]
@@ -1979,7 +1979,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * @param int $size <p>
      * The new array size.
      * </p>
-     * @return bool
+     * @return bool Always returns true.
      * @throws \ValueError Throws ValueError when size is less than zero.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
@@ -2019,7 +2019,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * @param TValue $value <p>
      * The new value for the <i>index</i>.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \RuntimeException Throws RuntimeException when index is outside the defined size of
      * the array or when index cannot be parsed as an integer.
      */
@@ -2032,7 +2032,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * @param int $index <p>
      * The index being unset.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \RuntimeException Throws RuntimeException when index is outside the defined size of
      * the array or when index cannot be parsed as an integer.
      */
@@ -2042,7 +2042,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     /**
      * Rewind iterator back to the start
      * @link https://php.net/manual/en/splfixedarray.rewind.php
-     * @return void
+     * @return void No value is returned.
      * @removed 8.0
      */
     public function rewind() {}
@@ -2068,7 +2068,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     /**
      * Move to next entry
      * @link https://php.net/manual/en/splfixedarray.next.php
-     * @return void
+     * @return void No value is returned.
      * @removed 8.0
      */
     public function next() {}
@@ -2115,7 +2115,8 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      *
      * @link https://php.net/manual/en/splfixedarray.getiterator.php
      * @since 8.0
-     * @return Iterator<int, TValue>
+     * @return Iterator<int, TValue> An instance of an object implementing Iterator to go through
+     * the array.
      */
     public function getIterator(): Iterator {}
 
@@ -2213,7 +2214,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * @param TValue $info [optional] <p>
      * The data to associate with the object.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     #[Deprecated('use method SplObjectStorage::offset{Exists|Set|Unset}() instead', since: '8.5')]
@@ -2228,7 +2229,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * @param TObject $object <p>
      * The object to remove.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     #[Deprecated('use method SplObjectStorage::offset{Exists|Set|Unset}() instead', since: '8.5')]
@@ -2252,7 +2253,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * @param SplObjectStorage<TObject, TValue> $storage <p>
      * The storage you want to import.
      * </p>
-     * @return int
+     * @return int The number of objects in the storage.
      */
     #[TentativeType]
     public function addAll(#[LanguageLevelTypeAware(['8.0' => 'SplObjectStorage'], default: '')] $storage): int {}
@@ -2263,7 +2264,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * @param SplObjectStorage<TObject, TValue> $storage <p>
      * The storage containing the elements to remove.
      * </p>
-     * @return int
+     * @return int Returns the number of remaining objects.
      */
     #[TentativeType]
     public function removeAll(#[LanguageLevelTypeAware(['8.0' => 'SplObjectStorage'], default: '')] $storage): int {}
@@ -2274,7 +2275,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * @param SplObjectStorage<TObject, TValue> $storage <p>
      * The storage containing the elements to retain in the current storage.
      * </p>
-     * @return int
+     * @return int Returns the number of remaining objects.
      * @since 5.3
      */
     #[TentativeType]
@@ -2294,7 +2295,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * @param TValue $info <p>
      * The data to associate with the current iterator entry.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function setInfo(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $info): void {}
@@ -2311,7 +2312,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
     /**
      * Rewind the iterator to the first storage element
      * @link https://php.net/manual/en/splobjectstorage.rewind.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function rewind(): void {}
@@ -2343,7 +2344,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
     /**
      * Move to the next entry
      * @link https://php.net/manual/en/splobjectstorage.next.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function next(): void {}
@@ -2354,7 +2355,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * @param string $data <p>
      * The serialized representation of a storage.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @since 5.2
      */
     #[TentativeType]
@@ -2390,7 +2391,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * @param TValue $info [optional] <p>
      * The data to associate with the object.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function offsetSet(
@@ -2404,7 +2405,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * @param TObject $object <p>
      * The object to remove.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function offsetUnset($object): void {}

@@ -89,7 +89,7 @@ class SolrCollapseFunction
      * The field name to collapse on. In order to collapse a result. The field type must be a single valued String, Int
      * or Float.
      * </p>
-     * @return SolrCollapseFunction
+     * @return SolrCollapseFunction SolrCollapseFunction
      */
     public function setField($fieldName) {}
 
@@ -100,7 +100,7 @@ class SolrCollapseFunction
      * @param string $hint <p>
      * Currently there is only one hint available "top_fc", which stands for top level FieldCache
      * </p>
-     * @return SolrCollapseFunction
+     * @return SolrCollapseFunction SolrCollapseFunction
      */
     public function setHint($hint) {}
 
@@ -109,7 +109,7 @@ class SolrCollapseFunction
      * Selects the group heads by the max value of a numeric field or function query.
      * @link https://php.net/manual/en/solrcollapsefunction.setmax.php
      * @param string $max
-     * @return SolrCollapseFunction
+     * @return SolrCollapseFunction SolrCollapseFunction
      */
     public function setMax($max) {}
 
@@ -118,7 +118,7 @@ class SolrCollapseFunction
      * Sets the initial size of the collapse data structures when collapsing on a numeric field only
      * @link https://php.net/manual/en/solrcollapsefunction.setmin.php
      * @param string $min
-     * @return SolrCollapseFunction
+     * @return SolrCollapseFunction SolrCollapseFunction
      */
     public function setMin($min) {}
 
@@ -127,7 +127,7 @@ class SolrCollapseFunction
      * Sets the NULL Policy
      * @link https://php.net/manual/en/solrcollapsefunction.setnullpolicy.php
      * @param string $nullPolicy
-     * @return SolrCollapseFunction
+     * @return SolrCollapseFunction SolrCollapseFunction
      */
     public function setNullPolicy($nullPolicy) {}
 
@@ -136,7 +136,7 @@ class SolrCollapseFunction
      * Sets the initial size of the collapse data structures when collapsing on a numeric field only.
      * @link https://php.net/manual/en/solrcollapsefunction.setsize.php
      * @param int $size
-     * @return SolrCollapseFunction
+     * @return SolrCollapseFunction SolrCollapseFunction
      */
     public function setSize($size) {}
 

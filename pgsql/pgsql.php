@@ -952,7 +952,8 @@ function pg_field_type_oid(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Result'], 
  * <b>pg_query_params</b> or <b>pg_execute</b>
  * (among others).
  * </p>
- * @param int $row
+ * @param int $row Row number in result. Rows are numbered from 0 upwards. If omitted, current row
+ * is fetched.
  * @param mixed $field [optional]
  * @return int|false The field printed length, or <b>FALSE</b> on error.
  */
@@ -1324,7 +1325,7 @@ function pg_lo_open(
 /**
  * Close a large object
  * @link https://php.net/manual/en/function.pg-lo-close.php
- * @param resource $lob
+ * @param resource $lob An PgSql\Lob instance, returned by pg_lo_open.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_lo_close(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Lob'], default: 'resource')] $lob): bool {}
@@ -2061,7 +2062,7 @@ function pg_setclientencoding(
 /**
  * Reads input on the connection
  * @link https://www.php.net/manual/en/function.pg-consume-input.php
- * @param PgSql\Connection|resource $connection
+ * @param PgSql\Connection|resource $connection An PgSql\Connection instance.
  * @return bool true if no error occurred, or false if there was an error.
  * Note that true does not necessarily indicate that input was waiting to be read.
  */
@@ -2070,7 +2071,7 @@ function pg_consume_input(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Connection'
 /**
  * Flush outbound query data on the connection
  * @link https://www.php.net/manual/en/function.pg-flush.php
- * @param PgSql\Connection|resource $connection
+ * @param PgSql\Connection|resource $connection An PgSql\Connection instance.
  * @return int|bool Returns true if the flush was successful or no data was waiting to be flushed, 0 if part of the pending
  * data was flushed but more remains or false on failure.
  */
@@ -2145,7 +2146,7 @@ function pg_put_copy_data(PgSql\Connection $connection, string $cmd): int {}
  *
  * @link https://php.net/manual/en/function.pg-socket-poll.php
  * @since  8.4
- * @param resource $socket
+ * @param resource $socket A socket resource obtained from pg_socket.
  * @param int $read Whether to check for read readiness. Pass 1 to check, 0 to skip.
  * @param int $write Whether to check for write readiness. Pass 1 to check, 0 to skip.
  * @param int $timeout The maximum number of milliseconds to wait. Pass -1 to wait indefinitely, or
@@ -2189,7 +2190,7 @@ function pg_close_stmt(Pgsql\Connection $connection, string $statement_name): Pg
  *
  * @link https://php.net/manual/en/function.pg-jit.php
  * @since 8.4
- * @return array<string, string|null>
+ * @return array<string, string|null> Returns an array containing the JIT information of the server.
  */
 function pg_jit(?PgSql\Connection $connection = null): array {}
 

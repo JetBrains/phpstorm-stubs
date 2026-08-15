@@ -291,7 +291,7 @@ final class SolrClient
      * @param string $id <p>
      * Document ID
      * </p>
-     * @return SolrQueryResponse
+     * @return SolrQueryResponse SolrQueryResponse
      */
     public function getById($id) {}
 
@@ -302,7 +302,7 @@ final class SolrClient
      * @param array $ids <p>
      * Document ids
      * </p>
-     * @return SolrQueryResponse
+     * @return SolrQueryResponse SolrQueryResponse
      */
     public function getByIds(array $ids) {}
 
@@ -437,7 +437,7 @@ final class SolrClient
      * <li>phps</li>
      * <li>xml</li>
      * </ul>
-     * @return void
+     * @return void No value is returned.
      */
     public function setResponseWriter($responseWriter) {}
 

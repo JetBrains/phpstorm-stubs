@@ -203,7 +203,7 @@ class RRDCreator
      * @param string $description <p>
      * Class for creation of RRD database file.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @since PECL rrd >= 0.9.0
      */
     public function addArchive($description) {}
@@ -216,7 +216,7 @@ class RRDCreator
      * @param string $description <p>
      * Definition of data source - DS. This has same format as DS definition in rrd create command. See man page of rrd create for more details.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @since PECL rrd >= 0.9.0
      */
     public function addDataSource($description) {}
@@ -288,7 +288,7 @@ class RRDGraph
      * @param array $options <p>
      * List of options for the image generation from the RRD database file. It can be list of strings or list of strings with keys for better readability. Read the rrd graph man pages for list of available options.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @since PECL rrd >= 0.9.0
      */
     public function setOptions($options) {}

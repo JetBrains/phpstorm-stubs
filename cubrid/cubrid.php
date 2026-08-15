@@ -458,7 +458,7 @@ function cubrid_insert_id($conn_identifier = null) {}
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
  * Return the value of a specific field in a specific row
  * @link https://php.net/manual/en/function.cubrid-result.php
- * @param resource $result
+ * @param resource $result result comes from a call to cubrid_execute
  * @param int $row <p>
  * The row number from the result that's being retrieved. Row numbers
  * start at 0.
@@ -590,7 +590,7 @@ function cubrid_fetch_row($result, $type = null) {}
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
  * Fetch a result row as an associative array, a numeric array, or both
  * @link https://php.net/manual/en/function.cubrid-fetch-array.php
- * @param resource $result
+ * @param resource $result Result comes from a call to cubrid_execute
  * @param int $type [optional] <p>
  * The type of array that is to be fetched. It's a constant and can
  * take the following values: CUBRID_ASSOC, CUBRID_NUM, and CUBRID_BOTH.
@@ -957,7 +957,7 @@ function cubrid_get_client_info() {}
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
  * Return the CUBRID server version
  * @link https://php.net/manual/en/function.cubrid-get-server-info.php
- * @param resource $conn_identifier
+ * @param resource $conn_identifier The CUBRID connection.
  * @return string <p>
  * A string that represents the CUBRID server version; on success.
  * FALSE on failure.

@@ -161,7 +161,8 @@ interface SessionUpdateTimestampHandlerInterface
      * string and passing it as this parameter.
      * Please note sessions use an alternative serialization method.
      * </p>
-     * @return bool
+     * @return bool Returns true if the timestamp was updated, false otherwise. Note that this value
+     * is returned internally to PHP for processing.
      */
     #[TentativeType]
     public function updateTimestamp(string $id, string $data): bool;

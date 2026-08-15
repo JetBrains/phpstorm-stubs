@@ -12,7 +12,7 @@ interface JavascriptInterface
 {
     /**
      * Returns the JavascriptInterface's code
-     * @return string
+     * @return string Returns the JavascriptInterface's code.
      * @link https://secure.php.net/manual/en/mongodb-bson-javascriptinterface.getcode.php
      * @since 1.3.0
      */
@@ -20,7 +20,7 @@ interface JavascriptInterface
 
     /**
      * Returns the JavascriptInterface's scope document
-     * @return object|null
+     * @return object|null Returns the JavascriptInterface's scope document.
      * @link https://secure.php.net/manual/en/mongodb-bson-javascriptinterface.getscope.php
      * @since 1.3.0
      */
@@ -28,7 +28,7 @@ interface JavascriptInterface
 
     /**
      * Returns the JavascriptInterface's code
-     * @return string
+     * @return string Returns the JavascriptInterface's code.
      * @link https://secure.php.net/manual/en/mongodb-bson-javascriptinterface.tostring.php
      * @since 1.3.0
      */

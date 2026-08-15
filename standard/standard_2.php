@@ -229,7 +229,7 @@ function ord(string $character): int {}
  * variables are stored in this variable as array elements instead.<br/>
  * Since 7.2.0 this parameter is not optional.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function parse_str(
     string $string,

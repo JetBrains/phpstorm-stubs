@@ -517,7 +517,7 @@ class MongoDB
      * Gets a collection
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongodb.get
      * @param string $name The name of the collection.
-     * @return MongoCollection
+     * @return MongoCollection Returns the collection.
      */
     public function __get($name) {}
 
@@ -528,6 +528,8 @@ class MongoDB
      * @param bool $includeSystemCollections [optional] Include system collections.
      * @return array Returns the names of the all the collections in the database as an
      * {@link https://secure.php.net/manual/en/language.types.array.php array}.
+     * @throws \MongoException For MongoDB 2.6 and earlier, MongoException will be thrown if a
+     * non-string value was specified for the "filter" option's "name" criteria.
      */
     public function getCollectionNames($includeSystemCollections = false) {}
 
@@ -659,6 +661,8 @@ class MongoDB
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongodb.listcollections
      * @param bool $includeSystemCollections [optional] <p>Include system collections.</p>
      * @return array Returns a list of MongoCollections.
+     * @throws \MongoException For MongoDB 2.6 and earlier, MongoException will be thrown if a
+     * non-string value was specified for the "filter" option's "name" criteria.
      */
     public function listCollections($includeSystemCollections = false) {}
 
@@ -888,7 +892,7 @@ class MongoCollection
      * Gets a collection
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocollection.get
      * @param string $name The next string in the collection name.
-     * @return MongoCollection
+     * @return MongoCollection Returns the collection.
      */
     public function __get($name) {}
 
@@ -939,7 +943,7 @@ class MongoCollection
     /**
      * Returns this collection's name
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocollection.getname
-     * @return string
+     * @return string Returns the name of this collection.
      */
     public function getName() {}
 
@@ -1086,7 +1090,9 @@ class MongoCollection
      *         "timeout" Integer, defaults to MongoCursor::$timeout. If "safe" is set, this sets how long (in milliseconds) for the client to wait for a database response. If the database does
      *         not respond within the timeout period, a MongoCursorTimeoutException will be thrown
      * @throws MongoCursorException
-     * @return bool
+     * @return bool Returns an array containing the status of the update if the "w" option is set.
+     * Otherwise, returns TRUE. Fields in the status array are described in the documentation for
+     * MongoCollection::insert().
      */
     public function update(array $criteria, array $newobj, array $options = []) {}
 
@@ -1138,7 +1144,7 @@ class MongoCollection
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocollection.find
      * @param array $query The fields for which to search.
      * @param array $fields Fields of the results to return.
-     * @return MongoCursor
+     * @return MongoCursor Returns a cursor for the search results.
      */
     public function find(array $query = [], array $fields = []) {}
 
@@ -1159,6 +1165,7 @@ class MongoCollection
      * @param array $fields Optionally only return these fields.
      * @param array $options An array of options to apply, such as remove the match document from the DB and return it.
      * @return array Returns the original document, or the modified document when new is set.
+     * @throws \MongoResultException Throws MongoResultException on failure.
      */
     public function findAndModify(array $query, ?array $update = null, ?array $fields = null, ?array $options = null) {}
 
@@ -1168,7 +1175,9 @@ class MongoCollection
      * @param array $query The fields for which to search.
      * @param array $fields Fields of the results to return.
      * @param array $options This parameter is an associative array of the form array("name" => `<value>`, ...).
-     * @return array|null
+     * @return array|null Returns record matching the search or NULL.
+     * @throws \MongoConnectionException Throws MongoConnectionException if it cannot reach the
+     * database.
      */
     public function findOne(array $query = [], array $fields = [], array $options = []) {}
 
@@ -1178,6 +1187,18 @@ class MongoCollection
      * @param array $keys Field or fields to use as index.
      * @param array $options [optional] This parameter is an associative array of the form array("optionname" => `<boolean>`, ...).
      * @return array Returns the database response.
+     * @throws \MongoException Throws MongoException if the index name is longer than 128 bytes, or
+     * if the index specification is not an array.
+     * @throws \MongoDuplicateKeyException Throws MongoDuplicateKeyException if the server could not
+     * create the unique index due to conflicting documents.
+     * @throws \MongoResultException Throws MongoResultException if the server could not create the
+     * index due to an error.
+     * @throws \MongoCursorException Throws MongoCursorException if the "w" option is set and the
+     * write fails.
+     * @throws \MongoCursorTimeoutException Throws MongoCursorTimeoutException if the "w" option is
+     * set to a value greater than one and the operation takes longer than MongoCursor::$timeout
+     * milliseconds to complete. This does not kill the operation on the server, it is a client-side
+     * timeout. The operation in MongoCollection::$wtimeout is milliseconds.
      */
     public function createIndex(array $keys, array $options = []) {}
 
@@ -1188,6 +1209,18 @@ class MongoCollection
      * @param array $options [optional] This parameter is an associative array of the form array("optionname" => `<boolean>`, ...).
      * @return true always true
      * @see MongoCollection::createIndex()
+     * @throws \MongoException Throws MongoException if the index name is longer than 128 bytes, or
+     * if the index specification is not an array.
+     * @throws \MongoDuplicateKeyException Throws MongoDuplicateKeyException if the server could not
+     * create the unique index due to conflicting documents.
+     * @throws \MongoResultException Throws MongoResultException if the server could not create the
+     * index due to an error.
+     * @throws \MongoCursorException Throws MongoCursorException if the "w" option is set and the
+     * write fails.
+     * @throws \MongoCursorTimeoutException Throws MongoCursorTimeoutException if the "w" option is
+     * set to a value greater than one and the operation takes longer than MongoCursor::$timeout
+     * milliseconds to complete. This does not kill the operation on the server, it is a client-side
+     * timeout. The operation in MongoCollection::$wtimeout is milliseconds.
      */
     #[Deprecated('Use MongoCollection::createIndex() instead.')]
     public function ensureIndex(array $keys, array $options = []) {}
@@ -1217,8 +1250,12 @@ class MongoCollection
     /**
      * Counts the number of documents in this collection
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocollection.count
-     * @param array|stdClass $query
+     * @param array|stdClass $query Associative array or object with fields to match.
      * @return int Returns the number of documents matching the query.
+     * @throws \MongoResultException Throws MongoResultException if the server could not execute the
+     * command due to an error.
+     * @throws \MongoExecutionTimeoutException Throws MongoExecutionTimeoutException if command
+     * execution was terminated due to maxTimeMS.
      */
     public function count($query = []) {}
 
@@ -1276,7 +1313,7 @@ class MongoCollection
      * @param array $initial Initial value of the aggregation counter object.
      * @param MongoCode $reduce A function that aggregates (reduces) the objects iterated.
      * @param array $condition An condition that must be true for a row to be considered.
-     * @return array
+     * @return array Returns an array containing the result.
      */
     public function group($keys, array $initial, MongoCode $reduce, array $condition = []) {}
 }
@@ -1363,6 +1400,8 @@ class MongoCursor implements Iterator
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocursor.partial
      * @param bool $okay [optional] <p>If receiving partial results is okay.</p>
      * @return MongoCursor Returns this cursor.
+     * @throws \MongoCursorException Throws MongoCursorException if this cursor has started
+     * iterating.
      */
     public function partial($okay = true) {}
 
@@ -1376,7 +1415,7 @@ class MongoCursor implements Iterator
      * {@link https://www.mongodb.org/display/DOCS/Mongo+Wire+Protocol#MongoWireProtocol-OPQUERY documentation}.
      * </p>
      * @param bool $set [optional] <p>Whether the flag should be set (<b>TRUE</b>) or unset (<b>FALSE</b>).</p>
-     * @return MongoCursor
+     * @return MongoCursor Returns this cursor.
      */
     public function setFlag($flag, $set = true) {}
 
@@ -1413,6 +1452,8 @@ class MongoCursor implements Iterator
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocursor.tailable
      * @param bool $tail If the cursor should be tailable.
      * @return MongoCursor Returns this cursor
+     * @throws \MongoCursorException Throws MongoCursorException if this cursor has started
+     * iterating.
      */
     public function tailable($tail = true) {}
 
@@ -1481,14 +1522,15 @@ class MongoCursor implements Iterator
      * Execute the query
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocursor.doquery
      * @throws MongoConnectionException if it cannot reach the database.
-     * @return void
+     * @return void NULL.
      */
     protected function doQuery() {}
 
     /**
      * Returns the current element
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocursor.current
-     * @return array
+     * @return array The current result document as an associative array. NULL will be returned if
+     * there is no result.
      */
     public function current() {}
 
@@ -1504,7 +1546,7 @@ class MongoCursor implements Iterator
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocursor.next
      * @throws MongoConnectionException
      * @throws MongoCursorTimeoutException
-     * @return void
+     * @return void Returns the next document.
      */
     public function next() {}
 
@@ -1526,7 +1568,7 @@ class MongoCursor implements Iterator
     /**
      * Clears the cursor
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocursor.reset
-     * @return void
+     * @return void NULL.
      */
     public function reset() {}
 
@@ -1534,6 +1576,8 @@ class MongoCursor implements Iterator
      * Return an explanation of the query, often useful for optimization and debugging
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocursor.explain
      * @return array Returns an explanation of the query.
+     * @throws \MongoConnectionException Throws MongoConnectionException if it cannot reach the
+     * database.
      */
     public function explain() {}
 
@@ -1542,6 +1586,8 @@ class MongoCursor implements Iterator
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocursor.count
      * @param bool $all Send cursor limit and skip information to the count function, if applicable.
      * @return int The number of documents returned by this cursor's query.
+     * @throws \MongoConnectionException Throws MongoConnectionException if it cannot reach the
+     * database.
      */
     public function count($all = false) {}
 
@@ -1550,7 +1596,7 @@ class MongoCursor implements Iterator
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongocursor.fields
      * @param array $f Fields to return (or not return).
      * @throws MongoCursorException
-     * @return MongoCursor
+     * @return MongoCursor Returns this cursor.
      */
     public function fields(array $f) {}
 
@@ -1608,6 +1654,11 @@ class MongoCursor implements Iterator
      * server for processing operations on the cursor.
      * </p>
      * @return MongoCursor This cursor.
+     * @throws \MongoCursorException Throws MongoCursorException if this cursor has started
+     * iterating.
+     * @throws \MongoExecutionTimeoutException Causes methods that fetch results to throw a
+     * MongoExecutionTimeoutException if the query takes longer than the specified number of
+     * milliseconds in processing time.
      */
     public function maxTimeMS($ms) {}
 }
@@ -1726,6 +1777,7 @@ class MongoGridFS extends MongoCollection
     public function drop() {}
 
     /**
+     * Queries for files
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongogridfs.find
      * @param array $query The query
      * @param array $fields Fields to return
@@ -1740,6 +1792,8 @@ class MongoGridFS extends MongoCollection
      * @param array $extra Other metadata to add to the file saved
      * @param array $options Options for the store. "safe": Check that this store succeeded
      * @return mixed Returns the _id of the saved object
+     * @throws \MongoGridFSException Throws MongoGridFSException if there is an error reading
+     * filename or inserting into the chunks or files collections.
      */
     public function storeFile($filename, $extra = [], $options = []) {}
 
@@ -1750,6 +1804,8 @@ class MongoGridFS extends MongoCollection
      * @param array $extra Other metadata to add to the file saved
      * @param array $options Options for the store. "safe": Check that this store succeeded
      * @return mixed The _id of the object saved
+     * @throws \MongoGridFSException Throws MongoGridFSException if there is an error inserting into
+     * the chunks or files collections.
      */
     public function storeBytes($bytes, $extra = [], $options = []) {}
 
@@ -1758,7 +1814,7 @@ class MongoGridFS extends MongoCollection
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongogridfs.findone
      * @param array $query The fields for which to search.
      * @param array $fields Fields of the results to return.
-     * @return MongoGridFSFile|null
+     * @return MongoGridFSFile|null Returns a MongoGridFSFile or NULL.
      */
     public function findOne(array $query = [], array $fields = []) {}
 
@@ -1768,7 +1824,9 @@ class MongoGridFS extends MongoCollection
      * @param array $criteria Description of records to remove.
      * @param array $options Options for remove. Valid options are: "safe"- Check that the remove succeeded.
      * @throws MongoCursorException
-     * @return bool
+     * @return bool Returns an array containing the status of the removal (with respect to the files
+     * collection) if the "w" option is set. Otherwise, returns TRUE. Fields in the status array are
+     * described in the documentation for MongoCollection::insert().
      */
     public function remove(array $criteria = [], array $options = []) {}
 
@@ -1777,6 +1835,12 @@ class MongoGridFS extends MongoCollection
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongogridfs.delete
      * @param mixed $id _id of the file to remove
      * @return bool Returns true if the remove was successfully sent to the database.
+     * @throws \MongoCursorException Throws MongoCursorException if the "w" option is set and the
+     * write fails.
+     * @throws \MongoCursorTimeoutException Throws MongoCursorTimeoutException if the "w" option is
+     * set to a value greater than one and the operation takes longer than MongoCursor::$timeout
+     * milliseconds to complete. This does not kill the operation on the server, it is a client-side
+     * timeout. The operation in MongoCollection::$wtimeout is milliseconds.
      */
     public function delete($id) {}
 
@@ -1786,6 +1850,8 @@ class MongoGridFS extends MongoCollection
      * @param string $name The name attribute of the uploaded file, from <code>&#x3C;input type=&#x22;file&#x22; name=&#x22;something&#x22;/&#x3E;</code>
      * @param array $metadata An array of extra fields for the uploaded file.
      * @return mixed Returns the _id of the uploaded file.
+     * @throws \MongoGridFSException Throws MongoGridFSException if there is an error reading the
+     * uploaded file(s) or inserting into the chunks or files collections.
      */
     public function storeUpload($name, array $metadata = []) {}
 
@@ -1803,6 +1869,8 @@ class MongoGridFS extends MongoCollection
      * @param string $filename The name of the file
      * @param array $extra Other metadata to add to the file saved
      * @return mixed Returns the _id of the saved object
+     * @throws \MongoGridFSException Throws MongoGridFSException if there is an error reading
+     * filename or inserting into the chunks or files collections.
      */
     public function put($filename, array $extra = []) {}
 }
@@ -1822,6 +1890,7 @@ class MongoGridFSFile
     protected $gridfs;
 
     /**
+     * Create a new GridFS file
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongogridfsfile.construct
      * @param MongoGridFS $gridfs The parent MongoGridFS instance
      * @param array $file A file from the database
@@ -1975,7 +2044,9 @@ class MongoId
      * (PECL mongo &gt;= 1.0.1)
      * Gets the number of seconds since the epoch that this id was created
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongoid.gettimestamp
-     * @return int
+     * @return int Returns the number of seconds since the epoch that this id was created. There are
+     * only four bytes of timestamp stored, so MongoDate is a better choice for storing exact or
+     * wide-ranging times.
      */
     public function getTimestamp() {}
 
@@ -2080,7 +2151,7 @@ class MongoDate
     /**
      * Returns a DateTime object representing this date
      * @link https://php-legacy-docs.zend.com/manual/php5/en/mongodate.todatetime
-     * @return DateTime
+     * @return DateTime This date as a DateTime object.
      */
     public function toDateTime() {}
 
@@ -2298,6 +2369,8 @@ class MongoWriteBatch
      * @return array Returns an array containing statistical information for the full batch.
      * If the batch had to be split into multiple batches, the return value will aggregate the values from individual batches and return only the totals.
      * If the batch was empty, an array containing only the 'ok' field is returned (as <b>TRUE</b>) although nothing will be shipped over the wire (NOOP).
+     * @throws \MongoWriteConcernException A MongoWriteConcernException exception is thrown on
+     * failure.
      */
     final public function execute(array $write_options) {}
 }

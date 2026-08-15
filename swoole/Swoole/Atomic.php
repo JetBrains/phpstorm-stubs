@@ -9,17 +9,17 @@ class Atomic
     public function __construct(int $value = 0) {}
 
     /**
-     * @return int
+     * @return int The new value of the atomic object.
      */
     public function add(int $add_value = 1) {}
 
     /**
-     * @return int
+     * @return int The current value of the atomic object.
      */
     public function sub(int $sub_value = 1) {}
 
     /**
-     * @return int
+     * @return int The current value of the atomic object.
      */
     public function get() {}
 
@@ -36,7 +36,7 @@ class Atomic
     public function wakeup(int $count = 1) {}
 
     /**
-     * @return bool
+     * @return bool The new value of the atomic object.
      */
     public function cmpset(int $cmp_value, int $new_value) {}
 }
