@@ -22,9 +22,10 @@ function msg_get_queue(int $key, int $permissions = 0666) {}
 /**
  * Send a message to a message queue
  * @link https://php.net/manual/en/function.msg-send.php
- * @param SysvMessageQueue|resource $queue
- * @param int $message_type
- * @param mixed $message
+ * @param SysvMessageQueue|resource $queue The message queue.
+ * @param int $message_type The type of the message (MUST be greater than 0)
+ * @param mixed $message The body of the message. If serialize set to false is supplied, MUST be of
+ * type: string, int, float or bool. In other case a warning will be issued.
  * @param bool $serialize [optional] <p>
  * The optional <i>serialize</i> controls how the
  * <i>message</i> is sent. <i>serialize</i>
@@ -60,7 +61,7 @@ function msg_send(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], defaul
 /**
  * Receive a message from a message queue
  * @link https://php.net/manual/en/function.msg-receive.php
- * @param SysvMessageQueue|resource $queue
+ * @param SysvMessageQueue|resource $queue The message queue.
  * @param int $desired_message_type <p>
  * If <i>desiredmsgtype</i> is 0, the message from the front
  * of the queue is returned. If <i>desiredmsgtype</i> is

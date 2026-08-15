@@ -272,14 +272,17 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
     public const MIN_CAPACITY = 8;
 
     /**
-     * @param iterable<TKey, TValue> $values
+     * @param iterable<TKey, TValue> $values A traversable object or an array to use for the initial
+     * values.
      */
     public function __construct(iterable $values = []) {}
 
     public function allocate(int $capacity): void {}
 
     /**
-     * @param callable(TKey, TValue): TValue $callback
+     * @param callable(TKey, TValue): TValue $callback mixed callback mixedkey mixedvalue A callable
+     * to apply to each value in the map. The callback should return what the value should be
+     * replaced by.
      */
     public function apply(callable $callback): void {}
 
@@ -287,40 +290,58 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
 
     public function clear(): void {}
 
-    /** @return Map<TKey, TValue> */
+    /**
+     * @return Map<TKey, TValue> Returns a shallow copy of the map.
+     */
     public function copy(): Map {}
 
     public function count(): int {}
 
-    /** @return Map<TKey, TValue> */
+    /**
+     * @return Map<TKey, TValue> The result of removing all keys from the current instance that are
+     * present in a given map.
+     */
     public function diff(Map $map): Map {}
 
     /**
-     * @param null|callable(TKey, TValue): bool $callback
-     * @return Map<TKey, TValue>
+     * @param null|callable(TKey, TValue): bool $callback bool callback mixedkey mixedvalue Optional
+     * callable which returns true if the pair should be included, false otherwise. If a callback is
+     * not provided, only values which are true (see converting to boolean) will be included.
+     * @return Map<TKey, TValue> A new map containing all the pairs for which either the callback
+     * returned true, or all values that convert to true if a callback was not provided.
      */
     public function filter(?callable $callback = null): Map {}
 
-    /** @return Pair<TKey, TValue> */
+    /**
+     * @return Pair<TKey, TValue> The first pair in the map.
+     */
     public function first(): Pair {}
 
     /**
-     * @param TKey $key
-     * @param TValue|null $default
-     * @return TValue|null
+     * @param TKey $key The key to look up.
+     * @param TValue|null $default The optional default value, returned if the key could not be
+     * found.
+     * @return TValue|null The value mapped to the given key, or the default value if provided and
+     * the key could not be found in the map.
      */
     public function get($key, $default = null) {}
 
     /** @return Traversable<TKey, TValue> */
     public function getIterator(): Traversable {}
 
-    /** @param TKey $key */
+    /**
+     * @param TKey $key The key to look for.
+     */
     public function hasKey($key): bool {}
 
-    /** @param TValue $value */
+    /**
+     * @param TValue $value The value to look for.
+     */
     public function hasValue($value): bool {}
 
-    /** @return Map<TKey, TValue> */
+    /**
+     * @return Map<TKey, TValue> The key intersection of the current instance and another map.
+     */
     public function intersect(Map $map): Map {}
 
     public function isEmpty(): bool {}
@@ -328,40 +349,63 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
     /** @return mixed */
     public function jsonSerialize(): mixed {}
 
-    /** @return Set<TKey> */
+    /**
+     * @return Set<TKey> A Ds\Set containing all the keys of the map.
+     */
     public function keys(): Set {}
 
-    /** @param null|callable(TKey, TKey): int $comparator */
+    /**
+     * @param null|callable(TKey, TKey): int $comparator The comparison function must return an
+     * integer less than, equal to, or greater than zero if the first argument is considered to be
+     * respectively less than, equal to, or greater than the second. Returning non-integer values
+     * from the comparison function, such as float, will result in an internal cast to int of the
+     * callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
+     * of 0, which will compare such values as equal.
+     */
     public function ksort(?callable $comparator = null): void {}
 
     /**
-     * @param null|callable(TKey, TKey): int $comparator
-     * @return Map<TKey, TValue>
+     * @param null|callable(TKey, TKey): int $comparator The comparison function must return an
+     * integer less than, equal to, or greater than zero if the first argument is considered to be
+     * respectively less than, equal to, or greater than the second. Returning non-integer values
+     * from the comparison function, such as float, will result in an internal cast to int of the
+     * callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
+     * of 0, which will compare such values as equal.
+     * @return Map<TKey, TValue> Returns a copy of the map, sorted by key.
      */
     public function ksorted(?callable $comparator = null): Map {}
 
-    /** @return Pair<TKey, TValue> */
+    /**
+     * @return Pair<TKey, TValue> The last pair of the map.
+     */
     public function last(): Pair {}
 
     /**
      * @template TReturn
-     * @param callable(TKey, TValue): TReturn $callback
-     * @return Map<TKey, TReturn>
+     * @param callable(TKey, TValue): TReturn $callback mixed callback mixedkey mixedvalue A
+     * callable to apply to each value in the map. The callable should return what the key will be
+     * mapped to in the resulting map.
+     * @return Map<TKey, TReturn> The result of applying a callback to each value in the map. The
+     * keys and values of the current instance won't be affected.
      */
     public function map(callable $callback): Map {}
 
     /**
-     * @param iterable<TKey, TValue> $values
-     * @return Map<TKey, TValue>
+     * @param iterable<TKey, TValue> $values A traversable object or an array.
+     * @return Map<TKey, TValue> The result of associating all keys of a given traversable object or
+     * array with their corresponding values, combined with the current instance. The current
+     * instance won't be affected.
      */
     public function merge($values): Map {}
 
-    /** @return Seq<Pair<TKey, TValue>> */
+    /**
+     * @return Seq<Pair<TKey, TValue>> Ds\Sequence containing all the pairs of the map.
+     */
     public function pairs(): Seq {}
 
     /**
-     * @param TKey $key
-     * @param TValue $value
+     * @param TKey $key The key to associate the value with.
+     * @param TValue $value The value to be associated with the key.
      */
     public function put($key, $value): void {}
 
@@ -371,52 +415,88 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
     /**
      * @template TInitial
      * @template TReturn
-     * @param callable(TInitial|TReturn|null, TKey, TValue): TReturn $callback
-     * @param TInitial|null $initial
-     * @return TReturn|null
+     * @param callable(TInitial|TReturn|null, TKey, TValue): TReturn $callback mixedcallback
+     * mixedcarry mixedkey mixedvalue carry The return value of the previous callback, or initial if
+     * it's the first iteration. key The key of the current iteration. value The value of the
+     * current iteration.
+     * @param TInitial|null $initial The initial value of the carry value. Can be null.
+     * @return TReturn|null The return value of the final callback.
      */
     public function reduce(callable $callback, $initial = null) {}
 
     /**
-     * @param TKey $key
-     * @param TValue|null $default
-     * @return TValue|null
+     * @param TKey $key The key to remove.
+     * @param TValue|null $default The optional default value, returned if the key could not be
+     * found.
+     * @return TValue|null The value that was removed, or the default value if provided and the key
+     * could not be found in the map.
      */
     public function remove($key, $default = null) {}
 
     public function reverse(): void {}
 
-    /** @return Map<TKey, TValue> */
+    /**
+     * @return Map<TKey, TValue> A reversed copy of the map. The current instance is not affected.
+     */
     public function reversed(): Map {}
 
-    /** @return Pair<TKey, TValue> */
+    /**
+     * @return Pair<TKey, TValue> Returns the Ds\Pair at the given position.
+     */
     public function skip(int $position): Pair {}
 
-    /** @return Map<TKey, TValue> */
+    /**
+     * @return Map<TKey, TValue> A subset of the map defined by a starting index and length.
+     */
     public function slice(int $index, ?int $length = null): Map {}
 
-    /** @param null|callable(TValue, TValue): int $comparator */
+    /**
+     * @param null|callable(TValue, TValue): int $comparator The comparison function must return an
+     * integer less than, equal to, or greater than zero if the first argument is considered to be
+     * respectively less than, equal to, or greater than the second. Returning non-integer values
+     * from the comparison function, such as float, will result in an internal cast to int of the
+     * callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
+     * of 0, which will compare such values as equal.
+     */
     public function sort(?callable $comparator = null): void {}
 
     /**
-     * @param null|callable(TValue, TValue): int $comparator
-     * @return Map<TKey, TValue>
+     * @param null|callable(TValue, TValue): int $comparator The comparison function must return an
+     * integer less than, equal to, or greater than zero if the first argument is considered to be
+     * respectively less than, equal to, or greater than the second. Returning non-integer values
+     * from the comparison function, such as float, will result in an internal cast to int of the
+     * callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
+     * of 0, which will compare such values as equal.
+     * @return Map<TKey, TValue> Returns a copy of the map, sorted by value.
      */
     public function sorted(?callable $comparator = null): Map {}
 
-    /** @return int|float */
+    /**
+     * @return int|float The sum of all the values in the map as either a float or int depending on
+     * the values in the map.
+     */
     public function sum() {}
 
-    /** @return array<TKey, TValue> */
+    /**
+     * @return array<TKey, TValue> An array containing all the values in the same order as the map.
+     */
     public function toArray(): array {}
 
-    /** @return Map<TKey, TValue> */
+    /**
+     * @return Map<TKey, TValue> A new map containing all the pairs of the current instance as well
+     * as another map.
+     */
     public function union(Map $map): Map {}
 
-    /** @return Seq<TValue> */
+    /**
+     * @return Seq<TValue> A Ds\Sequence containing all the values of the map.
+     */
     public function values(): Seq {}
 
-    /** @return Map<TKey, TValue> */
+    /**
+     * @return Map<TKey, TValue> A new map containing keys in the current instance as well as
+     * another map, but not in both.
+     */
     public function xor(Map $map): Map {}
 
     public function __serialize(): array {}
@@ -446,15 +526,18 @@ final readonly class Pair implements JsonSerializable
     public mixed $value;
 
     /**
-     * @param TKey $key
-     * @param TValue $value
+     * @param TKey $key The key.
+     * @param TValue $value The value.
      */
     public function __construct($key, $value) {}
 
     /** @return array{key: TKey, value: TValue} */
     public function jsonSerialize(): array {}
 
-    /** @return array{key: TKey, value: TValue} */
+    /**
+     * @return array{key: TKey, value: TValue} An array containing all the values in the same order
+     * as the pair.
+     */
     public function toArray(): array {}
 
     /** @return array{key: TKey, value: TValue} */
@@ -473,10 +556,15 @@ final class Set implements Countable, IteratorAggregate, JsonSerializable, Array
 {
     public const MIN_CAPACITY = 8;
 
-    /** @param iterable<TValue> $values */
+    /**
+     * @param iterable<TValue> $values A traversable object or an array to use for the initial
+     * values.
+     */
     public function __construct(iterable $values = []) {}
 
-    /** @param TValue ...$values */
+    /**
+     * @param TValue ...$values Values to add to the set.
+     */
     public function add(...$values): void {}
 
     public function allocate(int $capacity): void {}
@@ -485,33 +573,48 @@ final class Set implements Countable, IteratorAggregate, JsonSerializable, Array
 
     public function clear(): void {}
 
-    /** @param TValue ...$values */
+    /**
+     * @param TValue ...$values Values to check.
+     */
     public function contains(...$values): bool {}
 
-    /** @return Set<TValue> */
+    /**
+     * @return Set<TValue> Returns a shallow copy of the set.
+     */
     public function copy(): Set {}
 
     public function count(): int {}
 
-    /** @return Set<TValue> */
+    /**
+     * @return Set<TValue> A new set containing all values that were not in the other set.
+     */
     public function diff(Set $set): Set {}
 
     /**
-     * @param null|callable(TValue): bool $callback
-     * @return Set<TValue>
+     * @param null|callable(TValue): bool $callback bool callback mixedvalue Optional callable which
+     * returns true if the value should be included, false otherwise. If a callback is not provided,
+     * only values which are true (see converting to boolean) will be included.
+     * @return Set<TValue> A new set containing all the values for which either the callback
+     * returned true, or all values that convert to true if a callback was not provided.
      */
     public function filter(?callable $callback = null): Set {}
 
-    /** @return TValue */
+    /**
+     * @return TValue The first value in the set.
+     */
     public function first() {}
 
-    /** @return TValue */
+    /**
+     * @return TValue The value at the requested index.
+     */
     public function get(int $index) {}
 
     /** @return Traversable<int, TValue> */
     public function getIterator(): Traversable {}
 
-    /** @return Set<TValue> */
+    /**
+     * @return Set<TValue> The intersection of the current instance and another set.
+     */
     public function intersect(Set $set): Set {}
 
     public function isEmpty(): bool {}
@@ -521,61 +624,98 @@ final class Set implements Countable, IteratorAggregate, JsonSerializable, Array
     /** @return array<int, TValue> */
     public function jsonSerialize(): array {}
 
-    /** @return TValue */
+    /**
+     * @return TValue The last value in the set.
+     */
     public function last() {}
 
     /**
      * @template TReturn
-     * @param callable(TValue): TReturn $callback
-     * @return Set<TReturn>
+     * @param callable(TValue): TReturn $callback The callback to apply to each value in the set
+     * must have the following signature: mixed callback mixedvalue
+     * @return Set<TReturn> Returns a new Ds\Set instance where each value is the result of applying
+     * the callback to each value of the set.
      */
     public function map(callable $callback): Set {}
 
     /**
-     * @param iterable<TValue> $values
-     * @return Set<TValue>
+     * @param iterable<TValue> $values A traversable object or an array.
+     * @return Set<TValue> The result of adding all given values to the set, effectively the same as
+     * adding the values to a copy, then returning that copy. The current instance won't be
+     * affected.
      */
     public function merge($values): Set {}
 
     /**
      * @template TInitial
      * @template TReturn
-     * @param callable(TInitial|TReturn|null, TValue): TReturn $callback
-     * @param TInitial|null $initial
-     * @return TReturn|null
+     * @param callable(TInitial|TReturn|null, TValue): TReturn $callback mixedcallback mixedcarry
+     * mixedvalue carry The return value of the previous callback, or initial if it's the first
+     * iteration. value The value of the current iteration.
+     * @param TInitial|null $initial The initial value of the carry value. Can be null.
+     * @return TReturn|null The return value of the final callback.
      */
     public function reduce(callable $callback, $initial = null) {}
 
-    /** @param TValue ...$values */
+    /**
+     * @param TValue ...$values The values to remove.
+     */
     public function remove(...$values): void {}
 
     public function reverse(): void {}
 
-    /** @return Set<TValue> */
+    /**
+     * @return Set<TValue> A reversed copy of the set. The current instance is not affected.
+     */
     public function reversed(): Set {}
 
-    /** @return Set<TValue> */
+    /**
+     * @return Set<TValue> A sub-set of the given range.
+     */
     public function slice(int $index, ?int $length = null): Set {}
 
-    /** @param null|callable(TValue, TValue): int $comparator */
+    /**
+     * @param null|callable(TValue, TValue): int $comparator The comparison function must return an
+     * integer less than, equal to, or greater than zero if the first argument is considered to be
+     * respectively less than, equal to, or greater than the second. Returning non-integer values
+     * from the comparison function, such as float, will result in an internal cast to int of the
+     * callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
+     * of 0, which will compare such values as equal.
+     */
     public function sort(?callable $comparator = null): void {}
 
     /**
-     * @param null|callable(TValue, TValue): int $comparator
-     * @return Set<TValue>
+     * @param null|callable(TValue, TValue): int $comparator The comparison function must return an
+     * integer less than, equal to, or greater than zero if the first argument is considered to be
+     * respectively less than, equal to, or greater than the second. Returning non-integer values
+     * from the comparison function, such as float, will result in an internal cast to int of the
+     * callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
+     * of 0, which will compare such values as equal.
+     * @return Set<TValue> Returns a sorted copy of the set.
      */
     public function sorted(?callable $comparator = null): Set {}
 
-    /** @return int|float */
+    /**
+     * @return int|float The sum of all the values in the set as either a float or int depending on
+     * the values in the set.
+     */
     public function sum() {}
 
-    /** @return array<int, TValue> */
+    /**
+     * @return array<int, TValue> An array containing all the values in the same order as the set.
+     */
     public function toArray(): array {}
 
-    /** @return Set<TValue> */
+    /**
+     * @return Set<TValue> A new set containing all the values of the current instance as well as
+     * another set.
+     */
     public function union(Set $set): Set {}
 
-    /** @return Set<TValue> */
+    /**
+     * @return Set<TValue> A new set containing values in the current instance as well as another
+     * set, but not in both.
+     */
     public function xor(Set $set): Set {}
 
     public function __serialize(): array {}

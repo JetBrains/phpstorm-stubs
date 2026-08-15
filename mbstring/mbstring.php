@@ -848,7 +848,8 @@ function mb_convert_variables(
  * convmap is array specifies code area to
  * convert.
  * </p>
- * @param null|string $encoding
+ * @param null|string $encoding The encoding parameter is the character encoding. If it is omitted
+ * or null, the internal character encoding value will be used.
  * @param bool $hex [optional]
  * @return string The converted string.
  * @throws \ValueError Throws a ValueError if map is not a list of integers.
@@ -866,7 +867,8 @@ function mb_encode_numericentity(string $string, array $map, ?string $encoding =
  * convmap is an array that specifies
  * the code area to convert.
  * </p>
- * @param null|string $encoding
+ * @param null|string $encoding The encoding parameter is the character encoding. If it is omitted
+ * or null, the internal character encoding value will be used.
  * @param bool $is_hex [optional] <p>
  * this parameter is not used.
  * </p>
@@ -996,7 +998,7 @@ function mb_regex_set_options(?string $options = null): string {}
  * @param string[] &$matches [optional] <p>
  * Contains a substring of the matched string.
  * </p>
- * @return bool
+ * @return bool Returns whether pattern matches string.
  */
 #[Deprecated(since: '8.6')]
 function mb_ereg(string $pattern, string $string, &$matches = null): bool {}
@@ -1013,7 +1015,7 @@ function mb_ereg(string $pattern, string $string, &$matches = null): bool {}
  * @param string[] &$matches [optional] <p>
  * Contains a substring of the matched string.
  * </p>
- * @return bool|int
+ * @return bool|int Returns whether pattern matches string.
  */
 #[LanguageLevelTypeAware(["8.0" => "bool"], default: "false|int")]
 #[Deprecated(since: '8.6')]
@@ -1152,7 +1154,7 @@ function mb_split(string $pattern, string $string, int $limit = -1): array|false
  * </p>
  * @param string|null $options [optional] <p>
  * </p>
- * @return bool
+ * @return bool Returns true if string matches the regular expression pattern, false if not.
  */
 #[Pure]
 #[Deprecated(since: '8.6')]
@@ -1167,7 +1169,9 @@ function mb_ereg_match(string $pattern, string $string, ?string $options = null)
  * @param string|null $options [optional] <p>
  * The search option.
  * </p>
- * @return bool
+ * @return bool mb_ereg_search returns true if the multibyte string matches with the regular
+ * expression, or false otherwise. The string for matching is set by mb_ereg_search_init. If pattern
+ * is not specified, the previous one is used.
  */
 #[Pure]
 #[Deprecated(since: '8.6')]
@@ -1222,7 +1226,7 @@ function mb_ereg_search_regs(?string $pattern = null, ?string $options = null): 
  * @param string|null $options [optional] <p>
  * The search option.
  * </p>
- * @return bool
+ * @return bool Returns true on success or false on failure.
  */
 #[Deprecated(since: '8.6')]
 function mb_ereg_search_init(string $string, ?string $pattern = null, ?string $options = null): bool {}
@@ -1244,7 +1248,9 @@ function mb_ereg_search_getregs(): array|false {}
 /**
  * Returns start point for next regular expression match
  * @link https://php.net/manual/en/function.mb-ereg-search-getpos.php
- * @return int
+ * @return int mb_ereg_search_getpos returns the point to start regular expression match for
+ * mb_ereg_search, mb_ereg_search_pos, mb_ereg_search_regs. The position is represented by bytes
+ * from the head of string.
  */
 #[Pure]
 #[Deprecated(since: '8.6')]
@@ -1256,7 +1262,7 @@ function mb_ereg_search_getpos(): int {}
  * @param int $offset <p>
  * The position to set.
  * </p>
- * @return bool
+ * @return bool Returns true on success or false on failure.
  */
 #[Pure]
 #[Deprecated(since: '8.6')]
@@ -1392,7 +1398,7 @@ function mbereg_search_getpos() {}
 /**
  * Get a specific character.
  * @link https://www.php.net/manual/en/function.mb-chr.php
- * @param int $codepoint
+ * @param int $codepoint A Unicode codepoint value, e.g. 128024 for U+1F418 ELEPHANT
  * @param string|null $encoding [optional]
  * @return string|false specific character or FALSE on failure.
  * @since 7.2
@@ -1403,7 +1409,7 @@ function mb_chr(int $codepoint, ?string $encoding = null): string|false {}
 /**
  * Get code point of character
  * @link https://www.php.net/manual/en/function.mb-ord.php
- * @param string $string
+ * @param string $string A string
  * @param string|null $encoding [optional]
  * @return int|false code point of character or FALSE on failure.
  * @since 7.2
@@ -1414,9 +1420,9 @@ function mb_ord(string $string, ?string $encoding = null): int|false {}
 /**
  * Scrub broken multibyte strings.
  * @link https://www.php.net/manual/en/function.mb-scrub.php
- * @param string $string
+ * @param string $string The input string.
  * @param string|null $encoding [optional]
- * @return string|false
+ * @return string|false The string result with invalid byte sequences replaced.
  * @since 7.2
  */
 #[Pure]
@@ -1444,7 +1450,7 @@ function mbereg_search_setpos($position) {}
  * Character encoding name to use.
  * If it is omitted, internal character encoding is used.
  * </p>
- * @return string[]|false
+ * @return string[]|false mb_str_split returns an array of strings.
  * @since 7.4
  */
 #[Pure]

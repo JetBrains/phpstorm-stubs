@@ -59,7 +59,7 @@ class Lexer
      * Processes the next rule and prepares the resulting token data.
      *
      * @link https://php.net/manual/en/parle-lexer.advance.php
-     * @return void
+     * @return void No value is returned.
      */
     public function advance(): void {}
 
@@ -72,7 +72,7 @@ class Lexer
      *
      * @see Lexer::push()
      * @link https://php.net/manual/en/parle-lexer.build.php
-     * @return void
+     * @return void No value is returned.
      */
     public function build(): void {}
 
@@ -84,7 +84,7 @@ class Lexer
      * @link https://php.net/manual/en/parle-lexer.callout.php
      * @param int $id Token id.
      * @param callable $callback Callable to be invoked. The callable doesn't receive any arguments and its return value is ignored.
-     * @return void
+     * @return void No value is returned.
      */
     public function callout(int $id, callable $callback): void {}
 
@@ -93,7 +93,7 @@ class Lexer
      *
      * @link https://php.net/manual/en/parle-lexer.consume.php
      * @param string $data Data to be lexed.
-     * @return void
+     * @return void No value is returned.
      */
     public function consume(string $data): void {}
 
@@ -101,14 +101,14 @@ class Lexer
      * Dump the current state machine to stdout.
      *
      * @link https://php.net/manual/en/parle-lexer.dump.php
-     * @return void
+     * @return void No value is returned.
      */
     public function dump(): void {}
 
     /**
      * Retrieve the current token.
      *
-     * @return Token
+     * @return Token Returns an instance of Parle\Token.
      */
     public function getToken(): Token {}
 
@@ -118,7 +118,7 @@ class Lexer
      * @see https://php.net/manual/en/parle-lexer.insertmacro.php
      * @param string $name Name of the macros.
      * @param string $regex Regular expression.
-     * @return void
+     * @return void No value is returned.
      */
     public function insertMacro(string $name, string $regex): void {}
 
@@ -127,7 +127,7 @@ class Lexer
      *
      * @param string $regex Regular expression used for token matching.
      * @param int $id Token id. If the lexer instance is meant to be used standalone, this can be an arbitrary number. If the lexer instance is going to be passed to the parser, it has to be an id returned by Parle\Parser::tokenid().
-     * @return void
+     * @return void No value is returned.
      */
     public function push(string $regex, int $id): void {}
 

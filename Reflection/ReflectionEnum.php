@@ -23,8 +23,8 @@ class ReflectionEnum extends ReflectionClass
      * Determines if a given case is defined on an Enum.
      *
      * @link https://php.net/manual/en/reflectionenum.hascase.php
-     * @param string $name
-     * @return bool
+     * @param string $name The case to check for.
+     * @return bool true if the case is defined, false if not.
      */
     public function hasCase(string $name): bool {}
 
@@ -35,7 +35,10 @@ class ReflectionEnum extends ReflectionClass
      * order (that is, the order they appear in the source code).
      *
      * @link https://php.net/manual/en/reflectionenum.getcases.php
-     * @return ReflectionEnumUnitCase[]|ReflectionEnumBackedCase[]
+     * @return ReflectionEnumUnitCase[]|ReflectionEnumBackedCase[] An array of Enum reflection
+     * objects, one for each case in the Enum. For a Unit Enum, they will all be instances of
+     * ReflectionEnumUnitCase. For a Backed Enum, they will all be instances of
+     * ReflectionEnumBackedCase.
      */
     public function getCases(): array {}
 
@@ -46,7 +49,8 @@ class ReflectionEnum extends ReflectionClass
      * defined, a ReflectionException is thrown.
      *
      * @link https://php.net/manual/en/reflectionenum.getcase.php
-     * @return ReflectionEnumUnitCase|ReflectionEnumBackedCase
+     * @return ReflectionEnumUnitCase|ReflectionEnumBackedCase An instance of ReflectionEnumUnitCase
+     * or ReflectionEnumBackedCase, as appropriate.
      * @throws ReflectionException If no found single reflection object for the corresponding case
      */
     public function getCase(string $name): ReflectionEnumUnitCase {}
@@ -58,7 +62,7 @@ class ReflectionEnum extends ReflectionClass
      * Not all Enums are backed.
      *
      * @link https://php.net/manual/en/reflectionenum.isbacked.php
-     * @return bool
+     * @return bool true if the Enum has a backing scalar, false if not.
      */
     public function isBacked(): bool {}
 
@@ -69,7 +73,8 @@ class ReflectionEnum extends ReflectionClass
      * for the backing type of the Enum. If it is not a Backed Enum, it will return null.
      *
      * @link https://php.net/manual/en/reflectionenum.getbackingtype.php
-     * @return ReflectionType|null
+     * @return ReflectionType|null An instance of ReflectionNamedType, or null if the Enum has no
+     * backing type.
      */
     #[LanguageLevelTypeAware(['8.2' => 'null|ReflectionNamedType'], default: 'null|ReflectionType')]
     public function getBackingType() {}

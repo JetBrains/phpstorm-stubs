@@ -353,7 +353,7 @@ function radius_auth_open() {}
 /**
  * Free all resources. It is not needed to call this function because php frees all resources at the end of each request.
  * @link https://secure.php.net/manual/en/function.radius-close.php
- * @param resource $radius_handle
+ * @param resource $radius_handle The RADIUS resource.
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 1.1.0
  */

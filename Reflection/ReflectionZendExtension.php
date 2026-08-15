@@ -24,7 +24,7 @@ class ReflectionZendExtension implements Reflector
      * Constructs a ReflectionZendExtension object
      *
      * @link https://php.net/manual/en/reflectionzendextension.construct.php
-     * @param string $name
+     * @param string $name The extension name.
      * @throws ReflectionException if the extension does not exist.
      * @since 5.4
      */

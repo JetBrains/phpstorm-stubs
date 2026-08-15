@@ -155,7 +155,7 @@ class StompException extends Exception
     /**
      * Get the stomp server error details
      *
-     * @return string
+     * @return string string containing the error details.
      */
     public function getDetails() {}
 }

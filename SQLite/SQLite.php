@@ -299,7 +299,11 @@ final class SQLiteResult implements Iterator, Countable
      * @param bool $decode_binary [optional] <p> When the decode_binary parameter is set to TRUE (the default),
      * PHP will decode the binary encoding it applied to the data if it was encoded using the {@see sqlite_escape_string()}.
      * You should normally leave this value at its default, unless you are interoperating with databases created by other sqlite capable applications.</p>
-     * @return object
+     * @return object Returns an array of the remaining rows in a result set. If called right after
+     * sqlite_query(), it returns all rows. If called after sqlite_fetch_array(), it returns the
+     * rest. If there are no rows in a result set, it returns an empty array. The column names
+     * returned by SQLITE_ASSOC and SQLITE_BOTH will be case-folded according to the value of the
+     * sqlite.assoc_case configuration option.
      */
     public function fetchAll($result_type = SQLITE_BOTH, $decode_binary = true) {}
 
@@ -307,7 +311,7 @@ final class SQLiteResult implements Iterator, Countable
      * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
      * Fetches a column from the current row of a result set
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sqlite-column
-     * @param $index_or_name
+     * @param $index_or_name The column index or name to fetch.
      * @param $decode_binary [optional] <p>When the <i>decode_binary</i>
      * parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding
      * it applied to the data if it was encoded using the
@@ -429,8 +433,12 @@ final class SQLiteResult implements Iterator, Countable
     public function prev() {}
 
     /**
-     *@since 5.4
      * Returns whether or not a previous row is available
+     *
+     * Object oriented style (method): Find whether there are more previous rows from the given
+     * result handle.
+     *
+     * @since 5.4
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sqlite-has-prev
      * @return bool <p>
      * Returns <b>TRUE</b> if there are more previous rows available from the
@@ -475,6 +483,11 @@ final class SQLiteUnbuffered
     public function fetch($result_type = SQLITE_BOTH, $decode_binary = true) {}
 
     /**
+     * Fetches the next row from a result set as an object
+     *
+     * Object oriented style (method): This function is currently not documented; only its argument
+     * list is available.
+     *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.sqlite-fetch-object
      * @param string $class_name [optional]
      * @param array $ctor_params [optional]
@@ -608,7 +621,7 @@ function sqlite_popen($filename, $mode = null, &$error_message = null) {}
  * The SQLite Database resource; returned from sqlite_open
  * when used procedurally.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function sqlite_close($dbhandle) {}
 
@@ -1041,7 +1054,7 @@ function sqlite_escape_string($item) {}
  * <p>
  * There are one thousand (1000) milliseconds in one second.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function sqlite_busy_timeout($dbhandle, $milliseconds) {}
 
@@ -1117,7 +1130,7 @@ function sqlite_unbuffered_query($dbhandle, $query, $result_type = SQLITE_BOTH, 
  * Hint to the SQLite parser if the callback function accepts a
  * predetermined number of arguments.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function sqlite_create_aggregate($dbhandle, $function_name, $step_func, $finalize_func, $num_args = null) {}
 
@@ -1140,7 +1153,7 @@ function sqlite_create_aggregate($dbhandle, $function_name, $step_func, $finaliz
  * Hint to the SQLite parser if the callback function accepts a
  * predetermined number of arguments.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function sqlite_create_function($dbhandle, $function_name, $callback, $num_args = null) {}
 

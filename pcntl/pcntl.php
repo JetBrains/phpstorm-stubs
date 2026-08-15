@@ -245,8 +245,10 @@ function pcntl_wexitstatus(int $status): int|false {}
  * WCONTINUED option.
  *
  * @link https://php.net/manual/en/function.pcntl-wifcontinued.php
- * @param int $status
- * @return bool
+ * @param int $status The status parameter is the status parameter supplied to a successful call to
+ * pcntl_waitpid.
+ * @return bool Returns true if the child process which caused the return of pcntl_waitpid has
+ * continued from a job control stop, false otherwise.
  */
 #[Pure]
 function pcntl_wifcontinued(int $status): bool {}
@@ -474,7 +476,9 @@ function pcntl_sigtimedwait(array $signals, &$info = [], int $seconds = 0, int $
  * Whether asynchronous signal handling should be enabled.
  * </p>
  *
- * @return bool
+ * @return bool When used as getter (enable parameter is null) it returns whether asynchronous
+ * signal handling is enabled. When used as setter (enable parameter is not null), it returns
+ * whether asynchronous signal handling was enabled before the function call.
  * @since 7.1
  */
 function pcntl_async_signals(
@@ -490,7 +494,8 @@ function pcntl_async_signals(
  * The signal number.
  * </p>
  *
- * @return bool|resource
+ * @return bool|resource This function may return an integer value that refers to SIG_DFL or
+ * SIG_IGN. If a custom handler has been set, that callable is returned.
  * @since 7.1
  */
 function pcntl_signal_get_handler(int $signal) {}
@@ -503,8 +508,12 @@ function pcntl_signal_get_handler(int $signal) {}
  * its shared execution context without creating a new process.
  *
  * @link https://php.net/manual/en/function.pcntl-unshare.php
- * @param int $flags
- * @return bool
+ * @param int $flags The flags parameter is a bitmask that specifies which parts of the execution
+ * context should be unshared. This parameter is specified by ORing together zero or more of the
+ * CLONE_* constants: CLONE_NEWNS CLONE_NEWIPC CLONE_NEWUTS CLONE_NEWNET CLONE_NEWPID CLONE_NEWUSER
+ * CLONE_NEWCGROUP
+ * @return bool Returns 0 on success, -1 otherwise. On failure it sets an error code, that can be
+ * retrieved with pcntl_get_last_error.
  * @since 7.4
  */
 function pcntl_unshare(int $flags): bool {}

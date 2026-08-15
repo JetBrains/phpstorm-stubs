@@ -297,7 +297,7 @@ function array_intersect(array $array, #[PhpStormStubsElementAvailable(from: '5.
  * @param array $array <p>
  * The array with main keys to check.
  * </p>
- * @param array ...$arrays
+ * @param array ...$arrays Arrays to compare keys against.
  * @return array an array containing all the entries of
  * <code>array</code>  which have keys that are present in all the
  * arguments.
@@ -367,7 +367,7 @@ function array_uintersect(
  * @param array $array <p>
  * The array with main values to check.
  * </p>
- * @param array $arrays
+ * @param array $arrays Arrays to compare values against.
  * @return array an associative array containing all the values in
  * <code>array</code> that are present in all of the arguments.
  * @meta
@@ -464,7 +464,7 @@ function array_uintersect_uassoc(
  * @param array $array <p>
  * The array to compare from
  * </p>
- * @param array ...$arrays
+ * @param array ...$arrays Arrays to compare against
  * @return array an array containing all the entries from
  * <code>array</code> that are not present in any of the other
  * arrays. Keys in the array <code>array</code> are preserved.
@@ -741,7 +741,8 @@ function array_filter(array $array, ?callable $callback = null, int $mode = 0): 
  * @param array $array <p>
  * An array to run through the callback function.
  * </p>
- * @param array ...$arrays
+ * @param array ...$arrays Supplementary variable list of array arguments to run through the
+ * callback function.
  * @return array an array containing all the elements of arr1
  * after applying the callback function to each one.
  * @meta
@@ -1139,7 +1140,7 @@ function stream_get_filters(): array {}
  * Check if a stream is a TTY
  * @link https://php.net/manual/en/function.stream-isatty.php
  * @param resource $stream
- * @return bool
+ * @return bool Returns true on success or false on failure.
  * @since 7.2
  */
 #[Pure]
@@ -1264,8 +1265,8 @@ function stream_filter_register(string $filter_name, string $class): bool {}
 /**
  * Return a bucket object from the brigade for operating on
  * @link https://php.net/manual/en/function.stream-bucket-make-writeable.php
- * @param resource $brigade
- * @return object|null
+ * @param resource $brigade The brigade to return a bucket object from.
+ * @return object|null Returns a bucket object or null.
  */
 #[LanguageLevelTypeAware(["8.4" => "StreamBucket|null"], default: "object|null")]
 function stream_bucket_make_writeable($brigade) {}
@@ -1273,9 +1274,10 @@ function stream_bucket_make_writeable($brigade) {}
 /**
  * Prepend bucket to brigade
  * @link https://php.net/manual/en/function.stream-bucket-prepend.php
- * @param resource $brigade
- * @param object $bucket
- * @return void
+ * @param resource $brigade brigade is a resource pointing to a bucket brigade which contains one or
+ * more bucket objects.
+ * @param object $bucket A bucket object.
+ * @return void No value is returned.
  */
 function stream_bucket_prepend($brigade, #[LanguageLevelTypeAware(['8.4' => 'StreamBucket'], default: 'object')] $bucket): void {}
 
@@ -1376,7 +1378,7 @@ function realpath_cache_size(): int {}
  * exception that it ignores overloaded array casts, such as used by
  * ArrayObject.
  * @link https://php.net/manual/en/function.get-mangled-object-vars.php
- * @param object $object
+ * @param object $object An object instance.
  * @return array returns the mangled object properties
  * @since 7.4
  */
@@ -1407,8 +1409,9 @@ function get_debug_type(mixed $value): string {}
  * A more obvious and type-safe form of "(int) $resource"
  *
  * @link https://php.net/manual/en/function.get-resource-id.php
- * @param resource $resource
- * @return int
+ * @param resource $resource The evaluated resource handle.
+ * @return int The int identifier for the given resource. This function is essentially an int cast
+ * of resource to make it easier to retrieve the resource ID.
  * @since 8.0
  */
 #[Pure]

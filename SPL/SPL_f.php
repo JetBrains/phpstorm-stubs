@@ -7,7 +7,7 @@ use JetBrains\PhpStorm\Pure;
 /**
  * Return available SPL classes
  * @link https://php.net/manual/en/function.spl-classes.php
- * @return array
+ * @return array Returns an array containing the currently available SPL classes.
  */
 #[Pure]
 function spl_classes(): array {}
@@ -22,7 +22,7 @@ function spl_classes(): array {}
  * contain filenames built up by the lowercase class name appended by the
  * filename extensions .inc and .php.
  * </p>
- * @return void
+ * @return void No value is returned.
  * @since 5.1
  * @throws \LogicException Throws LogicException when the class is not found and there are no other
  * autoloaders registered.
@@ -91,7 +91,7 @@ function spl_autoload_functions() {}
  * @param string $class <p>
  * The class name being searched.
  * </p>
- * @return void
+ * @return void No value is returned.
  * @since 5.1
  */
 function spl_autoload_call(string $class): void {}
@@ -131,7 +131,7 @@ function class_implements($object_or_class, bool $autoload = true): array|false 
 /**
  * Return hash id for given object
  * @link https://php.net/manual/en/function.spl-object-hash.php
- * @param object $object
+ * @param object $object Any object.
  * @return string A string that is unique for each object and is always the same for
  * the same object.
  */
@@ -203,8 +203,9 @@ function class_uses($object_or_class, bool $autoload = true): array|false {}
 /**
  * return the integer object handle for given object
  * @link https://php.net/manual/en/function.spl-object-id.php
- * @param object $object
- * @return int
+ * @param object $object Any object.
+ * @return int An integer identifier that is unique for each currently existing object and is always
+ * the same for each object.
  * @since 7.2
  */
 function spl_object_id(object $object): int {}

@@ -30,17 +30,17 @@ namespace Vtiful\Kernel;
         /**
          * Excel constructor.
          *
-         * @param array $config
+         * @param array $config XLSX file export configuration
          */
         public function __construct(array $config) {}
 
         /**
          * File Name
          *
-         * @param string $fileName
-         * @param string $sheetName
+         * @param string $fileName XLSX file name
+         * @param string $sheetName Worksheet name
          *
-         * @return Excel
+         * @return Excel Vtiful\Kernel\Excel instance
          */
         public function fileName(string $fileName, string $sheetName = 'Sheet1'): self
         {
@@ -50,10 +50,10 @@ namespace Vtiful\Kernel;
         /**
          * Const memory model
          *
-         * @param string $fileName
-         * @param string $sheetName
+         * @param string $fileName XLSX file name
+         * @param string $sheetName Worksheet name
          *
-         * @return Excel
+         * @return Excel Vtiful\Kernel\Excel instance
          */
         public function constMemory(string $fileName, string $sheetName = 'Sheet1'): self
         {
@@ -71,9 +71,9 @@ namespace Vtiful\Kernel;
          * In addition, you cannot use the same, case insensitive, `$sheetName` for more
          * than one worksheet.
          *
-         * @param string|null $sheetName
+         * @param string|null $sheetName Worksheet name
          *
-         * @return Excel
+         * @return Excel Vtiful\Kernel\Excel instance
          */
         public function addSheet(?string $sheetName): self
         {
@@ -97,7 +97,7 @@ namespace Vtiful\Kernel;
          *
          * @param array $header
          *
-         * @return Excel
+         * @return Excel Vtiful\Kernel\Excel instance
          */
         public function header(array $header): self
         {
@@ -107,9 +107,9 @@ namespace Vtiful\Kernel;
         /**
          * Insert data on the worksheet
          *
-         * @param array $data
+         * @param array $data worksheet data
          *
-         * @return Excel
+         * @return Excel Vtiful\Kernel\Excel instance
          */
         public function data(array $data): self
         {
@@ -119,7 +119,7 @@ namespace Vtiful\Kernel;
         /**
          * Generate file
          *
-         * @return string
+         * @return string XLSX file path;
          */
         public function output(): string
         {
@@ -129,7 +129,7 @@ namespace Vtiful\Kernel;
         /**
          * Get file resource
          *
-         * @return resource
+         * @return resource Resource
          */
         public function getHandle() {}
 
@@ -138,7 +138,7 @@ namespace Vtiful\Kernel;
          *
          * @param string $range
          *
-         * @return Excel
+         * @return Excel Vtiful\Kernel\Excel instance
          */
         public function autoFilter(string $range): self
         {
@@ -148,13 +148,13 @@ namespace Vtiful\Kernel;
         /**
          * Insert data on the cell
          *
-         * @param int $row
-         * @param int $column
-         * @param int|string|float $data
-         * @param string|null $format
+         * @param int $row cell row
+         * @param int $column cell column
+         * @param int|string|float $data data to be written
+         * @param string|null $format String format
          * @param resource|null $formatHandle
          *
-         * @return Excel
+         * @return Excel Vtiful\Kernel\Excel instance
          */
         public function insertText(int $row, int $column, $data, ?string $format = null, $formatHandle = null): self
         {
@@ -209,13 +209,13 @@ namespace Vtiful\Kernel;
         /**
          * Insert image on the cell
          *
-         * @param int $row
-         * @param int $column
+         * @param int $row cell row
+         * @param int $column cell column
          * @param string $imagePath
          * @param float $width
          * @param float $height
          *
-         * @return Excel
+         * @return Excel Vtiful\Kernel\Excel instance
          */
         public function insertImage(int $row, int $column, string $imagePath, float $width = 1, float $height = 1): self
         {
@@ -225,11 +225,11 @@ namespace Vtiful\Kernel;
         /**
          * Insert Formula on the cell
          *
-         * @param int $row
-         * @param int $column
-         * @param string $formula
+         * @param int $row cell row
+         * @param int $column cell column
+         * @param string $formula formula string
          *
-         * @return Excel
+         * @return Excel Vtiful\Kernel\Excel instance
          */
         public function insertFormula(int $row, int $column, string $formula): self
         {
@@ -252,11 +252,11 @@ namespace Vtiful\Kernel;
         /**
          * Set column cells width or format
          *
-         * @param string $range
+         * @param string $range cell start and end coordinate strings
          * @param float $cellWidth
          * @param resource|null $formatHandle
          *
-         * @return Excel
+         * @return Excel Vtiful\Kernel\Excel instance
          */
         public function setColumn(string $range, float $cellWidth, $formatHandle = null): self
         {
@@ -266,11 +266,11 @@ namespace Vtiful\Kernel;
         /**
          * Set row cells height or format
          *
-         * @param string $range
+         * @param string $range cell start and end coordinate strings
          * @param float $cellHeight
          * @param resource|null $formatHandle
          *
-         * @return Excel
+         * @return Excel Vtiful\Kernel\Excel instance
          */
         public function setRow(string $range, float $cellHeight, $formatHandle = null): self
         {
@@ -490,7 +490,7 @@ namespace Vtiful\Kernel;
         /**
          * Bold
          *
-         * @return static
+         * @return static Resource
          */
         public function bold(): self
         {
@@ -500,7 +500,7 @@ namespace Vtiful\Kernel;
         /**
          * Italic
          *
-         * @return static
+         * @return static Resource
          */
         public function italic(): self
         {
@@ -524,7 +524,7 @@ namespace Vtiful\Kernel;
          *
          * @param int ...$style const FORMAT_ALIGN_****
          *
-         * @return static
+         * @return static Resource
          */
         public function align(...$style): self
         {
@@ -596,7 +596,7 @@ namespace Vtiful\Kernel;
          *
          * @param int $style const UNDERLINE_****
          *
-         * @return static
+         * @return static Resource
          */
         public function underline(int $style): self
         {

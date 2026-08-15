@@ -16,7 +16,7 @@ function ncurses_addch($ch) {}
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.ncurses-color-set
  * @param int $pair <p>
  * </p>
- * @return int
+ * @return int Returns -1 on success, and 0 on failure.
  */
 function ncurses_color_set($pair) {}
 
@@ -53,7 +53,7 @@ function ncurses_has_colors() {}
 /**
  * Initialize ncurses
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.ncurses-init
- * @return void
+ * @return void No value is returned.
  */
 function ncurses_init() {}
 
@@ -66,7 +66,8 @@ function ncurses_init() {}
  * </p>
  * @param int $bg <p>
  * </p>
- * @return int
+ * @return int Returns -1 if the function was successful, and 0 if ncurses or color support were not
+ * initialized.
  */
 function ncurses_init_pair($pair, $fg, $bg) {}
 
@@ -81,7 +82,8 @@ function ncurses_init_pair($pair, $fg, $bg) {}
  * </p>
  * @param int &$b <p>
  * </p>
- * @return int
+ * @return int Returns -1 if the function was successful, and 0 if ncurses or terminal color
+ * capabilities have not been initialized.
  */
 function ncurses_color_content($color, &$r, &$g, &$b) {}
 
@@ -94,7 +96,8 @@ function ncurses_color_content($color, &$r, &$g, &$b) {}
  * </p>
  * @param int &$b <p>
  * </p>
- * @return int
+ * @return int Returns -1 if the function was successful, and 0 if ncurses or terminal color
+ * capabilities have not been initialized.
  */
 function ncurses_pair_content($pair, &$f, &$b) {}
 
@@ -140,7 +143,8 @@ function ncurses_refresh($ch) {}
 /**
  * Start using colors
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.ncurses-start-color
- * @return int
+ * @return int Returns 0 on success, or -1 if the color table could not be allocated or ncurses was
+ * not initialized.
  */
 function ncurses_start_color() {}
 
@@ -190,21 +194,21 @@ function ncurses_cbreak() {}
 /**
  * Clear screen
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.ncurses-clear
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function ncurses_clear() {}
 
 /**
  * Clear screen from current position to bottom
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.ncurses-clrtobot
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function ncurses_clrtobot() {}
 
 /**
  * Clear screen from current position to end of line
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.ncurses-clrtoeol
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function ncurses_clrtoeol() {}
 
@@ -253,7 +257,7 @@ function ncurses_deleteln() {}
 /**
  * Write all prepared refreshes to terminal
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.ncurses-doupdate
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function ncurses_doupdate() {}
 
@@ -267,7 +271,7 @@ function ncurses_echo() {}
 /**
  * Erase terminal screen
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.ncurses-erase
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function ncurses_erase() {}
 
@@ -645,7 +649,7 @@ function ncurses_slk_color($intarg) {}
  * arrangement and 2 indicates the PC like 4-4-4 mode, but in addition an
  * index line will be created.
  * </p>
- * @return bool
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function ncurses_slk_init($format) {}
 
@@ -1017,7 +1021,8 @@ function ncurses_mvcur($old_y, $old_x, $new_y, $new_x) {}
  * </p>
  * @param int $b <p>
  * </p>
- * @return int
+ * @return int Returns -1 if the function was successful, and 0 if ncurses or terminal color
+ * capabilities have not been initialized or the terminal does not have color changing capabilities.
  */
 function ncurses_init_color($color, $r, $g, $b) {}
 
@@ -1463,7 +1468,7 @@ function ncurses_getyx($window, &$y, &$x) {}
  * @param int &$x <p>
  * This will be set to the window width
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function ncurses_getmaxyx($window, &$y, &$x) {}
 

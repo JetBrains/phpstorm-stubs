@@ -109,7 +109,7 @@ class LuaSandbox
      * Fetch the current memory usage of the Lua environment.
      *
      * @link https://www.php.net/manual/en/luasandbox.getmemoryusage.php
-     * @return int
+     * @return int Returns the current memory usage in bytes.
      * @since luasandbox >= 1.0.0
      * @see LuaSandbox::getMemoryUsage()
      * @see LuaSandbox::getCPUUsage()
@@ -176,7 +176,7 @@ class LuaSandbox
      * @link https://www.php.net/manual/en/luasandbox.loadbinary.php
      * @param string $code <p>Data from <code>LuaSandboxFunction::dump()</code>.</p>
      * @param string $chunkName [optional] <p>Name for the loaded function.</p>
-     * @return LuaSandboxFunction
+     * @return LuaSandboxFunction Returns a LuaSandboxFunction.
      * @since luasandbox >= 1.0.0
      * @see LuaSandbox::loadString()
      */
@@ -305,7 +305,7 @@ class LuaSandbox
      *
      * @link https://php.net/manual/en/luasandbox.wrapphpfunction.php
      * @param callable $function <p>Callable to wrap.</p>
-     * @return LuaSandboxFunction
+     * @return LuaSandboxFunction Returns a LuaSandboxFunction.
      * @since luasandbox >= 1.2.0
      * @see LuaSandbox::loadString()
      * @see LuaSandbox::registerLibrary()

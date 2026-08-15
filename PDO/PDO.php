@@ -1045,7 +1045,16 @@ namespace {
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
          * Creates a PDO instance representing a connection to a database
          * @link https://php.net/manual/en/pdo.construct.php
-         * @param string $dsn
+         * @param string $dsn The Data Source Name, or DSN, contains the information required to
+         * connect to the database. In general, a DSN consists of the PDO driver name, followed by a
+         * colon, followed by the PDO driver-specific connection syntax. Further information is
+         * available from the PDO driver-specific documentation. The dsn parameter supports three
+         * different methods of specifying the arguments required to create a database connection:
+         * Driver invocation dsn contains the full DSN. URI invocation dsn consists of uri: followed
+         * by a URI that defines the location of a file containing the DSN string. The URI can
+         * specify a local file or a remote URL. uri:file:///path/to/dsnfile Aliasing dsn consists
+         * of a name name that maps to pdo.dsn.name in defining the DSN string. The alias must be
+         * defined in , and not or
          * @param string $username [optional]
          * @param string $password [optional]
          * @param array $options [optional]
@@ -1152,8 +1161,9 @@ namespace {
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
          * Set an attribute
          * @link https://php.net/manual/en/pdo.setattribute.php
-         * @param int $attribute
-         * @param mixed $value
+         * @param int $attribute The attribute to modify.
+         * @param mixed $value The value to set the attribute, might require a specific type
+         * depending on the attribute.
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
@@ -1984,8 +1994,9 @@ namespace {
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
          * Set a statement attribute
          * @link https://php.net/manual/en/pdostatement.setattribute.php
-         * @param int $attribute
-         * @param mixed $value
+         * @param int $attribute The attribute to modify.
+         * @param mixed $value The value to set the attribute, might require a specific type
+         * depending on the attribute.
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
@@ -1999,7 +2010,7 @@ namespace {
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
          * Retrieve a statement attribute
          * @link https://php.net/manual/en/pdostatement.getattribute.php
-         * @param int $name
+         * @param int $name The attribute to query.
          * @return mixed the attribute value.
          */
         #[TentativeType]
@@ -2593,7 +2604,7 @@ namespace Pdo {
         /**
          * Opens an existing large object stream. Must be called inside a transaction.
          * @link https://php.net/manual/en/pdo-pgsql.lobopen.php
-         * @return resource|false
+         * @return resource|false Returns a stream resource on success, or false on failure.
          */
         public function lobOpen(string $oid, string $mode = "rb") {}
 

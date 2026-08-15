@@ -67,7 +67,8 @@ function fsockopen(
  * @param int &$error_code [optional]
  * @param string &$error_message [optional]
  * @param float|null $timeout [optional]
- * @return resource|false
+ * @return resource|false pfsockopen returns a file pointer which may be used together with the
+ * other file functions (such as fgets, fgetss, fwrite, fclose, and feof), or false on failure.
  */
 function pfsockopen(
     string $hostname,
@@ -319,7 +320,7 @@ function opendir(#[FileReference] string $directory, $context = null) {}
  * not specified, the last link opened by opendir
  * is assumed.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function closedir($dir_handle = null): void {}
 
@@ -930,7 +931,7 @@ function touch(#[FileReference] string $filename, ?int $mtime = null, ?int $atim
  * Clear realpath cache on a specific filename, only used if
  * clear_realpath_cache is true.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function clearstatcache(bool $clear_realpath_cache = false, string $filename = ''): void {}
 

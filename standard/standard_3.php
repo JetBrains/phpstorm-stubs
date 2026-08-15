@@ -349,7 +349,7 @@ function is_nan(float $num): bool {}
  * @link https://php.net/manual/en/function.intdiv.php
  * @param int $num1 <p>Number to be divided.</p>
  * @param int $num2 <p>Number which divides the <b><i>dividend</i></b></p>
- * @return int
+ * @return int The integer quotient of the division of num1 by num2.
  * @since 7.0
  * @throws DivisionByZeroError <p>if divisor is 0</p>
  * @throws ArithmeticError <p>if the <b><i>dividend</i></b> is <b>PHP_INT_MIN</b> and the <b><i>divisor</i></b> is -1</p>
@@ -700,9 +700,9 @@ function fmod(float $num1, float $num2): float {}
  * IEEE 754 semantics. Division by zero is considered well-defined and
  * will return one of Inf, -Inf or NaN.
  * @link https://php.net/manual/en/function.fdiv.php
- * @param float $num1
- * @param float $num2
- * @return float
+ * @param float $num1 The dividend (numerator)
+ * @param float $num2 The divisor
+ * @return float The floating point result of num1/num2
  * @since 8.0
  */
 #[Pure]
@@ -835,7 +835,11 @@ function sys_getloadavg(): array|false {}
  * If the optional get_as_float is set to
  * true then a float (in seconds) is returned.
  * </p>
- * @return string|float
+ * @return string|float By default, microtime returns a string in the form "msec sec", where sec is
+ * the number of seconds since the Unix epoch (0:00:00 January 1,1970 GMT), and msec measures
+ * microseconds that have elapsed since sec and is also expressed in seconds as a decimal fraction.
+ * If as_float is set to true, then microtime returns a float, which represents the current time in
+ * seconds since the Unix epoch accurate to the nearest microsecond.
  */
 #[Pure(true)]
 function microtime(#[TypeContract(true: "float", false: "string")] bool $as_float = false): string|float {}

@@ -41,14 +41,14 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-collection.copy.php
-         * @return static
+         * @return static Returns a shallow copy of the collection.
          */
         public function copy();
 
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-collection.isempty.php
-         * @return bool
+         * @return bool Returns true if the collection is empty, false otherwise.
          */
         public function isEmpty(): bool;
 
@@ -357,7 +357,7 @@ namespace Ds;
 
         /**
          * Removes and returns the first value.
-         * @return TValue
+         * @return TValue The first value, which was removed.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-sequence.shift.php
          */
@@ -468,7 +468,8 @@ namespace Ds;
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
          *
-         * @param array<TValue> $values
+         * @param array<TValue> $values A traversable object or an array to use for the initial
+         * values.
          */
         public function __construct($values = []) {}
 
@@ -549,7 +550,7 @@ namespace Ds;
 
         /**
          * Returns the first value in the vector.
-         * @return TValue
+         * @return TValue The first value in the vector.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-vector.first.php
          */
@@ -558,7 +559,7 @@ namespace Ds;
         /**
          * Returns the value at a given index.
          * @param int $index The index to access, starting at 0.
-         * @return TValue
+         * @return TValue The value at the requested index.
          * @link https://www.php.net/manual/en/ds-vector.get.php
          */
         public function get(int $index) {}
@@ -603,7 +604,8 @@ namespace Ds;
          * @param callable(TValue): TNewValue $callback A callable to apply to each value in the sequence.
          * <br>The callable should return what the new value will be in the new sequence.
          *
-         * @return Vector<TNewValue>
+         * @return Vector<TNewValue> The result of applying a callback to each value in the vector.
+         * The values of the current instance won't be affected.
          * @link https://www.php.net/manual/en/ds-vector.map.php
          */
         public function map(callable $callback): Vector {}
@@ -624,14 +626,14 @@ namespace Ds;
         /**
          * Removes and returns the last value.
          *
-         * @return TValue
+         * @return TValue The removed last value.
          * @link https://www.php.net/manual/en/ds-vector.pop.php
          */
         public function pop() {}
 
         /**
          * Adds values to the end of the sequence.
-         * @param TValue ...$values
+         * @param TValue ...$values The values to add.
          * @link https://www.php.net/manual/en/ds-vector.push.php
          */
         public function push(...$values): void {}
@@ -721,7 +723,7 @@ namespace Ds;
          * the sequence will stop that many values from the end. If a length
          * is not provided, the resulting sequence will contain all values
          * between the index and the end of the sequence.
-         * @return Vector<TValue>
+         * @return Vector<TValue> A sub-vector of the given range.
          */
         public function slice(int $index, ?int $length = null): Vector {}
 
@@ -762,7 +764,8 @@ namespace Ds;
          * <b>Note:</b> Arrays and objects are considered equal to zero when
          * calculating the sum.
          * @link https://www.php.net/manual/en/ds-vector.sum.php
-         * @return float|int
+         * @return float|int The sum of all the values in the vector as either a float or int
+         * depending on the values in the vector.
          */
         public function sum(): float|int {}
 
@@ -790,7 +793,7 @@ namespace Ds;
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-vector.isempty.php
-         * @return bool
+         * @return bool Returns true if the vector is empty, false otherwise.
          */
         public function isEmpty(): bool {}
 
@@ -872,7 +875,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the deque.
          * @link https://www.php.net/manual/en/ds-deque.copy.php
-         * @return Deque<TValue>
+         * @return Deque<TValue> A shallow copy of the deque.
          */
         public function copy(): Collection {}
 
@@ -884,7 +887,7 @@ namespace Ds;
         /**
          * Returns whether the deque is empty.
          * @link https://www.php.net/manual/en/ds-deque.isempty.php
-         * @return bool
+         * @return bool Returns true if the deque is empty, false otherwise.
          */
         public function isEmpty(): bool {}
 
@@ -1109,7 +1112,7 @@ namespace Ds;
 
         /**
          * Removes and returns the first value.
-         * @return TValue
+         * @return TValue The first value, which was removed.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-deque.shift.php
          */
@@ -1848,7 +1851,7 @@ namespace Ds;
         /**
          * Removes all values from the pair.
          *
-         * @return void
+         * @return void No value is returned.
          *
          * @link https://php.net/manual/en/ds-pair.clear.php
          */
@@ -2408,7 +2411,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-stack.copy.php
-         * @return Stack<TValue>
+         * @return Stack<TValue> Returns a shallow copy of the stack.
          */
         public function copy(): Stack {}
 
@@ -2420,7 +2423,7 @@ namespace Ds;
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-stack.isempty.php
-         * @return bool
+         * @return bool Returns true if the stack is empty, false otherwise.
          */
         public function isEmpty(): bool {}
 
@@ -2471,7 +2474,7 @@ namespace Ds;
          *
          * @param TValue ...$values The values to push onto the stack.
          *
-         * @return void
+         * @return void No value is returned.
          */
         public function push(...$values) {}
 
@@ -2570,7 +2573,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-queue.copy.php
-         * @return Queue<TValue>
+         * @return Queue<TValue> Returns a shallow copy of the queue.
          */
         public function copy(): Queue {}
 
@@ -2582,7 +2585,7 @@ namespace Ds;
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-queue.isempty.php
-         * @return bool
+         * @return bool Returns true if the queue is empty, false otherwise.
          */
         public function isEmpty(): bool {}
 
@@ -2633,7 +2636,7 @@ namespace Ds;
          *
          * @param TValue ...$values The values to push onto the queue.
          *
-         * @return void
+         * @return void No value is returned.
          */
         public function push(...$values) {}
 
@@ -2695,7 +2698,9 @@ namespace Ds;
          * Allocates enough memory for a required capacity
          * @link https://www.php.net/manual/en/ds-priorityqueue.allocate.php
          *
-         * @param int $capacity
+         * @param int $capacity The number of values for which capacity should be allocated.
+         * Capacity will stay the same if this value is less than or equal to the current capacity.
+         * Capacity will always be rounded up to the nearest power of 2.
          */
         public function allocate(int $capacity): void {}
 
@@ -2703,7 +2708,7 @@ namespace Ds;
          * Returns the current capacity
          * @link https://www.php.net/manual/en/ds-priorityqueue.capacity.php
          *
-         * @return int
+         * @return int The current capacity.
          */
         public function capacity(): int {}
 
@@ -2716,7 +2721,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-collection.copy.php
-         * @return PriorityQueue<TValue>
+         * @return PriorityQueue<TValue> Returns a shallow copy of the queue.
          */
         public function copy() {}
 
@@ -2728,7 +2733,7 @@ namespace Ds;
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-collection.isempty.php
-         * @return bool
+         * @return bool Returns true if the queue is empty, false otherwise.
          */
         public function isEmpty(): bool {}
 
@@ -2753,10 +2758,10 @@ namespace Ds;
         /**
          * Pushes a value with a given priority into the queue.
          *
-         * @param TValue $value
-         * @param int $priority
+         * @param TValue $value The value to push into the queue.
+         * @param int $priority The priority associated with the value.
          *
-         * @return void
+         * @return void No value is returned.
          */
         public function push($value, int $priority) {}
 

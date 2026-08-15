@@ -105,7 +105,8 @@ class php_user_filter
      * allocates or initializes any other resources (such as a buffer), this is the place to do it.
      *
      * @link https://php.net/manual/en/php-user-filter.oncreate.php
-     * @return bool
+     * @return bool Your implementation of this method should return false on failure, or true on
+     * success.
      */
     #[TentativeType]
     public function onCreate(): bool {}
@@ -259,7 +260,7 @@ function sleep(int $seconds) {}
  * Halt time in micro seconds. A micro second is one millionth of a
  * second.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function usleep(int $microseconds): void {}
 
@@ -375,7 +376,7 @@ function strptime(string $timestamp, string $format): array|false {}
 /**
  * Flush system output buffer
  * @link https://php.net/manual/en/function.flush.php
- * @return void
+ * @return void No value is returned.
  */
 function flush(): void {}
 

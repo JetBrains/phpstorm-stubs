@@ -201,8 +201,9 @@ namespace {
     /**
      * Set default scale parameter for all bc math functions
      * @link https://php.net/manual/en/function.bcscale.php
-     * @param int $scale
-     * @return int|bool
+     * @param int $scale The scale factor.
+     * @return int|bool Returns the old scale when used as setter. Otherwise the current scale is
+     * returned.
      * @throws \ValueError This function throws a ValueError if scale is outside the valid range.
      */
     #[LanguageLevelTypeAware(['7.3' => 'int'], default: 'bool')]
@@ -304,7 +305,8 @@ namespace {
      * Get the quotient and remainder of dividing num1 by num2.
      *
      * @link https://php.net/manual/en/function.bcdivmod.php
-     * @return string[]
+     * @return string[] Returns an indexed array where the first element is the quotient as a string
+     * and the second element is the remainder as a string.
      */
     function bcdivmod(string $num1, string $num2, ?int $scale = null): array {}
 }
@@ -328,7 +330,9 @@ namespace BcMath {
          * Creates a BcMath\Number object from an int or string value.
          *
          * @link https://php.net/manual/en/bcmath-number.construct.php
-         * @param int|numeric-string $num
+         * @param int|numeric-string $num An int or string value. If num is a int, the
+         * BcMath\Number::scale is always set to 0. If num is a string, it must be a valid number,
+         * and the BcMath\Number::scale is automatically set by parsing the string.
          * @throws \ValueError
          */
         public function __construct(string|int $num) {}
@@ -339,7 +343,7 @@ namespace BcMath {
          * Adds $this and num.
          *
          * @link https://php.net/manual/en/bcmath-number.add.php
-         * @param Number|int|numeric-string $num
+         * @param Number|int|numeric-string $num The value to add.
          * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
          * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \ValueError
@@ -352,7 +356,7 @@ namespace BcMath {
          * Subtracts num from $this.
          *
          * @link https://php.net/manual/en/bcmath-number.sub.php
-         * @param Number|int|numeric-string $num
+         * @param Number|int|numeric-string $num The value to subtract.
          * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
          * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \ValueError
@@ -365,7 +369,7 @@ namespace BcMath {
          * Multiplies $this by num.
          *
          * @link https://php.net/manual/en/bcmath-number.mul.php
-         * @param Number|int|numeric-string $num
+         * @param Number|int|numeric-string $num The multiplier.
          * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
          * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \ValueError
@@ -378,7 +382,7 @@ namespace BcMath {
          * Divides $this by num.
          *
          * @link https://php.net/manual/en/bcmath-number.div.php
-         * @param Number|int|numeric-string $num
+         * @param Number|int|numeric-string $num The divisor.
          * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
          * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \DivisionByZeroError
@@ -393,7 +397,7 @@ namespace BcMath {
          * sign as $this.
          *
          * @link https://php.net/manual/en/bcmath-number.mod.php
-         * @param Number|int|numeric-string $num
+         * @param Number|int|numeric-string $num The divisor.
          * @param int|null $scale
          * @throws \DivisionByZeroError
          * @throws \ValueError
@@ -406,9 +410,17 @@ namespace BcMath {
          * Gets the quotient and remainder of dividing $this by num.
          *
          * @link https://php.net/manual/en/bcmath-number.divmod.php
-         * @param Number|int|numeric-string $num
+         * @param Number|int|numeric-string $num The divisor.
          * @param int|null $scale
-         * @return array{Number, Number}
+         * @return array{Number, Number} Returns an indexed array where the first element is the
+         * quotient as a new BcMath\Number object and the second element is the remainder as a new
+         * BcMath\Number object. The quotient is always an integer value, so BcMath\Number::scale of
+         * the quotient will always be 0, regardless of whether explicitly specify scale. If scale
+         * is explicitly specified, BcMath\Number::scale of the remainder will be the specified
+         * value. When the BcMath\Number::scale of the result's remainder object is automatically
+         * set, the greater BcMath\Number::scale of the two numbers used for modulus operation is
+         * used. That is, if the BcMath\Number::scales of two values are 2 and 5 respectively, the
+         * BcMath\Number::scale of the remainder will be 5.
          * @throws \DivisionByZeroError
          * @throws \ValueError
          */
@@ -421,8 +433,10 @@ namespace BcMath {
          * the modulus modulus.
          *
          * @link https://php.net/manual/en/bcmath-number.powmod.php
-         * @param Number|int|numeric-string $exponent
-         * @param Number|int|numeric-string $modulus
+         * @param Number|int|numeric-string $exponent The exponent, as an non-negative and integral
+         * (i.e. the scale has to be zero).
+         * @param Number|int|numeric-string $modulus The modulus, as an integral (i.e. the scale has
+         * to be zero).
          * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
          * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \DivisionByZeroError
@@ -436,7 +450,9 @@ namespace BcMath {
          * Raises $this to the exponent power.
          *
          * @link https://php.net/manual/en/bcmath-number.pow.php
-         * @param Number|int|numeric-string $exponent
+         * @param Number|int|numeric-string $exponent The exponent. Must be a value with no
+         * fractional part. The valid range of the exponent is platform specific, but it is at least
+         * -2147483648 to 2147483647.
          * @param int|null $scale BcMath\Number::scale explicitly specified for calculation results.
          * If null, the BcMath\Number::scale of the calculation result will be set automatically.
          * @throws \DivisionByZeroError
@@ -494,7 +510,7 @@ namespace BcMath {
          * operator.
          *
          * @link https://php.net/manual/en/bcmath-number.compare.php
-         * @param Number|int|numeric-string $num
+         * @param Number|int|numeric-string $num The value to be compared to.
          * @param int|null $scale Specify the scale to use for comparison. If null, all digits are
          * used in the comparison.
          * @return int Returns -1, 0, or 1
@@ -522,7 +538,8 @@ namespace BcMath {
         /**
          * Deserializes a data parameter into a BcMath\Number object
          * @link https://php.net/manual/en/bcmath-number.unserialize.php
-         * @param array{value:numeric-string} $data
+         * @param array{value:numeric-string} $data The serialized data parameter as an associative
+         * array
          * @throws \ValueError This method throws a ValueError if invalid serialized data is passed.
          */
         public function __unserialize(array $data): void {}

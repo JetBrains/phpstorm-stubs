@@ -333,6 +333,11 @@ class PDFlib
     public function begin_template_ext($width, $height, $optlist) {}
 
     /**
+     * Start template definition [deprecated]
+     *
+     * Starts a new template definition. This function is deprecated since PDFlib version 7, use
+     * PDF_begin_template_ext() instead.
+     *
      * @param float $width
      * @param float $height
      *
@@ -346,6 +351,10 @@ class PDFlib
     public function begin_template($width, $height) {}
 
     /**
+     * Draw a circle
+     *
+     * Adds a circle. Returns TRUE on success or FALSE on failure.
+     *
      * @param float $x
      * @param float $y
      * @param float $r
@@ -357,6 +366,11 @@ class PDFlib
     public function circle($x, $y, $r) {}
 
     /**
+     * Clip to current path
+     *
+     * Uses the current path as clipping path, and terminate the path. Returns TRUE on success or
+     * FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-clip
@@ -364,6 +378,10 @@ class PDFlib
     public function clip() {}
 
     /**
+     * Close image
+     *
+     * Closes an image retrieved with the PDF_open_image() function.
+     *
      * @param int $image
      *
      * @return bool
@@ -384,6 +402,12 @@ class PDFlib
     public function close_pdi_page($page) {}
 
     /**
+     * Close the input PDF document [deprecated]
+     *
+     * Closes all open page handles, and closes the input PDF document. Returns TRUE on success or
+     * FALSE on failure. This function is deprecated since PDFlib version 7, use
+     * PDF_close_pdi_document() instead.
+     *
      * @param int $doc
      *
      * @return bool
@@ -405,6 +429,12 @@ class PDFlib
     public function close_pdi_document($doc) {}
 
     /**
+     * Close pdf resource [deprecated]
+     *
+     * Closes the generated PDF file, and frees all document-related resources. Returns TRUE on
+     * success or FALSE on failure. This function is deprecated since PDFlib version 6, use
+     * PDF_end_document() instead.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-close
@@ -415,6 +445,10 @@ class PDFlib
     public function close() {}
 
     /**
+     * Close, fill and stroke current path
+     *
+     * Closes the path, fills, and strokes it. Returns TRUE on success or FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-closepath-fill-stroke
@@ -422,6 +456,10 @@ class PDFlib
     public function closepath_fill_stroke() {}
 
     /**
+     * Close and stroke path
+     *
+     * Closes the path, and strokes it. Returns TRUE on success or FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-closepath-stroke
@@ -429,6 +467,10 @@ class PDFlib
     public function closepath_stroke() {}
 
     /**
+     * Close current path
+     *
+     * Closes the current path. Returns TRUE on success or FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-closepath
@@ -436,6 +478,11 @@ class PDFlib
     public function closepath() {}
 
     /**
+     * Concatenate a matrix to the CTM
+     *
+     * Concatenates a matrix to the current transformation matrix (CTM). Returns TRUE on success or
+     * FALSE on failure.
+     *
      * @param float $a
      * @param float $b
      * @param float $c
@@ -450,6 +497,10 @@ class PDFlib
     public function concat($a, $b, $c, $d, $e, $f) {}
 
     /**
+     * Output text in next line
+     *
+     * Prints text at the next line. Returns TRUE on success or FALSE on failure.
+     *
      * @param string $text
      *
      * @return bool
@@ -459,6 +510,10 @@ class PDFlib
     public function continue_text($text) {}
 
     /**
+     * Create 3D view
+     *
+     * Creates a 3D view. This function requires PDF 1.6.
+     *
      * @param string $username
      * @param string $optlist
      *
@@ -469,6 +524,10 @@ class PDFlib
     public function create_3dview($username, $optlist) {}
 
     /**
+     * Create action for objects or events
+     *
+     * Creates an action which can be applied to various objects and events.
+     *
      * @param string $type
      * @param string $optlist
      *
@@ -479,6 +538,10 @@ class PDFlib
     public function create_action($type, $optlist) {}
 
     /**
+     * Create rectangular annotation
+     *
+     * Creates a rectangular annotation on the current page.
+     *
      * @param float $llx
      * @param float $lly
      * @param float $urx
@@ -493,6 +556,10 @@ class PDFlib
     public function create_annotation($llx, $lly, $urx, $ury, $type, $optlist) {}
 
     /**
+     * Create bookmark
+     *
+     * Creates a bookmark subject to various options.
+     *
      * @param string $text
      * @param string $optlist
      *
@@ -503,6 +570,10 @@ class PDFlib
     public function create_bookmark($text, $optlist) {}
 
     /**
+     * Create form field
+     *
+     * Creates a form field on the current page subject to various options.
+     *
      * @param float $llx
      * @param float $lly
      * @param float $urx
@@ -518,6 +589,10 @@ class PDFlib
     public function create_field($llx, $lly, $urx, $ury, $name, $type, $optlist) {}
 
     /**
+     * Create form field group
+     *
+     * Creates a form field group subject to various options.
+     *
      * @param string $name
      * @param string $optlist
      *
@@ -528,6 +603,10 @@ class PDFlib
     public function create_fieldgroup($name, $optlist) {}
 
     /**
+     * Create graphics state object
+     *
+     * Creates a graphics state object subject to various options.
+     *
      * @param string $optlist
      *
      * @return int
@@ -537,6 +616,10 @@ class PDFlib
     public function create_gstate($optlist) {}
 
     /**
+     * Create PDFlib virtual file
+     *
+     * Creates a named virtual read-only file from data provided in memory.
+     *
      * @param string $filename
      * @param string $data
      * @param string $optlist
@@ -548,6 +631,10 @@ class PDFlib
     public function create_pvf($filename, $data, $optlist) {}
 
     /**
+     * Create textflow object
+     *
+     * Preprocesses text for later formatting and creates a textflow object.
+     *
      * @param string $text
      * @param string $optlist
      *
@@ -558,6 +645,11 @@ class PDFlib
     public function create_textflow($text, $optlist) {}
 
     /**
+     * Draw Bezier curve
+     *
+     * Draws a Bezier curve from the current point, using 3 more control points. Returns TRUE on
+     * success or FALSE on failure.
+     *
      * @param float $x1
      * @param float $y1
      * @param float $x2
@@ -572,6 +664,10 @@ class PDFlib
     public function curveto($x1, $y1, $x2, $y2, $x3, $y3) {}
 
     /**
+     * Create layer definition
+     *
+     * Creates a new layer definition. This function requires PDF 1.5.
+     *
      * @param string $name
      * @param string $optlist
      *
@@ -582,6 +678,10 @@ class PDFlib
     public function define_layer($name, $optlist) {}
 
     /**
+     * Delete PDFlib virtual file
+     *
+     * Deletes a named virtual file and frees its data structures (but not the contents).
+     *
      * @param string $filename
      *
      * @return int
@@ -591,6 +691,10 @@ class PDFlib
     public function delete_pvf($filename) {}
 
     /**
+     * Delete table object
+     *
+     * Deletes a table and all associated data structures.
+     *
      * @param int $table
      * @param string $optlist
      *
@@ -601,6 +705,10 @@ class PDFlib
     public function delete_table($table, $optlist) {}
 
     /**
+     * Delete textflow object
+     *
+     * Deletes a textflow and the associated data structures.
+     *
      * @param int $textflow
      *
      * @return bool
@@ -610,6 +718,11 @@ class PDFlib
     public function delete_textflow($textflow) {}
 
     /**
+     * Delete PDFlib object
+     *
+     * Deletes a PDFlib object, and frees all internal resources. Returns TRUE on success or FALSE
+     * on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-delete
@@ -617,6 +730,10 @@ class PDFlib
     public function delete() {}
 
     /**
+     * Add glyph name and/or Unicode value
+     *
+     * Adds a glyph name and/or Unicode value to a custom encoding.
+     *
      * @param string $encoding
      * @param int $slot
      * @param string $glyphname
@@ -629,6 +746,10 @@ class PDFlib
     public function encoding_set_char($encoding, $slot, $glyphname, $uv) {}
 
     /**
+     * Close PDF file
+     *
+     * Closes the generated PDF file and applies various options.
+     *
      * @param string $optlist
      *
      * @return bool
@@ -638,6 +759,10 @@ class PDFlib
     public function end_document($optlist) {}
 
     /**
+     * Terminate Type 3 font definition
+     *
+     * Terminates a Type 3 font definition.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-end-font
@@ -645,6 +770,10 @@ class PDFlib
     public function end_font() {}
 
     /**
+     * Terminate glyph definition for Type 3 font
+     *
+     * Terminates a glyph definition for a Type 3 font.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-end-glyph
@@ -652,6 +781,10 @@ class PDFlib
     public function end_glyph() {}
 
     /**
+     * Close structure element or other content item
+     *
+     * Closes a structure element or other content item.
+     *
      * @param int $id
      *
      * @return bool
@@ -661,6 +794,11 @@ class PDFlib
     public function end_item($id) {}
 
     /**
+     * Deactivate all active layers
+     *
+     * Deactivates all active layers. Returns TRUE on success or FALSE on failure. This function
+     * requires PDF 1.5.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-end-layer
@@ -668,6 +806,10 @@ class PDFlib
     public function end_layer() {}
 
     /**
+     * Finish page
+     *
+     * Finishes a page, and applies various options. Returns TRUE on success or FALSE on failure.
+     *
      * @param string $optlist
      *
      * @return bool
@@ -677,6 +819,10 @@ class PDFlib
     public function end_page_ext($optlist) {}
 
     /**
+     * Finish page
+     *
+     * Finishes the page. Returns TRUE on success or FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-end-page
@@ -684,6 +830,10 @@ class PDFlib
     public function end_page() {}
 
     /**
+     * Finish pattern
+     *
+     * Finishes the pattern definition. Returns TRUE on success or FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-end-pattern
@@ -691,6 +841,10 @@ class PDFlib
     public function end_pattern() {}
 
     /**
+     * Finish template
+     *
+     * Finishes a template definition. Returns TRUE on success or FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-end-template
@@ -698,6 +852,10 @@ class PDFlib
     public function end_template() {}
 
     /**
+     * End current path
+     *
+     * Ends the current path without filling or stroking it.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-endpath
@@ -705,6 +863,11 @@ class PDFlib
     public function endpath() {}
 
     /**
+     * Fill image block with variable data
+     *
+     * Fills an image block with variable data according to its properties. This function is only
+     * available in the PDFlib Personalization Server (PPS).
+     *
      * @param int $page
      * @param string $blockname
      * @param int $image
@@ -717,6 +880,11 @@ class PDFlib
     public function fill_imageblock($page, $blockname, $image, $optlist) {}
 
     /**
+     * Fill PDF block with variable data
+     *
+     * Fills a PDF block with variable data according to its properties. This function is only
+     * available in the PDFlib Personalization Server (PPS).
+     *
      * @param int $page
      * @param string $blockname
      * @param int $contents
@@ -729,6 +897,11 @@ class PDFlib
     public function fill_pdfblock($page, $blockname, $contents, $optlist) {}
 
     /**
+     * Fill and stroke path
+     *
+     * Fills and strokes the current path with the current fill and stroke color. Returns TRUE on
+     * success or FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-fill-stroke
@@ -736,6 +909,11 @@ class PDFlib
     public function fill_stroke() {}
 
     /**
+     * Fill text block with variable data
+     *
+     * Fills a text block with variable data according to its properties. This function is only
+     * available in the PDFlib Personalization Server (PPS).
+     *
      * @param int $page
      * @param string $blockname
      * @param string $text
@@ -748,6 +926,11 @@ class PDFlib
     public function fill_textblock($page, $blockname, $text, $optlist) {}
 
     /**
+     * Fill current path
+     *
+     * Fills the interior of the current path with the current fill color. Returns TRUE on success
+     * or FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-fill
@@ -755,6 +938,14 @@ class PDFlib
     public function fill() {}
 
     /**
+     * Prepare font for later use [deprecated]
+     *
+     * Search for a font and prepare it for later use with PDF_setfont(). The metrics will be
+     * loaded, and if embed is nonzero, the font file will be checked, but not yet used. encoding is
+     * one of builtin, macroman, winansi, host, a user-defined encoding name or the name of a CMap.
+     * Parameter embed is optional before PHP 4.3.5 or with PDFlib less than 5. This function is
+     * deprecated since PDFlib version 5, use PDF_load_font() instead.
+     *
      * @param string $fontname
      * @param string $encoding
      * @param int $embed
@@ -766,6 +957,11 @@ class PDFlib
     public function findfont($fontname, $encoding, $embed) {}
 
     /**
+     * Place image or template
+     *
+     * Places an image or template on the page, subject to various options. Returns TRUE on success
+     * or FALSE on failure.
+     *
      * @param int $image
      * @param float $x
      * @param float $y
@@ -778,6 +974,11 @@ class PDFlib
     public function fit_image($image, $x, $y, $optlist) {}
 
     /**
+     * Place imported PDF page
+     *
+     * Places an imported PDF page on the page, subject to various options. Returns TRUE on success
+     * or FALSE on failure.
+     *
      * @param int $page
      * @param float $x
      * @param float $y
@@ -804,6 +1005,10 @@ class PDFlib
     public function fit_table($table, $llx, $lly, $urx, $ury, $optlist) {}
 
     /**
+     * Format textflow in rectangular area
+     *
+     * Formats the next portion of a textflow into a rectangular area.
+     *
      * @param int $textflow
      * @param float $llx
      * @param float $lly
@@ -818,6 +1023,11 @@ class PDFlib
     public function fit_textflow($textflow, $llx, $lly, $urx, $ury, $optlist) {}
 
     /**
+     * Place single line of text
+     *
+     * Places a single line of text on the page, subject to various options. Returns TRUE on success
+     * or FALSE on failure.
+     *
      * @param string $text
      * @param float $x
      * @param float $y
@@ -830,6 +1040,10 @@ class PDFlib
     public function fit_textline($text, $x, $y, $optlist) {}
 
     /**
+     * Get name of unsuccessfull API function
+     *
+     * Gets the name of the API function which threw the last exception or failed.
+     *
      * @return string
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-get-apiname
@@ -837,6 +1051,10 @@ class PDFlib
     public function get_apiname() {}
 
     /**
+     * Get PDF output buffer
+     *
+     * Fetches the buffer containing the generated PDF data.
+     *
      * @return string
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-get-buffer
@@ -844,6 +1062,10 @@ class PDFlib
     public function get_buffer() {}
 
     /**
+     * Get error text
+     *
+     * Gets the text of the last thrown exception or the reason for a failed function call.
+     *
      * @return string
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-get-errmsg
@@ -851,6 +1073,10 @@ class PDFlib
     public function get_errmsg() {}
 
     /**
+     * Get error number
+     *
+     * Gets the number of the last thrown exception or the reason for a failed function call.
+     *
      * @return int
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-get-errnum
@@ -858,6 +1084,11 @@ class PDFlib
     public function get_errnum() {}
 
     /**
+     * Get major version number [deprecated]
+     *
+     * This function is deprecated since PDFlib version 5, use PDF_get_value() with the parameter
+     * major instead.
+     *
      * @return int
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-get-majorversion (deprecated)
@@ -865,6 +1096,11 @@ class PDFlib
     public function get_majorversion() {}
 
     /**
+     * Get minor version number [deprecated]
+     *
+     * Returns the minor version number of the PDFlib version. This function is deprecated since
+     * PDFlib version 5, use PDF_get_value() with the parameter minor instead.
+     *
      * @return int
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-get-minorversion (deprecated)
@@ -882,6 +1118,10 @@ class PDFlib
     public function get_option($keyword, $optlist) {}
 
     /**
+     * Get string parameter
+     *
+     * Gets the contents of some PDFlib parameter with string type.
+     *
      * @param string $key
      * @param float $modifier
      *
@@ -892,6 +1132,11 @@ class PDFlib
     public function get_parameter($key, $modifier) {}
 
     /**
+     * Get PDI string parameter [deprecated]
+     *
+     * Gets the contents of a PDI document parameter with string type. This function is deprecated
+     * since PDFlib version 7, use PDF_pcos_get_string() instead.
+     *
      * @param string $key
      * @param int $doc
      * @param int $page
@@ -904,6 +1149,11 @@ class PDFlib
     public function get_pdi_parameter($key, $doc, $page, $reserved) {}
 
     /**
+     * Get PDI numerical parameter [deprecated]
+     *
+     * Gets the contents of a PDI document parameter with numerical type. This function is
+     * deprecated since PDFlib version 7, use PDF_pcos_get_number() instead.
+     *
      * @param string $key
      * @param int $doc
      * @param int $page
@@ -926,6 +1176,10 @@ class PDFlib
     public function get_string($keyword, $optlist) {}
 
     /**
+     * Get numerical parameter
+     *
+     * Gets the value of some PDFlib parameter with numerical type.
+     *
      * @param string $key
      * @param float $modifier
      *
@@ -936,6 +1190,10 @@ class PDFlib
     public function get_value($key, $modifier) {}
 
     /**
+     * Query detailed information about a loaded font
+     *
+     * Queries detailed information about a loaded font.
+     *
      * @param int $font
      * @param string $keyword
      * @param string $optlist
@@ -958,6 +1216,10 @@ class PDFlib
     public function info_image($image, $keyword, $optlist) {}
 
     /**
+     * Query matchbox information
+     *
+     * Queries information about a matchbox on the current page.
+     *
      * @param string $boxname
      * @param int $num
      * @param string $keyword
@@ -1012,6 +1274,10 @@ class PDFlib
     public function info_pvf($filename, $keyword) {}
 
     /**
+     * Retrieve table information
+     *
+     * Retrieves table information related to the most recently placed table instance.
+     *
      * @param int $table
      * @param string $keyword
      *
@@ -1022,6 +1288,10 @@ class PDFlib
     public function info_table($table, $keyword) {}
 
     /**
+     * Query textflow state
+     *
+     * Queries the current state of a textflow.
+     *
      * @param int $textflow
      * @param string $keyword
      *
@@ -1032,6 +1302,10 @@ class PDFlib
     public function info_textflow($textflow, $keyword) {}
 
     /**
+     * Perform textline formatting and query metrics
+     *
+     * Performs textline formatting and queries the resulting metrics.
+     *
      * @param string $text
      * @param string $keyword
      * @param string $optlist
@@ -1043,6 +1317,11 @@ class PDFlib
     public function info_textline($text, $keyword, $optlist) {}
 
     /**
+     * Reset graphic state
+     *
+     * Reset all color and graphics state parameters to their defaults. Returns TRUE on success or
+     * FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-initgraphics
@@ -1050,6 +1329,11 @@ class PDFlib
     public function initgraphics() {}
 
     /**
+     * Draw a line
+     *
+     * Draws a line from the current point to another point. Returns TRUE on success or FALSE on
+     * failure.
+     *
      * @param float $x
      * @param float $y
      *
@@ -1060,6 +1344,10 @@ class PDFlib
     public function lineto($x, $y) {}
 
     /**
+     * Load 3D model
+     *
+     * Loads a 3D model from a disk-based or virtual file. This function requires PDF 1.6.
+     *
      * @param string $filename
      * @param string $optlist
      *
@@ -1070,6 +1358,10 @@ class PDFlib
     public function load_3ddata($filename, $optlist) {}
 
     /**
+     * Search and prepare font
+     *
+     * Searches for a font and prepares it for later use.
+     *
      * @param string $fontname
      * @param string $encoding
      * @param string $optlist
@@ -1081,6 +1373,10 @@ class PDFlib
     public function load_font($fontname, $encoding, $optlist) {}
 
     /**
+     * Search and prepare ICC profile
+     *
+     * Searches for an ICC profile, and prepares it for later use.
+     *
      * @param string $profilename
      * @param string $optlist
      *
@@ -1091,6 +1387,10 @@ class PDFlib
     public function load_iccprofile($profilename, $optlist) {}
 
     /**
+     * Open image file
+     *
+     * Opens a disk-based or virtual image file subject to various options.
+     *
      * @param string $imagetype
      * @param string $filename
      * @param string $optlist
@@ -1102,6 +1402,11 @@ class PDFlib
     public function load_image($imagetype, $filename, $optlist) {}
 
     /**
+     * Make spot color
+     *
+     * Finds a built-in spot color name, or makes a named spot color from the current fill color.
+     * Returns TRUE on success or FALSE on failure.
+     *
      * @param string $spotname
      *
      * @return int
@@ -1111,6 +1416,10 @@ class PDFlib
     public function makespotcolor($spotname) {}
 
     /**
+     * Set current point
+     *
+     * Sets the current point for graphics output. Returns TRUE on success or FALSE on failure.
+     *
      * @param float $x
      * @param float $y
      *
@@ -1121,6 +1430,11 @@ class PDFlib
     public function moveto($x, $y) {}
 
     /**
+     * Open raw CCITT image [deprecated]
+     *
+     * Opens a raw CCITT image. This function is deprecated since PDFlib version 5, use
+     * PDF_load_image() instead.
+     *
      * @param string $filename
      * @param int $width
      * @param int $height
@@ -1135,6 +1449,12 @@ class PDFlib
     public function open_ccitt($filename, $width, $height, $BitReverse, $k, $Blackls1) {}
 
     /**
+     * Create PDF file [deprecated]
+     *
+     * Creates a new PDF file using the supplied file name. Returns TRUE on success or FALSE on
+     * failure. This function is deprecated since PDFlib version 6, use PDF_begin_document()
+     * instead.
+     *
      * @param string $filename
      *
      * @return bool
@@ -1144,6 +1464,11 @@ class PDFlib
     public function open_file($filename) {}
 
     /**
+     * Read image from file [deprecated]
+     *
+     * Opens an image file. This function is deprecated since PDFlib version 5, use PDF_load_image()
+     * with the colorize, ignoremask, invert, mask, masked, and page options instead.
+     *
      * @param string $imagetype
      * @param string $filename
      * @param string $stringparam
@@ -1156,6 +1481,11 @@ class PDFlib
     public function open_image_file($imagetype, $filename, $stringparam, $intparam) {}
 
     /**
+     * Use image data [deprecated]
+     *
+     * Uses image data from a variety of data sources. This function is deprecated since PDFlib
+     * version 5, use virtual files and PDF_load_image() instead.
+     *
      * @param string $imagetype
      * @param string $source
      * @param string $data
@@ -1173,6 +1503,10 @@ class PDFlib
     public function open_image($imagetype, $source, $data, $length, $width, $height, $components, $bpc, $params) {}
 
     /**
+     * Open image created with PHP's image functions [not supported]
+     *
+     * This function is not supported by PDFlib GmbH.
+     *
      * @param resource $image
      *
      * @return int
@@ -1182,6 +1516,10 @@ class PDFlib
     public function open_memory_image($image) {}
 
     /**
+     * Prepare a pdi document
+     *
+     * Open a disk-based or virtual PDF document and prepare it for later use.
+     *
      * @param string $filename
      * @param string $optlist
      *
@@ -1192,6 +1530,10 @@ class PDFlib
     public function open_pdi_document($filename, $optlist) {}
 
     /**
+     * Prepare a page
+     *
+     * Prepares a page for later use with PDF_fit_pdi_page().
+     *
      * @param int $doc
      * @param int $pagenumber
      * @param string $optlist
@@ -1203,6 +1545,11 @@ class PDFlib
     public function open_pdi_page($doc, $pagenumber, $optlist) {}
 
     /**
+     * Open PDF file [deprecated]
+     *
+     * Opens a disk-based or virtual PDF document and prepares it for later use. This function is
+     * deprecated since PDFlib version 7, use PDF_open_pdi_document() instead.
+     *
      * @param string $filename
      * @param string $optlist
      * @param int $len
@@ -1214,6 +1561,10 @@ class PDFlib
     public function open_pdi($filename, $optlist, $len) {}
 
     /**
+     * Get value of pCOS path with type number or boolean
+     *
+     * Gets the value of a pCOS path with type number or boolean.
+     *
      * @param int $doc
      * @param string $path
      *
@@ -1224,6 +1575,10 @@ class PDFlib
     public function pcos_get_number($doc, $path) {}
 
     /**
+     * Get contents of pCOS path with type stream, fstream, or string
+     *
+     * Gets the contents of a pCOS path with type stream, fstream, or string.
+     *
      * @param int $doc
      * @param string $optlist
      * @param string $path
@@ -1235,6 +1590,10 @@ class PDFlib
     public function pcos_get_stream($doc, $optlist, $path) {}
 
     /**
+     * Get value of pCOS path with type name, string, or boolean
+     *
+     * Gets the value of a pCOS path with type name, string, or boolean.
+     *
      * @param int $doc
      * @param string $path
      *
@@ -1245,6 +1604,11 @@ class PDFlib
     public function pcos_get_string($doc, $path) {}
 
     /**
+     * Place image on the page [deprecated]
+     *
+     * Places an image and scales it. Returns TRUE on success or FALSE on failure. This function is
+     * deprecated since PDFlib version 5, use PDF_fit_image() instead.
+     *
      * @param int $image
      * @param float $x
      * @param float $y
@@ -1257,6 +1621,11 @@ class PDFlib
     public function place_image($image, $x, $y, $scale) {}
 
     /**
+     * Place PDF page [deprecated]
+     *
+     * Places a PDF page and scales it. Returns TRUE on success or FALSE on failure. This function
+     * is deprecated since PDFlib version 5, use PDF_fit_pdi_page() instead.
+     *
      * @param int $page
      * @param float $x
      * @param float $y
@@ -1279,6 +1648,10 @@ class PDFlib
     public function set_option($optlist) {}
 
     /**
+     * Process imported PDF document
+     *
+     * Processes certain elements of an imported PDF document.
+     *
      * @param int $doc
      * @param int $page
      * @param string $optlist
@@ -1290,6 +1663,10 @@ class PDFlib
     public function process_pdi($doc, $page, $optlist) {}
 
     /**
+     * Draw rectangle
+     *
+     * Draws a rectangle. Returns TRUE on success or FALSE on failure.
+     *
      * @param float $x
      * @param float $y
      * @param float $width
@@ -1302,6 +1679,10 @@ class PDFlib
     public function rect($x, $y, $width, $height) {}
 
     /**
+     * Restore graphics state
+     *
+     * Restores the most recently saved graphics state. Returns TRUE on success or FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-restore
@@ -1309,6 +1690,10 @@ class PDFlib
     public function restore() {}
 
     /**
+     * Resume page
+     *
+     * Resumes a page to add more content to it.
+     *
      * @param string $optlist
      *
      * @return bool
@@ -1318,6 +1703,10 @@ class PDFlib
     public function resume_page($optlist) {}
 
     /**
+     * Rotate coordinate system
+     *
+     * Rotates the coordinate system. Returns TRUE on success or FALSE on failure.
+     *
      * @param float $phi
      *
      * @return bool
@@ -1327,6 +1716,10 @@ class PDFlib
     public function rotate($phi) {}
 
     /**
+     * Save graphics state
+     *
+     * Saves the current graphics state. Returns TRUE on success or FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-save
@@ -1334,6 +1727,10 @@ class PDFlib
     public function save() {}
 
     /**
+     * Scale coordinate system
+     *
+     * Scales the coordinate system. Returns TRUE on success or FALSE on failure.
+     *
      * @param float $sx
      * @param float $sy
      *
@@ -1344,6 +1741,12 @@ class PDFlib
     public function scale($sx, $sy) {}
 
     /**
+     * Set border color of annotations [deprecated]
+     *
+     * Sets the border color for all kinds of annotations. Returns TRUE on success or FALSE on
+     * failure. This function is deprecated since PDFlib version 6, use the option annotcolor in
+     * PDF_create_annotation() instead.
+     *
      * @param float $red
      * @param float $green
      * @param float $blue
@@ -1355,6 +1758,12 @@ class PDFlib
     public function set_border_color($red, $green, $blue) {}
 
     /**
+     * Set border dash style of annotations [deprecated]
+     *
+     * Sets the border dash style for all kinds of annotations. Returns TRUE on success or FALSE on
+     * failure. This function is deprecated since PDFlib version 6, use the option dasharray in
+     * PDF_create_annotation() instead.
+     *
      * @param float $black
      * @param float $white
      *
@@ -1365,6 +1774,12 @@ class PDFlib
     public function set_border_dash($black, $white) {}
 
     /**
+     * Set border style of annotations [deprecated]
+     *
+     * Sets the border style for all kinds of annotations. Returns TRUE on success or FALSE on
+     * failure. This function is deprecated since PDFlib version 6, use the options borderstyle and
+     * linewidth in PDF_create_annotation() instead.
+     *
      * @param string $style
      * @param float $width
      *
@@ -1375,6 +1790,10 @@ class PDFlib
     public function set_border_style($style, $width) {}
 
     /**
+     * Activate graphics state object
+     *
+     * Activates a graphics state object.
+     *
      * @param int $gstate
      *
      * @return bool
@@ -1384,6 +1803,10 @@ class PDFlib
     public function set_gstate($gstate) {}
 
     /**
+     * Fill document info field
+     *
+     * Fill document information field key with value. Returns TRUE on success or FALSE on failure.
+     *
      * @param string $key
      * @param string $value
      *
@@ -1394,6 +1817,11 @@ class PDFlib
     public function set_info($key, $value) {}
 
     /**
+     * Define relationships among layers
+     *
+     * Defines hierarchical and group relationships among layers. Returns TRUE on success or FALSE
+     * on failure. This function requires PDF 1.5.
+     *
      * @param string $type
      * @param string $optlist
      *
@@ -1404,6 +1832,10 @@ class PDFlib
     public function set_layer_dependency($type, $optlist) {}
 
     /**
+     * Set string parameter
+     *
+     * Sets some PDFlib parameter with string type. Returns TRUE on success or FALSE on failure.
+     *
      * @param string $key
      * @param string $value
      *
@@ -1414,6 +1846,10 @@ class PDFlib
     public function set_parameter($key, $value) {}
 
     /**
+     * Set text position
+     *
+     * Sets the position for text output on the page. Returns TRUE on success or FALSE on failure.
+     *
      * @param float $x
      * @param float $y
      *
@@ -1424,6 +1860,11 @@ class PDFlib
     public function set_text_pos($x, $y) {}
 
     /**
+     * Set numerical parameter
+     *
+     * Sets the value of some PDFlib parameter with numerical type. Returns TRUE on success or FALSE
+     * on failure.
+     *
      * @param string $key
      * @param float $value
      *
@@ -1434,6 +1875,10 @@ class PDFlib
     public function set_value($key, $value) {}
 
     /**
+     * Set fill and stroke color
+     *
+     * Sets the current color space and color. Returns TRUE on success or FALSE on failure.
+     *
      * @param string $fstype
      * @param string $colorspace
      * @param float $c1
@@ -1448,6 +1893,11 @@ class PDFlib
     public function setcolor($fstype, $colorspace, $c1, $c2, $c3, $c4) {}
 
     /**
+     * Set simple dash pattern
+     *
+     * Sets the current dash pattern to b black and w white units. Returns TRUE on success or FALSE
+     * on failure.
+     *
      * @param float $b
      * @param float $w
      *
@@ -1458,6 +1908,10 @@ class PDFlib
     public function setdash($b, $w) {}
 
     /**
+     * Set dash pattern
+     *
+     * Sets a dash pattern defined by an option list. Returns TRUE on success or FALSE on failure.
+     *
      * @param string $optlist
      *
      * @return bool
@@ -1467,6 +1921,10 @@ class PDFlib
     public function setdashpattern($optlist) {}
 
     /**
+     * Set flatness
+     *
+     * Sets the flatness parameter. Returns TRUE on success or FALSE on failure.
+     *
      * @param float $flatness
      *
      * @return bool
@@ -1476,6 +1934,11 @@ class PDFlib
     public function setflat($flatness) {}
 
     /**
+     * Set font
+     *
+     * Sets the current font in the specified fontsize, using a font handle returned by
+     * PDF_load_font(). Returns TRUE on success or FALSE on failure.
+     *
      * @param int $font
      * @param float $fontsize
      *
@@ -1486,6 +1949,12 @@ class PDFlib
     public function setfont($font, $fontsize) {}
 
     /**
+     * Set fill color to gray [deprecated]
+     *
+     * Sets the current fill color to a gray value between 0 and 1 inclusive. Returns TRUE on
+     * success or FALSE on failure. This function is deprecated since PDFlib version 4, use
+     * PDF_setcolor() instead.
+     *
      * @param float $g
      *
      * @return bool
@@ -1495,6 +1964,12 @@ class PDFlib
     public function setgray_fill($g) {}
 
     /**
+     * Set stroke color to gray [deprecated]
+     *
+     * Sets the current stroke color to a gray value between 0 and 1 inclusive. Returns TRUE on
+     * success or FALSE on failure. This function is deprecated since PDFlib version 4, use
+     * PDF_setcolor() instead.
+     *
      * @param float $g
      *
      * @return bool
@@ -1504,6 +1979,12 @@ class PDFlib
     public function setgray_stroke($g) {}
 
     /**
+     * Set color to gray [deprecated]
+     *
+     * Sets the current fill and stroke color to a gray value between 0 and 1 inclusive. Returns
+     * TRUE on success or FALSE on failure. This function is deprecated since PDFlib version 4, use
+     * PDF_setcolor() instead.
+     *
      * @param float $g
      *
      * @return bool
@@ -1513,6 +1994,11 @@ class PDFlib
     public function setgray($g) {}
 
     /**
+     * Set linecap parameter
+     *
+     * Sets the linecap parameter to control the shape at the end of a path with respect to
+     * stroking.
+     *
      * @param int $linecap
      *
      * @return bool
@@ -1522,6 +2008,11 @@ class PDFlib
     public function setlinecap($linecap) {}
 
     /**
+     * Set linejoin parameter
+     *
+     * Sets the linejoin parameter to specify the shape at the corners of paths that are stroked.
+     * Returns TRUE on success or FALSE on failure.
+     *
      * @param int $value
      *
      * @return bool
@@ -1531,6 +2022,10 @@ class PDFlib
     public function setlinejoin($value) {}
 
     /**
+     * Set line width
+     *
+     * Sets the current line width. Returns TRUE on success or FALSE on failure.
+     *
      * @param float $width
      *
      * @return bool
@@ -1540,6 +2035,11 @@ class PDFlib
     public function setlinewidth($width) {}
 
     /**
+     * Set current transformation matrix
+     *
+     * Explicitly sets the current transformation matrix. Returns TRUE on success or FALSE on
+     * failure.
+     *
      * @param float $a
      * @param float $b
      * @param float $c
@@ -1554,6 +2054,10 @@ class PDFlib
     public function setmatrix($a, $b, $c, $d, $e, $f) {}
 
     /**
+     * Set miter limit
+     *
+     * Sets the miter limit.Returns TRUE on success or FALSE on failure.
+     *
      * @param float $miter
      *
      * @return bool
@@ -1563,6 +2067,11 @@ class PDFlib
     public function setmiterlimit($miter) {}
 
     /**
+     * Set fill rgb color values [deprecated]
+     *
+     * Sets the current fill color to the supplied RGB values. Returns TRUE on success or FALSE on
+     * failure. This function is deprecated since PDFlib version 4, use PDF_setcolor() instead.
+     *
      * @param float $red
      * @param float $green
      * @param float $blue
@@ -1574,6 +2083,11 @@ class PDFlib
     public function setrgbcolor_fill($red, $green, $blue) {}
 
     /**
+     * Set stroke rgb color values [deprecated]
+     *
+     * Sets the current stroke color to the supplied RGB values. Returns TRUE on success or FALSE on
+     * failure. This function is deprecated since PDFlib version 4, use PDF_setcolor() instead.
+     *
      * @param float $red
      * @param float $green
      * @param float $blue
@@ -1585,6 +2099,12 @@ class PDFlib
     public function setrgbcolor_stroke($red, $green, $blue) {}
 
     /**
+     * Set fill and stroke rgb color values [deprecated]
+     *
+     * Sets the current fill and stroke color to the supplied RGB values. Returns TRUE on success or
+     * FALSE on failure. This function is deprecated since PDFlib version 4, use PDF_setcolor()
+     * instead.
+     *
      * @param float $red
      * @param float $green
      * @param float $blue
@@ -1596,6 +2116,10 @@ class PDFlib
     public function setrgbcolor($red, $green, $blue) {}
 
     /**
+     * Define shading pattern
+     *
+     * Defines a shading pattern using a shading object. This function requires PDF 1.4 or above.
+     *
      * @param int $shading
      * @param string $optlist
      *
@@ -1606,6 +2130,11 @@ class PDFlib
     public function shading_pattern($shading, $optlist) {}
 
     /**
+     * Define blend
+     *
+     * Defines a blend from the current fill color to another color. This function requires PDF 1.4
+     * or above.
+     *
      * @param string $shtype
      * @param float $x0
      * @param float $y0
@@ -1624,6 +2153,11 @@ class PDFlib
     public function shading($shtype, $x0, $y0, $x1, $y1, $c1, $c2, $c3, $c4, $optlist) {}
 
     /**
+     * Fill area with shading
+     *
+     * Fills an area with a shading, based on a shading object. This function requires PDF 1.4 or
+     * above.
+     *
      * @param int $shading
      *
      * @return bool
@@ -1633,6 +2167,11 @@ class PDFlib
     public function shfill($shading) {}
 
     /**
+     * Output text in a box [deprecated]
+     *
+     * This function is deprecated since PDFlib version 6, use PDF_fit_textline() for single lines,
+     * or the PDF_*_textflow() functions for multi-line formatting instead.
+     *
      * @param string $text
      * @param float $left
      * @param float $top
@@ -1648,6 +2187,10 @@ class PDFlib
     public function show_boxed($text, $left, $top, $width, $height, $mode, $feature) {}
 
     /**
+     * Output text at given position
+     *
+     * Prints text in the current font. Returns TRUE on success or FALSE on failure.
+     *
      * @param string $text
      * @param float $x
      * @param float $y
@@ -1659,6 +2202,11 @@ class PDFlib
     public function show_xy($text, $x, $y) {}
 
     /**
+     * Output text at current position
+     *
+     * Prints text in the current font and size at the current position. Returns TRUE on success or
+     * FALSE on failure.
+     *
      * @param string $text
      *
      * @return bool
@@ -1668,6 +2216,11 @@ class PDFlib
     public function show($text) {}
 
     /**
+     * Skew the coordinate system
+     *
+     * Skews the coordinate system in x and y direction by alpha and beta degrees, respectively.
+     * Returns TRUE on success or FALSE on failure.
+     *
      * @param float $alpha
      * @param float $beta
      *
@@ -1678,6 +2231,10 @@ class PDFlib
     public function skew($alpha, $beta) {}
 
     /**
+     * Return width of text
+     *
+     * Returns the width of text in an arbitrary font.
+     *
      * @param string $text
      * @param int $font
      * @param float $fontsize
@@ -1689,6 +2246,11 @@ class PDFlib
     public function stringwidth($text, $font, $fontsize) {}
 
     /**
+     * Stroke path
+     *
+     * Strokes the path with the current color and line width, and clear it. Returns TRUE on success
+     * or FALSE on failure.
+     *
      * @return bool
      *
      * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-stroke
@@ -1696,6 +2258,10 @@ class PDFlib
     public function stroke() {}
 
     /**
+     * Suspend page
+     *
+     * Suspends the current page so that it can later be resumed with PDF_resume_page().
+     *
      * @param string $optlist
      *
      * @return bool
@@ -1705,6 +2271,10 @@ class PDFlib
     public function suspend_page($optlist) {}
 
     /**
+     * Set origin of coordinate system
+     *
+     * Translates the origin of the coordinate system.
+     *
      * @param float $tx
      * @param float $ty
      *
@@ -1715,6 +2285,10 @@ class PDFlib
     public function translate($tx, $ty) {}
 
     /**
+     * Convert string from UTF-16 to UTF-8
+     *
+     * Converts a string from UTF-16 format to UTF-8.
+     *
      * @param string $utf16string
      *
      * @return string
@@ -1724,6 +2298,10 @@ class PDFlib
     public function utf16_to_utf8($utf16string) {}
 
     /**
+     * Convert string from UTF-32 to UTF-16
+     *
+     * Converts a string from UTF-32 format to UTF-16.
+     *
      * @param string $utf32string
      * @param string $ordering
      *
@@ -1734,6 +2312,10 @@ class PDFlib
     public function utf32_to_utf16($utf32string, $ordering) {}
 
     /**
+     * Convert string from UTF-8 to UTF-16
+     *
+     * Converts a string from UTF-8 format to UTF-16.
+     *
      * @param string $utf8string
      * @param string $ordering
      *
@@ -2405,6 +2987,10 @@ function PDF_define_layer($pdf, $name, $optlist) {}
 function PDF_delete_pvf($pdf, $filename) {}
 
 /**
+ * Delete table object
+ *
+ * Deletes a table and all associated data structures.
+ *
  * @param resource $pdf
  * @param int $table
  * @param string $optlist
@@ -2416,6 +3002,10 @@ function PDF_delete_pvf($pdf, $filename) {}
 function PDF_delete_table($pdf, $table, $optlist) {}
 
 /**
+ * Delete textflow object
+ *
+ * Deletes a textflow and the associated data structures.
+ *
  * @param resource $pdf
  * @param int $textflow
  *
@@ -2426,6 +3016,11 @@ function PDF_delete_table($pdf, $table, $optlist) {}
 function PDF_delete_textflow($pdf, $textflow) {}
 
 /**
+ * Delete PDFlib object
+ *
+ * Deletes a PDFlib object, and frees all internal resources. Returns TRUE on success or FALSE on
+ * failure.
+ *
  * @param resource $pdf
  *
  * @return bool
@@ -2435,6 +3030,10 @@ function PDF_delete_textflow($pdf, $textflow) {}
 function PDF_delete($pdf) {}
 
 /**
+ * Add glyph name and/or Unicode value
+ *
+ * Adds a glyph name and/or Unicode value to a custom encoding.
+ *
  * @param resource $pdf
  * @param string $encoding
  * @param int $slot
@@ -2448,6 +3047,10 @@ function PDF_delete($pdf) {}
 function PDF_encoding_set_char($pdf, $encoding, $slot, $glyphname, $uv) {}
 
 /**
+ * Close PDF file
+ *
+ * Closes the generated PDF file and applies various options.
+ *
  * @param resource $pdf
  * @param string $optlist
  *
@@ -2458,6 +3061,10 @@ function PDF_encoding_set_char($pdf, $encoding, $slot, $glyphname, $uv) {}
 function PDF_end_document($pdf, $optlist) {}
 
 /**
+ * Terminate Type 3 font definition
+ *
+ * Terminates a Type 3 font definition.
+ *
  * @param resource $pdf
  *
  * @return bool
@@ -2467,6 +3074,10 @@ function PDF_end_document($pdf, $optlist) {}
 function PDF_end_font($pdf) {}
 
 /**
+ * Terminate glyph definition for Type 3 font
+ *
+ * Terminates a glyph definition for a Type 3 font.
+ *
  * @param resource $pdf
  *
  * @return bool
@@ -2476,6 +3087,10 @@ function PDF_end_font($pdf) {}
 function PDF_end_glyph($pdf) {}
 
 /**
+ * Close structure element or other content item
+ *
+ * Closes a structure element or other content item.
+ *
  * @param resource $pdf
  * @param int $id
  *
@@ -2486,6 +3101,11 @@ function PDF_end_glyph($pdf) {}
 function PDF_end_item($pdf, $id) {}
 
 /**
+ * Deactivate all active layers
+ *
+ * Deactivates all active layers. Returns TRUE on success or FALSE on failure. This function
+ * requires PDF 1.5.
+ *
  * @param resource $pdf
  *
  * @return bool
@@ -2495,6 +3115,10 @@ function PDF_end_item($pdf, $id) {}
 function PDF_end_layer($pdf) {}
 
 /**
+ * Finish page
+ *
+ * Finishes a page, and applies various options. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param string $optlist
  *
@@ -2505,6 +3129,10 @@ function PDF_end_layer($pdf) {}
 function PDF_end_page_ext($pdf, $optlist) {}
 
 /**
+ * Finish page
+ *
+ * Finishes the page. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf The PDF doc
  *
  * @return bool
@@ -2514,6 +3142,10 @@ function PDF_end_page_ext($pdf, $optlist) {}
 function PDF_end_page($pdf) {}
 
 /**
+ * Finish pattern
+ *
+ * Finishes the pattern definition. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf The PDF doc
  *
  * @return bool
@@ -2523,6 +3155,10 @@ function PDF_end_page($pdf) {}
 function PDF_end_pattern($pdf) {}
 
 /**
+ * Finish template
+ *
+ * Finishes a template definition. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf The PDF doc
  *
  * @return bool
@@ -2532,6 +3168,10 @@ function PDF_end_pattern($pdf) {}
 function PDF_end_template($pdf) {}
 
 /**
+ * End current path
+ *
+ * Ends the current path without filling or stroking it.
+ *
  * @param resource $pdf The PDF doc
  *
  * @return bool
@@ -2541,6 +3181,11 @@ function PDF_end_template($pdf) {}
 function PDF_endpath($pdf) {}
 
 /**
+ * Fill image block with variable data
+ *
+ * Fills an image block with variable data according to its properties. This function is only
+ * available in the PDFlib Personalization Server (PPS).
+ *
  * @param resource $pdf
  * @param int $page
  * @param string $blockname
@@ -2554,6 +3199,11 @@ function PDF_endpath($pdf) {}
 function PDF_fill_imageblock($pdf, $page, $blockname, $image, $optlist) {}
 
 /**
+ * Fill PDF block with variable data
+ *
+ * Fills a PDF block with variable data according to its properties. This function is only available
+ * in the PDFlib Personalization Server (PPS).
+ *
  * @param resource $pdf
  * @param int $page
  * @param string $blockname
@@ -2567,6 +3217,11 @@ function PDF_fill_imageblock($pdf, $page, $blockname, $image, $optlist) {}
 function PDF_fill_pdfblock($pdf, $page, $blockname, $contents, $optlist) {}
 
 /**
+ * Fill and stroke path
+ *
+ * Fills and strokes the current path with the current fill and stroke color. Returns TRUE on
+ * success or FALSE on failure.
+ *
  * @param resource $pdf
  *
  * @return bool
@@ -2576,6 +3231,11 @@ function PDF_fill_pdfblock($pdf, $page, $blockname, $contents, $optlist) {}
 function PDF_fill_stroke($pdf) {}
 
 /**
+ * Fill text block with variable data
+ *
+ * Fills a text block with variable data according to its properties. This function is only
+ * available in the PDFlib Personalization Server (PPS).
+ *
  * @param resource $pdf
  * @param int $page
  * @param string $blockname
@@ -2589,6 +3249,11 @@ function PDF_fill_stroke($pdf) {}
 function PDF_fill_textblock($pdf, $page, $blockname, $text, $optlist) {}
 
 /**
+ * Fill current path
+ *
+ * Fills the interior of the current path with the current fill color. Returns TRUE on success or
+ * FALSE on failure.
+ *
  * @param resource $pdf
  *
  * @return bool
@@ -2598,6 +3263,14 @@ function PDF_fill_textblock($pdf, $page, $blockname, $text, $optlist) {}
 function PDF_fill($pdf) {}
 
 /**
+ * Prepare font for later use [deprecated]
+ *
+ * Search for a font and prepare it for later use with PDF_setfont(). The metrics will be loaded,
+ * and if embed is nonzero, the font file will be checked, but not yet used. encoding is one of
+ * builtin, macroman, winansi, host, a user-defined encoding name or the name of a CMap. Parameter
+ * embed is optional before PHP 4.3.5 or with PDFlib less than 5. This function is deprecated since
+ * PDFlib version 5, use PDF_load_font() instead.
+ *
  * @param resource $pdf
  * @param string $fontname
  * @param string $encoding
@@ -2610,6 +3283,11 @@ function PDF_fill($pdf) {}
 function PDF_findfont($pdf, $fontname, $encoding, $embed) {}
 
 /**
+ * Place image or template
+ *
+ * Places an image or template on the page, subject to various options. Returns TRUE on success or
+ * FALSE on failure.
+ *
  * @param resource $pdf
  * @param int $image
  * @param float $x
@@ -2623,6 +3301,11 @@ function PDF_findfont($pdf, $fontname, $encoding, $embed) {}
 function PDF_fit_image($pdf, $image, $x, $y, $optlist) {}
 
 /**
+ * Place imported PDF page
+ *
+ * Places an imported PDF page on the page, subject to various options. Returns TRUE on success or
+ * FALSE on failure.
+ *
  * @param resource $pdf
  * @param int $page
  * @param float $x
@@ -2636,6 +3319,10 @@ function PDF_fit_image($pdf, $image, $x, $y, $optlist) {}
 function PDF_fit_pdi_page($pdf, $page, $x, $y, $optlist) {}
 
 /**
+ * Place table on page
+ *
+ * Places a table on the page fully or partially.
+ *
  * @param resource $pdf
  * @param int $table
  * @param float $llx
@@ -2651,6 +3338,10 @@ function PDF_fit_pdi_page($pdf, $page, $x, $y, $optlist) {}
 function PDF_fit_table($pdf, $table, $llx, $lly, $urx, $ury, $optlist) {}
 
 /**
+ * Format textflow in rectangular area
+ *
+ * Formats the next portion of a textflow into a rectangular area.
+ *
  * @param resource $pdf
  * @param int $textflow
  * @param float $llx
@@ -2666,6 +3357,11 @@ function PDF_fit_table($pdf, $table, $llx, $lly, $urx, $ury, $optlist) {}
 function PDF_fit_textflow($pdf, $textflow, $llx, $lly, $urx, $ury, $optlist) {}
 
 /**
+ * Place single line of text
+ *
+ * Places a single line of text on the page, subject to various options. Returns TRUE on success or
+ * FALSE on failure.
+ *
  * @param resource $pdf
  * @param string $text
  * @param float $x
@@ -2679,6 +3375,10 @@ function PDF_fit_textflow($pdf, $textflow, $llx, $lly, $urx, $ury, $optlist) {}
 function PDF_fit_textline($pdf, $text, $x, $y, $optlist) {}
 
 /**
+ * Get name of unsuccessfull API function
+ *
+ * Gets the name of the API function which threw the last exception or failed.
+ *
  * @param resource $pdf
  *
  * @return string
@@ -2688,6 +3388,10 @@ function PDF_fit_textline($pdf, $text, $x, $y, $optlist) {}
 function PDF_get_apiname($pdf) {}
 
 /**
+ * Get PDF output buffer
+ *
+ * Fetches the buffer containing the generated PDF data.
+ *
  * @param resource $pdf
  *
  * @return string
@@ -2697,6 +3401,10 @@ function PDF_get_apiname($pdf) {}
 function PDF_get_buffer($pdf) {}
 
 /**
+ * Get error text
+ *
+ * Gets the text of the last thrown exception or the reason for a failed function call.
+ *
  * @param resource $pdf
  *
  * @return string
@@ -2706,6 +3414,10 @@ function PDF_get_buffer($pdf) {}
 function PDF_get_errmsg($pdf) {}
 
 /**
+ * Get error number
+ *
+ * Gets the number of the last thrown exception or the reason for a failed function call.
+ *
  * @param resource $pdf
  *
  * @return int
@@ -2715,6 +3427,11 @@ function PDF_get_errmsg($pdf) {}
 function PDF_get_errnum($pdf) {}
 
 /**
+ * Get major version number [deprecated]
+ *
+ * This function is deprecated since PDFlib version 5, use PDF_get_value() with the parameter major
+ * instead.
+ *
  * @return int
  *
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-get-majorversion (deprecated)
@@ -2722,6 +3439,11 @@ function PDF_get_errnum($pdf) {}
 function PDF_get_majorversion() {}
 
 /**
+ * Get minor version number [deprecated]
+ *
+ * Returns the minor version number of the PDFlib version. This function is deprecated since PDFlib
+ * version 5, use PDF_get_value() with the parameter minor instead.
+ *
  * @return int
  *
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-get-minorversion (deprecated)
@@ -2740,6 +3462,10 @@ function PDF_get_minorversion() {}
 function PDF_get_option($pdf, $keyword, $optlist) {}
 
 /**
+ * Get string parameter
+ *
+ * Gets the contents of some PDFlib parameter with string type.
+ *
  * @param resource $pdf
  * @param string $key
  * @param float $modifier
@@ -2751,6 +3477,11 @@ function PDF_get_option($pdf, $keyword, $optlist) {}
 function PDF_get_parameter($pdf, $key, $modifier) {}
 
 /**
+ * Get PDI string parameter [deprecated]
+ *
+ * Gets the contents of a PDI document parameter with string type. This function is deprecated since
+ * PDFlib version 7, use PDF_pcos_get_string() instead.
+ *
  * @param resource $pdf
  * @param string $key
  * @param int $doc
@@ -2764,6 +3495,11 @@ function PDF_get_parameter($pdf, $key, $modifier) {}
 function PDF_get_pdi_parameter($pdf, $key, $doc, $page, $reserved) {}
 
 /**
+ * Get PDI numerical parameter [deprecated]
+ *
+ * Gets the contents of a PDI document parameter with numerical type. This function is deprecated
+ * since PDFlib version 7, use PDF_pcos_get_number() instead.
+ *
  * @param resource $pdf
  * @param string $key
  * @param int $doc
@@ -2788,6 +3524,10 @@ function PDF_get_pdi_value($pdf, $key, $doc, $page, $reserved) {}
 function PDF_get_string($keyword, $optlist) {}
 
 /**
+ * Get numerical parameter
+ *
+ * Gets the value of some PDFlib parameter with numerical type.
+ *
  * @param resource $pdf
  * @param string $key
  * @param float $modifier
@@ -2799,6 +3539,10 @@ function PDF_get_string($keyword, $optlist) {}
 function PDF_get_value($pdf, $key, $modifier) {}
 
 /**
+ * Query detailed information about a loaded font
+ *
+ * Queries detailed information about a loaded font.
+ *
  * @param resource $pdf
  * @param int $font
  * @param string $keyword
@@ -2868,6 +3612,10 @@ function PDF_info_pdi_page($pdf, $page, $keyword, $optlist) {}
 function PDF_info_pvf($pdf, $filename, $keyword) {}
 
 /**
+ * Query matchbox information
+ *
+ * Queries information about a matchbox on the current page.
+ *
  * @param resource $pdf
  * @param string $boxname
  * @param int $num
@@ -2880,6 +3628,10 @@ function PDF_info_pvf($pdf, $filename, $keyword) {}
 function PDF_info_matchbox($pdf, $boxname, $num, $keyword) {}
 
 /**
+ * Retrieve table information
+ *
+ * Retrieves table information related to the most recently placed table instance.
+ *
  * @param resource $pdf
  * @param int $table
  * @param string $keyword
@@ -2891,6 +3643,10 @@ function PDF_info_matchbox($pdf, $boxname, $num, $keyword) {}
 function PDF_info_table($pdf, $table, $keyword) {}
 
 /**
+ * Query textflow state
+ *
+ * Queries the current state of a textflow.
+ *
  * @param resource $pdf
  * @param int $textflow
  * @param string $keyword
@@ -2902,6 +3658,10 @@ function PDF_info_table($pdf, $table, $keyword) {}
 function PDF_info_textflow($pdf, $textflow, $keyword) {}
 
 /**
+ * Perform textline formatting and query metrics
+ *
+ * Performs textline formatting and queries the resulting metrics.
+ *
  * @param resource $pdf
  * @param string $text
  * @param string $keyword
@@ -2914,6 +3674,11 @@ function PDF_info_textflow($pdf, $textflow, $keyword) {}
 function PDF_info_textline($pdf, $text, $keyword, $optlist) {}
 
 /**
+ * Reset graphic state
+ *
+ * Reset all color and graphics state parameters to their defaults. Returns TRUE on success or FALSE
+ * on failure.
+ *
  * @param resource $pdf
  *
  * @return bool
@@ -2923,6 +3688,11 @@ function PDF_info_textline($pdf, $text, $keyword, $optlist) {}
 function PDF_initgraphics($pdf) {}
 
 /**
+ * Draw a line
+ *
+ * Draws a line from the current point to another point. Returns TRUE on success or FALSE on
+ * failure.
+ *
  * @param resource $pdf
  * @param float $x
  * @param float $y
@@ -2934,6 +3704,10 @@ function PDF_initgraphics($pdf) {}
 function PDF_lineto($pdf, $x, $y) {}
 
 /**
+ * Load 3D model
+ *
+ * Loads a 3D model from a disk-based or virtual file. This function requires PDF 1.6.
+ *
  * @param resource $pdf
  * @param string $filename
  * @param string $optlist
@@ -2945,6 +3719,10 @@ function PDF_lineto($pdf, $x, $y) {}
 function PDF_load_3ddata($pdf, $filename, $optlist) {}
 
 /**
+ * Search and prepare font
+ *
+ * Searches for a font and prepares it for later use.
+ *
  * @param resource $pdf
  * @param string $fontname
  * @param string $encoding
@@ -2957,6 +3735,10 @@ function PDF_load_3ddata($pdf, $filename, $optlist) {}
 function PDF_load_font($pdf, $fontname, $encoding, $optlist) {}
 
 /**
+ * Search and prepare ICC profile
+ *
+ * Searches for an ICC profile, and prepares it for later use.
+ *
  * @param resource $pdf
  * @param string $profilename
  * @param string $optlist
@@ -2968,6 +3750,10 @@ function PDF_load_font($pdf, $fontname, $encoding, $optlist) {}
 function PDF_load_iccprofile($pdf, $profilename, $optlist) {}
 
 /**
+ * Open image file
+ *
+ * Opens a disk-based or virtual image file subject to various options.
+ *
  * @param resource $pdf
  * @param string $imagetype
  * @param string $filename
@@ -2980,6 +3766,11 @@ function PDF_load_iccprofile($pdf, $profilename, $optlist) {}
 function PDF_load_image($pdf, $imagetype, $filename, $optlist) {}
 
 /**
+ * Make spot color
+ *
+ * Finds a built-in spot color name, or makes a named spot color from the current fill color.
+ * Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param string $spotname
  *
@@ -2990,6 +3781,10 @@ function PDF_load_image($pdf, $imagetype, $filename, $optlist) {}
 function PDF_makespotcolor($pdf, $spotname) {}
 
 /**
+ * Set current point
+ *
+ * Sets the current point for graphics output. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param float $x
  * @param float $y
@@ -3001,6 +3796,10 @@ function PDF_makespotcolor($pdf, $spotname) {}
 function PDF_moveto($pdf, $x, $y) {}
 
 /**
+ * Create PDFlib object
+ *
+ * Creates a new PDFlib object with default settings.
+ *
  * @return resource
  *
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.pdf-new
@@ -3008,6 +3807,11 @@ function PDF_moveto($pdf, $x, $y) {}
 function PDF_new() {}
 
 /**
+ * Open raw CCITT image [deprecated]
+ *
+ * Opens a raw CCITT image. This function is deprecated since PDFlib version 5, use PDF_load_image()
+ * instead.
+ *
  * @param resource $pdf
  * @param string $filename
  * @param int $width
@@ -3023,6 +3827,11 @@ function PDF_new() {}
 function PDF_open_ccitt($pdf, $filename, $width, $height, $BitReverse, $k, $Blackls1) {}
 
 /**
+ * Create PDF file [deprecated]
+ *
+ * Creates a new PDF file using the supplied file name. Returns TRUE on success or FALSE on failure.
+ * This function is deprecated since PDFlib version 6, use PDF_begin_document() instead.
+ *
  * @param resource $pdf
  * @param string $filename
  *
@@ -3033,6 +3842,11 @@ function PDF_open_ccitt($pdf, $filename, $width, $height, $BitReverse, $k, $Blac
 function PDF_open_file($pdf, $filename) {}
 
 /**
+ * Read image from file [deprecated]
+ *
+ * Opens an image file. This function is deprecated since PDFlib version 5, use PDF_load_image()
+ * with the colorize, ignoremask, invert, mask, masked, and page options instead.
+ *
  * @param resource $pdf
  * @param string $imagetype
  * @param string $filename
@@ -3046,6 +3860,11 @@ function PDF_open_file($pdf, $filename) {}
 function PDF_open_image_file($pdf, $imagetype, $filename, $stringparam, $intparam) {}
 
 /**
+ * Use image data [deprecated]
+ *
+ * Uses image data from a variety of data sources. This function is deprecated since PDFlib version
+ * 5, use virtual files and PDF_load_image() instead.
+ *
  * @param resource $pdf
  * @param string $imagetype
  * @param string $source
@@ -3064,6 +3883,10 @@ function PDF_open_image_file($pdf, $imagetype, $filename, $stringparam, $intpara
 function PDF_open_image($pdf, $imagetype, $source, $data, $length, $width, $height, $components, $bpc, $params) {}
 
 /**
+ * Open image created with PHP's image functions [not supported]
+ *
+ * This function is not supported by PDFlib GmbH.
+ *
  * @param resource $pdf
  * @param resource $image
  *
@@ -3074,6 +3897,10 @@ function PDF_open_image($pdf, $imagetype, $source, $data, $length, $width, $heig
 function PDF_open_memory_image($pdf, $image) {}
 
 /**
+ * Prepare a pdi document
+ *
+ * Open a disk-based or virtual PDF document and prepare it for later use.
+ *
  * @param resource $pdf
  * @param string $filename
  * @param string $optlist
@@ -3085,6 +3912,10 @@ function PDF_open_memory_image($pdf, $image) {}
 function PDF_open_pdi_document($pdf, $filename, $optlist) {}
 
 /**
+ * Prepare a page
+ *
+ * Prepares a page for later use with PDF_fit_pdi_page().
+ *
  * @param resource $pdf
  * @param int $doc
  * @param int $pagenumber
@@ -3097,6 +3928,11 @@ function PDF_open_pdi_document($pdf, $filename, $optlist) {}
 function PDF_open_pdi_page($pdf, $doc, $pagenumber, $optlist) {}
 
 /**
+ * Open PDF file [deprecated]
+ *
+ * Opens a disk-based or virtual PDF document and prepares it for later use. This function is
+ * deprecated since PDFlib version 7, use PDF_open_pdi_document() instead.
+ *
  * @param resource $pdf
  * @param string $filename
  * @param string $optlist
@@ -3109,6 +3945,10 @@ function PDF_open_pdi_page($pdf, $doc, $pagenumber, $optlist) {}
 function PDF_open_pdi($pdf, $filename, $optlist, $len) {}
 
 /**
+ * Get value of pCOS path with type number or boolean
+ *
+ * Gets the value of a pCOS path with type number or boolean.
+ *
  * @param resource $pdf
  * @param int $doc
  * @param string $path
@@ -3120,6 +3960,10 @@ function PDF_open_pdi($pdf, $filename, $optlist, $len) {}
 function PDF_pcos_get_number($pdf, $doc, $path) {}
 
 /**
+ * Get contents of pCOS path with type stream, fstream, or string
+ *
+ * Gets the contents of a pCOS path with type stream, fstream, or string.
+ *
  * @param resource $pdf
  * @param int $doc
  * @param string $optlist
@@ -3132,6 +3976,10 @@ function PDF_pcos_get_number($pdf, $doc, $path) {}
 function PDF_pcos_get_stream($pdf, $doc, $optlist, $path) {}
 
 /**
+ * Get value of pCOS path with type name, string, or boolean
+ *
+ * Gets the value of a pCOS path with type name, string, or boolean.
+ *
  * @param resource $pdf
  * @param int $doc
  * @param string $path
@@ -3143,6 +3991,11 @@ function PDF_pcos_get_stream($pdf, $doc, $optlist, $path) {}
 function PDF_pcos_get_string($pdf, $doc, $path) {}
 
 /**
+ * Place image on the page [deprecated]
+ *
+ * Places an image and scales it. Returns TRUE on success or FALSE on failure. This function is
+ * deprecated since PDFlib version 5, use PDF_fit_image() instead.
+ *
  * @param resource $pdf
  * @param int $image
  * @param float $x
@@ -3156,6 +4009,11 @@ function PDF_pcos_get_string($pdf, $doc, $path) {}
 function PDF_place_image($pdf, $image, $x, $y, $scale) {}
 
 /**
+ * Place PDF page [deprecated]
+ *
+ * Places a PDF page and scales it. Returns TRUE on success or FALSE on failure. This function is
+ * deprecated since PDFlib version 5, use PDF_fit_pdi_page() instead.
+ *
  * @param resource $pdf
  * @param int $page
  * @param float $x
@@ -3170,6 +4028,10 @@ function PDF_place_image($pdf, $image, $x, $y, $scale) {}
 function PDF_place_pdi_page($pdf, $page, $x, $y, $sx, $sy) {}
 
 /**
+ * Process imported PDF document
+ *
+ * Processes certain elements of an imported PDF document.
+ *
  * @param resource $pdf
  * @param int $doc
  * @param int $page
@@ -3182,6 +4044,10 @@ function PDF_place_pdi_page($pdf, $page, $x, $y, $sx, $sy) {}
 function PDF_process_pdi($pdf, $doc, $page, $optlist) {}
 
 /**
+ * Draw rectangle
+ *
+ * Draws a rectangle. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param float $x
  * @param float $y
@@ -3195,6 +4061,10 @@ function PDF_process_pdi($pdf, $doc, $page, $optlist) {}
 function PDF_rect($pdf, $x, $y, $width, $height) {}
 
 /**
+ * Restore graphics state
+ *
+ * Restores the most recently saved graphics state. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf The PDF doc
  *
  * @return bool
@@ -3204,6 +4074,10 @@ function PDF_rect($pdf, $x, $y, $width, $height) {}
 function PDF_restore($pdf) {}
 
 /**
+ * Resume page
+ *
+ * Resumes a page to add more content to it.
+ *
  * @param resource $pdf
  * @param string $optlist
  *
@@ -3214,6 +4088,10 @@ function PDF_restore($pdf) {}
 function PDF_resume_page($pdf, $optlist) {}
 
 /**
+ * Rotate coordinate system
+ *
+ * Rotates the coordinate system. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param float $phi
  *
@@ -3224,6 +4102,10 @@ function PDF_resume_page($pdf, $optlist) {}
 function PDF_rotate($pdf, $phi) {}
 
 /**
+ * Save graphics state
+ *
+ * Saves the current graphics state. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf The PDF doc
  *
  * @return bool
@@ -3233,6 +4115,10 @@ function PDF_rotate($pdf, $phi) {}
 function PDF_save($pdf) {}
 
 /**
+ * Scale coordinate system
+ *
+ * Scales the coordinate system. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param float $sx
  * @param float $sy
@@ -3244,6 +4130,12 @@ function PDF_save($pdf) {}
 function PDF_scale($pdf, $sx, $sy) {}
 
 /**
+ * Set border color of annotations [deprecated]
+ *
+ * Sets the border color for all kinds of annotations. Returns TRUE on success or FALSE on failure.
+ * This function is deprecated since PDFlib version 6, use the option annotcolor in
+ * PDF_create_annotation() instead.
+ *
  * @param resource $pdf
  * @param float $red
  * @param float $green
@@ -3256,6 +4148,12 @@ function PDF_scale($pdf, $sx, $sy) {}
 function PDF_set_border_color($pdf, $red, $green, $blue) {}
 
 /**
+ * Set border dash style of annotations [deprecated]
+ *
+ * Sets the border dash style for all kinds of annotations. Returns TRUE on success or FALSE on
+ * failure. This function is deprecated since PDFlib version 6, use the option dasharray in
+ * PDF_create_annotation() instead.
+ *
  * @param resource $pdf
  * @param float $black
  * @param float $white
@@ -3267,6 +4165,12 @@ function PDF_set_border_color($pdf, $red, $green, $blue) {}
 function PDF_set_border_dash($pdf, $black, $white) {}
 
 /**
+ * Set border style of annotations [deprecated]
+ *
+ * Sets the border style for all kinds of annotations. Returns TRUE on success or FALSE on failure.
+ * This function is deprecated since PDFlib version 6, use the options borderstyle and linewidth in
+ * PDF_create_annotation() instead.
+ *
  * @param resource $pdf
  * @param string $style
  * @param float $width
@@ -3278,6 +4182,10 @@ function PDF_set_border_dash($pdf, $black, $white) {}
 function PDF_set_border_style($pdf, $style, $width) {}
 
 /**
+ * Activate graphics state object
+ *
+ * Activates a graphics state object.
+ *
  * @param resource $pdf
  * @param int $gstate
  *
@@ -3288,6 +4196,10 @@ function PDF_set_border_style($pdf, $style, $width) {}
 function PDF_set_gstate($pdf, $gstate) {}
 
 /**
+ * Fill document info field
+ *
+ * Fill document information field key with value. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param string $key
  * @param string $value
@@ -3299,6 +4211,11 @@ function PDF_set_gstate($pdf, $gstate) {}
 function PDF_set_info($pdf, $key, $value) {}
 
 /**
+ * Define relationships among layers
+ *
+ * Defines hierarchical and group relationships among layers. Returns TRUE on success or FALSE on
+ * failure. This function requires PDF 1.5.
+ *
  * @param resource $pdf
  * @param string $type
  * @param string $optlist
@@ -3320,6 +4237,10 @@ function PDF_set_layer_dependency($pdf, $type, $optlist) {}
 function PDF_set_option($pdf, $optlist) {}
 
 /**
+ * Set string parameter
+ *
+ * Sets some PDFlib parameter with string type. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param string $key
  * @param string $value
@@ -3341,6 +4262,10 @@ function PDF_set_parameter($pdf, $key, $value) {}
 function PDF_set_text_option($pdf, $optlist) {}
 
 /**
+ * Set text position
+ *
+ * Sets the position for text output on the page. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param float $x
  * @param float $y
@@ -3352,6 +4277,11 @@ function PDF_set_text_option($pdf, $optlist) {}
 function PDF_set_text_pos($pdf, $x, $y) {}
 
 /**
+ * Set numerical parameter
+ *
+ * Sets the value of some PDFlib parameter with numerical type. Returns TRUE on success or FALSE on
+ * failure.
+ *
  * @param resource $pdf
  * @param string $key
  * @param float $value
@@ -3363,6 +4293,10 @@ function PDF_set_text_pos($pdf, $x, $y) {}
 function PDF_set_value($pdf, $key, $value) {}
 
 /**
+ * Set fill and stroke color
+ *
+ * Sets the current color space and color. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param string $fstype
  * @param string $colorspace
@@ -3378,6 +4312,11 @@ function PDF_set_value($pdf, $key, $value) {}
 function PDF_setcolor($pdf, $fstype, $colorspace, $c1, $c2, $c3, $c4) {}
 
 /**
+ * Set simple dash pattern
+ *
+ * Sets the current dash pattern to b black and w white units. Returns TRUE on success or FALSE on
+ * failure.
+ *
  * @param resource $pdf
  * @param float $b
  * @param float $w
@@ -3389,6 +4328,10 @@ function PDF_setcolor($pdf, $fstype, $colorspace, $c1, $c2, $c3, $c4) {}
 function PDF_setdash($pdf, $b, $w) {}
 
 /**
+ * Set dash pattern
+ *
+ * Sets a dash pattern defined by an option list. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param string $optlist
  *
@@ -3399,6 +4342,10 @@ function PDF_setdash($pdf, $b, $w) {}
 function PDF_setdashpattern($pdf, $optlist) {}
 
 /**
+ * Set flatness
+ *
+ * Sets the flatness parameter. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param float $flatness
  *
@@ -3409,6 +4356,11 @@ function PDF_setdashpattern($pdf, $optlist) {}
 function PDF_setflat($pdf, $flatness) {}
 
 /**
+ * Set font
+ *
+ * Sets the current font in the specified fontsize, using a font handle returned by PDF_load_font().
+ * Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param int $font
  * @param float $fontsize
@@ -3420,6 +4372,11 @@ function PDF_setflat($pdf, $flatness) {}
 function PDF_setfont($pdf, $font, $fontsize) {}
 
 /**
+ * Set fill color to gray [deprecated]
+ *
+ * Sets the current fill color to a gray value between 0 and 1 inclusive. Returns TRUE on success or
+ * FALSE on failure. This function is deprecated since PDFlib version 4, use PDF_setcolor() instead.
+ *
  * @param resource $pdf
  * @param float $g
  *
@@ -3430,6 +4387,12 @@ function PDF_setfont($pdf, $font, $fontsize) {}
 function PDF_setgray_fill($pdf, $g) {}
 
 /**
+ * Set stroke color to gray [deprecated]
+ *
+ * Sets the current stroke color to a gray value between 0 and 1 inclusive. Returns TRUE on success
+ * or FALSE on failure. This function is deprecated since PDFlib version 4, use PDF_setcolor()
+ * instead.
+ *
  * @param resource $pdf
  * @param float $g
  *
@@ -3440,6 +4403,12 @@ function PDF_setgray_fill($pdf, $g) {}
 function PDF_setgray_stroke($pdf, $g) {}
 
 /**
+ * Set color to gray [deprecated]
+ *
+ * Sets the current fill and stroke color to a gray value between 0 and 1 inclusive. Returns TRUE on
+ * success or FALSE on failure. This function is deprecated since PDFlib version 4, use
+ * PDF_setcolor() instead.
+ *
  * @param resource $pdf
  * @param float $g
  *
@@ -3450,6 +4419,10 @@ function PDF_setgray_stroke($pdf, $g) {}
 function PDF_setgray($pdf, $g) {}
 
 /**
+ * Set linecap parameter
+ *
+ * Sets the linecap parameter to control the shape at the end of a path with respect to stroking.
+ *
  * @param resource $pdf
  * @param int $linecap
  *
@@ -3460,6 +4433,11 @@ function PDF_setgray($pdf, $g) {}
 function PDF_setlinecap($pdf, $linecap) {}
 
 /**
+ * Set linejoin parameter
+ *
+ * Sets the linejoin parameter to specify the shape at the corners of paths that are stroked.
+ * Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param int $value
  *
@@ -3470,6 +4448,10 @@ function PDF_setlinecap($pdf, $linecap) {}
 function PDF_setlinejoin($pdf, $value) {}
 
 /**
+ * Set line width
+ *
+ * Sets the current line width. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param float $width
  *
@@ -3480,6 +4462,10 @@ function PDF_setlinejoin($pdf, $value) {}
 function PDF_setlinewidth($pdf, $width) {}
 
 /**
+ * Set current transformation matrix
+ *
+ * Explicitly sets the current transformation matrix. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param float $a
  * @param float $b
@@ -3495,6 +4481,10 @@ function PDF_setlinewidth($pdf, $width) {}
 function PDF_setmatrix($pdf, $a, $b, $c, $d, $e, $f) {}
 
 /**
+ * Set miter limit
+ *
+ * Sets the miter limit.Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param float $miter
  *
@@ -3505,6 +4495,11 @@ function PDF_setmatrix($pdf, $a, $b, $c, $d, $e, $f) {}
 function PDF_setmiterlimit($pdf, $miter) {}
 
 /**
+ * Set fill rgb color values [deprecated]
+ *
+ * Sets the current fill color to the supplied RGB values. Returns TRUE on success or FALSE on
+ * failure. This function is deprecated since PDFlib version 4, use PDF_setcolor() instead.
+ *
  * @param resource $pdf
  * @param float $red
  * @param float $green
@@ -3517,6 +4512,11 @@ function PDF_setmiterlimit($pdf, $miter) {}
 function PDF_setrgbcolor_fill($pdf, $red, $green, $blue) {}
 
 /**
+ * Set stroke rgb color values [deprecated]
+ *
+ * Sets the current stroke color to the supplied RGB values. Returns TRUE on success or FALSE on
+ * failure. This function is deprecated since PDFlib version 4, use PDF_setcolor() instead.
+ *
  * @param resource $pdf
  * @param float $red
  * @param float $green
@@ -3529,6 +4529,11 @@ function PDF_setrgbcolor_fill($pdf, $red, $green, $blue) {}
 function PDF_setrgbcolor_stroke($pdf, $red, $green, $blue) {}
 
 /**
+ * Set fill and stroke rgb color values [deprecated]
+ *
+ * Sets the current fill and stroke color to the supplied RGB values. Returns TRUE on success or
+ * FALSE on failure. This function is deprecated since PDFlib version 4, use PDF_setcolor() instead.
+ *
  * @param resource $pdf
  * @param float $red
  * @param float $green
@@ -3541,6 +4546,10 @@ function PDF_setrgbcolor_stroke($pdf, $red, $green, $blue) {}
 function PDF_setrgbcolor($pdf, $red, $green, $blue) {}
 
 /**
+ * Define shading pattern
+ *
+ * Defines a shading pattern using a shading object. This function requires PDF 1.4 or above.
+ *
  * @param resource $pdf
  * @param int $shading
  * @param string $optlist
@@ -3552,6 +4561,11 @@ function PDF_setrgbcolor($pdf, $red, $green, $blue) {}
 function PDF_shading_pattern($pdf, $shading, $optlist) {}
 
 /**
+ * Define blend
+ *
+ * Defines a blend from the current fill color to another color. This function requires PDF 1.4 or
+ * above.
+ *
  * @param resource $pdf
  * @param string $shtype
  * @param float $x0
@@ -3571,6 +4585,10 @@ function PDF_shading_pattern($pdf, $shading, $optlist) {}
 function PDF_shading($pdf, $shtype, $x0, $y0, $x1, $y1, $c1, $c2, $c3, $c4, $optlist) {}
 
 /**
+ * Fill area with shading
+ *
+ * Fills an area with a shading, based on a shading object. This function requires PDF 1.4 or above.
+ *
  * @param resource $pdf
  * @param int $shading
  *
@@ -3581,6 +4599,11 @@ function PDF_shading($pdf, $shtype, $x0, $y0, $x1, $y1, $c1, $c2, $c3, $c4, $opt
 function PDF_shfill($pdf, $shading) {}
 
 /**
+ * Output text in a box [deprecated]
+ *
+ * This function is deprecated since PDFlib version 6, use PDF_fit_textline() for single lines, or
+ * the PDF_*_textflow() functions for multi-line formatting instead.
+ *
  * @param resource $pdf
  * @param string $text
  * @param float $left
@@ -3597,6 +4620,10 @@ function PDF_shfill($pdf, $shading) {}
 function PDF_show_boxed($pdf, $text, $left, $top, $width, $height, $mode, $feature) {}
 
 /**
+ * Output text at given position
+ *
+ * Prints text in the current font. Returns TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param string $text
  * @param float $x
@@ -3609,6 +4636,11 @@ function PDF_show_boxed($pdf, $text, $left, $top, $width, $height, $mode, $featu
 function PDF_show_xy($pdf, $text, $x, $y) {}
 
 /**
+ * Output text at current position
+ *
+ * Prints text in the current font and size at the current position. Returns TRUE on success or
+ * FALSE on failure.
+ *
  * @param resource $pdf
  * @param string $text
  *
@@ -3619,6 +4651,11 @@ function PDF_show_xy($pdf, $text, $x, $y) {}
 function PDF_show($pdf, $text) {}
 
 /**
+ * Skew the coordinate system
+ *
+ * Skews the coordinate system in x and y direction by alpha and beta degrees, respectively. Returns
+ * TRUE on success or FALSE on failure.
+ *
  * @param resource $pdf
  * @param float $alpha
  * @param float $beta
@@ -3630,6 +4667,10 @@ function PDF_show($pdf, $text) {}
 function PDF_skew($pdf, $alpha, $beta) {}
 
 /**
+ * Return width of text
+ *
+ * Returns the width of text in an arbitrary font.
+ *
  * @param resource $pdf
  * @param string $text
  * @param int $font
@@ -3642,6 +4683,11 @@ function PDF_skew($pdf, $alpha, $beta) {}
 function PDF_stringwidth($pdf, $text, $font, $fontsize) {}
 
 /**
+ * Stroke path
+ *
+ * Strokes the path with the current color and line width, and clear it. Returns TRUE on success or
+ * FALSE on failure.
+ *
  * @param resource $pdf The PDF doc
  *
  * @return bool
@@ -3651,6 +4697,10 @@ function PDF_stringwidth($pdf, $text, $font, $fontsize) {}
 function PDF_stroke($pdf) {}
 
 /**
+ * Suspend page
+ *
+ * Suspends the current page so that it can later be resumed with PDF_resume_page().
+ *
  * @param resource $pdf
  * @param string $optlist
  *
@@ -3661,6 +4711,10 @@ function PDF_stroke($pdf) {}
 function PDF_suspend_page($pdf, $optlist) {}
 
 /**
+ * Set origin of coordinate system
+ *
+ * Translates the origin of the coordinate system.
+ *
  * @param resource $pdf
  * @param float $tx
  * @param float $ty
@@ -3672,6 +4726,10 @@ function PDF_suspend_page($pdf, $optlist) {}
 function PDF_translate($pdf, $tx, $ty) {}
 
 /**
+ * Convert string from UTF-16 to UTF-8
+ *
+ * Converts a string from UTF-16 format to UTF-8.
+ *
  * @param resource $pdf
  * @param string $utf16string
  *
@@ -3682,6 +4740,10 @@ function PDF_translate($pdf, $tx, $ty) {}
 function PDF_utf16_to_utf8($pdf, $utf16string) {}
 
 /**
+ * Convert string from UTF-32 to UTF-16
+ *
+ * Converts a string from UTF-32 format to UTF-16.
+ *
  * @param resource $pdf
  * @param string $utf32string
  * @param string $ordering
@@ -3693,6 +4755,10 @@ function PDF_utf16_to_utf8($pdf, $utf16string) {}
 function PDF_utf32_to_utf16($pdf, $utf32string, $ordering) {}
 
 /**
+ * Convert string from UTF-8 to UTF-16
+ *
+ * Converts a string from UTF-8 format to UTF-16.
+ *
  * @param resource $pdf
  * @param string $utf8string
  * @param string $ordering

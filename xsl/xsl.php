@@ -55,7 +55,9 @@ class XSLTProcessor
      * Transform to a DOMDocument
      * @link https://php.net/manual/en/xsltprocessor.transformtodoc.php
      * @param object $document The DOMDocument or SimpleXMLElement or libxml-compatible object to be transformed.
-     * @param string|null $returnClass
+     * @param string|null $returnClass This optional parameter may be used so that
+     * XSLTProcessor::transformToDoc will return an object of the specified class. That class should
+     * either extend or be the same class as document's class.
      * @return DOMDocument|false The resulting <b>DOMDocument</b> or <b>FALSE</b> on error.
      */
     #[TentativeType]
@@ -207,8 +209,11 @@ class XSLTProcessor
     /**
      * Set security preferences
      * @link https://php.net/manual/en/xsltprocessor.setsecurityprefs.php
-     * @param int $preferences
-     * @return int
+     * @param int $preferences The new security preferences. The following constants can be ORed:
+     * XSL_SECPREF_READ_FILE, XSL_SECPREF_WRITE_FILE, XSL_SECPREF_CREATE_DIRECTORY,
+     * XSL_SECPREF_READ_NETWORK, XSL_SECPREF_WRITE_NETWORK. Alternatively, XSL_SECPREF_NONE or
+     * XSL_SECPREF_DEFAULT can be passed.
+     * @return int Returns the old security preferences.
      * @since 5.4
      */
     #[TentativeType]
@@ -217,7 +222,8 @@ class XSLTProcessor
     /**
      * Get security preferences
      * @link https://php.net/manual/en/xsltprocessor.getsecurityprefs.php
-     * @return int
+     * @return int A bitmask consisting of XSL_SECPREF_READ_FILE, XSL_SECPREF_WRITE_FILE,
+     * XSL_SECPREF_CREATE_DIRECTORY, XSL_SECPREF_READ_NETWORK, XSL_SECPREF_WRITE_NETWORK.
      * @since 5.4
      */
     #[TentativeType]

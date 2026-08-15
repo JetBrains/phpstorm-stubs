@@ -489,7 +489,7 @@ function snmp_set_quick_print($quick_print) {}
  * @param int $enum_print <p>
  * As the value is interpreted as boolean by the Net-SNMP library, it can only be "0" or "1".
  * </p>
- * @return bool
+ * @return bool Always returns true.
  */
 function snmp_set_enum_print($enum_print) {}
 
@@ -952,7 +952,7 @@ function snmp3_set($hostname, $security_name, $security_level, $auth_protocol, $
  * </td>
  * </tr>
  * </table>
- * @return bool
+ * @return bool Always returns true.
  */
 function snmp_set_valueretrieval($method) {}
 
@@ -969,7 +969,7 @@ function snmp_get_valueretrieval() {}
  * Reads and parses a MIB file into the active MIB tree
  * @link https://php.net/manual/en/function.snmp-read-mib.php
  * @param string $filename <p>The filename of the MIB.</p>
- * @return bool
+ * @return bool Returns true on success or false on failure.
  */
 function snmp_read_mib($filename) {}
 

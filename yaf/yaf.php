@@ -154,7 +154,8 @@ final class Yaf_Application
      *
      * @link https://secure.php.net/manual/en/yaf-application.app.php
      *
-     * @return Yaf_Application
+     * @return Yaf_Application A Yaf_Application instance, if no Yaf_Application was initialized
+     * before, null will be returned.
      */
     public static function app() {}
 
@@ -173,12 +174,12 @@ final class Yaf_Application
      * @link https://secure.php.net/manual/en/yaf-application.bootstrap.php
      *
      * @param Yaf_Bootstrap_Abstract $bootstrap A Yaf_Bootstrap_Abstract instance
-     * @return Yaf_Application
+     * @return Yaf_Application Yaf_Application instance
      */
     public function bootstrap($bootstrap = null) {}
 
     /**
-     * @return Yaf_Config_Abstract
+     * @return Yaf_Config_Abstract A Yaf_Config_Abstract instance
      */
     public function getConfig() {}
 
@@ -358,17 +359,17 @@ final class Yaf_Dispatcher
     public function getResponse() {}
 
     /**
-     * @return string|null
+     * @return string|null string, module name, default is "Index"
      */
     public function getDefaultModule() {}
 
     /**
-     * @return string|null
+     * @return string|null string, default controller name, default is "Index"
      */
     public function getDefaultController() {}
 
     /**
-     * @return string|null
+     * @return string|null string, default action name, default is "index"
      */
     public function getDefaultAction() {}
 
@@ -545,7 +546,7 @@ final class Yaf_Dispatcher
      *
      * @link https://secure.php.net/manual/en/yaf-dispatcher.throwexception.php
      *
-     * @param bool $flag
+     * @param bool $flag bool
      * @return Yaf_Dispatcher
      */
     public function throwException($flag = null) {}
@@ -556,7 +557,7 @@ final class Yaf_Dispatcher
      *
      * @link https://secure.php.net/manual/en/yaf-dispatcher.catchexception.php
      *
-     * @param bool $flag
+     * @param bool $flag bool
      * @return Yaf_Dispatcher
      */
     public function catchException($flag = null) {}
@@ -665,7 +666,7 @@ class Yaf_Loader
      * @param string|string[] $namespace a string or a array of class name prefix. all class prefix with these prefix will be loaded in local library path.
      * @param string $path
      *
-     * @return bool
+     * @return bool bool
      */
     public function registerLocalNamespace($namespace, $path = '') {}
 
@@ -726,15 +727,16 @@ class Yaf_Loader
     public function getLibraryPath($is_global = false) {}
 
     /**
-     * @param string|array $namespace
-     * @param string $path
-     * @return Yaf_Loader|null|false
+     * @param string|array $namespace a string of namespace, or an array of namespaces with paths.
+     * @param string $path a string of path, it is better to use abosolute path here for performance
+     * @return Yaf_Loader|null|false bool
      */
     public function registerNamespace($namespace, $path = '') {}
 
     /**
      * @param string $class_name
-     * @return string
+     * @return string string path, if the namespace is not registered, then null default library
+     * will be returned
      */
     public function getNamespacePath($class_name) {}
 }
@@ -1180,7 +1182,7 @@ abstract class Yaf_Controller_Abstract
      *
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.getrequest.php
      *
-     * @return Yaf_Request_Abstract
+     * @return Yaf_Request_Abstract Yaf_Request_Abstract instance
      */
     public function getRequest() {}
 
@@ -1189,7 +1191,7 @@ abstract class Yaf_Controller_Abstract
      *
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.getresponse.php
      *
-     * @return Yaf_Response_Abstract
+     * @return Yaf_Response_Abstract Yaf_Response_Abstract instance
      */
     public function getResponse() {}
 
@@ -1212,7 +1214,7 @@ abstract class Yaf_Controller_Abstract
     public function getView() {}
 
     /**
-     * @return string|null
+     * @return string|null string, controller name
      */
     public function getName() {}
 
@@ -1270,7 +1272,7 @@ abstract class Yaf_Controller_Abstract
      *
      * @param string $url a location URL
      *
-     * @return bool
+     * @return bool bool
      */
     public function redirect($url) {}
 
@@ -1345,12 +1347,12 @@ abstract class Yaf_Action_Abstract extends Yaf_Controller_Abstract
      *
      * @link https://secure.php.net/manual/en/yaf-action-abstract.getcontroller.php
      *
-     * @return Yaf_Controller_Abstract
+     * @return Yaf_Controller_Abstract Yaf_Controller_Abstract instance
      */
     public function getController() {}
 
     /**
-     * @return string
+     * @return string string, controller name
      */
     public function getControllerName() {}
 }
@@ -1540,7 +1542,7 @@ abstract class Yaf_Request_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.isget.php
      *
-     * @return bool
+     * @return bool boolean
      */
     public function isGet() {}
 
@@ -1554,63 +1556,63 @@ abstract class Yaf_Request_Abstract
     public function getRaw() {}
 
     /**
-     * @return Yaf_Request_Abstract|null
+     * @return Yaf_Request_Abstract|null boolean
      */
     public function clearParams() {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.ispost.php
      *
-     * @return bool
+     * @return bool boolean
      */
     public function isPost() {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.isput.php
      *
-     * @return bool
+     * @return bool boolean
      */
     public function isPut() {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.ishead.php
      *
-     * @return bool
+     * @return bool boolean
      */
     public function isHead() {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.isoptions.php
      *
-     * @return bool
+     * @return bool boolean
      */
     public function isOptions() {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.iscli.php
      *
-     * @return bool
+     * @return bool bolean
      */
     public function isCli() {}
 
     /**
      * @link https://php.net/manual/en/yaf-request-abstract.isdispatched.php
      *
-     * @return bool
+     * @return bool boolean
      */
     final public function isDispatched() {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.isrouted.php
      *
-     * @return bool
+     * @return bool boolean
      */
     final public function isRouted() {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.isxmlhttprequest.php
      *
-     * @return bool
+     * @return bool boolean
      */
     public function isXmlHttpRequest() {}
 
@@ -1634,7 +1636,7 @@ abstract class Yaf_Request_Abstract
      * @param string $name the variable name, if not provided returns all
      * @param string $default if this parameter is provide, this will be returned if the variable can not be found
      *
-     * @return mixed
+     * @return mixed Returns string
      */
     public function getEnv($name = null, $default = null) {}
 
@@ -1696,8 +1698,10 @@ abstract class Yaf_Request_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.setmodulename.php
      *
-     * @param string $module
-     * @param bool $format_name
+     * @param string $module string module name, it should be in camel style, like "Index" or
+     * "Foo_Bar"
+     * @param bool $format_name this is introduced in Yaf 3.2.0, by default Yaf will format the name
+     * into camel mode, if this is set to false , Yaf will set the original name to request.
      *
      * @return Yaf_Request_Abstract|bool
      */
@@ -1706,8 +1710,10 @@ abstract class Yaf_Request_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.setcontrollername.php
      *
-     * @param string $controller
-     * @param bool $format_name
+     * @param string $controller string, controller name, this should be in camel style, like
+     * "Index" or "Foo_Bar"
+     * @param bool $format_name this is introduced in Yaf 3.2.0, by default Yaf will format the name
+     * into camel mode, if this is set to false , Yaf will set the original name to request.
      *
      * @return Yaf_Request_Abstract|bool
      */
@@ -1716,8 +1722,10 @@ abstract class Yaf_Request_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.setactionname.php
      *
-     * @param string $action
-     * @param bool $format_name
+     * @param string $action string, action name, it should in lower case style, like "index" or
+     * "foo_bar"
+     * @param bool $format_name this is introduced in Yaf 3.2.0, by default Yaf will format the name
+     * into lower case style, if this is set to false , Yaf will set the original name to request.
      *
      * @return Yaf_Request_Abstract|bool
      */
@@ -1726,14 +1734,14 @@ abstract class Yaf_Request_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getmethod.php
      *
-     * @return string
+     * @return string Return a string, like "POST", "GET" etc.
      */
     public function getMethod() {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getlanguage.php
      *
-     * @return string
+     * @return string Returns a string
      */
     public function getLanguage() {}
 
@@ -1747,7 +1755,7 @@ abstract class Yaf_Request_Abstract
      *
      * @param string $uri base URI
      *
-     * @return bool
+     * @return bool bool
      */
     public function setBaseUri($uri) {}
 
@@ -2010,7 +2018,7 @@ abstract class Yaf_Response_Abstract
      * <b>Note:</b>
      * <p>this parameter is introduced as of 2.2.0</p>
      *
-     * @return bool
+     * @return bool bool
      */
     public function appendBody($body, $name = self::DEFAULT_BODY) {}
 
@@ -2025,7 +2033,7 @@ abstract class Yaf_Response_Abstract
      * <b>Note:</b>
      * <p>this parameter is introduced as of 2.2.0</p>
      *
-     * @return bool
+     * @return bool bool
      */
     public function prependBody($body, $name = self::DEFAULT_BODY) {}
 
@@ -2131,7 +2139,7 @@ interface Yaf_Route_Interface
      *
      * @link https://secure.php.net/manual/en/yaf-route-interface.route.php
      *
-     * @param Yaf_Request_Abstract $request
+     * @param Yaf_Request_Abstract $request A Yaf_Request_Abstract instance.
      * @return bool
      */
     public function route($request);
@@ -2281,7 +2289,7 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract
      * </p>
      * @link https://secure.php.net/manual/en/yaf-request-simple.isxmlhttprequest.php
      *
-     * @return bool
+     * @return bool Always returns false for Yaf_Request_Simple
      */
     public function isXmlHttpRequest() {}
 
@@ -2308,8 +2316,8 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract
 class Yaf_Config_Ini extends Yaf_Config_Abstract implements Iterator, ArrayAccess, Countable
 {
     /**
-     * @param array|string $config_file
-     * @param ?string $section
+     * @param array|string $config_file path to an INI configure file
+     * @param ?string $section which section in that INI file you want to be parsed
      * @throws Yaf_Exception_TypeError
      */
     public function __construct($config_file, ?string $section = null) {}
@@ -2747,7 +2755,7 @@ class Yaf_Route_Static implements Yaf_Route_Interface
      *
      * @param array $info
      * @param array|null $query
-     * @return bool
+     * @return bool Returns a string.
      */
     public function assemble(array $info, ?array $query = null) {}
 }
@@ -2783,9 +2791,9 @@ final class Yaf_Route_Simple implements Yaf_Route_Interface
      *
      * @link https://secure.php.net/manual/en/yaf-route-simple.construct.php
      *
-     * @param string $module_name
-     * @param string $controller_name
-     * @param string $action_name
+     * @param string $module_name The key name of the module info.
+     * @param string $controller_name the key name of the controller info.
+     * @param string $action_name the key name of the action info.
      *
      * @throws Yaf_Exception_TypeError
      */
@@ -2809,7 +2817,7 @@ final class Yaf_Route_Simple implements Yaf_Route_Interface
      *
      * @param array $info
      * @param array|null $query
-     * @return bool
+     * @return bool Returns a string.
      */
     public function assemble(array $info, ?array $query = null) {}
 }
@@ -2851,7 +2859,7 @@ final class Yaf_Route_Supervar implements Yaf_Route_Interface
      *
      * @param array $info
      * @param array|null $query
-     * @return bool
+     * @return bool Returns a string.
      */
     public function assemble(array $info, ?array $query = null) {}
 }
@@ -2908,7 +2916,7 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface
      *
      * @param array $info
      * @param array|null $query
-     * @return bool
+     * @return bool Returns string.
      */
     public function assemble(array $info, ?array $query = null) {}
 
@@ -2960,7 +2968,8 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface
      * <p>either of m/c/a in this array is optional, if you don't assign a specific value, it will be routed to default.</p>
      * @param array|null $map A array to assign name to the captures in the match result.
      * @param array|null $verify
-     * @param string $reverse
+     * @param string $reverse a string, used to assemble url, see Yaf_Route_Regex::assemble. this
+     * parameter is introduced in 2.3.0
      *
      * @throws Yaf_Exception_TypeError
      */
@@ -2984,7 +2993,7 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface
      *
      * @param array $info
      * @param array|null $query
-     * @return bool
+     * @return bool Returns string on success or null on failure.
      */
     public function assemble(array $info, ?array $query = null) {}
 
@@ -3038,7 +3047,7 @@ final class Yaf_Route_Map implements Yaf_Route_Interface
      *
      * @param array $info
      * @param array|null $query
-     * @return bool
+     * @return bool Returns string on success or null on failure.
      */
     public function assemble(array $info, ?array $query = null) {}
 }

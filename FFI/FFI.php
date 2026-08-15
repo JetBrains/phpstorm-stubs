@@ -845,7 +845,8 @@ namespace FFI {
          *
          * @link https://php.net/manual/en/ffi-ctype.getfuncparametercount.php
          * @since 8.1
-         * @return int<0, max>
+         * @return int<0, max> Returns the number of parameters for the underlying function type. If
+         * the underlying type is not a function, an FFI\Exception is thrown.
          * @throws Exception In the case that the type is not a function.
          */
         public function getFuncParameterCount(): int {}
@@ -855,8 +856,10 @@ namespace FFI {
          *
          * @link https://php.net/manual/en/ffi-ctype.getfuncparametertype.php
          * @since 8.1
-         * @param int<0, max> $index
-         * @return CType
+         * @param int<0, max> $index Index of the function parameter, zero-based.
+         * @return CType Returns the type of a parameter for the underlying function type. If the
+         * underlying type is not a function, or the given index is outside of the range of
+         * parameters of the function, an FFI\Exception is thrown.
          * @throws Exception In the case that the type is not a function.
          */
         public function getFuncParameterType(int $index): CType {}

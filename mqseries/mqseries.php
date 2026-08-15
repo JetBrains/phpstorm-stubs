@@ -2,16 +2,16 @@
 
 /**
  * @param resource $hconn
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_back($hconn, &$compCode, &$reason) {}
 
 /**
  * @param resource $hconn
  * @param array $beginOptions
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_begin($hconn, array $beginOptions, &$compCode, &$reason) {}
 
@@ -19,98 +19,103 @@ function mqseries_begin($hconn, array $beginOptions, &$compCode, &$reason) {}
  * @param resource $hconn
  * @param resource $hobj
  * @param int $options
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_close($hconn, $hobj, $options, &$compCode, &$reason) {}
 
 /**
  * @param resource $hconn
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_cmit($hconn, &$compCode, &$reason) {}
 
 /**
- * @param string $qManagerName
+ * @param string $qManagerName Name of queue manager. Name of the queue manager the application
+ * wishes to connect.
  * @param resource &$hconn
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_conn($qManagerName, &$hconn, &$compCode, &$reason) {}
 
 /**
- * @param string $qManagerName
+ * @param string $qManagerName Name of queue manager. Name of the queue manager the application
+ * wishes to connect.
  * @param array &$connOptions
  * @param resource &$hconn
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_connx($qManagerName, array &$connOptions, &$hconn, &$compCode, &$reason) {}
 
 /**
  * @param resource $hconn
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_disc($hconn, &$compCode, &$reason) {}
 
 /**
- * @param resource $hConn
- * @param resource $hObj
- * @param array &$md
- * @param array &$gmo
- * @param int &$bufferLength
- * @param string &$msg
- * @param int &$data_length
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource $hConn Connection handle. This handle represents the connection to the queue
+ * manager.
+ * @param resource $hObj Object handle. This handle represents the object to be used.
+ * @param array &$md Message descriptor (MQMD).
+ * @param array &$gmo Get message options (MQGMO).
+ * @param int &$bufferLength Expected length of the result buffer
+ * @param string &$msg Buffer holding the message that was retrieved from the object.
+ * @param int &$data_length Actual buffer length
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_get($hConn, $hObj, array &$md, array &$gmo, &$bufferLength, &$msg, &$data_length, &$compCode, &$reason) {}
 
 /**
  * @param resource $hconn
  * @param resource $hobj
- * @param int $selectorCount
- * @param array $selectors
+ * @param int $selectorCount Count of selectors.
+ * @param array $selectors Array of attribute selectors.
  * @param int $intAttrCount
- * @param resource &$intAttr
- * @param int $charAttrLength
- * @param resource &$charAttr
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource &$intAttr Array of integer attributes.
+ * @param int $charAttrLength Length of character attributes buffer.
+ * @param resource &$charAttr Character attributes.
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_inq($hconn, $hobj, $selectorCount, array $selectors, $intAttrCount, &$intAttr, $charAttrLength, &$charAttr, &$compCode, &$reason) {}
 
 /**
  * @param resource $hconn
- * @param array &$objDesc
+ * @param array &$objDesc Object descriptor. (MQOD)
  * @param int $option
  * @param resource &$hobj
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_open($hconn, array &$objDesc, $option, &$hobj, &$compCode, &$reason) {}
 
 /**
  * @param resource $hconn
- * @param resource &$objDesc
- * @param resource &$msgDesc
- * @param resource &$pmo
+ * @param resource &$objDesc Object descriptor. (MQOD) This is a structure which identifies the
+ * queue to which the message is added.
+ * @param resource &$msgDesc Message descriptor (MQMD).
+ * @param resource &$pmo Put message options (MQPMO).
  * @param string &$buffer
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_put1($hconn, &$objDesc, &$msgDesc, &$pmo, $buffer, &$compCode, &$reason) {}
 
 /**
- * @param resource $hConn
- * @param resource $hObj
- * @param array &$md
- * @param array &$pmo
- * @param string $message
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource $hConn Connection handle. This handle represents the connection to the queue
+ * manager.
+ * @param resource $hObj Object handle. This handle represents the object to be used.
+ * @param array &$md Message descriptor (MQMD).
+ * @param array &$pmo Put message options (MQPMO).
+ * @param string $message The actual message to put onto the queue.
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_put($hConn, $hObj, array &$md, array &$pmo, $message, &$compCode, &$reason) {}
 
@@ -118,20 +123,20 @@ function mqseries_put($hConn, $hObj, array &$md, array &$pmo, $message, &$compCo
  * @param resource $hconn
  * @param resource $hobj
  * @param int $selectorcount
- * @param array $selectors
+ * @param array $selectors Array of attribute selectors.
  * @param int $intattrcount
  * @param array $intattrs
  * @param int $charattrlength
  * @param array $charattrs
- * @param resource &$compCode
- * @param resource &$reason
+ * @param resource &$compCode Completion code.
+ * @param resource &$reason Reason code qualifying the compCode.
  */
 function mqseries_set($hconn, $hobj, $selectorcount, array $selectors, $intattrcount, array $intattrs, $charattrlength, array $charattrs, &$compCode, &$reason) {}
 
 /**
- * @param int $reason
+ * @param int $reason Reason code qualifying the compCode.
  *
- * @return string
+ * @return string string representation of the reason code message.
  */
 function mqseries_strerror($reason)
 {

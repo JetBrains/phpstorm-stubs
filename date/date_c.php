@@ -259,8 +259,8 @@ class DateTimeImmutable implements DateTimeInterface
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Adds an amount of days, months, years, hours, minutes and seconds
-     * @param DateInterval $interval
-     * @return static
+     * @param DateInterval $interval A DateInterval object
+     * @return static Returns a new DateTimeImmutable object with the modified data.
      * @link https://php.net/manual/en/datetimeimmutable.add.php
      */
     #[TentativeType]
@@ -288,10 +288,85 @@ class DateTimeImmutable implements DateTimeInterface
      * (PHP 5 &gt;=5.5.0)<br/>
      * Returns new DateTimeImmutable object formatted according to the specified format
      * @link https://php.net/manual/en/datetimeimmutable.createfromformat.php
-     * @param string $format
-     * @param string $datetime
+     * @param string $format The format that the passed in string should be in. See the formatting
+     * options below. In most cases, the same letters as for the date can be used. All fields are
+     * initialised with the current date/time. In most cases you would want to reset these to "zero"
+     * (the Unix epoch, 1970-01-01 00:00:00 UTC). You do that by including the ! character as first
+     * character in your format, or | as your last. Please see the documentation for each character
+     * below for more information. The format is parsed from left to right, which means that in some
+     * situations the order in which the format characters are present affects the result. In the
+     * case of z (the day of the year), it is required that a year has already been parsed, for
+     * example through the Y or y characters. Letters that are used for parsing numbers allow a wide
+     * range of values, outside of what the logical range would be. For example, the d (day of the
+     * month) accepts values in the range from 00 to 99. The only constraint is on the amount of
+     * digits. The date/time parser's overflow mechanism is used when out-of-range values are given.
+     * The examples below show some of this behaviour. This also means that the data parsed for a
+     * format letter is greedy, and will read up to the amount of digits its format allows for. That
+     * can then also mean that there are no longer enough characters in the datetime string for
+     * following format characters. An example on this page also illustrates this issue. The
+     * following characters are recognized in the format parameter string format character
+     * Description Example parsable values Day --- --- d and j Day of the month, 2 digits with or
+     * without leading zeros 01 to 31 or 1 to 31. (2 digit numbers higher than the number of days in
+     * the month are accepted, in which case they will make the month overflow. For example using 33
+     * with January, means February 2nd) D and l A textual representation of a day Mon through Sun
+     * or Sunday through Saturday. If the day name given is different than the day name belonging to
+     * a parsed (or default) date is different, then an overflow occurs to the next date with the
+     * given day name. See the examples below for an explanation. S English ordinal suffix for the
+     * day of the month, 2 characters. It's ignored while processing. st, nd, rd or th. z The day of
+     * the year (starting from 0); must be preceded by Y or y. 0 through 365. (3 digit numbers
+     * higher than the numbers in a year are accepted, in which case they will make the year
+     * overflow. For example using 366 with 2022, means January 2nd, 2023) Month --- --- F and M A
+     * textual representation of a month, such as January or Sept January through December or Jan
+     * through Dec m and n Numeric representation of a month, with or without leading zeros 01
+     * through 12 or 1 through 12. (2 digit numbers higher than 12 are accepted, in which case they
+     * will make the year overflow. For example using 13 means January in the next year) Year ---
+     * --- X and x A full numeric representation of a year, up to 19 digits, optionally prefixed by
+     * + or - Examples: 0055, 787, 1999, -2003, +10191 Y A full numeric representation of a year, up
+     * to 4 digits Examples: 25 (same as 0025), 787, 1999, 2003 y A two digit representation of a
+     * year (which is assumed to be in the range 1970-2069, inclusive) Examples: 99 or 03 (which
+     * will be interpreted as 1999 and 2003, respectively) Time --- --- a and A Ante meridiem and
+     * Post meridiem am or pm g and h 12-hour format of an hour with or without leading zero 1
+     * through 12 or 01 through 12 (2 digit numbers higher than 12 are accepted, in which case they
+     * will make the day overflow. For example using 14 means 02 in the next AM/PM period) G and H
+     * 24-hour format of an hour with or without leading zeros 0 through 23 or 00 through 23 (2
+     * digit numbers higher than 24 are accepted, in which case they will make the day overflow. For
+     * example using 26 means 02:00 the next day) i Minutes with leading zeros 00 to 59. (2 digit
+     * numbers higher than 59 are accepted, in which case they will make the hour overflow. For
+     * example using 66 means :06 the next hour) s Seconds, with leading zeros 00 through 59 (2
+     * digit numbers higher than 59 are accepted, in which case they will make the minute overflow.
+     * For example using 90 means :30 the next minute) v Fraction in milliseconds (up to three
+     * digits) Example: 12 (0.12 seconds), 345 (0.345 seconds) u Fraction in microseconds (up to six
+     * digits) Example: 45 (0.45 seconds), 654321 (0.654321 seconds) Timezone --- --- e, O, p, P and
+     * T Timezone identifier, or difference to UTC in hours, or difference to UTC with colon between
+     * hours and minutes, or timezone abbreviation Examples: UTC, GMT, Atlantic/Azores or +0200 or
+     * +02:00 or EST, MDT Full Date/Time --- --- U Seconds since the Unix Epoch (January 1 1970
+     * 00:00:00 GMT) Example: 1292177455 Whitespace and Separators --- --- (space) Zero or more
+     * spaces, tabs, NBSP (U+A0), or NNBSP (U+202F) characters Example: "\t", " " # One of the
+     * following separation symbol: ;, :, /, ., ,, -, ( or ) Example: / ;, :, /, ., ,, -, ( or ) The
+     * specified character. Example: - ? A random byte Example: ^ (Be aware that for UTF-8
+     * characters you might need more than one ?. In this case, using * is probably what you want
+     * instead) * Random bytes until the next separator or digit Example: * in Y-*-d with the string
+     * 2009-aWord-08 will match aWord ! Resets all fields (year, month, day, hour, minute, second,
+     * fraction and timezone information) to zero-like values ( 0 for hour, minute, second and
+     * fraction, 1 for month and day, 1970 for year and the default timezone) Without !, all fields
+     * will be set to the current date and time. | Resets all fields (year, month, day, hour,
+     * minute, second, fraction and timezone information) to zero-like values if they have not been
+     * parsed yet Y-m-d| will set the year, month and day to the information found in the string to
+     * parse, and sets the hour, minute and second to 0. + If this format specifier is present,
+     * trailing data in the string will not cause an error, but a warning instead Use
+     * DateTimeImmutable::getLastErrors to find out whether trailing data was present. Unrecognized
+     * characters in the format string will cause the parsing to fail and an error message is
+     * appended to the returned structure. You can query error messages with
+     * DateTimeImmutable::getLastErrors. To include literal characters in format, you have to escape
+     * them with a backslash (\). If format does not contain the character ! then portions of the
+     * generated date/time which are not specified in format will be set to the current system time.
+     * If format contains the character !, then portions of the generated date/time not provided in
+     * format, as well as values to the left-hand side of the !, will be set to corresponding values
+     * from the Unix epoch. If any time character is parsed, then all other time-related fields are
+     * set to "0", unless also parsed. The Unix epoch is 1970-01-01 00:00:00 UTC.
+     * @param string $datetime String representing the time.
      * @param null|DateTimeZone $timezone [optional]
-     * @return DateTimeImmutable|false
+     * @return DateTimeImmutable|false Returns a new DateTimeImmutable instance or false on failure.
      * @throws ValueError when the datetime contains NULL-bytes.
      */
     #[TentativeType]
@@ -457,7 +532,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @param DateInterval $interval <p>
      * A {@link https://php.net/manual/en/class.dateinterval.php DateInterval} object
      * </p>
-     * @return static
+     * @return static Returns a new DateTimeImmutable object with the modified data.
      * @throws DateInvalidOperationException
      * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
@@ -540,8 +615,10 @@ class DateTimeImmutable implements DateTimeInterface
     /**
      * Returns new DateTimeImmutable object encapsulating the given DateTimeInterface object
      * @link https://php.net/manual/en/datetimeimmutable.createfrominterface.php
-     * @param DateTimeInterface $object
-     * @return static
+     * @param DateTimeInterface $object The DateTimeInterface object that needs to be converted to
+     * an immutable version. This object is not modified, but instead a new DateTimeImmutable object
+     * is created containing the same date, time, and timezone information.
+     * @return static Returns a new DateTimeImmutable instance.
      * @since 8.0
      */
     public static function createFromInterface(DateTimeInterface $object): DateTimeImmutable {}
@@ -743,7 +820,7 @@ class DateTime implements DateTimeInterface
 
     /**
      * The __wakeup handler
-     * @return void
+     * @return void Initializes a DateTime object.
      * @link https://php.net/manual/en/datetime.wakeup.php
      */
     #[TentativeType]
@@ -752,8 +829,57 @@ class DateTime implements DateTimeInterface
 
     /**
      * Returns date formatted according to given format.
-     * @param string $format
-     * @return string
+     * @param string $format The format of the outputted date string. See the formatting options
+     * below. There are also several predefined date constants that may be used instead, so for
+     * example DATE_RSS contains the format string 'D, d M Y H:i:s'. The following characters are
+     * recognized in the format parameter string format character Description Example returned
+     * values Day --- --- d Day of the month, 2 digits with leading zeros 01 to 31 D A textual
+     * representation of a day, three letters Mon through Sun j Day of the month without leading
+     * zeros 1 to 31 l (lowercase 'L') A full textual representation of the day of the week Sunday
+     * through Saturday N ISO 8601 numeric representation of the day of the week 1 (for Monday)
+     * through 7 (for Sunday) S English ordinal suffix for the day of the month, 2 characters st,
+     * nd, rd or th. Works well with j w Numeric representation of the day of the week 0 (for
+     * Sunday) through 6 (for Saturday) z The day of the year (starting from 0) 0 through 365 Week
+     * --- --- W ISO 8601 week number of year, weeks starting on Monday Example: 42 (the 42nd week
+     * in the year) Month --- --- F A full textual representation of a month, such as January or
+     * March January through December m Numeric representation of a month, with leading zeros 01
+     * through 12 M A short textual representation of a month, three letters Jan through Dec n
+     * Numeric representation of a month, without leading zeros 1 through 12 t Number of days in the
+     * given month 28 through 31 Year --- --- L Whether it's a leap year 1 if it is a leap year, 0
+     * otherwise. o ISO 8601 week-numbering year. This has the same value as Y, except that if the
+     * ISO week number (W) belongs to the previous or next year, that year is used instead.
+     * Examples: 1999 or 2003 X An expanded full numeric representation of a year, at least 4
+     * digits, with - for years BCE, and + for years CE. Examples: -0055, +0787, +1999, +10191 x An
+     * expanded full numeric representation if required, or a standard full numeral representation
+     * if possible (like Y). At least four digits. Years BCE are prefixed with a -. Years beyond
+     * (and including) 10000 are prefixed by a +. Examples: -0055, 0787, 1999, +10191 Y A full
+     * numeric representation of a year, at least 4 digits, with - for years BCE. Examples: -0055,
+     * 0787, 1999, 2003, 10191 y A two digit representation of a year Examples: 99 or 03 Time ---
+     * --- a Lowercase Ante meridiem and Post meridiem am or pm A Uppercase Ante meridiem and Post
+     * meridiem AM or PM B Swatch Internet time 000 through 999 g 12-hour format of an hour without
+     * leading zeros 1 through 12 G 24-hour format of an hour without leading zeros 0 through 23 h
+     * 12-hour format of an hour with leading zeros 01 through 12 H 24-hour format of an hour with
+     * leading zeros 00 through 23 i Minutes with leading zeros 00 to 59 s Seconds with leading
+     * zeros 00 through 59 u Microseconds. Note that date will always generate 000000 since it takes
+     * an int parameter, whereas DateTimeInterface::format does support microseconds if an object of
+     * type DateTimeInterface was created with microseconds. Example: 654321 v Milliseconds. Same
+     * note applies as for u. Example: 654 Timezone --- --- e Timezone identifier Examples: UTC,
+     * GMT, Atlantic/Azores I (capital i) Whether or not the date is in daylight saving time 1 if
+     * Daylight Saving Time, 0 otherwise. O Difference to Greenwich time (GMT) without colon between
+     * hours and minutes Example: +0200 P Difference to Greenwich time (GMT) with colon between
+     * hours and minutes Example: +02:00 p The same as P, but returns Z instead of +00:00 (available
+     * as of PHP 8.0.0) Examples: Z or +02:00 T Timezone abbreviation, if known; otherwise the GMT
+     * offset. Examples: EST, MDT, +05 Z Timezone offset in seconds. The offset for timezones west
+     * of UTC is always negative, and for those east of UTC is always positive. -43200 through 50400
+     * Full Date/Time --- --- c ISO 8601 date. Only compatible with the non-expanded format (up to
+     * year 9999). Later dates will result in an invalid string. For later dates and expanded
+     * format, see x and X. 2004-02-12T15:19:21+00:00 r RFC 2822/RFC 5322 formatted date Example:
+     * Thu, 21 Dec 2000 16:01:07 +0200 U Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
+     * See also time Unrecognized characters in the format string will be printed as-is. The Z
+     * format will always return 0 when using gmdate. Since this function only accepts int
+     * timestamps the u format character is only useful when using the date_format function with
+     * user based timestamps created with date_create.
+     * @return string Returns the formatted date string on success.
      * @link https://php.net/manual/en/datetime.format.php
      */
     #[Pure(true)]
@@ -787,8 +913,8 @@ class DateTime implements DateTimeInterface
 
     /**
      * Adds an amount of days, months, years, hours, minutes and seconds to a DateTime object
-     * @param DateInterval $interval
-     * @return static
+     * @param DateInterval $interval A DateInterval object
+     * @return static Returns the modified DateTime object for method chaining.
      * @link https://php.net/manual/en/datetime.add.php
      */
     #[TentativeType]
@@ -797,8 +923,10 @@ class DateTime implements DateTimeInterface
     /**
      * Returns new DateTime instance encapsulating the given DateTimeImmutable object
      * @link https://php.net/manual/en/datetime.createfromimmutable.php
-     * @param DateTimeImmutable $object
-     * @return DateTime
+     * @param DateTimeImmutable $object The immutable DateTimeImmutable object that needs to be
+     * converted to a mutable version. This object is not modified, but instead a new DateTime
+     * instance is created containing the same date, time, and timezone information.
+     * @return DateTime Returns a new DateTime instance.
      * @since 7.3
      */
     #[TentativeType]
@@ -807,8 +935,8 @@ class DateTime implements DateTimeInterface
 
     /**
      * Subtracts an amount of days, months, years, hours, minutes and seconds from a DateTime object
-     * @param DateInterval $interval
-     * @return static
+     * @param DateInterval $interval A DateInterval object
+     * @return static Returns the modified DateTime object for method chaining.
      * @link https://php.net/manual/en/datetime.sub.php
      * @throws DateInvalidOperationException
      */
@@ -817,7 +945,7 @@ class DateTime implements DateTimeInterface
 
     /**
      * Get the TimeZone associated with the DateTime
-     * @return DateTimeZone|false
+     * @return DateTimeZone|false Returns a DateTimeZone object on success or false on failure.
      * @link https://php.net/manual/en/datetime.gettimezone.php
      */
     #[TentativeType]
@@ -825,8 +953,9 @@ class DateTime implements DateTimeInterface
 
     /**
      * Set the TimeZone associated with the DateTime
-     * @param DateTimeZone $timezone
-     * @return static
+     * @param DateTimeZone $timezone A DateTimeZone object representing the desired time zone.
+     * @return static Returns the DateTime object for method chaining. The underlying point-in-time
+     * is not changed when calling this method.
      * @link https://php.net/manual/en/datetime.settimezone.php
      */
     #[TentativeType]
@@ -834,7 +963,7 @@ class DateTime implements DateTimeInterface
 
     /**
      * Returns the timezone offset
-     * @return int
+     * @return int Returns the timezone offset in seconds from UTC on success.
      * @link https://php.net/manual/en/datetime.getoffset.php
      */
     #[TentativeType]
@@ -842,11 +971,11 @@ class DateTime implements DateTimeInterface
 
     /**
      * Sets the current time of the DateTime object to a different time.
-     * @param int $hour
-     * @param int $minute
-     * @param int $second
+     * @param int $hour Hour of the time.
+     * @param int $minute Minute of the time.
+     * @param int $second Second of the time.
      * @param int $microsecond Added since 7.1
-     * @return static
+     * @return static Returns the modified DateTime object for method chaining.
      * @link https://php.net/manual/en/datetime.settime.php
      */
     #[TentativeType]
@@ -859,10 +988,10 @@ class DateTime implements DateTimeInterface
 
     /**
      * Sets the current date of the DateTime object to a different date.
-     * @param int $year
-     * @param int $month
-     * @param int $day
-     * @return static
+     * @param int $year Year of the date.
+     * @param int $month Month of the date.
+     * @param int $day Day of the date.
+     * @return static Returns the modified DateTime object for method chaining.
      * @link https://php.net/manual/en/datetime.setdate.php
      */
     #[TentativeType]
@@ -874,10 +1003,10 @@ class DateTime implements DateTimeInterface
 
     /**
      * Set a date according to the ISO 8601 standard - using weeks and day offsets rather than specific dates.
-     * @param int $year
-     * @param int $week
-     * @param int $dayOfWeek
-     * @return static
+     * @param int $year Year of the date.
+     * @param int $week Week of the date.
+     * @param int $dayOfWeek Offset from the first day of the week.
+     * @return static Returns the modified DateTime object for method chaining.
      * @link https://php.net/manual/en/datetime.setisodate.php
      */
     #[TentativeType]
@@ -889,8 +1018,9 @@ class DateTime implements DateTimeInterface
 
     /**
      * Sets the date and time based on a Unix timestamp.
-     * @param int $timestamp
-     * @return static
+     * @param int $timestamp Unix timestamp representing the date. Setting timestamps outside the
+     * range of integer is possible by using DateTimeImmutable::modify with the @ format.
+     * @return static Returns the modified DateTime object for method chaining.
      * @link https://php.net/manual/en/datetime.settimestamp.php
      */
     #[TentativeType]
@@ -898,7 +1028,7 @@ class DateTime implements DateTimeInterface
 
     /**
      * Gets the Unix timestamp.
-     * @return int
+     * @return int Returns the Unix timestamp representing the date.
      * @link https://php.net/manual/en/datetime.gettimestamp.php
      */
     #[TentativeType]
@@ -938,7 +1068,7 @@ class DateTime implements DateTimeInterface
      * @param string $format Format accepted by date().
      * @param string $datetime String representing the time.
      * @param null|DateTimeZone $timezone A DateTimeZone object representing the desired time zone.
-     * @return DateTime|false
+     * @return DateTime|false Returns a new DateTime instance or false on failure.
      * @link https://php.net/manual/en/datetime.createfromformat.php
      * @throws ValueError when the datetime contains NULL-bytes.
      */
@@ -971,8 +1101,10 @@ class DateTime implements DateTimeInterface
     /**
      * Returns new DateTime object encapsulating the given DateTimeInterface object
      * @link https://php.net/manual/en/datetime.createfrominterface.php
-     * @param DateTimeInterface $object
-     * @return static
+     * @param DateTimeInterface $object The DateTimeInterface object that needs to be converted to a
+     * mutable version. This object is not modified, but instead a new DateTime object is created
+     * containing the same date, time, and timezone information.
+     * @return static Returns a new DateTime instance.
      * @since 8.0
      */
     public static function createFromInterface(DateTimeInterface $object): DateTime {}
@@ -1052,7 +1184,8 @@ class DateTimeZone
      *
      * Creates a new DateTimeZone object.
      *
-     * @param string $timezone
+     * @param string $timezone One of the supported timezone names, an offset value (+0200), or a
+     * timezone abbreviation (BST).
      * @link https://php.net/manual/en/datetimezone.construct.php
      * @throws DateInvalidTimeZoneException Emits Exception in case of an error.
      */
@@ -1060,7 +1193,10 @@ class DateTimeZone
 
     /**
      * Returns the name of the timezone
-     * @return string
+     * @return string Depending on zone type, UTC offset (type 1), timezone abbreviation (type 2),
+     * and timezone identifiers as published in the IANA timezone database (type 3), the descriptor
+     * string to create a new DateTimeZone object with the same offset and/or rules. For example
+     * 02:00, CEST, or one of the timezone names in the list of timezones.
      * @link https://php.net/manual/en/datetimezone.getname.php
      */
     #[TentativeType]
@@ -1068,7 +1204,7 @@ class DateTimeZone
 
     /**
      * Returns location information for a timezone
-     * @return array|false
+     * @return array|false Array containing location information about timezone or false on failure.
      * @link https://php.net/manual/en/datetimezone.getlocation.php
      */
     #[TentativeType]
@@ -1082,8 +1218,9 @@ class DateTimeZone
 
     /**
      * Returns the timezone offset from GMT
-     * @param DateTimeInterface $datetime
-     * @return int
+     * @param DateTimeInterface $datetime DateTime that contains the date/time to compute the offset
+     * from.
+     * @return int Returns time zone offset in seconds.
      * @link https://php.net/manual/en/datetimezone.getoffset.php
      */
     #[TentativeType]
@@ -1091,9 +1228,17 @@ class DateTimeZone
 
     /**
      * Returns all transitions for the timezone
-     * @param int $timestampBegin
-     * @param int $timestampEnd
-     * @return array|false
+     * @param int $timestampBegin Begin timestamp.
+     * @param int $timestampEnd End timestamp.
+     * @return array|false Returns a numerically indexed array of transition arrays on success, or
+     * false on failure. DateTimeZone objects wrapping type 1 (UTC offsets) and type 2
+     * (abbreviations) do not contain any transitions, and calling this method on them will return
+     * false. If timestampBegin is given, the first entry in the returned array will contain a
+     * transition element at the time of timestampBegin. Transition Array Structure Key Type
+     * Description ts int Unix timestamp time string DateTimeInterface::ISO8601_EXPANDED (PHP 8.2
+     * and later), or DateTimeInterface::ISO8601 (PHP 8.1 and lower) time string offset int Offset
+     * to UTC in seconds isdst bool Whether daylight saving time is active abbr string Timezone
+     * abbreviation
      * @link https://php.net/manual/en/datetimezone.gettransitions.php
      */
     #[TentativeType]
@@ -1106,7 +1251,8 @@ class DateTimeZone
 
     /**
      * Returns associative array containing dst, offset and the timezone name
-     * @return array<string, list<array{dst: bool, offset: int, timezone_id: string|null}>>
+     * @return array<string, list<array{dst: bool, offset: int, timezone_id: string|null}>> Returns
+     * the array of timezone abbreviations.
      * @link https://php.net/manual/en/datetimezone.listabbreviations.php
      */
     #[TentativeType]
@@ -1114,8 +1260,9 @@ class DateTimeZone
 
     /**
      * Returns a numerically indexed array with all timezone identifiers
-     * @param int $timezoneGroup
-     * @param string $countryCode
+     * @param int $timezoneGroup One of the DateTimeZone class constants (or a combination).
+     * @param string $countryCode A two-letter (uppercase) ISO 3166-1 compatible country code. This
+     * option is only used when timezoneGroup is set to DateTimeZone::PER_COUNTRY.
      * @return array|false Returns the array of timezone identifiers, or <b>FALSE</b> on failure. Since PHP8, always returns <b>array</b>.
      * @link https://php.net/manual/en/datetimezone.listidentifiers.php
      */
@@ -1216,7 +1363,19 @@ class DateInterval
 
     /**
      * Creates a new DateInterval object
-     * @param string $duration
+     * @param string $duration An interval specification. The format starts with the letter P, for
+     * period. Each duration period is represented by an integer value followed by a period
+     * designator. If the duration contains time elements, that portion of the specification is
+     * preceded by the letter T. duration Period Designators Period Designator Description Y years M
+     * months D days W weeks. Converted into days. Prior to PHP 8.0.0, can not be combined with D. H
+     * hours M minutes S seconds Here are some simple examples. Two days is P2D. Two seconds is
+     * PT2S. Six years and five minutes is P6YT5M. The unit types must be entered from the largest
+     * scale unit on the left to the smallest scale unit on the right. So years before months,
+     * months before days, days before minutes, etc. Thus one year and four days must be represented
+     * as P1Y4D, not P4D1Y. The specification can also be represented as a date time. A sample of
+     * one year and four days would be P0001-00-04T00:00:00. But the values in this format can not
+     * exceed a given period's roll-over-point (e.g. 25 hours is invalid). These formats are based
+     * on the ISO 8601 duration specification.
      * @throws DateMalformedIntervalStringException when the $duration cannot be parsed as an interval.
      * @link https://php.net/manual/en/dateinterval.construct.php
      */
@@ -1225,8 +1384,19 @@ class DateInterval
 
     /**
      * Formats the interval
-     * @param string $format
-     * @return string
+     * @param string $format The following characters are recognized in the format parameter string.
+     * Each format character must be prefixed by a percent sign (%). format character Description
+     * Example values % Literal % % Y Years, numeric, at least 2 digits with leading 0 01, 03 y
+     * Years, numeric 1, 3 M Months, numeric, at least 2 digits with leading 0 01, 03, 12 m Months,
+     * numeric 1, 3, 12 D Days, numeric, at least 2 digits with leading 0 01, 03, 31 d Days, numeric
+     * 1, 3, 31 a Total number of days as a result of a DateTime::diff or (unknown) otherwise 4, 18,
+     * 8123 H Hours, numeric, at least 2 digits with leading 0 01, 03, 23 h Hours, numeric 1, 3, 23
+     * I Minutes, numeric, at least 2 digits with leading 0 01, 03, 59 i Minutes, numeric 1, 3, 59 S
+     * Seconds, numeric, at least 2 digits with leading 0 01, 03, 57 s Seconds, numeric 1, 3, 57 F
+     * Microseconds, numeric, at least 6 digits with leading 0 007701, 052738, 428291 f
+     * Microseconds, numeric 7701, 52738, 428291 R Sign "-" when negative, "+" when positive -, + r
+     * Sign "-" when negative, empty when positive -,
+     * @return string Returns the formatted interval.
      * @link https://php.net/manual/en/dateinterval.format.php
      */
     #[TentativeType]
@@ -1246,7 +1416,10 @@ class DateInterval
 
     /**
      * Sets up a DateInterval from the relative parts of the string
-     * @param string $datetime
+     * @param string $datetime A date with relative parts. Specifically, the relative formats
+     * supported by the parser used for DateTimeImmutable, DateTime, and strtotime will be used to
+     * construct the DateInterval. To use an ISO-8601 format string like P7D, you must use the
+     * DateInterval::__construct.
      * @return DateInterval|false Returns a new {@link https://www.php.net/manual/en/class.dateinterval.php DateInterval}
      * instance on success, or <b>FALSE</b> on failure.
      * @throws DateMalformedIntervalStringException
@@ -1369,7 +1542,7 @@ class DatePeriod implements IteratorAggregate
 
     /**
      * Gets the interval
-     * @return DateInterval
+     * @return DateInterval Returns a DateInterval object
      * @link https://php.net/manual/en/dateperiod.getdateinterval.php
      * @since 5.6
      */
@@ -1378,20 +1551,31 @@ class DatePeriod implements IteratorAggregate
 
     /**
      * Gets the end date
-     * @return DateTimeInterface|null
+     * @return DateTimeInterface|null Returns null if the DatePeriod does not have an end date. For
+     * example, when initialized with the recurrences parameter, or the isostr parameter without an
+     * end date. Returns a DateTimeImmutable object when the DatePeriod is initialized with a
+     * DateTimeImmutable object as the end parameter. Returns a cloned DateTime object representing
+     * the end date otherwise.
      * @link https://php.net/manual/en/dateperiod.getenddate.php
      * @since 5.6
-     * @return TEnd
+     * @return TEnd Returns null if the DatePeriod does not have an end date. For example, when
+     * initialized with the recurrences parameter, or the isostr parameter without an end date.
+     * Returns a DateTimeImmutable object when the DatePeriod is initialized with a
+     * DateTimeImmutable object as the end parameter. Returns a cloned DateTime object representing
+     * the end date otherwise.
      */
     #[TentativeType]
     public function getEndDate(): ?DateTimeInterface {}
 
     /**
      * Gets the start date
-     * @return DateTimeInterface
+     * @return DateTimeInterface Returns a DateTimeImmutable object when the DatePeriod is
+     * initialized with a DateTimeImmutable object as the start parameter. Returns a DateTime object
+     * otherwise.
      * @link https://php.net/manual/en/dateperiod.getstartdate.php
      * @since 5.6
-     * @return TDate
+     * @return TDate Returns a DateTimeImmutable object when the DatePeriod is initialized with a
+     * DateTimeImmutable object as the start parameter. Returns a DateTime object otherwise.
      */
     #[TentativeType]
     public function getStartDate(): DateTimeInterface {}
@@ -1405,7 +1589,8 @@ class DatePeriod implements IteratorAggregate
 
     /**
      * Get the number of recurrences
-     * @return int|null
+     * @return int|null The number of recurrences as set by explicitly passing the $recurrences to
+     * the constructor of the DatePeriod class, or null otherwise.
      * @link https://php.net/manual/en/dateperiod.getrecurrences.php
      * @since 7.2
      */

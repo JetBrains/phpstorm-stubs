@@ -112,7 +112,7 @@ abstract class SolrParams implements Serializable
      * @param string $value <p>
      * The parameter value
      * </p>
-     * @return void
+     * @return void Returns an instance of the SolrParams object on success
      */
     final public function set(string $name, string $value): void {}
 

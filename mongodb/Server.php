@@ -43,13 +43,15 @@ final class Server
      * @link https://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
      * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
      * @param BulkWrite $bulkWrite The MongoDB\Driver\BulkWrite to execute.
-     * @param array|null $options
+     * @param array|null $options options Option Type Description session MongoDB\Driver\Session A
+     * session to associate with the operation. writeConcern MongoDB\Driver\WriteConcern A write
+     * concern to apply to the operation.
      * @throws BulkWriteException on any write failure (e.g. write error, failure to apply a write concern).
      * @throws InvalidArgumentException on argument parsing errors.
      * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
      * @throws AuthenticationException if authentication is needed and fails.
      * @throws RuntimeException on other errors.
-     * @return WriteResult
+     * @return WriteResult Returns MongoDB\Driver\WriteResult on success.
      * @since 1.0.0
      */
     final public function executeBulkWrite(string $namespace, BulkWrite $bulkWrite, array|null $options = null): WriteResult {}
@@ -58,13 +60,15 @@ final class Server
      * Execute write operations on this server using the bulkWrite command
      * @link https://php.net/manual/en/mongodb-driver-server.executebulkwritecommand.php
      * @param BulkWriteCommand $bulkWriteCommand The write(s) to execute.
-     * @param array|null $options
+     * @param array|null $options options Option Type Description session MongoDB\Driver\Session A
+     * session to associate with the operation. writeConcern MongoDB\Driver\WriteConcern A write
+     * concern to apply to the operation.
      * @throws BulkWriteCommandException on any write failure (e.g. write error, failure to apply a write concern).
      * @throws InvalidArgumentException on argument parsing errors.
      * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
      * @throws AuthenticationException if authentication is needed and fails.
      * @throws RuntimeException on other errors.
-     * @return BulkWriteCommandResult
+     * @return BulkWriteCommandResult Returns MongoDB\Driver\BulkWriteCommandResult on success.
      * @since 2.1.0
      */
     final public function executeBulkWriteCommand(BulkWriteCommand $bulkWriteCommand, ?array $options = null): BulkWriteCommandResult {}
@@ -79,7 +83,7 @@ final class Server
      * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
      * @throws AuthenticationException if authentication is needed and fails.
      * @throws RuntimeException on other errors (e.g. invalid command, issuing a write command to a secondary).
-     * @return Cursor
+     * @return Cursor Returns MongoDB\Driver\Cursor on success.
      * @since 1.0.0
      */
     final public function executeCommand(string $db, Command $command, array|null $options = null): CursorInterface {}
@@ -87,9 +91,17 @@ final class Server
     /**
      * Execute a database command that reads on this server
      * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadcommand.php
-     * @param string                  $db
-     * @param \MongoDB\Driver\Command $command
-     * @param array|null              $options
+     * @param string                  $db The name of the database on which to execute the command.
+     * @param \MongoDB\Driver\Command $command The command to execute.
+     * @param array|null              $options options Option Type Description readConcern
+     * MongoDB\Driver\ReadConcern A read concern to apply to the operation. This option is available
+     * in MongoDB 3.2+ and will result in an exception at execution time if specified for an older
+     * server version. readPreference MongoDB\Driver\ReadPreference A read preference to use for
+     * selecting a server for the operation. session MongoDB\Driver\Session A session to associate
+     * with the operation. If you are using a "session" which has a transaction in progress, you
+     * cannot specify a "readConcern" or "writeConcern" option. This will result in an
+     * MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these
+     * two options when you create the transaction with MongoDB\Driver\Session::startTransaction.
      * @throws InvalidArgumentException On argument parsing errors or  if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option.
      * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
      * @throws AuthenticationException If authentication is needed and fails.
@@ -101,9 +113,17 @@ final class Server
     /**
      * Execute a database command that reads and writes on this server
      * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadwritecommand.php
-     * @param string                  $db
-     * @param \MongoDB\Driver\Command $command
-     * @param array|null              $options
+     * @param string                  $db The name of the database on which to execute the command.
+     * @param \MongoDB\Driver\Command $command The command to execute.
+     * @param array|null              $options options Option Type Description readConcern
+     * MongoDB\Driver\ReadConcern A read concern to apply to the operation. This option is available
+     * in MongoDB 3.2+ and will result in an exception at execution time if specified for an older
+     * server version. session MongoDB\Driver\Session A session to associate with the operation.
+     * writeConcern MongoDB\Driver\WriteConcern A write concern to apply to the operation. If you
+     * are using a "session" which has a transaction in progress, you cannot specify a "readConcern"
+     * or "writeConcern" option. This will result in an
+     * MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these
+     * two options when you create the transaction with MongoDB\Driver\Session::startTransaction.
      * @throws InvalidArgumentException On argument parsing errors OR if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option OR if the "session" option is used in combination with an unacknowledged write concern
      * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
      * @throws AuthenticationException If authentication is needed and fails.
@@ -115,9 +135,15 @@ final class Server
     /**
      * Execute a database command that writes on this server
      * @link https://secure.php.net/manual/en/mongodb-driver-server.executewritecommand.php
-     * @param string                  $db
-     * @param \MongoDB\Driver\Command $command
-     * @param array|null              $options
+     * @param string                  $db The name of the database on which to execute the command.
+     * @param \MongoDB\Driver\Command $command The command to execute.
+     * @param array|null              $options options Option Type Description session
+     * MongoDB\Driver\Session A session to associate with the operation. writeConcern
+     * MongoDB\Driver\WriteConcern A write concern to apply to the operation. If you are using a
+     * "session" which has a transaction in progress, you cannot specify a "readConcern" or
+     * "writeConcern" option. This will result in an
+     * MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these
+     * two options when you create the transaction with MongoDB\Driver\Session::startTransaction.
      * @throws InvalidArgumentException On argument parsing errors or  if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option.
      * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
      * @throws AuthenticationException If authentication is needed and fails.
@@ -131,12 +157,14 @@ final class Server
      * @link https://php.net/manual/en/mongodb-driver-server.executequery.php
      * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
      * @param Query $query The MongoDB\Driver\Query to execute.
-     * @param array|ReadPreference|null $options
+     * @param array|ReadPreference|null $options options Option Type Description readPreference
+     * MongoDB\Driver\ReadPreference A read preference to use for selecting a server for the
+     * operation. session MongoDB\Driver\Session A session to associate with the operation.
      * @throws InvalidArgumentException on argument parsing errors.
      * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
      * @throws AuthenticationException if authentication is needed and fails.
      * @throws RuntimeException on other errors (e.g. invalid command, issuing a write command to a secondary).
-     * @return Cursor
+     * @return Cursor Returns MongoDB\Driver\Cursor on success.
      */
     final public function executeQuery(string $namespace, Query $query, array|ReadPreference|null $options = null): CursorInterface {}
 

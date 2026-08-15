@@ -261,7 +261,7 @@ class ReflectionClass implements Reflector
      * @param int|null $filter The optional filter, for filtering desired
      * property types. It's configured using the {@see ReflectionProperty} constants,
      * and defaults to all property types.
-     * @return ReflectionProperty[]
+     * @return ReflectionProperty[] An array of ReflectionProperty objects.
      */
     #[Pure]
     #[TentativeType]
@@ -442,7 +442,7 @@ class ReflectionClass implements Reflector
      * Checks if a class is readonly.
      *
      * @link https://php.net/manual/en/reflectionclass.isreadonly.php
-     * @return bool
+     * @return bool true if a class is readonly, false otherwise.
      */
     #[Pure]
     #[PhpStormStubsElementAvailable(from: '8.2')]
@@ -686,7 +686,7 @@ class ReflectionClass implements Reflector
      *
      * @param class-string<T>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
+     * @return ReflectionAttribute<T>[] Array of attributes, as a ReflectionAttribute object.
      * @since 8.0
      */
     #[Pure]
@@ -747,7 +747,9 @@ class ReflectionClass implements Reflector
      * Initialization Triggers and Initialization Sequence.
      *
      * @link https://php.net/manual/en/reflectionclass.newlazyproxy.php
-     * @return T
+     * @return T Returns a lazy proxy instance. If the object has no properties, or if all its
+     * properties are static or virtual, a normal (non-lazy) instance is returned. See also
+     * Lifecycle of Lazy Objects.
      * @since 8.4
      */
     public function newLazyProxy(callable $factory, int $options = 0): object {}

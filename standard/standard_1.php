@@ -1111,7 +1111,8 @@ function join(array|string $separator = "", ?array $array = null): string {}
  * different names on different systems or for providing a fallback
  * for a possibly not available locale.
  * </p>
- * @param string|string[] ...$rest
+ * @param string|string[] ...$rest Optional string parameters to try as locale settings until
+ * success.
  * @return string|false <p>the new current locale, or false if the locale functionality is
  * not implemented on your platform, the specified locale does not exist or
  * the category name is invalid.

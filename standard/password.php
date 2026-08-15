@@ -211,7 +211,7 @@ function password_verify(string $password, string $hash): bool {}
 /**
  * Return a complete list of all registered password hashing algorithms.
  * @link https://php.net/manual/en/function.password-algos.php
- * @return string[]
+ * @return string[] Returns the available password hashing algorithm IDs.
  * @since 7.4
  */
 #[Pure]

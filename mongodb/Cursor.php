@@ -44,7 +44,8 @@ final class Cursor implements CursorInterface
     /**
      * Checks if a cursor is still alive
      * @link https://php.net/manual/en/mongodb-driver-cursor.isdead.php
-     * @return bool
+     * @return bool Returns true if there are definitely no additional results available on the
+     * cursor, and false otherwise.
      * @throws InvalidArgumentException On argument parsing errors
      */
     final public function isDead(): bool {}

@@ -349,7 +349,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * This method checks whether the current SimpleXMLElement element has sub-elements.
      *
      * @link https://php.net/manual/en/simplexmlelement.haschildren.php
-     * @return bool
+     * @return bool true if the current element has sub-elements, otherwise false
      * @since 8.0
      */
     #[Pure]

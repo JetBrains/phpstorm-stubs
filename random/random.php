@@ -23,7 +23,7 @@ namespace {
      * @param int $mode [optional] <p>
      * Use one of the following constants to specify the implementation of the algorithm to use.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     function mt_srand(
         #[LanguageLevelTypeAware(['8.3' => 'int|null'], default: 'int')] $seed = null,
@@ -42,7 +42,7 @@ namespace {
      * @param int $mode [optional] <p>
      * Use one of the following constants to specify the implementation of the algorithm to use.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     function srand(
         #[LanguageLevelTypeAware(['8.3' => 'int|null'], default: 'int')] $seed = null,

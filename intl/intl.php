@@ -250,7 +250,19 @@ class Collator
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Create a collator
      * @link https://php.net/manual/en/collator.construct.php
-     * @param string $locale
+     * @param string $locale The locale whose collation rules should be used. Special values for
+     * locales can be passed in - if an empty string is passed for the locale, the default locale's
+     * collation rules will be used. If "root" is passed, UCA rules will be used. The locale
+     * attribute is typically the most important attribute for correct sorting and matching,
+     * according to the user expectations in different countries and regions. The default UCA
+     * ordering will only sort a few languages such as Dutch and Portuguese correctly ("correctly"
+     * meaning according to the normal expectations for users of the languages). Otherwise, you need
+     * to supply the locale to UCA in order to properly collate text for a given language. Thus a
+     * locale needs to be supplied so as to choose a collator that is correctly tailored for that
+     * locale. The choice of a locale will automatically preset the values for all of the attributes
+     * to something that is reasonable for that locale. Thus most of the time the other attributes
+     * do not need to be explicitly set. In some cases, the choice of locale will make a difference
+     * in string comparison performance and/or sort key length.
      */
     #[Pure]
     public function __construct(#[LanguageAware(['8.0' => 'string'], default: '')] $locale) {}
@@ -995,8 +1007,12 @@ class NumberFormatter
      * Creates a number formatter.
      *
      * @link https://www.php.net/manual/en/class.numberformatter.php
-     * @param string $locale
-     * @param int $style
+     * @param string $locale Locale in which the number would be formatted (locale name, e.g.
+     * en_CA).
+     * @param int $style Style of the formatting, one of the format style constants. If
+     * NumberFormatter::PATTERN_DECIMAL or NumberFormatter::PATTERN_RULEBASED is passed then the
+     * number format is opened using the given pattern, which must conform to the syntax described
+     * in ICU DecimalFormat documentation or ICU RuleBasedNumberFormat documentation, respectively.
      * @param string $pattern [optional]
      */
     #[Pure]
@@ -1070,7 +1086,7 @@ class NumberFormatter
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Parse a number
      * @link https://php.net/manual/en/numberformatter.parse.php
-     * @param string $string
+     * @param string $string The string to parse for the number.
      * @param int $type [optional] <p>
      * The
      * formatting type to use. By default,
@@ -1793,8 +1809,9 @@ class Locale
      * Canonicalizes the passed locale string to ICU format.
      *
      * @link https://php.net/manual/en/locale.canonicalize.php
-     * @param string $locale
-     * @return string|null
+     * @param string $locale Original locale string.
+     * @return string|null Canonicalized locale string. Returns null when the length of locale
+     * exceeds INTL_MAX_LOCALE_LEN.
      */
     #[TentativeType]
     public static function canonicalize(#[LanguageAware(['8.0' => 'string'], default: '')] $locale): ?string {}
@@ -2091,9 +2108,12 @@ class IntlDateFormatter
     /**
      * Create a date formatter
      * @link https://php.net/manual/en/intldateformatter.create.php
-     * @param string|null $locale
-     * @param int $dateType
-     * @param int $timeType
+     * @param string|null $locale Locale to use when formatting or parsing or null to use the value
+     * specified in the ini setting intl.default_locale.
+     * @param int $dateType Format of the date determined by one of the IntlDateFormatter constants.
+     * The default value is IntlDateFormatter::FULL.
+     * @param int $timeType Format of the time determined by one of the IntlDateFormatter constants.
+     * The default value is IntlDateFormatter::FULL.
      * @param mixed|null $timezone [optional]
      * @param mixed|null $calendar [optional]
      * @param string $pattern [optional]
@@ -2143,7 +2163,7 @@ class IntlDateFormatter
      * Optional pattern to use when formatting or parsing.
      * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
      * </p>
-     * @return IntlDateFormatter|null
+     * @return IntlDateFormatter|null The created IntlDateFormatter or null in case of failure.
      */
     #[TentativeType]
     public static function create(
@@ -2331,7 +2351,7 @@ class IntlDateFormatter
      * @param bool $lenient <p>
      * Sets whether the parser is lenient or not, default is <b>TRUE</b> (lenient).
      * </p>
-     * @return void
+     * @return void Returns true on success or false on failure.
      */
     #[TentativeType]
     public function setLenient(#[LanguageAware(['8.0' => 'bool'], default: '')] $lenient): void {}
@@ -2526,7 +2546,8 @@ class ResourceBundle implements IteratorAggregate, Countable
      * @param string|int $index <p>
      * Data index, must be string or integer.
      * </p>
-     * @param bool $fallback
+     * @param bool $fallback Whether locale should match exactly or fallback to parent locale is
+     * allowed.
      * @return mixed the data located at the index or <b>NULL</b> on error. Strings, integers and binary data strings
      * are returned as corresponding PHP types, integer array is returned as PHP array. Complex types are
      * returned as <b>ResourceBundle</b> object.
@@ -2798,7 +2819,7 @@ class Spoofchecker
      * </p>
      * @param string &$errorCode [optional] <p>
      * </p>
-     * @return bool
+     * @return bool Returns true if there are suspicious characters, false otherwise.
      */
     #[TentativeType]
     public function isSuspicious(#[LanguageAware(['8.0' => 'string'], default: '')] $string, &$errorCode = null): bool {}
@@ -2813,7 +2834,7 @@ class Spoofchecker
      * </p>
      * @param int &$errorCode [optional] <p>
      * </p>
-     * @return bool
+     * @return bool Returns true if two given strings can be confused, false otherwise.
      */
     #[TentativeType]
     public function areConfusable(
@@ -2839,7 +2860,7 @@ class Spoofchecker
      * @link https://php.net/manual/en/spoofchecker.setchecks.php
      * @param int $checks <p>
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function setChecks(#[LanguageAware(['8.0' => 'int'], default: '')] $checks): void {}
@@ -2850,7 +2871,11 @@ class Spoofchecker
      * Sets the restriction level of SpoofChecker::isSuspicious.
      *
      * @link https://php.net/manual/en/spoofchecker.setrestrictionlevel.php
-     * @param int $level
+     * @param int $level The restriction level of SpoofChecker::isSuspicious. One of
+     * Spoofchecker::ASCII, Spoofchecker::SINGLE_SCRIPT_RESTRICTIVE,
+     * Spoofchecker::HIGHLY_RESTRICTIVE, Spoofchecker::MODERATELY_RESTRICTIVE,
+     * Spoofchecker::MINIMALLY_RESTRICTIVE, or Spoofchecker::UNRESTRICTIVE. Defaults to
+     * Spoofchecker::HIGHLY_RESTRICTIVE.
      */
     #[TentativeType]
     public function setRestrictionLevel(#[LanguageAware(['8.0' => 'int'], default: '')] $level): void {}
@@ -3110,7 +3135,7 @@ class IntlCalendar
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Compare time of two IntlCalendar objects for equality
      * @link https://php.net/manual/en/intlcalendar.equals.php
-     * @param IntlCalendar $other
+     * @param IntlCalendar $other The calendar to compare with the primary object.
      * @return bool <p>
      * Returns <b>TRUE</b> if the current time of both this and the passed in
      * {@link https://php.net/manual/en/class.intlcalendar.php IntlCalendar} object are the same, or <b>FALSE</b>
@@ -3352,7 +3377,7 @@ class IntlCalendar
      * From the most general to the most specific, the locales are ordered in
      * this fashion – actual locale, valid locale, requested locale.
      * </p>
-     * @return string|false
+     * @return string|false A locale string or false on failure.
      */
     #[Pure]
     #[TentativeType]
@@ -3367,7 +3392,7 @@ class IntlCalendar
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
-     * @return int|false
+     * @return int|false An int representing a field value in the fieldʼs unit or false on failure.
      */
     #[Pure]
     #[TentativeType]
@@ -3778,8 +3803,8 @@ class IntlCalendar
      * the previous yearʼs last week.
      *
      * @link https://www.php.net/manual/en/intlcalendar.setminimaldaysinfirstweek.php
-     * @param int $days
-     * @return bool
+     * @param int $days The number of minimal days to set.
+     * @return bool Always returns true.
      * @throws \ValueError ValueError if days is out of range (less than 1 or more than 7).
      */
     #[LanguageAware(['8.4' => 'true'], default: 'bool')]
@@ -4208,7 +4233,7 @@ function collator_create(string $locale): ?Collator {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Compare two Unicode strings
  * @link https://php.net/manual/en/collator.compare.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @param string $string1 <p>
  * The first string to compare.
  * </p>
@@ -4241,7 +4266,7 @@ function collator_compare(Collator $object, string $string1, string $string2): i
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get collation attribute value
  * @link https://php.net/manual/en/collator.getattribute.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @param int $attribute <p>
  * Attribute to get value for.
  * </p>
@@ -4254,7 +4279,7 @@ function collator_get_attribute(Collator $object, int $attribute): int|false {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set collation attribute
  * @link https://php.net/manual/en/collator.setattribute.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @param int $attribute <p>Attribute.</p>
  * @param int $value <p>
  * Attribute value.
@@ -4267,7 +4292,7 @@ function collator_set_attribute(Collator $object, int $attribute, int $value): b
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get current collation strength
  * @link https://php.net/manual/en/collator.getstrength.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @return int current collation strength
  */
 #[Pure]
@@ -4277,7 +4302,7 @@ function collator_get_strength(Collator $object): int {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set collation strength
  * @link https://php.net/manual/en/collator.setstrength.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @param int $strength <p>Strength to set.</p>
  * <p>
  * Possible values are:
@@ -4292,7 +4317,7 @@ function collator_set_strength(Collator $object, int $strength) {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Sort array using specified collator
  * @link https://php.net/manual/en/collator.sort.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @param string[] &$array <p>
  * Array of strings to sort.
  * </p>
@@ -4311,7 +4336,7 @@ function collator_sort(Collator $object, array &$array, int $flags = 0): bool {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Sort array using specified collator and sort keys
  * @link https://php.net/manual/en/collator.sortwithsortkeys.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @param string[] &$array <p>Array of strings to sort</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -4325,7 +4350,7 @@ function collator_sort_with_sort_keys(
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Sort array maintaining index association
  * @link https://php.net/manual/en/collator.asort.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @param string[] &$array <p>Array of strings to sort.</p>
  * @param int $flags <p>
  * Optional sorting type, one of the following:
@@ -4340,7 +4365,7 @@ function collator_asort(Collator $object, array &$array, int $flags = 0): bool {
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the locale name of the collator
  * @link https://php.net/manual/en/collator.getlocale.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @param int $type <p>
  * You can choose between valid and actual locale (
  * <b>Locale::VALID_LOCALE</b> and
@@ -4358,7 +4383,7 @@ function collator_get_locale(Collator $object, int $type): string|false {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get collator's last error code
  * @link https://php.net/manual/en/collator.geterrorcode.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @return int|false Error code returned by the last Collator API function call.
  */
 #[Pure(true)]
@@ -4368,7 +4393,7 @@ function collator_get_error_code(Collator $object): int|false {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get text for collator's last error code
  * @link https://php.net/manual/en/collator.geterrormessage.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @return string|false Description of an error occurred in the last Collator API function call.
  */
 #[Pure]
@@ -4378,7 +4403,7 @@ function collator_get_error_message(Collator $object): string|false {}
  * (PHP 5 &gt;= 5.3.2, PHP 7, PECL intl &gt;= 1.0.3)<br/>
  * Get sorting key for a string
  * @link https://php.net/manual/en/collator.getsortkey.php
- * @param Collator $object
+ * @param Collator $object Collator object.
  * @param string $string <p>
  * The string to produce the key from.
  * </p>
@@ -4422,7 +4447,7 @@ function numfmt_create(string $locale, int $style, #[LanguageAware(['8.0' => 'st
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Format a number
  * @link https://php.net/manual/en/numberformatter.format.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @param int|float $num <p>
  * The value to format. Can be integer or float,
  * other values will be converted to a numeric value.
@@ -4440,8 +4465,8 @@ function numfmt_format(NumberFormatter $formatter, int|float $num, int $type = 0
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse a number
  * @link https://php.net/manual/en/numberformatter.parse.php
- * @param NumberFormatter $formatter
- * @param string $string
+ * @param NumberFormatter $formatter NumberFormatter object.
+ * @param string $string The string to parse for the number.
  * @param int $type [optional] <p>
  * The
  * formatting type to use. By default,
@@ -4460,7 +4485,7 @@ function numfmt_parse(NumberFormatter $formatter, string $string, int $type = Nu
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Format a currency value
  * @link https://php.net/manual/en/numberformatter.formatcurrency.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @param float $amount <p>
  * The numeric currency value.
  * </p>
@@ -4476,7 +4501,7 @@ function numfmt_format_currency(NumberFormatter $formatter, float $amount, strin
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse a currency number
  * @link https://php.net/manual/en/numberformatter.parsecurrency.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @param string $string
  * @param string &$currency <p>
  * Parameter to receive the currency name (3-letter ISO 4217 currency
@@ -4494,7 +4519,7 @@ function numfmt_parse_currency(NumberFormatter $formatter, string $string, &$cur
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set an attribute
  * @link https://php.net/manual/en/numberformatter.setattribute.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @param int $attribute <p>
  * Attribute specifier - one of the
  * numeric attribute constants.
@@ -4510,7 +4535,7 @@ function numfmt_set_attribute(NumberFormatter $formatter, int $attribute, int|fl
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get an attribute
  * @link https://php.net/manual/en/numberformatter.getattribute.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @param int $attribute <p>
  * Attribute specifier - one of the
  * numeric attribute constants.
@@ -4524,7 +4549,7 @@ function numfmt_get_attribute(NumberFormatter $formatter, int $attribute): int|f
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set a text attribute
  * @link https://php.net/manual/en/numberformatter.settextattribute.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @param int $attribute <p>
  * Attribute specifier - one of the
  * text attribute
@@ -4541,7 +4566,7 @@ function numfmt_set_text_attribute(NumberFormatter $formatter, int $attribute, s
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get a text attribute
  * @link https://php.net/manual/en/numberformatter.gettextattribute.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @param int $attribute <p>
  * Attribute specifier - one of the
  * text attribute constants.
@@ -4555,7 +4580,7 @@ function numfmt_get_text_attribute(NumberFormatter $formatter, int $attribute): 
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set a symbol value
  * @link https://php.net/manual/en/numberformatter.setsymbol.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @param int $symbol <p>
  * Symbol specifier, one of the
  * format symbol constants.
@@ -4571,7 +4596,7 @@ function numfmt_set_symbol(NumberFormatter $formatter, int $symbol, string $valu
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get a symbol value
  * @link https://php.net/manual/en/numberformatter.getsymbol.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @param int $symbol <p>
  * Symbol specifier, one of the
  * format symbol constants.
@@ -4585,7 +4610,7 @@ function numfmt_get_symbol(NumberFormatter $formatter, int $symbol): string|fals
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set formatter pattern
  * @link https://php.net/manual/en/numberformatter.setpattern.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @param string $pattern <p>
  * Pattern in syntax described in
  * ICU DecimalFormat
@@ -4599,7 +4624,7 @@ function numfmt_set_pattern(NumberFormatter $formatter, string $pattern): bool {
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get formatter pattern
  * @link https://php.net/manual/en/numberformatter.getpattern.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @return string|false Pattern string that is used by the formatter, or <b>FALSE</b> if an error happens.
  */
 #[Pure]
@@ -4609,7 +4634,7 @@ function numfmt_get_pattern(NumberFormatter $formatter): string|false {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get formatter locale
  * @link https://php.net/manual/en/numberformatter.getlocale.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @param int $type <p>
  * You can choose between valid and actual locale (
  * <b>Locale::VALID_LOCALE</b>,
@@ -4625,7 +4650,7 @@ function numfmt_get_locale(NumberFormatter $formatter, int $type = 0): string|fa
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get formatter's last error code.
  * @link https://php.net/manual/en/numberformatter.geterrorcode.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @return int error code from last formatter call.
  */
 #[Pure(true)]
@@ -4635,7 +4660,7 @@ function numfmt_get_error_code(NumberFormatter $formatter): int {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get formatter's last error message.
  * @link https://php.net/manual/en/numberformatter.geterrormessage.php
- * @param NumberFormatter $formatter
+ * @param NumberFormatter $formatter NumberFormatter object.
  * @return string error message from last formatter call.
  */
 #[Pure(true)]
@@ -5002,9 +5027,10 @@ function locale_accept_from_http(string $header): string|false {}
 /**
  * Constructs a new message formatter
  * @link https://php.net/manual/en/messageformatter.create.php
- * @param string $locale
- * @param string $pattern
- * @return MessageFormatter|null
+ * @param string $locale The locale to use when formatting arguments
+ * @param string $pattern The pattern string to stick arguments into. The pattern uses an
+ * 'apostrophe-friendly' syntax; see Quoting/Escaping for details.
+ * @return MessageFormatter|null The formatter object, or null on failure.
  */
 #[Pure]
 function msgfmt_create(string $locale, string $pattern): ?MessageFormatter {}
@@ -5013,7 +5039,7 @@ function msgfmt_create(string $locale, string $pattern): ?MessageFormatter {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Format the message
  * @link https://php.net/manual/en/messageformatter.format.php
- * @param MessageFormatter $formatter
+ * @param MessageFormatter $formatter The message formatter
  * @param array $values <p>
  * Arguments to insert into the format string
  * </p>
@@ -5047,7 +5073,7 @@ function msgfmt_format_message(string $locale, string $pattern, array $values): 
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse input string according to pattern
  * @link https://php.net/manual/en/messageformatter.parse.php
- * @param MessageFormatter $formatter
+ * @param MessageFormatter $formatter The message formatter
  * @param string $string <p>
  * The string to parse
  * </p>
@@ -5078,7 +5104,7 @@ function msgfmt_parse_message(string $locale, string $pattern, string $message):
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set the pattern used by the formatter
  * @link https://php.net/manual/en/messageformatter.setpattern.php
- * @param MessageFormatter $formatter
+ * @param MessageFormatter $formatter The message formatter
  * @param string $pattern <p>
  * The pattern string to use in this message formatter.
  * The pattern uses an 'apostrophe-friendly' syntax; it is run through
@@ -5093,7 +5119,7 @@ function msgfmt_set_pattern(MessageFormatter $formatter, string $pattern): bool 
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the pattern used by the formatter
  * @link https://php.net/manual/en/messageformatter.getpattern.php
- * @param MessageFormatter $formatter
+ * @param MessageFormatter $formatter The message formatter
  * @return string|false The pattern string for this message formatter
  */
 #[Pure]
@@ -5103,7 +5129,7 @@ function msgfmt_get_pattern(MessageFormatter $formatter): string|false {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the locale for which the formatter was created.
  * @link https://php.net/manual/en/messageformatter.getlocale.php
- * @param MessageFormatter $formatter
+ * @param MessageFormatter $formatter The formatter resource
  * @return string The locale name
  */
 #[Pure]
@@ -5113,7 +5139,7 @@ function msgfmt_get_locale(MessageFormatter $formatter): string {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error code from last operation
  * @link https://php.net/manual/en/messageformatter.geterrorcode.php
- * @param MessageFormatter $formatter
+ * @param MessageFormatter $formatter The message formatter
  * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
  */
 #[Pure(true)]
@@ -5123,7 +5149,7 @@ function msgfmt_get_error_code(MessageFormatter $formatter): int {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error text from the last operation
  * @link https://php.net/manual/en/messageformatter.geterrormessage.php
- * @param MessageFormatter $formatter
+ * @param MessageFormatter $formatter The message formatter
  * @return string Description of the last error.
  */
 #[Pure(true)]
@@ -5162,7 +5188,7 @@ function msgfmt_get_error_message(MessageFormatter $formatter): string {}
  * Optional pattern to use when formatting or parsing.
  * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
  * </p>
- * @return IntlDateFormatter|null
+ * @return IntlDateFormatter|null The created IntlDateFormatter or null in case of failure.
  */
 #[Pure]
 function datefmt_create(
@@ -5180,7 +5206,7 @@ function datefmt_create(
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the datetype used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.getdatetype.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource.
  * @return int|false The current date type value of the formatter.
  */
 #[Pure]
@@ -5190,7 +5216,7 @@ function datefmt_get_datetype(IntlDateFormatter $formatter): int|false {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the timetype used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.gettimetype.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource.
  * @return int|false The current date type value of the formatter.
  */
 #[Pure]
@@ -5200,7 +5226,7 @@ function datefmt_get_timetype(IntlDateFormatter $formatter): int|false {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the calendar type used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.getcalendar.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource
  * @return int|false The calendar being used by the formatter.
  */
 #[Pure]
@@ -5223,7 +5249,7 @@ function datefmt_set_calendar(IntlDateFormatter $formatter, IntlCalendar|int|nul
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the locale used by formatter
  * @link https://php.net/manual/en/intldateformatter.getlocale.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource
  * @param int $type [optional]
  * @return string|false the locale of this formatter or 'false' if error
  */
@@ -5237,7 +5263,7 @@ function datefmt_get_locale(
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the timezone-id used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.gettimezoneid.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource.
  * @return string|false ID string for the time zone used by this formatter.
  */
 #[Pure]
@@ -5283,7 +5309,7 @@ function datefmt_set_timezone_id(MessageFormatter $mf, $zone) {}
  * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
  * Sets formatter's timezone
  * @link https://php.net/manual/en/intldateformatter.settimezone.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource.
  * @param IntlTimeZone|DateTimeZone|string|null $timezone <p>
  * The timezone to use for this formatter. This can be specified in the
  * following forms:
@@ -5325,7 +5351,7 @@ function datefmt_set_timezone(IntlDateFormatter $formatter, #[LanguageAware(['8.
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the pattern used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.getpattern.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource.
  * @return string|false The pattern string being used to format/parse.
  */
 #[Pure]
@@ -5335,7 +5361,7 @@ function datefmt_get_pattern(IntlDateFormatter $formatter): string|false {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set the pattern used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.setpattern.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource.
  * @param string $pattern <p>
  * New pattern string to use.
  * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
@@ -5349,7 +5375,7 @@ function datefmt_set_pattern(IntlDateFormatter $formatter, string $pattern): boo
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the lenient used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.islenient.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource.
  * @return bool <b>TRUE</b> if parser is lenient, <b>FALSE</b> if parser is strict. By default the parser is lenient.
  */
 #[Pure]
@@ -5359,11 +5385,11 @@ function datefmt_is_lenient(IntlDateFormatter $formatter): bool {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set the leniency of the parser
  * @link https://php.net/manual/en/intldateformatter.setlenient.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource
  * @param bool $lenient <p>
  * Sets whether the parser is lenient or not, default is <b>TRUE</b> (lenient).
  * </p>
- * @return void
+ * @return void Returns true on success or false on failure.
  */
 function datefmt_set_lenient(
     IntlDateFormatter $formatter,
@@ -5374,7 +5400,7 @@ function datefmt_set_lenient(
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Format the date/time value as a string
  * @link https://php.net/manual/en/intldateformatter.format.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The date formatter resource.
  * @param object|array|string|int|float $datetime <p>
  * Value to format. This may be a <b>DateTime</b> object,
  * an integer representing a Unix timestamp value (seconds
@@ -5422,7 +5448,7 @@ function datefmt_format_object($datetime, $format = null, ?string $locale = null
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse string to a timestamp value
  * @link https://php.net/manual/en/intldateformatter.parse.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource
  * @param string $string <p>
  * string to convert to a time
  * </p>
@@ -5441,7 +5467,7 @@ function datefmt_parse(IntlDateFormatter $formatter, string $string, &$offset = 
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse string to a field-based time value
  * @link https://php.net/manual/en/intldateformatter.localtime.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource
  * @param string $string <p>
  * string to convert to a time
  * </p>
@@ -5459,7 +5485,7 @@ function datefmt_localtime(IntlDateFormatter $formatter, string $string, &$offse
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error code from last operation
  * @link https://php.net/manual/en/intldateformatter.geterrorcode.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource.
  * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
  */
 #[Pure(true)]
@@ -5469,7 +5495,7 @@ function datefmt_get_error_code(IntlDateFormatter $formatter): int {}
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error text from the last operation.
  * @link https://php.net/manual/en/intldateformatter.geterrormessage.php
- * @param IntlDateFormatter $formatter
+ * @param IntlDateFormatter $formatter The formatter resource.
  * @return string Description of the last error.
  */
 #[Pure(true)]
@@ -6968,11 +6994,12 @@ function resourcebundle_create(?string $locale, ?string $bundle, bool $fallback 
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get data from the bundle
  * @link https://php.net/manual/en/resourcebundle.get.php
- * @param ResourceBundle $bundle
+ * @param ResourceBundle $bundle ResourceBundle object.
  * @param string|int $index <p>
  * Data index, must be string or integer.
  * </p>
- * @param bool $fallback
+ * @param bool $fallback Whether locale should match exactly or fallback to parent locale is
+ * allowed.
  * @return mixed the data located at the index or <b>NULL</b> on error. Strings, integers and binary data strings
  * are returned as corresponding PHP types, integer array is returned as PHP array. Complex types are
  * returned as <b>ResourceBundle</b> object.
@@ -6985,7 +7012,7 @@ function resourcebundle_get(ResourceBundle $bundle, string|int $index, bool $fal
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get number of elements in the bundle
  * @link https://php.net/manual/en/resourcebundle.count.php
- * @param ResourceBundle $bundle
+ * @param ResourceBundle $bundle ResourceBundle object.
  * @return int number of elements in the bundle.
  */
 #[Pure]
@@ -7008,7 +7035,7 @@ function resourcebundle_locales(string $bundle): array|false {}
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get bundle's last error code.
  * @link https://php.net/manual/en/resourcebundle.geterrorcode.php
- * @param ResourceBundle $bundle
+ * @param ResourceBundle $bundle ResourceBundle object.
  * @return int error code from last bundle object call.
  */
 #[Pure(true)]
@@ -7018,7 +7045,7 @@ function resourcebundle_get_error_code(ResourceBundle $bundle): int {}
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get bundle's last error message.
  * @link https://php.net/manual/en/resourcebundle.geterrormessage.php
- * @param ResourceBundle $bundle
+ * @param ResourceBundle $bundle ResourceBundle object.
  * @return string error message from last bundle object's call.
  */
 #[Pure(true)]
@@ -7091,7 +7118,8 @@ function transliterator_create_inverse(Transliterator $transliterator): ?Transli
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
  * Transliterate a string
  * @link https://php.net/manual/en/transliterator.transliterate.php
- * @param Transliterator|string $transliterator
+ * @param Transliterator|string $transliterator In the procedural version, either a Transliterator
+ * or a string from which a Transliterator can be built.
  * @param string $string <p>
  * The string to be transformed.
  * </p>
@@ -7188,9 +7216,10 @@ function intl_error_name(int $errorCode): string {}
  *
  * @link https://www.php.net/manual/en/normalizer.getrawdecomposition.php
  *
- * @param string $string
+ * @param string $string The input string, which should be a single, UTF-8 encoded, code point.
  * @param int $form
- * @return string|null
+ * @return string|null Returns a string containing the Decomposition_Mapping property, if present in
+ * the UCD. Returns null if there is no Decomposition_Mapping property for the character.
  *
  * @since 7.3
  */
@@ -8257,11 +8286,14 @@ class UConverter
      * (PHP 5 &gt;=5.5.0)<br/>
      * Convert string from one charset to another
      * @link https://php.net/manual/en/uconverter.transcode.php
-     * @param string $str
-     * @param string $toEncoding
-     * @param string $fromEncoding
-     * @param array|null $options
-     * @return string|false
+     * @param string $str The string to be converted.
+     * @param string $toEncoding The desired encoding of the result.
+     * @param string $fromEncoding The current encoding used to interpret str.
+     * @param array|null $options An optional array, which may contain the following keys:
+     * 'to_subst' - the substitution character to use in place of any character of str which cannot
+     * be encoded in toEncoding. If specified, it must represent a single character in the target
+     * encoding.
+     * @return string|false Returns the converted string or false on failure.
      */
     #[TentativeType]
     public static function transcode(

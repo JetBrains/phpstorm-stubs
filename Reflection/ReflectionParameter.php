@@ -52,7 +52,7 @@ class ReflectionParameter implements Reflector
      * Returns the string representation of the ReflectionParameter object.
      *
      * @link https://php.net/manual/en/reflectionparameter.tostring.php
-     * @return string
+     * @return string The string.
      */
     #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
     public function __toString() {}
@@ -289,7 +289,7 @@ class ReflectionParameter implements Reflector
      *
      * @param class-string<T>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
+     * @return ReflectionAttribute<T>[] Array of attributes, as a ReflectionAttribute object.
      * @since 8.0
      */
     #[Pure]

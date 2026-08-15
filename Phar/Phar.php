@@ -603,7 +603,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @param string $localName <p>
      * The filename (relative path) to modify in a Phar.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \BadMethodCallException if phar.readonly is 1, BadMethodCallException is thrown, as
      * modifying a Phar is only allowed when phar.readonly is set to 0.
      * @throws \PharException Throws PharException if there are any
@@ -620,7 +620,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * A shorthand string that this archive can be referred to in phar
      * stream wrapper access.
      * </p>
-     * @return bool
+     * @return bool Always returns true.
      * @throws \UnexpectedValueException Throws UnexpectedValueException when write access is
      * disabled.
      * @throws \PharException Throws PharException if the alias is already in use or any problems were encountered flushing
@@ -1161,7 +1161,7 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * @param string $localName <p>
      * The filename (relative path) to modify in the tar/zip archive.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \PharException Throws PharException if there are any problems flushing changes made
      * to the tar/zip archive to disk.
      */
@@ -2146,7 +2146,7 @@ class PharFileInfo extends SplFileInfo
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Compresses the current Phar entry with either zlib or bzip2 compression
      * @link https://php.net/manual/en/pharfileinfo.compress.php
-     * @param int $compression
+     * @param int $compression Compression must be Phar::GZ or Phar::BZ2.
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @throws \BadMethodCallException Throws BadMethodCallException if the phar.readonly INI
      * variable is on, or if the bzip2/zlib extension is not available.

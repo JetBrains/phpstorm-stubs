@@ -379,7 +379,7 @@ function sodium_crypto_stream_xchacha20_keygen(): string {}
  * Can you access AES-256-GCM? This is only available if you have supported
  * hardware.
  * @link https://www.php.net/manual/en/function.sodium-crypto-aead-aes256gcm-is-available
- * @return bool
+ * @return bool Returns true if it is safe to encrypt with AES-256-GCM, and false otherwise.
  * @since 7.2
  */
 function sodium_crypto_aead_aes256gcm_is_available(): bool {}
@@ -390,9 +390,9 @@ function sodium_crypto_aead_aes256gcm_is_available(): bool {}
  * @link https://www.php.net/manual/en/function.sodium-crypto-aead-aes256gcm-decrypt.php
  * @param string $ciphertext encrypted message
  * @param string $additional_data additional data
- * @param string $nonce
- * @param string $key
- * @return string|false
+ * @param string $nonce A number that must be only used once, per message. 12 bytes long.
+ * @param string $key Encryption key (256-bit).
+ * @return string|false Returns the plaintext on success, or false on failure.
  * @throws SodiumException
  * @since 7.2
  */
@@ -403,10 +403,13 @@ function sodium_crypto_aead_aes256gcm_decrypt(string $ciphertext, string $additi
  * AES-256-GCM
  * @link https://www.php.net/manual/en/function.sodium-crypto-aead-aes256gcm-encrypt.php
  * @param string $message plaintext message
- * @param string $additional_data
- * @param string $nonce
- * @param string $key
- * @return string
+ * @param string $additional_data Additional, authenticated data. This is used in the verification
+ * of the authentication tag appended to the ciphertext, but it is not encrypted or stored in the
+ * ciphertext.
+ * @param string $nonce A number that must be only used once, per message. 12 bytes long.
+ * @param string $key Encryption key (256-bit).
+ * @return string Returns the ciphertext and authentication tag as a string of raw binary bytes.
+ * (Format: ciphertext, then tag.)
  * @throws SodiumException
  * @since 7.2
  */
@@ -418,9 +421,9 @@ function sodium_crypto_aead_aes256gcm_encrypt(string $message, string $additiona
  * @link https://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-decrypt.php
  * @param string $ciphertext encrypted message
  * @param string $additional_data additional data
- * @param string $nonce
- * @param string $key
- * @return string|false
+ * @param string $nonce A number that must be only used once, per message. 8 bytes long.
+ * @param string $key Encryption key (256-bit).
+ * @return string|false Returns the plaintext on success, or false on failure.
  * @throws SodiumException
  * @since 7.2
  */
@@ -432,9 +435,9 @@ function sodium_crypto_aead_chacha20poly1305_decrypt(string $ciphertext, string 
  * @link https://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-encrypt.php
  * @param string $message plaintext message
  * @param string $additional_data additional data
- * @param string $nonce
- * @param string $key
- * @return string
+ * @param string $nonce A number that must be only used once, per message. 8 bytes long.
+ * @param string $key Encryption key (256-bit).
+ * @return string Returns the ciphertext and authentication tag as a string of raw binary bytes.
  * @throws SodiumException
  * @since 7.2
  */
@@ -446,9 +449,9 @@ function sodium_crypto_aead_chacha20poly1305_encrypt(string $message, string $ad
  * @link https://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-decrypt.php
  * @param string $ciphertext encrypted message
  * @param string $additional_data additional data
- * @param string $nonce
- * @param string $key
- * @return string|false
+ * @param string $nonce A number that must be only used once, per message. 12 bytes long.
+ * @param string $key Encryption key (256-bit).
+ * @return string|false Returns the plaintext on success, or false on failure.
  * @throws SodiumException
  * @since 7.2
  */
@@ -460,9 +463,9 @@ function sodium_crypto_aead_chacha20poly1305_ietf_decrypt(string $ciphertext, st
  * @link https://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-encrypt.php
  * @param string $message plaintext message
  * @param string $additional_data additional data
- * @param string $nonce
- * @param string $key
- * @return string
+ * @param string $nonce A number that must be only used once, per message. 12 bytes long.
+ * @param string $key Encryption key (256-bit).
+ * @return string Returns the ciphertext and authentication tag as a string of raw binary bytes.
  * @throws SodiumException
  * @since 7.2
  */
@@ -477,9 +480,9 @@ function sodium_crypto_aead_chacha20poly1305_ietf_encrypt(
  * Secret-key message authentication
  * HMAC SHA-512/256
  * @link https://www.php.net/manual/en/function.sodium-crypto-auth.php
- * @param string $message
- * @param string $key
- * @return string
+ * @param string $message The message you intend to authenticate
+ * @param string $key Authentication key
+ * @return string Authentication tag
  * @throws SodiumException
  * @since 7.2
  */
@@ -491,7 +494,7 @@ function sodium_crypto_auth(
 /**
  * Get random bytes for key
  * @link https://php.net/manual/en/function.sodium-crypto-auth-keygen.php
- * @return string
+ * @return string Returns a 256-bit random key.
  * @since 7.2
  */
 function sodium_crypto_auth_keygen(): string {}
@@ -505,7 +508,7 @@ function sodium_crypto_auth_keygen(): string {}
  *
  * @link https://php.net/manual/en/function.sodium-crypto-kx-keypair.php
  * @since 7.2
- * @return string
+ * @return string Returns the new keypair on success; throws an exception otherwise.
  * @throws SodiumException
  * @since 7.2
  */
@@ -515,8 +518,8 @@ function sodium_crypto_kx_keypair(): string {}
  * Extract the public key from a crypto_kx keypair
  * @link https://php.net/manual/en/function.sodium-crypto-kx-publickey.php
  * @since 7.2
- * @param string $key_pair
- * @return string
+ * @param string $key_pair X25519 keypair, such as one generated by sodium_crypto_kx_keypair.
+ * @return string X25519 public key.
  * @throws SodiumException
  * @since 7.2
  */
@@ -525,8 +528,8 @@ function sodium_crypto_kx_publickey(string $key_pair): string {}
 /**
  * Extract the secret key from a crypto_kx keypair.
  * @link https://php.net/manual/en/function.sodium-crypto-kx-secretkey.php
- * @param string $key_pair
- * @return string
+ * @param string $key_pair X25519 keypair, such as one generated by sodium_crypto_kx_keypair.
+ * @return string X25519 secret key.
  * @throws SodiumException
  * @since 7.2
  */
@@ -550,9 +553,11 @@ function sodium_crypto_kx_seed_keypair(string $seed): string {}
  *
  * @link https://php.net/manual/en/function.sodium-crypto-kx-server-session-keys.php
  * @since 7.2
- * @param string $server_key_pair
- * @param string $client_key
- * @return string[]
+ * @param string $server_key_pair A crypto_kx keypair, such as one generated by
+ * sodium_crypto_kx_keypair.
+ * @param string $client_key A crypto_kx public key.
+ * @return string[] An array consisting of two strings. The first should be used for receiving data
+ * from the client. The second should be used for sending data to the client.
  * @throws SodiumException
  * @since 7.2
  */
@@ -561,7 +566,7 @@ function sodium_crypto_kx_server_session_keys(string $server_key_pair, string $c
 /**
  * Get random bytes for key
  * @link https://php.net/manual/en/function.sodium-crypto-generichash-keygen.php
- * @return string
+ * @return string A random 256-bit key.
  * @since 7.2
  */
 function sodium_crypto_generichash_keygen(): string {}
@@ -572,9 +577,11 @@ function sodium_crypto_generichash_keygen(): string {}
  * Calculate the client-side session keys, using the X25519 + BLAKE2b key-exchange method.
  *
  * @link https://php.net/manual/en/function.sodium-crypto-kx-client-session-keys.php
- * @param string $client_key_pair
- * @param string $server_key
- * @return string[]
+ * @param string $client_key_pair A crypto_kx keypair, such as one generated by
+ * sodium_crypto_kx_keypair.
+ * @param string $server_key A crypto_kx public key.
+ * @return string[] An array consisting of two strings. The first should be used for receiving data
+ * from the server. The second should be used for sending data to the server.
  * @throws SodiumException
  * @since 7.2
  */
@@ -586,11 +593,11 @@ function sodium_crypto_kx_client_session_keys(string $client_key_pair, string $s
  * Derive a subkey from a root key and additional context.
  *
  * @link https://www.php.net/manual/en/function.sodium-crypto-kdf-derive-from-key.php
- * @param int $subkey_length
- * @param int $subkey_id
- * @param string $context
- * @param string $key
- * @return string
+ * @param int $subkey_length Length of the key to return (in bytes)
+ * @param int $subkey_id Return the Nth subkey from a given root key. Useful for seeking.
+ * @param string $context Application-specific context.
+ * @param string $key The root key from which the subkey is derived.
+ * @return string A string of pseudorandom (raw binary) bytes.
  * @throws SodiumException
  * @since 7.2
  */
@@ -600,7 +607,7 @@ function sodium_crypto_kdf_derive_from_key(int $subkey_length, int $subkey_id, s
  * Get random bytes for key
  * @link https://php.net/manual/en/function.sodium-crypto-kdf-keygen.php
  * @since 7.2
- * @return string
+ * @return string A random 256-bit key.
  */
 function sodium_crypto_kdf_keygen(): string {}
 
@@ -616,16 +623,16 @@ function sodium_crypto_shorthash_keygen(): string {}
  * Get random bytes for key
  * @link https://php.net/manual/en/function.sodium-crypto-stream-keygen.php
  * @since 7.2
- * @return string
+ * @return string Encryption key (256-bit).
  */
 function sodium_crypto_stream_keygen(): string {}
 
 /**
  * Add padding data
  * @link https://php.net/manual/en/function.sodium-pad.php
- * @param string $string
- * @param int $block_size
- * @return string
+ * @param string $string Unpadded string.
+ * @param int $block_size The string will be padded until it is an even multiple of the block size.
+ * @return string Padded string.
  * @throws SodiumException
  * @since 7.2
  */
@@ -634,9 +641,9 @@ function sodium_pad(string $string, int $block_size): string {}
 /**
  * Remove padding data
  * @link https://php.net/manual/en/function.sodium-unpad.php
- * @param string $string
- * @param int $block_size
- * @return string
+ * @param string $string Padded string.
+ * @param int $block_size The block size for padding.
+ * @return string Unpadded string.
  * @throws SodiumException
  * @since 7.2
  */
@@ -646,10 +653,10 @@ function sodium_unpad(string $string, int $block_size): string {}
  * Secret-key message verification
  * HMAC SHA-512/256
  * @link https://www.php.net/manual/en/function.sodium-crypto-auth-verify.php
- * @param string $mac
- * @param string $message
- * @param string $key
- * @return bool
+ * @param string $mac Authentication tag produced by sodium_crypto_auth
+ * @param string $message Message
+ * @param string $key Authentication key
+ * @return bool Returns true on success or false on failure.
  * @throws SodiumException
  * @since 7.2
  */
@@ -659,10 +666,14 @@ function sodium_crypto_auth_verify(string $mac, string $message, string $key): b
  * Public-key authenticated encryption (encrypt)
  * X25519 + Xsalsa20 + Poly1305
  * @link https://www.php.net/manual/en/function.sodium-crypto-box.php
- * @param string $message
- * @param string $nonce
- * @param string $key_pair
- * @return string
+ * @param string $message The message to be encrypted.
+ * @param string $nonce A number that must be only used once, per message. 24 bytes long. This is a
+ * large enough bound to generate randomly (i.e. random_bytes).
+ * @param string $key_pair See sodium_crypto_box_keypair_from_secretkey_and_publickey. This should
+ * include the sender's X25519 secret key and the recipient's X25519 public key.
+ * @return string Returns the encrypted message (ciphertext plus authentication tag). The ciphertext
+ * will be 16 bytes longer than the plaintext, and a raw binary string. See sodium_bin2base64 for
+ * safe encoding for storage.
  * @throws SodiumException
  * @since 7.2
  */
@@ -671,7 +682,8 @@ function sodium_crypto_box(string $message, string $nonce, string $key_pair): st
 /**
  * Generate an X25519 keypair for use with the sodium_crypto_box API
  * @link https://www.php.net/manual/en/function.sodium-crypto-box-keypair.php
- * @return string
+ * @return string One string containing both the X25519 secret key and corresponding X25519 public
+ * key.
  * @throws SodiumException
  * @since 7.2
  */
@@ -680,8 +692,8 @@ function sodium_crypto_box_keypair(): string {}
 /**
  * Derive an X25519 keypair for use with the sodium_crypto_box API from a seed
  * @link https://www.php.net/manual/en/function.sodium-crypto-box-seed-keypair.php
- * @param string $seed
- * @return string
+ * @param string $seed Some cryptographic input. Must be 32 bytes.
+ * @return string X25519 Keypair (secret key and public key).
  * @throws SodiumException
  * @since 7.2
  */
@@ -690,9 +702,9 @@ function sodium_crypto_box_seed_keypair(string $seed): string {}
 /**
  * Create an X25519 keypair from an X25519 secret key and X25519 public key
  * @link https://www.php.net/manual/en/function.sodium-crypto-box-keypair-from-secretkey-and-publickey.php
- * @param string $secret_key
- * @param string $public_key
- * @return string
+ * @param string $secret_key Secret key.
+ * @param string $public_key Public key.
+ * @return string X25519 Keypair.
  * @throws SodiumException
  * @since 7.2
  */
@@ -702,10 +714,12 @@ function sodium_crypto_box_keypair_from_secretkey_and_publickey(string $secret_k
  * Public-key authenticated encryption (decrypt)
  * X25519 + Xsalsa20 + Poly1305
  * @link https://www.php.net/manual/en/function.sodium-crypto-box-open.php
- * @param string $ciphertext
- * @param string $nonce
- * @param string $key_pair
- * @return string|false
+ * @param string $ciphertext The encrypted message to attempt to decrypt.
+ * @param string $nonce A number that must be only used once, per message. 24 bytes long. This is a
+ * large enough bound to generate randomly (i.e. random_bytes).
+ * @param string $key_pair See sodium_crypto_box_keypair_from_secretkey_and_publickey. This should
+ * include the sender's public key and the recipient's secret key.
+ * @return string|false Returns the plaintext message on success, or false on failure.
  * @throws SodiumException
  * @since 7.2
  */
@@ -714,8 +728,9 @@ function sodium_crypto_box_open(string $ciphertext, string $nonce, string $key_p
 /**
  * Get an X25519 public key from an X25519 keypair
  * @link https://www.php.net/manual/en/function.sodium-crypto-box-publickey.php
- * @param string $key_pair
- * @return string
+ * @param string $key_pair A keypair, such as one generated by sodium_crypto_box_keypair or
+ * sodium_crypto_box_seed_keypair
+ * @return string X25519 public key.
  * @throws SodiumException
  * @since 7.2
  */
@@ -724,8 +739,8 @@ function sodium_crypto_box_publickey(string $key_pair): string {}
 /**
  * Derive an X25519 public key from an X25519 secret key
  * @link https://www.php.net/manual/en/function.sodium-crypto-box-publickey-from-secretkey.php
- * @param string $secret_key
- * @return string
+ * @param string $secret_key X25519 secret key
+ * @return string X25519 public key.
  * @throws SodiumException
  * @since 7.2
  */
@@ -735,9 +750,11 @@ function sodium_crypto_box_publickey_from_secretkey(string $secret_key): string 
  * Anonymous public-key encryption (encrypt)
  * X25519 + Xsalsa20 + Poly1305 + BLAKE2b
  * @link https://www.php.net/manual/en/function.sodium-crypto-box-seal.php
- * @param string $message
- * @param string $public_key
- * @return string
+ * @param string $message The message to encrypt.
+ * @param string $public_key The public key that corresponds to the only key that can decrypt the
+ * message.
+ * @return string A ciphertext string in the format of (one-time public key, encrypted message,
+ * authentication tag).
  * @throws SodiumException
  * @since 7.2
  */
@@ -747,9 +764,9 @@ function sodium_crypto_box_seal(string $message, string $public_key): string {}
  * Anonymous public-key encryption (decrypt)
  * X25519 + Xsalsa20 + Poly1305 + BLAKE2b
  * @link https://www.php.net/manual/en/function.sodium-crypto-box-seal-open.php
- * @param string $ciphertext
- * @param string $key_pair
- * @return string|false
+ * @param string $ciphertext The encrypted message
+ * @param string $key_pair The keypair of the recipient. Must include the secret key.
+ * @return string|false The plaintext on success, or false on failure.
  * @throws SodiumException
  * @since 7.2
  */
@@ -758,8 +775,9 @@ function sodium_crypto_box_seal_open(string $ciphertext, string $key_pair): stri
 /**
  * Extract the X25519 secret key from an X25519 keypair
  * @link https://www.php.net/manual/en/function.sodium-crypto-box-secretkey.php
- * @param string $key_pair
- * @return string
+ * @param string $key_pair A keypair, such as one generated by sodium_crypto_box_keypair or
+ * sodium_crypto_box_seed_keypair
+ * @return string X25519 secret key.
  * @throws SodiumException
  * @since 7.2
  */
@@ -785,10 +803,12 @@ function sodium_crypto_kx(
 /**
  * Fast and secure cryptographic hash
  * @link https://www.php.net/manual/en/function.sodium-crypto-generichash.php
- * @param string $message
- * @param string $key
- * @param int $length
- * @return string
+ * @param string $message The message being hashed.
+ * @param string $key (Optional) cryptographic key. This serves the same function as a HMAC key, but
+ * it's utilized as a reserved section of the internal BLAKE2 state.
+ * @param int $length Output size.
+ * @return string The cryptographic hash as raw bytes. If a hex-encoded output is desired, the
+ * result can be passed to sodium_bin2hex.
  * @throws SodiumException
  * @since 7.2
  */
@@ -798,9 +818,9 @@ function sodium_crypto_generichash(string $message, string $key = '', int $lengt
  * Create a new hash state (e.g. to use for streams)
  * BLAKE2b
  * @link https://www.php.net/manual/en/function.sodium-crypto-generichash-init.php
- * @param string $key
- * @param int $length
- * @return string
+ * @param string $key The generichash key.
+ * @param int $length The expected output length of the hash function.
+ * @return string Returns a hash state, serialized as a raw binary string.
  * @throws SodiumException
  * @since 7.2
  */
@@ -813,9 +833,9 @@ function sodium_crypto_generichash_init(
  * Update the hash state with some data
  * BLAKE2b
  * @link https://www.php.net/manual/en/function.sodium-crypto-generichash-update.php
- * @param string &$state
- * @param string $message
- * @return bool
+ * @param string &$state The return value of sodium_crypto_generichash_init.
+ * @param string $message Data to append to the hashing state.
+ * @return bool Always returns true.
  * @throws SodiumException
  * @since 7.2
  */
@@ -826,9 +846,9 @@ function sodium_crypto_generichash_update(string &$state, string $message) {}
  * Get the final hash
  * BLAKE2b
  * @link https://www.php.net/manual/en/function.sodium-crypto-generichash-final.php
- * @param string &$state
- * @param int $length
- * @return string
+ * @param string &$state Hash state returned from sodium_crypto_generichash_init
+ * @param int $length Output length.
+ * @return string Cryptographic hash.
  * @throws SodiumException
  * @since 7.2
  */
@@ -841,13 +861,26 @@ function sodium_crypto_generichash_final(
  * Secure password-based key derivation function
  * Argon2i
  * @link https://www.php.net/manual/en/function.sodium-crypto-pwhash.php
- * @param int $length
- * @param string $password
- * @param string $salt
- * @param int $opslimit
- * @param int $memlimit
+ * @param int $length int; The length of the password hash to generate, in bytes.
+ * @param string $password string; The password to generate a hash for.
+ * @param string $salt A salt to add to the password before hashing. The salt should be
+ * unpredictable, ideally generated from a good random number source such as random_bytes, and have
+ * a length of exactly SODIUM_CRYPTO_PWHASH_SALTBYTES bytes.
+ * @param int $opslimit Represents a maximum amount of computations to perform. Raising this number
+ * will make the function require more CPU cycles to compute a key. There are some constants
+ * available to set the operations limit to appropriate values depending on intended use, in order
+ * of strength: SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_OPSLIMIT_MODERATE
+ * and SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE.
+ * @param int $memlimit The maximum amount of RAM that the function will use, in bytes. There are
+ * constants to help you choose an appropriate value, in order of size:
+ * SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_MODERATE, and
+ * SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE. Typically these should be paired with the matching
+ * opslimit values.
  * @param int $algo [optional]
- * @return string
+ * @return string Returns the derived key. The return value is a binary string of the hash, not an
+ * ASCII-encoded representation, and does not contain additional information about the parameters
+ * used to create the hash, so you will need to keep that information if you are ever going to
+ * verify the password in future. Use sodium_crypto_pwhash_str to avoid needing to do all that.
  * @throws SodiumException
  * @since 7.2
  */
@@ -857,10 +890,22 @@ function sodium_crypto_pwhash(int $length, string $password, string $salt, int $
  * Get a formatted password hash (for storage)
  * Argon2i
  * @link https://www.php.net/manual/en/function.sodium-crypto-pwhash-str.php
- * @param string $password
- * @param int $opslimit
- * @param int $memlimit
- * @return string
+ * @param string $password string; The password to generate a hash for.
+ * @param int $opslimit Represents a maximum amount of computations to perform. Raising this number
+ * will make the function require more CPU cycles to compute a key. There are constants available to
+ * set the operations limit to appropriate values depending on intended use, in order of strength:
+ * SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_OPSLIMIT_MODERATE and
+ * SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE.
+ * @param int $memlimit The maximum amount of RAM that the function will use, in bytes. There are
+ * constants to help you choose an appropriate value, in order of size:
+ * SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_MODERATE, and
+ * SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE. Typically these should be paired with the matching
+ * opslimit values.
+ * @return string Returns the hashed password. In order to produce the same password hash from the
+ * same password, the same values for opslimit and memlimit must be used. These are embedded within
+ * the generated hash, so everything that's needed to verify the hash is included. This allows the
+ * sodium_crypto_pwhash_str_verify function to verify the hash without needing separate storage for
+ * the other parameters.
  * @throws SodiumException
  * @since 7.2
  */
@@ -870,9 +915,9 @@ function sodium_crypto_pwhash_str(string $password, int $opslimit, int $memlimit
  * Verify a password against a hash
  * Argon2i
  * @link https://www.php.net/manual/en/function.sodium-crypto-pwhash-str-verify.php
- * @param string $hash
- * @param string $password
- * @return bool
+ * @param string $hash A hash created by password_hash.
+ * @param string $password The user's password.
+ * @return bool Returns true if the password and hash match, or false otherwise.
  * @throws SodiumException
  * @since 7.2
  */
@@ -882,12 +927,22 @@ function sodium_crypto_pwhash_str_verify(string $hash, string $password): bool {
  * Secure password-based key derivation function
  * Scrypt
  * @link https://www.php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256.php
- * @param int $length
- * @param string $password
- * @param string $salt
- * @param int $opslimit
- * @param int $memlimit
- * @return string
+ * @param int $length The length of the password hash to generate, in bytes.
+ * @param string $password The password to generate a hash for.
+ * @param string $salt A salt to add to the password before hashing. The salt should be
+ * unpredictable, ideally generated from a good random number source such as random_bytes, and have
+ * a length of at least SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_SALTBYTES bytes.
+ * @param int $opslimit Represents a maximum amount of computations to perform. Raising this number
+ * will make the function require more CPU cycles to compute a key. There are some constants
+ * available to set the operations limit to appropriate values depending on intended use, in order
+ * of strength: SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_OPSLIMIT_INTERACTIVE and
+ * SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_OPSLIMIT_SENSITIVE.
+ * @param int $memlimit The maximum amount of RAM that the function will use, in bytes. There are
+ * constants to help you choose an appropriate value, in order of size:
+ * SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_MEMLIMIT_INTERACTIVE and
+ * SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_MEMLIMIT_SENSITIVE. Typically these should be paired
+ * with the matching opslimit values.
+ * @return string A string of bytes of the desired length.
  * @throws SodiumException
  * @since 7.2
  */
@@ -928,9 +983,9 @@ function sodium_crypto_pwhash_scryptsalsa208sha256_str_verify(string $hash, stri
  * Elliptic Curve Diffie Hellman over Curve25519
  * X25519
  * @link https://www.php.net/manual/en/function.sodium-crypto-scalarmult.php
- * @param string $n
- * @param string $p
- * @return string
+ * @param string $n scalar, which is typically a secret key
+ * @param string $p point (x-coordinate), which is typically a public key
+ * @return string A 32-byte random string.
  * @throws SodiumException
  * @since 7.2
  */
@@ -940,10 +995,11 @@ function sodium_crypto_scalarmult(string $n, string $p): string {}
  * Authenticated secret-key encryption (encrypt)
  * Xsals20 + Poly1305
  * @link https://www.php.net/manual/en/function.sodium-crypto-secretbox.php
- * @param string $message
- * @param string $nonce
- * @param string $key
- * @return string
+ * @param string $message The plaintext message to encrypt.
+ * @param string $nonce A number that must be only used once, per message. 24 bytes long. This is a
+ * large enough bound to generate randomly (i.e. random_bytes).
+ * @param string $key Encryption key (256-bit).
+ * @return string Returns the encrypted string.
  * @throws SodiumException
  * @since 7.2
  */
@@ -953,10 +1009,12 @@ function sodium_crypto_secretbox(string $message, string $nonce, string $key): s
  * Authenticated secret-key encryption (decrypt)
  * Xsals20 + Poly1305
  * @link https://www.php.net/manual/en/function.sodium-crypto-secretbox-open.php
- * @param string $ciphertext
- * @param string $nonce
- * @param string $key
- * @return string|false
+ * @param string $ciphertext Must be in the format provided by sodium_crypto_secretbox (ciphertext
+ * and tag, concatenated).
+ * @param string $nonce A number that must be only used once, per message. 24 bytes long. This is a
+ * large enough bound to generate randomly (i.e. random_bytes).
+ * @param string $key Encryption key (256-bit).
+ * @return string|false The decrypted string on success or false on failure.
  * @throws SodiumException
  * @since 7.2
  */
@@ -966,8 +1024,8 @@ function sodium_crypto_secretbox_open(string $ciphertext, string $nonce, string 
  * A short keyed hash suitable for data structures
  * SipHash-2-4
  * @link https://www.php.net/manual/en/function.sodium-crypto-shorthash.php
- * @param string $message
- * @param string $key
+ * @param string $message The message to hash.
+ * @param string $key The hash key.
  * @return string
  * @throws SodiumException
  * @since 7.2
@@ -978,9 +1036,9 @@ function sodium_crypto_shorthash(string $message, string $key): string {}
  * Digital Signature
  * Ed25519
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign.php
- * @param string $message
- * @param string $secret_key
- * @return string
+ * @param string $message Message to sign.
+ * @param string $secret_key Secret key. See sodium_crypto_sign_secretkey
+ * @return string Signed message (not encrypted).
  * @throws SodiumException
  * @since 7.2
  */
@@ -990,9 +1048,9 @@ function sodium_crypto_sign(string $message, string $secret_key): string {}
  * Digital Signature (detached)
  * Ed25519
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-detached.php
- * @param string $message
- * @param string $secret_key
- * @return string
+ * @param string $message Message to sign.
+ * @param string $secret_key Secret key. See sodium_crypto_sign_secretkey
+ * @return string Cryptographic signature.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1001,8 +1059,8 @@ function sodium_crypto_sign_detached(string $message, string $secret_key): strin
 /**
  * Convert an Ed25519 public key to an X25519 public key
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-ed25519-pk-to-curve25519.php
- * @param string $public_key
- * @return string
+ * @param string $public_key Public key suitable for the crypto_sign functions.
+ * @return string Public key suitable for the crypto_box functions.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1011,8 +1069,8 @@ function sodium_crypto_sign_ed25519_pk_to_curve25519(string $public_key): string
 /**
  * Convert an Ed25519 secret key to an X25519 secret key
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-ed25519-sk-to-curve25519.php
- * @param string $secret_key
- * @return string
+ * @param string $secret_key Secret key suitable for the crypto_sign functions.
+ * @return string Secret key suitable for the crypto_box functions.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1021,7 +1079,7 @@ function sodium_crypto_sign_ed25519_sk_to_curve25519(string $secret_key): string
 /**
  * Generate an Ed25519 keypair for use with the crypto_sign API
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-keypair.php
- * @return string
+ * @return string Ed25519 keypair.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1030,9 +1088,9 @@ function sodium_crypto_sign_keypair(): string {}
 /**
  * Create an Ed25519 keypair from an Ed25519 secret key + Ed25519 public key
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-keypair-from-secretkey-and-publickey.php
- * @param string $secret_key
- * @param string $public_key
- * @return string
+ * @param string $secret_key Ed25519 secret key
+ * @param string $public_key Ed25519 public key
+ * @return string Keypair
  * @throws SodiumException
  * @since 7.2
  */
@@ -1044,9 +1102,9 @@ function sodium_crypto_sign_keypair_from_secretkey_and_publickey(
 /**
  * Verify a signed message and return the plaintext
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-open.php
- * @param string $signed_message
- * @param string $public_key
- * @return string|false
+ * @param string $signed_message A message signed with sodium_crypto_sign
+ * @param string $public_key An Ed25519 public key
+ * @return string|false Returns the original signed message on success, or false on failure.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1055,8 +1113,8 @@ function sodium_crypto_sign_open(string $signed_message, string $public_key): st
 /**
  * Get the public key from an Ed25519 keypair
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-publickey.php
- * @param string $key_pair
- * @return string
+ * @param string $key_pair Ed25519 keypair (see: sodium_crypto_sign_keypair)
+ * @return string Ed25519 public key
  * @throws SodiumException
  * @since 7.2
  */
@@ -1065,8 +1123,8 @@ function sodium_crypto_sign_publickey(string $key_pair): string {}
 /**
  * Get the secret key from an Ed25519 keypair
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-secretkey.php
- * @param string $key_pair
- * @return string
+ * @param string $key_pair Ed25519 keypair (see: sodium_crypto_sign_keypair)
+ * @return string Ed25519 secret key
  * @throws SodiumException
  * @since 7.2
  */
@@ -1075,8 +1133,8 @@ function sodium_crypto_sign_secretkey(string $key_pair): string {}
 /**
  * Derive an Ed25519 public key from an Ed25519 secret key
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-publickey-from-secretkey.php
- * @param string $secret_key
- * @return string
+ * @param string $secret_key Ed25519 secret key
+ * @return string Ed25519 public key
  * @throws SodiumException
  * @since 7.2
  */
@@ -1085,8 +1143,8 @@ function sodium_crypto_sign_publickey_from_secretkey(string $secret_key): string
 /**
  * Derive an Ed25519 keypair for use with the crypto_sign API from a seed
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-seed-keypair.php
- * @param string $seed
- * @return string
+ * @param string $seed Some cryptographic input. Must be 32 bytes.
+ * @return string Keypair (secret key and public key)
  * @throws SodiumException
  * @since 7.2
  */
@@ -1095,10 +1153,10 @@ function sodium_crypto_sign_seed_keypair(string $seed): string {}
 /**
  * Verify a detached signature
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-verify-detached.php
- * @param string $signature
- * @param string $message
- * @param string $public_key
- * @return bool
+ * @param string $signature The cryptographic signature obtained from sodium_crypto_sign_detached
+ * @param string $message The message being verified
+ * @param string $public_key Ed25519 public key
+ * @return bool Returns true on success or false on failure.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1108,10 +1166,11 @@ function sodium_crypto_sign_verify_detached(string $signature, string $message, 
  * Create a keystream from a key and nonce
  * Xsalsa20
  * @link https://www.php.net/manual/en/function.sodium-crypto-stream.php
- * @param int $length
- * @param string $nonce
- * @param string $key
- * @return string
+ * @param int $length The number of bytes to return.
+ * @param string $nonce A number that must be only used once, per message. 24 bytes long. This is a
+ * large enough bound to generate randomly (i.e. random_bytes).
+ * @param string $key Encryption key (256-bit).
+ * @return string String of pseudorandom bytes.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1125,10 +1184,11 @@ function sodium_crypto_stream(
  * Encrypt a message using a stream cipher
  * Xsalsa20
  * @link https://www.php.net/manual/en/function.sodium-crypto-stream-xor.php
- * @param string $message
- * @param string $nonce
- * @param string $key
- * @return string
+ * @param string $message The message to encrypt
+ * @param string $nonce A number that must be only used once, per message. 24 bytes long. This is a
+ * large enough bound to generate randomly (i.e. random_bytes).
+ * @param string $key Encryption key (256-bit).
+ * @return string Encrypted message.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1170,8 +1230,8 @@ function sodium_randombytes_uniform(int $upperBoundNonInclusive): int {}
 /**
  * Convert to hex without side-channels
  * @link https://www.php.net/manual/en/function.sodium-bin2hex.php
- * @param string $string
- * @return string
+ * @param string $string Raw binary string.
+ * @return string Hex encoded string.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1180,9 +1240,10 @@ function sodium_bin2hex(string $string): string {}
 /**
  * Compare two strings in constant time
  * @link https://www.php.net/manual/en/function.sodium-compare.php
- * @param string $string1
- * @param string $string2
- * @return int
+ * @param string $string1 Left operand
+ * @param string $string2 Right operand
+ * @return int Returns -1 if string1 is less than string2. Returns 1 if string1 is greater than
+ * string2. Returns 0 if both strings are equal.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1191,9 +1252,9 @@ function sodium_compare(string $string1, string $string2): int {}
 /**
  * Convert from hex without side-channels
  * @link https://www.php.net/manual/en/function.sodium-hex2bin.php
- * @param string $string
- * @param string $ignore
- * @return string
+ * @param string $string Hexadecimal representation of data.
+ * @param string $ignore Optional string argument for characters to ignore.
+ * @return string Returns the binary representation of the given string data.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1202,8 +1263,8 @@ function sodium_hex2bin(string $string, string $ignore = ''): string {}
 /**
  * Increment a string in little-endian
  * @link https://www.php.net/manual/en/function.sodium-increment.php
- * @param string &$string
- * @return void
+ * @param string &$string String to increment.
+ * @return void No value is returned.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1212,8 +1273,10 @@ function sodium_increment(string &$string): void {}
 /**
  * Add the right operand to the left
  * @link https://www.php.net/manual/en/function.sodium-add.php
- * @param string &$string1
- * @param string $string2
+ * @param string &$string1 String representing an arbitrary-length unsigned integer in little-endian
+ * byte order. This parameter is passed by reference and will hold the sum of the two parameters.
+ * @param string $string2 String representing an arbitrary-length unsigned integer in little-endian
+ * byte order.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1236,9 +1299,9 @@ function sodium_library_version_minor(): int {}
 /**
  * Compare two strings in constant time
  * @link https://www.php.net/manual/en/function.sodium-memcmp.php
- * @param string $string1
- * @param string $string2
- * @return int
+ * @param string $string1 String to compare
+ * @param string $string2 Other string to compare
+ * @return int Returns 0 if both strings are equal; -1 otherwise.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1247,7 +1310,7 @@ function sodium_memcmp(string $string1, string $string2): int {}
 /**
  * Wipe a buffer
  * @link https://www.php.net/manual/en/function.sodium-memzero.php
- * @param string &$string
+ * @param string &$string String.
  * @throws SodiumException
  * @since 7.2
  */
@@ -1327,11 +1390,15 @@ function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
  * Verify then decrypt with ChaCha20-Poly1305 (eXtended-nonce variant).
  *
  * @link https://php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-decrypt.php
- * @param string $ciphertext
- * @param string $additional_data
- * @param string $nonce
- * @param string $key
- * @return string|false
+ * @param string $ciphertext Must be in the format provided by
+ * sodium_crypto_aead_xchacha20poly1305_ietf_encrypt (ciphertext and tag, concatenated).
+ * @param string $additional_data Additional, authenticated data. This is used in the verification
+ * of the authentication tag appended to the ciphertext, but it is not encrypted or stored in the
+ * ciphertext.
+ * @param string $nonce A number that must be only used once, per message. 24 bytes long. This is a
+ * large enough bound to generate randomly (i.e. random_bytes).
+ * @param string $key Encryption key (256-bit).
+ * @return string|false Returns the plaintext on success, or false on failure.
  * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-decrypt.php
@@ -1344,11 +1411,14 @@ function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(string $ciphertext, s
  * Encrypt then authenticate with XChaCha20-Poly1305 (eXtended-nonce variant).
  *
  * @link https://php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.php
- * @param string $message
- * @param string $additional_data
- * @param string $nonce
- * @param string $key
- * @return string
+ * @param string $message The plaintext message to encrypt.
+ * @param string $additional_data Additional, authenticated data. This is used in the verification
+ * of the authentication tag appended to the ciphertext, but it is not encrypted or stored in the
+ * ciphertext.
+ * @param string $nonce A number that must be only used once, per message. 24 bytes long. This is a
+ * large enough bound to generate randomly (i.e. random_bytes).
+ * @param string $key Encryption key (256-bit).
+ * @return string Returns the ciphertext and authentication tag as a string of raw binary bytes.
  * @throws SodiumException
  * @since 7.2
  * https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.php
@@ -1373,10 +1443,11 @@ function sodium_crypto_aead_xchacha20poly1305_ietf_keygen(): string {}
  * Determine whether or not to rehash a password, based on the current hash opslimit and memlimit.
  *
  * @link https://php.net/manual/en/function.sodium-crypto-pwhash-str-needs-rehash.php
- * @param string $password
- * @param int $opslimit
- * @param int $memlimit
- * @return bool
+ * @param string $password Password hash
+ * @param int $opslimit Configured opslimit; see sodium_crypto_pwhash_str
+ * @param int $memlimit Configured memlimit; see sodium_crypto_pwhash_str
+ * @return bool Returns true if the provided memlimit/opslimit do not match what's stored in the
+ * hash. Returns false if they match.
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-pwhash-str-needs-rehash.php
  */
@@ -1393,8 +1464,9 @@ function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
 /**
  * Initialize a secretstream context for encryption
  * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-push.php
- * @param string $key
- * @return array
+ * @param string $key Cryptography key. See sodium_crypto_secretstream_xchacha20poly1305_keygen.
+ * @return array An array with two string values: The secretstream state, needed for further pushes
+ * The secretstream header, which needs to be provided to the recipient so they can pull data
  * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-push.php
@@ -1427,9 +1499,10 @@ function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, #[\Se
 /**
  * Initialize a secretstream context for decryption
  * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-pull.php
- * @param string $header
- * @param string $key
- * @return string
+ * @param string $header The header of the secretstream. This should be one of the values produced
+ * by sodium_crypto_secretstream_xchacha20poly1305_init_push.
+ * @param string $key Encryption key (256-bit).
+ * @return string Secretstream state.
  * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-pull.php
@@ -1465,7 +1538,7 @@ function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, strin
  * Explicitly rotate the key in the secretstream state. Overwrites the value passed in.
  *
  * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-rekey.php
- * @param string &$state
+ * @param string &$state Secretstream state.
  * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-rekey.php
@@ -1480,9 +1553,13 @@ function sodium_crypto_secretstream_xchacha20poly1305_rekey(string &$state): voi
  * cryptographic inputs, such as plaintexts or keys) and supports multiple character sets.
  *
  * @link https://php.net/manual/en/function.sodium-bin2base64.php
- * @param string $string
- * @param int $id
- * @return string
+ * @param string $string Raw binary string.
+ * @param int $id SODIUM_BASE64_VARIANT_ORIGINAL for standard (A-Za-z0-9/\+) Base64 encoding.
+ * SODIUM_BASE64_VARIANT_ORIGINAL_NO_PADDING for standard (A-Za-z0-9/\+) Base64 encoding, without =
+ * padding characters. SODIUM_BASE64_VARIANT_URLSAFE for URL-safe (A-Za-z0-9\-_) Base64 encoding.
+ * SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING for URL-safe (A-Za-z0-9\-_) Base64 encoding, without =
+ * padding characters.
+ * @return string Base64-encoded string.
  * @throws SodiumException in cases of invalid input (e.g., an unsupported base64 variant) or other errors like memory allocation failures
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-bin2base64.php
@@ -1497,13 +1574,17 @@ function sodium_bin2base64(string $string, int $id): string {}
  * as plaintexts or keys) and supports multiple character sets.
  *
  * @link https://php.net/manual/en/function.sodium-base642bin.php
- * @param string $string
- * @param int $id
- * @param string $ignore
+ * @param string $string string; Encoded string.
+ * @param int $id SODIUM_BASE64_VARIANT_ORIGINAL for standard (A-Za-z0-9/\+) Base64 encoding.
+ * SODIUM_BASE64_VARIANT_ORIGINAL_NO_PADDING for standard (A-Za-z0-9/\+) Base64 encoding, without =
+ * padding characters. SODIUM_BASE64_VARIANT_URLSAFE for URL-safe (A-Za-z0-9\-_) Base64 encoding.
+ * SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING for URL-safe (A-Za-z0-9\-_) Base64 encoding, without =
+ * padding characters.
+ * @param string $ignore Characters to ignore when decoding (e.g. whitespace characters).
  * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-base642bin.php
- * @return string
+ * @return string Decoded string.
  */
 function sodium_base642bin(string $string, int $id, string $ignore = ''): string {}
 

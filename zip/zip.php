@@ -791,7 +791,7 @@ class ZipArchive implements Countable
      * (PHP 7 &gt;= 7.2.0, PECL zip &gt;= 1.15.0)<br/>
      * Counts the number of files in the archive.
      * @link https://www.php.net/manual/en/ziparchive.count.php
-     * @return int
+     * @return int Returns the number of files in the archive.
      * @since 7.2
      */
     #[TentativeType]
@@ -893,7 +893,7 @@ class ZipArchive implements Countable
      * "remove_path" or "remove_all_path"
      * options.
      * </p>
-     * @return array|false
+     * @return array|false An array of added files on success or false on failure
      */
     #[TentativeType]
     public function addGlob(
@@ -915,7 +915,7 @@ class ZipArchive implements Countable
      * @param array $options [optional] <p>
      * An associative array of options accepted by <b>ZipArchive::addGlob</b>.
      * </p>
-     * @return array|false
+     * @return array|false An array of added files on success or false on failure
      */
     #[TentativeType]
     public function addPattern(
@@ -1073,8 +1073,8 @@ class ZipArchive implements Countable
     /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
      * @link https://php.net/manual/en/ziparchive.setpassword.php
-     * @param string $password
-     * @return bool
+     * @param string $password The password to be used for the archive.
+     * @return bool Returns true on success or false on failure.
      */
     #[TentativeType]
     public function setPassword(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $password): bool {}
@@ -1551,9 +1551,10 @@ class ZipArchive implements Countable
     /**
      * Set a global flag of a ZIP archive
      * @link https://php.net/manual/en/ziparchive.setarchiveflag.php
-     * @param int $flag
-     * @param int $value
-     * @return bool
+     * @param int $flag The global flag to change, among AFL_* constants.
+     * ZipArchive::AFL_WANT_TORRENTZIP ZipArchive::AFL_CREATE_OR_KEEP_FILE_FOR_EMPTY_ARCHIVE
+     * @param int $value The new value of the flag.
+     * @return bool Returns true on success or false on failure.
      */
     #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public function setArchiveFlag(
@@ -1567,9 +1568,12 @@ class ZipArchive implements Countable
      * Returns a Zip archive global flag value.
      *
      * @link https://php.net/manual/en/ziparchive.getarchiveflag.php
-     * @param int $flag
-     * @param int $flags
-     * @return int
+     * @param int $flag The global flag to retrieve, among AFL_* constants: ZipArchive::AFL_RDONLY
+     * ZipArchive::AFL_IS_TORRENTZIP ZipArchive::AFL_WANT_TORRENTZIP
+     * ZipArchive::AFL_CREATE_OR_KEEP_FILE_FOR_EMPTY_ARCHIVE
+     * @param int $flags If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged flag is
+     * returned.
+     * @return int Returns 1 if flag is set for archive, 0 if not, and -1 if an error occurred.
      */
     #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
     public function getArchiveFlag(
@@ -1584,9 +1588,10 @@ class ZipArchive implements Countable
      * operations.
      *
      * @link https://php.net/manual/en/ziparchive.getstreamname.php
-     * @param string $name
-     * @param int $flags
-     * @return void
+     * @param string $name The name of the entry to use.
+     * @param int $flags If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged stream
+     * is returned.
+     * @return void Returns a file pointer (resource) on success or false on failure.
      */
     public function getStreamName(
         #[LanguageLevelTypeAware(['8.2' => 'string'], default: '')] $name,

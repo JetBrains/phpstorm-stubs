@@ -267,7 +267,7 @@ class DOMNode
     /**
      * Normalizes the node
      * @link https://php.net/manual/en/domnode.normalize.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function normalize(): void {}
@@ -305,7 +305,7 @@ class DOMNode
      * Compares the position of the other node relative to this node.
      *
      * @link https://php.net/manual/en/domnode.comparedocumentposition.php
-     * @return int
+     * @return int A bitmask of the DOMNode::DOCUMENT_POSITION_* constants.
      */
     #[LanguageLevelTypeAware(['8.4' => 'int'], default: '')]
     public function compareDocumentPosition(DOMNode $other) {}
@@ -371,7 +371,7 @@ class DOMNode
      * Checks that both nodes are equal
      * @link https://php.net/manual/en/domnode.isequalnode.php
      * @param DOMNode|null $otherNode The node.
-     * @return bool
+     * @return bool Returns true if both nodes are equal, false otherwise.
      */
     #[LanguageLevelTypeAware(['8.3' => 'bool'], default: '')]
     public function isEqualNode(#[LanguageLevelTypeAware(['8.3' => 'DOMNode|null'], default: 'DOMNode')] $otherNode) {}
@@ -1170,7 +1170,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
     /**
      * Normalizes the document
      * @link https://php.net/manual/en/domdocument.normalizedocument.php
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function normalizeDocument(): void {}
@@ -1469,7 +1469,8 @@ class DOMNodeList implements IteratorAggregate, Countable
      * Gets the number of nodes in the list.
      *
      * @link https://php.net/manual/en/domnodelist.count.php
-     * @return int<0, max>
+     * @return int<0, max> Returns the number of nodes in the list, which is identical to the length
+     * property.
      * @since 7.2
      */
     #[TentativeType]
@@ -1481,7 +1482,7 @@ class DOMNodeList implements IteratorAggregate, Countable
      * Returns an external iterator for the node list.
      *
      * @link https://php.net/manual/en/domnodelist.getiterator.php
-     * @return Iterator<int, TNode>
+     * @return Iterator<int, TNode> An instance of an object implementing Iterator or Traversable
      * @since 8.0
      */
     public function getIterator(): Iterator {}
@@ -1585,7 +1586,8 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * Gets the number of nodes in the map.
      *
      * @link https://php.net/manual/en/domnamednodemap.count.php
-     * @return int<0,max>
+     * @return int<0,max> Returns the number of nodes in the map, which is identical to the length
+     * property.
      * @since 7.2
      */
     #[TentativeType]
@@ -1597,7 +1599,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * Returns an external iterator for the named node map.
      *
      * @link https://php.net/manual/en/domnamednodemap.getiterator.php
-     * @return Iterator<string, TNode>
+     * @return Iterator<string, TNode> An instance of an object implementing Iterator or Traversable
      * @since 8.0
      */
     public function getIterator(): Iterator {}
@@ -1673,7 +1675,7 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * @param string $data <p>
      * The string to insert.
      * </p>
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      * @throws \DOMException May throw a DOMException with the following error codes:
      * DOM_INDEX_SIZE_ERR Raised if offset is negative or greater than the number of UTF-8
      * codepoints in data.
@@ -1695,7 +1697,7 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * offset and count exceeds
      * the length, then all characters to the end of the data are deleted.
      * </p>
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      * @throws \DOMException May throw a DOMException with the following error codes:
      * DOM_INDEX_SIZE_ERR Raised if offset is negative or greater than the number of UTF-8
      * codepoints in data, or if count is negative.
@@ -1720,7 +1722,7 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * @param string $data <p>
      * The string with which the range must be replaced.
      * </p>
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      * @throws \DOMException May throw a DOMException with the following error codes:
      * DOM_INDEX_SIZE_ERR Raised if offset is negative or greater than the number of UTF-8
      * codepoints in data, or if count is negative.
@@ -2038,7 +2040,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @param string $value <p>
      * The value of the attribute.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \DOMException May throw a DOMException with the following error codes:
      * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly. DOM_NAMESPACE_ERR Raised if
      * qualifiedName is a malformed qualified name, or if qualifiedName has a prefix and namespace
@@ -2060,7 +2062,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @param string $localName <p>
      * The local name.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \DOMException May throw a DOMException with the following error codes:
      * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly.
      */
@@ -2089,7 +2091,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
     /**
      * Adds new attribute node to element
      * @link https://php.net/manual/en/domelement.setattributenodens.php
-     * @param DOMAttr $attr
+     * @param DOMAttr $attr The attribute node.
      * @return DOMAttr the old node if the attribute has been replaced.
      * @throws \DOMException May throw a DOMException with the following error codes:
      * DOM_WRONG_DOCUMENT_ERR Raised if attr belongs to a different document than the element.
@@ -2154,7 +2156,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * Set it to true if you want name to be of type
      * ID, false otherwise.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \DOMException May throw a DOMException with the following error codes:
      * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly. DOM_NOT_FOUND_ERR Raised if
      * qualifiedName is not an attribute of this element.
@@ -2178,7 +2180,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * Set it to true if you want name to be of type
      * ID, false otherwise.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \DOMException May throw a DOMException with the following error codes:
      * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly. DOM_NOT_FOUND_ERR Raised if
      * name is not an attribute of this element.
@@ -2200,7 +2202,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * Set it to true if you want name to be of type
      * ID, false otherwise.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \DOMException May throw a DOMException with the following error codes:
      * DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly. DOM_NOT_FOUND_ERR Raised if
      * name is not an attribute of this element.
@@ -2751,7 +2753,7 @@ class DOMXPath
      * This parameter can be either a string (a function name) or
      * an array of function names.
      * </p>
-     * @return void
+     * @return void No value is returned.
      * @throws \ValueError Throws a ValueError if a callback name is not valid. Throws a ValueError
      * if options contains an invalid option. Throws a ValueError if overrideEncoding is an unknown
      * encoding. Throws a TypeError if a given callback is not callable.
@@ -2798,8 +2800,9 @@ interface DOMParentNode
      * child node.
      *
      * @link https://php.net/manual/en/domparentnode.append.php
-     * @param DOMNode|string|null ...$nodes
-     * @return void
+     * @param DOMNode|string|null ...$nodes The nodes to append. Strings are automatically converted
+     * to text nodes.
+     * @return void No value is returned.
      * @since 8.0
      */
     public function append(...$nodes): void;
@@ -2809,8 +2812,9 @@ interface DOMParentNode
      * child node.
      *
      * @link https://php.net/manual/en/domparentnode.prepend.php
-     * @param DOMNode|string|null ...$nodes
-     * @return void
+     * @param DOMNode|string|null ...$nodes The nodes to prepend. Strings are automatically
+     * converted to text nodes.
+     * @return void No value is returned.
      * @since 8.0
      */
     public function prepend(...$nodes): void;
@@ -2835,7 +2839,7 @@ interface DOMChildNode
      * Acts as a simpler version of {@see DOMNode::removeChild()}.
      *
      * @link https://php.net/manual/en/domchildnode.remove.php
-     * @return void
+     * @return void No value is returned.
      * @since 8.0
      */
     public function remove(): void;
@@ -2844,8 +2848,9 @@ interface DOMChildNode
      * Add passed node(s) before the current node
      *
      * @link https://php.net/manual/en/domchildnode.before.php
-     * @param DOMNode|string|null ...$nodes
-     * @return void
+     * @param DOMNode|string|null ...$nodes Nodes to be added before the node. Strings are
+     * automatically converted to text nodes.
+     * @return void No value is returned.
      * @since 8.0
      */
     public function before(...$nodes): void;
@@ -2854,8 +2859,9 @@ interface DOMChildNode
      * Add passed node(s) after  the current node
      *
      * @link https://php.net/manual/en/domchildnode.after.php
-     * @param DOMNode|string|null ...$nodes
-     * @return void
+     * @param DOMNode|string|null ...$nodes Nodes to be added after the node. Strings are
+     * automatically converted to text nodes.
+     * @return void No value is returned.
      * @since 8.0
      */
     public function after(...$nodes): void;
@@ -2865,8 +2871,9 @@ interface DOMChildNode
      * of {@see DOMChildNode::remove()} + {@see DOMChildNode::append()}.
      *
      * @link https://php.net/manual/en/domchildnode.replacewith.php
-     * @param DOMNode|string|null ...$nodes
-     * @return void
+     * @param DOMNode|string|null ...$nodes The replacement nodes. Strings are automatically
+     * converted to text nodes.
+     * @return void No value is returned.
      * @since 8.0
      */
     public function replaceWith(...$nodes): void;

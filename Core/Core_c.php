@@ -145,7 +145,7 @@ interface ArrayAccess
      * @param TValue $value <p>
      * The value to set.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function offsetSet(
@@ -159,7 +159,7 @@ interface ArrayAccess
      * @param TKey $offset <p>
      * The offset to unset.
      * </p>
-     * @return void
+     * @return void No value is returned.
      */
     #[TentativeType]
     public function offsetUnset(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset): void;
@@ -185,7 +185,7 @@ interface Serializable
      * Constructs the object.
      * @link https://php.net/manual/en/serializable.unserialize.php
      * @param string $data The string representation of the object.
-     * @return void
+     * @return void The return value from this method is ignored.
      */
     public function unserialize(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data);
 }
@@ -201,7 +201,7 @@ interface Throwable extends Stringable
     /**
      * Gets the message
      * @link https://php.net/manual/en/throwable.getmessage.php
-     * @return string
+     * @return string Returns the message associated with the thrown object.
      * @since 7.0
      */
     public function getMessage(): string;
@@ -319,7 +319,7 @@ class Exception implements Throwable
      * Clone the exception
      * Tries to clone the Exception, which results in Fatal error.
      * @link https://php.net/manual/en/exception.clone.php
-     * @return void
+     * @return void No value is returned.
      */
     #[PhpStormStubsElementAvailable("8.1")]
     private function __clone(): void {}
@@ -457,7 +457,7 @@ class Error implements Throwable
     /**
      * Gets the message
      * @link https://php.net/manual/en/throwable.getmessage.php
-     * @return string
+     * @return string Returns the error message as a string.
      * @since 7.0
      */
     final public function getMessage(): string {}
@@ -538,7 +538,7 @@ class Error implements Throwable
     /**
      * Clone the error
      * Error can not be clone, so this method results in fatal error.
-     * @return void
+     * @return void No value is returned.
      * @link https://php.net/manual/en/error.clone.php
      */
     #[PhpStormStubsElementAvailable('8.1')]
@@ -710,7 +710,7 @@ final class Closure
      * @link https://php.net/manual/en/closure.call.php
      * @param object $newThis The object to bind the closure to for the duration of the call.
      * @param mixed $args [optional] Zero or more parameters, which will be given as parameters to the closure.
-     * @return mixed
+     * @return mixed Returns the return value of the closure.
      * @since 7.0
      */
     public function call(object $newThis, mixed ...$args): mixed {}
@@ -723,8 +723,9 @@ final class Closure
      * is not.
      *
      * @link https://php.net/manual/en/closure.fromcallable.php
-     * @param callable $callback
-     * @return Closure
+     * @param callable $callback The callable to convert.
+     * @return Closure Returns the newly created Closure or throws a TypeError if the callback is
+     * not callable in the current scope.
      * @since 7.1
      */
     public static function fromCallable(callable $callback): Closure {}
@@ -795,7 +796,7 @@ final class WeakReference
      * Gets a weakly referenced object. If the object has already been
      * destroyed, NULL is returned.
      * @link https://www.php.net/manual/en/weakreference.get.php
-     * @return T|null
+     * @return T|null Returns the referenced object, or null if the object has been destroyed.
      * @since 7.4
      */
     #[Pure]
@@ -824,7 +825,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      *
      * @link https://php.net/manual/en/weakmap.offsetexists.php
      * @param TKey $object Any object
-     * @return bool
+     * @return bool Returns true if the object is contained in the map, false otherwise.
      */
     #[Pure]
     public function offsetExists($object): bool {}
@@ -846,7 +847,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      * @link https://php.net/manual/en/weakmap.offsetset.php
      * @param TKey $object Any object
      * @param TValue $value Any value
-     * @return void
+     * @return void No value is returned.
      */
     public function offsetSet($object, mixed $value): void {}
 
@@ -855,7 +856,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      *
      * @link https://php.net/manual/en/weakmap.offsetunset.php
      * @param TKey $object Any object
-     * @return void
+     * @return void No value is returned.
      */
     public function offsetUnset($object): void {}
 
@@ -863,7 +864,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      * Returns an iterator in the "[object => mixed]" format.
      *
      * @link https://php.net/manual/en/weakmap.getiterator.php
-     * @return Iterator<TKey, TValue>
+     * @return Iterator<TKey, TValue> An instance of an object implementing Iterator or Traversable
      * @throws \Exception Throws an Exception on failure.
      */
     #[Pure]
@@ -873,7 +874,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      * Returns the number of items in the {@see WeakMap} instance.
      *
      * @link https://php.net/manual/en/weakmap.count.php
-     * @return int<0,max>
+     * @return int<0,max> Returns the number of live entries in the map.
      */
     #[Pure]
     public function count(): int {}
@@ -1053,7 +1054,7 @@ interface UnitEnum
      * declaration.
      *
      * @link https://php.net/manual/en/unitenum.cases.php
-     * @return static[]
+     * @return static[] An array of all defined cases of this enumeration, in order of declaration.
      */
     #[Pure]
     public static function cases(): array;
@@ -1074,10 +1075,10 @@ interface BackedEnum extends UnitEnum
      * Translates a string or int into the corresponding <code>Enum</code>
      * case, if any. If there is no matching case defined, it will throw a
      * <code>ValueError</code>.
-     * @param int|string $value
+     * @param int|string $value The scalar value to map to an enum case.
      * @throws ValueError if there is no matching case defined
      * @throws TypeError
-     * @return static
+     * @return static A case instance of this enumeration.
      * @link https://www.php.net/manual/en/backedenum.from.php
      */
     #[Pure]
@@ -1086,7 +1087,7 @@ interface BackedEnum extends UnitEnum
     /**
      * Translates a string or int into the corresponding <code>Enum</code>
      * case, if any. If there is no matching case defined, it will return null.
-     * @param int|string $value
+     * @param int|string $value The scalar value to map to an enum case.
      * @return static|null A case instance of this enumeration, or null if not
      * found.
      * @link https://www.php.net/manual/en/backedenum.tryfrom.php
@@ -1199,7 +1200,8 @@ final class Fiber
      * Returns when the fiber suspends or terminates.
      *
      * @link https://php.net/manual/en/fiber.resume.php
-     * @param TResume $value
+     * @param TResume $value The value to resume the fiber. This value will be the return value of
+     * the current Fiber::suspend call.
      *
      * @return TSuspend|null Value from the next suspension point or NULL if the fiber returns.
      *
@@ -1213,7 +1215,8 @@ final class Fiber
      * Returns when the fiber suspends or terminates.
      *
      * @link https://php.net/manual/en/fiber.throw.php
-     * @param Throwable $exception
+     * @param Throwable $exception The exception to throw into the fiber from the current
+     * Fiber::suspend call.
      *
      * @return TSuspend|null Value from the next suspension point or NULL if the fiber returns.
      *

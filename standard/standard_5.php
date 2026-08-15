@@ -813,7 +813,8 @@ function fflush($stream): bool {}
 /**
  * Sync file to storage. Similar to fflush() but blocks until OS buffers have flushed.
  * @link https://php.net/manual/en/function.fsync.php
- * @param resource $stream
+ * @param resource $stream The file pointer must be valid, and must point to a file successfully
+ * opened by fopen or fsockopen (and not yet closed by fclose).
  * @since 8.1
  */
 function fsync($stream): bool {}
@@ -821,7 +822,8 @@ function fsync($stream): bool {}
 /**
  * Sync file data only to storage. Similar to fsync but does not flush modified metadata. POSIX only, aliased to fsync on Win32.
  * @link https://php.net/manual/en/function.fdatasync.php
- * @param resource $stream
+ * @param resource $stream The file pointer must be valid, and must point to a file successfully
+ * opened by fopen or fsockopen (and not yet closed by fclose).
  * @since 8.1
  */
 function fdatasync($stream): bool {}

@@ -413,7 +413,11 @@ class SQLite3
     /**
      * Enable throwing exceptions
      * @link https://www.php.net/manual/en/sqlite3.enableexceptions
-     * @param bool $enable
+     * @param bool $enable When true, the SQLite3 instance, and SQLite3Stmt and SQLite3Result
+     * instances derived from it, will throw exceptions on error. When false, the SQLite3 instance,
+     * and SQLite3Stmt and SQLite3Result instances derived from it, will raise warnings on error.
+     * For either mode, the error code and message, if any, will be available via
+     * SQLite3::lastErrorCode and SQLite3::lastErrorMsg respectively.
      * @return bool Returns the old value; true if exceptions were enabled, false otherwise.
      */
     #[TentativeType]
@@ -475,10 +479,12 @@ class SQLite3
      * copying in-memory databases to or from persistent files.
      *
      * @link https://php.net/manual/en/sqlite3.backup.php
-     * @param SQLite3 $destination
-     * @param string $sourceDatabase
-     * @param string $destinationDatabase
-     * @return bool
+     * @param SQLite3 $destination A database connection opened with SQLite3::open.
+     * @param string $sourceDatabase The database name is "main" for the main database, "temp" for
+     * the temporary database, or the name specified after the AS keyword in an ATTACH statement for
+     * an attached database.
+     * @param string $destinationDatabase Analogous to sourceDatabase but for the destination.
+     * @return bool Returns true on success or false on failure.
      * @since 7.4
      */
     #[TentativeType]
@@ -497,8 +503,9 @@ class SQLite3
      * prepared that disallows everything except SELECT statements.
      *
      * @link https://php.net/manual/en/sqlite3.setauthorizer.php
-     * @param null|callable $callback
-     * @return bool
+     * @param null|callable $callback The callable to be called. If null is passed instead, this
+     * will disable the current authorizer callback.
+     * @return bool Returns true on success or false on failure.
      * @since 8.0
      */
     #[TentativeType]

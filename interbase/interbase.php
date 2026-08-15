@@ -450,7 +450,7 @@ function ibase_blob_create($link_identifier = null) {}
  * @param string $data <p>
  * The data to be added.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function ibase_blob_add($blob_handle, $data) {}
 
@@ -547,9 +547,9 @@ function ibase_errcode() {}
 /**
  * Add a user to a security database (only for IB6 or later)
  * @link https://php.net/manual/en/function.ibase-add-user.php
- * @param resource $service_handle
- * @param string $user_name
- * @param string $password
+ * @param resource $service_handle The handle on the database server service.
+ * @param string $user_name The login name of the new database user.
+ * @param string $password The password of the new user.
  * @param string $first_name [optional]
  * @param string $middle_name [optional]
  * @param string $last_name [optional]
@@ -560,9 +560,9 @@ function ibase_add_user($service_handle, $user_name, $password, $first_name = nu
 /**
  * Modify a user to a security database (only for IB6 or later)
  * @link https://php.net/manual/en/function.ibase-modify-user.php
- * @param resource $service_handle
- * @param string $user_name
- * @param string $password
+ * @param resource $service_handle The handle on the database server service.
+ * @param string $user_name The login name of the database user to modify.
+ * @param string $password The user's new password.
  * @param string $first_name [optional]
  * @param string $middle_name [optional]
  * @param string $last_name [optional]
@@ -573,8 +573,8 @@ function ibase_modify_user($service_handle, $user_name, $password, $first_name =
 /**
  * Delete a user from a security database (only for IB6 or later)
  * @link https://php.net/manual/en/function.ibase-delete-user.php
- * @param resource $service_handle
- * @param string $user_name
+ * @param resource $service_handle The handle on the database server service.
+ * @param string $user_name The login name of the user you want to delete from the database.
  * @return bool true on success or false on failure.
  */
 function ibase_delete_user($service_handle, $user_name) {}
@@ -582,17 +582,19 @@ function ibase_delete_user($service_handle, $user_name) {}
 /**
  * Connect to the service manager
  * @link https://php.net/manual/en/function.ibase-service-attach.php
- * @param string $host
- * @param string $dba_username
- * @param string $dba_password
- * @return resource|false
+ * @param string $host The name or ip address of the database host. You can define the port by
+ * adding '/' and port number. If no port is specified, port 3050 will be used.
+ * @param string $dba_username The name of any valid user.
+ * @param string $dba_password The user's password.
+ * @return resource|false Returns a Interbase / Firebird link identifier on success or false on
+ * failure.
  */
 function ibase_service_attach($host, $dba_username, $dba_password) {}
 
 /**
  * Disconnect from the service manager
  * @link https://php.net/manual/en/function.ibase-service-detach.php
- * @param resource $service_handle
+ * @param resource $service_handle A previously created connection to the database server.
  * @return bool true on success or false on failure.
  */
 function ibase_service_detach($service_handle) {}
@@ -600,24 +602,30 @@ function ibase_service_detach($service_handle) {}
 /**
  * Initiates a backup task in the service manager and returns immediately
  * @link https://php.net/manual/en/function.ibase-backup.php
- * @param resource $service_handle
- * @param string $source_db
- * @param string $dest_file
+ * @param resource $service_handle A previously opened connection to the database server.
+ * @param string $source_db The absolute file path to the database on the database server. You can
+ * also use a database alias.
+ * @param string $dest_file The path to the backup file on the database server.
  * @param int $options [optional]
  * @param bool $verbose [optional]
- * @return mixed
+ * @return mixed Returns true on success or false on failure. Since the backup process is done on
+ * the (remote) server, this function just passes the arguments to it. While the arguments are
+ * legal, you won't get false.
  */
 function ibase_backup($service_handle, $source_db, $dest_file, $options = null, $verbose = null) {}
 
 /**
  * Initiates a restore task in the service manager and returns immediately
  * @link https://php.net/manual/en/function.ibase-restore.php
- * @param resource $service_handle
- * @param string $source_file
- * @param string $dest_db
+ * @param resource $service_handle A previously opened connection to the database server.
+ * @param string $source_file The absolute path on the server where the backup file is located.
+ * @param string $dest_db The path to create the new database on the server. You can also use
+ * database alias.
  * @param int $options [optional]
  * @param bool $verbose [optional]
- * @return mixed
+ * @return mixed Returns true on success or false on failure. Since the restore process is done on
+ * the (remote) server, this function just passes the arguments to it. While the arguments are
+ * legal, you won't get false.
  */
 function ibase_restore($service_handle, $source_file, $dest_db, $options = null, $verbose = null) {}
 
@@ -646,9 +654,9 @@ function ibase_db_info($service_handle, $db, $action, $argument = null) {}
 /**
  * Request information about a database server
  * @link https://php.net/manual/en/function.ibase-server-info.php
- * @param resource $service_handle
- * @param int $action
- * @return string
+ * @param resource $service_handle A previously created connection to the database server.
+ * @param int $action A valid constant.
+ * @return string Returns mixed types depending on context.
  */
 function ibase_server_info($service_handle, $action) {}
 

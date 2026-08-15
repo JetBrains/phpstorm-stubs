@@ -56,8 +56,8 @@ function call_user_func_array(callable $callback, array $args): mixed {}
 /**
  * Call a user method on an specific object
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.call-user-method
- * @param string $method_name
- * @param object &$obj
+ * @param string $method_name The method name being called.
+ * @param object &$obj The object that method_name is being called on.
  * @param mixed ...$parameter [optional]
  * @return mixed
  * @removed 7.0
@@ -69,9 +69,9 @@ function call_user_method(string $method_name, object &$obj, ...$parameter): mix
 /**
  * Call a user method given with an array of parameters
  * @link https://php-legacy-docs.zend.com/manual/php5/en/function.call-user-method-array
- * @param string $method_name
- * @param object &$obj
- * @param array $params
+ * @param string $method_name The method name being called.
+ * @param object &$obj The object that method_name is being called on.
+ * @param array $params An array of parameters.
  * @return mixed
  * @removed 7.0
  * @see call_user_func()
@@ -102,7 +102,8 @@ function forward_static_call(callable $callback, mixed ...$args): mixed {}
  * with the name of the class, and the method, or a string, with a function
  * name.
  * </p>
- * @param array $args
+ * @param array $args One parameter, gathering all the method parameter in one array. Note that the
+ * parameters for forward_static_call_array are not passed by reference.
  * @return mixed the function result, or false on error.
  */
 function forward_static_call_array(callable $callback, array $args): mixed {}
@@ -201,7 +202,7 @@ function var_dump(mixed $value, mixed ...$values): void {}
  * @param mixed ...$vars <p>
  * The variable you want to export.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
 function var_dump(...$vars): void {}
@@ -229,7 +230,7 @@ function var_export(mixed $value, bool $return = false): ?string {}
  * @param mixed ...$values <p>
  * The other variable being evaluated.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function debug_zval_dump(
     #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
@@ -338,7 +339,7 @@ function register_tick_function(callable $callback, mixed ...$args): bool {}
  * The function name as a string, or an array consisting of an object and
  * a method.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function unregister_tick_function(callable $callback): void {}
 
@@ -500,7 +501,7 @@ function ini_alter(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|in
  * @param string $option <p>
  * The configuration option name.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function ini_restore(string $option): void {}
 
@@ -510,8 +511,11 @@ function ini_restore(string $option): void {}
  * Returns the interpreted size in bytes on success from an ini shorthand.
  *
  * @link https://php.net/manual/en/function.ini-parse-quantity.php
- * @param string $shorthand
- * @return int
+ * @param string $shorthand Ini shorthand to parse, must be a number followed by an optional
+ * multiplier. The following multipliers are supported: k/K (1024), m/M (1048576), g/G (1073741824).
+ * The number can be a decimal, hex (prefixed with 0x or 0X), octal (prefixed with 0o, 0O or 0) or
+ * binary (prefixed with 0b or 0B)
+ * @return int Returns the interpreted size in bytes as an integer.
  * @since 8.2
  */
 function ini_parse_quantity(string $shorthand): int {}
@@ -538,7 +542,7 @@ function set_include_path(string $include_path): string|false {}
 /**
  * Restores the value of the include_path configuration option
  * @link https://php.net/manual/en/function.restore-include-path.php
- * @return void
+ * @return void No value is returned.
  * @removed 8.0
  */
 #[Deprecated(since: '7.4')]
@@ -752,7 +756,7 @@ function setrawcookie(string $name, $value = '', array $options = []): bool {}
  * @param int $response_code <p>
  * Forces the HTTP response code to the specified value. Note that this parameter only has an effect if the header is not empty.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function header(string $header, bool $replace = true, int $response_code = 0): void {}
 
@@ -763,7 +767,7 @@ function header(string $header, bool $replace = true, int $response_code = 0): v
  * The header name to be removed.
  * </p>
  * This parameter is case-insensitive.
- * @return void
+ * @return void No value is returned.
  */
 function header_remove(?string $name = null): void {}
 
@@ -933,7 +937,15 @@ function move_uploaded_file(string $from, string $to): bool {}
  * Returns an enumeration of network interfaces (adapters) on the local machine.
  *
  * @link https://php.net/manual/en/function.net-get-interfaces.php
- * @return array|false
+ * @return array|false Returns an associative array where the key is the name of the interface and
+ * the value an associative array of interface attributes, or false on failure. Each interface
+ * associative array contains: Interface attributes Name Description description Optional string
+ * value for description of the interface. Windows only. mac Optional string value for MAC address
+ * of the interface. Windows only. mtu Integer value for Maximum transmission unit (MTU) of the
+ * interface. Windows only. unicast Array of associative arrays, see Unicast attributes below. up
+ * Boolean status (on/off) for interface. Unicast attributes Name Description flags Integer value.
+ * family Integer value. address String value for address in either IPv4 or IPv6. netmask String
+ * value for netmask in either IPv4 or IPv6.
  * @since 7.3
  */
 #[Pure]

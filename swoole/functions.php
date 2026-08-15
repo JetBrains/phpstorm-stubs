@@ -130,7 +130,7 @@ namespace {
     function swoole_clear_error() {}
 
     /**
-     * @return void
+     * @return void No value is returned.
      */
     function swoole_error_log(int $level, string $msg) {}
 
@@ -290,7 +290,7 @@ namespace {
 
     /**
      * @param $fd[required]
-     * @return mixed
+     * @return mixed Returns true on success or false on failure.
      */
     function swoole_event_del($fd) {}
 
@@ -318,7 +318,7 @@ namespace {
     /**
      * This function is an alias of method \Swoole\Event::defer().
      *
-     * @return true
+     * @return true Returns true on success or false on failure.
      * @see \Swoole\Event::defer()
      */
     function swoole_event_defer(callable $callback) {}
@@ -333,7 +333,7 @@ namespace {
     /**
      * @param $fd[required]
      * @param $data[required]
-     * @return mixed
+     * @return mixed Returns true on success or false on failure.
      */
     function swoole_event_write($fd, $data) {}
 

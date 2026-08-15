@@ -1181,7 +1181,8 @@ function xmlwriter_start_dtd_element(#[LanguageLevelTypeAware(["8.0" => "XMLWrit
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End current DTD element
  * @link https://php.net/manual/en/function.xmlwriter-enddtdelement.php
- * @param $writer
+ * @param $writer Only for procedural calls. The XMLWriter instance that is being modified. This
+ * object is returned from a call to xmlwriter_open_uri or xmlwriter_open_memory.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xmlwriter_end_dtd_element(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool {}

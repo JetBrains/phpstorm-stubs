@@ -707,8 +707,8 @@ function odbc_tables(#[LanguageLevelTypeAware(['8.4' => '\Odbc\Connection'], def
  * @link https://php.net/manual/en/function.odbc-primarykeys.php
  * @param Odbc\Connection|resource $odbc <p>The ODBC connection identifier,
  * see <b>odbc_connect</b> for details.</p>
- * @param string|null $catalog
- * @param string $schema
+ * @param string|null $catalog The catalog ('qualifier' in ODBC 2 parlance).
+ * @param string $schema The schema ('owner' in ODBC 2 parlance).
  * @param string $table
  * @return Odbc\Result|resource|false an ODBC result identifier or <b>FALSE</b> on failure.
  * <p>
@@ -942,8 +942,8 @@ function odbc_field_precision(#[LanguageLevelTypeAware(['8.4' => '\Odbc\Result']
  * ODBC connection string quoting is performed using curly braces, and ending braces within a string must be escaped through
  * repeating them twice, similar to SQL quoting.
  * @link https://php.net/manual/en/function.odbc-connection-string-is-quoted.php
- * @param string $str
- * @return bool
+ * @param string $str The string to check for quoting.
+ * @return bool true if quoted properly, false if not.
  */
 function odbc_connection_string_is_quoted(string $str): bool {}
 
@@ -953,8 +953,8 @@ function odbc_connection_string_is_quoted(string $str): bool {}
  * Note that this does not check if the string is already quoted; an already quoted string will contain characters that
  * will make this function return true. You should call odbc_connection_string_is_quoted() to check.
  * @link https://php.net/manual/en/function.odbc-connection-string-should-quote.php
- * @param string $str
- * @return bool
+ * @param string $str The string to check for.
+ * @return bool true if the string should be quoted; false otherwise.
  */
 function odbc_connection_string_should_quote(string $str): bool {}
 
@@ -966,8 +966,8 @@ function odbc_connection_string_should_quote(string $str): bool {}
  * Note that this function does not check if the string is already quoted, nor if the string needs quoting.
  * For that, call odbc_connection_string_is_quoted() and odbc_connection_string_should_quote().
  * @link https://php.net/manual/en/function.odbc-connection-string-quote.php
- * @param string $str
- * @return string
+ * @param string $str The unquoted string.
+ * @return string A quoted string, surrounded by curly braces, and properly escaped.
  */
 function odbc_connection_string_quote(string $str): string {}
 

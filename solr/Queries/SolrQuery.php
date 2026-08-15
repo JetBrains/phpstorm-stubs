@@ -147,7 +147,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * (PECL solr &gt;= 2.2.0)<br/>
      * Add a field to be used to group results.
      * @link https://php.net/manual/en/solrquery.addgroupfield.php
-     * @param string $value
+     * @param string $value The name of the field.
      * @return SolrQuery <p>
      * Returns a SolrQuery object.
      * </p>
@@ -1316,7 +1316,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes a filter query
      * @link https://php.net/manual/en/solrquery.removefilterquery.php
-     * @param string $fq
+     * @param string $fq The filter query to remove
      * @return SolrQuery <p>
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
@@ -1755,7 +1755,8 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * If true, the result of the first field grouping command is used as the main result list in the response, using
      * group.format=simple.
      * @link https://php.net/manual/en/solrquery.setgroupmain.php
-     * @param string $value
+     * @param string $value If true, the result of the first field grouping command is used as the
+     * main result list in the response.
      * @return SolrQuery <p>
      * Returns the current SolrQuery object, if the return value is used.
      * </p>

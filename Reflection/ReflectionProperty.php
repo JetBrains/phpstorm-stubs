@@ -119,7 +119,7 @@ class ReflectionProperty implements Reflector
      * To string
      *
      * @link https://php.net/manual/en/reflectionproperty.tostring.php
-     * @return string
+     * @return string A string representation of this ReflectionProperty instance.
      */
     #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
     public function __toString() {}
@@ -350,7 +350,9 @@ class ReflectionProperty implements Reflector
      * properties).
      *
      * @link https://php.net/manual/en/reflectionproperty.hasdefaultvalue.php
-     * @return bool
+     * @return bool If the property has any default value (including null) true is returned; if the
+     * property is typed without a default value declared or is a dynamic property, false is
+     * returned.
      * @since 8.0
      */
     public function hasDefaultValue(): bool {}
@@ -361,7 +363,10 @@ class ReflectionProperty implements Reflector
      * Gets the implicit or explicitly declared default value for a property.
      *
      * @link https://php.net/manual/en/reflectionproperty.getdefaultvalue.php
-     * @return mixed
+     * @return mixed The default value if the property has any default value (including null). If
+     * there is no default value, then null is returned. It is not possible to differentiate between
+     * a null default value and an uninitialized typed property. Use
+     * ReflectionProperty::hasDefaultValue to detect the difference.
      * @since 8.0
      */
     #[Pure]
@@ -380,7 +385,7 @@ class ReflectionProperty implements Reflector
      *
      * @param class-string<T>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
+     * @return ReflectionAttribute<T>[] Array of attributes, as a ReflectionAttribute object.
      * @since 8.0
      */
     #[Pure]
@@ -392,7 +397,7 @@ class ReflectionProperty implements Reflector
      * Checks whether the property is readonly.
      *
      * @link https://php.net/manual/en/reflectionproperty.isreadonly.php
-     * @return bool
+     * @return bool true if the property is readonly, false otherwise.
      * @since 8.1
      */
     public function isReadOnly(): bool {}

@@ -580,7 +580,7 @@ function gmp_xor(GMP|string|int $num1, GMP|string|int $num2): GMP {}
  * Defines if the bit is set to 0 or 1. By default the bit is set to
  * 1. Index starts at 0.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function gmp_setbit(GMP $num, int $index, bool $value = true): void {}
 
@@ -591,7 +591,7 @@ function gmp_setbit(GMP $num, int $index, bool $value = true): void {}
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $index <p>It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @return void
+ * @return void No value is returned.
  */
 function gmp_clrbit(GMP $num, int $index): void {}
 
@@ -739,9 +739,11 @@ function gmp_nextprime(GMP|string|int $num): GMP {}
  *
  * @link https://www.php.net/manual/en/function.gmp-binomial.php
  *
- * @param GMP|string|int $n
+ * @param GMP|string|int $n A GMP object, an integer, or a string that can be interpreted as a
+ * number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
  * @param int $k
- * @return GMP|false
+ * @return GMP|false Returns the binomial coefficient C(n, k).
  * @since 7.3
  * @throws \ValueError Throws ValueError if k is negative. Prior to PHP 8.0.0, E_WARNING was issued
  * instead.
@@ -755,9 +757,13 @@ function gmp_binomial(GMP|string|int $n, int $k): GMP {}
  *
  * @link https://www.php.net/manual/en/function.gmp-kronecker.php
  *
- * @param GMP|string|float|int $num1
- * @param GMP|string|float|int $num2
- * @return int
+ * @param GMP|string|float|int $num1 A GMP object, an integer, or a string that can be interpreted
+ * as a number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
+ * @param GMP|string|float|int $num2 A GMP object, an integer, or a string that can be interpreted
+ * as a number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
+ * @return int Returns the Kronecker symbol of num1 and num2
  *
  * @since 7.3
  */
@@ -769,9 +775,13 @@ function gmp_kronecker(GMP|string|int $num1, GMP|string|int $num2): int {}
  *
  * @link https://www.php.net/manual/en/function.gmp-lcm.php
  *
- * @param GMP|string|float|int $num1
- * @param GMP|string|float|int $num2
- * @return GMP
+ * @param GMP|string|float|int $num1 A GMP object, an integer, or a string that can be interpreted
+ * as a number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
+ * @param GMP|string|float|int $num2 A GMP object, an integer, or a string that can be interpreted
+ * as a number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
+ * @return GMP A GMP object.
  *
  * @since 7.3
  */
@@ -783,8 +793,10 @@ function gmp_lcm(GMP|string|int $num1, GMP|string|int $num2): GMP {}
  *
  * @link https://www.php.net/manual/en/function.gmp-perfect-power.php
  *
- * @param GMP|string|float|int $num
- * @return bool
+ * @param GMP|string|float|int $num A GMP object, an integer, or a string that can be interpreted as
+ * a number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
+ * @return bool Returns true if num is a perfect power, false otherwise.
  *
  * @since 7.3
  */

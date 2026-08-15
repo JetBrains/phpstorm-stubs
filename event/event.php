@@ -32,10 +32,11 @@ final class Event
      * __construct.
      * Constructs Event object.
      *
-     * @param EventBase $base
-     * @param mixed     $fd
-     * @param int       $what
-     * @param callable  $cb
+     * @param EventBase $base The event base to associate with.
+     * @param mixed     $fd stream resource, socket resource, or numeric file descriptor. For timer
+     * events pass -1. For signal events pass the signal number, e.g. SIGHUP.
+     * @param int       $what Event flags. See Event flags.
+     * @param callable  $cb The event callback. See Event callbacks.
      * @param mixed     $arg  = null
      *
      * @see https://php.net/manual/en/event.construct.php
@@ -49,7 +50,7 @@ final class Event
      *
      * @param float $timeout (optional)
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/event.add.php
      */
@@ -83,7 +84,7 @@ final class Event
      * del.
      * Makes event non-pending.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/event.del.php
      */
@@ -121,7 +122,7 @@ final class Event
      * getSupportedMethods.
      * Returns array with of the names of the methods supported in this version of Libevent.
      *
-     * @return array
+     * @return array Returns array.
      *
      * @see https://php.net/manual/en/event.getsupportedmethods.php
      */
@@ -131,9 +132,10 @@ final class Event
      * pending.
      * Detects whether event is pending or scheduled.
      *
-     * @param int $flags
+     * @param int $flags One of, or a composition of the following constants: Event::READ,
+     * Event::WRITE, Event::TIMEOUT, Event::SIGNAL.
      *
-     * @return bool
+     * @return bool Returns true if event is pending or scheduled. Otherwise false.
      *
      * @see https://php.net/manual/en/event.pending.php
      */
@@ -143,13 +145,14 @@ final class Event
      * set.
      * Re-configures event.
      *
-     * @param EventBase $base
-     * @param mixed     $fd
+     * @param EventBase $base The event base to associate the event with.
+     * @param mixed     $fd Stream resource, socket resource, or numeric file descriptor. For timer
+     * events pass -1. For signal events pass the signal number, e.g. SIGHUP.
      * @param int       $what (optional)
      * @param callable  $cb   (optional)
      * @param mixed     $arg  (optional)
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/event.set.php
      */
@@ -159,8 +162,8 @@ final class Event
      * setPriority.
      * Set event priority.
      *
-     * @param int $priority
-     * @return bool
+     * @param int $priority The event priority.
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/event.setpriority.php
      */
@@ -170,11 +173,11 @@ final class Event
      * setTimer.
      * Re-configures timer event.
      *
-     * @param EventBase $base
-     * @param callable  $cb
+     * @param EventBase $base The event base to associate with.
+     * @param callable  $cb The timer event callback. See Event callbacks.
      * @param mixed     $arg  (optional)
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/event.settimer.php
      */
@@ -184,12 +187,12 @@ final class Event
      * signal.
      * Constructs signal event object.
      *
-     * @param EventBase $base
-     * @param int       $signum
-     * @param callable  $cb
+     * @param EventBase $base The associated event base object.
+     * @param int       $signum The signal number.
+     * @param callable  $cb The signal event callback. See Event callbacks.
      * @param mixed     $arg    (optional)
      *
-     * @return Event
+     * @return Event Returns Event object on success. Otherwise false.
      *
      * @see https://php.net/manual/en/event.signal.php
      */
@@ -199,11 +202,11 @@ final class Event
      * timer.
      * Constructs timer event object.
      *
-     * @param EventBase $base
-     * @param callable  $cb
+     * @param EventBase $base The associated event base object.
+     * @param callable  $cb The signal event callback. See Event callbacks.
      * @param mixed     $arg  (optional)
      *
-     * @return Event
+     * @return Event Returns Event object on success. Otherwise false.
      *
      * @see https://php.net/manual/en/event.timer.php
      */
@@ -237,7 +240,7 @@ final class EventBase
      * __construct.
      * Constructs EventBase object.
      *
-     * @param null|EventConfig $cfg
+     * @param null|EventConfig $cfg Optional EventConfig object.
      *
      * @see https://php.net/manual/en/eventbase.construct.php
      */
@@ -255,9 +258,10 @@ final class EventBase
      * exit.
      * Stop dispatching events.
      *
-     * @param float $timeout
+     * @param float $timeout Optional number of seconds after which the event base should stop
+     * dispatching events.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbase.exit.php
      */
@@ -275,7 +279,8 @@ final class EventBase
      * getFeatures.
      * Returns bitmask of features supported.
      *
-     * @return int
+     * @return int Returns integer representing a bitmask of supported features. See
+     * EventConfig::FEATURE_* constants.
      *
      * @see https://php.net/manual/en/eventbase.getfeatures.php
      */
@@ -286,7 +291,7 @@ final class EventBase
      * getMethod.
      * Returns event method in use.
      *
-     * @return string
+     * @return string String representing used event method(backend).
      *
      * @see https://php.net/manual/en/eventbase.getmethod.php
      */
@@ -297,7 +302,7 @@ final class EventBase
      * getTimeOfDayCached.
      * Returns the current event base time.
      *
-     * @return float
+     * @return float Returns the current event base time. On failure returns null.
      *
      * @see https://php.net/manual/en/eventbase.gettimeofdaycached.php
      */
@@ -308,7 +313,7 @@ final class EventBase
      * gotExit.
      * Checks if the event loop was told to exit.
      *
-     * @return bool
+     * @return bool Returns true, event loop was told to exit by EventBase::exit. Otherwise false.
      *
      * @see https://php.net/manual/en/eventbase.gotexit.php
      */
@@ -319,7 +324,7 @@ final class EventBase
      * gotStop.
      * Checks if the event loop was told to exit.
      *
-     * @return bool
+     * @return bool Returns true, event loop was told to stop by EventBase::stop. Otherwise false.
      *
      * @see https://php.net/manual/en/eventbase.gotstop.php
      */
@@ -330,9 +335,10 @@ final class EventBase
      * loop.
      * Dispatch pending events.
      *
-     * @param int $flags
+     * @param int $flags Optional flags. One of EventBase::LOOP_* constants. See EventBase
+     * constants.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbase.loop.php
      */
@@ -342,9 +348,9 @@ final class EventBase
      * priorityInit.
      * Sets number of priorities per event base.
      *
-     * @param int $n_priorities
+     * @param int $n_priorities The number of priorities per event base.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbase.priorityinit.php
      */
@@ -354,7 +360,7 @@ final class EventBase
      * reInit.
      * Re]initialize event base(after a fork).
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbase.reinit.php
      */
@@ -372,7 +378,7 @@ final class EventBase
      * stop.
      * Tells event_base to stop dispatching events.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbase.stop.php
      */
@@ -432,9 +438,9 @@ class EventBuffer
      * add.
      * Append data to the end of an event buffer.
      *
-     * @param string $data
+     * @param string $data String to be appended to the end of the buffer.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbuffer.add.php
      */
@@ -444,9 +450,9 @@ class EventBuffer
      * addBuffer.
      * Move all data from a buffer provided to the current instance of EventBuffer.
      *
-     * @param EventBuffer $buf
+     * @param EventBuffer $buf The source EventBuffer object.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbuffer.addbuffer.php
      */
@@ -456,10 +462,10 @@ class EventBuffer
      * appendFrom.
      * Moves the specified number of bytes from a source buffer to the end of the current buffer.
      *
-     * @param EventBuffer $buf
+     * @param EventBuffer $buf Source buffer.
      * @param int         $len
      *
-     * @return int
+     * @return int Returns the number of bytes read.
      *
      * @see https://php.net/manual/en/eventbuffer.appendfrom.php
      */
@@ -469,10 +475,10 @@ class EventBuffer
      * copyout.
      * Copies out specified number of bytes from the front of the buffer.
      *
-     * @param string &$data
-     * @param int    $max_bytes
+     * @param string &$data Output string.
+     * @param int    $max_bytes The number of bytes to copy.
      *
-     * @return int
+     * @return int Returns the number of bytes copied, or -1 on failure.
      *
      * @see https://php.net/manual/en/eventbuffer.copyout.php
      */
@@ -482,9 +488,9 @@ class EventBuffer
      * drain.
      * Removes specified number of bytes from the front of the buffer without copying it anywhere.
      *
-     * @param int $len
+     * @param int $len The number of bytes to remove from the buffer.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbuffer.drain.php
      */
@@ -501,9 +507,9 @@ class EventBuffer
      * expand.
      * Reserves space in buffer.
      *
-     * @param int $len
+     * @param int $len The number of bytes to reserve for the buffer
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbuffer.expand.php
      */
@@ -513,9 +519,9 @@ class EventBuffer
      * freeze.
      * Prevent calls that modify an event buffer from succeeding.
      *
-     * @param bool $at_front
+     * @param bool $at_front Whether to disable changes to the front or end of the buffer.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbuffer.freeze.php
      */
@@ -533,9 +539,9 @@ class EventBuffer
      * prepend.
      * Prepend data to the front of the buffer.
      *
-     * @param string $data
+     * @param string $data String to be prepended to the front of the buffer.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbuffer.prepend.php
      */
@@ -545,9 +551,9 @@ class EventBuffer
      * prependBuffer.
      * Moves all data from source buffer to the front of current buffer.
      *
-     * @param EventBuffer $buf
+     * @param EventBuffer $buf Source buffer.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbuffer.prependbuffer.php
      */
@@ -557,9 +563,10 @@ class EventBuffer
      * pullup.
      * Linearizes data within buffer and returns it's contents as a string.
      *
-     * @param int $size
+     * @param int $size The number of bytes required to be contiguous within the buffer.
      *
-     * @return null|string
+     * @return null|string If size is greater than the number of bytes in the buffer, the function
+     * returns null. Otherwise, EventBuffer::pullup returns string.
      *
      * @see https://php.net/manual/en/eventbuffer.pullup.php
      */
@@ -569,7 +576,7 @@ class EventBuffer
      * read.
      * Read data from an evbuffer and drain the bytes read.
      *
-     * @param int $max_bytes
+     * @param int $max_bytes Maximum number of bytes to read from the buffer.
      *
      * @return null | string
      */
@@ -592,7 +599,7 @@ class EventBuffer
      * readLine.
      * Extracts a line from the front of the buffer.
      *
-     * @param int $eol_style
+     * @param int $eol_style One of EventBuffer:EOL_* constants.
      *
      * @return null | string
      *
@@ -604,11 +611,14 @@ class EventBuffer
      * search.
      * Scans the buffer for an occurrence of a string.
      *
-     * @param string $what
+     * @param string $what String to search.
      * @param int    $start = 1
      * @param int    $end   = 1
      *
-     * @return int|false
+     * @return int|false Returns numeric position of the first occurrence of the string in the
+     * buffer, or false if string is not found. This function may return Boolean false, but may also
+     * return a non-Boolean value which evaluates to false. Please read the section on Booleans for
+     * more information. Use the === operator for testing the return value of this function.
      *
      * @see https://php.net/manual/en/eventbuffer.search.php
      */
@@ -621,7 +631,10 @@ class EventBuffer
      * @param int $start     = 1
      * @param int $eol_style = EOL_ANY
      *
-     * @return int|false
+     * @return int|false Returns numeric position of the first occurrence of end-of-line symbol in
+     * the buffer, or false if not found. This function may return Boolean false, but may also
+     * return a non-Boolean value which evaluates to false. Please read the section on Booleans for
+     * more information. Use the === operator for testing the return value of this function.
      *
      * @see https://php.net/manual/en/eventbuffer.searcheol.php
      */
@@ -631,10 +644,10 @@ class EventBuffer
      * substr.
      * Substracts a portion of the buffer data.
      *
-     * @param int $start
+     * @param int $start The start position of data to be subtracted.
      * @param int $length (optional)
      *
-     * @return string
+     * @return string Returns the data subtracted as a string on success, or false on failure.
      *
      * @see https://php.net/manual/en/eventbuffer.substr.php
      */
@@ -644,9 +657,9 @@ class EventBuffer
      * unfreeze.
      * Re-enable calls that modify an event buffer.
      *
-     * @param bool $at_front
+     * @param bool $at_front Whether to enable events at the front or at the end of the buffer.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbuffer.unfreeze.php
      */
@@ -656,7 +669,7 @@ class EventBuffer
      * unlock.
      * Releases lock acquired by EventBuffer::lock.
      *
-     * @return void
+     * @return void Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbuffer.unlock.php
      */
@@ -666,10 +679,11 @@ class EventBuffer
      * write.
      * Write contents of the buffer to a file or socket.
      *
-     * @param mixed $fd
+     * @param mixed $fd Socket resource, stream or numeric file descriptor normally associated with
+     * a socket.
      * @param int $howmuch (optional)
      *
-     * @return int|false
+     * @return int|false Returns the number of bytes written, or false on error.
      *
      * @see https://php.net/manual/en/eventbuffer.write.php
      */
@@ -729,7 +743,7 @@ final class EventBufferEvent
      * __construct.
      * Constructs EventBufferEvent object.
      *
-     * @param EventBase $base
+     * @param EventBase $base Event base that should be associated with the new buffer event.
      * @param mixed     $socket  = null
      * @param int       $options = 0
      * @param null|callable $readcb  = null
@@ -753,9 +767,11 @@ final class EventBufferEvent
      * connect.
      * Connect buffer event's file descriptor to given address or UNIX socket.
      *
-     * @param string $addr
+     * @param string $addr Should contain an IP address with optional port number, or a path to UNIX
+     * domain socket. Recognized formats are: [IPv6Address]:port [IPv6Address] IPv6Address
+     * IPv4Address:port IPv4Address unix:path Note, 'unix:' prefix is currently not case sensitive.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbufferevent.connect.php
      */
@@ -765,12 +781,14 @@ final class EventBufferEvent
      * connectHost.
      * Connects to a hostname with optionally asyncronous DNS.
      *
-     * @param null|EventDnsBase $dns_base
-     * @param string       $hostname
-     * @param int          $port
+     * @param null|EventDnsBase $dns_base Object of EventDnsBase in case if DNS is to be resolved
+     * asynchronously. Otherwise null.
+     * @param string       $hostname Hostname to connect to. Recognized formats are: www.example.com
+     * (hostname) 1.2.3.4 (ipv4address) ::1 (ipv6address) [::1] ([ipv6address])
+     * @param int          $port Port number
      * @param int          $family   = EventUtil::AF_UNSPEC
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbufferevent.connecthost.php
      */
@@ -792,10 +810,10 @@ final class EventBufferEvent
      * createPair.
      * Creates two buffer events connected to each other.
      *
-     * @param EventBase $base
+     * @param EventBase $base Associated event base
      * @param int       $options = 0
      *
-     * @return array
+     * @return array Returns array of two EventBufferEvent objects connected to each other.
      *
      * @see https://php.net/manual/en/eventbufferevent.createpair.php
      */
@@ -807,7 +825,7 @@ final class EventBufferEvent
      *
      * @param int $events
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbufferevent.disable.php
      */
@@ -817,9 +835,10 @@ final class EventBufferEvent
      * enable.
      * Enable events read, write, or both on a buffer event.
      *
-     * @param int $events
+     * @param int $events Event::READ, Event::WRITE, or Event::READ | Event::WRITE on a buffer
+     * event.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbufferevent.enable.php
      */
@@ -837,7 +856,7 @@ final class EventBufferEvent
      * getDnsErrorString.
      * Returns string describing the last failed DNS lookup attempt.
      *
-     * @return string
+     * @return string Returns a string describing DNS lookup error, or an empty string for no error.
      *
      * @see https://php.net/manual/en/eventbufferevent.getdnserrorstring.php
      */
@@ -848,7 +867,8 @@ final class EventBufferEvent
      * getEnabled.
      * Returns bitmask of events currently enabled on the buffer event.
      *
-     * @return int
+     * @return int Returns integer representing a bitmask of events currently enabled on the buffer
+     * event
      *
      * @see https://php.net/manual/en/eventbufferevent.getenabled.php
      */
@@ -859,7 +879,8 @@ final class EventBufferEvent
      * getInput.
      * Returns underlying input buffer associated with current buffer event.
      *
-     * @return EventBuffer
+     * @return EventBuffer Returns instance of EventBuffer input buffer associated with current
+     * buffer event.
      *
      * @see https://php.net/manual/en/eventbufferevent.getinput.php
      */
@@ -870,7 +891,8 @@ final class EventBufferEvent
      * getOutput.
      * Returns underlying output buffer associated with current buffer event.
      *
-     * @return EventBuffer
+     * @return EventBuffer Returns instance of EventBuffer output buffer associated with current
+     * buffer event.
      *
      * @see https://php.net/manual/en/eventbufferevent.getoutput.php
      */
@@ -881,9 +903,9 @@ final class EventBufferEvent
      * read.
      * Read buffer's data.
      *
-     * @param int $size
+     * @param int $size Maximum number of bytes to read
      *
-     * @return null|string
+     * @return null|string Returns string of data read from the input buffer.
      *
      * @see https://php.net/manual/en/eventbufferevent.read.php
      */
@@ -893,9 +915,9 @@ final class EventBufferEvent
      * readBuffer.
      * Drains the entire contents of the input buffer and places them into buf.
      *
-     * @param EventBuffer $buf
+     * @param EventBuffer $buf Target buffer
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbufferevent.readbuffer.php
      */
@@ -905,9 +927,9 @@ final class EventBufferEvent
      * setCallbacks.
      * Assigns read, write and event(status) callbacks.
      *
-     * @param callable $readcb
-     * @param callable $writecb
-     * @param callable $eventcb
+     * @param callable $readcb Read event callback. See About buffer event callbacks.
+     * @param callable $writecb Write event callback. See About buffer event callbacks.
+     * @param callable $eventcb Status-change event callback. See About buffer event callbacks.
      * @param string   $arg     (optional)
      *
      * @see https://php.net/manual/en/eventbufferevent.setcallbacks.php
@@ -918,9 +940,9 @@ final class EventBufferEvent
      * setPriority.
      * Assign a priority to a bufferevent.
      *
-     * @param int $priority
+     * @param int $priority Priority value.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbufferevent.setpriority.php
      */
@@ -930,10 +952,10 @@ final class EventBufferEvent
      * setTimeouts.
      * Set the read and write timeout for a buffer event.
      *
-     * @param float $timeout_read
-     * @param float $timeout_write
+     * @param float $timeout_read Read timeout
+     * @param float $timeout_write Write timeout
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://php.net/manual/en/eventbufferevent.settimeouts.php
      */
@@ -943,9 +965,9 @@ final class EventBufferEvent
      * setWatermark.
      * Adjusts read and/or write watermarks.
      *
-     * @param int $events
-     * @param int $lowmark
-     * @param int $highmark
+     * @param int $events Bitmask of Event::READ, Event::WRITE, or both.
+     * @param int $lowmark Minimum watermark value.
+     * @param int $highmark Maximum watermark value. 0 means "unlimited".
      *
      * @see https://php.net/manual/en/eventbufferevent.setwatermark.php
      */
@@ -955,7 +977,8 @@ final class EventBufferEvent
      * sslError.
      * Returns most recent OpenSSL error reported on the buffer event.
      *
-     * @return false|string
+     * @return false|string Returns OpenSSL error string reported on the buffer event, or false, if
+     * there is no more error to return.
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslerror.php
      */
@@ -965,13 +988,15 @@ final class EventBufferEvent
      * sslFilter.
      * Create a new SSL buffer event to send its data over another buffer event.
      *
-     * @param EventBase        $base
-     * @param EventBufferEvent $underlying
-     * @param EventSslContext  $ctx
-     * @param int              $state
+     * @param EventBase        $base Associated event base.
+     * @param EventBufferEvent $underlying A socket buffer event to use for this SSL.
+     * @param EventSslContext  $ctx Object of EventSslContext class.
+     * @param int              $state The current state of SSL connection:
+     * EventBufferEvent::SSL_OPEN, EventBufferEvent::SSL_ACCEPTING or
+     * EventBufferEvent::SSL_CONNECTING.
      * @param int              $options    = 0
      *
-     * @return EventBufferEvent
+     * @return EventBufferEvent Returns a new SSL EventBufferEvent object.
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslfilter.php
      */
@@ -981,7 +1006,8 @@ final class EventBufferEvent
      * sslGetCipherInfo.
      * Returns a textual description of the cipher.
      *
-     * @return string|false
+     * @return string|false Returns a textual description of the cipher on success, or false on
+     * error.
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslgetcipherinfo.php
      */
@@ -991,7 +1017,8 @@ final class EventBufferEvent
      * sslGetCipherName.
      * Returns the current cipher name of the SSL connection.
      *
-     * @return string|false
+     * @return string|false Returns the current cipher name of the SSL connection, or false on
+     * error.
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslgetciphername.php
      */
@@ -1001,7 +1028,8 @@ final class EventBufferEvent
      * sslGetCipherVersion.
      * Returns version of cipher used by current SSL connection.
      *
-     * @return string|false
+     * @return string|false Returns the current cipher version of the SSL connection, or false on
+     * error.
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslgetcipherversion.php
      */
@@ -1011,7 +1039,7 @@ final class EventBufferEvent
      * sslGetProtocol.
      * Returns the name of the protocol used for current SSL.
      *
-     * @return string
+     * @return string Returns the name of the protocol used for current SSL connection.
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslgetprotocol.php
      */
@@ -1029,13 +1057,17 @@ final class EventBufferEvent
      * sslSocket.
      * Creates a new SSL buffer event to send its data over an SSL on a socket.
      *
-     * @param EventBase $base
-     * @param mixed $socket
-     * @param EventSslContext $ctx
-     * @param int $state
+     * @param EventBase $base Associated event base.
+     * @param mixed $socket Socket to use for this SSL. Can be stream or socket resource, numeric
+     * file descriptor, or null. If socket is null, it is assumed that the file descriptor for the
+     * socket will be assigned later, for instance, by means of EventBufferEvent::connectHost
+     * method.
+     * @param EventSslContext $ctx Object of EventSslContext class.
+     * @param int $state The current state of SSL connection: EventBufferEvent::SSL_OPEN,
+     * EventBufferEvent::SSL_ACCEPTING or EventBufferEvent::SSL_CONNECTING.
      * @param int $options (optional)
      *
-     * @return EventBufferEvent
+     * @return EventBufferEvent Returns EventBufferEvent object.
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslsocket.php
      */
@@ -1045,9 +1077,9 @@ final class EventBufferEvent
      * write.
      * Adds data to a buffer event's output buffer.
      *
-     * @param string $data
+     * @param string $data Data to be added to the underlying buffer.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.write.php
      */
@@ -1057,9 +1089,9 @@ final class EventBufferEvent
      * writeBuffer.
      * Adds contents of the entire buffer to a buffer event's output buffer.
      *
-     * @param EventBuffer $buf
+     * @param EventBuffer $buf Source EventBuffer object.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.writebuffer.php
      */
@@ -1095,9 +1127,9 @@ final class EventConfig
      * avoidMethod.
      * Tells libevent to avoid specific event method.
      *
-     * @param string $method
+     * @param string $method The backend method to avoid. See EventConfig constants.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventconfig.avoidmethod.php
      */
@@ -1107,9 +1139,9 @@ final class EventConfig
      * requireFeatures.
      * Enters a required event method feature that the application demands.
      *
-     * @param int $feature
+     * @param int $feature Bitmask of required features. See EventConfig::FEATURE_* constants
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventconfig.requirefeatures.php
      */
@@ -1118,8 +1150,8 @@ final class EventConfig
     /**
      * Sets one or more flags to configure what parts of the eventual EventBase
      * will be initialized, and how they'll work
-     * @param int $flags
-     * @return bool
+     * @param int $flags One of EventBase::LOOP_* constants. See EventBase constants.
+     * @return bool Returns true on success or false on failure.
      * @since libevent version 2.0.2-alpha
      */
     public function setFlags(int $flags): bool {}
@@ -1128,9 +1160,13 @@ final class EventConfig
      * setMaxDispatchInterval.
      * Prevents priority inversion.
      *
-     * @param int $max_interval
-     * @param int $max_callbacks
-     * @param int $min_priority
+     * @param int $max_interval An interval after which Libevent should stop running callbacks and
+     * check for more events, or 0, if there should be no such interval.
+     * @param int $max_callbacks A number of callbacks after which Libevent should stop running
+     * callbacks and check for more events, or -1, if there should be no such limit.
+     * @param int $min_priority A priority below which max_interval and max_callbacks should not be
+     * enforced. If this is set to 0, they are enforced for events of every priority; if it's set to
+     * 1, they're enforced for events of priority 1 and above, and so on.
      *
      * @see https://secure.php.net/manual/en/eventconfig.setmaxdispatchinterval.php
      */
@@ -1159,8 +1195,16 @@ final class EventDnsBase
      * __construct.
      * Constructs EventDnsBase object.
      *
-     * @param EventBase $base
-     * @param bool      $initialize
+     * @param EventBase $base Event base.
+     * @param bool      $initialize If initialize is true, it attempts to use the underlying
+     * operating system defaults to configure the DNS base sensibly. If it is false, the DNS base is
+     * left unconfigured, with no nameservers or options set. In the latter case the DNS base should
+     * be configured manually, e.g. with EventDnsBase::parseResolvConf. If initialize is an integer,
+     * it must be one of the following flags: Flag Description EventDnsBase::DISABLE_WHEN_INACTIVE
+     * Do not prevent the libevent event loop from exiting when we have no active DNS requests.
+     * EventDnsBase::INITIALIZE_NAMESERVERS Process the resolv.conf.
+     * EventDnsBase::NAMESERVERS_NO_DEFAULT Do not add default nameserver if there are no
+     * nameservers in the resolv.conf.
      *
      * @see https://secure.php.net/manual/en/eventdnsbase.construct.php
      */
@@ -1171,9 +1215,10 @@ final class EventDnsBase
      * addNameserverIp.
      * Adds a nameserver to the DNS base.
      *
-     * @param string $ip
+     * @param string $ip The nameserver string, either as an IPv4 address, an IPv6 address, an IPv4
+     * address with a port ( IPv4:Port ), or an IPv6 address with a port ( [IPv6]:Port ).
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventdnsbase.addnameserverip.php
      */
@@ -1183,7 +1228,7 @@ final class EventDnsBase
      * addSearch.
      * Adds a domain to the list of search domains.
      *
-     * @param string $domain
+     * @param string $domain Search domain.
      *
      * @see https://secure.php.net/manual/en/eventdnsbase.addsearch.php
      */
@@ -1201,7 +1246,9 @@ final class EventDnsBase
      * countNameservers.
      * Gets the number of configured nameservers.
      *
-     * @return int
+     * @return int Returns the number of configured nameservers(not necessarily the number of
+     * running nameservers). This is useful for double-checking whether our calls to the various
+     * nameserver configuration functions have been successful.
      *
      * @see https://secure.php.net/manual/en/eventdnsbase.countnameservers.php
      */
@@ -1211,9 +1258,9 @@ final class EventDnsBase
      * loadHosts.
      * Loads a hosts file (in the same format as /etc/hosts) from hosts file.
      *
-     * @param string $hosts
+     * @param string $hosts Path to the hosts' file.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventdnsbase.loadhosts.php
      */
@@ -1223,10 +1270,15 @@ final class EventDnsBase
      * parseResolvConf.
      * Scans the resolv.conf-formatted file.
      *
-     * @param int    $flags
-     * @param string $filename
+     * @param int    $flags Determines what information is parsed from the resolv.conf file. See the
+     * man page for resolv.conf for the format of this file. The following directives are not parsed
+     * from the file: sortlist, rotate, no-check-names, inet6, debug. If this function encounters an
+     * error, the possible return values are: 1 = failed to open file 2 = failed to stat file 3 =
+     * file too large 4 = out of memory 5 = short read from file 6 = no nameservers listed in the
+     * file
+     * @param string $filename Path to resolv.conf file.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventdnsbase.parseresolvconf.php
      */
@@ -1236,10 +1288,11 @@ final class EventDnsBase
      * setOption.
      * Set the value of a configuration option.
      *
-     * @param string $option
-     * @param string $value
+     * @param string $option The currently available configuration options are: "ndots", "timeout",
+     * "max-timeouts", "max-inflight", and "attempts".
+     * @param string $value Option value.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventdnsbase.setoption.php
      */
@@ -1249,9 +1302,9 @@ final class EventDnsBase
      * setSearchNdots.
      * Set the 'ndots' parameter for searches.
      *
-     * @param int $ndots
+     * @param int $ndots The number of dots.
      *
-     * @return void
+     * @return void Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventdnsbase.setsearchndots.php
      */
@@ -1274,8 +1327,12 @@ final class EventHttp
      * __construct.
      * Constructs EventHttp object(the HTTP server).
      *
-     * @param EventBase       $base
-     * @param null|EventSslContext $ctx
+     * @param EventBase       $base Associated event base.
+     * @param null|EventSslContext $ctx EventSslContext class object. Turns plain HTTP server into
+     * HTTPS server. It means that if ctx is configured correctly, then the underlying buffer events
+     * will be based on OpenSSL sockets. Thus, all traffic will pass through the SSL or TLS. This
+     * parameter is available only if Event is compiled with OpenSSL support and only with Libevent
+     * 2.1.0-alpha and higher.
      *
      * @see https://secure.php.net/manual/en/eventhttp.construct.php
      */
@@ -1285,9 +1342,10 @@ final class EventHttp
      * accept.
      * Makes an HTTP server accept connections on the specified socket stream or resource.
      *
-     * @param mixed $socket
+     * @param mixed $socket Socket resource, stream or numeric file descriptor representing a socket
+     * ready to accept connections.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventhttp.accept.php
      */
@@ -1297,9 +1355,9 @@ final class EventHttp
      * addServerAlias.
      * Adds a server alias to the HTTP server object.
      *
-     * @param string $alias
+     * @param string $alias The alias to add.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventhttp.addserveralias.php
      */
@@ -1309,9 +1367,9 @@ final class EventHttp
      * bind.
      * Binds an HTTP server on the specified address and port.
      *
-     * @param string $address
-     * @param int    $port
-     * @return bool
+     * @param string $address A string containing the IP address to listen(2) on.
+     * @param int    $port The port number to listen on.
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventhttp.bind.php
      */
@@ -1321,9 +1379,9 @@ final class EventHttp
      * removeServerAlias.
      * Removes server alias.
      *
-     * @param string $alias
+     * @param string $alias The alias to remove.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventhttp.removeserveralias.php
      */
@@ -1333,7 +1391,7 @@ final class EventHttp
      * setAllowedMethods.
      * Sets the what HTTP methods are supported in requests accepted by this server, and passed to user callbacks.
      *
-     * @param int $methods
+     * @param int $methods A bit mask of EventHttpRequest::CMD_* constants.
      *
      * @see https://secure.php.net/manual/en/eventhttp.setallowedmethods.php
      */
@@ -1343,10 +1401,12 @@ final class EventHttp
      * setCallback.
      * Sets a callback for specified URI.
      *
-     * @param string $path
-     * @param string $cb
+     * @param string $path The path for which to invoke the callback.
+     * @param string $cb The callback callable that gets invoked on requested path. It should match
+     * the following prototype: void callback EventHttpRequest req NULL mixed arg NULL req
+     * EventHttpRequest object. arg Custom data.
      * @param null|string $arg (optional)
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      * @see https://secure.php.net/manual/en/eventhttp.setcallback.php
      */
     public function setCallback(string $path, string $cb, ?string $arg = null): bool {}
@@ -1355,7 +1415,9 @@ final class EventHttp
      * setDefaultCallback.
      * Sets default callback to handle requests that are not caught by specific callbacks.
      *
-     * @param string $cb
+     * @param string $cb The callback callable. It should match the following prototype: void
+     * callback EventHttpRequest req NULL mixed arg NULL req EventHttpRequest object. arg Custom
+     * data.
      * @param null|string $arg (optional)
      *
      * @see https://secure.php.net/manual/en/eventhttp.setdefaultcallback.php
@@ -1366,7 +1428,7 @@ final class EventHttp
      * setMaxBodySize.
      * Sets maximum request body size.
      *
-     * @param int $value
+     * @param int $value The body size in bytes.
      *
      * @see https://secure.php.net/manual/en/eventhttp.setmaxbodysize.php
      */
@@ -1376,7 +1438,7 @@ final class EventHttp
      * setMaxHeadersSize.
      * Sets maximum HTTP header size.
      *
-     * @param int $value
+     * @param int $value The header size in bytes.
      *
      * @see https://secure.php.net/manual/en/eventhttp.setmaxheaderssize.php
      */
@@ -1386,7 +1448,7 @@ final class EventHttp
      * setTimeout.
      * Sets the timeout for an HTTP request.
      *
-     * @param int $value
+     * @param int $value The timeout in seconds.
      *
      * @see https://secure.php.net/manual/en/eventhttp.settimeout.php
      */
@@ -1409,11 +1471,13 @@ class EventHttpConnection
      * __construct.
      * Constructs EventHttpConnection object.
      *
-     * @param EventBase       $base
-     * @param EventDnsBase    $dns_base
-     * @param string          $address
-     * @param int             $port
-     * @param null|EventSslContext $ctx
+     * @param EventBase       $base Associated event base.
+     * @param EventDnsBase    $dns_base If dns_base is null, hostname resolution will block.
+     * @param string          $address The address to connect to.
+     * @param int             $port The port to connect to.
+     * @param null|EventSslContext $ctx EventSslContext class object. Enables OpenSSL. This
+     * parameter is available only if Event is compiled with OpenSSL support and only with Libevent
+     * 2.1.0-alpha and higher.
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.construct.php
      */
@@ -1424,7 +1488,8 @@ class EventHttpConnection
      * getBase.
      * Returns event base associated with the connection.
      *
-     * @return false|EventBase
+     * @return false|EventBase On success returns EventBase object associated with the connection.
+     * Otherwise false.
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.getbase.php
      */
@@ -1434,8 +1499,8 @@ class EventHttpConnection
      * getPeer.
      * Gets the remote address and port associated with the connection.
      *
-     * @param string &$address
-     * @param int    &$port
+     * @param string &$address Address of the peer.
+     * @param int    &$port Port of the peer.
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.getpeer.php
      */
@@ -1445,11 +1510,11 @@ class EventHttpConnection
      * makeRequest.
      * Makes an HTTP request over the specified connection.
      *
-     * @param EventHttpRequest $req
-     * @param int              $type
-     * @param string           $uri
+     * @param EventHttpRequest $req The connection object over which to send the request.
+     * @param int              $type One of EventHttpRequest::CMD_* constants.
+     * @param string           $uri The URI associated with the request.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.makerequest.php
      */
@@ -1459,7 +1524,8 @@ class EventHttpConnection
      * setCloseCallback.
      * Set callback for connection close.
      *
-     * @param callable $callback
+     * @param callable $callback Callback which is called when connection is closed. Should match
+     * the following prototype: void callback EventHttpConnection conn null mixed arg null
      * @param mixed    $data     (optional)
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.setclosecallback.php
@@ -1470,7 +1536,7 @@ class EventHttpConnection
      * setLocalAddress.
      * Sets the IP address from which HTTP connections are made.
      *
-     * @param string $address
+     * @param string $address The IP address from which HTTP connections are made.
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.setlocaladdress.php
      */
@@ -1480,7 +1546,7 @@ class EventHttpConnection
      * setLocalPort.
      * Sets the local port from which connections are made.
      *
-     * @param int $port
+     * @param int $port The port number.
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.setlocalport.php
      */
@@ -1490,7 +1556,7 @@ class EventHttpConnection
      * setMaxBodySize.
      * Sets maximum body size for the connection.
      *
-     * @param string $max_size
+     * @param string $max_size The maximum body size in bytes.
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.setmaxbodysize.php
      */
@@ -1500,7 +1566,7 @@ class EventHttpConnection
      * setMaxHeadersSize.
      * Sets maximum header size.
      *
-     * @param string $max_size
+     * @param string $max_size The maximum header size in bytes.
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.setmaxheaderssize.php
      */
@@ -1510,7 +1576,7 @@ class EventHttpConnection
      * setRetries.
      * Sets the retry limit for the connection.
      *
-     * @param int $retries
+     * @param int $retries The retry limit. -1 means infinity.
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.setretries.php
      */
@@ -1520,7 +1586,7 @@ class EventHttpConnection
      * setTimeout.
      * Sets the timeout for the connection.
      *
-     * @param int $timeout
+     * @param int $timeout Timeout in seconds.
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.settimeout.php
      */
@@ -1544,8 +1610,9 @@ class EventHttpRequest
 
     /**
      * EventHttpRequest constructor.
-     * @param callable $callback
-     * @param mixed $data
+     * @param callable $callback Gets invoked on requesting path. Should match the following
+     * prototype: void callback EventHttpRequest req null mixed arg null
+     * @param mixed $data User custom data passed to the callback.
      */
     #[Pure]
     public function __construct(
@@ -1634,12 +1701,20 @@ final class EventListener
      * __construct.
      * Creates new connection listener associated with an event base.
      *
-     * @param EventBase $base
-     * @param callable  $cb
-     * @param mixed     $data
-     * @param int       $flags
-     * @param int       $backlog
-     * @param mixed     $target
+     * @param EventBase $base Associated event base.
+     * @param callable  $cb A callable that will be invoked when new connection received.
+     * @param mixed     $data Custom user data attached to cb.
+     * @param int       $flags Bit mask of EventListener::OPT_* constants. See EventListener
+     * constants.
+     * @param int       $backlog Controls the maximum number of pending connections that the network
+     * stack should allow to wait in a not-yet-accepted state at any time; see documentation for
+     * your system’s listen function for more details. If backlog is negative, Libevent tries to
+     * pick a good value for the backlog ; if it is zero, Event assumes that listen is already
+     * called on the socket (target).
+     * @param mixed     $target May be string, socket resource, or a stream associated with a
+     * socket. In case if target is a string, the string will be parsed as network address. It will
+     * be interpreted as a UNIX domain socket path, if prefixed with 'unix:', e.g.
+     * 'unix:/tmp/my.sock'.
      *
      * @see https://secure.php.net/manual/en/eventlistener.construct.php
      */
@@ -1649,7 +1724,7 @@ final class EventListener
      * disable.
      * Disables an event connect listener object.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventlistener.disable.php
      */
@@ -1659,7 +1734,7 @@ final class EventListener
      * enable.
      * Enables an event connect listener object.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventlistener.enable.php
      */
@@ -1679,10 +1754,10 @@ final class EventListener
      * getSocketName.
      * Retreives the current address to which the listener's socket is bound.
      *
-     * @param string &$address
-     * @param mixed  &$port
+     * @param string &$address Output parameter. IP-address depending on the socket address family.
+     * @param mixed  &$port Output parameter. The port the socket is bound to.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventlistener.getsocketname.php
      */
@@ -1692,7 +1767,11 @@ final class EventListener
      * setCallback.
      * The setCallback purpose.
      *
-     * @param callable $cb
+     * @param callable $cb The new callback for new connections. Ignored if null. Should match the
+     * following prototype: void callback EventListener listener null mixed fd null array address
+     * null mixed arg null listener The EventListener object. fd The file descriptor or a resource
+     * associated with the listener. address Array of two elements: IP address and the server port.
+     * arg User custom data attached to the callback.
      * @param mixed    $arg = null
      *
      * @see https://secure.php.net/manual/en/eventlistener.setcallback.php
@@ -1703,7 +1782,9 @@ final class EventListener
      * setErrorCallback.
      * Set event listener's error callback.
      *
-     * @param string $cb
+     * @param string $cb The error callback. Should match the following prototype: void callback
+     * EventListener listener null mixed data null listener The EventListener object. data User
+     * custom data attached to the callback.
      *
      * @see https://secure.php.net/manual/en/eventlistener.seterrorcallback.php
      */
@@ -1767,8 +1848,9 @@ final class EventSslContext
      * __construct.
      * Constructs an OpenSSL context for use with Event classes.
      *
-     * @param int $method
-     * @param array $options
+     * @param int $method One of EventSslContext::*_METHOD constants.
+     * @param array $options Associative array of SSL context options One of EventSslContext::OPT_*
+     * constants.
      *
      * @see https://secure.php.net/manual/en/eventsslcontext.construct.php
      */
@@ -1850,7 +1932,7 @@ final class EventUtil
      *
      * @param mixed $socket = null
      *
-     * @return int|false
+     * @return int|false Returns the most recent socket error number( errno ).
      *
      * @see https://secure.php.net/manual/en/eventutil.getlastsocketerrno.php
      */
@@ -1860,9 +1942,9 @@ final class EventUtil
      * getLastSocketError.
      * Returns the most recent socket error.
      *
-     * @param mixed $socket
+     * @param mixed $socket Socket resource, stream or a file descriptor of a socket.
      *
-     * @return string|false
+     * @return string|false Returns the most recent socket error.
      *
      * @see https://secure.php.net/manual/en/eventutil.getlastsocketerror.php
      */
@@ -1872,9 +1954,11 @@ final class EventUtil
      * getSocketFd.
      * Returns numeric file descriptor of a socket, or stream.
      *
-     * @param mixed $socket
+     * @param mixed $socket Socket resource or stream.
      *
-     * @return int
+     * @return int Returns numeric file descriptor of a socket, or stream. EventUtil::getSocketFd
+     * returns false in case if it is whether failed to recognize the type of the underlying file,
+     * or detected that the file descriptor associated with socket is not valid.
      *
      * @see https://secure.php.net/manual/en/eventutil.getsocketfd.php
      */
@@ -1884,11 +1968,13 @@ final class EventUtil
      * getSocketName.
      * Retreives the current address to which the socket is bound.
      *
-     * @param mixed $socket
-     * @param string &$address
-     * @param mixed  &$port
+     * @param mixed $socket Socket resource, stream or a file descriptor of a socket.
+     * @param string &$address Output parameter. IP-address, or the UNIX domain socket path
+     * depending on the socket address family.
+     * @param mixed  &$port Output parameter. The port the socket is bound to. Has no meaning for
+     * UNIX domain sockets.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventutil.getsocketname.php
      */
@@ -1898,12 +1984,19 @@ final class EventUtil
      * setSocketOption.
      * Sets socket options.
      *
-     * @param mixed $socket
-     * @param int   $level
-     * @param int   $optname
-     * @param int|array $optval
+     * @param mixed $socket Socket resource, stream, or numeric file descriptor associated with the
+     * socket.
+     * @param int   $level One of EventUtil::SOL_* constants. Specifies the protocol level at which
+     * the option resides. For example, to retrieve options at the socket level, a level parameter
+     * of EventUtil::SOL_SOCKET would be used. Other levels, such as TCP, can be used by specifying
+     * the protocol number of that level. Protocol numbers can be found by using the getprotobyname
+     * function. See EventUtil constants.
+     * @param int   $optname Option name(type). Has the same meaning as corresponding parameter of
+     * socket_get_option function. See EventUtil constants.
+     * @param int|array $optval Accepts the same values as optval parameter of the socket_get_option
+     * function.
      *
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      *
      * @see https://secure.php.net/manual/en/eventutil.setsocketoption.php
      */

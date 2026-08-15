@@ -93,7 +93,7 @@ class ReflectionClassConstant implements Reflector
     /**
      * Gets declaring class
      *
-     * @return ReflectionClass
+     * @return ReflectionClass A ReflectionClass object.
      * @link https://php.net/manual/en/reflectionclassconstant.getdeclaringclass.php
      * @since 7.1
      */
@@ -150,7 +150,7 @@ class ReflectionClassConstant implements Reflector
      * Checks if class constant is private
      *
      * @link https://php.net/manual/en/reflectionclassconstant.isprivate.php
-     * @return bool
+     * @return bool true if the class constant is private, otherwise false
      * @since 7.1
      */
     #[Pure]
@@ -161,7 +161,7 @@ class ReflectionClassConstant implements Reflector
      * Checks if class constant is protected
      *
      * @link https://php.net/manual/en/reflectionclassconstant.isprotected.php
-     * @return bool
+     * @return bool true if the class constant is protected, otherwise false
      * @since 7.1
      */
     #[Pure]
@@ -172,7 +172,7 @@ class ReflectionClassConstant implements Reflector
      * Checks if class constant is public
      *
      * @link https://php.net/manual/en/reflectionclassconstant.ispublic.php
-     * @return bool
+     * @return bool true if the class constant is public, otherwise false
      * @since 7.1
      */
     #[Pure]
@@ -183,7 +183,7 @@ class ReflectionClassConstant implements Reflector
      * Returns the string representation of the ReflectionClassConstant object.
      *
      * @link https://php.net/manual/en/reflectionclassconstant.tostring.php
-     * @return string
+     * @return string A string representation of this ReflectionClassConstant instance.
      * @since 7.1
      */
     public function __toString(): string {}
@@ -200,7 +200,7 @@ class ReflectionClassConstant implements Reflector
      *
      * @param class-string<T>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
+     * @return ReflectionAttribute<T>[] Array of attributes, as a ReflectionAttribute object.
      * @since 8.0
      */
     #[Pure]
@@ -239,7 +239,7 @@ class ReflectionClassConstant implements Reflector
      * Checks if the class constant is final.
      *
      * @link https://php.net/manual/en/reflectionclassconstant.isfinal.php
-     * @return bool
+     * @return bool true if the class constant is final, otherwise false
      * @since 8.1
      */
     public function isFinal(): bool {}
