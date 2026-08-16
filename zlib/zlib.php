@@ -150,7 +150,7 @@ function gzopen(string $filename, string $mode, #[LanguageLevelTypeAware(['8.5' 
  * successfully opened by <b>gzopen</b>.
  * </p>
  * @return int The number of uncompressed characters read from <i>gz</i>
- * and passed through to the input, or <b>FALSE</b> on error.
+ * and passed through to the input. Prior to PHP 8.0, <b>FALSE</b> was returned on error.
  */
 function gzpassthru($stream): int {}
 

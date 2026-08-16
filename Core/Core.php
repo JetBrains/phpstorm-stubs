@@ -200,7 +200,7 @@ function str_increment(string $string): string {}
  * @param array|ArrayObject &$array <p>
  * The input array.
  * </p>
- * @return array the current key and value pair from the array
+ * @return array|false the current key and value pair from the array
  * <i>array</i>. This pair is returned in a four-element
  * array, with the keys 0, 1,
  * key, and value. Elements
@@ -640,7 +640,8 @@ function get_object_vars(object $object): array {}
  * The class name or an object instance
  * </p>
  * @return string[] an array of method names defined for the class specified by
- * <i>class_name</i>. In case of an error, it returns null.
+ * <i>class_name</i>. Prior to PHP 8.0, passing a value that was neither an object nor a class name
+ * raised a warning and returned null; since 8.0 a TypeError is thrown instead.
  */
 #[Pure]
 function get_class_methods(object|string $object_or_class): array {}
@@ -804,7 +805,7 @@ function get_declared_interfaces(): array {}
 
 /**
  * Returns an array of all declared traits
- * @return array with names of all declared traits in values. Returns NULL in case of a failure.
+ * @return array with names of all declared traits in values.
  * @link https://php.net/manual/en/function.get-declared-traits.php
  * @see class_uses()
  * @since 5.4

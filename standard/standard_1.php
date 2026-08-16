@@ -467,8 +467,8 @@ function strpbrk(
  * 0 if it is greater than str, and 0 if they are equal.
  * If offset is equal to or greater than the length of
  * main_str or length is set and
- * is less than 1, substr_compare prints a warning and returns
- * false.
+ * is less than 1, a ValueError is thrown. Prior to PHP 8.0, a warning was raised and false was
+ * returned instead.
  */
 #[Pure]
 function substr_compare(string $haystack, string $needle, int $offset, ?int $length = null, bool $case_insensitive = false): int {}

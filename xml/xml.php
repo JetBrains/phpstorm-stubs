@@ -424,7 +424,8 @@ function xml_get_error_code(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], def
  * An error code from <b>xml_get_error_code</b>.
  * </p>
  * @return string|null a string with a textual description of the error
- * <i>code</i>, or <b>FALSE</b> if no description was found.
+ * <i>code</i>, or <b>NULL</b> if no description was found. Prior to PHP 8.0, <b>FALSE</b> was
+ * returned instead of <b>NULL</b>.
  */
 #[Pure]
 function xml_error_string(int $error_code): ?string {}

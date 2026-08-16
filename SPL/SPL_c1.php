@@ -2576,8 +2576,7 @@ class MultipleIterator implements Iterator
     /**
      * Gets the registered iterator instances
      * @link https://php.net/manual/en/multipleiterator.key.php
-     * @return array An array of all registered iterator instances,
-     * or false if no sub iterator is attached.
+     * @return array An array of all registered iterator instances.
      * @throws \RuntimeException A RuntimeException if the iterator is invalid (as of PHP 8.1.0), or
      * mode MIT_NEED_ALL is set, and at least one attached iterator is not valid. Calling this
      * method from triggers warning "Illegal type returned".
@@ -2588,8 +2587,7 @@ class MultipleIterator implements Iterator
     /**
      * Gets the registered iterator instances
      * @link https://php.net/manual/en/multipleiterator.current.php
-     * @return array An array containing the current values of each attached iterator,
-     * or false if no iterators are attached.
+     * @return array An array containing the current values of each attached iterator.
      * @throws RuntimeException if mode MIT_NEED_ALL is set and at least one attached iterator is not valid.
      * @throws InvalidArgumentException if a key is NULL and MIT_KEYS_ASSOC is set.
      */

@@ -279,7 +279,8 @@ function crypt($string, $salt): ?string {}
  * is generated once. If you are calling this function repeatedly, this
  * may impact both appearance and security.
  * </p>
- * @return string the encrypted string or <b>NULL</b> if an error occurs
+ * @return string the hashed string, or a string shorter than 13 characters that is guaranteed to
+ * differ from the salt on failure
  */
 #[Pure]
 #[PhpStormStubsElementAvailable('8.0')]
@@ -394,8 +395,9 @@ function readdir($dir_handle = null): string|false {}
  * Directory to open
  * </p>
  * @param resource $context [optional]
- * @return Directory|false an instance of Directory, or <b>NULL</b> with wrong
- * parameters, or <b>FALSE</b> in case of another error
+ * @return Directory|false an instance of Directory, or <b>FALSE</b> in case of error. Prior to
+ * PHP 8.0, passing a wrong parameter raised a warning and returned null; since 8.0 a TypeError is
+ * thrown instead.
  */
 function dir(#[FileReference] string $directory, $context = null): Directory|false {}
 

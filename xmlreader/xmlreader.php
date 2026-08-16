@@ -334,7 +334,7 @@ class XMLReader
      * @param string $prefix <p>
      * String containing the prefix.
      * </p>
-     * @return string|null <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return string|null The value of the namespace, or <b>NULL</b> if no namespace exists.
      * @since 5.1
      */
     #[TentativeType]

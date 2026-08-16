@@ -504,7 +504,8 @@ class DateTimeImmutable implements DateTimeInterface
      * @link https://php.net/manual/en/datetimeimmutable.settimestamp.php
      * @param int $timestamp <p>Unix timestamp representing the date.</p>
      * @return static
-     * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
+     * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining.
+     * Prior to PHP 8.0, <b>FALSE</b> was returned on failure.
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setTimestamp() does not modify the object itself")]
@@ -519,7 +520,8 @@ class DateTimeImmutable implements DateTimeInterface
      * desired time zone.
      * </p>
      * @return static
-     * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
+     * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining.
+     * Prior to PHP 8.0, <b>FALSE</b> was returned on failure.
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setTimezone() does not modify the object itself")]
@@ -564,7 +566,8 @@ class DateTimeImmutable implements DateTimeInterface
      * Format accepted by  {@link https://php.net/manual/en/function.date.php date()}.
      * </p>
      * @return string
-     * Returns the formatted date string on success or <b>FALSE</b> on failure.
+     * Returns the formatted date string on success.
+     * Prior to PHP 8.0, <b>FALSE</b> was returned on failure.
      */
     #[Pure(true)]
     #[TentativeType]
@@ -575,8 +578,8 @@ class DateTimeImmutable implements DateTimeInterface
      * Returns the timezone offset
      * @link https://php.net/manual/en/datetime.getoffset.php
      * @return int
-     * Returns the timezone offset in seconds from UTC on success
-     * or <b>FALSE</b> on failure.
+     * Returns the timezone offset in seconds from UTC on success.
+     * Prior to PHP 8.0, <b>FALSE</b> was returned on failure.
      */
     #[TentativeType]
     public function getOffset(): int {}

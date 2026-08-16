@@ -1269,7 +1269,8 @@ function mb_ereg_search_getpos(): int {}
 function mb_ereg_search_setpos(int $offset): bool {}
 
 /**
- * @param $encoding [optional]
+ * @link https://php.net/manual/en/function.mb-regex-encoding.php
+ * @param string|null $encoding [optional]
  * @see mb_regex_encoding
  * @removed 8.0
  */
@@ -1297,9 +1298,10 @@ function mbereg(string $pattern, string $string, array &$registers) {}
 function mberegi(string $pattern, string $string, array &$registers) {}
 
 /**
- * @param $pattern
- * @param $replacement
- * @param $string
+ * @link https://php.net/manual/en/function.mb-ereg-replace.php
+ * @param string $pattern
+ * @param string $replacement
+ * @param string $string
  * @param $option [optional]
  * @see mb_ereg_replace
  * @removed 8.0
@@ -1308,9 +1310,10 @@ function mberegi(string $pattern, string $string, array &$registers) {}
 function mbereg_replace($pattern, $replacement, $string, $option) {}
 
 /**
- * @param $pattern
- * @param $replacement
- * @param $string
+ * @link https://php.net/manual/en/function.mb-eregi-replace.php
+ * @param string $pattern
+ * @param string $replacement
+ * @param string $string
  * @param string $option
  * @return string
  * @see mb_eregi_replace
@@ -1325,9 +1328,10 @@ function mberegi_replace(
 ): string {}
 
 /**
- * @param $pattern
- * @param $string
- * @param $limit [optional]
+ * @link https://php.net/manual/en/function.mb-split.php
+ * @param string $pattern
+ * @param string $string
+ * @param int $limit [optional]
  * @see mb_split
  * @removed 8.0
  */
@@ -1335,8 +1339,9 @@ function mberegi_replace(
 function mbsplit($pattern, $string, $limit) {}
 
 /**
- * @param $pattern
- * @param $string
+ * @link https://php.net/manual/en/function.mb-ereg-match.php
+ * @param string $pattern
+ * @param string $string
  * @param $option [optional]
  * @see mb_ereg_match
  * @removed 8.0
@@ -1345,7 +1350,8 @@ function mbsplit($pattern, $string, $limit) {}
 function mbereg_match($pattern, $string, $option) {}
 
 /**
- * @param $pattern [optional]
+ * @link https://php.net/manual/en/function.mb-ereg-search.php
+ * @param string|null $pattern [optional]
  * @param $option [optional]
  * @see mb_ereg_search
  * @removed 8.0
@@ -1354,7 +1360,8 @@ function mbereg_match($pattern, $string, $option) {}
 function mbereg_search($pattern, $option) {}
 
 /**
- * @param $pattern [optional]
+ * @link https://php.net/manual/en/function.mb-ereg-search-pos.php
+ * @param string|null $pattern [optional]
  * @param $option [optional]
  * @see mb_ereg_search_pos
  * @removed 8.0
@@ -1363,7 +1370,8 @@ function mbereg_search($pattern, $option) {}
 function mbereg_search_pos($pattern, $option) {}
 
 /**
- * @param $pattern [optional]
+ * @link https://php.net/manual/en/function.mb-ereg-search-regs.php
+ * @param string|null $pattern [optional]
  * @param $option [optional]
  * @see mb_ereg_search_regs
  * @removed 8.0
@@ -1372,8 +1380,9 @@ function mbereg_search_pos($pattern, $option) {}
 function mbereg_search_regs($pattern, $option) {}
 
 /**
- * @param $string
- * @param $pattern [optional]
+ * @link https://php.net/manual/en/function.mb-ereg-search-init.php
+ * @param string $string
+ * @param string|null $pattern [optional]
  * @param $option [optional]
  * @see mb_ereg_search_init
  * @removed 8.0
@@ -1430,8 +1439,10 @@ function mb_ord(string $string, ?string $encoding = null): int|false {}
 function mb_scrub(string $string, ?string $encoding = null) {}
 
 /**
- * @param $position
+ * @link https://php.net/manual/en/function.mb-ereg-search-setpos.php
+ * @param int $position
  * @see mb_ereg_search_setpos
+ * @removed 8.0
  */
 #[Deprecated(replacement: "mb_ereg_search_setpos(%parametersList%)", since: "7.3")]
 #[Pure]

@@ -44,7 +44,8 @@ function array_merge_recursive(
  * @param array ...$replacements <p>
  * The array from which elements will be extracted.
  * </p>
- * @return array or null if an error occurs.
+ * @return array Prior to PHP 8.0, passing a value that was not an array raised a warning and
+ * returned null; since 8.0 a TypeError is thrown instead.
  */
 #[Pure]
 function array_replace(
@@ -62,7 +63,8 @@ function array_replace(
  * @param array ...$replacements <p>
  * The array from which elements will be extracted.
  * </p>
- * @return array an array, or null if an error occurs.
+ * @return array an array. Prior to PHP 8.0, passing a value that was not an array raised a warning
+ * and returned null; since 8.0 a TypeError is thrown instead.
  */
 #[Pure]
 function array_replace_recursive(
