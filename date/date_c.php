@@ -1554,31 +1554,24 @@ class DatePeriod implements IteratorAggregate
 
     /**
      * Gets the end date
-     * @return DateTimeInterface|null Returns null if the DatePeriod does not have an end date. For
+     * @return TEnd Returns null if the DatePeriod does not have an end date. For
      * example, when initialized with the recurrences parameter, or the isostr parameter without an
      * end date. Returns a DateTimeImmutable object when the DatePeriod is initialized with a
      * DateTimeImmutable object as the end parameter. Returns a cloned DateTime object representing
      * the end date otherwise.
      * @link https://php.net/manual/en/dateperiod.getenddate.php
      * @since 5.6
-     * @return TEnd Returns null if the DatePeriod does not have an end date. For example, when
-     * initialized with the recurrences parameter, or the isostr parameter without an end date.
-     * Returns a DateTimeImmutable object when the DatePeriod is initialized with a
-     * DateTimeImmutable object as the end parameter. Returns a cloned DateTime object representing
-     * the end date otherwise.
      */
     #[TentativeType]
     public function getEndDate(): ?DateTimeInterface {}
 
     /**
      * Gets the start date
-     * @return DateTimeInterface Returns a DateTimeImmutable object when the DatePeriod is
+     * @return TDate Returns a DateTimeImmutable object when the DatePeriod is
      * initialized with a DateTimeImmutable object as the start parameter. Returns a DateTime object
      * otherwise.
      * @link https://php.net/manual/en/dateperiod.getstartdate.php
      * @since 5.6
-     * @return TDate Returns a DateTimeImmutable object when the DatePeriod is initialized with a
-     * DateTimeImmutable object as the start parameter. Returns a DateTime object otherwise.
      */
     #[TentativeType]
     public function getStartDate(): DateTimeInterface {}
