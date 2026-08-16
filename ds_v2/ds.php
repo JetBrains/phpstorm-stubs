@@ -280,9 +280,10 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
     public function allocate(int $capacity): void {}
 
     /**
-     * @param callable(TKey, TValue): TValue $callback mixed callback mixedkey mixedvalue A callable
-     * to apply to each value in the map. The callback should return what the value should be
-     * replaced by.
+     * @param callable(TKey, TValue): TValue $callback
+     * <code>callback ( mixed $key , mixed $value ): mixed</code>
+     * <br/>A callable to apply to each value in the map. The callback should return what the value
+     * should be replaced by.
      */
     public function apply(callable $callback): void {}
 
@@ -304,9 +305,11 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
     public function diff(Map $map): Map {}
 
     /**
-     * @param null|callable(TKey, TValue): bool $callback bool callback mixedkey mixedvalue Optional
-     * callable which returns true if the pair should be included, false otherwise. If a callback is
-     * not provided, only values which are true (see converting to boolean) will be included.
+     * @param null|callable(TKey, TValue): bool $callback
+     * <code>callback ( mixed $key , mixed $value ): bool</code>
+     * <br/>Optional callable which returns true if the pair should be included, false otherwise. If
+     * a callback is not provided, only values which are true (see converting to boolean) will be
+     * included.
      * @return Map<TKey, TValue> A new map containing all the pairs for which either the callback
      * returned true, or all values that convert to true if a callback was not provided.
      */
@@ -382,9 +385,10 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
 
     /**
      * @template TReturn
-     * @param callable(TKey, TValue): TReturn $callback mixed callback mixedkey mixedvalue A
-     * callable to apply to each value in the map. The callable should return what the key will be
-     * mapped to in the resulting map.
+     * @param callable(TKey, TValue): TReturn $callback
+     * <code>callback ( mixed $key , mixed $value ): mixed</code>
+     * <br/>A callable to apply to each value in the map. The callable should return what the key
+     * will be mapped to in the resulting map.
      * @return Map<TKey, TReturn> The result of applying a callback to each value in the map. The
      * keys and values of the current instance won't be affected.
      */
@@ -415,10 +419,12 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
     /**
      * @template TInitial
      * @template TReturn
-     * @param callable(TInitial|TReturn|null, TKey, TValue): TReturn $callback mixedcallback
-     * mixedcarry mixedkey mixedvalue carry The return value of the previous callback, or initial if
-     * it's the first iteration. key The key of the current iteration. value The value of the
-     * current iteration.
+     * @param callable(TInitial|TReturn|null, TKey, TValue): TReturn $callback
+     * <code>callback ( mixed $carry , mixed $key , mixed $value ): mixed</code>
+     * <br/>$carry - The return value of the previous callback, or initial if it's the first
+     * iteration.
+     * <br/>$key - The key of the current iteration.
+     * <br/>$value - The value of the current iteration.
      * @param TInitial|null $initial The initial value of the carry value. Can be null.
      * @return TReturn|null The return value of the final callback.
      */
@@ -591,9 +597,11 @@ final class Set implements Countable, IteratorAggregate, JsonSerializable, Array
     public function diff(Set $set): Set {}
 
     /**
-     * @param null|callable(TValue): bool $callback bool callback mixedvalue Optional callable which
-     * returns true if the value should be included, false otherwise. If a callback is not provided,
-     * only values which are true (see converting to boolean) will be included.
+     * @param null|callable(TValue): bool $callback
+     * <code>callback ( mixed $value ): bool</code>
+     * <br/>Optional callable which returns true if the value should be included, false otherwise.
+     * If a callback is not provided, only values which are true (see converting to boolean) will be
+     * included.
      * @return Set<TValue> A new set containing all the values for which either the callback
      * returned true, or all values that convert to true if a callback was not provided.
      */
@@ -632,7 +640,8 @@ final class Set implements Countable, IteratorAggregate, JsonSerializable, Array
     /**
      * @template TReturn
      * @param callable(TValue): TReturn $callback The callback to apply to each value in the set
-     * must have the following signature: mixed callback mixedvalue
+     * must have the following signature:
+     * <code>callback ( mixed $value ): mixed</code>
      * @return Set<TReturn> Returns a new Ds\Set instance where each value is the result of applying
      * the callback to each value of the set.
      */
@@ -649,9 +658,11 @@ final class Set implements Countable, IteratorAggregate, JsonSerializable, Array
     /**
      * @template TInitial
      * @template TReturn
-     * @param callable(TInitial|TReturn|null, TValue): TReturn $callback mixedcallback mixedcarry
-     * mixedvalue carry The return value of the previous callback, or initial if it's the first
-     * iteration. value The value of the current iteration.
+     * @param callable(TInitial|TReturn|null, TValue): TReturn $callback
+     * <code>callback ( mixed $carry , mixed $value ): mixed</code>
+     * <br/>$carry - The return value of the previous callback, or initial if it's the first
+     * iteration.
+     * <br/>$value - The value of the current iteration.
      * @param TInitial|null $initial The initial value of the carry value. Can be null.
      * @return TReturn|null The return value of the final callback.
      */
