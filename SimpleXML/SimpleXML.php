@@ -547,7 +547,8 @@ function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLEle
  * the specified class. That class should extend the
  * SimpleXMLElement class.
  * </p>
- * @return SimpleXMLElement|null a SimpleXMLElement or <b>FALSE</b> on failure.
+ * @return SimpleXMLElement|null a SimpleXMLElement, or <b>NULL</b> on failure. Prior to PHP 8.0,
+ * <b>FALSE</b> was returned instead of <b>NULL</b>.
  * @meta
  * @throws \TypeError Throws a TypeError when passed a non-XML or non-HTML node.
  */

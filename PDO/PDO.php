@@ -1940,7 +1940,7 @@ namespace {
          * @param array $constructorArgs [optional] <p>
          * Elements of this array are passed to the constructor.
          * </p>
-         * @return T|stdClass|null an instance of the required class with property names that
+         * @return T|stdClass|false an instance of the required class with property names that
          * correspond to the column names or <b>FALSE</b> on failure.
          * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */

@@ -209,7 +209,7 @@ function openssl_get_publickey(#[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymme
  * </p>
  * @param string $challenge <p>The challenge associated to associate with the SPKAC</p>
  * @param int $digest_algo <p>The digest algorithm. See openssl_get_md_method().</p>
- * @return string|false Returns a signed public key and challenge string or NULL on failure.
+ * @return string|false Returns a signed public key and challenge string or <b>FALSE</b> on failure.
  * @since 5.6
  */
 function openssl_spki_new(#[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey"], default: "resource")] $private_key, string $challenge, int $digest_algo = 2): string|false {}
@@ -227,7 +227,7 @@ function openssl_spki_verify(string $spki): bool {}
  * Exports the challenge associated with a signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-export-challenge.php
  * @param string $spki <p>Expects a valid signed public key and challenge</p>
- * @return string|false Returns the associated challenge string or NULL on failure.
+ * @return string|false Returns the associated challenge string or <b>FALSE</b> on failure.
  * @since 5.6
  */
 function openssl_spki_export_challenge(string $spki): string|false {}
@@ -236,7 +236,7 @@ function openssl_spki_export_challenge(string $spki): string|false {}
  * Exports a valid PEM formatted public key signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-export.php
  * @param string $spki <p>Expects a valid signed public key and challenge</p>
- * @return string|false Returns the associated PEM formatted public key or NULL on failure.
+ * @return string|false Returns the associated PEM formatted public key or <b>FALSE</b> on failure.
  * @since 5.6
  */
 function openssl_spki_export(string $spki): string|false {}

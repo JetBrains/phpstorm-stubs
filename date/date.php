@@ -1408,7 +1408,8 @@ function date_diff(DateTimeInterface $baseObject, DateTimeInterface $targetObjec
  * @param int $second [optional]
  * @param int $microsecond [optional]
  * @return DateTime <p>Returns the
- * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
+ * {@see DateTime} object for method chaining. Prior to PHP 8.0, <b>FALSE</b> was returned on
+ * failure.</p>
  */
 function date_time_set(
     DateTime $object,

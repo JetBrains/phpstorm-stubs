@@ -164,9 +164,24 @@ function variant_add($left, $right) {}
  * @link https://php.net/manual/en/function.variant-and.php
  * @param mixed $left The left operand.
  * @param mixed $right The right operand.
- * @return mixed Variant AND Rules If left is If right is then the result is truetruetrue
- * truefalsefalse truenullnull falsetruefalse falsefalsefalse falsenullfalse nulltruenull
- * nullfalsefalse nullnullnull
+ * @return mixed Returns the result of the bitwise AND, according to the following rules:
+ * <table border="1" cellspacing="0" cellpadding="4" style="border-collapse: collapse">
+ * <caption><b>Variant AND Rules</b></caption>
+ * <thead>
+ * <tr><th style="border:1px solid">If left is</th><th style="border:1px solid">If right is</th><th style="border:1px solid">then the result is</th></tr>
+ * </thead>
+ * <tbody>
+ * <tr><td style="border:1px solid">true</td><td style="border:1px solid">true</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">true</td><td style="border:1px solid">false</td><td style="border:1px solid">false</td></tr>
+ * <tr><td style="border:1px solid">true</td><td style="border:1px solid">null</td><td style="border:1px solid">null</td></tr>
+ * <tr><td style="border:1px solid">false</td><td style="border:1px solid">true</td><td style="border:1px solid">false</td></tr>
+ * <tr><td style="border:1px solid">false</td><td style="border:1px solid">false</td><td style="border:1px solid">false</td></tr>
+ * <tr><td style="border:1px solid">false</td><td style="border:1px solid">null</td><td style="border:1px solid">false</td></tr>
+ * <tr><td style="border:1px solid">null</td><td style="border:1px solid">true</td><td style="border:1px solid">null</td></tr>
+ * <tr><td style="border:1px solid">null</td><td style="border:1px solid">false</td><td style="border:1px solid">false</td></tr>
+ * <tr><td style="border:1px solid">null</td><td style="border:1px solid">null</td><td style="border:1px solid">null</td></tr>
+ * </tbody>
+ * </table>
  * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_and($left, $right) {}
@@ -200,9 +215,19 @@ function variant_cat($left, $right) {}
  * @param mixed $right The right operand.
  * @param int $lcid [optional]
  * @param int $flags [optional]
- * @return int Returns one of the following: Variant Comparison Results value meaning VARCMP_LT left
- * is less than right VARCMP_EQ left is equal to right VARCMP_GT left is greater than right
- * VARCMP_NULL Either left, right or both are null
+ * @return int Returns one of the following:
+ * <table border="1" cellspacing="0" cellpadding="4" style="border-collapse: collapse">
+ * <caption><b>Variant Comparison Results</b></caption>
+ * <thead>
+ * <tr><th style="border:1px solid">value</th><th style="border:1px solid">meaning</th></tr>
+ * </thead>
+ * <tbody>
+ * <tr><td style="border:1px solid">VARCMP_LT</td><td style="border:1px solid">left is less than right</td></tr>
+ * <tr><td style="border:1px solid">VARCMP_EQ</td><td style="border:1px solid">left is equal to right</td></tr>
+ * <tr><td style="border:1px solid">VARCMP_GT</td><td style="border:1px solid">left is greater than right</td></tr>
+ * <tr><td style="border:1px solid">VARCMP_NULL</td><td style="border:1px solid">Either left, right or both are null</td></tr>
+ * </tbody>
+ * </table>
  */
 function variant_cmp($left, $right, $lcid = null, $flags = null) {}
 
@@ -220,7 +245,7 @@ function variant_date_from_timestamp($timestamp) {}
  * Converts a variant date/time value to Unix timestamp
  * @link https://php.net/manual/en/function.variant-date-to-timestamp.php
  * @param \VARIANT $variant The variant.
- * @return int Returns a unix timestamp, or null on failure.
+ * @return int|null Returns a unix timestamp, or null on failure.
  */
 function variant_date_to_timestamp($variant) {}
 
@@ -230,13 +255,23 @@ function variant_date_to_timestamp($variant) {}
  * @link https://php.net/manual/en/function.variant-div.php
  * @param mixed $left The left operand.
  * @param mixed $right The right operand.
- * @return mixed Variant Division Rules If Then Both expressions are of the string, date, character,
- * boolean type Double is returned One expression is a string type and the other a character
- * Division and a double is returned One expression is numeric and the other is a string Division
- * and a double is returned. Both expressions are numeric Division and a double is returned Either
- * expression is NULL NULL is returned right is empty and left is anything but empty A com_exception
- * with code DISP_E_DIVBYZERO is thrown left is empty and right is anything but empty. 0 as type
- * double is returned Both expressions are empty A com_exception with code DISP_E_OVERFLOW is thrown
+ * @return mixed Returns the result of the division, according to the following rules:
+ * <table border="1" cellspacing="0" cellpadding="4" style="border-collapse: collapse">
+ * <caption><b>Variant Division Rules</b></caption>
+ * <thead>
+ * <tr><th style="border:1px solid">If</th><th style="border:1px solid">Then</th></tr>
+ * </thead>
+ * <tbody>
+ * <tr><td style="border:1px solid">Both expressions are of the string, date, character, boolean type</td><td style="border:1px solid">Double is returned</td></tr>
+ * <tr><td style="border:1px solid">One expression is a string type and the other a character</td><td style="border:1px solid">Division and a double is returned</td></tr>
+ * <tr><td style="border:1px solid">One expression is numeric and the other is a string</td><td style="border:1px solid">Division and a double is returned.</td></tr>
+ * <tr><td style="border:1px solid">Both expressions are numeric</td><td style="border:1px solid">Division and a double is returned</td></tr>
+ * <tr><td style="border:1px solid">Either expression is NULL</td><td style="border:1px solid">NULL is returned</td></tr>
+ * <tr><td style="border:1px solid">right is empty and left is anything but empty</td><td style="border:1px solid">A com_exception with code DISP_E_DIVBYZERO is thrown</td></tr>
+ * <tr><td style="border:1px solid">left is empty and right is anything but empty.</td><td style="border:1px solid">0 as type double is returned</td></tr>
+ * <tr><td style="border:1px solid">Both expressions are empty</td><td style="border:1px solid">A com_exception with code DISP_E_OVERFLOW is thrown</td></tr>
+ * </tbody>
+ * </table>
  * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_div($left, $right) {}
@@ -282,11 +317,21 @@ function variant_get_type($variant) {}
  * @link https://php.net/manual/en/function.variant-idiv.php
  * @param mixed $left The left operand.
  * @param mixed $right The right operand.
- * @return mixed Variant Integer Division Rules If Then Both expressions are of the string, date,
- * character, boolean type Division and integer is returned One expression is a string type and the
- * other a character Division One expression is numeric and the other is a string Division Both
- * expressions are numeric Division Either expression is NULL NULL is returned Both expressions are
- * empty A com_exception with code DISP_E_DIVBYZERO is thrown
+ * @return mixed Returns the result of the integer division, according to the following rules:
+ * <table border="1" cellspacing="0" cellpadding="4" style="border-collapse: collapse">
+ * <caption><b>Variant Integer Division Rules</b></caption>
+ * <thead>
+ * <tr><th style="border:1px solid">If</th><th style="border:1px solid">Then</th></tr>
+ * </thead>
+ * <tbody>
+ * <tr><td style="border:1px solid">Both expressions are of the string, date, character, boolean type</td><td style="border:1px solid">Division and integer is returned</td></tr>
+ * <tr><td style="border:1px solid">One expression is a string type and the other a character</td><td style="border:1px solid">Division</td></tr>
+ * <tr><td style="border:1px solid">One expression is numeric and the other is a string</td><td style="border:1px solid">Division</td></tr>
+ * <tr><td style="border:1px solid">Both expressions are numeric</td><td style="border:1px solid">Division</td></tr>
+ * <tr><td style="border:1px solid">Either expression is NULL</td><td style="border:1px solid">NULL is returned</td></tr>
+ * <tr><td style="border:1px solid">Both expressions are empty</td><td style="border:1px solid">A com_exception with code DISP_E_DIVBYZERO is thrown</td></tr>
+ * </tbody>
+ * </table>
  * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_idiv($left, $right) {}
@@ -297,9 +342,24 @@ function variant_idiv($left, $right) {}
  * @link https://php.net/manual/en/function.variant-imp.php
  * @param mixed $left The left operand.
  * @param mixed $right The right operand.
- * @return mixed Variant Implication Table If left is If right is then the result is truetruetrue
- * truefalsefalse truenulltrue falsetruetrue falsefalsetrue falsenulltrue nulltruetrue nullfalsenull
- * nullnullnull
+ * @return mixed Returns the result of the implication, according to the following rules:
+ * <table border="1" cellspacing="0" cellpadding="4" style="border-collapse: collapse">
+ * <caption><b>Variant Implication Table</b></caption>
+ * <thead>
+ * <tr><th style="border:1px solid">If left is</th><th style="border:1px solid">If right is</th><th style="border:1px solid">then the result is</th></tr>
+ * </thead>
+ * <tbody>
+ * <tr><td style="border:1px solid">true</td><td style="border:1px solid">true</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">true</td><td style="border:1px solid">false</td><td style="border:1px solid">false</td></tr>
+ * <tr><td style="border:1px solid">true</td><td style="border:1px solid">null</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">false</td><td style="border:1px solid">true</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">false</td><td style="border:1px solid">false</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">false</td><td style="border:1px solid">null</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">null</td><td style="border:1px solid">true</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">null</td><td style="border:1px solid">false</td><td style="border:1px solid">null</td></tr>
+ * <tr><td style="border:1px solid">null</td><td style="border:1px solid">null</td><td style="border:1px solid">null</td></tr>
+ * </tbody>
+ * </table>
  * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_imp($left, $right) {}
@@ -332,11 +392,21 @@ function variant_mod($left, $right) {}
  * @link https://php.net/manual/en/function.variant-mul.php
  * @param mixed $left The left operand.
  * @param mixed $right The right operand.
- * @return mixed Variant Multiplication Rules If Then Both expressions are of the string, date,
- * character, boolean type Multiplication One expression is a string type and the other a character
- * Multiplication One expression is numeric and the other is a string Multiplication Both
- * expressions are numeric Multiplication Either expression is NULL NULL is returned Both
- * expressions are empty Empty string is returned
+ * @return mixed Returns the result of the multiplication, according to the following rules:
+ * <table border="1" cellspacing="0" cellpadding="4" style="border-collapse: collapse">
+ * <caption><b>Variant Multiplication Rules</b></caption>
+ * <thead>
+ * <tr><th style="border:1px solid">If</th><th style="border:1px solid">Then</th></tr>
+ * </thead>
+ * <tbody>
+ * <tr><td style="border:1px solid">Both expressions are of the string, date, character, boolean type</td><td style="border:1px solid">Multiplication</td></tr>
+ * <tr><td style="border:1px solid">One expression is a string type and the other a character</td><td style="border:1px solid">Multiplication</td></tr>
+ * <tr><td style="border:1px solid">One expression is numeric and the other is a string</td><td style="border:1px solid">Multiplication</td></tr>
+ * <tr><td style="border:1px solid">Both expressions are numeric</td><td style="border:1px solid">Multiplication</td></tr>
+ * <tr><td style="border:1px solid">Either expression is NULL</td><td style="border:1px solid">NULL is returned</td></tr>
+ * <tr><td style="border:1px solid">Both expressions are empty</td><td style="border:1px solid">Empty string is returned</td></tr>
+ * </tbody>
+ * </table>
  * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_mul($left, $right) {}
@@ -367,9 +437,24 @@ function variant_not($variant) {}
  * @link https://php.net/manual/en/function.variant-or.php
  * @param mixed $left The left operand.
  * @param mixed $right The right operand.
- * @return mixed Variant OR Rules If left is If right is then the result is truetruetrue
- * truefalsetrue truenulltrue falsetruetrue falsefalsefalse falsenullnull nulltruetrue nullfalsenull
- * nullnullnull
+ * @return mixed Returns the result of the bitwise OR, according to the following rules:
+ * <table border="1" cellspacing="0" cellpadding="4" style="border-collapse: collapse">
+ * <caption><b>Variant OR Rules</b></caption>
+ * <thead>
+ * <tr><th style="border:1px solid">If left is</th><th style="border:1px solid">If right is</th><th style="border:1px solid">then the result is</th></tr>
+ * </thead>
+ * <tbody>
+ * <tr><td style="border:1px solid">true</td><td style="border:1px solid">true</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">true</td><td style="border:1px solid">false</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">true</td><td style="border:1px solid">null</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">false</td><td style="border:1px solid">true</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">false</td><td style="border:1px solid">false</td><td style="border:1px solid">false</td></tr>
+ * <tr><td style="border:1px solid">false</td><td style="border:1px solid">null</td><td style="border:1px solid">null</td></tr>
+ * <tr><td style="border:1px solid">null</td><td style="border:1px solid">true</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">null</td><td style="border:1px solid">false</td><td style="border:1px solid">null</td></tr>
+ * <tr><td style="border:1px solid">null</td><td style="border:1px solid">null</td><td style="border:1px solid">null</td></tr>
+ * </tbody>
+ * </table>
  * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_or($left, $right) {}
@@ -421,10 +506,21 @@ function variant_set($variant, $value) {}
  * @link https://php.net/manual/en/function.variant-sub.php
  * @param mixed $left The left operand.
  * @param mixed $right The right operand.
- * @return mixed Variant Subtraction Rules If Then Both expressions are of the string type
- * Subtraction One expression is a string type and the other a character Subtraction One expression
- * is numeric and the other is a string Subtraction. Both expressions are numeric Subtraction Either
- * expression is NULL NULL is returned Both expressions are empty Empty string is returned
+ * @return mixed Returns the result of the subtraction, according to the following rules:
+ * <table border="1" cellspacing="0" cellpadding="4" style="border-collapse: collapse">
+ * <caption><b>Variant Subtraction Rules</b></caption>
+ * <thead>
+ * <tr><th style="border:1px solid">If</th><th style="border:1px solid">Then</th></tr>
+ * </thead>
+ * <tbody>
+ * <tr><td style="border:1px solid">Both expressions are of the string type</td><td style="border:1px solid">Subtraction</td></tr>
+ * <tr><td style="border:1px solid">One expression is a string type and the other a character</td><td style="border:1px solid">Subtraction</td></tr>
+ * <tr><td style="border:1px solid">One expression is numeric and the other is a string</td><td style="border:1px solid">Subtraction.</td></tr>
+ * <tr><td style="border:1px solid">Both expressions are numeric</td><td style="border:1px solid">Subtraction</td></tr>
+ * <tr><td style="border:1px solid">Either expression is NULL</td><td style="border:1px solid">NULL is returned</td></tr>
+ * <tr><td style="border:1px solid">Both expressions are empty</td><td style="border:1px solid">Empty string is returned</td></tr>
+ * </tbody>
+ * </table>
  * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_sub($left, $right) {}
@@ -435,8 +531,20 @@ function variant_sub($left, $right) {}
  * @link https://php.net/manual/en/function.variant-xor.php
  * @param mixed $left The left operand.
  * @param mixed $right The right operand.
- * @return mixed Variant XOR Rules If left is If right is then the result is truetruefalse
- * truefalsetrue falsetruetrue falsefalsefalse nullnullnull
+ * @return mixed Returns the result of the bitwise XOR, according to the following rules:
+ * <table border="1" cellspacing="0" cellpadding="4" style="border-collapse: collapse">
+ * <caption><b>Variant XOR Rules</b></caption>
+ * <thead>
+ * <tr><th style="border:1px solid">If left is</th><th style="border:1px solid">If right is</th><th style="border:1px solid">then the result is</th></tr>
+ * </thead>
+ * <tbody>
+ * <tr><td style="border:1px solid">true</td><td style="border:1px solid">true</td><td style="border:1px solid">false</td></tr>
+ * <tr><td style="border:1px solid">true</td><td style="border:1px solid">false</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">false</td><td style="border:1px solid">true</td><td style="border:1px solid">true</td></tr>
+ * <tr><td style="border:1px solid">false</td><td style="border:1px solid">false</td><td style="border:1px solid">false</td></tr>
+ * <tr><td style="border:1px solid">null</td><td style="border:1px solid">null</td><td style="border:1px solid">null</td></tr>
+ * </tbody>
+ * </table>
  * @throws \com_exception Throws a com_exception on failure.
  */
 function variant_xor($left, $right) {}
