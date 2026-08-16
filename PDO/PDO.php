@@ -2268,21 +2268,26 @@ namespace Pdo {
          * @param string $name The name of the function used in SQL statements.
          * @param callable $step Callback function called for each row of the result set. The
          * callback should accumulate the result and store it in the aggregation context. This
-         * function need to be defined as: mixedstep mixedcontext intrownumber mixedvalue
-         * mixedvalues context null for the first row; on subsequent rows it will have the value
-         * that was previously returned from the step function; you should use this to maintain the
-         * aggregate state. rownumber The current row number. value The first argument passed to the
-         * aggregate. values Further arguments passed to the aggregate. The return value of this
-         * function will be used as the context argument in the next call of the step or finalize
-         * functions.
+         * function need to be defined as:
+         * <code>step ( mixed $context , int $rownumber , mixed $value , mixed $values ): mixed</code>
+         * <br/>$context - null for the first row; on subsequent rows it will have the value that was
+         * previously returned from the step function; you should use this to maintain the aggregate
+         * state.
+         * <br/>$rownumber - The current row number.
+         * <br/>$value - The first argument passed to the aggregate.
+         * <br/>$values - Further arguments passed to the aggregate.
+         * <br/>The return value of this function will be used as the context argument in the next
+         * call of the step or finalize functions.
          * @param callable $finalize Callback function to aggregate the "stepped" data from each
          * row. Once all the rows have been processed, this function will be called, and it should
          * then take the data from the aggregation context and return the result. This callback
          * function should return a type understood by SQLite (i.e. scalar type). This function need
-         * to be defined as: mixedfini mixedcontext introwcount context Holds the return value from
-         * the very last call to the step function. rowcount Holds the number of rows over which the
-         * aggregate was performed. The return value of this function will be used as the return
-         * value for the aggregate.
+         * to be defined as:
+         * <code>fini ( mixed $context , int $rowcount ): mixed</code>
+         * <br/>$context - Holds the return value from the very last call to the step function.
+         * <br/>$rowcount - Holds the number of rows over which the aggregate was performed.
+         * <br/>The return value of this function will be used as the return value for the
+         * aggregate.
          * @param int $numArgs Hint to the SQLite parser if the callback function accepts a
          * predetermined number of arguments.
          * @return bool Returns true on success or false on failure.
@@ -2322,8 +2327,10 @@ namespace Pdo {
          * @param string $function_name The name of the function used in SQL statements.
          * @param callable $callback Callback function to handle the defined SQL function. Callback
          * functions should return a type understood by SQLite (i.e. scalar type). This function
-         * need to be defined as: mixedcallback mixedvalue mixedvalues value The first argument
-         * passed to the SQL function. values Further arguments passed to the SQL function.
+         * need to be defined as:
+         * <code>callback ( mixed $value , mixed $values ): mixed</code>
+         * <br/>$value - The first argument passed to the SQL function.
+         * <br/>$values - Further arguments passed to the SQL function.
          * @param int $num_args The number of arguments that the SQL function takes. If this
          * parameter is -1, then the SQL function may take any number of arguments.
          * @param int $flags A bitmask of flags. Currently, only Pdo\Sqlite::DETERMINISTIC is
