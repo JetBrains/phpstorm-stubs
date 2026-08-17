@@ -26,7 +26,7 @@ use StubTests\Framework\Validator\Contracts\CheckDescriptor;
  * Scope limit: only declarative CheckDescriptor registrations are covered. The
  * attribute-based mode (#[PhpVersionRange] on a check* method) instantiates its
  * check inline in the method body, so its registrations cannot be enumerated
- * without parsing those bodies. That mode is currently limited to three call
+ * without parsing those bodies. That mode is currently limited to four call
  * sites in PhpDocValidatorTest, all on checks whose supports() is
  * unconditionally true, so it cannot drift today — and if it ever does,
  * ValidatorTestBase::executeCheck() fails rather than skipping, so the mismatch

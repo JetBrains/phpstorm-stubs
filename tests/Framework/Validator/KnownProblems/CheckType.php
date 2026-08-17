@@ -290,6 +290,14 @@ enum CheckType: string
     case PHPDOC_VERSION_FORMAT = 'PhpDocVersionFormatCheck';
 
     /**
+     * Validates that a phpDoc comment declares at most one return tag.
+     * A second return is silently discarded by every consumer (the stub parser
+     * keeps the first one), so a duplicate looks applied while having no effect.
+     * Used by PhpDocSingleReturnCheck for functions, classes, interfaces, and enums.
+     */
+    case PHPDOC_SINGLE_RETURN = 'PhpDocSingleReturnCheck';
+
+    /**
      * Validates that every @link URL in phpDoc comments uses the https scheme
      * and, when CHECK_LINKS=true, that the URL is reachable (not a dead link).
      * Only entries starting with "http://" or "https://" are examined; plain

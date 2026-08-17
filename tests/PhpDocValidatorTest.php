@@ -10,12 +10,14 @@ use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Runner\RunnerScope;
 use StubTests\Framework\Validator\PhpDoc\PhpDocLinksCheck;
+use StubTests\Framework\Validator\PhpDoc\PhpDocSingleReturnCheck;
 use StubTests\Framework\Validator\PhpDoc\PhpDocTagsCheck;
 use StubTests\Framework\Validator\PhpDoc\PhpDocVersionFormatCheck;
 
 /**
  * Validates that PhpDoc comments in stubs contain only recognized tag names,
- * and that @since/@deprecated/@removed use "major.minor" version format.
+ * declare at most one @return tag, and that @since/@deprecated/@removed use
+ * "major.minor" version format.
  *
  * Unlike other validator tests, this test iterates stubs entities directly
  * (not reflection data) and only runs at the LATEST PHP version — PhpDoc
@@ -125,6 +127,23 @@ class PhpDocValidatorTest extends ValidatorTestBase
             $entityId,
             $phpVersion,
             "PhpDoc of {$entityId} contains invalid tags in PHP {$phpVersion}"
+        );
+    }
+
+    /**
+     * Check that a PhpDoc comment declares at most one @return tag.
+     *
+     * A docblock describes a single return type, so a second @return is dropped
+     * rather than merged — it reads as applied while having no effect.
+     */
+    #[PhpVersionRange(PhpVersions::LATEST, PhpVersions::LATEST)]
+    public function checkPhpDocHasSingleReturnTag(string $entityId, string $phpVersion): void
+    {
+        $this->executeCheck(
+            new PhpDocSingleReturnCheck(),
+            $entityId,
+            $phpVersion,
+            "PhpDoc of {$entityId} declares more than one @return tag in PHP {$phpVersion}"
         );
     }
 
