@@ -281,7 +281,7 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
 
     /**
      * @param callable(TKey, TValue): TValue $callback
-     * <code>callback ( mixed $key , mixed $value ): mixed</code>
+     * <code>callback ( mixed \$key , mixed \$value ): mixed</code>
      * <br/>A callable to apply to each value in the map. The callback should return what the value
      * should be replaced by.
      */
@@ -306,7 +306,7 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
 
     /**
      * @param null|callable(TKey, TValue): bool $callback
-     * <code>callback ( mixed $key , mixed $value ): bool</code>
+     * <code>callback ( mixed \$key , mixed \$value ): bool</code>
      * <br/>Optional callable which returns true if the pair should be included, false otherwise. If
      * a callback is not provided, only values which are true (see converting to boolean) will be
      * included.
@@ -386,7 +386,7 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
     /**
      * @template TReturn
      * @param callable(TKey, TValue): TReturn $callback
-     * <code>callback ( mixed $key , mixed $value ): mixed</code>
+     * <code>callback ( mixed \$key , mixed \$value ): mixed</code>
      * <br/>A callable to apply to each value in the map. The callable should return what the key
      * will be mapped to in the resulting map.
      * @return Map<TKey, TReturn> The result of applying a callback to each value in the map. The
@@ -420,11 +420,11 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
      * @template TInitial
      * @template TReturn
      * @param callable(TInitial|TReturn|null, TKey, TValue): TReturn $callback
-     * <code>callback ( mixed $carry , mixed $key , mixed $value ): mixed</code>
-     * <br/>$carry - The return value of the previous callback, or initial if it's the first
+     * <code>callback ( mixed \$carry , mixed \$key , mixed \$value ): mixed</code>
+     * <br/>\$carry - The return value of the previous callback, or initial if it's the first
      * iteration.
-     * <br/>$key - The key of the current iteration.
-     * <br/>$value - The value of the current iteration.
+     * <br/>\$key - The key of the current iteration.
+     * <br/>\$value - The value of the current iteration.
      * @param TInitial|null $initial The initial value of the carry value. Can be null.
      * @return TReturn|null The return value of the final callback.
      */
@@ -598,7 +598,7 @@ final class Set implements Countable, IteratorAggregate, JsonSerializable, Array
 
     /**
      * @param null|callable(TValue): bool $callback
-     * <code>callback ( mixed $value ): bool</code>
+     * <code>callback ( mixed \$value ): bool</code>
      * <br/>Optional callable which returns true if the value should be included, false otherwise.
      * If a callback is not provided, only values which are true (see converting to boolean) will be
      * included.
@@ -641,7 +641,7 @@ final class Set implements Countable, IteratorAggregate, JsonSerializable, Array
      * @template TReturn
      * @param callable(TValue): TReturn $callback The callback to apply to each value in the set
      * must have the following signature:
-     * <code>callback ( mixed $value ): mixed</code>
+     * <code>callback ( mixed \$value ): mixed</code>
      * @return Set<TReturn> Returns a new Ds\Set instance where each value is the result of applying
      * the callback to each value of the set.
      */
@@ -659,10 +659,10 @@ final class Set implements Countable, IteratorAggregate, JsonSerializable, Array
      * @template TInitial
      * @template TReturn
      * @param callable(TInitial|TReturn|null, TValue): TReturn $callback
-     * <code>callback ( mixed $carry , mixed $value ): mixed</code>
-     * <br/>$carry - The return value of the previous callback, or initial if it's the first
+     * <code>callback ( mixed \$carry , mixed \$value ): mixed</code>
+     * <br/>\$carry - The return value of the previous callback, or initial if it's the first
      * iteration.
-     * <br/>$value - The value of the current iteration.
+     * <br/>\$value - The value of the current iteration.
      * @param TInitial|null $initial The initial value of the carry value. Can be null.
      * @return TReturn|null The return value of the final callback.
      */
