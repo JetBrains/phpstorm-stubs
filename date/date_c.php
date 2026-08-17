@@ -1541,9 +1541,20 @@ class DatePeriod implements IteratorAggregate
      * Creates a new DatePeriod object
      * @param string $isostr String containing the ISO interval.
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
+     * @throws Exception when the $isostr cannot be parsed as a valid ISO 8601 period.
+     * @link https://php.net/manual/en/dateperiod.construct.php
+     */
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.2')]
+    public function __construct($isostr, $options = 0) {}
+
+    /**
+     * Creates a new DatePeriod object
+     * @param string $isostr String containing the ISO interval.
+     * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @throws DateMalformedPeriodStringException
      * @link https://php.net/manual/en/dateperiod.construct.php
      */
+    #[PhpStormStubsElementAvailable(from: '8.3')]
     public function __construct($isostr, $options = 0) {}
 
     /**
