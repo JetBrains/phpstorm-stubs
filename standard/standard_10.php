@@ -11,7 +11,7 @@
  * @param array<TKey, TValue> $array The array that should be searched.
  * @param callable(TValue, TKey): bool $callback The callback function to call to check each element, which must be of
  * the following signature:
- * <code>callback ( mixed $value , mixed $key ): bool</code>
+ * <code>callback ( mixed \$value , mixed \$key ): bool</code>
  * <br/>If this function returns true, the
  * value is returned from array_find and the callback will not be called for further elements.
  * @return TValue|null The function returns the value of the first element for which the callback
@@ -29,7 +29,7 @@ function array_find(array $array, callable $callback): mixed {}
  * @param array<TKey, TValue> $array The array that should be searched.
  * @param callable(TValue, TKey): bool $callback The callback function to call to check each element, which must be of
  * the following signature:
- * <code>callback ( mixed $value , mixed $key ): bool</code>
+ * <code>callback ( mixed \$value , mixed \$key ): bool</code>
  * <br/>If this function returns true, the key
  * is returned from array_find_key and the callback will not be called for further elements.
  * @return TKey|null The function returns the key of the first element for which the callback
@@ -49,7 +49,7 @@ function array_find_key(array $array, callable $callback): mixed {}
  * @param array<TKey, TValue> $array The array that should be searched.
  * @param callable(TValue, TKey): bool $callback The callback function to call to check each element, which must be of
  * the following signature:
- * <code>callback ( mixed $value , mixed $key ): bool</code>
+ * <code>callback ( mixed \$value , mixed \$key ): bool</code>
  * <br/>If this function returns true, true is
  * returned from array_any and the callback will not be called for further elements.
  * @return bool The function returns true, if there is at least one element for which callback
@@ -67,7 +67,7 @@ function array_any(array $array, callable $callback): bool {}
  * @param array<TKey, TValue> $array The array that should be searched.
  * @param callable(TValue, TKey): bool $callback The callback function to call to check each element, which must be of
  * the following signature:
- * <code>callback ( mixed $value , mixed $key ): bool</code>
+ * <code>callback ( mixed \$value , mixed \$key ): bool</code>
  * <br/>If this function returns false, false
  * is returned from array_all and the callback will not be called for further elements.
  * @return bool The function returns true, if callback returns true for all elements. Otherwise the
