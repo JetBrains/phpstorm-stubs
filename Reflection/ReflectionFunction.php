@@ -99,7 +99,8 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * Returns a dynamically created closure for the function
      *
      * @link https://php.net/manual/en/reflectionfunction.getclosure.php
-     * @return Closure|null Returns {@see Closure} or {@see null} in case of an error.
+     * @return Closure Returns a {@see Closure}.
+     * Prior to PHP 8.1, {@see null} was returned in case of an error.
      */
     #[Pure]
     #[TentativeType]
