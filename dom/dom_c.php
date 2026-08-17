@@ -945,7 +945,8 @@ class DOMDocument extends DOMNode implements DOMParentNode
     /**
      * Create new document fragment
      * @link https://php.net/manual/en/domdocument.createdocumentfragment.php
-     * @return DOMDocumentFragment|false The new DOMDocumentFragment or false if an error occurred.
+     * @return DOMDocumentFragment The new DOMDocumentFragment.
+     * Prior to PHP 8.1, false was returned if an error occurred.
      */
     #[TentativeType]
     public function createDocumentFragment(): DOMDocumentFragment {}
@@ -956,7 +957,8 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @param string $data <p>
      * The content of the text.
      * </p>
-     * @return DOMText|false The new DOMText or false if an error occurred.
+     * @return DOMText The new DOMText.
+     * Prior to PHP 8.1, false was returned if an error occurred.
      */
     #[TentativeType]
     public function createTextNode(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data): DOMText {}
@@ -967,7 +969,8 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @param string $data <p>
      * The content of the comment.
      * </p>
-     * @return DOMComment|false The new DOMComment or false if an error occurred.
+     * @return DOMComment The new DOMComment.
+     * Prior to PHP 8.1, false was returned if an error occurred.
      */
     #[TentativeType]
     public function createComment(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data): DOMComment {}

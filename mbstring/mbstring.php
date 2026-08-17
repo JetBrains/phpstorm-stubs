@@ -1019,7 +1019,7 @@ function mb_ereg(string $pattern, string $string, &$matches = null): bool {}
  */
 #[LanguageLevelTypeAware(["8.0" => "bool"], default: "false|int")]
 #[Deprecated(since: '8.6')]
-function mb_eregi(string $pattern, string $string, &$matches = null): bool {}
+function mb_eregi(string $pattern, string $string, &$matches = null) {}
 
 /**
  * Replace regular expression with multibyte support

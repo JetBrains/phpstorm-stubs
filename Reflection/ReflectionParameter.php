@@ -81,8 +81,8 @@ class ReflectionParameter implements Reflector
      * Returns whether this parameter can be passed by value
      *
      * @link https://php.net/manual/en/reflectionparameter.canbepassedbyvalue.php
-     * @return bool|null {@see true} if the parameter can be passed by value, {@see false} otherwise.
-     * Returns {@see null} in case of an error.
+     * @return bool {@see true} if the parameter can be passed by value, {@see false} otherwise.
+     * Prior to PHP 8.1, {@see null} was returned in case of an error.
      * @since 5.4
      */
     #[TentativeType]
@@ -168,8 +168,8 @@ class ReflectionParameter implements Reflector
      * Returns whether parameter MUST be callable
      *
      * @link https://php.net/manual/en/reflectionparameter.iscallable.php
-     * @return bool|null Returns {@see true} if the parameter is callable, {@see false}
-     * if it is not or {@see null} on failure.
+     * @return bool Returns {@see true} if the parameter is callable, {@see false} if it is not.
+     * Prior to PHP 8.1, {@see null} was returned on failure.
      * @since 5.4
      * @see ReflectionParameter::getType()
      */

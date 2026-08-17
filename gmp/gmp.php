@@ -51,7 +51,7 @@ function gmp_intval(GMP|string|int $num): int {}
  * @throws \ValueError Throws a ValueError if seed is invalid.
  */
 #[LanguageLevelTypeAware(['8.0' => 'void'], default: 'void|false')]
-function gmp_random_seed(GMP|string|int $seed): void {}
+function gmp_random_seed(GMP|string|int $seed) {}
 /**
  * Convert GMP number to string
  * @link https://php.net/manual/en/function.gmp-strval.php
@@ -682,7 +682,7 @@ function gmp_hamdist(GMP|string|int $num1, GMP|string|int $num2): int {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.0' => 'GMP'], default: 'GMP|false')]
-function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN): GMP {}
+function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN) {}
 
 /**
  * Export to a binary string
@@ -696,7 +696,7 @@ function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|false')]
-function gmp_export(GMP|string|int $num, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN): string {}
+function gmp_export(GMP|string|int $num, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN) {}
 
 /**
  * Takes the nth root of a and returns the integer component of the result.
@@ -750,7 +750,7 @@ function gmp_nextprime(GMP|string|int $num): GMP {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.0' => 'GMP'], default: 'GMP|false')]
-function gmp_binomial(GMP|string|int $n, int $k): GMP {}
+function gmp_binomial(GMP|string|int $n, int $k) {}
 
 /**
  * Computes the Kronecker symbol

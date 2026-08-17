@@ -215,7 +215,7 @@ function str_increment(string $string): string {}
  * @removed 8.0
  */
 #[Deprecated(reason: "Use a foreach loop instead", since: "7.2")]
-function each(&$array): array {}
+function each(&$array): array|false {}
 
 /**
  * Sets which PHP errors are reported

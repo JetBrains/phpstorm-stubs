@@ -2618,7 +2618,7 @@ function curl_close(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: '
  * @return resource|CurlMultiHandle a cURL multi handle resource or object depends on the php version
  */
 #[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')]
-function curl_multi_init(): CurlMultiHandle {}
+function curl_multi_init() {}
 
 /**
  * Add a normal cURL handle to a cURL multi handle

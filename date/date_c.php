@@ -119,8 +119,8 @@ interface DateTimeInterface
      * Format accepted by  {@link https://php.net/manual/en/function.date.php date()}.
      * </p>
      * @return string
-     * Returns the formatted date string on success or <b>FALSE</b> on failure.
-     * Since PHP8, it always returns <b>STRING</b>.
+     * Returns the formatted date string on success.
+     * Prior to PHP 8.1, <b>FALSE</b> was returned on failure.
      */
     #[Pure(true)]
     #[TentativeType]
@@ -131,12 +131,12 @@ interface DateTimeInterface
      * Returns the timezone offset
      * @link https://php.net/manual/en/datetime.getoffset.php
      * @return int|false
-     * Returns the timezone offset in seconds from UTC on success
-     * or <b>FALSE</b> on failure. Since PHP8, it always returns <b>INT</b>.
+     * Returns the timezone offset in seconds from UTC on success.
+     * Prior to PHP 8.0, <b>FALSE</b> was returned on failure.
      */
     #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
     #[TentativeType]
-    public function getOffset(): int;
+    public function getOffset();
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -448,8 +448,9 @@ class DateTimeImmutable implements DateTimeInterface
      * @param int $year <p>Year of the date.</p>
      * @param int $month <p>Month of the date.</p>
      * @param int $day <p>Day of the date.</p>
-     * @return static|false
-     * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
+     * @return static
+     * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining.
+     * Prior to PHP 8.1, <b>FALSE</b> was returned on failure.
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setDate() does not modify the object itself")]
@@ -466,8 +467,9 @@ class DateTimeImmutable implements DateTimeInterface
      * @param int $year <p>Year of the date.</p>
      * @param int $week <p>Week of the date.</p>
      * @param int $dayOfWeek [optional] <p>Offset from the first day of the week.</p>
-     * @return static|false
-     * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
+     * @return static
+     * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining.
+     * Prior to PHP 8.1, <b>FALSE</b> was returned on failure.
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setISODate() does not modify the object itself")]
@@ -485,8 +487,9 @@ class DateTimeImmutable implements DateTimeInterface
      * @param int $minute <p> Minute of the time. </p>
      * @param int $second [optional] <p> Second of the time. </p>
      * @param int $microsecond [optional] <p> Microseconds of the time. Added since 7.1</p>
-     * @return static|false
-     * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
+     * @return static
+     * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining.
+     * Prior to PHP 8.1, <b>FALSE</b> was returned on failure.
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setTime() does not modify the object itself")]
@@ -505,7 +508,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @param int $timestamp <p>Unix timestamp representing the date.</p>
      * @return static
      * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining.
-     * Prior to PHP 8.0, <b>FALSE</b> was returned on failure.
+     * Prior to PHP 8.1, <b>FALSE</b> was returned on failure.
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setTimestamp() does not modify the object itself")]
@@ -521,7 +524,7 @@ class DateTimeImmutable implements DateTimeInterface
      * </p>
      * @return static
      * Returns the {@link https://php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining.
-     * Prior to PHP 8.0, <b>FALSE</b> was returned on failure.
+     * Prior to PHP 8.1, <b>FALSE</b> was returned on failure.
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setTimezone() does not modify the object itself")]
@@ -567,7 +570,7 @@ class DateTimeImmutable implements DateTimeInterface
      * </p>
      * @return string
      * Returns the formatted date string on success.
-     * Prior to PHP 8.0, <b>FALSE</b> was returned on failure.
+     * Prior to PHP 8.1, <b>FALSE</b> was returned on failure.
      */
     #[Pure(true)]
     #[TentativeType]
@@ -579,7 +582,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @link https://php.net/manual/en/datetime.getoffset.php
      * @return int
      * Returns the timezone offset in seconds from UTC on success.
-     * Prior to PHP 8.0, <b>FALSE</b> was returned on failure.
+     * Prior to PHP 8.1, <b>FALSE</b> was returned on failure.
      */
     #[TentativeType]
     public function getOffset(): int {}

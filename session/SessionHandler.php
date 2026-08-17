@@ -54,7 +54,7 @@ interface SessionHandlerInterface
      */
     #[LanguageLevelTypeAware(['7.1' => 'int|false'], default: 'bool')]
     #[TentativeType]
-    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime): int|false;
+    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime);
 
     /**
      * Initialize session

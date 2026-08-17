@@ -918,7 +918,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     public function fwrite(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data,
         #[LanguageLevelTypeAware(['8.0' => 'int', '8.5' => 'int|null'], default: '')] $length = null
-    ): int|false {}
+    ) {}
 
     /**
      * Gets information about the file
@@ -1275,7 +1275,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Return current node index
      * @link https://php.net/manual/en/spldoublylinkedlist.key.php
-     * @return string|float|int|bool|null The current node index.
+     * @return int The current node index.
      */
     #[TentativeType]
     public function key(): int {}

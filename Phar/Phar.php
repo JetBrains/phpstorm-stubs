@@ -2278,7 +2278,6 @@ class PharFileInfo extends SplFileInfo
      * </p>
      * @return void No value is returned.
      */
-    #[LanguageLevelTypeAware(['8.0' => 'static|null'], default: '')]
     #[TentativeType]
     public function setMetadata(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $metadata): void {}
 }
