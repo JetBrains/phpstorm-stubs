@@ -5732,7 +5732,7 @@
                 "isDeprecated": false,
                 "accessModifier": "public",
                 "parameters": [],
-                "returnType": "int",
+                "returnType": "",
                 "hasTentativeReturnType": true,
                 "phpDoc": null,
                 "sinceVersion": null,
@@ -11889,7 +11889,7 @@
                         "deprecatedSinceVersion": null
                     }
                 ],
-                "returnType": "int|false",
+                "returnType": "",
                 "hasTentativeReturnType": true,
                 "phpDoc": null,
                 "sinceVersion": "5.4",
