@@ -259,6 +259,7 @@ enum StubCategory: string
                 'yaf',
                 'yaml',
                 'yar',
+                'yaz',
                 'zmq',
                 'zookeeper',
                 'zstd',
