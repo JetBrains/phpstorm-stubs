@@ -222,6 +222,7 @@ enum StubCategory: string
                 'Parle',
                 'pcov',
                 'pq',
+                'ps',
                 'pthreads',
                 'radius',
                 'rar',
