@@ -76,8 +76,13 @@ class Judy implements ArrayAccess, Countable, Iterator, JsonSerializable
     /**
      * Create a new Judy array of the specified type.
      * @param int $type One of the Judy type constants (e.g. Judy::INT_TO_INT).
+     * @param bool $optimizeIteration [optional] Mirror payloads into the key
+     * index for faster ordered reads, at a write-path and memory cost. Only
+     * Judy::STRING_TO_INT_HASH and Judy::STRING_TO_INT_ADAPTIVE honour it;
+     * every other type accepts the argument and ignores it. Cannot be changed
+     * after construction. Since 2.5.0.
      */
-    public function __construct(int $type) {}
+    public function __construct(int $type, bool $optimizeIteration = false) {}
 
     /**
      * Free the Judy array and release all associated resources.
@@ -89,6 +94,16 @@ class Judy implements ArrayAccess, Countable, Iterator, JsonSerializable
      * @return int One of the Judy type constants.
      */
     public function getType(): int {}
+
+    /**
+     * Whether the optimizeIteration trade is actually in effect here.
+     * Returns what was honoured, not what was asked for: a type that cannot
+     * mirror its payload accepts the constructor argument and returns false.
+     * @link https://github.com/orieg/php-judy/blob/main/API.md
+     * @return bool True if payloads are mirrored into the key index.
+     * @since 2.5.0
+     */
+    public function isIterationOptimized(): bool {}
 
     /**
      * Free the entire Judy array.
@@ -104,13 +119,19 @@ class Judy implements ArrayAccess, Countable, Iterator, JsonSerializable
     public function memoryUsage(): ?int {}
 
     /**
-     * Return the number of elements, optionally within a key range
-     * (integer-keyed types only).
-     * @param mixed $index_start [optional] Start counting from the given index.
-     * @param mixed $index_end [optional] Stop counting at the given index.
-     * @return int The number of elements.
+     * Return the number of elements, optionally within an inclusive key range.
+     * All key types are supported; string-keyed types require string bounds
+     * and compare them lexicographically. Counts without materialising the
+     * range, so prefer it to count($judy->keys($start, $end)).
+     *
+     * The bounds are keys, not offsets. Prior to 2.5.0 the parameters were
+     * named $index_start/$index_end, and string bounds were accepted but
+     * ignored on string-keyed types, returning the whole-array count.
+     * @param mixed $start [optional] Inclusive lower bound; null for unbounded.
+     * @param mixed $end [optional] Inclusive upper bound; null for unbounded.
+     * @return int The number of elements in the range.
      */
-    public function size(mixed $index_start = 0, mixed $index_end = -1): int {}
+    public function size(mixed $start = null, mixed $end = null): int {}
 
     /**
      * Return the number of elements. Implements Countable.
@@ -263,17 +284,25 @@ class Judy implements ArrayAccess, Countable, Iterator, JsonSerializable
     public function __unserialize(array $data): void {}
 
     /**
-     * Convert the Judy array to a native PHP array. Uses native C iteration
-     * internally, faster than a manual foreach.
+     * Convert the Judy array to a native PHP array, optionally limited to an
+     * inclusive key range. Uses native C iteration internally, faster than a
+     * manual foreach. A bounded read is one traversal writing straight into
+     * the returned array, so prefer it to slice($start, $end)->toArray().
+     * @param mixed $start [optional] Inclusive lower bound; null for unbounded.
+     * Since 2.5.0.
+     * @param mixed $end [optional] Inclusive upper bound; null for unbounded.
+     * Since 2.5.0.
      */
-    public function toArray(): array {}
+    public function toArray(mixed $start = null, mixed $end = null): array {}
 
     /**
      * Create a new Judy array from a PHP array.
      * @param int $type One of the Judy type constants.
      * @param array $data Key-value pairs to populate the array with.
+     * @param bool $optimizeIteration [optional] See Judy::__construct().
+     * Since 2.5.0.
      */
-    public static function fromArray(int $type, array $data): Judy {}
+    public static function fromArray(int $type, array $data, bool $optimizeIteration = false): Judy {}
 
     /**
      * Bulk-insert entries from a PHP array into this Judy array.
@@ -321,14 +350,30 @@ class Judy implements ArrayAccess, Countable, Iterator, JsonSerializable
     public function next(): void {}
 
     /**
-     * Return all keys as a PHP array.
+     * Return all keys as a PHP array, optionally limited to an inclusive key
+     * range. All key types are supported; string-keyed types require string
+     * bounds and compare them lexicographically. This is the primitive to
+     * reach for on a bounded read: one traversal writing straight into the
+     * returned array, so prefer it to slice($start, $end)->keys().
+     *
+     * Note that a string upper bound is a bound, not a prefix match — for a
+     * prefix sweep, bound with the prefix and its successor.
+     * @param mixed $start [optional] Inclusive lower bound; null for unbounded.
+     * Since 2.5.0.
+     * @param mixed $end [optional] Inclusive upper bound; null for unbounded.
+     * Since 2.5.0.
      */
-    public function keys(): array {}
+    public function keys(mixed $start = null, mixed $end = null): array {}
 
     /**
-     * Return all values as a PHP array.
+     * Return all values as a PHP array, optionally limited to an inclusive
+     * key range. The bounds are keys, not values.
+     * @param mixed $start [optional] Inclusive lower bound; null for unbounded.
+     * Since 2.5.0.
+     * @param mixed $end [optional] Inclusive upper bound; null for unbounded.
+     * Since 2.5.0.
      */
-    public function values(): array {}
+    public function values(mixed $start = null, mixed $end = null): array {}
 
     /**
      * Call a callback for each element, iterating in C. The callback
@@ -360,7 +405,10 @@ class Judy implements ArrayAccess, Countable, Iterator, JsonSerializable
 
     /**
      * Return the number of keys in the [$start, $end] range (inclusive).
-     * Integer-keyed types only.
+     * Integer-keyed types only — it answers from libJudy's O(1) population
+     * cache, which the JudySL/JudyHS string stores do not have, and throws on
+     * a string-keyed array. To count a range on string keys, use
+     * Judy::size($start, $end).
      */
     public function populationCount(mixed $start = 0, mixed $end = -1): int {}
 
