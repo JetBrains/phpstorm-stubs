@@ -304,7 +304,7 @@ use const PHP_EOL;
     $exportedClasses = var_export($mapWithRelativeFilePaths['classes'], true);
     $exportedFunctions = var_export($mapWithRelativeFilePaths['functions'], true);
     $exportedConstants = var_export($mapWithRelativeFilePaths['constants'], true);
-    $exportedExtensionVersions = var_export($versionedMapsWithRelativeFilePaths, true);
+    $exportedExtensionVersions = str_replace("=> \n", "=>\n", var_export($versionedMapsWithRelativeFilePaths, true));
 
     $output = <<<"PHP"
 <?php
