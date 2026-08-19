@@ -134,6 +134,36 @@ class StubsStructureValidatorTest extends TestCase
             self::assertStringContainsString('const CONSTANTS', $generated);
             self::assertStringContainsString('const EXTENSION_VERSIONS', $generated);
 
+            $probe = <<<'PHP'
+require $argv[1];
+
+echo json_encode([
+    'flat' => \JetBrains\PHPStormStub\PhpStormStubsMap::CLASSES['Ds\\Map'],
+    'ds-default' => \JetBrains\PHPStormStub\PhpStormStubsMap::EXTENSION_VERSIONS['ds']['default']['classes']['Ds\\Map'],
+    'ds-v2' => \JetBrains\PHPStormStub\PhpStormStubsMap::EXTENSION_VERSIONS['ds'][2]['classes']['Ds\\Map'],
+    'couchbase-default' => \JetBrains\PHPStormStub\PhpStormStubsMap::EXTENSION_VERSIONS['couchbase']['default']['classes']['Couchbase\\SearchQuery'],
+    'couchbase-v2' => \JetBrains\PHPStormStub\PhpStormStubsMap::EXTENSION_VERSIONS['couchbase'][2]['classes']['Couchbase\\SearchQuery'],
+], JSON_THROW_ON_ERROR);
+PHP;
+
+            exec(
+                sprintf('php -r %s %s 2>&1', escapeshellarg($probe), escapeshellarg($tempOutput)),
+                $probeOutput,
+                $probeExitCode
+            );
+
+            self::assertSame(0, $probeExitCode);
+            self::assertSame(
+                [
+                    'flat' => 'ds/ds.php',
+                    'ds-default' => 'ds/ds.php',
+                    'ds-v2' => 'ds_v2/ds.php',
+                    'couchbase-default' => 'couchbase/couchbase.php',
+                    'couchbase-v2' => 'couchbase_v2/couchbase.php',
+                ],
+                json_decode(implode("\n", $probeOutput), true, 512, JSON_THROW_ON_ERROR)
+            );
+
             self::assertStringNotContainsString(
                 $projectRoot,
                 $generated,
