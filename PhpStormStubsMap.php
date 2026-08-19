@@ -14999,11 +14999,11 @@ const CONSTANTS = array (
 );
 
 const EXTENSION_VERSIONS = array (
-  'couchbase' => 
+  'couchbase' =>
   array (
-    2 => 
+    2 =>
     array (
-      'classes' => 
+      'classes' =>
       array (
         'Couchbase\\AnalyticsQuery' => 'couchbase_v2/couchbase.php',
         'Couchbase\\Authenticator' => 'couchbase_v2/couchbase.php',
@@ -15058,7 +15058,7 @@ const EXTENSION_VERSIONS = array (
         'Couchbase\\ViewQueryEncodable' => 'couchbase_v2/couchbase.php',
         'Couchbase\\WildcardSearchQuery' => 'couchbase_v2/couchbase.php',
       ),
-      'functions' => 
+      'functions' =>
       array (
         'Couchbase\\basicDecoderV1' => 'couchbase_v2/couchbase.php',
         'Couchbase\\basicEncoderV1' => 'couchbase_v2/couchbase.php',
@@ -15071,7 +15071,7 @@ const EXTENSION_VERSIONS = array (
         'Couchbase\\zlibCompress' => 'couchbase_v2/couchbase.php',
         'Couchbase\\zlibDecompress' => 'couchbase_v2/couchbase.php',
       ),
-      'constants' => 
+      'constants' =>
       array (
         'COUCHBASE_AUTH_CONTINUE' => 'couchbase_v2/toplevel.php',
         'COUCHBASE_AUTH_ERROR' => 'couchbase_v2/toplevel.php',
@@ -15173,9 +15173,9 @@ const EXTENSION_VERSIONS = array (
         'Couchbase\\HAVE_ZLIB' => 'couchbase_v2/couchbase.php',
       ),
     ),
-    'default' => 
+    'default' =>
     array (
-      'classes' => 
+      'classes' =>
       array (
         'Couchbase\\AnalyticsEncryptionLevel' => 'couchbase/couchbase.php',
         'Couchbase\\AnalyticsException' => 'couchbase/couchbase.php',
@@ -15387,19 +15387,19 @@ const EXTENSION_VERSIONS = array (
         'Couchbase\\WatchQueryIndexesOptions' => 'couchbase/couchbase.php',
         'Couchbase\\WildcardSearchQuery' => 'couchbase/couchbase.php',
       ),
-      'functions' => 
+      'functions' =>
       array (
       ),
-      'constants' => 
+      'constants' =>
       array (
       ),
     ),
   ),
-  'ds' => 
+  'ds' =>
   array (
-    2 => 
+    2 =>
     array (
-      'classes' => 
+      'classes' =>
       array (
         'Ds\\Heap' => 'ds_v2/ds.php',
         'Ds\\Key' => 'ds_v2/ds.php',
@@ -15408,20 +15408,20 @@ const EXTENSION_VERSIONS = array (
         'Ds\\Seq' => 'ds_v2/ds.php',
         'Ds\\Set' => 'ds_v2/ds.php',
       ),
-      'functions' => 
+      'functions' =>
       array (
         'Ds\\heap' => 'ds_v2/ds.php',
         'Ds\\map' => 'ds_v2/ds.php',
         'Ds\\seq' => 'ds_v2/ds.php',
         'Ds\\set' => 'ds_v2/ds.php',
       ),
-      'constants' => 
+      'constants' =>
       array (
       ),
     ),
-    'default' => 
+    'default' =>
     array (
-      'classes' => 
+      'classes' =>
       array (
         'Ds\\Collection' => 'ds/ds.php',
         'Ds\\Deque' => 'ds/ds.php',
@@ -15435,10 +15435,10 @@ const EXTENSION_VERSIONS = array (
         'Ds\\Stack' => 'ds/ds.php',
         'Ds\\Vector' => 'ds/ds.php',
       ),
-      'functions' => 
+      'functions' =>
       array (
       ),
-      'constants' => 
+      'constants' =>
       array (
       ),
     ),
