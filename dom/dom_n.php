@@ -1123,26 +1123,7 @@ class ProcessingInstruction extends CharacterData
 {
     public string $target;
 }
-/**
- * @since 8.4
- */
-class Sqlite {}
-/**
- * @since 8.4
- */
-class RandomError {}
-/**
- * @since 8.4
- */
-class BrokenRandomEngineError {}
-/**
- * @since 8.4
- */
-class RandomException {}
-/**
- * @since 8.4
- */
-class Mysql {}
+
 /**
  * Gets a Dom\Attr or Dom\Element object from a SimpleXMLElement object
  *
