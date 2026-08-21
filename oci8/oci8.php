@@ -711,6 +711,7 @@ function oci_fetch($statement) {}
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
+ * @param int $mode
  * @return object|false <p>An object. Each attribute of the object corresponds to a
  * column of the row. If there are no more rows in
  * the <i>statement</i> then <b>FALSE</b> is returned.
@@ -737,7 +738,7 @@ function oci_fetch($statement) {}
  * data fields.
  * </p>
  */
-function oci_fetch_object($statement) {}
+function oci_fetch_object($statement, int $mode = OCI_ASSOC|OCI_RETURN_NULLS): object|false {}
 
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
