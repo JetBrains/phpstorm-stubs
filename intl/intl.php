@@ -3949,7 +3949,7 @@ class IntlTimeZone
      * @return IntlIterator|false an iterator or <b>FALSE</b> on failure
      */
     #[TentativeType]
-    public static function createEnumeration(#[LanguageAware(['8.5' => 'string|int|null'], default: '')] $countryOrRawOffset): IntlIterator|false {}
+    public static function createEnumeration(#[LanguageAware(['8.5' => 'string|int|null'], default: '')] $countryOrRawOffset = null): IntlIterator|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3996,7 +3996,7 @@ class IntlTimeZone
      * @return string|false the timezone ID or <b>FALSE</b> on failure
      */
     #[TentativeType]
-    public static function getCanonicalID(#[LanguageAware(['8.0' => 'string'], default: '')] $timezoneId, &$isSystemId): string|false {}
+    public static function getCanonicalID(#[LanguageAware(['8.0' => 'string'], default: '')] $timezoneId, &$isSystemId = null): string|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -4012,7 +4012,7 @@ class IntlTimeZone
     public function getDisplayName(
         #[LanguageAware(['8.0' => 'bool'], default: '')] $dst = false,
         #[LanguageAware(['8.0' => 'int'], default: '')] $style = 2,
-        #[LanguageAware(['8.0' => 'string|null'], default: '')] $locale
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $locale = null
     ): string|false {}
 
     /**
@@ -5745,7 +5745,7 @@ function grapheme_extract(string $haystack, int $size, int $type = 0, int $offse
  * </p>
  * @return string|false The ACE encoded version of the domain name or <b>FALSE</b> on failure.
  */
-function idn_to_ascii(string $domain, int $flags = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_UTS46, &$idna_info): string|false {}
+function idn_to_ascii(string $domain, int $flags = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_UTS46, &$idna_info = null): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.2, PHP 7, PECL idn &gt;= 0.1)<br/>
@@ -5773,7 +5773,7 @@ function idn_to_ascii(string $domain, int $flags = IDNA_DEFAULT, int $variant = 
  * RFC 3490 4.2 states though "ToUnicode never fails. If any step fails, then the original input
  * sequence is returned immediately in that step."
  */
-function idn_to_utf8(string $domain, int $flags = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_UTS46, &$idna_info): string|false {}
+function idn_to_utf8(string $domain, int $flags = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_UTS46, &$idna_info = null): string|false {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6741,7 +6741,7 @@ function intlz_create_default() {}
  * @since 5.5
  */
 #[Pure]
-function intltz_create_enumeration(#[LanguageAware(['8.5' => 'string|int|null'], default: '')] $countryOrRawOffset): IntlIterator|false {}
+function intltz_create_enumeration(#[LanguageAware(['8.5' => 'string|int|null'], default: '')] $countryOrRawOffset = null): IntlIterator|false {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6773,7 +6773,7 @@ function intltz_from_date_time_zone(DateTimeZone $timezone): ?IntlTimeZone {}
  * @since 5.5
  */
 #[Pure]
-function intltz_get_canonical_id(string $timezoneId, &$isSystemId): string|false {}
+function intltz_get_canonical_id(string $timezoneId, &$isSystemId = null): string|false {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6789,7 +6789,7 @@ function intltz_get_canonical_id(string $timezoneId, &$isSystemId): string|false
  * @since 5.5
  */
 #[Pure]
-function intltz_get_display_name(IntlTimeZone $timezone, bool $dst = false, int $style = 2, ?string $locale): string|false {}
+function intltz_get_display_name(IntlTimeZone $timezone, bool $dst = false, int $style = 2, ?string $locale = null): string|false {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -7723,7 +7723,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @return IntlBreakIterator|null
      */
     #[TentativeType]
-    public static function createLineInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
+    public static function createLineInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale = null): ?IntlBreakIterator {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7733,7 +7733,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @return IntlBreakIterator|null
      */
     #[TentativeType]
-    public static function createSentenceInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
+    public static function createSentenceInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale = null): ?IntlBreakIterator {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7743,7 +7743,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @return IntlBreakIterator|null
      */
     #[TentativeType]
-    public static function createTitleInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
+    public static function createTitleInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale = null): ?IntlBreakIterator {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7753,7 +7753,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @return IntlBreakIterator|null
      */
     #[TentativeType]
-    public static function createWordInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
+    public static function createWordInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale = null): ?IntlBreakIterator {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
