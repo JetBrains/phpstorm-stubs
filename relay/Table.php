@@ -37,6 +37,56 @@ class Table
     public static function set(string $key, mixed $value, ?int $expire = null, ?string $namespace = null): bool {}
 
     /**
+     * Records numeric values in a fixed-resolution, fixed-retention time series.
+     *
+     * Field names must start with `+` (sum), `~` (mean), or `=` (last value).
+     * The timestamp, resolution, and retention are expressed in Unix milliseconds.
+     *
+     * A `null` value keeps its field in the schema, but records no sample for it,
+     * leaving aggregates and the field's type untouched.
+     *
+     * @param  string  $key
+     * @param  int  $resolution
+     * @param  int  $retention
+     * @param  array<string, int|float|null>  $metrics
+     * @param  int|null  $timestamp
+     * @param  string|null  $namespace
+     * @return bool
+     */
+    public static function recordMetrics(
+        string $key,
+        int $resolution,
+        int $retention,
+        array $metrics,
+        ?int $timestamp = null,
+        ?string $namespace = null
+    ): bool {}
+
+    /**
+     * Returns a stats series, optionally restricted by inclusive bucket timestamps.
+     *
+     * Fields that never held a value have no type, and buckets in which a field
+     * held no value are returned as `null`.
+     *
+     * @param  string  $key
+     * @param  int|null  $from
+     * @param  int|null  $to
+     * @param  string|null  $namespace
+     * @return array{
+     *     resolution: int,
+     *     retention: int,
+     *     fields: list<array{name: string, type: 'int'|'double'|null, aggregate: 'sum'|'mean'|'last'}>,
+     *     rows: list<list<int|float|null>>
+     * }|false
+     */
+    public static function getMetrics(
+        string $key,
+        ?int $from = null,
+        ?int $to = null,
+        ?string $namespace = null
+    ): array|false {}
+
+    /**
      * Checks if a key exists in the table.
      *
      * @param  string  $key
@@ -116,7 +166,7 @@ class Table
      *
      * @param  mixed  $match
      * @param  int  $count
-     * @return \Generator<int, string>|false
+     * @return \Generator<int, list<string>>|false
      */
     public static function fullscan(mixed $match = null, int $count = 0): \Generator|false {}
 
@@ -126,4 +176,13 @@ class Table
      * @return array<string, mixed>|false
      */
     public static function stats(): array|false {}
+}
+
+/**
+ * Thrown when recorded metrics conflict with a key's existing series — a field
+ * set, value type, resolution, or retention that does not match the series'
+ * schema, or a key that does not hold a metrics series at all.
+ */
+class TableMetricsSchemaException extends Exception
+{
 }
