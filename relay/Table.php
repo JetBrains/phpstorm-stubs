@@ -183,6 +183,4 @@ class Table
  * set, value type, resolution, or retention that does not match the series'
  * schema, or a key that does not hold a metrics series at all.
  */
-class TableMetricsSchemaException extends Exception
-{
-}
+class TableMetricsSchemaException extends Exception {}
