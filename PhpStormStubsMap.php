@@ -963,6 +963,7 @@ const CLASSES = array (
   'Relay\\Relay' => 'relay/Relay.php',
   'Relay\\Sentinel' => 'relay/Sentinel.php',
   'Relay\\Table' => 'relay/Table.php',
+  'Relay\\TableMetricsSchemaException' => 'relay/Table.php',
   'RequestParseBodyException' => 'Core/Core_c.php',
   'ResourceBundle' => 'intl/intl.php',
   'ReturnTypeWillChange' => 'Core/Core_c.php',

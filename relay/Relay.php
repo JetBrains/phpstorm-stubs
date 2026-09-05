@@ -12,14 +12,14 @@ class Relay
      *
      * @var string
      */
-    public const VERSION = "0.40.0";
+    public const VERSION = "0.50.0";
 
     /**
      * Relay's version.
      *
      * @var string
      */
-    public const Version = "0.40.0";
+    public const Version = "0.50.0";
 
     /**
      * Integer representing no compression algorithm.
@@ -2276,7 +2276,7 @@ class Relay
      * @param  string  $srcpos
      * @param  string  $dstpos
      * @param  array|null  $options
-     * @return Relay|array|false
+     * @return Relay|array|null|false
      */
     #[Attributes\RedisCommand]
     public function lmovem(
@@ -2285,7 +2285,7 @@ class Relay
         string $srcpos,
         string $dstpos,
         ?array $options = null
-    ): Relay|array|false {}
+    ): Relay|array|null|false {}
 
     /**
      * Blocking more of one or more elements from the src to dst list with options
@@ -2296,7 +2296,7 @@ class Relay
      * @param  string  $dstpos
      * @param  float  $timeout
      * @param  array|null  $options
-     * @return Relay|array|false
+     * @return Relay|array|null|false
      */
     #[Attributes\RedisCommand]
     public function blmovem(
@@ -2306,7 +2306,7 @@ class Relay
         string $dstpos,
         float $timeout,
         ?array $options = null
-    ): Relay|array|false {}
+    ): Relay|array|null|false {}
 
     /**
      * BLMOVE is the blocking variant of LMOVE. When source contains elements,
@@ -2613,6 +2613,22 @@ class Relay
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function hget(mixed $hash, mixed $member): mixed {}
+
+    /**
+     * Manages session-local HIMPORT fieldsets and imports hash values.
+     *
+     * @param  string  $op
+     * @param  string|null  $hash = null
+     * @param  string|null  $fieldset = null
+     * @param  array  $fields = []
+     * @return Relay|bool|int
+     */
+    public function himport(
+        string $op,
+        ?string $hash = null,
+        ?string $fieldset = null,
+        array $fields = []
+    ): Relay|bool|int {}
 
     /**
      * Returns one or more fields while also setting an expiration on them.
@@ -4315,7 +4331,7 @@ class Relay
      * @param  mixed  $max
      * @return Relay|int|false
      */
-    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function zcount(mixed $key, mixed $min, mixed $max): Relay|int|false {}
 
     /**

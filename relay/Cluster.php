@@ -97,6 +97,62 @@ class Cluster
     public const OPT_FAILOVER = 17;
 
     /**
+     * Overrides the read timeout for each node attempted by a distributed or
+     * failover readonly command. A value of 0.0 disables the override.
+     *
+     * @var int
+     */
+    public const OPT_NODE_READ_TIMEOUT = 18;
+
+    /**
+     * Controls whether noncontiguous keys may be reordered and grouped by hash
+     * slot for supported multi-key commands. The default preserves PhpRedis'
+     * command ordering while still grouping adjacent keys in the same slot.
+     *
+     * @see self::MULTIKEY_REORDER_NONE
+     * @see self::MULTIKEY_REORDER_READS
+     * @see self::MULTIKEY_REORDER_WRITES
+     * @see self::MULTIKEY_REORDER_ALL
+     * @var int
+     */
+    public const OPT_MULTIKEY_REORDERING = 19;
+
+    /**
+     * Preserve key order and only group adjacent keys in the same hash slot.
+     *
+     * @see self::OPT_MULTIKEY_REORDERING
+     * @var int
+     */
+    public const MULTIKEY_REORDER_NONE = 0;
+
+    /**
+     * Permit readonly multi-key commands to group all keys by hash slot.
+     * Returned values retain the order of the supplied keys.
+     *
+     * @see self::OPT_MULTIKEY_REORDERING
+     * @var int
+     */
+    public const MULTIKEY_REORDER_READS = 1;
+
+    /**
+     * Permit mutating multi-key commands to group all keys by hash slot. This
+     * may change their execution order relative to the supplied keys.
+     *
+     * @see self::OPT_MULTIKEY_REORDERING
+     * @var int
+     */
+    public const MULTIKEY_REORDER_WRITES = 2;
+
+    /**
+     * Permit both readonly and mutating multi-key commands to group all keys by
+     * hash slot.
+     *
+     * @see self::OPT_MULTIKEY_REORDERING
+     * @var int
+     */
+    public const MULTIKEY_REORDER_ALL = 3;
+
+    /**
      * Enabled by default. Send commands to master nodes only.
      *
      * @see self::OPT_FAILOVER
@@ -450,7 +506,7 @@ class Cluster
      * @param  string  $dstpos
      * @param  float  $timeout
      * @param  array|null  $options
-     * @return Cluster|array|false
+     * @return Cluster|array|null|false
      */
     #[Attributes\RedisCommand]
     public function blmovem(
@@ -460,7 +516,7 @@ class Cluster
         string $dstpos,
         float $timeout,
         ?array $options = null
-    ): Cluster|array|false {}
+    ): Cluster|array|null|false {}
 
     /**
      * Pop elements from a list, or block until one is available.
@@ -844,6 +900,32 @@ class Cluster
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function expiretime(mixed $key): Cluster|int|false {}
+
+    /**
+     * Invokes a Redis function. At least one key is required, and all keys
+     * must hash to the same cluster slot.
+     *
+     * @param  string  $name
+     * @param  array  $keys
+     * @param  array  $argv
+     * @param  callable|null  $handler
+     * @return mixed
+     */
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    public function fcall(string $name, array $keys = [], array $argv = [], ?callable $handler = null): mixed {}
+
+    /**
+     * Invokes a read-only Redis function. At least one key is required, and
+     * all keys must hash to the same cluster slot.
+     *
+     * @param  string  $name
+     * @param  array  $keys
+     * @param  array  $argv
+     * @param  callable|null  $handler
+     * @return mixed
+     */
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    public function fcall_ro(string $name, array $keys = [], array $argv = [], ?callable $handler = null): mixed {}
 
     /**
      * @see Relay::flushMemory()
@@ -1279,6 +1361,25 @@ class Cluster
     public function hget(mixed $key, mixed $member): mixed {}
 
     /**
+     * Manages session-local HIMPORT fieldsets and imports hash values.
+     *
+     * The hash selects the cluster node for every operation, but is only sent
+     * to Redis for SET.
+     *
+     * @param  string  $op
+     * @param  string  $hash
+     * @param  string|null  $fieldset = null
+     * @param  array  $fields = []
+     * @return Cluster|bool|int
+     */
+    public function himport(
+        string $op,
+        string $hash,
+        ?string $fieldset = null,
+        array $fields = []
+    ): Cluster|bool|int {}
+
+    /**
      * Returns all fields and values of the hash stored at key.
      *
      * @param  mixed  $key
@@ -1614,7 +1715,7 @@ class Cluster
      * @param  string  $srcpos
      * @param  string  $dstpos
      * @param  array|null  $options
-     * @return Cluster|array|false
+     * @return Cluster|array|null|false
      */
     #[Attributes\RedisCommand]
     public function lmovem(
@@ -1623,7 +1724,7 @@ class Cluster
         string $srcpos,
         string $dstpos,
         ?array $options = null
-    ): Cluster|array|false {}
+    ): Cluster|array|null|false {}
 
     /**
      * Pops one or more elements from the first non-empty list key from the list of provided key names.
@@ -1750,6 +1851,17 @@ class Cluster
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function mset(array $kvals): Cluster|array|bool {}
+
+    /**
+     * Sets the given keys to their respective values with optional TTL
+     * information.
+     *
+     * @param  array  $kvals
+     * @param  int|float|array|null  $ttl
+     * @return Cluster|int|false
+     */
+    #[Attributes\RedisCommand]
+    public function msetex(array $kvals, int|float|array|null $ttl = null): Cluster|int|false {}
 
     /**
      * Sets the given keys to their respective values.
@@ -2181,6 +2293,8 @@ class Cluster
      * - `OPT_THROW_ON_ERROR`
      * - `OPT_CLIENT_INVALIDATIONS`
      * - `OPT_PHPREDIS_COMPATIBILITY`
+     * - `OPT_NODE_READ_TIMEOUT`
+     * - `OPT_MULTIKEY_REORDERING`
      *
      * Supported PhpRedis options:
      *
@@ -2924,7 +3038,7 @@ class Cluster
      * @param  mixed  $max
      * @return Cluster|int|false
      */
-    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function zcount(mixed $key, mixed $min, mixed $max): Cluster|int|false {}
 
     /**
