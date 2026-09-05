@@ -92,7 +92,7 @@ class CommandStartedEvent
     /**
      * Returns the server hostname for the command
      * @link   https://www.php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.gethost.php
-     * @return string
+     * @return string Returns the hostname of the server on which the command was executed.
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.20.0
      */
@@ -112,7 +112,7 @@ class CommandStartedEvent
     /**
      * Returns the server port for the command
      * @link   https://www.php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getport.php
-     * @return int
+     * @return int Returns the port of the server on which the command was executed.
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.20.0
      */

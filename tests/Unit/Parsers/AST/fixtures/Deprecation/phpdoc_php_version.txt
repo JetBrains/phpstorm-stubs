@@ -1,0 +1,6 @@
+<?php
+
+/**
+ * @deprecated 7.1 use g() instead
+ */
+function f(): void {}

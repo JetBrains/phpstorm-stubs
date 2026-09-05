@@ -8,6 +8,7 @@ namespace StubTests\Framework\Tools;
 use Exception;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
+use PhpParser\NodeVisitor;
 use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\NodeVisitorAbstract;
 use PhpParser\ParserFactory;
@@ -111,24 +112,24 @@ use const PHP_EOL;
         {
             if ($node instanceof Node\Stmt\ClassLike) {
                 if ($node->getDocComment() !== null && strpos($node->getDocComment()->getText(), '@internal') !== false) {
-                    return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+                    return NodeVisitor::DONT_TRAVERSE_CHILDREN;
                 }
 
                 $this->classNames[] = $node->namespacedName->toString();
 
-                return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+                return NodeVisitor::DONT_TRAVERSE_CHILDREN;
             }
 
             if ($node instanceof Node\Stmt\Function_) {
                 $this->functionNames[] = $node->namespacedName->toString();
 
-                return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+                return NodeVisitor::DONT_TRAVERSE_CHILDREN;
             }
 
             if ($node instanceof Node\Const_) {
                 $this->constantNames[] = $node->namespacedName->toString();
 
-                return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+                return NodeVisitor::DONT_TRAVERSE_CHILDREN;
             }
 
             if ($node instanceof Node\Expr\FuncCall) {
@@ -150,7 +151,7 @@ use const PHP_EOL;
 
                 $this->constantNames[] = $nameNode->value;
 
-                return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+                return NodeVisitor::DONT_TRAVERSE_CHILDREN;
             }
 
             return null;
@@ -195,6 +196,18 @@ use const PHP_EOL;
     $nodeTraverser->addVisitor($fileVisitor);
 
     $map = ['classes' => [], 'functions' => [], 'constants' => []];
+    $versionedMaps = [];
+    $versionedExtensionNames = [];
+
+    foreach (scandir($phpStormStubsDirectory) as $topEntry) {
+        if ($topEntry === '.' || $topEntry === '..' || !is_dir($phpStormStubsDirectory . $topEntry)) {
+            continue;
+        }
+
+        if (preg_match('/^(.+)_v(\d+)$/', $topEntry, $matches)) {
+            $versionedExtensionNames[$matches[1]] = true;
+        }
+    }
 
     // $phpStormStubsDirectory ends with a separator, so top-level entries are appended directly
     // (no extra separator) to keep the relative paths in the map identical to before.
@@ -209,9 +222,11 @@ use const PHP_EOL;
             continue;
         }
 
-        if (in_array($topEntry, ['tests', 'meta', 'vendor', 'couchbase_v2', 'ds_v2'], true)) {
+        if (in_array($topEntry, ['tests', 'meta', 'vendor'], true)) {
             continue;
         }
+
+        $directoryMap = ['classes' => [], 'functions' => [], 'constants' => []];
 
         // scandir-based traversal (see StubFileScanner) — the SPL iterators truncate listings
         // over the Docker Desktop Windows bind mount, dropping whole extensions from the map.
@@ -231,18 +246,34 @@ use const PHP_EOL;
             $nodeTraverser->traverse($ast);
 
             foreach ($fileVisitor->getClassNames() as $className) {
-                $map['classes'][$className] = $filePath;
+                $directoryMap['classes'][$className] = $filePath;
             }
 
             foreach ($fileVisitor->getFunctionNames() as $functionName) {
-                $map['functions'][$functionName] = $filePath;
+                $directoryMap['functions'][$functionName] = $filePath;
             }
 
             foreach ($fileVisitor->getConstantNames() as $constantName) {
-                $map['constants'][$constantName] = $filePath;
+                $directoryMap['constants'][$constantName] = $filePath;
             }
 
             $fileVisitor->clear();
+        }
+
+        if (preg_match('/^(.+)_v(\d+)$/', $topEntry, $matches)) {
+            $versionedMaps[$matches[1]][$matches[2]] = $directoryMap;
+
+            continue;
+        }
+
+        foreach ($directoryMap as $symbolType => $files) {
+            foreach ($files as $symbolName => $filePath) {
+                $map[$symbolType][$symbolName] = $filePath;
+            }
+        }
+
+        if (isset($versionedExtensionNames[$topEntry])) {
+            $versionedMaps[$topEntry]['default'] = $directoryMap;
         }
     }
 
@@ -254,9 +285,26 @@ use const PHP_EOL;
         }, $files);
     }, $map);
 
+    $versionedMapsWithRelativeFilePaths = array_map(static function (array $versions) use ($phpStormStubsDirectory): array {
+        ksort($versions);
+
+        return array_map(static function (array $map) use ($phpStormStubsDirectory): array {
+            return array_map(static function (array $files) use ($phpStormStubsDirectory): array {
+                ksort($files);
+
+                return array_map(static function (string $filePath) use ($phpStormStubsDirectory): string {
+                    return str_replace('\\', '/', substr($filePath, strlen($phpStormStubsDirectory)));
+                }, $files);
+            }, $map);
+        }, $versions);
+    }, $versionedMaps);
+
+    ksort($versionedMapsWithRelativeFilePaths);
+
     $exportedClasses = var_export($mapWithRelativeFilePaths['classes'], true);
     $exportedFunctions = var_export($mapWithRelativeFilePaths['functions'], true);
     $exportedConstants = var_export($mapWithRelativeFilePaths['constants'], true);
+    $exportedExtensionVersions = str_replace("=> \n", "=>\n", var_export($versionedMapsWithRelativeFilePaths, true));
 
     $output = <<<"PHP"
 <?php
@@ -277,6 +325,8 @@ const CLASSES = {$exportedClasses};
 const FUNCTIONS = {$exportedFunctions};
 
 const CONSTANTS = {$exportedConstants};
+
+const EXTENSION_VERSIONS = {$exportedExtensionVersions};
 }
 PHP;
 

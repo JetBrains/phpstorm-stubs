@@ -3,9 +3,9 @@
 namespace StubTests\Unit\Parsers\Processors;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Processors\EntityProcessingPipelineFactory;
-use StubTests\Framework\Parsers\Processors\ReflectionDeduplicationProcessor;
-use StubTests\Framework\Parsers\Processors\StubsDeduplicationProcessor;
+use StubTests\Framework\Pipeline\EntityProcessingPipelineFactory;
+use StubTests\Framework\Pipeline\ReflectionDeduplicationProcessor;
+use StubTests\Framework\Pipeline\StubsDeduplicationProcessor;
 
 /**
  * Guards the cache-generation pipelines against drifting apart.

@@ -3,7 +3,7 @@
 namespace StubTests\Unit\Parsers\Reflection;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\Types\NoType;
+use StubTests\Framework\Model\Types\NoType;
 use StubTests\Framework\Parsers\Reflection\ReflectionMethodParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClass;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionMethod;

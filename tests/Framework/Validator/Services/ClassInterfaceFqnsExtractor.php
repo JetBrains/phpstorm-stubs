@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Validator\Services;
 
-use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
+use StubTests\Framework\Model\PHPClassLikeObject;
 
 /**
  * Extracts the list of directly-implemented interface FQNs from a class-like entity.

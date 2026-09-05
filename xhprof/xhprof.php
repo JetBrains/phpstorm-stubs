@@ -15,7 +15,7 @@
  * @param array $options [optional] <p>An array of optional options, namely, the 'ignored_functions' option to pass in functions
  *                       to be ignored during profiling.</p>
  *
- * @return null
+ * @return null null
  */
 function xhprof_enable($flags = 0, array $options = []) {}
 
@@ -35,7 +35,7 @@ function xhprof_disable() {}
  * required when doing performance monitoring and diagnostics.
  *
  * @link https://php.net/manual/en/function.xhprof-sample-enable.php
- * @return null
+ * @return null null
  */
 function xhprof_sample_enable() {}
 

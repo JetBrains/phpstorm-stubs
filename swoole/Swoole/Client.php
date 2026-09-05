@@ -31,11 +31,12 @@ class Client
     public function set(array $settings) {}
 
     /**
-     * @param mixed $host
-     * @param mixed|null $port
-     * @param mixed|null $timeout
+     * @param mixed $host The host name of the remote address.
+     * @param mixed|null $port The port number of the remote address.
+     * @param mixed|null $timeout The timeout(second) of connect/send/recv, the default value is
+     * 0.1s
      * @param mixed|null $sock_flag
-     * @return mixed
+     * @return mixed Whether the connection is established.
      */
     public function connect($host, $port = null, $timeout = null, $sock_flag = null) {}
 
@@ -47,24 +48,26 @@ class Client
     public function recv($size = null, $flag = null) {}
 
     /**
-     * @param mixed $data
+     * @param mixed $data The data to send which can be string or binary
      * @param mixed|null $flag
-     * @return mixed
+     * @return mixed If the client sends data successfully, it returns the length of data sent. Or
+     * it returns false and sets $swoole_client->errCode. For sync client, there is no limit for the
+     * data to send. For async client, The limit for the data to send is socket_buffer_size.
      */
     public function send($data, $flag = null) {}
 
     /**
-     * @param mixed $filename
-     * @param mixed|null $offset
+     * @param mixed $filename File path of the file to send.
+     * @param mixed|null $offset Offset of the file to send
      * @param mixed|null $length
      * @return mixed
      */
     public function sendfile($filename, $offset = null, $length = null) {}
 
     /**
-     * @param mixed $ip
-     * @param mixed $port
-     * @param mixed $data
+     * @param mixed $ip The IP address of remote host, IPv4 or IPv6.
+     * @param mixed $port The port number of remote host.
+     * @param mixed $data The data to send which should be less-than 64K.
      * @return mixed
      */
     public function sendto($ip, $port, $data) {}
@@ -91,23 +94,23 @@ class Client
     public function verifyPeerCert() {}
 
     /**
-     * @return mixed
+     * @return mixed Whether the connection is established.
      */
     public function isConnected() {}
 
     /**
-     * @return mixed
+     * @return mixed The host and port of the local socket.
      */
     public function getsockname() {}
 
     /**
-     * @return mixed
+     * @return mixed The host and port of the remote socket.
      */
     public function getpeername() {}
 
     /**
-     * @param mixed|null $force
-     * @return mixed
+     * @param mixed|null $force Whether force to close the connection.
+     * @return mixed Whether the connection is closed.
      */
     public function close($force = null) {}
 

@@ -319,6 +319,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * Returns the current element
      * @link https://php.net/manual/en/simplexmliterator.current.php
      * @return static the current element as a <b>SimpleXMLElement</b> object.
+     * @throws \Error Throws an Error on failure.
      */
     #[Pure]
     #[TentativeType]
@@ -328,6 +329,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * Return current key
      * @link https://php.net/manual/en/simplexmliterator.key.php
      * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object
+     * @throws \Error Throws an Error on failure.
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|false')]
@@ -342,7 +344,12 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     public function next(): void {}
 
     /**
-     * @return bool
+     * Checks whether the current element has sub elements
+     *
+     * This method checks whether the current SimpleXMLElement element has sub-elements.
+     *
+     * @link https://php.net/manual/en/simplexmlelement.haschildren.php
+     * @return bool true if the current element has sub-elements, otherwise false
      * @since 8.0
      */
     #[Pure]
@@ -350,6 +357,12 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     public function hasChildren(): bool {}
 
     /**
+     * Returns the sub-elements of the current element
+     *
+     * This method returns a SimpleXMLElement object containing sub-elements of the current
+     * SimpleXMLElement element.
+     *
+     * @link https://php.net/manual/en/simplexmlelement.getchildren.php
      * @since 8.0
      */
     #[Pure]
@@ -534,8 +547,10 @@ function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLEle
  * the specified class. That class should extend the
  * SimpleXMLElement class.
  * </p>
- * @return SimpleXMLElement|null a SimpleXMLElement or <b>FALSE</b> on failure.
+ * @return SimpleXMLElement|null a SimpleXMLElement, or <b>NULL</b> on failure. Prior to PHP 8.0,
+ * <b>FALSE</b> was returned instead of <b>NULL</b>.
  * @meta
+ * @throws \TypeError Throws a TypeError when passed a non-XML or non-HTML node.
  */
 function simplexml_import_dom(#[LanguageLevelTypeAware(['8.4' => 'object'], default: 'SimpleXMLElement|DOMNode')] $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
 

@@ -3,8 +3,8 @@
 namespace StubTests\Unit\Parsers\Serializers;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPInterface;
-use StubTests\Framework\Parsers\Serializers\Stubs\PHPInterfaceSerializer;
+use StubTests\Framework\Model\PHPInterface;
+use StubTests\Framework\Serialization\Stubs\PHPInterfaceSerializer;
 
 class PHPInterfaceSerializerTest extends TestCase
 {

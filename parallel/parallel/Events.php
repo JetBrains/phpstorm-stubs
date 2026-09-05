@@ -100,7 +100,9 @@ final class Events implements Countable, Traversable
      * Should this be a non-blocking loop, and blocking would occur, null shall be returned
      * Otherwise, the Event returned describes the event.
      *
-     * @return Event|null
+     * @return Event|null Should there be no targets remaining, null shall be returned Should this
+     * be a non-blocking loop, and blocking would occur, null shall be returned Otherwise, the
+     * parallel\Events\Event returned describes the event.
      *
      * @throws Events\Error\Timeout if timeout is used and reached.
      */

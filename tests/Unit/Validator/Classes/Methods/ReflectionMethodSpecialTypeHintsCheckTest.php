@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Classes\Methods;
 
-use StubTests\Framework\Parsers\Model\PHPMethod;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Methods\ReflectionMethodSpecialTypeHintsCheck;
@@ -341,7 +341,7 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
 
         $entityId = '\\ReflectionFunctionAbstract';
 
-        $knownProblemsProvider = $this->createMock(KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -384,7 +384,7 @@ class ReflectionMethodSpecialTypeHintsCheckTest extends CheckTestCase
         $classId = '\\ReflectionFunctionAbstract';
         $methodId = $classId . '::getReturnType';
 
-        $knownProblemsProvider = $this->createMock(KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::METHOD,

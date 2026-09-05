@@ -5,7 +5,7 @@ namespace StubTests\Unit\Parsers\AST;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\Types\ParsedType;
-use StubTests\Framework\Parsers\Model\PHPProperty;
+use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
 use StubTests\Framework\Parsers\Stubs\StubFunctionParser;
 use StubTests\Unit\Parsers\AST\fixtures\FixtureStubsDataProvider;
@@ -96,11 +96,11 @@ class DefaultTypeParserTest extends BaseTestCase
         $class = $this->classParser->parse($stubCode);
         $properties = $class->getProperties();
 
-        // Array with generic type (note: PhpDocumentor normalizes whitespace)
-        self::assertEquals('array<string,int>', $properties[0]->getStubsMetadata()->getTypeFromPhpDoc());
+        // Array with generic type: phpDocumentor renders `, ` between type arguments
+        self::assertEquals('array<string, int>', $properties[0]->getStubsMetadata()->getTypeFromPhpDoc());
 
-        // Callable type (PhpDocumentor simplifies callable signatures to just "callable")
-        self::assertEquals('callable', $properties[1]->getStubsMetadata()->getTypeFromPhpDoc());
+        // Callable type: the full signature is preserved, not collapsed to bare "callable"
+        self::assertEquals('callable(string): void', $properties[1]->getStubsMetadata()->getTypeFromPhpDoc());
     }
 
     public function testParseReturnsCorrectParsedTypeInstance()
@@ -364,9 +364,10 @@ class TestClass {
         $class = $this->classParser->parse($stubCode);
         $properties = $class->getProperties();
 
-        // Verify complex types are preserved (PhpDocumentor normalizes whitespace and simplifies callables)
-        self::assertEquals('array<string,int>', $properties[0]->getStubsMetadata()->getTypeFromPhpDoc());
-        self::assertEquals('callable', $properties[1]->getStubsMetadata()->getTypeFromPhpDoc());
+        // Verify complex types are preserved; phpDocumentor renders `, ` between type arguments
+        // and keeps the whole callable signature
+        self::assertEquals('array<string, int>', $properties[0]->getStubsMetadata()->getTypeFromPhpDoc());
+        self::assertEquals('callable(string): void', $properties[1]->getStubsMetadata()->getTypeFromPhpDoc());
     }
 
     // ==================== phpstan/psalm dropped-tag recovery ====================
@@ -375,11 +376,19 @@ class TestClass {
      * phpDocumentor silently drops @param/@return tags whose phpstan/psalm type it cannot
      * resolve. They must instead be recovered verbatim so the documented type is stored
      * (narrowing to a built-in type happens later, at verification time).
+     *
+     * `TKey`/`TValue` are declared via `@template` on purpose: phpDocumentor resolves any bare
+     * identifier as a class name and renders it FQN-prefixed, and it is
+     * {@see \StubTests\Framework\PhpDoc\TemplateTypeNormalizer} — driven by these tags — that
+     * strips the spurious backslash back off. Without the declarations the stored type would
+     * legitimately be `array<\TKey, \TValue>`.
      */
     public function testRecoversDroppedPhpStanTypesVerbatim()
     {
         $stubCode = '<?php
 /**
+ * @template TKey
+ * @template TValue
  * @param array<TKey, TValue> $items the items
  * @param non-empty-array<int> $codes
  * @return int-mask<1, 2, 4> the mask
@@ -432,7 +441,7 @@ function fixture_resolvable($n) {}';
 
         self::assertInstanceOf(ParsedType::class, $result);
         // Null type node results in NoType object (not null)
-        self::assertInstanceOf(\StubTests\Framework\Parsers\Model\Types\NoType::class, $result->typeFromSignature);
+        self::assertInstanceOf(\StubTests\Framework\Model\Types\NoType::class, $result->typeFromSignature);
         self::assertNull($result->typeFromPhpDoc);
         self::assertNull($result->languageLevelTypes);
         self::assertNull($result->defaultType);

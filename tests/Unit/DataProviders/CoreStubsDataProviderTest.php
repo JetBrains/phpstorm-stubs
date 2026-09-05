@@ -77,22 +77,37 @@ class CoreStubsDataProviderTest extends TestCase
         self::assertIsArray($stubFiles);
         self::assertNotEmpty($stubFiles);
 
-        // Verify all files are from PECL directories (not in other categories)
+        // Assert PECL membership positively, the same way the CORE/BUNDLED/EXTERNAL tests above do.
+        // Excluding the other three categories one by one is not equivalent: OTHERS is a fifth
+        // category, so a `blackfire/` or `xcache/` file leaking into the PECL result satisfied all
+        // three assertFalse()s and the test stayed green. Categories are mutually exclusive, so the
+        // positive check subsumes every exclusion.
         foreach ($stubFiles as $file) {
             $relativePath = $this->getRelativePath($file, $provider->getStubsRootPath());
             $topLevelDir = $this->getTopLevelDirectory($relativePath);
 
-            self::assertFalse(
-                StubCategory::CORE->containsDirectory($topLevelDir),
-                "File {$relativePath} is from CORE, not PECL"
+            self::assertTrue(
+                StubCategory::PECL->containsDirectory($topLevelDir),
+                "File {$relativePath} is not from a PECL directory"
             );
-            self::assertFalse(
-                StubCategory::BUNDLED->containsDirectory($topLevelDir),
-                "File {$relativePath} is from BUNDLED, not PECL"
-            );
-            self::assertFalse(
-                StubCategory::EXTERNAL->containsDirectory($topLevelDir),
-                "File {$relativePath} is from EXTERNAL, not PECL"
+        }
+    }
+
+    public function testItReturnsOnlyOthersStubs()
+    {
+        $provider = new CoreStubsDataProvider(StubCategory::OTHERS);
+        $stubFiles = $provider->getAllStubFiles();
+
+        self::assertIsArray($stubFiles);
+        self::assertNotEmpty($stubFiles);
+
+        foreach ($stubFiles as $file) {
+            $relativePath = $this->getRelativePath($file, $provider->getStubsRootPath());
+            $topLevelDir = $this->getTopLevelDirectory($relativePath);
+
+            self::assertTrue(
+                StubCategory::OTHERS->containsDirectory($topLevelDir),
+                "File {$relativePath} is not from an OTHERS directory"
             );
         }
     }
@@ -182,15 +197,47 @@ class CoreStubsDataProviderTest extends TestCase
         $provider->getStubFileContent('/nonexistent/file.php');
     }
 
-    public function testItCachesStubFilesForPerformance()
+    /**
+     * The caching contract is "the inner provider is scanned once", and only a call count can state
+     * it. The previous version asserted `assertSame($files1, $files2)` under the comment "should
+     * return the same array instance (cached)" — but PHP arrays are values, and assertSame on two
+     * arrays compares contents, not identity. Re-scanning the whole tree on every call produces
+     * equal arrays, so that assertion passed whether or not the cache existed.
+     */
+    public function testItScansTheInnerProviderOnlyOnceAndReusesTheResult()
     {
-        $provider = new CoreStubsDataProvider(StubCategory::CORE);
+        $inner = new class() implements StubsDataProvider {
+            public int $scanCount = 0;
 
-        $files1 = $provider->getAllStubFiles();
-        $files2 = $provider->getAllStubFiles();
+            public function getAllStubFiles(): array
+            {
+                $this->scanCount++;
 
-        // Should return the same array instance (cached)
-        self::assertSame($files1, $files2);
+                return [
+                    '/proj/stubs/Core/Core_c.php',
+                    '/proj/stubs/curl/curl.php',
+                ];
+            }
+
+            public function getStubFileContent(string $path): string
+            {
+                return '<?php';
+            }
+
+            public function getStubsRootPath(): string
+            {
+                return '/proj/stubs';
+            }
+        };
+
+        $provider = new CoreStubsDataProvider(StubCategory::CORE, $inner);
+
+        $first = $provider->getAllStubFiles();
+        $second = $provider->getAllStubFiles();
+
+        self::assertSame(1, $inner->scanCount, 'The inner provider must be scanned exactly once');
+        self::assertSame(['/proj/stubs/Core/Core_c.php'], $first, 'Only the CORE file survives filtering');
+        self::assertSame($first, $second, 'The cached call must return the same filtered result');
     }
 
     public function testItReturnsConfiguredCategories()

@@ -73,7 +73,7 @@ function apache_note($note_name, $note_value = '') {}
  * Reset the Apache write timer
  * apache_reset_timeout() resets the Apache write timer, which defaults to 300 seconds. With set_time_limit(0); ignore_user_abort(true) and periodic apache_reset_timeout() calls, Apache can theoretically run forever.
  * This function requires Apache 1.
- * @link https://php.net/manual/en/function.apache-reset-timeout.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.apache-reset-timeout
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function apache_reset_timeout() {}
@@ -107,7 +107,7 @@ function apache_setenv($variable, $value, $walk_to_top = false) {}
  * virtual() is an Apache-specific function which is similar to <!--#include virtual...--> in mod_include. It performs an Apache sub-request. It is useful for including CGI scripts or .shtml files, or anything else that you would parse through Apache. Note that for a CGI script, the script must generate valid CGI headers. At the minimum that means it must generate a Content-Type header.
  * To run the sub-request, all buffers are terminated and flushed to the browser, pending headers are sent too.
  * This function is supported when PHP is installed as an Apache module or by the NSAPI server module in Netscape/iPlanet/SunONE webservers.
- * @link https://secure.php.net/manual/en/function.virtual.php
+ * @link https://php.net/manual/en/function.virtual.php
  * @param string $filename <p>
  * The file that the virtual command will be performed on.
  * </p>

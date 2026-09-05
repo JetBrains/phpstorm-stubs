@@ -72,7 +72,7 @@ abstract class AbstractReflectionAdapter
         // Convert to adapted format
         $this->data = [];
         foreach ($rawData as $methodName => $value) {
-            $this->data[$methodName] = ReflectionMethodExtractor::makeSerializable($value);
+            $this->data[$methodName] = ReflectionValueNormalizer::makeSerializable($value);
         }
     }
 

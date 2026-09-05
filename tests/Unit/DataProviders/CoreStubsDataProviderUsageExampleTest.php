@@ -9,8 +9,8 @@ use StubTests\Framework\DataProvider\StubCategory;
 use StubTests\Framework\Parsers\Stubs\AllStubsParser;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
 use StubTests\Framework\Parsers\Stubs\StubFunctionParser;
-use StubTests\Framework\Parsers\Storage\DefaultParsedDataStorageManager;
-use StubTests\Framework\Parsers\Storage\InMemoryParsedDataStorage;
+use StubTests\Framework\Storage\DefaultParsedDataStorageManager;
+use StubTests\Framework\Storage\InMemoryParsedDataStorage;
 
 /**
  * This test demonstrates how to use CoreStubsDataProvider to parse only specific

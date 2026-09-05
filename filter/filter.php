@@ -278,7 +278,7 @@ define('FILTER_VALIDATE_BOOLEAN', 258);
 /**
  * ID of "boolean" filter.
  * @link https://php.net/manual/en/filter.constants.php
- * @link https://php.net/manual/en/filter.filters.validate.php
+ * @link https://php.net/manual/en/filter.constants.php
  * @since 8.0 Using `FILTER_VALIDATE_BOOL` is preferred.
  */
 define('FILTER_VALIDATE_BOOL', 258);

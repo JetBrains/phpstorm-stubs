@@ -1402,7 +1402,7 @@ abstract class Request_Abstract
     public function isCli() {}
 
     /**
-     * @link https://secure.php.net/manual/en/yaf-request-abstract.isdispached.php
+     * @link https://php.net/manual/en/yaf-request-abstract.isdispatched.php
      *
      * @return bool
      */
@@ -1471,7 +1471,7 @@ abstract class Request_Abstract
     public function getException() {}
 
     /**
-     * @link https://secure.php.net/manual/en/yaf-request-abstract.getmoudlename.php
+     * @link https://php.net/manual/en/yaf-request-abstract.getmodulename.php
      *
      * @return string
      */
@@ -2855,28 +2855,28 @@ class TypeError extends \Yaf\Exception {}/**
  * @link https://secure.php.net/manual/en/class.yaf-exception-startuperror.php
  */
 class StartupError extends \Yaf\Exception {}/**
- * @link https://secure.php.net/manual/en/class.yaf-exception-routefaild.php
+ * @link https://php.net/manual/en/class.yaf-exception-routerfailed.php
  */
 class RouterFailed extends \Yaf\Exception {}/**
- * @link https://secure.php.net/manual/en/class.yaf-exception-dispatchfaild.php
+ * @link https://php.net/manual/en/class.yaf-exception-dispatchfailed.php
  */
 class DispatchFailed extends \Yaf\Exception {}/**
- * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild.php
+ * @link https://php.net/manual/en/class.yaf-exception-loadfailed.php
  */
 class LoadFailed extends \Yaf\Exception {}}
 
 namespace Yaf\Exception\LoadFailed {
 /**
- * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-module.php
+ * @link https://php.net/manual/en/class.yaf-exception-loadfailed-module.php
  */
 class Module extends \Yaf\Exception\LoadFailed {}/**
- * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-controller.php
+ * @link https://php.net/manual/en/class.yaf-exception-loadfailed-controller.php
  */
 class Controller extends \Yaf\Exception\LoadFailed {}/**
- * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-action.php
+ * @link https://php.net/manual/en/class.yaf-exception-loadfailed-action.php
  */
 class Action extends \Yaf\Exception\LoadFailed {}/**
- * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-view.php
+ * @link https://php.net/manual/en/class.yaf-exception-loadfailed-view.php
  */
 class View extends \Yaf\Exception\LoadFailed {}
 }

@@ -127,7 +127,7 @@ class Pool
      * Resize the Pool
      * @link https://secure.php.net/manual/en/pool.resize.php
      * @param int $size <p>The maximum number of Workers this Pool can create</p>
-     * @return void
+     * @return void No value is returned.
      */
     public function resize(int $size) {}
 
@@ -136,7 +136,7 @@ class Pool
      * Shuts down all of the workers in the pool. This will block until all submitted
      * tasks have been executed.
      * @link https://secure.php.net/manual/en/pool.shutdown.php
-     * @return void
+     * @return void No value is returned.
      */
     public function shutdown() {}
 
@@ -293,7 +293,7 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess
      * The programmer should always implement the run method for objects
      * that are intended for execution.
      * @link https://secure.php.net/manual/en/threaded.run.php
-     * @return void
+     * @return void The methods return value, if used, will be ignored
      */
     public function run() {}
 

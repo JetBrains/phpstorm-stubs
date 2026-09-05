@@ -2,9 +2,9 @@
 
 namespace StubTests\Framework\Validator\Meta;
 
-use StubTests\Framework\Parsers\Meta\MetaReference;
-use StubTests\Framework\Parsers\Meta\MetaReferenceType;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\MetaFile\MetaReference;
+use StubTests\Framework\MetaFile\MetaReferenceType;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\Services\EntityLookupService;

@@ -104,7 +104,34 @@ final class ClientEncryption
     /**
      * Encrypts a Match Expression or Aggregate Expression to query a range index
      * @param array|object $expr A BSON document containing the expression
-     * @param array|null $options
+     * @param array|null $options Encryption options Option Type Description algorithm string The
+     * encryption algorithm to be used. This option is required. Specify one of the following
+     * ClientEncryption constants:
+     * MongoDB\Driver\ClientEncryption::AEAD_AES_256_CBC_HMAC_SHA_512_DETERMINISTIC
+     * MongoDB\Driver\ClientEncryption::AEAD_AES_256_CBC_HMAC_SHA_512_RANDOM
+     * MongoDB\Driver\ClientEncryption::ALGORITHM_INDEXED
+     * MongoDB\Driver\ClientEncryption::ALGORITHM_UNINDEXED
+     * MongoDB\Driver\ClientEncryption::ALGORITHM_RANGE contentionFactor int The contention factor
+     * for evaluating queries with indexed, encrypted payloads. This option only applies and may
+     * only be specified when algorithm is MongoDB\Driver\ClientEncryption::ALGORITHM_INDEXED or
+     * MongoDB\Driver\ClientEncryption::ALGORITHM_RANGE. keyAltName string Identifies a key vault
+     * collection document by keyAltName. This option is mutually exclusive with keyId and exactly
+     * one is required. keyId MongoDB\BSON\Binary Identifies a data key by _id. The value is a UUID
+     * (binary subtype 4). This option is mutually exclusive with keyAltName and exactly one is
+     * required. queryType string The query type for evaluating queries with indexed, encrypted
+     * payloads. Specify one of the following ClientEncryption constants:
+     * MongoDB\Driver\ClientEncryption::QUERY_TYPE_EQUALITY
+     * MongoDB\Driver\ClientEncryption::QUERY_TYPE_RANGE This option only applies and may only be
+     * specified when algorithm is MongoDB\Driver\ClientEncryption::ALGORITHM_INDEXED or
+     * MongoDB\Driver\ClientEncryption::ALGORITHM_RANGE. rangeOpts array Index options for a
+     * queryable encryption field supporting "range" queries. The options below must match the
+     * values set in the encryptedFields of the target collection. For double and decimal128 BSON
+     * field types, min, max, and precision must all be set, or all be unset. Range index options
+     * Option Type Description min mixed Required if precision is set. The minimum BSON value of the
+     * range. max mixed Required if precision is set. The maximum BSON value of the range. sparsity
+     * int Optional. Positive 64-bit integer. precision int Optional. Positive 32-bit integer
+     * specifying precision to use for explicit encryption. May only be set for double or decimal128
+     * BSON field types. trimFactor int Optional. Positive 32-bit integer.
      * @return object Returns the encrypted expression as a BSON document
      * @throws InvalidArgumentException On argument parsing errors.
      * @since 1.16.0
@@ -134,7 +161,7 @@ final class ClientEncryption
     /**
      * Finds all key documents in the key vault collection.
      * @link https://www.php.net/manual/en/mongodb-driver-clientencryption.getkeys.php
-     * @return Cursor
+     * @return Cursor Returns MongoDB\Driver\Cursor on success.
      * @throws InvalidArgumentException On argument parsing errors.
      * @since 1.15.0
      */
@@ -153,8 +180,31 @@ final class ClientEncryption
     /**
      * Rewraps data keys
      * @link https://www.php.net/manual/en/mongodb-driver-clientencryption.rewrapmanydatakey.php
-     * @param array|object $filter
-     * @param array|null $options
+     * @param array|object $filter The query predicate. An empty predicate will match all documents
+     * in the collection. When evaluating query criteria, MongoDB compares types and values
+     * according to its own comparison rules for BSON types, which differs from PHP's comparison and
+     * type juggling rules. When matching a special BSON type the query criteria should use the
+     * respective BSON class (e.g. use MongoDB\BSON\ObjectId to match an ObjectId).
+     * @param array|null $options RewrapManyDataKey options Option Type Description provider string
+     * The KMS provider (e.g. "local", "aws") that will be used to re-encrypt the matched data keys.
+     * If a KMS provider is not specified, matched data keys will be re-encrypted with their current
+     * KMS provider. masterKey array The masterKey identifies a KMS-specific key used to encrypt the
+     * new data key. This option should not be specified without the "provider" option. This option
+     * is required if "provider" is specified and not "local". "aws" provider options Option Type
+     * Description region string Required. key string Required. The Amazon Resource Name (ARN) to
+     * the AWS customer master key (CMK). endpoint string Optional. An alternate host identifier to
+     * send KMS requests to. May include port number. "azure" provider options Option Type
+     * Description keyVaultEndpoint string Required. Host with optional port (e.g.
+     * "example.vault.azure.net"). keyName string Required. keyVersion string Optional. A specific
+     * version of the named key. Defaults to using the key's primary version. "gcp" provider options
+     * Option Type Description projectId string Required. location string Required. keyRing string
+     * Required. keyName string Required. keyVersion string Optional. A specific version of the
+     * named key. Defaults to using the key's primary version. endpoint string Optional. Host with
+     * optional port. Defaults to "cloudkms.googleapis.com". "kmip" provider options Option Type
+     * Description keyId string Optional. Unique identifier to a 96-byte KMIP secret data managed
+     * object. If unspecified, the driver creates a random 96-byte KMIP secret data managed object.
+     * endpoint string Optional. Host with optional port. delegated bool Optional. If true, this key
+     * should be decrypted by the KMIP server.
      * @return object Returns an object, which will have an optional bulkWriteResult property containing the result of the internal bulkWrite operation as an object. If no data keys matched the filter or the write was unacknowledged, the bulkWriteResult property will be null.
      * @since 1.16.0
      */

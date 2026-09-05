@@ -4,7 +4,7 @@ namespace StubTests\Unit\Parsers\Model;
 
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Validator\Services\ClassAncestorNamesExtractor;
-use StubTests\Framework\Parsers\Model\PHPClass;
+use StubTests\Framework\Model\PHPClass;
 
 /**
  * Unit tests for ClassAncestorNamesExtractor.

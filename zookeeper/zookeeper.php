@@ -71,9 +71,12 @@ class Zookeeper
     /**
      * Create a handle to used communicate with zookeeper.
      * If the host is provided, attempt to connect.
-     * @param string $host
-     * @param callable $watcher_cb
-     * @param int $recv_timeout
+     * @param string $host comma separated host:port pairs, each corresponding to a zk server. e.g.
+     * "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002"
+     * @param callable $watcher_cb the global watcher callback function. When notifications are
+     * triggered this function will be invoked.
+     * @param int $recv_timeout the timeout for this session, only valid if the connections is
+     * currently connected (ie. last watcher state is ZOO_CONNECTED_STATE).
      * @throws ZookeeperException
      * @throws ZookeeperConnectionException when host is provided and when failed to connect to the host
      * @link https://www.php.net/manual/en/zookeeper.construct.php
@@ -82,9 +85,12 @@ class Zookeeper
 
     /**
      * Create a handle to used communicate with zookeeper.
-     * @param string $host
-     * @param callable $watcher_cb
-     * @param int $recv_timeout
+     * @param string $host Comma separated host:port pairs, each corresponding to a zk server. e.g.
+     * "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002"
+     * @param callable $watcher_cb The global watcher callback function. When notifications are
+     * triggered this function will be invoked.
+     * @param int $recv_timeout The timeout for this session, only valid if the connection is
+     * currently connected (ie. last watcher state is ZOO_CONNECTED_STATE).
      * @throws ZookeeperException
      * @throws ZookeeperConnectionException when failed to connect to Zookeeper
      * @link https://www.php.net/manual/en/zookeeper.connect.php
@@ -101,11 +107,14 @@ class Zookeeper
 
     /**
      * Create a node synchronously.
-     * @param string $path
-     * @param string $value
+     * @param string $path The name of the node. Expressed as a file name with slashes separating
+     * ancestors of the node.
+     * @param string $value The data to be stored in the node.
      * @param array $acl
-     * @param int $flags
-     * @return string
+     * @param int $flags this parameter can be set to 0 for normal create or an OR of the Create
+     * Flags
+     * @return string Returns the path of the new node (this might be different than the supplied
+     * path because of the ZOO_SEQUENCE flag) on success, and false on failure.
      * @throws ZookeeperException
      * @throws ZookeeperNoNodeException when parent path does not exist
      * @link https://www.php.net/manual/en/zookeeper.create.php
@@ -114,9 +123,12 @@ class Zookeeper
 
     /**
      * Delete a node in zookeeper synchronously.
-     * @param string $path
-     * @param int $version
-     * @return bool
+     * @param string $path The name of the node. Expressed as a file name with slashes separating
+     * ancestors of the node.
+     * @param int $version The expected version of the node. The function will fail if the actual
+     * version of the node does not match the expected version. If -1 is used the version check will
+     * not take place.
+     * @return bool Returns true on success or false on failure.
      * @throws ZookeeperException
      * @throws ZookeeperNoNodeException when path does not exist
      * @link https://www.php.net/manual/en/zookeeper.delete.php
@@ -125,11 +137,14 @@ class Zookeeper
 
     /**
      * Sets the data associated with a node.
-     * @param string $path
+     * @param string $path The name of the node. Expressed as a file name with slashes separating
+     * ancestors of the node.
      * @param string $data
-     * @param int $version
-     * @param array  &$stat
-     * @return bool
+     * @param int $version The expected version of the node. The function will fail if the actual
+     * version of the node does not match the expected version. If -1 is used the version check will
+     * not take place.
+     * @param array  &$stat If not NULL, will hold the value of stat for the path on return.
+     * @return bool Returns true on success or false on failure.
      * @throws ZookeeperException
      * @throws ZookeeperNoNodeException when path does not exist
      * @link https://www.php.net/manual/en/zookeeper.set.php
@@ -138,11 +153,14 @@ class Zookeeper
 
     /**
      * Gets the data associated with a node synchronously.
-     * @param string $path
-     * @param callable $watcher_cb
-     * @param array    &$stat
-     * @param int $max_size
-     * @return string
+     * @param string $path The name of the node. Expressed as a file name with slashes separating
+     * ancestors of the node.
+     * @param callable $watcher_cb If nonzero, a watch will be set at the server to notify the
+     * client if the node changes.
+     * @param array    &$stat If not NULL, will hold the value of stat for the path on return.
+     * @param int $max_size Max size of the data. If 0 is used, this method will return the whole
+     * data.
+     * @return string Returns the data on success, and false on failure.
      * @throws ZookeeperException
      * @throws ZookeeperNoNodeException when path does not exist
      * @link https://www.php.net/manual/en/zookeeper.get.php
@@ -151,9 +169,11 @@ class Zookeeper
 
     /**
      * Get children data of a path.
-     * @param string $path
-     * @param callable $watcher_cb
-     * @return array|false
+     * @param string $path The name of the node. Expressed as a file name with slashes separating
+     * ancestors of the node.
+     * @param callable $watcher_cb If nonzero, a watch will be set at the server to notify the
+     * client if the node changes.
+     * @return array|false Returns an array with children paths on success, and false on failure.
      * @throws ZookeeperException       when connection not in connected status
      * @throws ZookeeperNoNodeException when path does not exist
      * @link https://www.php.net/manual/en/zookeeper.getchildren.php
@@ -163,9 +183,12 @@ class Zookeeper
 
     /**
      * Checks the existence of a node in zookeeper synchronously.
-     * @param string $path
-     * @param callable $watcher_cb
-     * @return bool
+     * @param string $path The name of the node. Expressed as a file name with slashes separating
+     * ancestors of the node.
+     * @param callable $watcher_cb if nonzero, a watch will be set at the server to notify the
+     * client if the node changes. The watch will be set even if the node does not
+     * @return bool Returns the value of stat for the path if the given node exists, otherwise
+     * false.
      * @throws ZookeeperException
      * @link https://www.php.net/manual/en/zookeeper.exists.php
      */
@@ -173,8 +196,9 @@ class Zookeeper
 
     /**
      * Gets the acl associated with a node synchronously.
-     * @param string $path
-     * @return array
+     * @param string $path The name of the node. Expressed as a file name with slashes separating
+     * ancestors of the node.
+     * @return array Return acl array on success and false on failure.
      * @throws ZookeeperException when connection not in connected status
      * @link https://www.php.net/manual/en/zookeeper.getacl.php
      */
@@ -183,10 +207,11 @@ class Zookeeper
 
     /**
      * Sets the acl associated with a node synchronously.
-     * @param string $path
-     * @param int $version
+     * @param string $path The name of the node. Expressed as a file name with slashes separating
+     * ancestors of the node.
+     * @param int $version The expected version of the path.
      * @param array $acls
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      * @throws ZookeeperException when connection not in connected status
      * @link https://www.php.net/manual/en/zookeeper.setacl.php
      */
@@ -195,7 +220,7 @@ class Zookeeper
     /**
      * return the client session id, only valid if the connections is currently connected
      * (ie. last watcher state is ZOO_CONNECTED_STATE).
-     * @return int
+     * @return int Returns the client session id on success, and false on failure.
      * @throws ZookeeperException
      * @throws ZookeeperConnectionException when connection not in connected status
      * @link https://www.php.net/manual/en/zookeeper.getclientid.php
@@ -205,8 +230,9 @@ class Zookeeper
 
     /**
      * Set a watcher function.
-     * @param callable $watcher_cb
-     * @return bool
+     * @param callable $watcher_cb A watch will be set at the server to notify the client if the
+     * node changes.
+     * @return bool Returns true on success or false on failure.
      * @throws ZookeeperException
      * @throws ZookeeperConnectionException when connection not in connected status
      * @link https://www.php.net/manual/en/zookeeper.setwatcher.php
@@ -215,7 +241,7 @@ class Zookeeper
 
     /**
      * Get the state of the zookeeper connection.
-     * @return int
+     * @return int Returns the state of zookeeper connection on success, and false on failure.
      * @throws ZookeeperException
      * @throws ZookeeperConnectionException when connection not in connected status
      * @link https://www.php.net/manual/en/zookeeper.getstate.php
@@ -226,7 +252,7 @@ class Zookeeper
     /**
      * Return the timeout for this session, only valid if the connections is currently connected
      * (ie. last watcher state is ZOO_CONNECTED_STATE). This value may change after a server reconnect.
-     * @return int
+     * @return int Returns the timeout for this session on success, and false on failure.
      * @throws ZookeeperException
      * @throws ZookeeperConnectionException when connection not in connected status
      * @link https://www.php.net/manual/en/zookeeper.getrecvtimeout.php
@@ -236,10 +262,13 @@ class Zookeeper
 
     /**
      * Specify application credentials.
-     * @param string $scheme
-     * @param string $cert
-     * @param callable $completion_cb
-     * @return bool
+     * @param string $scheme The id of authentication scheme. Natively supported: "digest"
+     * password-based authentication
+     * @param string $cert Application credentials. The actual value depends on the scheme.
+     * @param callable $completion_cb The routine to invoke when the request completes. One of the
+     * following result codes may be passed into the completion callback: - ZOK operation completed
+     * successfully - ZAUTHFAILED authentication failed
+     * @return bool Returns true on success or false on failure.
      * @throws ZookeeperException
      * @throws ZookeeperConnectionException when connection not in connected status
      * @link https://www.php.net/manual/en/zookeeper.addauth.php
@@ -248,7 +277,7 @@ class Zookeeper
 
     /**
      * Checks if the current zookeeper connection state can be recovered.
-     * @return bool
+     * @return bool Returns true/false on success, and false on failure.
      * @throws ZookeeperException
      * @throws ZookeeperConnectionException when connection not in connected status
      * @link https://www.php.net/manual/en/zookeeper.isrecoverable.php
@@ -259,7 +288,7 @@ class Zookeeper
      * Sets the stream to be used by the library for logging.
      * TODO: might be able to set a stream like php://stderr or something
      * @param resource $file
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      * @link https://www.php.net/manual/en/zookeeper.setlogstream.php
      */
     public function setLogStream($file) {}
@@ -267,7 +296,7 @@ class Zookeeper
     /**
      * Sets the debugging level for the library.
      * @param int $level
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      * @link https://www.php.net/manual/en/zookeeper.setdebuglevel.php
      */
     public static function setDebugLevel($level) {}
@@ -275,7 +304,7 @@ class Zookeeper
     /**
      * Enable/disable quorum endpoint order randomization.
      * @param bool $trueOrFalse
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      * @link https://www.php.net/manual/en/zookeeper.setdeterministicconnorder.php
      */
     public static function setDeterministicConnOrder($trueOrFalse) {}

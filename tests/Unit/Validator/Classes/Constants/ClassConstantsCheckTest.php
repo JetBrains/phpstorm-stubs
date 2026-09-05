@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Classes\Constants;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
+use StubTests\Framework\Model\Access\AccessModifier;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Constants\ClassConstantsCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
@@ -185,7 +185,7 @@ class ClassConstantsCheckTest extends CheckTestCase
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('SECRET', 'wrong')]);
         $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('SECRET', 'correct')]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -222,7 +222,7 @@ class ClassConstantsCheckTest extends CheckTestCase
             $this->makeClassConstant('GOOD', 42),           // matches reflection → passes
         ]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_CONSTANT,
@@ -266,7 +266,7 @@ class ClassConstantsCheckTest extends CheckTestCase
             $this->makeClassConstant('GOOD', 42),     // matches reflection → passes
         ]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_CONSTANT,
@@ -304,7 +304,7 @@ class ClassConstantsCheckTest extends CheckTestCase
             $this->makeClassConstant('SPURIOUS', 99), // not in reflection, NOT in known problem → fails
         ]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_CONSTANT,

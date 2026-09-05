@@ -3,8 +3,8 @@
 namespace StubTests\Unit\Validator\Classes\TypeForbidden;
 
 use PHPUnit\Framework\Attributes\DataProvider;
-use StubTests\Framework\Parsers\Model\PHPParameter;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
+use StubTests\Framework\Model\PHPParameter;
+use StubTests\Framework\Model\Types\StandaloneType;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\TypeForbidden\ClassMethodsScalarTypeForbiddenCheck;
@@ -402,7 +402,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
     {
         $className = '\SpecialClass';
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -441,7 +441,7 @@ class ClassMethodsScalarTypeForbiddenCheckTest extends CheckTestCase
         $className = '\MyClass';
         $methodEntityId = $className . '::doWork';
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::METHOD,

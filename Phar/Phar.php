@@ -66,6 +66,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $fileformat = null
     ) {}
 
+    /**
+     * Destructs a Phar archive object
+     * @link https://php.net/manual/en/phar.destruct.php
+     */
     public function __destruct() {}
 
     /**
@@ -137,6 +141,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return array <b>Phar::buildFromDirectory</b> returns an associative array
      * mapping internal path of file to the full path of the file on the
      * filesystem.
+     * @throws \BadMethodCallException This method throws BadMethodCallException when unable to
+     * instantiate the internal directory iterators.
+     * @throws \PharException This method throws a PharException if there were errors saving the phar
+     * archive.
      */
     #[TentativeType]
     public function buildFromDirectory(
@@ -159,6 +167,13 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return array <b>Phar::buildFromIterator</b> returns an associative array
      * mapping internal path of file to the full path of the file on the
      * filesystem.
+     * @throws \UnexpectedValueException This method returns UnexpectedValueException when the
+     * iterator returns incorrect values, such as an integer key instead of a string.
+     * @throws \BadMethodCallException This method returns a
+     * BadMethodCallException when an SplFileInfo-based iterator is passed without a baseDirectory
+     * parameter.
+     * @throws \PharException This method returns a PharException
+     * if there were errors saving the phar archive.
      */
     #[TentativeType]
     public function buildFromIterator(
@@ -176,6 +191,9 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * to remove compression.
      * </p>
      * @return void No value is returned.
+     * @throws \BadMethodCallException Throws BadMethodCallException if the phar.readonly INI
+     * variable is on, the zlib extension is not available, or if any files are compressed using
+     * bzip2 compression and the bzip2 extension is not enabled.
      */
     #[TentativeType]
     public function compressFiles(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression): void {}
@@ -185,6 +203,9 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * Decompresses all files in the current Phar archive
      * @link https://php.net/manual/en/phar.decompressfiles.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \BadMethodCallException Throws BadMethodCallException if the phar.readonly INI
+     * variable is on, the zlib extension is not available, or if any files are compressed using
+     * bzip2 compression and the bzip2 extension is not enabled.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -207,6 +228,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * are .phar and .phar.tar.
      * </p>
      * @return static|null a <b>Phar</b> object.
+     * @throws \BadMethodCallException Throws BadMethodCallException if the phar.readonly INI
+     * variable is on, the zlib extension is not available, or the bzip2 extension is not enabled.
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.0' => 'static|null'], default: '')]
@@ -227,6 +250,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * in their filename.
      * </p>
      * @return static|null A <b>Phar</b> object is returned.
+     * @throws \BadMethodCallException Throws BadMethodCallException if the phar.readonly INI
+     * variable is on, the zlib extension is not available, or the bzip2 extension is not enabled.
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.0' => 'static|null'], default: '')]
@@ -262,6 +287,12 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return Phar|null The method returns a <b>Phar</b> object on success and throws an
      * exception on failure.
+     * @throws \BadMethodCallException This method throws BadMethodCallException when unable to
+     * compress, an unknown compression method has been specified, the requested archive is
+     * buffering with Phar::startBuffering and has not concluded with Phar::stopBuffering.
+     * @throws \UnexpectedValueException This method throws an UnexpectedValueException if write support is disabled.
+     * @throws \PharException This method throws a PharException if any problems
+     * are encountered during the phar creation process.
      */
     #[TentativeType]
     public function convertToExecutable(
@@ -298,6 +329,14 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return PharData|null The method returns a <b>PharData</b> object on success and throws an
      * exception on failure.
+     * @throws \BadMethodCallException This method throws BadMethodCallException when unable to
+     * compress, an unknown compression method has been specified, the requested archive is
+     * buffering with Phar::startBuffering and has not concluded with Phar::stopBuffering, and a
+     * PharException if any problems are encountered during the phar creation process.
+     * @throws \PharException This method throws BadMethodCallException when unable to compress, an
+     * unknown compression method has been specified, the requested archive is buffering with
+     * Phar::startBuffering and has not concluded with Phar::stopBuffering, and a PharException if
+     * any problems are encountered during the phar creation process.
      */
     #[TentativeType]
     public function convertToData(
@@ -314,6 +353,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @param string $to
      * @return bool returns <b>TRUE</b> on success, but it is safer to encase method call in a
      * try/catch block and assume success if no exception is thrown.
+     * @throws \UnexpectedValueException Throws UnexpectedValueException if the source file does not
+     * exist, the destination file already exists, write access is disabled, opening either file
+     * fails, reading the source file fails.
+     * @throws \PharException Throws a PharException if writing the changes to the phar fails.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -342,6 +385,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return bool returns <b>TRUE</b> on success, but it is better to check for thrown exception,
      * and assume success if none is thrown.
+     * @throws \PharException Throws PharException if errors occur while flushing changes to disk.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -353,6 +397,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @link https://php.net/manual/en/phar.delmetadata.php
      * @return bool returns <b>TRUE</b> on success, but it is better to check for thrown exception,
      * and assume success if none is thrown.
+     * @throws \PharException Throws PharException if errors occur while flushing changes to disk.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -373,6 +418,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return bool returns <b>TRUE</b> on success, but it is better to check for thrown exception,
      * and assume success if none is thrown.
+     * @throws \PharException Throws PharException if errors occur while flushing changes to disk.
      */
     #[TentativeType]
     public function extractTo(
@@ -382,6 +428,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     ): bool {}
 
     /**
+     * Get the alias for Phar
+     * @link https://php.net/manual/en/phar.getalias.php
      * @return string|null
      * @see setAlias
      */
@@ -432,6 +480,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @link https://php.net/manual/en/phar.getstub.php
      * @return string a string containing the contents of the bootstrap loader (stub) of
      * the current Phar archive.
+     * @throws \RuntimeException Throws RuntimeException if it is not possible to read the stub from
+     * the Phar archive.
      */
     #[TentativeType]
     public function getStub(): string {}
@@ -485,6 +535,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * Phar::ZIP to test for the format of the archive.
      * </p>
      * @return bool <b>TRUE</b> if the phar archive matches the file format requested by the parameter
+     * @throws \PharException PharException is thrown if the parameter is an unknown file format
+     * specifier.
      */
     #[TentativeType]
     public function isFileFormat(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $format): bool {}
@@ -519,6 +571,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return PharFileInfo A <b>PharFileInfo</b> object is returned that can be used to
      * iterate over a file's contents or to retrieve information about the current file.
+     * @throws \BadMethodCallException This method throws BadMethodCallException if the file does
+     * not exist in the Phar archive.
      */
     #[TentativeType]
     public function offsetGet($localName): SplFileInfo {}
@@ -534,6 +588,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * Content of the file.
      * </p>
      * @return void No return values.
+     * @throws \BadMethodCallException if phar.readonly is 1, BadMethodCallException is thrown, as
+     * modifying a Phar is only allowed when phar.readonly is set to 0.
+     * @throws \PharException Throws PharException if there are any
+     * problems flushing changes made to the Phar archive to disk.
      */
     #[TentativeType]
     public function offsetSet($localName, $value): void {}
@@ -545,7 +603,11 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @param string $localName <p>
      * The filename (relative path) to modify in a Phar.
      * </p>
-     * @return void
+     * @return void No value is returned.
+     * @throws \BadMethodCallException if phar.readonly is 1, BadMethodCallException is thrown, as
+     * modifying a Phar is only allowed when phar.readonly is set to 0.
+     * @throws \PharException Throws PharException if there are any
+     * problems flushing changes made to the Phar archive to disk.
      */
     #[TentativeType]
     public function offsetUnset($localName): void {}
@@ -558,7 +620,11 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * A shorthand string that this archive can be referred to in phar
      * stream wrapper access.
      * </p>
-     * @return bool
+     * @return bool Always returns true.
+     * @throws \UnexpectedValueException Throws UnexpectedValueException when write access is
+     * disabled.
+     * @throws \PharException Throws PharException if the alias is already in use or any problems were encountered flushing
+     * changes to disk.
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
@@ -575,6 +641,9 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * Relative path within the phar archive to run if accessed through a web browser
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \UnexpectedValueException UnexpectedValueException is thrown if phar.readonly is
+     * enabled in php.ini.
+     * @throws \PharException PharException is thrown if any problems are encountered flushing changes to disk.
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
@@ -617,6 +686,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * naming and placement of the public key file.
      * </p>
      * @return void No value is returned.
+     * @throws \UnexpectedValueException Throws UnexpectedValueException for many errors.
+     * @throws \PharException Throws a PharException if any problems occur flushing changes to disk.
      */
     #[TentativeType]
     public function setSignatureAlgorithm(
@@ -635,6 +706,9 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @param int $length [optional] <p>
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \UnexpectedValueException UnexpectedValueException is thrown if phar.readonly is
+     * enabled in php.ini.
+     * @throws \PharException PharException is thrown if any problems are encountered flushing changes to disk.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -657,6 +731,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * Stop buffering write requests to the Phar archive, and save changes to disk
      * @link https://php.net/manual/en/phar.stopbuffering.php
      * @return void No value is returned.
+     * @throws \PharException PharException is thrown if any problems are encountered flushing
+     * changes to disk.
      */
     #[TentativeType]
     public function stopBuffering(): void {}
@@ -699,6 +775,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return string a string containing the contents of a customized bootstrap loader (stub)
      * that allows the created Phar archive to work with or without the Phar extension
      * enabled.
+     * @throws \UnexpectedValueException Throws UnexpectedValueException if either parameter is
+     * longer than 400 bytes.
      */
     final public static function createDefaultStub(?string $index = null, ?string $webIndex = null): string {}
 
@@ -759,6 +837,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * a new alias is specified in this case.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \PharException PharException is thrown if an alias is passed in and the phar archive
+     * already has an explicit alias
      */
     final public static function loadPhar(string $filename, ?string $alias = null): bool {}
 
@@ -774,6 +854,9 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * Unused variable, here for compatibility with PEAR's PHP_Archive.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \PharException PharException is thrown if not called directly within PHP execution,
+     * if no __HALT_COMPILER(); token is found in the current source file, or if the file cannot be
+     * opened for reading.
      */
     final public static function mapPhar(?string $alias = null, int $offset = 0): bool {}
 
@@ -804,6 +887,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * A path or URL to an external file or directory to mount within the phar archive
      * </p>
      * @return void No return. <b>PharException</b> is thrown on failure.
+     * @throws \PharException Throws PharException if any problems occur mounting the path.
      */
     final public static function mount(string $pharPath, string $externalPath): void {}
 
@@ -819,6 +903,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * is case-sensitive.
      * </p>
      * @return void No return.
+     * @throws \UnexpectedValueException Throws UnexpectedValueException if any problems are found
+     * with the passed in data.
      */
     final public static function mungServer(array $variables): void {}
 
@@ -912,6 +998,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * send a HTTP 403 Denied Code.
      * </p>
      * @return void No value is returned.
+     * @throws \PharException Throws PharException when unable to open the internal file to output,
+     * or if called from a non-stub.
+     * @throws \UnexpectedValueException If an invalid array value is passed into mimeTypes
+     * or an invalid callback is passed into rewrite, then UnexpectedValueException is thrown.
      */
     final public static function webPhar(
         ?string $alias = null,
@@ -1023,6 +1113,8 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * file format constants
      * available within the <b>Phar</b> class.
      * </p>
+     * @throws \BadMethodCallException Throws BadMethodCallException if called twice;
+     * @throws \UnexpectedValueException UnexpectedValueException if the Phar archive can't be opened.
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
@@ -1056,6 +1148,8 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * Content of the file.
      * </p>
      * @return void No return values.
+     * @throws \PharException Throws PharException if there are any problems flushing changes made
+     * to the tar/zip archive to disk.
      */
     #[TentativeType]
     public function offsetSet($localName, $value): void {}
@@ -1067,7 +1161,9 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * @param string $localName <p>
      * The filename (relative path) to modify in the tar/zip archive.
      * </p>
-     * @return void
+     * @return void No value is returned.
+     * @throws \PharException Throws PharException if there are any problems flushing changes made
+     * to the tar/zip archive to disk.
      */
     #[TentativeType]
     public function offsetUnset($localName): void {}
@@ -1201,6 +1297,10 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * @return array <b>Phar::buildFromDirectory</b> returns an associative array
      * mapping internal path of file to the full path of the file on the
      * filesystem.
+     * @throws \BadMethodCallException This method throws BadMethodCallException when unable to
+     * instantiate the internal directory iterators
+     * @throws \PharException This method throws a PharException if there were errors saving the phar
+     * archive.
      */
     #[TentativeType]
     public function buildFromDirectory(
@@ -1223,6 +1323,13 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * @return array <b>Phar::buildFromIterator</b> returns an associative array
      * mapping internal path of file to the full path of the file on the
      * filesystem.
+     * @throws \UnexpectedValueException This method returns UnexpectedValueException when the
+     * iterator returns incorrect values, such as an integer key instead of a string.
+     * @throws \BadMethodCallException This method returns a
+     * BadMethodCallException when an SplFileInfo-based iterator is passed without a baseDirectory
+     * parameter
+     * @throws \PharException This method returns a PharException
+     * if there were errors saving the phar archive.
      */
     #[TentativeType]
     public function buildFromIterator(
@@ -1240,6 +1347,9 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * to remove compression.
      * </p>
      * @return void No value is returned.
+     * @throws \BadMethodCallException Throws BadMethodCallException if the phar.readonly INI
+     * variable is on, the zlib extension is not available, or if any files are compressed using
+     * bzip2 compression and the bzip2 extension is not enabled.
      */
     #[TentativeType]
     public function compressFiles(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression): void {}
@@ -1249,6 +1359,9 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * Decompresses all files in the current Phar archive
      * @link https://php.net/manual/en/phardata.decompressfiles.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \BadMethodCallException Throws BadMethodCallException if the zlib extension is not
+     * available, or if any files are compressed using bzip2 compression and the bzip2 extension is
+     * not enabled.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -1271,6 +1384,8 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * are .phar and .phar.tar.
      * </p>
      * @return static|null a <b>Phar</b> object.
+     * @throws \BadMethodCallException Throws BadMethodCallException if the zlib extension is not
+     * available, or the bzip2 extension is not enabled.
      */
     #[LanguageLevelTypeAware(['8.0' => 'static|null'], default: '')]
     #[TentativeType]
@@ -1291,6 +1406,8 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * in their filename.
      * </p>
      * @return static|null A <b>Phar</b> object is returned.
+     * @throws \BadMethodCallException Throws BadMethodCallException if the zlib extension is not
+     * available, or the bzip2 extension is not enabled.
      */
     #[LanguageLevelTypeAware(['8.0' => 'static|null'], default: '')]
     #[TentativeType]
@@ -1326,6 +1443,13 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * </p>
      * @return Phar|null The method returns a <b>Phar</b> object on success and throws an
      * exception on failure.
+     * @throws \BadMethodCallException This method throws BadMethodCallException when unable to
+     * compress, an unknown compression method has been specified, the requested archive is
+     * buffering with Phar::startBuffering and has not concluded with Phar::stopBuffering.
+     * @throws \UnexpectedValueException This method throws an
+     * UnexpectedValueException if write support is disabled.
+     * @throws \PharException This method throws a PharException if any problems
+     * are encountered during the phar creation process.
      */
     #[TentativeType]
     public function convertToExecutable(
@@ -1362,6 +1486,11 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * </p>
      * @return PharData|null The method returns a <b>PharData</b> object on success and throws an
      * exception on failure.
+     * @throws \BadMethodCallException This method throws BadMethodCallException when unable to
+     * compress, an unknown compression method has been specified, the requested archive is
+     * buffering with Phar::startBuffering and has not concluded with Phar::stopBuffering.
+     * @throws \PharException This method throws a PharException if
+     * any problems are encountered during the phar creation process.
      */
     #[TentativeType]
     public function convertToData(
@@ -1378,6 +1507,10 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * @param string $to
      * @return bool returns <b>TRUE</b> on success, but it is safer to encase method call in a
      * try/catch block and assume success if no exception is thrown.
+     * @throws \UnexpectedValueException Throws UnexpectedValueException if the source file does not
+     * exist, the destination file already exists, write access is disabled, opening either file
+     * fails, reading the source file fails.
+     * @throws \PharException Throws a PharException if writing the changes to the phar fails.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -1389,7 +1522,7 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns the number of entries (files) in the Phar archive
-     * @link https://php.net/manual/en/phardata.count.php
+     * @link https://php.net/manual/en/phar.count.php
      * @param int $mode [optional]
      * @return int<0,max> The number of files contained within this phar, or 0 (the number zero)
      * if none.
@@ -1406,6 +1539,7 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * </p>
      * @return bool returns <b>TRUE</b> on success, but it is better to check for thrown exception,
      * and assume success if none is thrown.
+     * @throws \PharException Throws PharException if errors occur while flushing changes to disk.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -1417,6 +1551,7 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * @link https://php.net/manual/en/phardata.delmetadata.php
      * @return bool returns <b>TRUE</b> on success, but it is better to check for thrown exception,
      * and assume success if none is thrown.
+     * @throws \PharException Throws PharException if errors occur while flushing changes to disk.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -1437,6 +1572,7 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * </p>
      * @return bool returns <b>TRUE</b> on success, but it is better to check for thrown exception,
      * and assume success if none is thrown.
+     * @throws \PharException Throws PharException if errors occur while flushing changes to disk.
      */
     #[TentativeType]
     public function extractTo(
@@ -1454,6 +1590,7 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * stream wrapper access.
      * </p>
      * @return bool
+     * @throws \PharException Throws PharException on all method calls
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
@@ -1595,6 +1732,7 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * Relative path within the phar archive to run if accessed through a web browser
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \PharException Throws PharException on all method calls
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
@@ -1637,6 +1775,10 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * naming and placement of the public key file.
      * </p>
      * @return void No value is returned.
+     * @throws \UnexpectedValueException Throws UnexpectedValueException for many errors.
+     * @throws \BadMethodCallException Throws BadMethodCallException if called for a zip- or a tar-based phar archive.
+     * @throws \PharException Throws a PharException
+     * if any problems occur flushing changes to disk.
      */
     #[TentativeType]
     public function setSignatureAlgorithm(
@@ -1655,6 +1797,7 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * @param int $length [optional] <p>
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \PharException Throws PharException on all method calls
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     public function setStub(
@@ -1951,6 +2094,10 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
     #[TentativeType]
     public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): void {}
 
+    /**
+     * Destructs a non-executable tar or zip archive object
+     * @link https://php.net/manual/en/phardata.destruct.php
+     */
     public function __destruct() {}
 }
 
@@ -1970,9 +2117,17 @@ class PharFileInfo extends SplFileInfo
      * for the file my/file.php from the phar boo.phar,
      * the entry should be phar://boo.phar/my/file.php.
      * </p>
+     * @throws \BadMethodCallException Throws BadMethodCallException if __construct() is called
+     * twice.
+     * @throws \UnexpectedValueException Throws UnexpectedValueException if the phar URL requested is malformed, the requested
+     * phar cannot be opened, or the file can't be found within the phar.
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename) {}
 
+    /**
+     * Destructs a Phar entry object
+     * @link https://php.net/manual/en/pharfileinfo.destruct.php
+     */
     public function __destruct() {}
 
     /**
@@ -1991,8 +2146,10 @@ class PharFileInfo extends SplFileInfo
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Compresses the current Phar entry with either zlib or bzip2 compression
      * @link https://php.net/manual/en/pharfileinfo.compress.php
-     * @param int $compression
+     * @param int $compression Compression must be Phar::GZ or Phar::BZ2.
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \BadMethodCallException Throws BadMethodCallException if the phar.readonly INI
+     * variable is on, or if the bzip2/zlib extension is not available.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -2003,6 +2160,8 @@ class PharFileInfo extends SplFileInfo
      * Decompresses the current Phar entry within the phar
      * @link https://php.net/manual/en/pharfileinfo.decompress.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \BadMethodCallException Throws BadMethodCallException if the phar.readonly INI
+     * variable is on, or if the bzip2/zlib extension is not available.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -2018,6 +2177,9 @@ class PharFileInfo extends SplFileInfo
      * must be off in order to succeed if the file is within a <b>Phar</b>
      * archive. Files within <b>PharData</b> archives do not have
      * this restriction.
+     * @throws \PharException Throws PharException if errors occurred while flushing changes to
+     * disk.
+     * @throws \BadMethodCallException Throws BadMethodCallException if write access is disabled.
      */
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
@@ -2037,10 +2199,21 @@ class PharFileInfo extends SplFileInfo
      * Returns CRC32 code or throws an exception if CRC has not been verified
      * @link https://php.net/manual/en/pharfileinfo.getcrc32.php
      * @return int The <b>crc32</b> checksum of the file within the Phar archive.
+     * @throws \BadMethodCallException Throws BadMethodCallException if the file has not yet had its
+     * CRC32 verified. This should be impossible with normal use, as the CRC is verified upon
+     * opening the file for reading or writing.
      */
     #[TentativeType]
     public function getCRC32(): int {}
 
+    /**
+     * Get the complete file contents of the entry
+     *
+     * This function behaves like file_get_contents but for Phar.
+     *
+     * @link https://php.net/manual/en/pharfileinfo.getcontent.php
+     * @return string Returns the file contents.
+     */
     #[TentativeType]
     public function getContent(): string {}
 
@@ -2105,7 +2278,6 @@ class PharFileInfo extends SplFileInfo
      * </p>
      * @return void No value is returned.
      */
-    #[LanguageLevelTypeAware(['8.0' => 'static|null'], default: '')]
     #[TentativeType]
     public function setMetadata(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $metadata): void {}
 }

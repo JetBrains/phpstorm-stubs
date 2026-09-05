@@ -49,6 +49,11 @@ class NikicParameterNode implements ParameterNode
         return $this->param->variadic;
     }
 
+    public function isPassedByReference(): bool
+    {
+        return $this->param->byRef;
+    }
+
     public function hasDefaultValue(): bool
     {
         return $this->param->default !== null;

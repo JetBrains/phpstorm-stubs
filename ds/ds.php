@@ -41,14 +41,14 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-collection.copy.php
-         * @return static
+         * @return static Returns a shallow copy of the collection.
          */
         public function copy();
 
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-collection.isempty.php
-         * @return bool
+         * @return bool Returns true if the collection is empty, false otherwise.
          */
         public function isEmpty(): bool;
 
@@ -167,7 +167,7 @@ namespace Ds;
          * @param callable(TValue): TValue $callback A callable to apply to each value in the
          * sequence. The callback should return what the value should be
          * replaced by.
-         * <code>callback ( mixed $value ) : mixed</code>
+         * <code>callback ( mixed \$value ) : mixed</code>
          * @link https://www.php.net/manual/en/ds-sequence.apply.php
          */
         public function apply(callable $callback): void;
@@ -195,7 +195,7 @@ namespace Ds;
          * value should be included, FALSE otherwise. If a callback is not
          * provided, only values which are TRUE (see converting to boolean) will
          * be included.
-         * <code>callback ( mixed $value ) : bool</code>
+         * <code>callback ( mixed \$value ) : bool</code>
          * @return Sequence<TValue> A new sequence containing all the values for which
          * either the callback returned TRUE, or all values that convert to
          * TRUE if a callback was not provided.
@@ -265,7 +265,7 @@ namespace Ds;
          * sequence.
          * The callable should return what the new value will be in the new
          * sequence.
-         * <code>callback ( mixed $value ) : mixed</code>
+         * <code>callback ( mixed \$value ) : mixed</code>
          * @return Sequence<TNewValue> The result of applying a callback to each value in
          * the sequence.<p><b>Note:</b> The values of the current instance won't be
          * affected.</p>
@@ -338,8 +338,8 @@ namespace Ds;
         /**
          * Rotates the sequence by a given number of rotations, which is
          * equivalent to successively calling
-         * $sequence->push($sequence->shift()) if the number of rotations is
-         * positive, or $sequence->unshift($sequence->pop()) if negative.
+         * \$sequence->push(\$sequence->shift()) if the number of rotations is
+         * positive, or \$sequence->unshift(\$sequence->pop()) if negative.
          * @param int $rotations The number of times the sequence should be
          * rotated.
          * @link https://www.php.net/manual/en/ds-sequence.rotate.php
@@ -357,7 +357,7 @@ namespace Ds;
 
         /**
          * Removes and returns the first value.
-         * @return TValue
+         * @return TValue The first value, which was removed.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-sequence.shift.php
          */
@@ -387,7 +387,7 @@ namespace Ds;
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to 2147483647.<p>
-         * <code>callback ( mixed $a, mixed $b ) : int</code></p>
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code></p>
          * <p><b>Caution:</b> Returning non-integer values from the comparison
          * function, such as float, will result in an internal cast to integer
          * of the callback's return value. So values such as 0.99 and 0.1 will
@@ -404,7 +404,7 @@ namespace Ds;
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to 2147483647.<p>
-         * <code>callback ( mixed $a, mixed $b ) : int</code></p>
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code></p>
          * <p><b>Caution:</b> Returning non-integer values from the comparison
          * function, such as float, will result in an internal cast to integer
          * of the callback's return value. So values such as 0.99 and 0.1 will
@@ -468,7 +468,8 @@ namespace Ds;
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
          *
-         * @param array<TValue> $values
+         * @param array<TValue> $values A traversable object or an array to use for the initial
+         * values.
          */
         public function __construct($values = []) {}
 
@@ -487,7 +488,7 @@ namespace Ds;
          * Updates all values by applying a callback function to each value in
          * the vector.
          * @param callable(TValue): TValue $callback
-         * <code>callback ( mixed $value ) : mixed</code>
+         * <code>callback ( mixed \$value ) : mixed</code>
          * A callable to apply to each value in the vector. The callback should
          * return what the value should be replaced by.
          * @link https://www.php.net/manual/en/ds-vector.apply.php
@@ -530,7 +531,7 @@ namespace Ds;
          * Optional callable which returns TRUE if the value should be included,
          * FALSE otherwise. If a callback is not provided, only values which are
          * TRUE (see converting to boolean)  will be included.
-         * <code>callback ( mixed $value ) : bool</code>
+         * <code>callback ( mixed \$value ) : bool</code>
          * @return Vector<TValue> A new vector containing all the values for which
          * either the callback returned TRUE, or all values that convert to
          * TRUE if a callback was not provided.
@@ -549,7 +550,7 @@ namespace Ds;
 
         /**
          * Returns the first value in the vector.
-         * @return TValue
+         * @return TValue The first value in the vector.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-vector.first.php
          */
@@ -558,7 +559,7 @@ namespace Ds;
         /**
          * Returns the value at a given index.
          * @param int $index The index to access, starting at 0.
-         * @return TValue
+         * @return TValue The value at the requested index.
          * @link https://www.php.net/manual/en/ds-vector.get.php
          */
         public function get(int $index) {}
@@ -603,7 +604,8 @@ namespace Ds;
          * @param callable(TValue): TNewValue $callback A callable to apply to each value in the sequence.
          * <br>The callable should return what the new value will be in the new sequence.
          *
-         * @return Vector<TNewValue>
+         * @return Vector<TNewValue> The result of applying a callback to each value in the vector.
+         * The values of the current instance won't be affected.
          * @link https://www.php.net/manual/en/ds-vector.map.php
          */
         public function map(callable $callback): Vector {}
@@ -624,14 +626,14 @@ namespace Ds;
         /**
          * Removes and returns the last value.
          *
-         * @return TValue
+         * @return TValue The removed last value.
          * @link https://www.php.net/manual/en/ds-vector.pop.php
          */
         public function pop() {}
 
         /**
          * Adds values to the end of the sequence.
-         * @param TValue ...$values
+         * @param TValue ...$values The values to add.
          * @link https://www.php.net/manual/en/ds-vector.push.php
          */
         public function push(...$values): void {}
@@ -640,7 +642,7 @@ namespace Ds;
          * Reduces the sequence to a single value using a callback function.
          * @template TCarry
          * @param callable(TCarry, TValue): TCarry $callback <br>
-         * <code>callback ( mixed $carry , mixed $value ) : mixed</code><br>
+         * <code>callback ( mixed \$carry , mixed \$value ) : mixed</code><br>
          * <b>carry</b> The return value of the previous callback, or initial if it's the first iteration.<br>
          * <b>value</b> The value of the current iteration.
          * @param TCarry $initial The initial value of the carry value. Can be NULL.
@@ -721,7 +723,7 @@ namespace Ds;
          * the sequence will stop that many values from the end. If a length
          * is not provided, the resulting sequence will contain all values
          * between the index and the end of the sequence.
-         * @return Vector<TValue>
+         * @return Vector<TValue> A sub-vector of the given range.
          */
         public function slice(int $index, ?int $length = null): Vector {}
 
@@ -733,7 +735,7 @@ namespace Ds;
          * than zero if the first argument is considered to be respectively less than, equal to, or greater than the
          * second. Note that before PHP 7.0.0 this integer had to be in the
          * range from -2147483648 to 2147483647.<br>
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code>
          * <b>Caution:</b> Returning non-integer values from the comparison function,
          * such as float, will result in an
          * internal cast to integer of the callback's return value. So values
@@ -749,7 +751,7 @@ namespace Ds;
          * greater  than zero if the first argument is considered to be respectively less than, equal to, or greater
          * than the second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to
          * 2147483647.<br>
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code>
          * <b>Caution:</b> Returning non-integer values from the comparison function, such as float, will result in an
          * internal cast to integer of the callback's return value. So values such as 0.99 and 0.1 will both be cast to
          * an integer value of 0, which will compare such values as equal.
@@ -762,7 +764,8 @@ namespace Ds;
          * <b>Note:</b> Arrays and objects are considered equal to zero when
          * calculating the sum.
          * @link https://www.php.net/manual/en/ds-vector.sum.php
-         * @return float|int
+         * @return float|int The sum of all the values in the vector as either a float or int
+         * depending on the values in the vector.
          */
         public function sum(): float|int {}
 
@@ -790,7 +793,7 @@ namespace Ds;
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-vector.isempty.php
-         * @return bool
+         * @return bool Returns true if the vector is empty, false otherwise.
          */
         public function isEmpty(): bool {}
 
@@ -872,7 +875,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the deque.
          * @link https://www.php.net/manual/en/ds-deque.copy.php
-         * @return Deque<TValue>
+         * @return Deque<TValue> A shallow copy of the deque.
          */
         public function copy(): Collection {}
 
@@ -884,7 +887,7 @@ namespace Ds;
         /**
          * Returns whether the deque is empty.
          * @link https://www.php.net/manual/en/ds-deque.isempty.php
-         * @return bool
+         * @return bool Returns true if the deque is empty, false otherwise.
          */
         public function isEmpty(): bool {}
 
@@ -915,7 +918,7 @@ namespace Ds;
          * @param callable(TValue): TValue $callback A callable to apply to each value in the
          * deque. The callback should return what the value should be
          * replaced by.<p>
-         * <code>callback ( mixed $value ) : mixed</code>
+         * <code>callback ( mixed \$value ) : mixed</code>
          * </p>
          * @link https://www.php.net/manual/en/ds-deque.apply.php
          */
@@ -944,7 +947,7 @@ namespace Ds;
          * value should be included, FALSE otherwise. If a callback is not
          * provided, only values which are TRUE (see converting to boolean) will
          * be included.<p>
-         * <code>callback ( mixed $value ) : bool</code>
+         * <code>callback ( mixed \$value ) : bool</code>
          * </p>
          * @return Deque<TValue> A new deque containing all the values for which
          * either the callback returned TRUE, or all values that convert to
@@ -1016,7 +1019,7 @@ namespace Ds;
          * deque.
          * The callable should return what the new value will be in the new
          * deque.
-         * <code>callback ( mixed $value ) : mixed</code>
+         * <code>callback ( mixed \$value ) : mixed</code>
          *
          * @return Deque<TNewValue> The result of applying a callback to each value in
          * the deque.
@@ -1055,7 +1058,7 @@ namespace Ds;
          * Reduces the deque to a single value using a callback function.
          * @template TCarry
          * @param callable(TCarry, TValue): TCarry $callback
-         * <code>callback ( mixed $carry , mixed $value ) : mixed</code>
+         * <code>callback ( mixed \$carry , mixed \$value ) : mixed</code>
          * <b>$carry</b> The return value of the previous callback, or initial if it's
          * the first iteration.<p>
          * <b>$value</b> The value of the current iteration.
@@ -1090,8 +1093,8 @@ namespace Ds;
         /**
          * Rotates the deque by a given number of rotations, which is
          * equivalent to successively calling
-         * $deque->push($deque->shift()) if the number of rotations is
-         * positive, or $deque->unshift($deque->pop()) if negative.
+         * \$deque->push(\$deque->shift()) if the number of rotations is
+         * positive, or \$deque->unshift(\$deque->pop()) if negative.
          * @param int $rotations The number of times the deque should be
          * rotated.
          * @link https://www.php.net/manual/en/ds-deque.rotate.php
@@ -1109,7 +1112,7 @@ namespace Ds;
 
         /**
          * Removes and returns the first value.
-         * @return TValue
+         * @return TValue The first value, which was removed.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-deque.shift.php
          */
@@ -1139,7 +1142,7 @@ namespace Ds;
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to 2147483647.
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code>
          * <p><b>Caution:</b> Returning non-integer values from the comparison
          * function, such as float, will result in an internal cast to integer
          * of the callback's return value. So values such as 0.99 and 0.1 will
@@ -1156,7 +1159,7 @@ namespace Ds;
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to 2147483647.
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code>
          * <p><b>Caution:</b> Returning non-integer values from the comparison
          * function, such as float, will result in an internal cast to integer
          * of the callback's return value. So values such as 0.99 and 0.1 will
@@ -1368,7 +1371,7 @@ namespace Ds;
          *
          * @return bool Returns TRUE if the key could found, FALSE otherwise.
          *
-         * @link https://www.php.net/manual/en/ds-map.hasKey.php
+         * @link https://php.net/manual/en/ds-map.haskey.php
          */
         public function hasKey($key): bool {}
 
@@ -1379,7 +1382,7 @@ namespace Ds;
          *
          * @return bool Returns TRUE if the value could found, FALSE otherwise.
          *
-         * @link https://www.php.net/manual/en/ds-map.hasValue.php
+         * @link https://php.net/manual/en/ds-map.hasvalue.php
          */
         public function hasValue($value): bool {}
 
@@ -1455,7 +1458,7 @@ namespace Ds;
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to  2147483647.
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code>
          * <p><b>Caution:</b> Returning non-integer values from the comparison function, such
          * as float, will result in an internal cast to integer of the
          * callback's return value. So values such as 0.99 and 0.1 will both be
@@ -1473,7 +1476,7 @@ namespace Ds;
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to 2147483647.
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code>
          * <p><b>Caution:</b> Returning non-integer values from the comparison function, such
          * as float, will result in an internal cast to integer of the
          * callback's return value. So values such as 0.99 and 0.1 will both be
@@ -1499,7 +1502,7 @@ namespace Ds;
          * @param callable(TKey, TValue): TNewValue $callback A callable to apply to each value in the
          * map. The callable should return what the key will be mapped to in the
          * resulting map.
-         * <code>callback ( mixed $key , mixed $value ) : mixed</code>
+         * <code>callback ( mixed \$key , mixed \$value ) : mixed</code>
          * @return Map<TKey, TNewValue> The result of applying a callback to each value in the
          * map.
          *
@@ -1582,7 +1585,7 @@ namespace Ds;
          *
          * @template TCarry
          * @param callable(TCarry, TKey, TValue): TCarry $callback
-         * <code>callback ( mixed $carry , mixed $key , mixed $value ) : mixed</code>
+         * <code>callback ( mixed \$carry , mixed \$key , mixed \$value ) : mixed</code>
          * <b>carry</b> The return value of the previous callback, or initial if
          * it's the first iteration.
          * <b>key</b> The key of the current iteration.
@@ -1694,7 +1697,7 @@ namespace Ds;
          * greater than the second. Note that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to 2147483647.
          *
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code>
          *
          * <b>Caution:</b> Returning non-integer values from the comparison function,
          * such as float, will result in an internal cast to integer of the
@@ -1717,7 +1720,7 @@ namespace Ds;
          * greater than the second. Note that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to 2147483647.
          *
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code>
          *
          * <b>Caution:</b> Returning non-integer values from the comparison function,
          * such as float, will result in an internal cast to integer of the
@@ -1848,7 +1851,7 @@ namespace Ds;
         /**
          * Removes all values from the pair.
          *
-         * @return void
+         * @return void No value is returned.
          *
          * @link https://php.net/manual/en/ds-pair.clear.php
          */
@@ -2102,7 +2105,7 @@ namespace Ds;
          * set.
          * The callable should return what the new value will be in the new
          * set.
-         * <code>callback ( mixed $value ) : mixed</code>
+         * <code>callback ( mixed \$value ) : mixed</code>
          * @return Set<TNewValue> The result of applying a callback to each value in
          * the set.
          * <p><b>Note:</b> The values of the current instance won't be affected.</p>
@@ -2132,10 +2135,10 @@ namespace Ds;
          *
          * @template TCarry
          * @param callable(TCarry, TValue): TCarry $callback
-         * <code>callback ( mixed $carry , mixed $value ) : mixed</code>
-         *  $carry  The return value of the previous callback, or initial if
+         * <code>callback ( mixed \$carry , mixed \$value ) : mixed</code>
+         *  \$carry  The return value of the previous callback, or initial if
          * it's the first iteration.
-         *  $value   The value of the current iteration.
+         *  \$value   The value of the current iteration.
          *
          * @param TCarry $initial The initial value of the carry value. Can be
          * NULL.
@@ -2214,12 +2217,12 @@ namespace Ds;
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to 2147483647.
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
-         * <note><b>Caution:</b> Returning non-integer values from the comparison
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code>
+         * <b>Caution:</b> Returning non-integer values from the comparison
          * function, such as float, will result in an internal cast to integer
          * of the callback's return value. So values such as 0.99 and 0.1 will
          * both be cast to an integer value of 0, which will compare such values
-         * as equal.</note>
+         * as equal.
          *
          * @return void
          *
@@ -2238,7 +2241,7 @@ namespace Ds;
          * greater than the second. Note  that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to 2147483647.
          *
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <code>callback ( mixed \$a, mixed \$b ) : int</code>
          *
          * <p><b>Caution:</b> Returning non-integer values from the comparison
          * function, such as float, will result in an
@@ -2408,7 +2411,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-stack.copy.php
-         * @return Stack<TValue>
+         * @return Stack<TValue> Returns a shallow copy of the stack.
          */
         public function copy(): Stack {}
 
@@ -2420,7 +2423,7 @@ namespace Ds;
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-stack.isempty.php
-         * @return bool
+         * @return bool Returns true if the stack is empty, false otherwise.
          */
         public function isEmpty(): bool {}
 
@@ -2471,7 +2474,7 @@ namespace Ds;
          *
          * @param TValue ...$values The values to push onto the stack.
          *
-         * @return void
+         * @return void No value is returned.
          */
         public function push(...$values) {}
 
@@ -2570,7 +2573,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-queue.copy.php
-         * @return Queue<TValue>
+         * @return Queue<TValue> Returns a shallow copy of the queue.
          */
         public function copy(): Queue {}
 
@@ -2582,7 +2585,7 @@ namespace Ds;
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-queue.isempty.php
-         * @return bool
+         * @return bool Returns true if the queue is empty, false otherwise.
          */
         public function isEmpty(): bool {}
 
@@ -2633,7 +2636,7 @@ namespace Ds;
          *
          * @param TValue ...$values The values to push onto the queue.
          *
-         * @return void
+         * @return void No value is returned.
          */
         public function push(...$values) {}
 
@@ -2695,7 +2698,9 @@ namespace Ds;
          * Allocates enough memory for a required capacity
          * @link https://www.php.net/manual/en/ds-priorityqueue.allocate.php
          *
-         * @param int $capacity
+         * @param int $capacity The number of values for which capacity should be allocated.
+         * Capacity will stay the same if this value is less than or equal to the current capacity.
+         * Capacity will always be rounded up to the nearest power of 2.
          */
         public function allocate(int $capacity): void {}
 
@@ -2703,7 +2708,7 @@ namespace Ds;
          * Returns the current capacity
          * @link https://www.php.net/manual/en/ds-priorityqueue.capacity.php
          *
-         * @return int
+         * @return int The current capacity.
          */
         public function capacity(): int {}
 
@@ -2716,7 +2721,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-collection.copy.php
-         * @return PriorityQueue<TValue>
+         * @return PriorityQueue<TValue> Returns a shallow copy of the queue.
          */
         public function copy() {}
 
@@ -2728,7 +2733,7 @@ namespace Ds;
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-collection.isempty.php
-         * @return bool
+         * @return bool Returns true if the queue is empty, false otherwise.
          */
         public function isEmpty(): bool {}
 
@@ -2753,10 +2758,10 @@ namespace Ds;
         /**
          * Pushes a value with a given priority into the queue.
          *
-         * @param TValue $value
-         * @param int $priority
+         * @param TValue $value The value to push into the queue.
+         * @param int $priority The priority associated with the value.
          *
-         * @return void
+         * @return void No value is returned.
          */
         public function push($value, int $priority) {}
 

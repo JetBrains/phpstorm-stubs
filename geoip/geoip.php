@@ -266,7 +266,7 @@ function geoip_netspeedcell_by_name($hostname) {}
  * @link https://secure.php.net/manual/en/function.geoip-setup-custom-directory.php
  * @param string $path The full path of where the GeoIP database is on disk.
  *
- * @return void
+ * @return void No value is returned.
  * @since 1.1.0
  */
 function geoip_setup_custom_directory($path) {}

@@ -7,7 +7,8 @@ use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
-use StubTests\Framework\Parsers\Model\PHPParameter;
+use StubTests\Framework\Parsers\Stubs\Versions\DeprecationParser;
+use StubTests\Framework\Model\PHPParameter;
 use StubTests\Framework\Parsers\Stubs\Nodes\ParameterNode;
 
 /**
@@ -16,9 +17,9 @@ use StubTests\Framework\Parsers\Stubs\Nodes\ParameterNode;
  */
 class StubParameterParser
 {
-    use AttributeDetectionTrait;
     private TypeParserInterface $typeParser;
     private AvailableVersionParserInterface $versionParser;
+    private DeprecationParser $deprecationParser;
 
     public function __construct(
         ?TypeParserInterface $typeParser = null,
@@ -26,6 +27,7 @@ class StubParameterParser
     ) {
         $this->typeParser = $typeParser ?? new DefaultTypeParser();
         $this->versionParser = $versionParser ?? new DefaultAvailableVersionParser();
+        $this->deprecationParser = new DeprecationParser();
     }
 
     /**
@@ -36,11 +38,17 @@ class StubParameterParser
      * @param array $imports Map of import aliases to fully qualified names
      * @param string $namespace Current namespace context (e.g., '\Dom' or '\\' for global)
      * @param string[] $optionalParamsFromPhpDoc Names of params marked [optional] in @param descriptions
+     * @param int $position Zero-based index of the parameter in the signature. Supplied by the
+     *     caller because a bare AST parameter node does not know its own index — only the
+     *     enclosing function/method does. The reflection side populates the same field from
+     *     ReflectionParameter::getPosition(), so the two must agree for any positional comparison
+     *     to mean anything.
      * @return PHPParameter
      */
-    public function parseNode(ParameterNode $node, array $paramTypesFromPhpDoc = [], array $imports = [], string $namespace = '\\', array $optionalParamsFromPhpDoc = []): PHPParameter
+    public function parseNode(ParameterNode $node, array $paramTypesFromPhpDoc = [], array $imports = [], string $namespace = '\\', array $optionalParamsFromPhpDoc = [], int $position = 0): PHPParameter
     {
         $parameter = new PHPParameter($node->getName());
+        $parameter->setPosition($position);
 
         // Match parameter type from PhpDoc @param tags
         $paramName = $node->getName();
@@ -62,8 +70,9 @@ class StubParameterParser
         $parameter->initStubsMetadata()->setLanguageLevelTypes($parsedType->languageLevelTypes);
         $parameter->initStubsMetadata()->setDefaultType($parsedType->defaultType);
 
-        // Set variadic flag from AST node
+        // Set variadic and by-reference flags from AST node
         $parameter->setIsVariadic($node->isVariadic());
+        $parameter->setIsPassedByReference($node->isPassedByReference());
 
         // Set hasDefaultValue from AST node; defer actual evaluation until the value is needed
         $hasDefault = $node->hasDefaultValue();
@@ -80,8 +89,11 @@ class StubParameterParser
             || in_array($paramName, $optionalParamsFromPhpDoc, true);
         $parameter->setIsOptional($isOptional);
 
-        // Detect #[Deprecated] attribute on the parameter
-        $parameter->setDeprecated($this->hasDeprecatedAttribute($node->getAttributes(), $imports));
+        // Detect #[Deprecated] attribute on the parameter. Parameters carry no PhpDoc of their
+        // own, so the attribute is the only deprecation source here.
+        $deprecation = $this->deprecationParser->parseDeprecation($node->getAttributes(), $imports);
+        $parameter->setDeprecated($deprecation->isDeprecated);
+        $parameter->initStubsMetadata()->setDeprecatedSinceVersion($deprecation->sinceVersion);
 
         // Parse available version from attributes using version parser with import context
         // Note: Parameters typically don't have PhpDoc, only attributes

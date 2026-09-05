@@ -2,12 +2,12 @@
 
 namespace StubTests\Framework\Parsers\Stubs;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
+use StubTests\Framework\Model\Access\AccessModifier;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
-use StubTests\Framework\Parsers\Model\PHPClassConstant;
+use StubTests\Framework\Model\PHPClassConstant;
 use StubTests\Framework\Parsers\Stubs\Nodes\ConstantNode;
 
 /**

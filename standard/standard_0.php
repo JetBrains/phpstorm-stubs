@@ -11,6 +11,15 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
+/**
+ * Created by unserialize when trying to unserialize an undefined class or a class that is not
+ * listed in the allowed_classes of unserialize's options array.
+ *
+ * Prior to PHP 7.2.0, using is_object on the __PHP_Incomplete_Class class would return false. As of
+ * PHP 7.2.0, true will be returned.
+ *
+ * @link https://php.net/manual/en/class.php-incomplete-class.php
+ */
 final class __PHP_Incomplete_Class
 {
     /**
@@ -19,6 +28,11 @@ final class __PHP_Incomplete_Class
     public $__PHP_Incomplete_Class_Name;
 }
 
+/**
+ * Children of this class are passed to stream_filter_register. Note that the __construct method is
+ * not called; instead, php_user_filter::onCreate should be used for initialization.
+ * @link https://php.net/manual/en/class.php-user-filter.php
+ */
 class php_user_filter
 {
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -29,6 +43,11 @@ class php_user_filter
     public $stream;
 
     /**
+     * Called when applying the filter
+     *
+     * This method is called whenever data is read from or written to the attached stream (such as
+     * with fread or fwrite).
+     *
      * @link https://php.net/manual/en/php-user-filter.filter.php
      * @param resource $in <p> is a resource pointing to a <i>bucket brigade</i< which contains one or more <i>bucket</i> objects containing data to be filtered.</p>
      * @param resource $out <p>is a resource pointing to a second bucket brigade into which your modified buckets should be placed.</p>
@@ -80,13 +99,25 @@ class php_user_filter
     ): int {}
 
     /**
+     * Called when creating the filter
+     *
+     * This method is called during instantiation of the filter class object. If your filter
+     * allocates or initializes any other resources (such as a buffer), this is the place to do it.
+     *
      * @link https://php.net/manual/en/php-user-filter.oncreate.php
-     * @return bool
+     * @return bool Your implementation of this method should return false on failure, or true on
+     * success.
      */
     #[TentativeType]
     public function onCreate(): bool {}
 
     /**
+     * Called when closing the filter
+     *
+     * This method is called upon filter shutdown (typically, this is also during stream shutdown),
+     * and is executed after the flush method is called. If any resources were allocated or
+     * initialized during onCreate() this would be the time to destroy or dispose of them.
+     *
      * @link https://php.net/manual/en/php-user-filter.onclose.php
      */
     #[TentativeType]
@@ -103,6 +134,8 @@ class php_user_filter
     public function seek(int $offset, int $whence, int $chain): bool {}
 }
 /**
+ * A stream bucket is a chunk of a stream which can be extracted from bucket brigades.
+ * @link https://php.net/manual/en/class.streambucket.php
  * @since 8.4
  */
 final class StreamBucket
@@ -115,6 +148,7 @@ final class StreamBucket
 
 /**
  * Instances of Directory are created by calling the dir() function, not by the new operator.
+ * @link https://php.net/manual/en/class.directory.php
  */
 class Directory
 {
@@ -146,7 +180,7 @@ class Directory
      * Close directory handle.
      * Same as closedir(), only dir_handle defaults to $this.
      * @param resource $dir_handle [optional]
-     * @link https://secure.php.net/manual/en/directory.close.php
+     * @link https://php.net/manual/en/directory.close.php
      */
     #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
     public function close(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
@@ -155,7 +189,7 @@ class Directory
      * Rewind directory handle.
      * Same as rewinddir(), only dir_handle defaults to $this.
      * @param resource $dir_handle [optional]
-     * @link https://secure.php.net/manual/en/directory.rewind.php
+     * @link https://php.net/manual/en/directory.rewind.php
      */
     #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
     public function rewind(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
@@ -165,7 +199,7 @@ class Directory
      * Same as readdir(), only dir_handle defaults to $this.
      * @param resource $dir_handle [optional]
      * @return string|false
-     * @link https://secure.php.net/manual/en/directory.read.php
+     * @link https://php.net/manual/en/directory.read.php
      */
     #[LanguageLevelTypeAware(['8.0' => 'string|false'], default: '')]
     public function read(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) {}
@@ -213,6 +247,8 @@ function bin2hex(string $string): string {}
  * this function will throw a ValueError.
  * Before PHP 8.0, an E_WARNING was raised instead, and the function returned false.
  * </p>
+ * @throws \ValueError If the specified number of seconds is negative, this function will throw a
+ * ValueError.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
 function sleep(int $seconds) {}
@@ -224,7 +260,7 @@ function sleep(int $seconds) {}
  * Halt time in micro seconds. A micro second is one millionth of a
  * second.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function usleep(int $microseconds): void {}
 
@@ -340,7 +376,7 @@ function strptime(string $timestamp, string $format): array|false {}
 /**
  * Flush system output buffer
  * @link https://php.net/manual/en/function.flush.php
- * @return void
+ * @return void No value is returned.
  */
 function flush(): void {}
 
@@ -364,6 +400,7 @@ function flush(): void {}
  * (See second example).
  * </p>
  * @return string the given string wrapped at the specified length.
+ * @throws \ValueError If break is an empty string, a ValueError is thrown.
  */
 #[Pure]
 function wordwrap(string $string, int $width = 75, string $break = "\n", bool $cut_long_words = false): string {}
@@ -372,12 +409,13 @@ function wordwrap(string $string, int $width = 75, string $break = "\n", bool $c
  * Convert special characters to HTML entities
  * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @param string $string <p>
- * The {@link https://secure.php.net/manual/en/language.types.string.php string} being converted.
+ * The {@link https://php.net/manual/en/language.types.string.php string} being converted.
  * </p>
  * @param int $flags [optional] <p>
  * A bitmask of one or more of the following flags, which specify how to handle quotes,
  * invalid code unit sequences and the used document type. The default is
- * <em><b>ENT_COMPAT | ENT_HTML401</b></em>.
+ * <em><b>ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401</b></em>
+ * (it was <em><b>ENT_COMPAT | ENT_HTML401</b></em> prior to PHP 8.1).
  * </p><table>
  * <caption><b>Available <em>flags</em> constants</b></caption>
  * <thead>
@@ -485,7 +523,7 @@ function wordwrap(string $string, int $width = 75, string $break = "\n", bool $c
  * @return string The converted string.
  */
 #[Pure]
-function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding = null, bool $double_encode = true): string {}
+function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE|ENT_HTML401, ?string $encoding = null, bool $double_encode = true): string {}
 
 /**
  * Convert all applicable characters to HTML entities
@@ -495,11 +533,13 @@ function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE
  * </p>
  * @param int $flags [optional] <p>
  * Like htmlspecialchars, the optional second
- * quote_style parameter lets you define what will
- * be done with 'single' and "double" quotes. It takes on one of three
- * constants with the default being ENT_COMPAT:
+ * flags parameter lets you define what will
+ * be done with 'single' and "double" quotes, invalid code unit sequences and the
+ * used document type. The default is
+ * ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401
+ * (it was ENT_COMPAT | ENT_HTML401 prior to PHP 8.1):
  * <table>
- * Available quote_style constants
+ * Available flags constants
  * <tr valign="top">
  * <td>Constant Name</td>
  * <td>Description</td>
@@ -516,6 +556,11 @@ function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE
  * <td>ENT_NOQUOTES</td>
  * <td>Will leave both double and single quotes unconverted.</td>
  * </tr>
+ * <tr valign="top">
+ * <td>ENT_SUBSTITUTE</td>
+ * <td>Replace invalid code unit sequences with a Unicode Replacement Character
+ * U+FFFD (UTF-8) or &amp;#FFFD; (otherwise) instead of returning an empty string.</td>
+ * </tr>
  * </table>
  * </p>
  * @param string|null $encoding [optional] <p>
@@ -531,7 +576,7 @@ function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE
  * @return string the encoded string.
  */
 #[Pure]
-function htmlentities(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding = null, bool $double_encode = true): string {}
+function htmlentities(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE|ENT_HTML401, ?string $encoding = null, bool $double_encode = true): string {}
 
 /**
  * Convert HTML entities  to their corresponding characters
@@ -540,12 +585,13 @@ function htmlentities(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?s
  * The input string.
  * </p>
  * @param int $flags [optional] <p>
- * The optional second quote_style parameter lets
- * you define what will be done with 'single' and "double" quotes. It takes
- * on one of three constants with the default being
- * ENT_COMPAT:
+ * The optional second flags parameter lets
+ * you define what will be done with 'single' and "double" quotes and which
+ * document type to use. The default is
+ * ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401
+ * (it was ENT_COMPAT | ENT_HTML401 prior to PHP 8.1):
  * <table>
- * Available quote_style constants
+ * Available flags constants
  * <tr valign="top">
  * <td>Constant Name</td>
  * <td>Description</td>
@@ -572,7 +618,7 @@ function htmlentities(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?s
  * @return string the decoded string.
  */
 #[Pure]
-function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding = null): string {}
+function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE|ENT_HTML401, ?string $encoding = null): string {}
 
 /**
  * Convert special HTML entities back to characters
@@ -581,17 +627,19 @@ function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITU
  * The string to decode
  * </p>
  * @param int $flags [optional] <p>
- * The quote style. One of the following constants:
+ * A bitmask of one or more of the following flags, which specify how to handle
+ * quotes and which document type to use. The default is
+ * ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401
+ * (it was ENT_COMPAT | ENT_HTML401 prior to PHP 8.1):
  * <table>
- * quote_style constants
+ * flags constants
  * <tr valign="top">
  * <td>Constant Name</td>
  * <td>Description</td>
  * </tr>
  * <tr valign="top">
  * <td>ENT_COMPAT</td>
- * <td>Will convert double-quotes and leave single-quotes alone
- * (default)</td>
+ * <td>Will convert double-quotes and leave single-quotes alone</td>
  * </tr>
  * <tr valign="top">
  * <td>ENT_QUOTES</td>
@@ -606,7 +654,7 @@ function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITU
  * @return string the decoded string.
  */
 #[Pure]
-function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE): string {}
+function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE|ENT_HTML401): string {}
 
 /**
  * Returns the translation table used by <function>htmlspecialchars</function> and <function>htmlentities</function>
@@ -784,7 +832,7 @@ function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUB
 #[Pure]
 function get_html_translation_table(
     int $table = 0,
-    int $flags = ENT_QUOTES|ENT_SUBSTITUTE,
+    int $flags = ENT_QUOTES|ENT_SUBSTITUTE|ENT_HTML401,
     #[PhpStormStubsElementAvailable(from: '7.0')] string $encoding = "UTF-8"
 ): array {}
 
@@ -955,6 +1003,9 @@ function iptcembed(string $iptc_data, string $filename, int $spool = 0): string|
  * <p>
  * On failure, false is returned.
  * </p>
+ * @throws \ValueError If accessing the filename image is impossible getimagesize will generate an
+ * error of level E_WARNING. On read error, getimagesize will generate an error of level E_NOTICE.
+ * As of PHP 8.0.0, a ValueError is thrown if filename is empty.
  */
 #[ArrayShape([0 => "int", 1 => "int", 2 => "int", 3 => "string", "bits" => "int", "channels" => "int", "mime" => "string"])]
 function getimagesize(#[FileReference] string $filename, &$image_info = null): array|false {}
@@ -1232,7 +1283,7 @@ function phpcredits(int $flags = CREDITS_ALL) {}
 /**
  * Gets the logo guid
  * @removed 5.5
- * @link https://php.net/manual/en/function.php-logo-guid.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.php-logo-guid
  * @return string PHPE9568F34-D428-11d2-A769-00AA001ACF42.
  */
 #[Pure]
@@ -1251,7 +1302,7 @@ function php_egg_logo_guid() {}
 /**
  * Gets the Zend guid
  * @removed 5.5
- * @link https://php.net/manual/en/function.zend-logo-guid.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.zend-logo-guid
  * @return string PHPE9568F35-D428-11d2-A769-00AA001ACF42.
  */
 function zend_logo_guid(): string {}

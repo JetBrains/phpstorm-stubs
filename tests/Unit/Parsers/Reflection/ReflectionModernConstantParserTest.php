@@ -4,7 +4,7 @@ namespace StubTests\Unit\Parsers\Reflection;
 
 use PHPUnit\Framework\TestCase;
 use ReflectionConstant;
-use StubTests\Framework\Parsers\Model\PHPConstant;
+use StubTests\Framework\Model\PHPConstant;
 use StubTests\Framework\Parsers\Reflection\ReflectionModernConstantParser;
 
 class ReflectionModernConstantParserTest extends TestCase

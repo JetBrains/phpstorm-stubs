@@ -56,10 +56,10 @@ class EnumMethodDeprecationCheckTest extends CheckTestCase
         $this->assertStringNotContainsString('Class', $failures[$enumId . '::cases']);
     }
 
-    public function testDeprecatedStubWithNonDeprecatedReflectionPasses(): void
+    public function testDeprecatedStubWithNonDeprecatedReflectionIsFailure(): void
     {
         $enumId = '\RoundingMode';
-        // Reflection says NOT deprecated, stub says deprecated → OK (one-directional)
+        // Reflection says NOT deprecated, stub says deprecated → failure (both sides must agree)
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('cases')]);
         $stubEnum = $this->makeEnum($enumId, [$this->makeMethod('cases', isDeprecated: true)]);
 
@@ -69,6 +69,6 @@ class EnumMethodDeprecationCheckTest extends CheckTestCase
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
 
-        $this->assertFalse($result->hasFailures());
+        $this->assertTrue($result->hasFailures());
     }
 }

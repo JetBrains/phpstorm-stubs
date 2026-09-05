@@ -1451,9 +1451,9 @@ class GearmanClient
      * I/O happens here; the server is simply added to the list.
      *
      * @link https://php.net/manual/en/gearmanclient.addserver.php
-     * @param string $host
-     * @param int $port
-     * @return bool
+     * @param string $host The job server host name.
+     * @param int $port The job server port.
+     * @return bool Returns true on success or false on failure.
      */
     public function addServer($host = '127.0.0.1', $port = 4730) {}
 
@@ -1464,7 +1464,7 @@ class GearmanClient
      * @link https://php.net/manual/en/gearmanclient.addservers.php
      * @param string $servers A comma-separated list of servers, each server specified
      *        in the format host:port
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function addServers($servers = '127.0.0.1:4730') {}
 
@@ -1478,8 +1478,8 @@ class GearmanClient
      *
      * @link https://php.net/manual/en/gearmanclient.dohigh.php
      * @param string $function_name
-     * @param string $workload
-     * @param string|null $unique
+     * @param string $workload Serialized data to be processed
+     * @param string|null $unique A unique ID used to identify a particular task
      * @return string A string representing the results of running a task
      */
     public function doHigh($function_name, $workload, $unique = null) {}
@@ -1492,8 +1492,8 @@ class GearmanClient
      *
      * @link https://php.net/manual/en/gearmanclient.donormal.php
      * @param string $function_name
-     * @param string $workload
-     * @param string|null $unique
+     * @param string $workload Serialized data to be processed
+     * @param string|null $unique A unique ID used to identify a particular task
      * @return string A string representing the results of running a task
      */
     public function doNormal($function_name, $workload, $unique = null) {}
@@ -1505,9 +1505,9 @@ class GearmanClient
      * priority tasks in the job queue.
      *
      * @link https://php.net/manual/en/gearmanclient.dolow.php
-     * @param string $function
-     * @param string $workload
-     * @param string|null $unique
+     * @param string $function A registered function the worker is to execute
+     * @param string $workload Serialized data to be processed
+     * @param string|null $unique A unique ID used to identify a particular task
      * @return string A string representing the results of running a task
      */
     public function doLow($function, $workload, $unique = null) {}
@@ -1537,9 +1537,9 @@ class GearmanClient
      * the status of the running task.
      *
      * @link https://php.net/manual/en/gearmanclient.dobackground.php
-     * @param string $function
-     * @param string $workload
-     * @param string|null $unique
+     * @param string $function A registered function the worker is to execute
+     * @param string $workload Serialized data to be processed
+     * @param string|null $unique A unique ID used to identify a particular task
      * @return string The job handle for the submitted task
      */
     public function doBackground($function, $workload, $unique = null) {}
@@ -1550,9 +1550,9 @@ class GearmanClient
      * over normal and low priority tasks in the job queue.
      *
      * @link https://php.net/manual/en/gearmanclient.dohighbackground.php
-     * @param string $function
-     * @param string $workload
-     * @param string|null $unique
+     * @param string $function A registered function the worker is to execute
+     * @param string $workload Serialized data to be processed
+     * @param string|null $unique A unique ID used to identify a particular task
      * @return string The job handle for the submitted task
      */
     public function doHighBackground($function, $workload, $unique = null) {}
@@ -1563,9 +1563,9 @@ class GearmanClient
      * precedence over low priority tasks in the job queue.
      *
      * @link https://php.net/manual/en/gearmanclient.dolowbackground.php
-     * @param string $function
-     * @param string $workload
-     * @param string|null $unique
+     * @param string $function A registered function the worker is to execute
+     * @param string $workload Serialized data to be processed
+     * @param string|null $unique A unique ID used to identify a particular task
      * @return string The job handle for the submitted task
      */
     public function doLowBackground($function, $workload, $unique = null) {}
@@ -1574,7 +1574,7 @@ class GearmanClient
      * Object oriented style (method):.
      *
      * @link https://php.net/manual/en/gearmanclient.jobstatus.php
-     * @param string $job_handle
+     * @param string $job_handle The job handle assigned by the Gearman server
      * @return array An array containing status information for the job corresponding to the
      *         supplied job handle. The first array element is a boolean indicating whether the
      *         job is even known, the second is a boolean indicating whether the job is still
@@ -1590,9 +1590,9 @@ class GearmanClient
      * parallel.
      *
      * @link https://php.net/manual/en/gearmanclient.addtask.php
-     * @param string $function_name
-     * @param string $workload
-     * @param mixed $context
+     * @param string $function_name A registered function the worker is to execute
+     * @param string $workload Serialized data to be processed
+     * @param mixed $context Application context to associate with a task
      * @param string|null $unique
      * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
@@ -1605,9 +1605,9 @@ class GearmanClient
      * selected from the queue before those of normal or low priority.
      *
      * @link https://php.net/manual/en/gearmanclient.addtaskhigh.php
-     * @param string $function_name
-     * @param string $workload
-     * @param mixed $context
+     * @param string $function_name A registered function the worker is to execute
+     * @param string $workload Serialized data to be processed
+     * @param mixed $context Application context to associate with a task
      * @param string|null $unique
      * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
@@ -1620,9 +1620,9 @@ class GearmanClient
      * selected from the queue after those of normal or low priority.
      *
      * @link https://php.net/manual/en/gearmanclient.addtasklow.php
-     * @param string $function_name
-     * @param string $workload
-     * @param mixed $context
+     * @param string $function_name A registered function the worker is to execute
+     * @param string $workload Serialized data to be processed
+     * @param mixed $context Application context to associate with a task
      * @param string|null $unique
      * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
@@ -1634,9 +1634,9 @@ class GearmanClient
      * perform the work.
      *
      * @link https://php.net/manual/en/gearmanclient.addtaskbackground.php
-     * @param string $function_name
-     * @param string $workload
-     * @param mixed $context
+     * @param string $function_name A registered function the worker is to execute
+     * @param string $workload Serialized data to be processed
+     * @param mixed $context Application context to associate with a task
      * @param string|null $unique
      * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
@@ -1649,9 +1649,9 @@ class GearmanClient
      * selected from the queue before those of normal or low priority.
      *
      * @link https://php.net/manual/en/gearmanclient.addtaskhighbackground.php
-     * @param string $function_name
-     * @param string $workload
-     * @param mixed $context
+     * @param string $function_name A registered function the worker is to execute
+     * @param string $workload Serialized data to be processed
+     * @param mixed $context Application context to associate with a task
      * @param string|null $unique
      * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
@@ -1664,9 +1664,9 @@ class GearmanClient
      * selected from the queue after those of normal or high priority.
      *
      * @link https://php.net/manual/en/gearmanclient.addtasklowbackground.php
-     * @param string $function_name
-     * @param string $workload
-     * @param mixed $context
+     * @param string $function_name A registered function the worker is to execute
+     * @param string $workload Serialized data to be processed
+     * @param mixed $context Application context to associate with a task
      * @param string|null $unique
      * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
@@ -1692,7 +1692,7 @@ class GearmanClient
      *
      * @link https://php.net/manual/en/gearmanclient.setworkloadcallback.php
      * @param callable $callback A function to call
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function setWorkloadCallback($callback) {}
 
@@ -1702,7 +1702,7 @@ class GearmanClient
      *
      * @link https://php.net/manual/en/gearmanclient.setcreatedcallback.php
      * @param string $callback A function to call
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function setCreatedCallback($callback) {}
 
@@ -1712,7 +1712,7 @@ class GearmanClient
      *
      * @link https://php.net/manual/en/gearmanclient.setdatacallback.php
      * @param callable $callback A function or method to call
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function setDataCallback($callback) {}
 
@@ -1722,7 +1722,7 @@ class GearmanClient
      *
      * @link https://php.net/manual/en/gearmanclient.setwarningcallback.php
      * @param callable $callback A function to call
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function setWarningCallback($callback) {}
 
@@ -1732,7 +1732,7 @@ class GearmanClient
      *
      * @link https://php.net/manual/en/gearmanclient.setstatuscallback.php
      * @param callable $callback A function to call
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function setStatusCallback($callback) {}
 
@@ -1742,7 +1742,7 @@ class GearmanClient
      *
      * @link https://php.net/manual/en/gearmanclient.setcompletecallback.php
      * @param callable $callback A function to be called
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function setCompleteCallback($callback) {}
 
@@ -1751,7 +1751,7 @@ class GearmanClient
      *
      * @link https://php.net/manual/en/gearmanclient.setexceptioncallback.php
      * @param callable $callback Function to call when the worker throws an exception
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function setExceptionCallback($callback) {}
 
@@ -1761,7 +1761,7 @@ class GearmanClient
      *
      * @link https://php.net/manual/en/gearmanclient.setfailcallback.php
      * @param callable $callback A function to call
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function setFailCallback($callback) {}
 
@@ -1781,7 +1781,7 @@ class GearmanClient
      * parallel.
      *
      * @link https://php.net/manual/en/gearmanclient.runtasks.php
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function runTasks() {}
 
@@ -1790,8 +1790,8 @@ class GearmanClient
      * The data sent is not used or processed in any other way. Primarily used for testing and debugging.
      *
      * @link https://php.net/manual/en/gearmanclient.ping.php
-     * @param string $workload
-     * @return bool
+     * @param string $workload Some arbitrary serialized data to be echo back
+     * @return bool Returns true on success or false on failure.
      */
     public function ping($workload) {}
 }
@@ -2013,9 +2013,9 @@ class GearmanWorker
      * used to run jobs. No socket I/O happens here.
      *
      * @link https://php.net/manual/en/gearmanworker.addserver.php
-     * @param string $host
-     * @param int $port
-     * @return bool
+     * @param string $host The job server host name.
+     * @param int $port The job server port.
+     * @return bool Returns true on success or false on failure.
      */
     public function addServer($host = '127.0.0.1', $port = 4730) {}
 
@@ -2026,7 +2026,7 @@ class GearmanWorker
      * @link https://php.net/manual/en/gearmanworker.addservers.php
      * @param string $servers A comma separated list of job servers in the format
      *        host:port. If no port is specified, it defaults to 4730
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function addServers($servers = '127.0.0.1:4730') {}
 
@@ -2036,7 +2036,7 @@ class GearmanWorker
      * Gearman error encountered.
      *
      * @link https://php.net/manual/en/gearmanworker.wait.php
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function wait() {}
 
@@ -2088,7 +2088,7 @@ class GearmanWorker
      * @param mixed $context A reference to arbitrary application context data that can
      *        be modified by the worker function
      * @param int $timeout An interval of time in seconds
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function addFunction($function_name, $function, $context = null, $timeout = 0) {}
 
@@ -2098,7 +2098,7 @@ class GearmanWorker
      * GEARMAN_SUCCESS, GEARMAN_IO_WAIT, or GEARMAN_WORK_FAIL.
      *
      * @link https://php.net/manual/en/gearmanworker.work.php
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function work() {}
 }
@@ -2130,7 +2130,7 @@ class GearmanJob
      *
      * @link https://php.net/manual/en/gearmanjob.senddata.php
      * @param string $data Arbitrary serialized data
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function sendData($data) {}
 
@@ -2139,7 +2139,7 @@ class GearmanJob
      *
      * @link https://php.net/manual/en/gearmanjob.sendwarning.php
      * @param string $warning A warning messages
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function sendWarning($warning) {}
 
@@ -2152,7 +2152,7 @@ class GearmanJob
      *        fraction
      * @param int $denominator The denominator of the percentage completed expressed as
      *        a fraction
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function sendStatus($numerator, $denominator) {}
 
@@ -2161,7 +2161,7 @@ class GearmanJob
      *
      * @link https://php.net/manual/en/gearmanjob.sendcomplete.php
      * @param string $result Serialized result data
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function sendComplete($result) {}
 
@@ -2170,7 +2170,7 @@ class GearmanJob
      *
      * @link https://php.net/manual/en/gearmanjob.sendexception.php
      * @param string $exception An exception description
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function sendException($exception) {}
 
@@ -2179,7 +2179,7 @@ class GearmanJob
      * (as opposed to failing due to a thrown exception).
      *
      * @link https://php.net/manual/en/gearmanjob.sendfail.php
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function sendFail() {}
 

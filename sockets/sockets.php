@@ -261,6 +261,8 @@ function socket_select(?array &$read, ?array &$write, ?array &$except, ?int $sec
 function socket_create(int $domain, int $type, int $protocol): Socket|false {}
 
 /**
+ * Export a socket into a stream that encapsulates a socket
+ * @link https://php.net/manual/en/function.socket-export-stream.php
  * @param resource|Socket $socket
  * @return resource|Socket|false
  */
@@ -521,7 +523,7 @@ function socket_getpeername(Socket $socket, &$address, &$port = null): bool {}
 /**
  * Initiates a connection on a socket
  * @link https://php.net/manual/en/function.socket-connect.php
- * @param resource|Socket $socket
+ * @param resource|Socket $socket A Socket instance created with socket_create.
  * @param string $address <p>
  * The <i>address</i> parameter is either an IPv4 address
  * in dotted-quad notation (e.g. 127.0.0.1) if
@@ -709,7 +711,7 @@ function socket_send(Socket $socket, string $data, int $length, int $flags): int
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Send a message
- * @link https://secure.php.net/manual/en/function.socket-sendmsg.php
+ * @link https://php.net/manual/en/function.socket-sendmsg.php
  * @param resource|Socket $socket
  * @param array $message
  * @param int $flags
@@ -799,7 +801,7 @@ function socket_recvfrom(Socket $socket, &$data, int $length, int $flags, &$addr
 
 /**
  * Read a message
- * @link https://secure.php.net/manual/en/function.socket-recvmsg.php
+ * @link https://php.net/manual/en/function.socket-recvmsg.php
  * @param resource|Socket $socket
  * @param array &$message
  * @param int $flags
@@ -1368,9 +1370,9 @@ function socket_setopt(Socket $socket, int $level, int $option, $value): bool {}
  *
  * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-export.php
  *
- * @param resource|Socket $socket
+ * @param resource|Socket $socket A Socket instance.
  * @param int $target_pid
- * @return string|false
+ * @return string|false Returns an identifier to be used for the import, or false on failure
  *
  * @since 7.3
  */
@@ -1381,8 +1383,9 @@ function socket_wsaprotocol_info_export($socket, $target_pid) {}
  *
  * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-import.php
  *
- * @param string $info_id
- * @return resource|Socket|false
+ * @param string $info_id The ID which has been returned by a former call to
+ * socket_wsaprotocol_info_export.
+ * @return resource|Socket|false Returns a Socket instance on success, or false on failure
  *
  * @since 7.3
  */
@@ -1393,14 +1396,17 @@ function socket_wsaprotocol_info_import($info_id) {}
  *
  * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-release.php
  *
- * @param string $info_id
- * @return bool
+ * @param string $info_id The ID which has been returned by a former call to
+ * socket_wsaprotocol_info_export.
+ * @return bool Returns true on success or false on failure.
  *
  * @since 7.3
  */
 function socket_wsaprotocol_info_release($info_id) {}
 
 /**
+ * Determines whether socket is at out-of-band mark
+ * @link https://php.net/manual/en/function.socket-atmark.php
  * @since 8.3
  */
 function socket_atmark(Socket $socket): bool {}
@@ -2419,6 +2425,8 @@ const SHUT_WR = 1;
 const SHUT_RDWR = 2;
 
 /**
+ * A fully opaque class which replaces Socket resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.socket.php
  * @since 8.0
  */
 final class Socket
@@ -2431,6 +2439,8 @@ final class Socket
 }
 
 /**
+ * A fully opaque class which replaces AddressInfo resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.addressinfo.php
  * @since 8.0
  */
 final class AddressInfo

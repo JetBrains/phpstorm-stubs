@@ -32,6 +32,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -58,7 +59,8 @@
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
-                        "removedVersion": null
+                        "removedVersion": null,
+                        "deprecatedSinceVersion": null
                     }
                 ],
                 "returnType": "static",
@@ -66,6 +68,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -92,7 +95,8 @@
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
-                        "removedVersion": null
+                        "removedVersion": null,
+                        "deprecatedSinceVersion": null
                     }
                 ],
                 "returnType": "static|null",
@@ -100,6 +104,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -145,6 +150,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -162,6 +168,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -179,6 +186,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -270,6 +278,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -310,6 +319,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -336,7 +346,8 @@
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
-                        "removedVersion": null
+                        "removedVersion": null,
+                        "deprecatedSinceVersion": null
                     }
                 ],
                 "returnType": "static",
@@ -344,6 +355,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -370,7 +382,8 @@
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
-                        "removedVersion": null
+                        "removedVersion": null,
+                        "deprecatedSinceVersion": null
                     }
                 ],
                 "returnType": "static|null",
@@ -378,6 +391,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -421,6 +435,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -493,6 +508,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -749,6 +765,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null
@@ -841,6 +858,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
+                "deprecatedSinceVersion": null,
                 "returnTypeFromPhpDoc": null,
                 "languageLevelTypes": null,
                 "defaultType": null

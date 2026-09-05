@@ -28,7 +28,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $slop [optional] <p>
      * Field Slop
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function addBigramPhraseField($field, $boost, $slop = '') {}
 
@@ -43,7 +43,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $boost [optional] <p>
      * Boost value. Boosts documents with matching terms.
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function addBoostQuery($field, $value, $boost = '') {}
 
@@ -60,7 +60,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $slop [optional] <p>
      * Field Slop
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function addPhraseField($field, $boost, $slop = '') {}
 
@@ -74,7 +74,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $boost [optional] <p>
      * Boost value. Boosts documents with matching terms.
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function addQueryField($field, $boost = '') {}
 
@@ -91,7 +91,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $slop [optional] <p>
      * Field Slop
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function addTrigramPhraseField($field, $boost, $slop = '') {}
 
@@ -102,7 +102,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $field <p>
      * Field name
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function addUserField($field) {}
 
@@ -113,7 +113,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $field <p>
      * Field name
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function removeBigramPhraseField($field) {}
 
@@ -124,7 +124,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $field <p>
      * Field name
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function removeBoostQuery($field) {}
 
@@ -135,7 +135,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $field <p>
      * Field name
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function removePhraseField($field) {}
 
@@ -146,7 +146,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $field <p>
      * Field name
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function removeQueryField($field) {}
 
@@ -157,7 +157,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $field <p>
      * Field name
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function removeTrigramPhraseField($field) {}
 
@@ -183,7 +183,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $fields <p>
      * Fields boosts (slops)
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setBigramPhraseFields($fields) {}
 
@@ -194,7 +194,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $slop <p>
      * A default slop for Bigram phrase fields.
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setBigramPhraseSlop($slop) {}
 
@@ -207,7 +207,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * supported natively by Solr can be used, along with a boost value. e.g.:<br/>
      * recip(rord(myfield),1,2,3)^1.5
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setBoostFunction($function) {}
 
@@ -215,8 +215,8 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * (PECL solr &gt;= 2.1.0)<br/>
      * Directly Sets Boost Query Parameter (bq)
      * @link https://php.net/manual/en/solrdismaxquery.setboostquery.php
-     * @param string $q
-     * @return SolrDisMaxQuery
+     * @param string $q query
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setBoostQuery($q) {}
 
@@ -229,7 +229,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * Set Minimum "Should" Match parameter (mm). If the default query operator is AND then mm=100%, if the default
      * query operator (q.op) is OR, then mm=0%.
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setMinimumMatch($value) {}
 
@@ -240,7 +240,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $fields <p>
      * Fields, boosts [, slops]
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setPhraseFields($fields) {}
 
@@ -252,7 +252,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * Sets the default amount of slop on phrase queries built with "pf", "pf2" and/or "pf3" fields (affects boosting).
      * "ps" parameter
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setPhraseSlop($slop) {}
 
@@ -263,7 +263,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $q <p>
      * Query String
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setQueryAlt($q) {}
 
@@ -280,7 +280,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * slop refers to the number of positions one token needs to be moved in relation to another token in order to match
      * a phrase specified in a query.
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setQueryPhraseSlop($slop) {}
 
@@ -292,7 +292,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * The tie parameter specifies a float value (which should be something much less than 1) to use as tiebreaker in
      * DisMax queries.
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setTieBreaker($tieBreaker) {}
 
@@ -303,7 +303,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $fields <p>
      * Trigram Phrase Fields
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setTrigramPhraseFields($fields) {}
 
@@ -314,7 +314,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $slop <p>
      * Phrase slop
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setTrigramPhraseSlop($slop) {}
 
@@ -326,7 +326,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * Fields names separated by space<br/>
      * This parameter supports wildcards.
      * </p>
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function setUserFields($fields) {}
 
@@ -334,7 +334,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * (PECL solr &gt;= 2.1.0)<br/>
      * Switch QueryParser to be DisMax Query Parser
      * @link https://php.net/manual/en/solrdismaxquery.usedismaxqueryparser.php
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function useDisMaxQueryParser() {}
 
@@ -344,7 +344,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * By default the query builder uses edismax, if it was switched using
      * SolrDisMaxQuery::useDisMaxQueryParser(), it can be switched back using this method.
      * @link https://php.net/manual/en/solrdismaxquery.useedismaxqueryparser.php
-     * @return SolrDisMaxQuery
+     * @return SolrDisMaxQuery SolrDisMaxQuery
      */
     public function useEDisMaxQueryParser() {}
 }

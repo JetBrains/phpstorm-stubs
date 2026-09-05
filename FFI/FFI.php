@@ -13,6 +13,7 @@ namespace {
      * access native variables and create/access data structures defined
      * in the C language.
      *
+     * @link https://php.net/manual/en/class.ffi.php
      * @since 7.4
      */
     final class FFI
@@ -665,6 +666,7 @@ namespace FFI {
         /**
          * Returns the name of the type.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getname.php
          * @since 8.0
          * @return non-empty-string
          */
@@ -694,6 +696,7 @@ namespace FFI {
          *  - {@see CType::TYPE_ARRAY}
          *  - {@see CType::TYPE_STRUCT}
          *
+         * @link https://php.net/manual/en/ffi-ctype.getkind.php
          * @since 8.1
          * @return (CType::TYPE_*)
          */
@@ -702,6 +705,7 @@ namespace FFI {
         /**
          * Returns the size of the type in bytes.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getsize.php
          * @since 8.1
          * @return int<0, max>
          */
@@ -710,6 +714,7 @@ namespace FFI {
         /**
          * Returns the alignment of the type in bytes.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getalignment.php
          * @since 8.1
          * @return int<0, max>
          */
@@ -718,6 +723,7 @@ namespace FFI {
         /**
          * Returns the bit-mask of type attributes.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getattributes.php
          * @since 8.1
          * @return int-mask-of<CType::ATTR_*>
          */
@@ -730,6 +736,7 @@ namespace FFI {
          *  - {@see CType::TYPE_UINT32}
          *  - {@see CType::TYPE_UINT64}
          *
+         * @link https://php.net/manual/en/ffi-ctype.getenumkind.php
          * @since 8.1
          * @return (CType::TYPE_*)
          * @throws Exception In the case that the type is not an enumeration.
@@ -739,6 +746,7 @@ namespace FFI {
         /**
          * Returns the type of array elements.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getarrayelementtype.php
          * @since 8.1
          * @return CType
          * @throws Exception In the case that the type is not an array.
@@ -748,6 +756,7 @@ namespace FFI {
         /**
          * Returns the size of an array.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getarraylength.php
          * @since 8.1
          * @return int<0, max>
          * @throws Exception In the case that the type is not an array.
@@ -757,6 +766,7 @@ namespace FFI {
         /**
          * Returns the original type of the pointer.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getpointertype.php
          * @since 8.1
          * @return CType
          * @throws Exception In the case that the type is not a pointer.
@@ -766,6 +776,7 @@ namespace FFI {
         /**
          * Returns the field string names of a structure or union.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getstructfieldnames.php
          * @since 8.1
          * @return array<string>
          * @throws Exception In the case that the type is not a struct or union.
@@ -777,6 +788,7 @@ namespace FFI {
          * the case that the type is a union, then for each field of this type
          * the offset will be equal to 0.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getstructfieldoffset.php
          * @since 8.1
          * @param string $name
          * @return int<0, max>
@@ -787,6 +799,7 @@ namespace FFI {
         /**
          * Returns the field type of structure or union.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getstructfieldtype.php
          * @since 8.1
          * @param string $name
          * @return CType
@@ -810,6 +823,7 @@ namespace FFI {
          *  - {@see CType::ABI_SYSV}
          *  - {@see CType::ABI_VECTORCALL}
          *
+         * @link https://php.net/manual/en/ffi-ctype.getfuncabi.php
          * @since 8.1
          * @return (CType::ABI_*)
          * @throws Exception In the case that the type is not a function.
@@ -819,6 +833,7 @@ namespace FFI {
         /**
          * Returns the return type of the function.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getfuncreturntype.php
          * @since 8.1
          * @return CType
          * @throws Exception In the case that the type is not a function.
@@ -828,8 +843,10 @@ namespace FFI {
         /**
          * Returns the number of arguments to the function.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getfuncparametercount.php
          * @since 8.1
-         * @return int<0, max>
+         * @return int<0, max> Returns the number of parameters for the underlying function type. If
+         * the underlying type is not a function, an FFI\Exception is thrown.
          * @throws Exception In the case that the type is not a function.
          */
         public function getFuncParameterCount(): int {}
@@ -837,9 +854,12 @@ namespace FFI {
         /**
          * Returns the type of the function argument by its numeric index.
          *
+         * @link https://php.net/manual/en/ffi-ctype.getfuncparametertype.php
          * @since 8.1
-         * @param int<0, max> $index
-         * @return CType
+         * @param int<0, max> $index Index of the function parameter, zero-based.
+         * @return CType Returns the type of a parameter for the underlying function type. If the
+         * underlying type is not a function, or the given index is outside of the range of
+         * parameters of the function, an FFI\Exception is thrown.
          * @throws Exception In the case that the type is not a function.
          */
         public function getFuncParameterType(int $index): CType {}

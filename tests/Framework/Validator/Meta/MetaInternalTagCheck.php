@@ -9,7 +9,7 @@ use PhpParser\Node\Name;
 use PhpParser\Node\Stmt;
 use PhpParser\ParserFactory;
 use StubTests\Framework\DataProvider\StubFileScanner;
-use StubTests\Framework\Parsers\Meta\MetaFileWalkerTrait;
+use StubTests\Framework\MetaFile\MetaFileWalkerTrait;
 
 final class MetaInternalTagCheck
 {

@@ -26,17 +26,30 @@ enum ProblemType: string
     case OVERLOADED_SIGNATURE = 'overloaded_signature';
 
     /**
-     * Stubs intentionally declare an interface or behaviour that is implemented
-     * internally (at the C level) but not exposed by PHP's reflection API.
+     * Stubs intentionally declare an interface, modifier or behaviour that PHP's reflection
+     * API does not report for the version under test.
      *
-     * Some internal classes implement interfaces through the C API without
-     * listing them in the class declaration visible to reflection.  Stubs add
-     * the explicit declaration so that IDEs (e.g. PhpStorm) can provide correct
-     * type-checking and code-completion.
+     * This is the general-purpose category for a stub/reflection divergence that is correct
+     * on the stub side. It covers three recurring shapes:
      *
-     * Example: SimpleXMLElement implements ArrayAccess at the C level;
-     * reflection never reports ArrayAccess, but PhpStorm requires the explicit
-     * declaration to enable array-offset type inference.
+     * 1. Implemented at the C level, never exposed. Some internal classes implement
+     *    interfaces through the C API without listing them in the declaration reflection
+     *    sees. Stubs add the explicit declaration so IDEs can type-check against it.
+     *    Example: SimpleXMLElement implements ArrayAccess at the C level; reflection never
+     *    reports it, but PhpStorm needs it for array-offset type inference.
+     *
+     * 2. A modifier that changed across versions. A stub carries one `final`/`static`
+     *    declaration for all versions, so it necessarily disagrees with reflection for the
+     *    versions before (or after) the change.
+     *    Example: GMP became final in 8.4, so the stub disagrees with reflection on 5.6-8.3.
+     *
+     * 3. A deprecation reflection does not expose. PHP raises some deprecations as a
+     *    call-time E_DEPRECATED, or documents them only, without setting the flag
+     *    ReflectionMethod::isDeprecated() reads. The stub keeps the marker so the IDE warns.
+     *    Example: fgetss() was deprecated in 7.3, but isDeprecated() is false for 7.3-7.4.
+     *
+     * Shape 3 also absorbs the case where the deprecation window has an upper bound, which
+     * StubsMetadata cannot express: it stores only a lower bound (deprecatedSinceVersion).
      */
     case INTERNAL_IMPLEMENTATION = 'internal_implementation';
 

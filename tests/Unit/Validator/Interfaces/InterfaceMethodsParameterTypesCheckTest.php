@@ -174,7 +174,7 @@ class InterfaceMethodsParameterTypesCheckTest extends CheckTestCase
             $this->makeMethod('doWork', parameters: [$this->makeParam('value', $this->createType('int'))]),  // mismatch
         ]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::INTERFACE_TYPE,

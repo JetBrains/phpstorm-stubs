@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Parsers\Reflection;
 
-use StubTests\Framework\Parsers\Model\PHPParameter;
+use StubTests\Framework\Model\PHPParameter;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionParameter;
 use StubTests\Framework\Parsers\Parser;
 

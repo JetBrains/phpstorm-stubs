@@ -7,7 +7,8 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * append the contents of a file to another file on the ftp server
- * @param resource $ftp
+ * @link https://php.net/manual/en/function.ftp-append.php
+ * @param resource $ftp An FTP\Connection instance.
  * @param string $remote_filename
  * @param string $local_filename
  * @param int $mode Optional since PHP 7.3
@@ -24,9 +25,11 @@ function ftp_append(
 
 /**
  * returns a list of files in the given directory
- * @param resource $ftp
- * @param string $directory
- * @return array|false
+ * @link https://php.net/manual/en/function.ftp-mlsd.php
+ * @param resource $ftp An FTP\Connection instance.
+ * @param string $directory The directory to be listed.
+ * @return array|false Returns an array of arrays with file infos from the specified directory on
+ * success or false on error.
  * @since 7.2
  */
 function ftp_mlsd(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default: 'resource')] $ftp, string $directory): array|false {}
@@ -507,8 +510,12 @@ function ftp_close(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], defaul
  * message will be thrown if the <i>option</i> is not
  * supported or the passed <i>value</i> doesn't match the
  * expected value for the given <i>option</i>.
+ * @throws \ValueError A ValueError is thrown if the option is not supported.
+ * @throws \TypeError A TypeError is thrown
+ * if the passed value doesn't match the expected type for the given option.
  */
-function ftp_set_option(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default: 'resource')] $ftp, #[EV(flags: [FTP_TIMEOUT_SEC, FTP_AUTOSEEK, FTP_USEPASVADDRESS])] int $option, $value): bool {}
+#[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
+function ftp_set_option(#[LanguageLevelTypeAware(['8.1' => '\FTP\Connection'], default: 'resource')] $ftp, #[EV(flags: [FTP_TIMEOUT_SEC, FTP_AUTOSEEK, FTP_USEPASVADDRESS])] int $option, $value) {}
 
 /**
  * Retrieves various runtime behaviours of the current FTP stream

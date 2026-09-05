@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Enums;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
+use StubTests\Framework\Model\Access\AccessModifier;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Constants\ClassConstantsVisibilityCheck;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;

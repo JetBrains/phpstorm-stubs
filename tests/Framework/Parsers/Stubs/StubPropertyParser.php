@@ -2,15 +2,15 @@
 
 namespace StubTests\Framework\Parsers\Stubs;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
+use StubTests\Framework\Model\Access\AccessModifier;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
-use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
+use StubTests\Framework\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
-use StubTests\Framework\Parsers\Model\PHPProperty;
+use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Parsers\Stubs\Nodes\PropertyNode;
 
 /**

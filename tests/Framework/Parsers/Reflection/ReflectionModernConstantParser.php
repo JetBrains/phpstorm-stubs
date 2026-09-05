@@ -3,7 +3,7 @@
 namespace StubTests\Framework\Parsers\Reflection;
 
 use ReflectionConstant;
-use StubTests\Framework\Parsers\Model\PHPConstant;
+use StubTests\Framework\Model\PHPConstant;
 use StubTests\Framework\Parsers\Parser;
 
 /**

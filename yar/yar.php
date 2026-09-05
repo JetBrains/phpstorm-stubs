@@ -56,7 +56,7 @@ class Yar_Server
      *  Usual RPC calls will be issued as HTTP POST requests.
      *  If a HTTP GET request is issued to the uri,
      *  the service information (commented section above) will be printed on the page
-     * @return bool
+     * @return bool boolean
      * @link https://secure.php.net/manual/en/yar-server.handle.php
      */
     public function handle() {}
@@ -121,7 +121,7 @@ class Yar_Concurrent_Client
      * @param array $parameters Parameters
      * @param callable $callback A function callback, which will be called while the response return.
      * @param callable $error_callback A function callback, which will be called while the response return.
-     * @param array $options
+     * @param array $options An array of options. See the constants list.
      * @return int An unique id, can be used to identified which call it is.
      * @link https://secure.php.net/manual/en/yar-concurrent-client.call.php
      */
@@ -161,7 +161,7 @@ class Yar_Server_Exception extends Exception
     /**
      * Retrieve exception's type
      * Get the exception original type threw by server
-     * @return string
+     * @return string string
      * @link https://secure.php.net/manual/en/yar-server-exception.gettype.php
      */
     public function getType() {}

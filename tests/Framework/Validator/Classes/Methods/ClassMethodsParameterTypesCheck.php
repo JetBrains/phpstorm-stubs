@@ -2,10 +2,12 @@
 
 namespace StubTests\Framework\Validator\Classes\Methods;
 
-use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Validator\AbstractMethodFlagCheck;
+use StubTests\Framework\Validator\AbstractMemberFlagCheck;
+use StubTests\Framework\Validator\Contracts\DescribesMethodMismatch;
+use StubTests\Framework\Validator\Contracts\MemberKind;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
-use StubTests\Framework\Validator\Services\TypeResolver;
+use StubTests\Framework\Validator\Services\ParameterTypeComparator;
 
 /**
  * Validates that parameter types in stub methods match those in reflection.
@@ -36,8 +38,13 @@ use StubTests\Framework\Validator\Services\TypeResolver;
  * - method-level: EntityType::METHOD + '\ClassName::methodName' + 'ParameterTypesCheck'
  *   → skips only that specific method.
  */
-class ClassMethodsParameterTypesCheck extends AbstractMethodFlagCheck
+class ClassMethodsParameterTypesCheck extends AbstractMemberFlagCheck implements DescribesMethodMismatch
 {
+    protected function memberKind(): MemberKind
+    {
+        return MemberKind::METHOD;
+    }
+
     public function supports(string $phpVersion): bool
     {
         // Scalar type hints were introduced in PHP 7.0
@@ -49,43 +56,16 @@ class ClassMethodsParameterTypesCheck extends AbstractMethodFlagCheck
         return CheckType::PARAMETER_TYPES;
     }
 
-    protected function describeMismatch(
+    public function describeMethodMismatch(
         string $methodEntityId,
-        mixed $reflMethod,
+        PHPMethod $reflMethod,
         PHPMethod $stubMethod,
         string $phpVersion
     ): ?string {
-        // Build version-filtered stub param map by name, deduplicating variadic workarounds
-        $stubParamsByName = [];
-        foreach ($this->methodCollection->filterAndDeduplicateParams($stubMethod->getParameters(), $phpVersion) as $param) {
-            $stubParamsByName[$param->getName()] = $param;
-        }
-
         $mismatches = [];
-        foreach ($reflMethod->getParameters() as $reflParam) {
-            $name = $reflParam->getName();
-
-            if (!isset($stubParamsByName[$name])) {
-                // Parameter absent from stubs — ParametersCountCheck's responsibility
-                continue;
-            }
-
-            $reflType = TypeResolver::getParamTypeString($reflParam, $phpVersion);
-
-            // Reflection has no type — stubs may document one; skip this param
-            if ($reflType === null) {
-                continue;
-            }
-
-            $stubType = TypeResolver::getParamTypeString($stubParamsByName[$name], $phpVersion);
-
-            $normalizedRefl = TypeResolver::normalizeType($reflType);
-            $normalizedStub = TypeResolver::normalizeType($stubType);
-
-            if ($normalizedRefl !== $normalizedStub) {
-                $display = $stubType ?? 'none';
-                $mismatches[] = "\${$name}: reflection '{$reflType}', stubs '{$display}'";
-            }
+        foreach (ParameterTypeComparator::compare($reflMethod->getParameters(), $stubMethod->getParameters(), $phpVersion) as $m) {
+            $display = $m['stubType'] ?? 'none';
+            $mismatches[] = "\${$m['name']}: reflection '{$m['reflType']}', stubs '{$display}'";
         }
 
         if (empty($mismatches)) {

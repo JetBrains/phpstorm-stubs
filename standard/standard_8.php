@@ -74,7 +74,7 @@ function closelog() {}
  * Registers a function that will be called when PHP starts sending output.
  * The callback is executed just after PHP prepares all headers to be sent,<br>
  * and before any other output is sent, creating a window to manipulate the outgoing headers before being sent.
- * @link https://secure.php.net/manual/en/function.header-register-callback.php
+ * @link https://php.net/manual/en/function.header-register-callback.php
  * @param callable $callback Function called just before the headers are sent.
  * @return bool true on success or false on failure.
  */
@@ -95,9 +95,9 @@ function header_register_callback(callable $callback): bool {}
  * Index 3 is a text string with the correct <b>height="yyy" width="xxx"</b> string<br>
  * that can be used directly in an IMG tag.<br>
  * On failure, FALSE is returned.
- * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
+ * @link https://php.net/manual/en/function.getimagesizefromstring.php
  * @since 5.4
- * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
+ * @link https://php.net/manual/en/function.getimagesizefromstring.php
  * @since 5.4
  */
 #[ArrayShape([0 => 'int', 1 => 'int', 2 => 'int', 3 => 'string', 'bits' => 'int', 'channels' => 'int', 'mime' => 'string'])]
@@ -109,16 +109,18 @@ function getimagesizefromstring(string $string, &$image_info = null): array|fals
  * @param int $size The desired new chunk size.
  * @return int|false Returns the previous chunk size on success.<br>
  * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
- * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
+ * @link https://php.net/manual/en/function.stream-set-chunk-size.php
  * @since 5.4
+ * @throws \ValueError A ValueError is thrown if size is less than 1 or greater than PHP_INT_MAX.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
 function stream_set_chunk_size($stream, int $size) {}
 
 /**
  * Initializes all syslog related variables
- * @link https://php.net/manual/en/function.define-syslog-variables.php
- * @return void
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.define-syslog-variables
+ * @return void No value is returned. This function has been DEPRECATED as of PHP 5.3.0 and REMOVED
+ * as of PHP 5.4.0.
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]
@@ -210,14 +212,14 @@ function ob_start($callback = null, int $chunk_size = 0, int $flags = PHP_OUTPUT
 /**
  * Flush (send) the output buffer
  * @link https://php.net/manual/en/function.ob-flush.php
- * @return bool
+ * @return bool Returns true on success or false on failure.
  */
 function ob_flush(): bool {}
 
 /**
  * Clean (erase) the output buffer
  * @link https://php.net/manual/en/function.ob-clean.php
- * @return bool
+ * @return bool Returns true on success or false on failure.
  */
 function ob_clean(): bool {}
 
@@ -370,7 +372,7 @@ function ob_get_contents(): string|false {}
  * 1|<b>TRUE</b> to turn implicit flushing on, 0|<b>FALSE</b> turns it off.
  * <br><br>default: 1|<b>TRUE</b>
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function ob_implicit_flush(#[LanguageLevelTypeAware(["8.0" => "bool"], default: "int")] $enable = true): void {}
 
@@ -589,6 +591,10 @@ function shuffle(array &$array) {}
  * it will be passed as the third parameter to the callback
  * funcname.
  * </p>
+ * @throws \ArgumentCountError As of PHP 7.1.0, an ArgumentCountError will be thrown if the callback
+ * function requires more than 2 parameters (the value and key of the array member), or more than 3
+ * parameters if the arg is also passed. Previously, in this case an error of level E_WARNING would
+ * be generated each time array_walk calls callback.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function array_walk(object|array &$array, callable $callback, mixed $arg) {}
@@ -740,6 +746,7 @@ function key(object|array $array): string|int|null {}
  * @param mixed ...$values any comparable value
  * @return mixed min returns the numerically lowest of the
  * parameter values.
+ * @throws \ValueError If an empty array is passed, min throws a ValueError.
  */
 #[Pure]
 function min(
@@ -755,6 +762,7 @@ function min(
  * @param mixed ...$values any comparable value
  * @return mixed max returns the numerically highest of the
  * parameter values, either within a arg array or two arguments.
+ * @throws \ValueError If an empty array is passed, max throws a ValueError.
  */
 #[Pure]
 function max(
@@ -890,6 +898,7 @@ function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[PhpS
  * Value to use for filling
  * </p>
  * @return array the filled array
+ * @throws \ValueError Throws a ValueError if count is out of range.
  */
 #[Pure]
 function array_fill(int $start_index, int $count, mixed $value): array {}
@@ -926,6 +935,13 @@ function array_fill_keys(array $keys, mixed $value): array {}
  * </p>
  * @return array an array of elements from start to
  * end, inclusive.
+ * @throws \ValueError If step is 0, a ValueError is thrown. If start, end, or step is not
+ * is_finite, a ValueError is thrown. If step is negative, but the produced range is increasing
+ * (i.e. $start <= $end), a ValueError is thrown. If start or end is the empty string '', an
+ * E_WARNING is emitted and the empty string will be interpreted as 0. If start or end is a
+ * non-numeric string with more than one byte, an E_WARNING is emitted. If start or end is a string
+ * that is implicitly cast to an int because the other boundary value is a number, an E_WARNING is
+ * emitted. If step is a float, and start and end are non-numeric string, an E_WARNING is emitted.
  */
 #[Pure]
 function range(
@@ -940,7 +956,7 @@ function range(
  * @param array &$array <p>
  * An array being sorted.
  * </p>
- * @param  &...$rest [optional] <p>
+ * @param mixed &...$rest [optional] <p>
  * More arrays, optionally followed by sort order and flags.
  * Only elements corresponding to equivalent elements in previous arrays are compared.
  * In other words, the sort is lexicographical.
@@ -1110,10 +1126,15 @@ function array_merge(
 ): array {}
 
 /**
+ * Gets the first value of an array
+ *
+ * Get the first value of the given array.
+ *
+ * @link https://php.net/manual/en/function.array-first.php
  * @template TKey
  * @template TValue
- * @param array<TKey, TValue> $array
- * @return TValue|null
+ * @param array<TKey, TValue> $array An array.
+ * @return TValue|null Returns the first value of array if the array is not empty; null otherwise.
  * @since 8.5
  * @meta
  */
@@ -1121,10 +1142,15 @@ function array_merge(
 function array_first(array $array): mixed {}
 
 /**
+ * Gets the last value of an array
+ *
+ * Get the last value of the given array.
+ *
+ * @link https://php.net/manual/en/function.array-last.php
  * @template TKey
  * @template TValue
- * @param array<TKey, TValue> $array
- * @return TValue|null
+ * @param array<TKey, TValue> $array An array.
+ * @return TValue|null Returns the last value of array if the array is not empty; null otherwise.
  * @since 8.5
  * @meta
  */

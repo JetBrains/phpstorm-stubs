@@ -41,15 +41,17 @@ function gmp_intval(GMP|string|int $num): int {}
 
 /**
  * Sets the RNG seed
+ * @link https://php.net/manual/en/function.gmp-random-seed.php
  * @param resource|string|int|GMP $seed <p>
  * The seed to be set for the {@see gmp_random()}, {@see gmp_random_bits()}, and {@see gmp_random_range()} functions.
  * </p>
  * Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.
  * @return void|false
  * @since 7.0
+ * @throws \ValueError Throws a ValueError if seed is invalid.
  */
 #[LanguageLevelTypeAware(['8.0' => 'void'], default: 'void|false')]
-function gmp_random_seed(GMP|string|int $seed): void {}
+function gmp_random_seed(GMP|string|int $seed) {}
 /**
  * Convert GMP number to string
  * @link https://php.net/manual/en/function.gmp-strval.php
@@ -393,6 +395,7 @@ function gmp_prob_prime(GMP|string|int $num, int $repetitions = 10): int {}
  * a GMP object in PHP 5.6 and later,
  * or a numeric string provided that it is possible to convert the latter to a number.</p>
  * @return GMP A random GMP number.
+ * @throws \ValueError If bits is less than 1, a ValueError will be thrown.
  */
 function gmp_random_bits(int $bits): GMP {}
 
@@ -402,6 +405,7 @@ function gmp_random_bits(int $bits): GMP {}
  * @param GMP|string|int $min <p>A GMP number representing the lower bound for the random number</p>
  * @param GMP|string|int $max <p>A GMP number representing the upper bound for the random number</p>
  * @return GMP A random GMP number.
+ * @throws \ValueError If max is less than min, a ValueError will be thrown.
  */
 function gmp_random_range(GMP|string|int $min, GMP|string|int $max): GMP {}
 
@@ -576,7 +580,7 @@ function gmp_xor(GMP|string|int $num1, GMP|string|int $num2): GMP {}
  * Defines if the bit is set to 0 or 1. By default the bit is set to
  * 1. Index starts at 0.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function gmp_setbit(GMP $num, int $index, bool $value = true): void {}
 
@@ -587,7 +591,7 @@ function gmp_setbit(GMP $num, int $index, bool $value = true): void {}
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $index <p>It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @return void
+ * @return void No value is returned.
  */
 function gmp_clrbit(GMP $num, int $index): void {}
 
@@ -678,7 +682,7 @@ function gmp_hamdist(GMP|string|int $num1, GMP|string|int $num2): int {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.0' => 'GMP'], default: 'GMP|false')]
-function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN): GMP {}
+function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN) {}
 
 /**
  * Export to a binary string
@@ -692,7 +696,7 @@ function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|false')]
-function gmp_export(GMP|string|int $num, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN): string {}
+function gmp_export(GMP|string|int $num, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN) {}
 
 /**
  * Takes the nth root of a and returns the integer component of the result.
@@ -735,23 +739,31 @@ function gmp_nextprime(GMP|string|int $num): GMP {}
  *
  * @link https://www.php.net/manual/en/function.gmp-binomial.php
  *
- * @param GMP|string|int $n
+ * @param GMP|string|int $n A GMP object, an integer, or a string that can be interpreted as a
+ * number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
  * @param int $k
- * @return GMP|false
+ * @return GMP|false Returns the binomial coefficient C(n, k).
  * @since 7.3
+ * @throws \ValueError Throws ValueError if k is negative. Prior to PHP 8.0.0, E_WARNING was issued
+ * instead.
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.0' => 'GMP'], default: 'GMP|false')]
-function gmp_binomial(GMP|string|int $n, int $k): GMP {}
+function gmp_binomial(GMP|string|int $n, int $k) {}
 
 /**
  * Computes the Kronecker symbol
  *
  * @link https://www.php.net/manual/en/function.gmp-kronecker.php
  *
- * @param GMP|string|float|int $num1
- * @param GMP|string|float|int $num2
- * @return int
+ * @param GMP|string|float|int $num1 A GMP object, an integer, or a string that can be interpreted
+ * as a number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
+ * @param GMP|string|float|int $num2 A GMP object, an integer, or a string that can be interpreted
+ * as a number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
+ * @return int Returns the Kronecker symbol of num1 and num2
  *
  * @since 7.3
  */
@@ -763,9 +775,13 @@ function gmp_kronecker(GMP|string|int $num1, GMP|string|int $num2): int {}
  *
  * @link https://www.php.net/manual/en/function.gmp-lcm.php
  *
- * @param GMP|string|float|int $num1
- * @param GMP|string|float|int $num2
- * @return GMP
+ * @param GMP|string|float|int $num1 A GMP object, an integer, or a string that can be interpreted
+ * as a number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
+ * @param GMP|string|float|int $num2 A GMP object, an integer, or a string that can be interpreted
+ * as a number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
+ * @return GMP A GMP object.
  *
  * @since 7.3
  */
@@ -777,8 +793,10 @@ function gmp_lcm(GMP|string|int $num1, GMP|string|int $num2): GMP {}
  *
  * @link https://www.php.net/manual/en/function.gmp-perfect-power.php
  *
- * @param GMP|string|float|int $num
- * @return bool
+ * @param GMP|string|float|int $num A GMP object, an integer, or a string that can be interpreted as
+ * a number following the same logic as if the string was used in gmp_init with automatic base
+ * detection (i.e. when base is equal to 0).
+ * @return bool Returns true if num is a perfect power, false otherwise.
  *
  * @since 7.3
  */
@@ -802,9 +820,18 @@ define('GMP_VERSION', "6.3.0");
 
 define('GMP_MPIR_VERSION', '3.0.0');
 
+/**
+ * A GMP number. These objects support overloaded arithmetic, bitwise and comparison operators.
+ * @link https://php.net/manual/en/class.gmp.php
+ */
 final class GMP
 {
     /**
+     * Create GMP number
+     *
+     * Creates a GMP number from an integer or string.
+     *
+     * @link https://php.net/manual/en/gmp.construct.php
      * @since 8.2
      */
     public function __construct(int|string $num = 0, int $base = 0) {}

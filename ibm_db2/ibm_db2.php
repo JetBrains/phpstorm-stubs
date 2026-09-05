@@ -148,10 +148,17 @@ function db2_autocommit($connection, ?int $value = null): int|bool {}
  * @param resource $stmt <p>
  * A prepared statement returned from db2_prepare.
  * </p>
- * @param int $parameter_number
- * @param string $variable_name
- * @param int $parameter_type
- * @param int $data_type
+ * @param int $parameter_number Specifies the 1-indexed position of the parameter in the prepared
+ * statement.
+ * @param string $variable_name A string specifying the name of the PHP variable to bind to the
+ * parameter specified by parameter_number.
+ * @param int $parameter_type A constant specifying whether the PHP variable should be bound to the
+ * SQL parameter as an input parameter (DB2_PARAM_IN), an output parameter (DB2_PARAM_OUT), or as a
+ * parameter that accepts input and returns output (DB2_PARAM_INOUT). To avoid memory overhead, you
+ * can also specify DB2_PARAM_FILE to bind the PHP variable to the name of a file that contains
+ * large object (BLOB, CLOB, or DBCLOB) data.
+ * @param int $data_type A constant specifying the SQL data type that the PHP variable should be
+ * bound as: one of DB2_BINARY, DB2_CHAR, DB2_DOUBLE, or DB2_LONG .
  * @param int $precision <p>
  * Specifies the precision with which the variable should be bound to the
  * database. This parameter can also be used for retrieving XML output values
@@ -192,8 +199,10 @@ function db2_close($connection): bool {}
  * The schema which contains the tables. To match all schemas, pass null
  * or an empty string.
  * </p>
- * @param string|null $table_name
- * @param string|null $column_name
+ * @param string|null $table_name The name of the table or view. To match all tables in the
+ * database, pass null or an empty string.
+ * @param string|null $column_name The name of the column. To match all columns in the table, pass
+ * null or an empty string.
  * @return resource|false a statement resource with a result set containing rows describing
  * the column privileges for columns matching the specified parameters. The
  * rows are composed of the following columns:
@@ -255,8 +264,10 @@ function db2_columnprivileges() {}
  * The schema which contains the tables. To match all schemas, pass
  * '%'.
  * </p>
- * @param string $table_name
- * @param string $column_name
+ * @param string $table_name The name of the table or view. To match all tables in the database,
+ * pass null or an empty string.
+ * @param string $column_name The name of the column. To match all columns in the table, pass null
+ * or an empty string.
  * @return resource|false A statement resource with a result set containing rows describing
  * the columns matching the specified parameters. The rows are composed of
  * the following columns:
@@ -375,7 +386,7 @@ function db2_columns($connection, $qualifier = null, $schema = null, $table_name
  * is null, db2_foreign_keys matches the schema for
  * the current connection.
  * </p>
- * @param string $table_name
+ * @param string $table_name The name of the table.
  * @return resource|false A statement resource with a result set containing rows describing
  * the foreign keys for the specified table. The result set is composed of the
  * following columns:
@@ -479,7 +490,7 @@ function db2_foreignkeys() {}
  * is null, db2_primary_keys matches the schema for
  * the current connection.
  * </p>
- * @param string $table_name
+ * @param string $table_name The name of the table.
  * @return resource|false A statement resource with a result set containing rows describing
  * the primary keys for the specified table. The result set is composed of the
  * following columns:
@@ -1121,8 +1132,12 @@ function db2_tableprivileges() {}
  * search pattern containing _ and %
  * as wildcards.
  * </p>
- * @param string|null $table_name
- * @param string|null $table_type
+ * @param string|null $table_name The name of the table. This parameter accepts a search pattern
+ * containing _ and % as wildcards.
+ * @param string|null $table_type A list of comma-delimited table type identifiers. To match all
+ * table types, pass null or an empty string. Valid table type identifiers include: ALIAS, HIERARCHY
+ * TABLE, INOPERATIVE VIEW, NICKNAME, MATERIALIZED QUERY TABLE, SYSTEM TABLE, TABLE, TYPED TABLE,
+ * TYPED VIEW, and VIEW.
  * @return resource|false A statement resource with a result set containing rows describing
  * the tables that match the specified parameters. The rows are composed of
  * the following columns:

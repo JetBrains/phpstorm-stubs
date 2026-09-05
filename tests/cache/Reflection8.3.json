@@ -85850,7 +85850,8 @@
         "id": "\\Traversable",
         "namespace": "\\",
         "methods": [],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -85870,7 +85871,10 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Traversable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -85934,7 +85938,10 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Traversable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -85977,7 +85984,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -86089,7 +86097,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -86109,7 +86118,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -86129,7 +86139,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -86226,7 +86237,10 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Stringable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -86246,7 +86260,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -86312,7 +86327,10 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\UnitEnum"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -86541,7 +86559,8 @@
                 "visibility": "public",
                 "isFinal": false
             }
-        ]
+        ],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -86619,7 +86638,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -86708,7 +86728,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -86728,7 +86749,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -86814,7 +86836,11 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Iterator",
+            "\\Traversable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -86889,7 +86915,11 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Iterator",
+            "\\Traversable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -86976,7 +87006,11 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Iterator",
+            "\\Traversable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -87008,7 +87042,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -87074,7 +87109,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -87231,7 +87267,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -87251,7 +87288,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -87317,7 +87355,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -87337,7 +87376,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -87357,7 +87397,10 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Random\\Engine"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -87377,7 +87420,10 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Stringable"
+        ]
     },
     {
         "_type": "PHPEnum",
@@ -160579,7 +160625,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.3.32",
+        "value": "8.3.33",
         "namespace": "\\"
     },
     {
@@ -160600,7 +160646,7 @@
         "_type": "PHPConstant",
         "name": "PHP_RELEASE_VERSION",
         "id": "\\PHP_RELEASE_VERSION",
-        "value": 32,
+        "value": 33,
         "namespace": "\\"
     },
     {
@@ -160614,7 +160660,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION_ID",
         "id": "\\PHP_VERSION_ID",
-        "value": 80332,
+        "value": 80333,
         "namespace": "\\"
     },
     {
@@ -168902,14 +168948,14 @@
         "_type": "PHPConstant",
         "name": "INF",
         "id": "\\INF",
-        "value": 0,
+        "value": "[float:INF]",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "NAN",
         "id": "\\NAN",
-        "value": 0,
+        "value": "[float:NAN]",
         "namespace": "\\"
     },
     {
@@ -177603,14 +177649,14 @@
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION",
         "id": "\\PGSQL_LIBPQ_VERSION",
-        "value": "18.4",
+        "value": "18.6",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION_STR",
         "id": "\\PGSQL_LIBPQ_VERSION_STR",
-        "value": "18.4",
+        "value": "18.6",
         "namespace": "\\"
     },
     {

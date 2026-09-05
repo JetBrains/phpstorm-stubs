@@ -9,7 +9,7 @@ use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name;
 use PhpParser\Node\Stmt;
-use StubTests\Framework\Parsers\Meta\MetaFileWalkerTrait;
+use StubTests\Framework\MetaFile\MetaFileWalkerTrait;
 
 final class ExpectedReturnValuesAreUniqueCheck
 {
@@ -71,7 +71,7 @@ final class ExpectedReturnValuesAreUniqueCheck
         if ($expr instanceof StaticCall && $expr->class instanceof Name && $expr->name instanceof Node\Identifier) {
             return '\\' . $expr->class->toString() . '::' . $expr->name->toString();
         }
-        if ($expr instanceof ConstFetch && $expr->name instanceof Name) {
+        if ($expr instanceof ConstFetch) {
             return '\\' . $expr->name->toString();
         }
         return null;

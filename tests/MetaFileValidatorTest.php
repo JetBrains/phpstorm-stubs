@@ -4,7 +4,7 @@ namespace StubTests;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Meta\MetaFileReferenceExtractor;
+use StubTests\Framework\MetaFile\MetaFileReferenceExtractor;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Runner\RunnerScope;
 use StubTests\Framework\Validator\Meta\ConstantsReferenceExistsCheck;

@@ -35,6 +35,7 @@ function hex2bin(string $string): string|false {};
 
 /**
  * Get or Set the HTTP response code
+ * @link https://php.net/manual/en/function.http-response-code.php
  * @param int $response_code The optional response_code will set the response code.
  * @return int|bool The current response code. By default the return value is int(200).
  */

@@ -3,7 +3,7 @@
 namespace StubTests\Unit\Parsers\Reflection;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPParameter;
+use StubTests\Framework\Model\PHPParameter;
 use StubTests\Framework\Parsers\Reflection\ReflectionFunctionParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionFunction;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionParameter;
@@ -393,13 +393,16 @@ class ReflectionFunctionParserTest extends TestCase
         $parameterMock->method('getName')->willReturn('foo');
         $parameterMock->method('getPosition')->willReturn(0);
         $parameterMock->method('hasType')->willReturn(true);
+        // Return types must match ReflectionNamedType's, otherwise PHP emits a deprecation
+        // for each incompatible override — the two that phpunit.xml.dist's failOnDeprecation
+        // would otherwise trip over.
         $parameterMock->method('getType')->willReturn(new class() extends \ReflectionNamedType {
-            public function getName()
+            public function getName(): string
             {
                 return 'int';
             }
 
-            public function allowsNull()
+            public function allowsNull(): bool
             {
                 return false;
             }

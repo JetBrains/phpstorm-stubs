@@ -2,9 +2,9 @@
 
 namespace StubTests\Unit\Parsers\AST;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
+use StubTests\Framework\Model\Access\AccessModifier;
 use PHPUnit\Framework\TestCase as BaseTestCase;
-use StubTests\Framework\Parsers\Model\PHPClassConstant;
+use StubTests\Framework\Model\PHPClassConstant;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
 use StubTests\Unit\Parsers\AST\fixtures\FixtureStubsDataProvider;
 

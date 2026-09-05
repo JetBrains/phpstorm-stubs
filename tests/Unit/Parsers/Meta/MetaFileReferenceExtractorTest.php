@@ -3,10 +3,10 @@
 namespace StubTests\Unit\Parsers\Meta;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Meta\MetaFileReferenceExtractor;
-use StubTests\Framework\Parsers\Meta\MetaReference;
-use StubTests\Framework\Parsers\Meta\MetaReferenceRole;
-use StubTests\Framework\Parsers\Meta\MetaReferenceType;
+use StubTests\Framework\MetaFile\MetaFileReferenceExtractor;
+use StubTests\Framework\MetaFile\MetaReference;
+use StubTests\Framework\MetaFile\MetaReferenceRole;
+use StubTests\Framework\MetaFile\MetaReferenceType;
 
 class MetaFileReferenceExtractorTest extends TestCase
 {
@@ -369,7 +369,7 @@ PHP;
         $code = <<<'PHP'
 <?php
 namespace PHPSTORM_META {
-    override(\PHPUnit\Framework\TestCase::createMock(0), map(["" => "$0"]));
+    override(\PHPUnit\Framework\TestCase::createStub(0), map(["" => "$0"]));
     override(\Mockery::mock(0), map(["" => "@"]));
     expectedArguments(\GuzzleHttp\Client::request(), 0, 'GET');
     expectedArguments(\Psr\Log\LoggerInterface::log(0), 0, 'info');

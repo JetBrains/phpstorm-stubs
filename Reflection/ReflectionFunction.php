@@ -99,12 +99,18 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * Returns a dynamically created closure for the function
      *
      * @link https://php.net/manual/en/reflectionfunction.getclosure.php
-     * @return Closure|null Returns {@see Closure} or {@see null} in case of an error.
+     * @return Closure Returns a {@see Closure}.
+     * Prior to PHP 8.1, {@see null} was returned in case of an error.
      */
     #[Pure]
     #[TentativeType]
     public function getClosure(): Closure {}
 
+    /**
+     * Checks if a function is anonymous
+     * @link https://php.net/manual/en/reflectionfunction.isanonymous.php
+     * @return bool Returns true if the function is anonymous, otherwise false.
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function isAnonymous(): bool {}
 }

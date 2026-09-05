@@ -611,17 +611,33 @@ class XMLWriter
     public function flush(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $empty = true): string|int {}
 
     /**
+     * Create new XMLWriter using a URI for output
+     *
+     * Creates a new XMLWriter using a URI for output.
+     *
+     * @link https://php.net/manual/en/xmlwriter.touri.php
      * @since 8.4
      */
     public static function toUri(string $uri): static {}
 
     /**
+     * Create new XMLWriter using memory for string output
+     *
+     * Creates a new XMLWriter using memory for string output.
+     *
+     * @link https://php.net/manual/en/xmlwriter.tomemory.php
      * @since 8.4
      */
     public static function toMemory(): static {}
 
     /**
+     * Create new XMLWriter using a stream for output
+     *
+     * Creates a new XMLWriter using a stream for output.
+     *
+     * @link https://php.net/manual/en/xmlwriter.tostream.php
      * @since 8.4
+     * @throws \TypeError Passing a resource that is not a stream to stream will throw a TypeError.
      */
     public static function toStream($stream): static {}
 }
@@ -1165,7 +1181,8 @@ function xmlwriter_start_dtd_element(#[LanguageLevelTypeAware(["8.0" => "XMLWrit
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End current DTD element
  * @link https://php.net/manual/en/function.xmlwriter-enddtdelement.php
- * @param $writer
+ * @param $writer Only for procedural calls. The XMLWriter instance that is being modified. This
+ * object is returned from a call to xmlwriter_open_uri or xmlwriter_open_memory.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xmlwriter_end_dtd_element(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool {}

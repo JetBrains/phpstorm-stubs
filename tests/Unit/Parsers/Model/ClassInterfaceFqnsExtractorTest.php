@@ -4,8 +4,8 @@ namespace StubTests\Unit\Parsers\Model;
 
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Validator\Services\ClassInterfaceFqnsExtractor;
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPInterface;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPInterface;
 
 /**
  * Unit tests for ClassInterfaceFqnsExtractor.

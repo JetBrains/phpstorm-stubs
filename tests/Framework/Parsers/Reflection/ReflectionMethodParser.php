@@ -2,8 +2,8 @@
 
 namespace StubTests\Framework\Parsers\Reflection;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-use StubTests\Framework\Parsers\Model\PHPMethod;
+use StubTests\Framework\Model\Access\AccessModifier;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionMethod;
 use StubTests\Framework\Parsers\Parser;
 

@@ -122,7 +122,7 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
         $this->assertStringContainsString('deprecated', $failures[$interfaceId . '::oldMethod']);
     }
 
-    public function testStubDeprecatedReflectionNotIsNotReported(): void
+    public function testStubDeprecatedReflectionNotIsFailure(): void
     {
         // One-directional: only reflection-deprecated → stub must be deprecated.
         $interfaceId = '\MyInterface';
@@ -135,7 +135,7 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
 
         $result = (new MethodDeprecationCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $interfaceId, '8.0');
 
-        $this->assertFalse($result->hasFailures());
+        $this->assertTrue($result->hasFailures());
     }
 
     // ── Parent interface traversal ────────────────────────────────────────────
@@ -166,7 +166,7 @@ class InterfaceMethodDeprecationCheckTest extends CheckTestCase
         $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: true)]);
         $stubIface = $this->makeInterface($interfaceId, [$this->makeMethod('oldMethod', isDeprecated: false)]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::INTERFACE_TYPE,

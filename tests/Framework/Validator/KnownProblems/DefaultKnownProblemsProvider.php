@@ -401,6 +401,54 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 entityIds: ['\\FFI::new', '\\FFI::cast', '\\FFI::type']
             ),
 
+            // ── ClassStaleMethodsCheck exceptions ──────────────────────────────────────────────
+            // Legitimate stub-only method declarations, i.e. methods the stubs must declare even
+            // though reflection does not report them. See ClassStaleMethodsCheck for the direction
+            // this check runs in and why its scope is limited to CORE and BUNDLED.
+
+            // PDO driver-specific methods: present only when the corresponding PDO driver is
+            // compiled into the running PHP. The reflecting containers build pdo_sqlite but not
+            // pdo_pgsql, so reflection reports neither the pgsql* nor (in some builds) the
+            // sqliteCreate* family. Stubs must declare them for users who do have those drivers.
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\PDO',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'PDO exposes driver-specific methods (sqliteCreateAggregate/Collation/Function, pgsqlCopyFrom*/CopyTo*, pgsqlLOB*, pgsqlGetNotify, pgsqlGetPid) that exist only when that driver is compiled in. Reflection in the cache-generating container reports only the drivers it was built with, so these read as stub-only regardless of whether the stub is correct.'
+            ),
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\PDOStatement',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'PDOStatement::connect is a driver-level entry point that reflection does not report on the base class; same rationale as \\PDO above.'
+            ),
+
+            // SimpleXMLElement implements ArrayAccess and Iterator through internal object handlers
+            // (get_dimension/has_dimension, get_iterator) rather than declared methods, so reflection
+            // lists none of them even though they are callable.
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\SimpleXMLElement',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'SimpleXMLElement satisfies ArrayAccess (offsetExists/Get/Set/Unset) and Iterator (rewind/valid/current/key/next) via internal C handlers rather than declared methods, so reflection reports none of them while they are all callable. Stubs must declare them for completion and type inference.'
+            ),
+
+            // DOM methods whose presence varies across versions in a way stubs cannot yet express.
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\DOMNode',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'compareDocumentPosition and isEqualNode are reported by reflection at 7.4, absent 8.0-8.2, and present again from 8.3/8.4 onward. PHP documents both as added in 8.3, which contradicts the 7.4 reading, so the correct bound is unclear and the stubs are left unbounded pending investigation rather than annotated on an uncertain basis.'
+            ),
+
             // SplFixedArray - interfaces changed across PHP versions; stubs declare the union
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -815,6 +863,27 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 reason: 'GMP was made final in PHP 8.4. Stubs declare it final to match the current PHP behaviour; PHP 5.6–8.3 reflection reports non-final.'
             ),
 
+            // Directory - became final in PHP 8.5; the stub matches pre-8.5 behaviour here,
+            // so the mismatch runs the other way from the entries above.
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\Directory',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_FINAL],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_8_5, PhpVersions::LATEST),
+                reason: 'Directory was marked final in PHP 8.5. The stub declares it without final (matching PHP <8.5 behaviour), but reflection for PHP 8.5 reports isFinal=true.'
+            ),
+
+            // ReflectionConstant - introduced and marked final in PHP 8.4
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\ReflectionConstant',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_FINAL],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_8_4, PhpVersions::PHP_8_4),
+                reason: 'ReflectionConstant was marked final in PHP 8.4. The stub declares it without final (matching other PHP versions), but reflection for PHP 8.4 reports isFinal=true.'
+            ),
+
             // ReflectionGenerator - introduced in PHP 7.0, became final in PHP 8.0
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -1140,6 +1209,193 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 ],
             ),
 
+            // libxslt / libexslt version
+            new ProblemDefinition(
+                entityType: EntityType::GLOBAL_CONSTANT,
+                entityId: 'libxslt-version',
+                type: ProblemType::RUNTIME_VALUE,
+                affectedChecks: [CheckType::CONSTANT_VALUE],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'libxslt/libexslt version constants depend on the installed libxslt library version.',
+                entityIds: [
+                    '\\LIBXSLT_VERSION',
+                    '\\LIBXSLT_DOTTED_VERSION',
+                    '\\LIBEXSLT_VERSION',
+                    '\\LIBEXSLT_DOTTED_VERSION',
+                ],
+            ),
+
+            // tidy tag identifiers
+            //
+            // TIDY_TAG_* is not a set of independent numbers: it is the tidy library's internal
+            // TidyTagId enum, ordered alphabetically by tag name. Every tag the library learns about
+            // shifts the id of every tag after it, so upgrading tidy renumbers most of the family at
+            // once — the stubs were generated against a build that predates <main>, <picture> and
+            // friends, which is why the divergence grows from +1 near TIDY_TAG_MARQUEE to +3 by
+            // TIDY_TAG_XMP. A stub can only carry one number, and the number a user's runtime reports
+            // depends on which tidy their distribution ships, not on which PHP they run.
+            //
+            // The whole family is listed, not only the 76 that disagree today, because the ones that
+            // still agree do so purely by being alphabetically ahead of the first inserted tag — the
+            // next tidy release moves them too. Only CONSTANT_VALUE is waived: existence is still
+            // validated, so a constant vanishing from the stubs is still a failure.
+            new ProblemDefinition(
+                entityType: EntityType::GLOBAL_CONSTANT,
+                entityId: 'tidy-tag-ids',
+                type: ProblemType::RUNTIME_VALUE,
+                affectedChecks: [CheckType::CONSTANT_VALUE],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'TIDY_TAG_* values are indices into the tidy library\'s alphabetically ordered tag table and are renumbered by every tidy release that adds a tag.',
+                entityIds: [
+                    '\\TIDY_TAG_A',
+                    '\\TIDY_TAG_ABBR',
+                    '\\TIDY_TAG_ACRONYM',
+                    '\\TIDY_TAG_ADDRESS',
+                    '\\TIDY_TAG_ALIGN',
+                    '\\TIDY_TAG_APPLET',
+                    '\\TIDY_TAG_AREA',
+                    '\\TIDY_TAG_ARTICLE',
+                    '\\TIDY_TAG_ASIDE',
+                    '\\TIDY_TAG_AUDIO',
+                    '\\TIDY_TAG_B',
+                    '\\TIDY_TAG_BASE',
+                    '\\TIDY_TAG_BASEFONT',
+                    '\\TIDY_TAG_BDI',
+                    '\\TIDY_TAG_BDO',
+                    '\\TIDY_TAG_BGSOUND',
+                    '\\TIDY_TAG_BIG',
+                    '\\TIDY_TAG_BLINK',
+                    '\\TIDY_TAG_BLOCKQUOTE',
+                    '\\TIDY_TAG_BODY',
+                    '\\TIDY_TAG_BR',
+                    '\\TIDY_TAG_BUTTON',
+                    '\\TIDY_TAG_CANVAS',
+                    '\\TIDY_TAG_CAPTION',
+                    '\\TIDY_TAG_CENTER',
+                    '\\TIDY_TAG_CITE',
+                    '\\TIDY_TAG_CODE',
+                    '\\TIDY_TAG_COL',
+                    '\\TIDY_TAG_COLGROUP',
+                    '\\TIDY_TAG_COMMAND',
+                    '\\TIDY_TAG_COMMENT',
+                    '\\TIDY_TAG_DATALIST',
+                    '\\TIDY_TAG_DD',
+                    '\\TIDY_TAG_DEL',
+                    '\\TIDY_TAG_DETAILS',
+                    '\\TIDY_TAG_DFN',
+                    '\\TIDY_TAG_DIALOG',
+                    '\\TIDY_TAG_DIR',
+                    '\\TIDY_TAG_DIV',
+                    '\\TIDY_TAG_DL',
+                    '\\TIDY_TAG_DT',
+                    '\\TIDY_TAG_EM',
+                    '\\TIDY_TAG_EMBED',
+                    '\\TIDY_TAG_FIELDSET',
+                    '\\TIDY_TAG_FIGCAPTION',
+                    '\\TIDY_TAG_FIGURE',
+                    '\\TIDY_TAG_FONT',
+                    '\\TIDY_TAG_FOOTER',
+                    '\\TIDY_TAG_FORM',
+                    '\\TIDY_TAG_FRAME',
+                    '\\TIDY_TAG_FRAMESET',
+                    '\\TIDY_TAG_H1',
+                    '\\TIDY_TAG_H2',
+                    '\\TIDY_TAG_H3',
+                    '\\TIDY_TAG_H4',
+                    '\\TIDY_TAG_H5',
+                    '\\TIDY_TAG_H6',
+                    '\\TIDY_TAG_HEAD',
+                    '\\TIDY_TAG_HEADER',
+                    '\\TIDY_TAG_HGROUP',
+                    '\\TIDY_TAG_HR',
+                    '\\TIDY_TAG_HTML',
+                    '\\TIDY_TAG_I',
+                    '\\TIDY_TAG_IFRAME',
+                    '\\TIDY_TAG_ILAYER',
+                    '\\TIDY_TAG_IMG',
+                    '\\TIDY_TAG_INPUT',
+                    '\\TIDY_TAG_INS',
+                    '\\TIDY_TAG_ISINDEX',
+                    '\\TIDY_TAG_KBD',
+                    '\\TIDY_TAG_KEYGEN',
+                    '\\TIDY_TAG_LABEL',
+                    '\\TIDY_TAG_LAYER',
+                    '\\TIDY_TAG_LEGEND',
+                    '\\TIDY_TAG_LI',
+                    '\\TIDY_TAG_LINK',
+                    '\\TIDY_TAG_LISTING',
+                    '\\TIDY_TAG_MAIN',
+                    '\\TIDY_TAG_MAP',
+                    '\\TIDY_TAG_MARK',
+                    '\\TIDY_TAG_MARQUEE',
+                    '\\TIDY_TAG_MENU',
+                    '\\TIDY_TAG_MENUITEM',
+                    '\\TIDY_TAG_META',
+                    '\\TIDY_TAG_METER',
+                    '\\TIDY_TAG_MULTICOL',
+                    '\\TIDY_TAG_NAV',
+                    '\\TIDY_TAG_NOBR',
+                    '\\TIDY_TAG_NOEMBED',
+                    '\\TIDY_TAG_NOFRAMES',
+                    '\\TIDY_TAG_NOLAYER',
+                    '\\TIDY_TAG_NOSAVE',
+                    '\\TIDY_TAG_NOSCRIPT',
+                    '\\TIDY_TAG_OBJECT',
+                    '\\TIDY_TAG_OL',
+                    '\\TIDY_TAG_OPTGROUP',
+                    '\\TIDY_TAG_OPTION',
+                    '\\TIDY_TAG_OUTPUT',
+                    '\\TIDY_TAG_P',
+                    '\\TIDY_TAG_PARAM',
+                    '\\TIDY_TAG_PLAINTEXT',
+                    '\\TIDY_TAG_PRE',
+                    '\\TIDY_TAG_PROGRESS',
+                    '\\TIDY_TAG_Q',
+                    '\\TIDY_TAG_RB',
+                    '\\TIDY_TAG_RBC',
+                    '\\TIDY_TAG_RP',
+                    '\\TIDY_TAG_RT',
+                    '\\TIDY_TAG_RTC',
+                    '\\TIDY_TAG_RUBY',
+                    '\\TIDY_TAG_S',
+                    '\\TIDY_TAG_SAMP',
+                    '\\TIDY_TAG_SCRIPT',
+                    '\\TIDY_TAG_SECTION',
+                    '\\TIDY_TAG_SELECT',
+                    '\\TIDY_TAG_SERVER',
+                    '\\TIDY_TAG_SERVLET',
+                    '\\TIDY_TAG_SMALL',
+                    '\\TIDY_TAG_SOURCE',
+                    '\\TIDY_TAG_SPACER',
+                    '\\TIDY_TAG_SPAN',
+                    '\\TIDY_TAG_STRIKE',
+                    '\\TIDY_TAG_STRONG',
+                    '\\TIDY_TAG_STYLE',
+                    '\\TIDY_TAG_SUB',
+                    '\\TIDY_TAG_SUMMARY',
+                    '\\TIDY_TAG_SUP',
+                    '\\TIDY_TAG_TABLE',
+                    '\\TIDY_TAG_TBODY',
+                    '\\TIDY_TAG_TD',
+                    '\\TIDY_TAG_TEMPLATE',
+                    '\\TIDY_TAG_TEXTAREA',
+                    '\\TIDY_TAG_TFOOT',
+                    '\\TIDY_TAG_TH',
+                    '\\TIDY_TAG_THEAD',
+                    '\\TIDY_TAG_TIME',
+                    '\\TIDY_TAG_TITLE',
+                    '\\TIDY_TAG_TR',
+                    '\\TIDY_TAG_TRACK',
+                    '\\TIDY_TAG_TT',
+                    '\\TIDY_TAG_U',
+                    '\\TIDY_TAG_UL',
+                    '\\TIDY_TAG_UNKNOWN',
+                    '\\TIDY_TAG_VAR',
+                    '\\TIDY_TAG_VIDEO',
+                    '\\TIDY_TAG_WBR',
+                    '\\TIDY_TAG_XMP',
+                ],
+            ),
             // OpenSSL version
             new ProblemDefinition(
                 entityType: EntityType::GLOBAL_CONSTANT,
@@ -1476,11 +1732,55 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                     '\\SplPriorityQueue::insert',
                     '\\SplPriorityQueue::recoverFromCorruption',
                     '\\XMLReader::close',
+                    '\\XSLTProcessor::setProfiling',
                     '\\finfo::set_flags',
                     '\\mysqli::close',
                     '\\mysqli::debug',
                     '\\mysqli::ssl_set',
                     '\\mysqli_stmt::close',
+                ],
+            ),
+
+            // Tentative return types that PHP 8.5 promoted to real (enforced) return types.
+            // Verified against the committed reflection caches: hasTentativeReturnType is true
+            // for 8.1-8.4 and false for 8.5-8.6 on every id below. The stubs declare the plain
+            // concrete return type, which matches the current runtime, so the divergence is
+            // purely historical. It is suppressed for the versions where PHP still called them
+            // tentative rather than marking the stubs #[TentativeType] and having to suppress
+            // the newest versions instead.
+            //
+            // These 19 methods are why tests/ClassValidatorTest.php's and
+            // tests/FunctionValidatorTest.php's descriptors were narrowed to LATEST..LATEST in
+            // 06eb7e14 (an unrelated ICU/final commit) when 8.5 landed. Narrowing hid five
+            // versions of coverage and stranded the two definitions above, so the range is
+            // restored and the real reason recorded here instead.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::TENTATIVE_RETURN_TYPE],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_8_1, PhpVersions::PHP_8_4),
+                reason: 'PHP 8.5 turned these tentative return types into real ones; stubs declare the concrete type for all versions',
+                entityIds: [
+                    '\\Directory::close',
+                    '\\Directory::read',
+                    '\\Directory::rewind',
+                    '\\DirectoryIterator::_bad_state_ex',
+                    '\\FilesystemIterator::_bad_state_ex',
+                    '\\GlobIterator::_bad_state_ex',
+                    '\\Phar::_bad_state_ex',
+                    '\\PharData::_bad_state_ex',
+                    '\\PharFileInfo::_bad_state_ex',
+                    '\\RecursiveDirectoryIterator::_bad_state_ex',
+                    '\\ReflectionGenerator::getExecutingFile',
+                    '\\ReflectionGenerator::getExecutingGenerator',
+                    '\\ReflectionGenerator::getExecutingLine',
+                    '\\ReflectionGenerator::getFunction',
+                    '\\ReflectionGenerator::getThis',
+                    '\\ReflectionGenerator::getTrace',
+                    '\\SplFileInfo::_bad_state_ex',
+                    '\\SplFileObject::_bad_state_ex',
+                    '\\SplTempFileObject::_bad_state_ex',
                 ],
             ),
 
@@ -1522,22 +1822,99 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 reason: 'imap_sort() $reverse was int before PHP 8.0; PhpDoc documents the PHP 8.0+ bool type. The int→bool change is intentional; the PhpDoc is correct for current PHP.'
             ),
 
+            // ── MethodDeprecationCheck known problems ─────────────────────────────
+            //
+            // MethodDeprecationCheck compares both directions, so a deprecation the stub
+            // declares must also be reported by reflection for the version under test, and
+            // vice versa. Two situations below cannot satisfy that:
+            //
+            // 1. The deprecation window has an upper bound. StubsMetadata carries only
+            //    deprecatedSinceVersion — a lower bound — so a deprecation that PHP later
+            //    reverted cannot be expressed at all.
+            // 2. The deprecation is real but invisible to reflection, because PHP raises it as
+            //    an E_DEPRECATED at call time (or documents it only) rather than setting the
+            //    ZEND_ACC_DEPRECATED flag that ReflectionMethod::isDeprecated() reads.
+            //
+            // Version ranges below were read off the committed reflection caches, not assumed.
+
+            // ReflectionType::__toString — deprecated in 7.4, un-deprecated again in 8.0.
+            // Reflection reports isDeprecated=true for 7.4 only and false for 7.0-7.3 and 8.0+.
+            // Case 1: since:'7.4' would have to mean "7.4 onwards" and would wrongly mark the
+            // method deprecated for 8.0-8.6, so the stub carries no #[Deprecated] at all and
+            // the single 7.4 disagreement is suppressed here instead.
             new ProblemDefinition(
-                entityType: EntityType::CLASS_TYPE,
-                entityId: '\\Directory',
+                entityType: EntityType::METHOD,
+                entityId: '\\ReflectionType::__toString',
                 type: ProblemType::INTERNAL_IMPLEMENTATION,
-                affectedChecks: [CheckType::CLASS_FINAL],
-                versionRange: new PhpVersionRange(PhpVersions::PHP_8_5, PhpVersions::LATEST),
-                reason: 'Directory was marked final in PHP 8.5. The stub declares it without final (matching PHP <8.5 behaviour), but reflection for PHP 8.5 reports isFinal=true.'
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_7_4, PhpVersions::PHP_7_4),
+                reason: 'ReflectionType::__toString was deprecated in PHP 7.4 and the deprecation was reverted in 8.0; reflection reports isDeprecated=true for 7.4 only. deprecatedSinceVersion is a lower bound with no upper bound, so no attribute value describes a single deprecated version: since:\'7.4\' would also claim 8.0-8.6. The stub therefore omits #[Deprecated] and this suppresses the resulting 7.4 mismatch.'
             ),
 
+            // ReflectionNamedType inherits __toString from ReflectionType; the check resolves it
+            // through the stub hierarchy and reports it under the subclass id as well.
             new ProblemDefinition(
-                entityType: EntityType::CLASS_TYPE,
-                entityId: '\\ReflectionConstant',
+                entityType: EntityType::METHOD,
+                entityId: '\\ReflectionNamedType::__toString',
                 type: ProblemType::INTERNAL_IMPLEMENTATION,
-                affectedChecks: [CheckType::CLASS_FINAL],
-                versionRange: new PhpVersionRange(PhpVersions::PHP_8_4, PhpVersions::PHP_8_4),
-                reason: 'ReflectionConstant was marked final in PHP 8.4. The stub declares it without final (matching other PHP versions), but reflection for PHP 8.4 reports isFinal=true.'
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_7_4, PhpVersions::PHP_7_4),
+                reason: 'ReflectionNamedType inherits __toString from ReflectionType, which was deprecated in PHP 7.4 and un-deprecated in 8.0. Same cause as \\ReflectionType::__toString: the deprecation window has an upper bound that deprecatedSinceVersion cannot express.'
+            ),
+
+            // SplFileObject::fgetss — fgetss() was deprecated in PHP 7.3 and removed in 8.0
+            // (the stub records the removal as @removed 8.0). Case 2: PHP raised the
+            // deprecation as an E_DEPRECATED when the function was called and never set the
+            // reflection flag, so isDeprecated() is false for 7.3-7.4. The stub keeps
+            // #[Deprecated(since: '7.3')] so PhpStorm still warns users on those versions.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\SplFileObject::fgetss',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_7_3, PhpVersions::PHP_7_4),
+                reason: 'fgetss() was deprecated in PHP 7.3 and removed in 8.0. PHP emitted the deprecation as a call-time E_DEPRECATED rather than setting the reflection deprecation flag, so ReflectionMethod::isDeprecated() returns false for 7.3-7.4. The stub keeps #[Deprecated(since: \'7.3\')] so the IDE reports it; only the unverifiable comparison is skipped.'
+            ),
+
+            // SplTempFileObject extends SplFileObject and inherits fgetss.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\SplTempFileObject::fgetss',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_7_3, PhpVersions::PHP_7_4),
+                reason: 'SplTempFileObject extends SplFileObject and inherits fgetss. Same cause as \\SplFileObject::fgetss: the PHP 7.3 deprecation was call-time only and is not exposed through reflection.'
+            ),
+
+            // IntlDateFormatter::setTimeZoneId — deprecated in PHP 5.5 and removed in 7.0 (the
+            // stub records the removal as @removed 7.0). Case 2 again: the intl deprecation is
+            // documentation-level and not exposed through reflection, so isDeprecated() is
+            // false at 5.6 — the only cached version where the method still exists.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\IntlDateFormatter::setTimeZoneId',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_5_6, PhpVersions::PHP_5_6),
+                reason: 'IntlDateFormatter::setTimeZoneId was deprecated in PHP 5.5 and removed in 7.0, so 5.6 is the only validated version where it exists. The intl deprecation is documentation-level and never set the reflection deprecation flag, so isDeprecated() is false there. The stub keeps #[Deprecated(since: \'5.5\')] so the IDE reports it.'
+            ),
+
+            // SoapClient::__call — documented as deprecated in favour of __soapCall(), but PHP
+            // never set the reflection deprecation flag: isDeprecated() is false at every
+            // validated version (verified 5.6-8.6 against the committed caches). Case 2 again.
+            //
+            // The range is EARLIEST..LATEST because the gap is a property of ext-soap, not of a
+            // particular version, so it must keep applying to versions added later. The cost of
+            // that width: if PHP ever does flag the method, this entry hides the fact that the
+            // two sides finally agree instead of letting the check confirm it. Re-test by
+            // dropping this entry whenever ext-soap deprecations are revisited.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\SoapClient::__call',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::DEPRECATION],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'SoapClient::__call is documented as deprecated in favour of SoapClient::__soapCall(), but ext-soap never set the reflection deprecation flag, so ReflectionMethod::isDeprecated() returns false for every validated version. The stub keeps #[Deprecated] so PhpStorm reports it; only the unverifiable comparison is skipped.'
             ),
         ];
 

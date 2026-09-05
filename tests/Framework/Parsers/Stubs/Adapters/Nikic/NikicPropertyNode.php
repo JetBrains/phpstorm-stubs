@@ -3,23 +3,23 @@
 namespace StubTests\Framework\Parsers\Stubs\Adapters\Nikic;
 
 use PhpParser\Node\Stmt\Property;
-use PhpParser\Node\Stmt\PropertyProperty;
+use PhpParser\Node\PropertyItem;
 use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\PropertyNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\TypeNode;
 
 /**
- * Adapter for nikic/php-parser PropertyProperty nodes.
+ * Adapter for nikic/php-parser PropertyItem nodes.
  * Implements complete PropertyNode interface.
- * Requires both PropertyProperty (for name) and Property statement (for modifiers/type).
+ * Requires both PropertyItem (for name) and Property statement (for modifiers/type).
  */
 class NikicPropertyNode implements PropertyNode
 {
     use NikicConstExprEvaluatorTrait;
-    private PropertyProperty $property;
+    private PropertyItem $property;
     private Property $propertyStmt;
 
-    public function __construct(PropertyProperty $property, Property $propertyStmt)
+    public function __construct(PropertyItem $property, Property $propertyStmt)
     {
         $this->property = $property;
         $this->propertyStmt = $propertyStmt;

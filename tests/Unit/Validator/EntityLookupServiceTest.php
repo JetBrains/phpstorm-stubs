@@ -2,9 +2,9 @@
 
 namespace StubTests\Unit\Validator;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPConstant;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPConstant;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 
@@ -27,7 +27,7 @@ class EntityLookupServiceTest extends CheckTestCase
         array $functions = [],
         array $constants = []
     ): StubDataQueryInterface {
-        $storage = $this->createMock(StubDataQueryInterface::class);
+        $storage = $this->createStub(StubDataQueryInterface::class);
         $storage->method('getClasses')->willReturn($classes);
         $storage->method('getEnums')->willReturn($enums);
         $storage->method('getInterfaces')->willReturn($interfaces);

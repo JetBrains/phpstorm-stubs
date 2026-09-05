@@ -2,8 +2,8 @@
 
 namespace StubTests\Framework\Validator\Interfaces;
 
-use StubTests\Framework\Parsers\Model\PHPInterface;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Model\PHPInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\CheckType;

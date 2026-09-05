@@ -4,9 +4,9 @@ namespace StubTests\Unit\Parsers;
 
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Validator\Services\ClassAncestorNamesExtractor;
-use StubTests\Framework\Parsers\Hierarchy\ClassHierarchyResolver;
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPInterface;
+use StubTests\Framework\Hierarchy\ClassHierarchyResolver;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPInterface;
 
 class ClassHierarchyResolverTest extends TestCase
 {

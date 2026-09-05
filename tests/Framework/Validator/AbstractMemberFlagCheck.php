@@ -2,9 +2,13 @@
 
 namespace StubTests\Framework\Validator;
 
-use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPClassLikeObject;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\Contracts\DescribesMethodMismatch;
+use StubTests\Framework\Validator\Contracts\DescribesPropertyMismatch;
+use StubTests\Framework\Validator\Contracts\MemberKind;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
@@ -20,54 +24,89 @@ use StubTests\Framework\Validator\KnownProblems\CheckType;
  * hooks below. Constants are NOT modelled here: {@see AbstractConstantFlagCheck} iterates the
  * stub side with per-member version filtering and different known-problem-skip semantics.
  *
- * Subclasses must implement:
+ * Subclasses must supply three things, one per axis plus the check's identity:
  * - getCheckName(): the name used for known-problem lookups
- * - the member-kind hooks (lookup, member collection, id formatting, member entity type)
- * - describeMemberMismatch(): the actual attribute comparison
+ * - memberKind(): which member kind to compare (see {@see MemberKind})
+ * - one of {@see DescribesMethodMismatch} / {@see DescribesPropertyMismatch}: the comparison itself
+ *
+ * Those last two are the two axes this check varies along. They used to be expressed as one
+ * inheritance chain — a member-kind subclass per kind, with the comparison abstract below it — so
+ * adding a member kind meant adding a level. Now the kind is data and the comparison is an
+ * interface, and neither requires a new abstract class.
  */
 abstract class AbstractMemberFlagCheck extends AbstractClassCheck
 {
+    private const NO_DESCRIBER = ' extends AbstractMemberFlagCheck but implements neither'
+        . ' DescribesMethodMismatch nor DescribesPropertyMismatch, so it has no comparison to run.';
+
     abstract protected function getCheckName(): CheckType;
 
     /**
-     * Look up the owning entity (class/enum/interface) by id in the given storage.
+     * Which member kind this check compares. Supplies the id format, the known-problem entity type
+     * and the reflection-member accessor, all of which used to be one-line abstract hooks.
      */
-    abstract protected function lookupFlagEntity(StubDataQueryInterface $storage, string $entityId): ?PHPClassLikeObject;
+    abstract protected function memberKind(): MemberKind;
 
     /**
-     * Return the reflection members to iterate. Each element must expose getName().
+     * Compare the attribute on the reflection and stub member, via whichever describer interface
+     * this check implements.
      *
-     * @return iterable<mixed>
-     */
-    abstract protected function collectReflectionMembers(PHPClassLikeObject $reflectionEntity): iterable;
-
-    /**
-     * Return the version-filtered stub members keyed by name.
+     * The concrete parameter types live on those interfaces rather than on an abstract method here,
+     * because PHP forbids narrowing a parameter type in an override — which is the sole reason
+     * AbstractMethodFlagCheck and AbstractPropertyFlagCheck used to exist as a layer between this
+     * class and the leaves. Implementing an interface declares the type instead of narrowing one, so
+     * the leaves keep typed signatures and that layer is gone.
      *
-     * @return array<string, mixed>
+     * The kind and the describer are two independent axes, so a mismatch between them is a wiring
+     * error: MemberKind::PROPERTY with only DescribesMethodMismatch implemented would hand a
+     * PHPProperty to a PHPMethod parameter. That surfaces as a TypeError from the describer; the
+     * LogicException below covers the case where neither interface is implemented at all.
      */
-    abstract protected function collectStubMemberMap(PHPClassLikeObject $stubEntity, string $phpVersion): array;
-
-    /**
-     * Build the fully-qualified member id used for failures and known-problem lookups.
-     */
-    abstract protected function formatMemberId(string $entityId, string $memberName): string;
-
-    /**
-     * The EntityType (as its string value) used for per-member known-problem lookups.
-     */
-    abstract protected function getMemberEntityType(): string;
-
-    /**
-     * Compare the attribute on the reflection and stub member.
-     * Return a descriptive failure message if there is a mismatch, or null if they match.
-     */
-    abstract protected function describeMemberMismatch(
+    private function describeMemberMismatch(
         string $memberId,
         mixed $reflectionMember,
         mixed $stubMember,
         string $phpVersion
-    ): ?string;
+    ): ?string {
+        if ($this instanceof DescribesMethodMismatch) {
+            return $this->describeMethodMismatch($memberId, $reflectionMember, $stubMember, $phpVersion);
+        }
+
+        if ($this instanceof DescribesPropertyMismatch) {
+            return $this->describePropertyMismatch($memberId, $reflectionMember, $stubMember, $phpVersion);
+        }
+
+        throw new \LogicException(static::class . self::NO_DESCRIBER);
+    }
+
+    /**
+     * Look up the owning entity (class/enum/interface) by id.
+     *
+     * Kept here rather than on MemberKind because both arms need the check's own lookup
+     * collaborators, which are protected.
+     */
+    private function lookupFlagEntity(StubDataQueryInterface $storage, string $entityId): ?PHPClassLikeObject
+    {
+        return match ($this->memberKind()) {
+            MemberKind::METHOD => $this->lookupEntityById($storage, $entityId),
+            MemberKind::PROPERTY => $this->findClassById($storage, $entityId),
+        };
+    }
+
+    /**
+     * The version-filtered stub members, keyed by name. Also needs the check's collaborators.
+     *
+     * @return array<string, mixed>
+     */
+    private function collectStubMemberMap(PHPClassLikeObject $stubEntity, string $phpVersion): array
+    {
+        return match ($this->memberKind()) {
+            MemberKind::METHOD => $this->collectEntityMethodsByConfig($stubEntity, $phpVersion),
+            MemberKind::PROPERTY => $stubEntity instanceof PHPClass
+                ? $this->methodCollection->collectPropertiesForClass($stubEntity, $phpVersion)
+                : [],
+        };
+    }
 
     public function supports(string $phpVersion): bool
     {
@@ -100,14 +139,14 @@ abstract class AbstractMemberFlagCheck extends AbstractClassCheck
         $stubMemberMap = $this->collectStubMemberMap($stubEntity, $phpVersion);
 
         $hasMismatch = false;
-        foreach ($this->collectReflectionMembers($reflectionEntity) as $reflMember) {
+        foreach ($this->memberKind()->reflectionMembers($reflectionEntity) as $reflMember) {
             $name = $reflMember->getName();
             if ($name === null || !isset($stubMemberMap[$name])) {
                 // Null name or member absent from stubs — the corresponding *ExistCheck's responsibility
                 continue;
             }
 
-            $memberId = $this->formatMemberId($entityId, $name);
+            $memberId = $this->memberKind()->formatMemberId($entityId, $name);
             $mismatchMessage = $this->describeMemberMismatch($memberId, $reflMember, $stubMemberMap[$name], $phpVersion);
 
             if ($mismatchMessage === null) {
@@ -115,7 +154,13 @@ abstract class AbstractMemberFlagCheck extends AbstractClassCheck
             }
 
             $hasMismatch = true;
-            if (!$this->skipWithKnownProblem($results, $this->getMemberEntityType(), $memberId, $this->getCheckName(), $phpVersion)) {
+            if (!$this->skipWithKnownProblem(
+                $results,
+                $this->memberKind()->knownProblemEntityType(),
+                $memberId,
+                $this->getCheckName(),
+                $phpVersion
+            )) {
                 $results->addFailure($memberId, $mismatchMessage);
             }
         }

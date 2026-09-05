@@ -145,7 +145,8 @@ function mailparse_msg_parse_file($filename) {}
  * @param resource $mimemail <p>
  * A valid MIME resource.
  * </p>
- * @param string $data
+ * @param string $data The final chunk of data is supposed to end with a newline (CRLF); otherwise
+ * the last line of the message will not be parsed.
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function mailparse_msg_parse($mimemail, $data) {}

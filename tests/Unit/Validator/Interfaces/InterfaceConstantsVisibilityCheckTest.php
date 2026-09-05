@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Interfaces;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
+use StubTests\Framework\Model\Access\AccessModifier;
 use StubTests\Framework\Validator\Classes\Constants\ClassConstantsVisibilityCheck;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
 use StubTests\Unit\Validator\CheckTestCase;

@@ -1459,7 +1459,7 @@ class Gmagick
      * @param GmagickDraw $draw
      * @param string      $text
      *
-     * @return array
+     * @return array The Gmagick object on success
      *
      * @throws GmagickException On error.
      */
@@ -1472,7 +1472,7 @@ class Gmagick
      *
      * @param string $pattern [optional]
      *
-     * @return array
+     * @return array The Gmagick object on success
      *
      * @throws GmagickException On error.
      */
@@ -1485,7 +1485,7 @@ class Gmagick
      *
      * @param string $pattern [optional]
      *
-     * @return array
+     * @return array The Gmagick object.
      *
      * @throws GmagickException On error.
      */
@@ -1953,7 +1953,7 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.setimageiterations.php
      *
-     * @param int $iterations
+     * @param int $iterations The image delay in 1/100th of a second.
      *
      * @return Gmagick The Gmagick object on success.
      *

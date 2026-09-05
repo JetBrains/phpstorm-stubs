@@ -3,7 +3,7 @@
 namespace StubTests\Framework\Parsers\Reflection;
 
 use StubTests\Framework\DataProvider\CurrentRuntimeReflectionRawDataProvider;
-use StubTests\Framework\Parsers\Storage\ParsedDataStorageManager;
+use StubTests\Framework\Storage\ParsedDataWriter;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClass;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionFunction;
 use StubTests\Framework\Parsers\Registries\EntityReflectionObjectParsersRegistry;
@@ -15,12 +15,12 @@ use StubTests\Framework\Parsers\Registries\EntityReflectionObjectParsersRegistry
 class AllReflectionParser
 {
     private CurrentRuntimeReflectionRawDataProvider $dataProvider;
-    private ParsedDataStorageManager $storageManager;
+    private ParsedDataWriter $storageManager;
     private EntityReflectionObjectParsersRegistry $parsersRegistry;
 
     public function __construct(
         CurrentRuntimeReflectionRawDataProvider $dataProvider,
-        ParsedDataStorageManager $storageManager,
+        ParsedDataWriter $storageManager,
         ?EntityReflectionObjectParsersRegistry $parsersRegistry = null
     ) {
         $this->dataProvider = $dataProvider;
@@ -84,13 +84,13 @@ class AllReflectionParser
 
     /**
      * Parse all internal constants from runtime reflection.
-     * Handles both PHP 8.1+ (ReflectionConstant) and older versions (array format).
+     * Handles both PHP 8.4+ (\ReflectionConstant) and older versions (array format).
      */
     private function parseConstants(): void
     {
         $reflectionConstants = $this->dataProvider->getReflectionConstants();
 
-        // Check if ReflectionConstant class exists (PHP 8.1+)
+        // \ReflectionConstant was added in PHP 8.4, not 8.1 — 8.1/8.2/8.3 take the array path
         if (class_exists('\ReflectionConstant')) {
             // Filter to only defined constants and get their names
             $constantNames = array_filter(array_keys($reflectionConstants), function ($name) {

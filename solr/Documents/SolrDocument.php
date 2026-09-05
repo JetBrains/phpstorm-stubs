@@ -239,7 +239,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      * (PECL solr &gt;= 0.9.2)<br/>
      * Moves the internal pointer to the next field
      * @link https://php.net/manual/en/solrdocument.next.php
-     * @return void
+     * @return void This method has no return value.
      */
     public function next() {}
 
@@ -279,7 +279,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      * @param string $fieldValue <p>
      * The value for this field.
      * </p>
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function offsetSet($fieldName, $fieldValue) {}
 
@@ -307,7 +307,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      * (PECL solr &gt;= 0.9.2)<br/>
      * Resets the internal pointer to the beginning
      * @link https://php.net/manual/en/solrdocument.rewind.php
-     * @return void
+     * @return void This method has no return value.
      */
     public function rewind() {}
 
@@ -380,7 +380,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      * @param string $serialized <p>
      * An XML representation of the document.
      * </p>
-     * @return void
+     * @return void None.
      */
     public function unserialize($serialized) {}
 

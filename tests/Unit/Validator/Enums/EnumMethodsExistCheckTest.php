@@ -204,7 +204,7 @@ class EnumMethodsExistCheckTest extends CheckTestCase
         $reflEnum = $this->makeEnum($enumId, [$this->makeMethod('missingMethod')]);
         $stubEnum = $this->makeEnum($enumId);  // no methods
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::ENUM_TYPE,

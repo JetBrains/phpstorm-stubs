@@ -16,7 +16,7 @@ namespace StubTests\Framework\Parsers\Stubs;
  * of letting the default silently degrade to null.
  *
  * @see StubConstantRegistry
- * @see \StubTests\Framework\Parsers\Serializers\SerializerUtilsTrait
+ * @see \StubTests\Framework\Serialization\SerializerUtilsTrait
  */
 final class StubEnumCaseReference
 {

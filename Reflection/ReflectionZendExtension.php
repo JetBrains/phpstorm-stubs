@@ -7,7 +7,8 @@ use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
- * @link https://secure.php.net/manual/en/class.reflectionzendextension.php
+ * The ReflectionZendExtension class reports information about a zend extension.
+ * @link https://php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4
  */
 class ReflectionZendExtension implements Reflector
@@ -23,7 +24,7 @@ class ReflectionZendExtension implements Reflector
      * Constructs a ReflectionZendExtension object
      *
      * @link https://php.net/manual/en/reflectionzendextension.construct.php
-     * @param string $name
+     * @param string $name The extension name.
      * @throws ReflectionException if the extension does not exist.
      * @since 5.4
      */
@@ -39,6 +40,7 @@ class ReflectionZendExtension implements Reflector
      * will do the opposite.
      * @return string|null If the $return parameter is set to {@see true}, then
      * the export is returned as a string, otherwise {@see null} is returned.
+     * @removed 8.0
      */
     #[Deprecated(since: '7.4')]
     public static function export($name, $return = false) {}

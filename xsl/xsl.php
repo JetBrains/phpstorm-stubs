@@ -2,6 +2,7 @@
 
 // Start of xsl v.0.1
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
@@ -10,6 +11,34 @@ use JetBrains\PhpStorm\Internal\TentativeType;
 class XSLTProcessor
 {
     /**
+     * Controls whether the input document is cloned before transformation
+     * @link https://php.net/manual/en/class.xsltprocessor.php#xsltprocessor.props.clonedocument
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public bool $cloneDocument;
+
+    /**
+     * Controls whether XInclude substitution is performed
+     * @link https://php.net/manual/en/class.xsltprocessor.php#xsltprocessor.props.doxinclude
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public bool $doXInclude;
+
+    /**
+     * The maximum template nesting depth
+     * @link https://php.net/manual/en/class.xsltprocessor.php#xsltprocessor.props.maxtemplatedepth
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public int $maxTemplateDepth;
+
+    /**
+     * The maximum number of template variables
+     * @link https://php.net/manual/en/class.xsltprocessor.php#xsltprocessor.props.maxtemplatevars
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public int $maxTemplateVars;
+
+    /**
      * Import stylesheet
      * @link https://php.net/manual/en/xsltprocessor.importstylesheet.php
      * @param object $stylesheet <p>
@@ -17,6 +46,7 @@ class XSLTProcessor
      * <b>SimpleXMLElement</b> object.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \TypeError Throws a TypeError if stylesheet is not an XML object.
      */
     #[TentativeType]
     public function importStylesheet(#[LanguageLevelTypeAware(['8.0' => 'object'], default: '')] $stylesheet): bool {}
@@ -25,7 +55,9 @@ class XSLTProcessor
      * Transform to a DOMDocument
      * @link https://php.net/manual/en/xsltprocessor.transformtodoc.php
      * @param object $document The DOMDocument or SimpleXMLElement or libxml-compatible object to be transformed.
-     * @param string|null $returnClass
+     * @param string|null $returnClass This optional parameter may be used so that
+     * XSLTProcessor::transformToDoc will return an object of the specified class. That class should
+     * either extend or be the same class as document's class.
      * @return DOMDocument|false The resulting <b>DOMDocument</b> or <b>FALSE</b> on error.
      */
     #[TentativeType]
@@ -75,6 +107,7 @@ class XSLTProcessor
      * The new value of the XSLT parameter.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @throws \ValueError Throws a ValueError if any of the arguments contain null bytes.
      */
     #[TentativeType]
     public function setParameter(
@@ -144,6 +177,24 @@ class XSLTProcessor
     public function registerPHPFunctions(#[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $functions = null): void {}
 
     /**
+     * Registers a PHP function to be callable from XSLT under the given namespace
+     * @link https://php.net/manual/en/xsltprocessor.registerphpfunctionns.php
+     * @param string $namespaceURI <p>
+     * The namespace URI the function is registered under.
+     * </p>
+     * @param string $name <p>
+     * The name the function is exposed as inside the stylesheet.
+     * </p>
+     * @param callable $callable <p>
+     * The PHP callable to invoke.
+     * </p>
+     * @return void No value is returned.
+     * @since 8.4
+     */
+    #[PhpStormStubsElementAvailable(from: '8.4')]
+    public function registerPHPFunctionNS(string $namespaceURI, string $name, callable $callable): void {}
+
+    /**
      * Sets profiling output file
      * @link https://php.net/manual/en/xsltprocessor.setprofiling.php
      * @param string $filename <p>
@@ -151,13 +202,18 @@ class XSLTProcessor
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: '')]
+    #[TentativeType]
     public function setProfiling(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename) {}
 
     /**
      * Set security preferences
      * @link https://php.net/manual/en/xsltprocessor.setsecurityprefs.php
-     * @param int $preferences
-     * @return int
+     * @param int $preferences The new security preferences. The following constants can be ORed:
+     * XSL_SECPREF_READ_FILE, XSL_SECPREF_WRITE_FILE, XSL_SECPREF_CREATE_DIRECTORY,
+     * XSL_SECPREF_READ_NETWORK, XSL_SECPREF_WRITE_NETWORK. Alternatively, XSL_SECPREF_NONE or
+     * XSL_SECPREF_DEFAULT can be passed.
+     * @return int Returns the old security preferences.
      * @since 5.4
      */
     #[TentativeType]
@@ -166,7 +222,8 @@ class XSLTProcessor
     /**
      * Get security preferences
      * @link https://php.net/manual/en/xsltprocessor.getsecurityprefs.php
-     * @return int
+     * @return int A bitmask consisting of XSL_SECPREF_READ_FILE, XSL_SECPREF_WRITE_FILE,
+     * XSL_SECPREF_CREATE_DIRECTORY, XSL_SECPREF_READ_NETWORK, XSL_SECPREF_WRITE_NETWORK.
      * @since 5.4
      */
     #[TentativeType]

@@ -37,6 +37,14 @@ trait NikicConstExprEvaluatorTrait
             return self::sharedEvaluator()->evaluateDirectly($expr);
         } catch (ConstExprEvaluationException $e) {
             throw new \RuntimeException('Cannot evaluate default value: ' . $e->getMessage(), 0, $e);
+        } catch (\ArithmeticError $e) {
+            // A syntactically valid const-expr can still fail arithmetically — `$x = 1 / 0`
+            // and `$x = 1 % 0` both raise DivisionByZeroError, which is an \Error and so
+            // slipped past every caller's catch despite the @throws contract above. That
+            // surfaced as an uncaught error from PHPParameter::getDefaultValue(), a plain
+            // accessor. Normalised here so the contract holds at the source; the original
+            // is preserved as $previous.
+            throw new \RuntimeException('Cannot evaluate default value: ' . $e->getMessage(), 0, $e);
         } finally {
             restore_error_handler();
         }

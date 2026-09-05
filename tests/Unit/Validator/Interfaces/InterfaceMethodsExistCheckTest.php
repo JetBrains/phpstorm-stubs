@@ -283,7 +283,7 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
         $reflIface = $this->makeInterface($interfaceId, [$this->makeMethod('missingMethod')]);
         $stubIface = $this->makeInterface($interfaceId);  // no methods
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::INTERFACE_TYPE,
@@ -324,7 +324,7 @@ class InterfaceMethodsExistCheckTest extends CheckTestCase
             // 'missingMethod' absent, but covered by known problem
         ]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::METHOD,

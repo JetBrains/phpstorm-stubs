@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Interfaces;
 
-use StubTests\Framework\Parsers\Model\PHPInterface;
+use StubTests\Framework\Model\PHPInterface;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Interfaces\InterfaceParentInterfacesCheck;
@@ -241,7 +241,7 @@ class InterfaceParentInterfacesCheckTest extends CheckTestCase
         $missingParent = $this->makeUnresolvedParent('MissingParent');
         $iface = $this->makeInterface($interfaceId, parentInterfaces: [$missingParent]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::INTERFACE_TYPE,

@@ -4,7 +4,6 @@ namespace StubTests\Framework\Validator;
 
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\DefaultKnownProblemsProvider;
-use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider;
 use StubTests\Framework\Validator\KnownProblems\ProblemDefinition;
 

@@ -77,6 +77,7 @@ class LibXMLError
  * <b>stream_context_create</b>)
  * </p>
  * @return void No value is returned.
+ * @throws \TypeError Throws a TypeError when a non-stream resource is passed to context.
  */
 function libxml_set_streams_context($context): void {}
 
@@ -142,7 +143,7 @@ function libxml_disable_entity_loader(bool $disable = true): bool {}
  * This callback should return a resource, a string from which a resource can be
  * opened, or <b>NULL</b>.
  * </p>
- * @return bool
+ * @return bool Always returns true.
  * @since 5.4
  */
 #[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
@@ -154,7 +155,10 @@ function libxml_set_external_entity_loader(?callable $resolver_function) {}
  * This allows libraries to save and restore the loader, controlling entity expansion without interfering with the rest
  * of the application.
  *
- * @return callable|null
+ * @link https://php.net/manual/en/function.libxml-get-external-entity-loader.php
+ * @return callable|null The external entity loader previously installed by
+ * libxml_set_external_entity_loader. If that function was never called, or if it was called with
+ * null, null will be returned.
  * @since 8.2
  */
 function libxml_get_external_entity_loader(): ?callable {}

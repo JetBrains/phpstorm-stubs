@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Interfaces;
 
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
+use StubTests\Framework\Model\Types\StandaloneType;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsReturnTypesCheck;
@@ -166,7 +166,7 @@ class InterfaceMethodsReturnTypesCheckTest extends CheckTestCase
             $this->makeMethod('getValue', new StandaloneType('int')),  // mismatch
         ]);
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::INTERFACE_TYPE,

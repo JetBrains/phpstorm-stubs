@@ -2,15 +2,15 @@
 
 namespace StubTests\Unit\Parsers\Storage;
 
-use StubTests\Framework\Parsers\Serializers\Stubs\StubsEntitySerializer;
+use StubTests\Framework\Serialization\Stubs\StubsEntitySerializer;
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPConstant;
-use StubTests\Framework\Parsers\Model\PHPEnum;
-use StubTests\Framework\Parsers\Model\PHPFunction;
-use StubTests\Framework\Parsers\Model\PHPInterface;
-use StubTests\Framework\Parsers\Storage\EntityTypeFileRouter;
-use StubTests\Framework\Parsers\Storage\MultiFileJsonStorage;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPConstant;
+use StubTests\Framework\Model\PHPEnum;
+use StubTests\Framework\Model\PHPFunction;
+use StubTests\Framework\Model\PHPInterface;
+use StubTests\Framework\Storage\EntityTypeFileRouter;
+use StubTests\Framework\Storage\MultiFileJsonStorage;
 
 class MultiFileJsonStorageTest extends TestCase
 {

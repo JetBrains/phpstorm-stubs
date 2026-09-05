@@ -58,7 +58,7 @@ class AdaptedReflectionProperty extends AbstractReflectionAdapter
         // Extract default value (PHP 8.0+)
         if (method_exists($reflectionObject, 'hasDefaultValue') && $reflectionObject->hasDefaultValue()) {
             try {
-                $this->setData('getDefaultValue', $reflectionObject->getDefaultValue());
+                $this->setData('getDefaultValue', ReflectionValueNormalizer::makeSerializable($reflectionObject->getDefaultValue()));
             } catch (\Exception $e) {
                 // Can't access default value
                 $this->setData('getDefaultValue', null);

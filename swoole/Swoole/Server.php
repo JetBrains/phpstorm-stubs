@@ -277,9 +277,9 @@ class Server
     public function heartbeat($reactor_id) {}
 
     /**
-     * @param mixed $fd
-     * @param mixed|null $reactor_id
-     * @return mixed
+     * @param mixed $fd File descriptors.
+     * @param mixed|null $reactor_id The Reactor thread ID where the connection is made.
+     * @return mixed Returns information about the client connection.
      */
     public function getClientInfo($fd, $reactor_id = null) {}
 

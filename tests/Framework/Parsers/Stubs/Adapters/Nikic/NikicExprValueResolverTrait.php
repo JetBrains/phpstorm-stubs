@@ -17,19 +17,19 @@ trait NikicExprValueResolverTrait
         if ($expr instanceof \PhpParser\Node\Scalar\String_) {
             return $expr->value;
         }
-        if ($expr instanceof \PhpParser\Node\Scalar\LNumber) {
+        if ($expr instanceof \PhpParser\Node\Scalar\Int_) {
             return $expr->value;
         }
-        if ($expr instanceof \PhpParser\Node\Scalar\DNumber) {
+        if ($expr instanceof \PhpParser\Node\Scalar\Float_) {
             return $expr->value;
         }
         if ($expr instanceof \PhpParser\Node\Expr\UnaryMinus) {
-            if ($expr->expr instanceof \PhpParser\Node\Scalar\LNumber) {
+            if ($expr->expr instanceof \PhpParser\Node\Scalar\Int_) {
                 return -$expr->expr->value;
             }
-            if ($expr->expr instanceof \PhpParser\Node\Scalar\DNumber) {
+            if ($expr->expr instanceof \PhpParser\Node\Scalar\Float_) {
                 $negated = -$expr->expr->value;
-                // PHP parses literals like 9223372036854775808 as DNumber (float) because
+                // PHP parses literals like 9223372036854775808 as Float_ (float) because
                 // they overflow int, but -9223372036854775808 is exactly PHP_INT_MIN.
                 // Return as int when the negated float value is a whole number in int range.
                 if ($negated == (int)$negated) {
@@ -40,8 +40,8 @@ trait NikicExprValueResolverTrait
             return null;
         }
         if ($expr instanceof \PhpParser\Node\Expr\UnaryPlus) {
-            if ($expr->expr instanceof \PhpParser\Node\Scalar\LNumber
-                || $expr->expr instanceof \PhpParser\Node\Scalar\DNumber) {
+            if ($expr->expr instanceof \PhpParser\Node\Scalar\Int_
+                || $expr->expr instanceof \PhpParser\Node\Scalar\Float_) {
                 return $expr->expr->value;
             }
             return null;

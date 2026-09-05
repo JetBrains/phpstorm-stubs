@@ -2,8 +2,8 @@
 
 namespace StubTests\Unit\Validator\Enums;
 
-use StubTests\Framework\Parsers\Model\PHPEnum;
-use StubTests\Framework\Parsers\Model\PHPMethod;
+use StubTests\Framework\Model\PHPEnum;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsTentativeReturnTypeCheck;
 use StubTests\Framework\Validator\Contracts\EntityTypeConfig;
@@ -39,7 +39,7 @@ class EnumMethodsTentativeReturnTypeCheckTest extends CheckTestCase
 
     private function makeReflection(array $enums): \StubTests\Framework\Validator\Contracts\ReflectionProviderInterface
     {
-        $provider = $this->createMock(\StubTests\Framework\Validator\Contracts\ReflectionProviderInterface::class);
+        $provider = $this->createStub(\StubTests\Framework\Validator\Contracts\ReflectionProviderInterface::class);
         $manager = $this->createMockStorageManager();
         $manager->method('getEnums')->willReturn($enums);
         $provider->method('getReflection')->willReturn($manager);

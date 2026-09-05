@@ -185,7 +185,7 @@ function ssh2_connect($host, $port = 22, ?array $methods = null, ?array $callbac
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
  * </p>
- * @return bool
+ * @return bool Returns true on success or false on failure.
  */
 function ssh2_disconnect($session) {}
 
@@ -387,7 +387,7 @@ function ssh2_forward_accept($listener) {}
  * SSH2_TERM_UNIT_CHARS or
  * SSH2_TERM_UNIT_PIXELS.
  * </p>
- * @return resource
+ * @return resource Returns a stream resource on success, or false on failure.
  */
 function ssh2_shell($session, $term_type = null, ?array $env = null, $width = null, $height = null, $width_height_type = null) {}
 

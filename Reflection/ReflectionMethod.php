@@ -159,7 +159,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is static
      *
-     * @link https://php.net/manual/en/reflectionmethod.isstatic.php
+     * @link https://php-legacy-docs.zend.com/manual/php5/en/reflectionmethod.isstatic
      * @return bool Returns {@see true} if the method is static, otherwise {@see false}
      */
     #[Pure]
@@ -305,11 +305,20 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     #[Deprecated('Deprecated: it has no effect', since: '8.5')]
     public function setAccessible(bool $accessible): void {}
 
+    /**
+     * Returns whether a method has a prototype
+     * @link https://php.net/manual/en/reflectionmethod.hasprototype.php
+     * @return bool Returns true if the method has a prototype, otherwise false.
+     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function hasPrototype(): bool {}
 
     /**
+     * Creates a new ReflectionMethod
+     * @link https://php.net/manual/en/reflectionmethod.createfrommethodname.php
      * @since 8.3
+     * @throws \ReflectionException A ReflectionException is thrown if the given method does not
+     * exist.
      */
     public static function createFromMethodName(string $method): static {}
 }

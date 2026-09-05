@@ -1,8 +1,9 @@
 <?php
 /**
  * Returns FPM status info array
+ * @link https://php.net/manual/en/function.fpm-get-status.php
  * @since 7.3
- * @return array|false
+ * @return array|false Associative array containing the full FPM pool status, or false on failure.
  */
 function fpm_get_status(): array|false {}
 

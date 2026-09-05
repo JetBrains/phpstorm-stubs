@@ -34,7 +34,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * Clones function
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
-     * @return void
+     * @return void No value is returned.
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]
     private function __clone(): void {}
@@ -133,6 +133,12 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function getClosureScopeClass(): ?ReflectionClass {}
 
     /**
+     * Returns the class corresponding to static:: inside a closure
+     *
+     * Returns the class as a ReflectionClass that corresponds to resolving the class name
+     * corresponding to static:: inside the Closure.
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.getclosurecalledclass.php
      * @return ReflectionClass|null Returns the class on success or {@see null}
      * on failure.
      * @since 8.0
@@ -316,35 +322,69 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function hasReturnType(): bool {}
 
     /**
+     * Gets Attributes
+     *
+     * Returns all attributes declared on this function or method as an array of
+     * ReflectionAttribute.
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.getattributes.php
      * @template T
      *
      * Returns an array of function attributes.
      *
      * @param class-string<T>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
+     * @return ReflectionAttribute<T>[] Array of attributes, as a ReflectionAttribute object.
      * @since 8.0
      */
     #[Pure]
     public function getAttributes(?string $name = null, int $flags = 0): array {}
 
+    /**
+     * Returns an array of the used variables in the Closure
+     * @link https://php.net/manual/en/reflectionfunctionabstract.getclosureusedvariables.php
+     * @return array Returns an array of the used variables in the Closure.
+     */
     #[PhpStormStubsElementAvailable('8.1')]
     #[Pure]
     public function getClosureUsedVariables(): array {}
 
+    /**
+     * Returns whether the function has a tentative return type
+     * @link https://php.net/manual/en/reflectionfunctionabstract.hastentativereturntype.php
+     * @return bool Returns true if the function has a tentative return type, otherwise false.
+     */
     #[PhpStormStubsElementAvailable('8.1')]
     #[Pure]
     public function hasTentativeReturnType(): bool {}
 
+    /**
+     * Returns the tentative return type associated with the function
+     * @link https://php.net/manual/en/reflectionfunctionabstract.gettentativereturntype.php
+     * @return ReflectionType|null Returns a ReflectionType object if a tentative return type is
+     * specified, null otherwise.
+     */
     #[PhpStormStubsElementAvailable('8.1')]
     #[Pure]
     public function getTentativeReturnType(): ?ReflectionType {}
 
+    /**
+     * Checks if the function is static
+     * @link https://php.net/manual/en/reflectiofunctionabstract.isstatic.php
+     * @return bool true if the function is static, otherwise false
+     */
     #[PhpStormStubsElementAvailable('8.1')]
     #[Pure]
     #[TentativeType]
     public function isStatic(): bool {}
 
+    /**
+     * Returns the string representation of the ReflectionFunctionAbstract object
+     *
+     * Get a human-readable description of the function, its parameters and return values.
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.tostring.php
+     */
     #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
     public function __toString() {}
 }

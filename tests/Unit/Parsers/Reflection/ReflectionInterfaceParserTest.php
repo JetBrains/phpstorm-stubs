@@ -3,10 +3,12 @@
 namespace StubTests\Unit\Parsers\Reflection;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPMethod;
+use StubTests\Framework\Model\PHPClassLikeObject;
+use StubTests\Framework\Model\PHPMethod;
 use StubTests\Framework\Parsers\Reflection\ReflectionInterfaceParser;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClass;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassConstant;
+use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClassReference;
 use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionMethod;
 
 class ReflectionInterfaceParserTest extends TestCase
@@ -249,12 +251,22 @@ class ReflectionInterfaceParserTest extends TestCase
         self::assertEquals(1, sizeof($basePHPElement->getMethods()));
     }
 
-    public function testItDoesNotReturnNullIfNoConstants()
+    /**
+     * The `: array` declarations on PHPClassLikeObject are what make a null return impossible, and
+     * every assertNotNull() on these getters in this file leans on them. Pin the declarations
+     * themselves: widening either to `?array` would reintroduce the null case while the
+     * behavioural tests below still passed, and callers doing foreach($x->getMethods()) would
+     * start breaking at runtime instead.
+     */
+    public function testItDeclaresMethodsAndConstantsAsNonNullableArrays()
     {
-        $reflectionClassMock = $this->getMockBuilder(AdaptedReflectionClass::class)->disableOriginalConstructor()->getMock();
-        $reflectionClassMock->method('getConstants')->willReturn([]);
-        $basePHPElement = new ReflectionInterfaceParser()->parse($reflectionClassMock);
-        self::assertNotNull($basePHPElement->getConstants());
+        foreach (['getConstants', 'getMethods'] as $getter) {
+            $returnType = (new \ReflectionMethod(PHPClassLikeObject::class, $getter))->getReturnType();
+
+            self::assertInstanceOf(\ReflectionNamedType::class, $returnType, "{$getter}() must keep a single named return type");
+            self::assertSame('array', $returnType->getName(), "{$getter}() must stay declared as array");
+            self::assertFalse($returnType->allowsNull(), "{$getter}() must stay non-nullable");
+        }
     }
 
     public function testItReturnsEmptyArrayIfNoConstants()
@@ -280,5 +292,42 @@ class ReflectionInterfaceParserTest extends TestCase
         $reflectionClassMock->method('getReflectionConstants')->willReturn([$constantMock]);
         $basePHPElement = new ReflectionInterfaceParser()->parse($reflectionClassMock);
         self::assertEquals(1, sizeof($basePHPElement->getConstants()));
+    }
+
+    /**
+     * Interface inheritance was dropped on the reflection side: parse() never touched
+     * getInterfaces(), so getParentInterfaces() was [] for every reflected interface, which made
+     * ClassHierarchyResolver::resolveInterface() a no-op on the reflection storage.
+     *
+     * The ids are asserted, not just the count: ClassHierarchyResolver matches on the FQN, so a
+     * parent stored under a bare name would resolve to the wrong (global) interface.
+     */
+    public function testItParsesParentInterfaces()
+    {
+        $reflectionClassMock = $this->getMockBuilder(AdaptedReflectionClass::class)->disableOriginalConstructor()->getMock();
+        $reflectionClassMock->method('getInterfaces')->willReturn([
+            new AdaptedReflectionClassReference('Iterator'),
+            new AdaptedReflectionClassReference('Traversable'),
+        ]);
+
+        $interface = new ReflectionInterfaceParser()->parse($reflectionClassMock);
+
+        $parents = $interface->getParentInterfaces();
+        self::assertSame(
+            ['\Iterator', '\Traversable'],
+            array_map(fn ($parent) => $parent->getId(), $parents),
+            'Reflection reports the transitive ancestor set; every entry must keep its FQN id'
+        );
+        self::assertSame(['Iterator', 'Traversable'], array_map(fn ($parent) => $parent->getName(), $parents));
+    }
+
+    public function testItKeepsParentInterfacesEmptyForARootInterface()
+    {
+        $reflectionClassMock = $this->getMockBuilder(AdaptedReflectionClass::class)->disableOriginalConstructor()->getMock();
+        $reflectionClassMock->method('getInterfaces')->willReturn([]);
+
+        $interface = new ReflectionInterfaceParser()->parse($reflectionClassMock);
+
+        self::assertSame([], $interface->getParentInterfaces());
     }
 }

@@ -65,6 +65,20 @@ enum CheckType: string
     case CLASS_METHODS_EXIST = 'ClassMethodsExistCheck';
 
     /**
+     * Validates the reverse of CLASS_METHODS_EXIST: that a method declared in stubs actually
+     * exists in reflection for the version under test.
+     *
+     * Every other check runs reflection->stubs, so a stub declaring a member that the runtime does
+     * not have was invisible to the whole suite — which is how five SplFixedArray iterator methods,
+     * DOMDocument::renameNode, DOMText::replaceWholeText and ReflectionZendExtension::export sat
+     * unbounded past their removal in 8.0 while 412k tests passed.
+     *
+     * Scoped to StubCategory::CORE and BUNDLED, and skips magic methods and
+     * PS_UNRESERVE_PREFIX_* — see ClassStaleMethodsCheck for why each exclusion is required.
+     */
+    case CLASS_STALE_METHODS = 'ClassStaleMethodsCheck';
+
+    /**
      * Validates that the `final` attribute on methods in stubs matches reflection.
      */
     case CLASS_FINAL_METHODS = 'ClassFinalMethodsCheck';
@@ -274,6 +288,14 @@ enum CheckType: string
      * Used by PhpDocVersionFormatCheck for functions, classes, interfaces, and enums.
      */
     case PHPDOC_VERSION_FORMAT = 'PhpDocVersionFormatCheck';
+
+    /**
+     * Validates that a phpDoc comment declares at most one return tag.
+     * A second return is silently discarded by every consumer (the stub parser
+     * keeps the first one), so a duplicate looks applied while having no effect.
+     * Used by PhpDocSingleReturnCheck for functions, classes, interfaces, and enums.
+     */
+    case PHPDOC_SINGLE_RETURN = 'PhpDocSingleReturnCheck';
 
     /**
      * Validates that every @link URL in phpDoc comments uses the https scheme

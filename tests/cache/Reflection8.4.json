@@ -104992,6 +104992,34 @@
     },
     {
         "_type": "PHPClass",
+        "name": "Connection",
+        "id": "\\Odbc\\Connection",
+        "isFinal": false,
+        "isReadonly": false,
+        "namespace": "\\Odbc",
+        "methods": [],
+        "properties": [],
+        "constants": [],
+        "parentClass": null,
+        "interfaces": [],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
+        "name": "Result",
+        "id": "\\Odbc\\Result",
+        "isFinal": false,
+        "isReadonly": false,
+        "namespace": "\\Odbc",
+        "methods": [],
+        "properties": [],
+        "constants": [],
+        "parentClass": null,
+        "interfaces": [],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
         "name": "Dblib",
         "id": "\\Pdo\\Dblib",
         "isFinal": false,
@@ -111797,6 +111825,1120 @@
     },
     {
         "_type": "PHPClass",
+        "name": "tidy",
+        "id": "\\tidy",
+        "isFinal": false,
+        "isReadonly": false,
+        "namespace": "\\",
+        "methods": [
+            {
+                "name": "__construct",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "filename",
+                        "position": 0,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "string|null",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "config",
+                        "position": 1,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "array|string|null",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "encoding",
+                        "position": 2,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "string|null",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "useIncludePath",
+                        "position": 3,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "bool",
+                        "defaultValue": false
+                    }
+                ],
+                "returnType": "",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getOpt",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "option",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "string|int|bool",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "cleanRepair",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "parseFile",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "filename",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "config",
+                        "position": 1,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "array|string|null",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "encoding",
+                        "position": 2,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "string|null",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "useIncludePath",
+                        "position": 3,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "bool",
+                        "defaultValue": false
+                    }
+                ],
+                "returnType": "bool",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "parseString",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "string",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "config",
+                        "position": 1,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "array|string|null",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "encoding",
+                        "position": 2,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "string|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "bool",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "repairString",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "string",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "config",
+                        "position": 1,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "array|string|null",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "encoding",
+                        "position": 2,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "string|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "string|false",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "repairFile",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "filename",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "config",
+                        "position": 1,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "array|string|null",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "encoding",
+                        "position": 2,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "string|null",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "useIncludePath",
+                        "position": 3,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "bool",
+                        "defaultValue": false
+                    }
+                ],
+                "returnType": "string|false",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "diagnose",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "getRelease",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "string",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "getConfig",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "getStatus",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "int",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "getHtmlVer",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "int",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "getOptDoc",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "option",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "string|false",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "isXhtml",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "isXml",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "root",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "tidyNode|null",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "head",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "tidyNode|null",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "html",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "tidyNode|null",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "body",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "tidyNode|null",
+                "hasTentativeReturnType": true
+            }
+        ],
+        "properties": [
+            {
+                "name": "errorBuffer",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "public",
+                "type": "string|null",
+                "hasDefaultValue": true,
+                "defaultValue": null
+            },
+            {
+                "name": "value",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "public",
+                "type": "string|null",
+                "hasDefaultValue": true,
+                "defaultValue": null
+            }
+        ],
+        "constants": [],
+        "parentClass": null,
+        "interfaces": [],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
+        "name": "tidyNode",
+        "id": "\\tidyNode",
+        "isFinal": true,
+        "isReadonly": false,
+        "namespace": "\\",
+        "methods": [
+            {
+                "name": "__construct",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "private",
+                "parameters": [],
+                "returnType": "",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "hasChildren",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "hasSiblings",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "isComment",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "isHtml",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "isText",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "isJste",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "isAsp",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "isPhp",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getParent",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "tidyNode|null",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getPreviousSibling",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "tidyNode|null",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getNextSibling",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "tidyNode|null",
+                "hasTentativeReturnType": false
+            }
+        ],
+        "properties": [
+            {
+                "name": "value",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "string",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            },
+            {
+                "name": "name",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "string",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            },
+            {
+                "name": "type",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "int",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            },
+            {
+                "name": "line",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "int",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            },
+            {
+                "name": "column",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "int",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            },
+            {
+                "name": "proprietary",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "bool",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            },
+            {
+                "name": "id",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "int|null",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            },
+            {
+                "name": "attribute",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "array|null",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            },
+            {
+                "name": "child",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "array|null",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            }
+        ],
+        "constants": [],
+        "parentClass": null,
+        "interfaces": [],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
+        "name": "XSLTProcessor",
+        "id": "\\XSLTProcessor",
+        "isFinal": false,
+        "isReadonly": false,
+        "namespace": "\\",
+        "methods": [
+            {
+                "name": "importStylesheet",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "stylesheet",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "object",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "bool",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "transformToDoc",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "document",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "object",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "returnClass",
+                        "position": 1,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "string|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "object|false",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "transformToUri",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "document",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "object",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "uri",
+                        "position": 1,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "int",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "transformToXml",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "document",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "object",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "string|false|null",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "setParameter",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "namespace",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "name",
+                        "position": 1,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "array|string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "value",
+                        "position": 2,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "string|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "bool",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "getParameter",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "namespace",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "name",
+                        "position": 1,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "string|false",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "removeParameter",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "namespace",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "name",
+                        "position": 1,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "bool",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "hasExsltSupport",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "registerPHPFunctions",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "functions",
+                        "position": 0,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "array|string|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "void",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "registerPHPFunctionNS",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "namespaceURI",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "name",
+                        "position": 1,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "callable",
+                        "position": 2,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "callable",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "void",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "setProfiling",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "filename",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "true",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "setSecurityPrefs",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "preferences",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "int",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "getSecurityPrefs",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "int",
+                "hasTentativeReturnType": true
+            }
+        ],
+        "properties": [
+            {
+                "name": "doXInclude",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "public",
+                "type": "bool",
+                "hasDefaultValue": true,
+                "defaultValue": false
+            },
+            {
+                "name": "cloneDocument",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "public",
+                "type": "bool",
+                "hasDefaultValue": true,
+                "defaultValue": false
+            },
+            {
+                "name": "maxTemplateDepth",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "public",
+                "type": "int",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            },
+            {
+                "name": "maxTemplateVars",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "public",
+                "type": "int",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            }
+        ],
+        "constants": [],
+        "parentClass": null,
+        "interfaces": [],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
         "name": "ZipArchive",
         "id": "\\ZipArchive",
         "isFinal": false,
@@ -114340,7 +115482,8 @@
         "id": "\\Traversable",
         "namespace": "\\",
         "methods": [],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -114360,7 +115503,10 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Traversable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -114424,7 +115570,10 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Traversable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -114467,7 +115616,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -114579,7 +115729,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -114599,7 +115750,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -114619,7 +115771,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -114716,7 +115869,10 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Stringable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -114736,7 +115892,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -114802,7 +115959,10 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\UnitEnum"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -115042,7 +116202,8 @@
                 "visibility": "public",
                 "isFinal": false
             }
-        ]
+        ],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -115120,7 +116281,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -115244,7 +116406,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -115333,7 +116496,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -115422,7 +116586,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -115442,7 +116607,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -115528,7 +116694,11 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Iterator",
+            "\\Traversable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -115603,7 +116773,11 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Iterator",
+            "\\Traversable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -115690,7 +116864,11 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Iterator",
+            "\\Traversable"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -115722,7 +116900,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -115788,7 +116967,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -115945,7 +117125,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -115965,7 +117146,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -116031,7 +117213,8 @@
                 "hasTentativeReturnType": true
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -116051,7 +117234,8 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": []
     },
     {
         "_type": "PHPInterface",
@@ -116071,7 +117255,10 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Random\\Engine"
+        ]
     },
     {
         "_type": "PHPInterface",
@@ -116091,7 +117278,10 @@
                 "hasTentativeReturnType": false
             }
         ],
-        "constants": []
+        "constants": [],
+        "parentInterfaces": [
+            "\\Stringable"
+        ]
     },
     {
         "_type": "PHPEnum",
@@ -173363,6 +174553,1853 @@
     },
     {
         "_type": "PHPFunction",
+        "name": "odbc_close_all",
+        "id": "\\odbc_close_all",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "void",
+        "hasTentativeReturnType": false,
+        "parameters": []
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_binmode",
+        "id": "\\odbc_binmode",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "true",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "mode",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_longreadlen",
+        "id": "\\odbc_longreadlen",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "true",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "length",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_prepare",
+        "id": "\\odbc_prepare",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "query",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_execute",
+        "id": "\\odbc_execute",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "params",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "array",
+                "defaultValue": []
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_cursor",
+        "id": "\\odbc_cursor",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_data_source",
+        "id": "\\odbc_data_source",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "array|false|null",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "fetch_type",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_exec",
+        "id": "\\odbc_exec",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "query",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_do",
+        "id": "\\odbc_do",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "query",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_fetch_object",
+        "id": "\\odbc_fetch_object",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "stdClass|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "row",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "int|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_fetch_array",
+        "id": "\\odbc_fetch_array",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "array|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "row",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "int|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_fetch_into",
+        "id": "\\odbc_fetch_into",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "array",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": true,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "",
+                "defaultValue": null
+            },
+            {
+                "name": "row",
+                "position": 2,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "int|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_fetch_row",
+        "id": "\\odbc_fetch_row",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "row",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "int|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_result",
+        "id": "\\odbc_result",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string|bool|null",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "field",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string|int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_result_all",
+        "id": "\\odbc_result_all",
+        "namespace": "\\",
+        "isDeprecated": true,
+        "returnType": "int|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "format",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string",
+                "defaultValue": ""
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_free_result",
+        "id": "\\odbc_free_result",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "true",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_connect",
+        "id": "\\odbc_connect",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Connection|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "dsn",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "user",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "password",
+                "position": 2,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "cursor_option",
+                "position": 3,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "int",
+                "defaultValue": 2
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_pconnect",
+        "id": "\\odbc_pconnect",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Connection|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "dsn",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "user",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "password",
+                "position": 2,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "cursor_option",
+                "position": 3,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "int",
+                "defaultValue": 2
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_close",
+        "id": "\\odbc_close",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "void",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_num_rows",
+        "id": "\\odbc_num_rows",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_next_result",
+        "id": "\\odbc_next_result",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_num_fields",
+        "id": "\\odbc_num_fields",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_field_name",
+        "id": "\\odbc_field_name",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "field",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_field_type",
+        "id": "\\odbc_field_type",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "field",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_field_len",
+        "id": "\\odbc_field_len",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "field",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_field_precision",
+        "id": "\\odbc_field_precision",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "field",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_field_scale",
+        "id": "\\odbc_field_scale",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "field",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_field_num",
+        "id": "\\odbc_field_num",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "statement",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "field",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_autocommit",
+        "id": "\\odbc_autocommit",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int|bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "enable",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "bool|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_commit",
+        "id": "\\odbc_commit",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_rollback",
+        "id": "\\odbc_rollback",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_error",
+        "id": "\\odbc_error",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "Odbc\\Connection|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_errormsg",
+        "id": "\\odbc_errormsg",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "Odbc\\Connection|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_setoption",
+        "id": "\\odbc_setoption",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection|Odbc\\Result",
+                "defaultValue": null
+            },
+            {
+                "name": "which",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            },
+            {
+                "name": "option",
+                "position": 2,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            },
+            {
+                "name": "value",
+                "position": 3,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_tables",
+        "id": "\\odbc_tables",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "catalog",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "schema",
+                "position": 2,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "table",
+                "position": 3,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "types",
+                "position": 4,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_columns",
+        "id": "\\odbc_columns",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "catalog",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "schema",
+                "position": 2,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "table",
+                "position": 3,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "column",
+                "position": 4,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_gettypeinfo",
+        "id": "\\odbc_gettypeinfo",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "data_type",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "int",
+                "defaultValue": 0
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_primarykeys",
+        "id": "\\odbc_primarykeys",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "catalog",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "schema",
+                "position": 2,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "table",
+                "position": 3,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_procedurecolumns",
+        "id": "\\odbc_procedurecolumns",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "catalog",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "schema",
+                "position": 2,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "procedure",
+                "position": 3,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "column",
+                "position": 4,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_procedures",
+        "id": "\\odbc_procedures",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "catalog",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "schema",
+                "position": 2,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "procedure",
+                "position": 3,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_foreignkeys",
+        "id": "\\odbc_foreignkeys",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "pk_catalog",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "pk_schema",
+                "position": 2,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "pk_table",
+                "position": 3,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "fk_catalog",
+                "position": 4,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "fk_schema",
+                "position": 5,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "fk_table",
+                "position": 6,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_specialcolumns",
+        "id": "\\odbc_specialcolumns",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "type",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            },
+            {
+                "name": "catalog",
+                "position": 2,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "schema",
+                "position": 3,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "table",
+                "position": 4,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "scope",
+                "position": 5,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            },
+            {
+                "name": "nullable",
+                "position": 6,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_statistics",
+        "id": "\\odbc_statistics",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "catalog",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "schema",
+                "position": 2,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "table",
+                "position": 3,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "unique",
+                "position": 4,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            },
+            {
+                "name": "accuracy",
+                "position": 5,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_tableprivileges",
+        "id": "\\odbc_tableprivileges",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "catalog",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "schema",
+                "position": 2,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "table",
+                "position": 3,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_columnprivileges",
+        "id": "\\odbc_columnprivileges",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "Odbc\\Result|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "odbc",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Odbc\\Connection",
+                "defaultValue": null
+            },
+            {
+                "name": "catalog",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "schema",
+                "position": 2,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "table",
+                "position": 3,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "column",
+                "position": 4,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_connection_string_is_quoted",
+        "id": "\\odbc_connection_string_is_quoted",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "str",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_connection_string_should_quote",
+        "id": "\\odbc_connection_string_should_quote",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "str",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "odbc_connection_string_quote",
+        "id": "\\odbc_connection_string_quote",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "str",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
         "name": "pcntl_fork",
         "id": "\\pcntl_fork",
         "namespace": "\\",
@@ -184097,6 +187134,654 @@
     },
     {
         "_type": "PHPFunction",
+        "name": "tidy_parse_string",
+        "id": "\\tidy_parse_string",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "tidy|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "string",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "config",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "array|string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "encoding",
+                "position": 2,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_get_error_buffer",
+        "id": "\\tidy_get_error_buffer",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_get_output",
+        "id": "\\tidy_get_output",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_parse_file",
+        "id": "\\tidy_parse_file",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "tidy|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "filename",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "config",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "array|string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "encoding",
+                "position": 2,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "useIncludePath",
+                "position": 3,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "bool",
+                "defaultValue": false
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_clean_repair",
+        "id": "\\tidy_clean_repair",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_repair_string",
+        "id": "\\tidy_repair_string",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "string",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "config",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "array|string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "encoding",
+                "position": 2,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_repair_file",
+        "id": "\\tidy_repair_file",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "filename",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "config",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "array|string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "encoding",
+                "position": 2,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "string|null",
+                "defaultValue": null
+            },
+            {
+                "name": "useIncludePath",
+                "position": 3,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "bool",
+                "defaultValue": false
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_diagnose",
+        "id": "\\tidy_diagnose",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_get_release",
+        "id": "\\tidy_get_release",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": []
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_get_opt_doc",
+        "id": "\\tidy_get_opt_doc",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string|false",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            },
+            {
+                "name": "option",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_get_config",
+        "id": "\\tidy_get_config",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "array",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_get_status",
+        "id": "\\tidy_get_status",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_get_html_ver",
+        "id": "\\tidy_get_html_ver",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_is_xhtml",
+        "id": "\\tidy_is_xhtml",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_is_xml",
+        "id": "\\tidy_is_xml",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_error_count",
+        "id": "\\tidy_error_count",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_warning_count",
+        "id": "\\tidy_warning_count",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_access_count",
+        "id": "\\tidy_access_count",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_config_count",
+        "id": "\\tidy_config_count",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "int",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_getopt",
+        "id": "\\tidy_getopt",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string|int|bool",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            },
+            {
+                "name": "option",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_get_root",
+        "id": "\\tidy_get_root",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "tidyNode|null",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_get_html",
+        "id": "\\tidy_get_html",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "tidyNode|null",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_get_head",
+        "id": "\\tidy_get_head",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "tidyNode|null",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "tidy_get_body",
+        "id": "\\tidy_get_body",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "tidyNode|null",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "tidy",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "tidy",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
         "name": "zip_open",
         "id": "\\zip_open",
         "namespace": "\\",
@@ -184708,7 +188393,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.4.23",
+        "value": "8.4.24",
         "namespace": "\\"
     },
     {
@@ -184729,7 +188414,7 @@
         "_type": "PHPConstant",
         "name": "PHP_RELEASE_VERSION",
         "id": "\\PHP_RELEASE_VERSION",
-        "value": 23,
+        "value": 24,
         "namespace": "\\"
     },
     {
@@ -184743,7 +188428,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION_ID",
         "id": "\\PHP_VERSION_ID",
-        "value": 80423,
+        "value": 80424,
         "namespace": "\\"
     },
     {
@@ -193332,14 +197017,14 @@
         "_type": "PHPConstant",
         "name": "INF",
         "id": "\\INF",
-        "value": 0,
+        "value": "[float:INF]",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "NAN",
         "id": "\\NAN",
-        "value": 0,
+        "value": "[float:NAN]",
         "namespace": "\\"
     },
     {
@@ -200330,6 +204015,405 @@
     },
     {
         "_type": "PHPConstant",
+        "name": "ODBC_TYPE",
+        "id": "\\ODBC_TYPE",
+        "value": "",
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "ODBC_BINMODE_PASSTHRU",
+        "id": "\\ODBC_BINMODE_PASSTHRU",
+        "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "ODBC_BINMODE_RETURN",
+        "id": "\\ODBC_BINMODE_RETURN",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "ODBC_BINMODE_CONVERT",
+        "id": "\\ODBC_BINMODE_CONVERT",
+        "value": 2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_ODBC_CURSORS",
+        "id": "\\SQL_ODBC_CURSORS",
+        "value": 110,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CUR_USE_DRIVER",
+        "id": "\\SQL_CUR_USE_DRIVER",
+        "value": 2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CUR_USE_IF_NEEDED",
+        "id": "\\SQL_CUR_USE_IF_NEEDED",
+        "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CUR_USE_ODBC",
+        "id": "\\SQL_CUR_USE_ODBC",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CONCURRENCY",
+        "id": "\\SQL_CONCURRENCY",
+        "value": 7,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CONCUR_READ_ONLY",
+        "id": "\\SQL_CONCUR_READ_ONLY",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CONCUR_LOCK",
+        "id": "\\SQL_CONCUR_LOCK",
+        "value": 2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CONCUR_ROWVER",
+        "id": "\\SQL_CONCUR_ROWVER",
+        "value": 3,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CONCUR_VALUES",
+        "id": "\\SQL_CONCUR_VALUES",
+        "value": 4,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CURSOR_TYPE",
+        "id": "\\SQL_CURSOR_TYPE",
+        "value": 6,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CURSOR_FORWARD_ONLY",
+        "id": "\\SQL_CURSOR_FORWARD_ONLY",
+        "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CURSOR_KEYSET_DRIVEN",
+        "id": "\\SQL_CURSOR_KEYSET_DRIVEN",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CURSOR_DYNAMIC",
+        "id": "\\SQL_CURSOR_DYNAMIC",
+        "value": 2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CURSOR_STATIC",
+        "id": "\\SQL_CURSOR_STATIC",
+        "value": 3,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_KEYSET_SIZE",
+        "id": "\\SQL_KEYSET_SIZE",
+        "value": 8,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_FETCH_FIRST",
+        "id": "\\SQL_FETCH_FIRST",
+        "value": 2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_FETCH_NEXT",
+        "id": "\\SQL_FETCH_NEXT",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_CHAR",
+        "id": "\\SQL_CHAR",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_VARCHAR",
+        "id": "\\SQL_VARCHAR",
+        "value": 12,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_LONGVARCHAR",
+        "id": "\\SQL_LONGVARCHAR",
+        "value": -1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_DECIMAL",
+        "id": "\\SQL_DECIMAL",
+        "value": 3,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_NUMERIC",
+        "id": "\\SQL_NUMERIC",
+        "value": 2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_BIT",
+        "id": "\\SQL_BIT",
+        "value": -7,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_TINYINT",
+        "id": "\\SQL_TINYINT",
+        "value": -6,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_SMALLINT",
+        "id": "\\SQL_SMALLINT",
+        "value": 5,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_INTEGER",
+        "id": "\\SQL_INTEGER",
+        "value": 4,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_BIGINT",
+        "id": "\\SQL_BIGINT",
+        "value": -5,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_REAL",
+        "id": "\\SQL_REAL",
+        "value": 7,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_FLOAT",
+        "id": "\\SQL_FLOAT",
+        "value": 6,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_DOUBLE",
+        "id": "\\SQL_DOUBLE",
+        "value": 8,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_BINARY",
+        "id": "\\SQL_BINARY",
+        "value": -2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_VARBINARY",
+        "id": "\\SQL_VARBINARY",
+        "value": -3,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_LONGVARBINARY",
+        "id": "\\SQL_LONGVARBINARY",
+        "value": -4,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_DATE",
+        "id": "\\SQL_DATE",
+        "value": 9,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_TIME",
+        "id": "\\SQL_TIME",
+        "value": 10,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_TIMESTAMP",
+        "id": "\\SQL_TIMESTAMP",
+        "value": 11,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_TYPE_DATE",
+        "id": "\\SQL_TYPE_DATE",
+        "value": 91,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_TYPE_TIME",
+        "id": "\\SQL_TYPE_TIME",
+        "value": 92,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_TYPE_TIMESTAMP",
+        "id": "\\SQL_TYPE_TIMESTAMP",
+        "value": 93,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_WCHAR",
+        "id": "\\SQL_WCHAR",
+        "value": -8,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_WVARCHAR",
+        "id": "\\SQL_WVARCHAR",
+        "value": -9,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_WLONGVARCHAR",
+        "id": "\\SQL_WLONGVARCHAR",
+        "value": -10,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_BEST_ROWID",
+        "id": "\\SQL_BEST_ROWID",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_ROWVER",
+        "id": "\\SQL_ROWVER",
+        "value": 2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_SCOPE_CURROW",
+        "id": "\\SQL_SCOPE_CURROW",
+        "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_SCOPE_TRANSACTION",
+        "id": "\\SQL_SCOPE_TRANSACTION",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_SCOPE_SESSION",
+        "id": "\\SQL_SCOPE_SESSION",
+        "value": 2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_NO_NULLS",
+        "id": "\\SQL_NO_NULLS",
+        "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_NULLABLE",
+        "id": "\\SQL_NULLABLE",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_INDEX_UNIQUE",
+        "id": "\\SQL_INDEX_UNIQUE",
+        "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_INDEX_ALL",
+        "id": "\\SQL_INDEX_ALL",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_ENSURE",
+        "id": "\\SQL_ENSURE",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SQL_QUICK",
+        "id": "\\SQL_QUICK",
+        "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
         "name": "WNOHANG",
         "id": "\\WNOHANG",
         "value": 1,
@@ -201235,14 +205319,14 @@
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION",
         "id": "\\PGSQL_LIBPQ_VERSION",
-        "value": "18.4",
+        "value": "18.6",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION_STR",
         "id": "\\PGSQL_LIBPQ_VERSION_STR",
-        "value": "18.4",
+        "value": "18.6",
         "namespace": "\\"
     },
     {
@@ -204680,6 +208764,1231 @@
         "name": "MSG_EXCEPT",
         "id": "\\MSG_EXCEPT",
         "value": 4,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_ROOT",
+        "id": "\\TIDY_NODETYPE_ROOT",
+        "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_DOCTYPE",
+        "id": "\\TIDY_NODETYPE_DOCTYPE",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_COMMENT",
+        "id": "\\TIDY_NODETYPE_COMMENT",
+        "value": 2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_PROCINS",
+        "id": "\\TIDY_NODETYPE_PROCINS",
+        "value": 3,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_TEXT",
+        "id": "\\TIDY_NODETYPE_TEXT",
+        "value": 4,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_START",
+        "id": "\\TIDY_NODETYPE_START",
+        "value": 5,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_END",
+        "id": "\\TIDY_NODETYPE_END",
+        "value": 6,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_STARTEND",
+        "id": "\\TIDY_NODETYPE_STARTEND",
+        "value": 7,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_CDATA",
+        "id": "\\TIDY_NODETYPE_CDATA",
+        "value": 8,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_SECTION",
+        "id": "\\TIDY_NODETYPE_SECTION",
+        "value": 9,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_ASP",
+        "id": "\\TIDY_NODETYPE_ASP",
+        "value": 10,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_JSTE",
+        "id": "\\TIDY_NODETYPE_JSTE",
+        "value": 11,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_PHP",
+        "id": "\\TIDY_NODETYPE_PHP",
+        "value": 12,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_NODETYPE_XMLDECL",
+        "id": "\\TIDY_NODETYPE_XMLDECL",
+        "value": 13,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_UNKNOWN",
+        "id": "\\TIDY_TAG_UNKNOWN",
+        "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_A",
+        "id": "\\TIDY_TAG_A",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_ABBR",
+        "id": "\\TIDY_TAG_ABBR",
+        "value": 2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_ACRONYM",
+        "id": "\\TIDY_TAG_ACRONYM",
+        "value": 3,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_ADDRESS",
+        "id": "\\TIDY_TAG_ADDRESS",
+        "value": 4,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_ALIGN",
+        "id": "\\TIDY_TAG_ALIGN",
+        "value": 5,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_APPLET",
+        "id": "\\TIDY_TAG_APPLET",
+        "value": 6,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_AREA",
+        "id": "\\TIDY_TAG_AREA",
+        "value": 7,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_B",
+        "id": "\\TIDY_TAG_B",
+        "value": 8,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_BASE",
+        "id": "\\TIDY_TAG_BASE",
+        "value": 9,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_BASEFONT",
+        "id": "\\TIDY_TAG_BASEFONT",
+        "value": 10,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_BDO",
+        "id": "\\TIDY_TAG_BDO",
+        "value": 11,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_BGSOUND",
+        "id": "\\TIDY_TAG_BGSOUND",
+        "value": 12,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_BIG",
+        "id": "\\TIDY_TAG_BIG",
+        "value": 13,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_BLINK",
+        "id": "\\TIDY_TAG_BLINK",
+        "value": 14,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_BLOCKQUOTE",
+        "id": "\\TIDY_TAG_BLOCKQUOTE",
+        "value": 15,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_BODY",
+        "id": "\\TIDY_TAG_BODY",
+        "value": 16,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_BR",
+        "id": "\\TIDY_TAG_BR",
+        "value": 17,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_BUTTON",
+        "id": "\\TIDY_TAG_BUTTON",
+        "value": 18,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_CAPTION",
+        "id": "\\TIDY_TAG_CAPTION",
+        "value": 19,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_CENTER",
+        "id": "\\TIDY_TAG_CENTER",
+        "value": 20,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_CITE",
+        "id": "\\TIDY_TAG_CITE",
+        "value": 21,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_CODE",
+        "id": "\\TIDY_TAG_CODE",
+        "value": 22,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_COL",
+        "id": "\\TIDY_TAG_COL",
+        "value": 23,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_COLGROUP",
+        "id": "\\TIDY_TAG_COLGROUP",
+        "value": 24,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_COMMENT",
+        "id": "\\TIDY_TAG_COMMENT",
+        "value": 25,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_DD",
+        "id": "\\TIDY_TAG_DD",
+        "value": 26,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_DEL",
+        "id": "\\TIDY_TAG_DEL",
+        "value": 27,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_DFN",
+        "id": "\\TIDY_TAG_DFN",
+        "value": 28,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_DIR",
+        "id": "\\TIDY_TAG_DIR",
+        "value": 29,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_DIV",
+        "id": "\\TIDY_TAG_DIV",
+        "value": 30,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_DL",
+        "id": "\\TIDY_TAG_DL",
+        "value": 31,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_DT",
+        "id": "\\TIDY_TAG_DT",
+        "value": 32,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_EM",
+        "id": "\\TIDY_TAG_EM",
+        "value": 33,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_EMBED",
+        "id": "\\TIDY_TAG_EMBED",
+        "value": 34,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_FIELDSET",
+        "id": "\\TIDY_TAG_FIELDSET",
+        "value": 35,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_FONT",
+        "id": "\\TIDY_TAG_FONT",
+        "value": 36,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_FORM",
+        "id": "\\TIDY_TAG_FORM",
+        "value": 37,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_FRAME",
+        "id": "\\TIDY_TAG_FRAME",
+        "value": 38,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_FRAMESET",
+        "id": "\\TIDY_TAG_FRAMESET",
+        "value": 39,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_H1",
+        "id": "\\TIDY_TAG_H1",
+        "value": 40,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_H2",
+        "id": "\\TIDY_TAG_H2",
+        "value": 41,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_H3",
+        "id": "\\TIDY_TAG_H3",
+        "value": 42,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_H4",
+        "id": "\\TIDY_TAG_H4",
+        "value": 43,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_H5",
+        "id": "\\TIDY_TAG_H5",
+        "value": 44,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_H6",
+        "id": "\\TIDY_TAG_H6",
+        "value": 45,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_HEAD",
+        "id": "\\TIDY_TAG_HEAD",
+        "value": 46,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_HR",
+        "id": "\\TIDY_TAG_HR",
+        "value": 47,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_HTML",
+        "id": "\\TIDY_TAG_HTML",
+        "value": 48,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_I",
+        "id": "\\TIDY_TAG_I",
+        "value": 49,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_IFRAME",
+        "id": "\\TIDY_TAG_IFRAME",
+        "value": 50,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_ILAYER",
+        "id": "\\TIDY_TAG_ILAYER",
+        "value": 51,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_IMG",
+        "id": "\\TIDY_TAG_IMG",
+        "value": 52,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_INPUT",
+        "id": "\\TIDY_TAG_INPUT",
+        "value": 53,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_INS",
+        "id": "\\TIDY_TAG_INS",
+        "value": 54,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_ISINDEX",
+        "id": "\\TIDY_TAG_ISINDEX",
+        "value": 55,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_KBD",
+        "id": "\\TIDY_TAG_KBD",
+        "value": 56,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_KEYGEN",
+        "id": "\\TIDY_TAG_KEYGEN",
+        "value": 57,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_LABEL",
+        "id": "\\TIDY_TAG_LABEL",
+        "value": 58,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_LAYER",
+        "id": "\\TIDY_TAG_LAYER",
+        "value": 59,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_LEGEND",
+        "id": "\\TIDY_TAG_LEGEND",
+        "value": 60,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_LI",
+        "id": "\\TIDY_TAG_LI",
+        "value": 61,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_LINK",
+        "id": "\\TIDY_TAG_LINK",
+        "value": 62,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_LISTING",
+        "id": "\\TIDY_TAG_LISTING",
+        "value": 63,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_MAP",
+        "id": "\\TIDY_TAG_MAP",
+        "value": 64,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_MARQUEE",
+        "id": "\\TIDY_TAG_MARQUEE",
+        "value": 66,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_MENU",
+        "id": "\\TIDY_TAG_MENU",
+        "value": 67,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_META",
+        "id": "\\TIDY_TAG_META",
+        "value": 68,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_MULTICOL",
+        "id": "\\TIDY_TAG_MULTICOL",
+        "value": 69,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_NOBR",
+        "id": "\\TIDY_TAG_NOBR",
+        "value": 70,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_NOEMBED",
+        "id": "\\TIDY_TAG_NOEMBED",
+        "value": 71,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_NOFRAMES",
+        "id": "\\TIDY_TAG_NOFRAMES",
+        "value": 72,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_NOLAYER",
+        "id": "\\TIDY_TAG_NOLAYER",
+        "value": 73,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_NOSAVE",
+        "id": "\\TIDY_TAG_NOSAVE",
+        "value": 74,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_NOSCRIPT",
+        "id": "\\TIDY_TAG_NOSCRIPT",
+        "value": 75,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_OBJECT",
+        "id": "\\TIDY_TAG_OBJECT",
+        "value": 76,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_OL",
+        "id": "\\TIDY_TAG_OL",
+        "value": 77,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_OPTGROUP",
+        "id": "\\TIDY_TAG_OPTGROUP",
+        "value": 78,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_OPTION",
+        "id": "\\TIDY_TAG_OPTION",
+        "value": 79,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_P",
+        "id": "\\TIDY_TAG_P",
+        "value": 80,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_PARAM",
+        "id": "\\TIDY_TAG_PARAM",
+        "value": 81,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_PLAINTEXT",
+        "id": "\\TIDY_TAG_PLAINTEXT",
+        "value": 83,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_PRE",
+        "id": "\\TIDY_TAG_PRE",
+        "value": 84,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_Q",
+        "id": "\\TIDY_TAG_Q",
+        "value": 85,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_RB",
+        "id": "\\TIDY_TAG_RB",
+        "value": 86,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_RBC",
+        "id": "\\TIDY_TAG_RBC",
+        "value": 87,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_RP",
+        "id": "\\TIDY_TAG_RP",
+        "value": 88,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_RT",
+        "id": "\\TIDY_TAG_RT",
+        "value": 89,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_RTC",
+        "id": "\\TIDY_TAG_RTC",
+        "value": 90,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_RUBY",
+        "id": "\\TIDY_TAG_RUBY",
+        "value": 91,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_S",
+        "id": "\\TIDY_TAG_S",
+        "value": 92,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SAMP",
+        "id": "\\TIDY_TAG_SAMP",
+        "value": 93,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SCRIPT",
+        "id": "\\TIDY_TAG_SCRIPT",
+        "value": 94,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SELECT",
+        "id": "\\TIDY_TAG_SELECT",
+        "value": 95,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SERVER",
+        "id": "\\TIDY_TAG_SERVER",
+        "value": 96,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SERVLET",
+        "id": "\\TIDY_TAG_SERVLET",
+        "value": 97,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SMALL",
+        "id": "\\TIDY_TAG_SMALL",
+        "value": 98,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SPACER",
+        "id": "\\TIDY_TAG_SPACER",
+        "value": 99,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SPAN",
+        "id": "\\TIDY_TAG_SPAN",
+        "value": 100,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_STRIKE",
+        "id": "\\TIDY_TAG_STRIKE",
+        "value": 101,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_STRONG",
+        "id": "\\TIDY_TAG_STRONG",
+        "value": 102,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_STYLE",
+        "id": "\\TIDY_TAG_STYLE",
+        "value": 103,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SUB",
+        "id": "\\TIDY_TAG_SUB",
+        "value": 104,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SUP",
+        "id": "\\TIDY_TAG_SUP",
+        "value": 105,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TABLE",
+        "id": "\\TIDY_TAG_TABLE",
+        "value": 107,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TBODY",
+        "id": "\\TIDY_TAG_TBODY",
+        "value": 108,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TD",
+        "id": "\\TIDY_TAG_TD",
+        "value": 109,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TEXTAREA",
+        "id": "\\TIDY_TAG_TEXTAREA",
+        "value": 110,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TFOOT",
+        "id": "\\TIDY_TAG_TFOOT",
+        "value": 111,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TH",
+        "id": "\\TIDY_TAG_TH",
+        "value": 112,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_THEAD",
+        "id": "\\TIDY_TAG_THEAD",
+        "value": 113,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TITLE",
+        "id": "\\TIDY_TAG_TITLE",
+        "value": 114,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TR",
+        "id": "\\TIDY_TAG_TR",
+        "value": 115,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TT",
+        "id": "\\TIDY_TAG_TT",
+        "value": 116,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_U",
+        "id": "\\TIDY_TAG_U",
+        "value": 117,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_UL",
+        "id": "\\TIDY_TAG_UL",
+        "value": 118,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_VAR",
+        "id": "\\TIDY_TAG_VAR",
+        "value": 119,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_WBR",
+        "id": "\\TIDY_TAG_WBR",
+        "value": 120,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_XMP",
+        "id": "\\TIDY_TAG_XMP",
+        "value": 121,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_ARTICLE",
+        "id": "\\TIDY_TAG_ARTICLE",
+        "value": 123,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_ASIDE",
+        "id": "\\TIDY_TAG_ASIDE",
+        "value": 124,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_AUDIO",
+        "id": "\\TIDY_TAG_AUDIO",
+        "value": 125,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_BDI",
+        "id": "\\TIDY_TAG_BDI",
+        "value": 126,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_CANVAS",
+        "id": "\\TIDY_TAG_CANVAS",
+        "value": 127,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_COMMAND",
+        "id": "\\TIDY_TAG_COMMAND",
+        "value": 128,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_DATALIST",
+        "id": "\\TIDY_TAG_DATALIST",
+        "value": 130,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_DETAILS",
+        "id": "\\TIDY_TAG_DETAILS",
+        "value": 131,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_DIALOG",
+        "id": "\\TIDY_TAG_DIALOG",
+        "value": 132,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_FIGCAPTION",
+        "id": "\\TIDY_TAG_FIGCAPTION",
+        "value": 133,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_FIGURE",
+        "id": "\\TIDY_TAG_FIGURE",
+        "value": 134,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_FOOTER",
+        "id": "\\TIDY_TAG_FOOTER",
+        "value": 135,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_HEADER",
+        "id": "\\TIDY_TAG_HEADER",
+        "value": 136,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_HGROUP",
+        "id": "\\TIDY_TAG_HGROUP",
+        "value": 137,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_MAIN",
+        "id": "\\TIDY_TAG_MAIN",
+        "value": 138,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_MARK",
+        "id": "\\TIDY_TAG_MARK",
+        "value": 139,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_MENUITEM",
+        "id": "\\TIDY_TAG_MENUITEM",
+        "value": 140,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_METER",
+        "id": "\\TIDY_TAG_METER",
+        "value": 141,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_NAV",
+        "id": "\\TIDY_TAG_NAV",
+        "value": 142,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_OUTPUT",
+        "id": "\\TIDY_TAG_OUTPUT",
+        "value": 143,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_PROGRESS",
+        "id": "\\TIDY_TAG_PROGRESS",
+        "value": 144,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SECTION",
+        "id": "\\TIDY_TAG_SECTION",
+        "value": 145,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SOURCE",
+        "id": "\\TIDY_TAG_SOURCE",
+        "value": 146,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_SUMMARY",
+        "id": "\\TIDY_TAG_SUMMARY",
+        "value": 147,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TEMPLATE",
+        "id": "\\TIDY_TAG_TEMPLATE",
+        "value": 148,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TIME",
+        "id": "\\TIDY_TAG_TIME",
+        "value": 149,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_TRACK",
+        "id": "\\TIDY_TAG_TRACK",
+        "value": 150,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "TIDY_TAG_VIDEO",
+        "id": "\\TIDY_TAG_VIDEO",
+        "value": 151,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "XSL_CLONE_AUTO",
+        "id": "\\XSL_CLONE_AUTO",
+        "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "XSL_CLONE_NEVER",
+        "id": "\\XSL_CLONE_NEVER",
+        "value": -1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "XSL_CLONE_ALWAYS",
+        "id": "\\XSL_CLONE_ALWAYS",
+        "value": 1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "XSL_SECPREF_NONE",
+        "id": "\\XSL_SECPREF_NONE",
+        "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "XSL_SECPREF_READ_FILE",
+        "id": "\\XSL_SECPREF_READ_FILE",
+        "value": 2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "XSL_SECPREF_WRITE_FILE",
+        "id": "\\XSL_SECPREF_WRITE_FILE",
+        "value": 4,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "XSL_SECPREF_CREATE_DIRECTORY",
+        "id": "\\XSL_SECPREF_CREATE_DIRECTORY",
+        "value": 8,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "XSL_SECPREF_READ_NETWORK",
+        "id": "\\XSL_SECPREF_READ_NETWORK",
+        "value": 16,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "XSL_SECPREF_WRITE_NETWORK",
+        "id": "\\XSL_SECPREF_WRITE_NETWORK",
+        "value": 32,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "XSL_SECPREF_DEFAULT",
+        "id": "\\XSL_SECPREF_DEFAULT",
+        "value": 44,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "LIBXSLT_VERSION",
+        "id": "\\LIBXSLT_VERSION",
+        "value": 10143,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "LIBXSLT_DOTTED_VERSION",
+        "id": "\\LIBXSLT_DOTTED_VERSION",
+        "value": "1.1.43",
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "LIBEXSLT_VERSION",
+        "id": "\\LIBEXSLT_VERSION",
+        "value": 824,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "LIBEXSLT_DOTTED_VERSION",
+        "id": "\\LIBEXSLT_DOTTED_VERSION",
+        "value": "0.8.24",
         "namespace": "\\"
     }
 ]

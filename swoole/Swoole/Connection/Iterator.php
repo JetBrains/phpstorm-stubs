@@ -15,12 +15,12 @@ class Iterator implements \Iterator, \ArrayAccess, \Countable
     public function next(): void {}
 
     /**
-     * @return mixed
+     * @return mixed The current connection entry.
      */
     public function current() {}
 
     /**
-     * @return mixed
+     * @return mixed Key of the current connection.
      */
     public function key() {}
 

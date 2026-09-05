@@ -54,7 +54,7 @@ interface SessionHandlerInterface
      */
     #[LanguageLevelTypeAware(['7.1' => 'int|false'], default: 'bool')]
     #[TentativeType]
-    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime): int|false;
+    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime);
 
     /**
      * Initialize session
@@ -134,6 +134,7 @@ interface SessionIdInterface
  * defines a prototype for updating the life time of an existing session.
  * In order to use the lazy_write option must be enabled and a custom session
  * handler must implement this interface.
+ * @link https://php.net/manual/en/class.sessionupdatetimestamphandlerinterface.php
  * @since 7.0
  */
 interface SessionUpdateTimestampHandlerInterface
@@ -160,7 +161,8 @@ interface SessionUpdateTimestampHandlerInterface
      * string and passing it as this parameter.
      * Please note sessions use an alternative serialization method.
      * </p>
-     * @return bool
+     * @return bool Returns true if the timestamp was updated, false otherwise. Note that this value
+     * is returned internally to PHP for processing.
      */
     #[TentativeType]
     public function updateTimestamp(string $id, string $data): bool;

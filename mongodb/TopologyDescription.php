@@ -19,7 +19,8 @@ class TopologyDescription
     /**
      * Returns the servers in the topology
      * @link https://www.php.net/manual/en/mongodb-driver-topologydescription.getservers.php
-     * @return ServerDescription[]
+     * @return ServerDescription[] Returns an array of MongoDB\Driver\ServerDescription objects
+     * corresponding to the known servers in the topology.
      */
     final public function getServers(): array {}
 

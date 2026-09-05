@@ -2,13 +2,11 @@
 
 namespace StubTests\Framework\Validator\PhpDoc;
 
-use StubTests\Framework\Parsers\Model\PHPClassLikeObject;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractReflectionCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\Services\EntityLookupService;
-use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 
@@ -40,6 +38,8 @@ use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
  */
 class PhpDocLinksCheck extends AbstractReflectionCheck
 {
+    use PhpDocLocationWalkerTrait;
+
     /**
      * Matches "@link http://..." or "@link https://..." in a phpDoc block.
      * Capture group 1 is the full URL (no whitespace).
@@ -110,7 +110,6 @@ class PhpDocLinksCheck extends AbstractReflectionCheck
         $code = curl_errno($ch) === CURLE_OK
             ? (int)curl_getinfo($ch, CURLINFO_HTTP_CODE)
             : 0;
-        curl_close($ch);
 
         self::$urlCache[$url] = $code;
         return $code;
@@ -171,33 +170,11 @@ class PhpDocLinksCheck extends AbstractReflectionCheck
      */
     private function collectViolationsByLocation(object $entity, string $entityId, bool $checkLiveness): array
     {
-        $result = [];
-
-        // Entity-level phpDoc
-        $phpDoc = $entity->getStubsMetadata()?->getPhpDoc();
-        if ($phpDoc !== null && $phpDoc !== '') {
-            $violations = $this->checkLinks($phpDoc, $checkLiveness);
-            if (!empty($violations)) {
-                $result[$entityId] = $violations;
-            }
-        }
-
-        // Method-level phpDocs for class-like entities
-        if ($entity instanceof PHPClassLikeObject) {
-            foreach ($entity->getMethods() as $method) {
-                $phpDoc = $method->getStubsMetadata()?->getPhpDoc();
-                if ($phpDoc === null || $phpDoc === '') {
-                    continue;
-                }
-                $violations = $this->checkLinks($phpDoc, $checkLiveness);
-                if (!empty($violations)) {
-                    $methodId = $entityId . '::' . $method->getName();
-                    $result[$methodId] = $violations;
-                }
-            }
-        }
-
-        return $result;
+        return $this->collectByPhpDocLocation(
+            $entity,
+            $entityId,
+            fn (string $phpDoc): array => $this->checkLinks($phpDoc, $checkLiveness)
+        );
     }
 
     /**

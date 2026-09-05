@@ -2,12 +2,13 @@
 
 namespace StubTests\Framework\Validator\Functions;
 
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractCallableCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
+use StubTests\Framework\Validator\Services\ParameterFilterHelper;
 use StubTests\Framework\Validator\Services\PhpDocConformanceService;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 use StubTests\Framework\Validator\Services\ReturnTypeResolver;
@@ -86,7 +87,7 @@ class FunctionPhpDocConformsSignatureCheck extends AbstractCallableCheck
 
         // Check each parameter
         $params = $stubFunction->getParameters();
-        foreach ($this->conformanceService->filterAndDeduplicateParamsPhpDoc($params, $phpVersion) as $param) {
+        foreach (ParameterFilterHelper::filterAndDeduplicate($params, $phpVersion) as $param) {
             $sigType = $this->conformanceService->getParamSigTypeForPhpDoc($param, $phpVersion);
             $docType = $param->getStubsMetadata()?->getTypeFromPhpDoc();
 

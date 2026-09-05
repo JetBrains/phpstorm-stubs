@@ -23,7 +23,7 @@ interface RegexInterface
     /**
      * Returns the string representation of this RegexInterface
      * @link https://www.php.net/manual/en/mongodb-bson-regexinterface.tostring.php
-     * @return string
+     * @return string Returns the string representation of this RegexInterface.
      */
     public function __toString(): string;
 }

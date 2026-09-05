@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Functions;
 
-use StubTests\Framework\Parsers\Model\PHPFunction;
+use StubTests\Framework\Model\PHPFunction;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Functions\FunctionParametersCountCheck;
@@ -296,7 +296,7 @@ class FunctionParametersCountCheckTest extends CheckTestCase
     {
         $id = '\\special_func';
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::FUNCTION,

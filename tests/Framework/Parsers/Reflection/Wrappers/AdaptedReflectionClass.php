@@ -66,7 +66,7 @@ class AdaptedReflectionClass extends AbstractReflectionAdapter
             $this->setData('getConstants', []);
         } else {
             $this->setData('getReflectionConstants', []);
-            $this->setData('getConstants', $reflectionObject->getConstants());
+            $this->setData('getConstants', ReflectionValueNormalizer::makeSerializable($reflectionObject->getConstants()));
         }
 
         // Extract parent class (avoid infinite recursion)
@@ -91,7 +91,7 @@ class AdaptedReflectionClass extends AbstractReflectionAdapter
         // Extract static properties
         try {
             $staticProperties = $reflectionObject->getStaticProperties();
-            $this->setData('getStaticProperties', $staticProperties);
+            $this->setData('getStaticProperties', ReflectionValueNormalizer::makeSerializable($staticProperties));
         } catch (\Exception $e) {
             $this->setData('getStaticProperties', []);
         }

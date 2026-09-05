@@ -2,11 +2,11 @@
 
 namespace StubTests\Unit\Parsers\Storage\Managers;
 
-use StubTests\Framework\Parsers\Serializers\Stubs\StubsEntitySerializer;
+use StubTests\Framework\Serialization\Stubs\StubsEntitySerializer;
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Storage\DefaultParsedDataStorageManager;
-use StubTests\Framework\Parsers\Storage\JsonParsedDataStorage;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Storage\DefaultParsedDataStorageManager;
+use StubTests\Framework\Storage\JsonParsedDataStorage;
 
 class ParsedDataJsonStorageManagerTest extends TestCase
 {
@@ -219,6 +219,33 @@ class ParsedDataJsonStorageManagerTest extends TestCase
         $classNames = array_map(fn ($c) => $c->getName(), $classes);
         self::assertContains('FirstClass', $classNames);
         self::assertContains('SecondClass', $classNames);
+    }
+
+    public function testSaveFailsLoudlyOnAValueJsonCannotRepresent(): void
+    {
+        // save() used to pass JSON_PARTIAL_OUTPUT_ON_ERROR, which does not skip an unencodable
+        // value — it substitutes one (`0` for a non-finite float, `null` for a malformed string) and
+        // suppresses the error, so a corrupt cache was written and committed while the run stayed
+        // green. Anything json_encode() still rejects at this point is a bug in a serializer and
+        // must stop the pipeline instead of being papered over.
+        $jsonFilePath = $this->getTempFilePath('unencodable_test');
+        $storage = new JsonParsedDataStorage($jsonFilePath, new StubsEntitySerializer(), false);
+
+        $class = new PHPClass();
+        $class->setName("Broken\xB1\x31Name"); // invalid UTF-8, no JSON representation
+        $storage->addEntity($class);
+
+        $this->expectException(\JsonException::class);
+
+        try {
+            $storage->save();
+        } finally {
+            // Belt and braces: nothing partial may be left behind for a later run to load.
+            self::assertStringNotContainsString(
+                '"name": null',
+                file_exists($jsonFilePath) ? file_get_contents($jsonFilePath) : ''
+            );
+        }
     }
 
     public function testAddEntityStoresDuplicatesWithSameId(): void

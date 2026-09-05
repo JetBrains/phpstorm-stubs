@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Classes;
 
-use StubTests\Framework\Parsers\Model\PHPInterface;
+use StubTests\Framework\Model\PHPInterface;
 use StubTests\Framework\Validator\Classes\ClassInterfacesCheck;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Unit\Validator\CheckTestCase;
@@ -226,7 +226,7 @@ class ClassInterfacesCheckTest extends CheckTestCase
         $reflectionClass = $this->createMockClassWithProperties($className, null, null, null, [], null, [$throwable]);
         $stubClass = $this->createMockClassWithProperties($className); // missing Throwable, but skipped
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,

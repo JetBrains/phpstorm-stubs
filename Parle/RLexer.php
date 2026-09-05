@@ -57,7 +57,7 @@ class RLexer
      * Processes the next rule and prepares the resulting token data.
      *
      * @link https://php.net/manual/en/parle-rlexer.advance.php
-     * @return void
+     * @return void No value is returned.
      */
     public function advance(): void {}
 
@@ -70,7 +70,7 @@ class RLexer
      *
      * @link https://php.net/manual/en/parle-rlexer.build.php
      * @see RLexer::push()
-     * @return void
+     * @return void No value is returned.
      */
     public function build(): void {}
 
@@ -82,7 +82,7 @@ class RLexer
      * @see https://php.net/manual/en/parle-rlexer.callout.php
      * @param int $id Token id.
      * @param callable $callback Callable to be invoked. The callable doesn't receive any arguments and its return value is ignored.
-     * @return void
+     * @return void No value is returned.
      */
     public function callout(int $id, callable $callback): void {}
 
@@ -93,7 +93,7 @@ class RLexer
      *
      * @see https://php.net/manual/en/parle-rlexer.consume.php
      * @param string $data Data to be lexed.
-     * @return void
+     * @return void No value is returned.
      */
     public function consume(string $data): void {}
 
@@ -103,14 +103,14 @@ class RLexer
      * Dump the current state machine to stdout.
      *
      * @see https://php.net/manual/en/parle-rlexer.dump.php
-     * @return void
+     * @return void No value is returned.
      */
     public function dump(): void {}
 
     /**
      * Retrieve the current token.
      *
-     * @return Token
+     * @return Token Returns an instance of Parle\Token.
      */
     public function getToken(): Token {}
 
@@ -171,7 +171,7 @@ class RLexer
      * If '<' is specified as exit state, it means pop. In that case, the signature containing the id can be used to
      * identify the match. Note that even in the case an id is specified, the rule will finish first when all the
      * previous pushes popped.
-     * @return void
+     * @return void No value is returned.
      * @link https://php.net/manual/en/parle-rlexer.push.php
      */
     public function push(string $state, string $regex, string $newState): void {}

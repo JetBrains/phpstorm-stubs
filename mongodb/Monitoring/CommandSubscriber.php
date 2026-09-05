@@ -15,7 +15,7 @@ interface CommandSubscriber extends Subscriber
      * If the subscriber has been registered with MongoDB\Driver\Monitoring\addSubscriber(), the driver will call this method when a command has failed.
      * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandfailed.php
      * @param CommandFailedEvent $event An event object encapsulating information about the failed command.
-     * @return void
+     * @return void No value is returned.
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
@@ -26,7 +26,7 @@ interface CommandSubscriber extends Subscriber
      * If the subscriber has been registered with MongoDB\Driver\Monitoring\addSubscriber(), the driver will call this method when a command has started.
      * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandstarted.php
      * @param CommandStartedEvent $event An event object encapsulating information about the started command.
-     * @return void
+     * @return void No value is returned.
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
@@ -37,7 +37,7 @@ interface CommandSubscriber extends Subscriber
      * If the subscriber has been registered with MongoDB\Driver\Monitoring\addSubscriber(), the driver will call this method when a command has succeeded.
      * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandsucceeded.php
      * @param CommandSucceededEvent $event An event object encapsulating information about the successful command.
-     * @return void
+     * @return void No value is returned.
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */

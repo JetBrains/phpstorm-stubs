@@ -30,7 +30,7 @@ class ConstantValueCheckTest extends CheckTestCase
 
     private function createMockReflectionProviderWithConstants(array $constants = []): ReflectionProviderInterface
     {
-        $provider = $this->createMock(ReflectionProviderInterface::class);
+        $provider = $this->createStub(ReflectionProviderInterface::class);
         $manager = $this->createMockStorageManager();
         $manager->method('getConstants')->willReturn($constants);
         $provider->method('getReflection')->willReturn($manager);
@@ -207,7 +207,7 @@ class ConstantValueCheckTest extends CheckTestCase
         $reflConstant = $this->makeGlobalConstant($constantId, 42);
         $stubConstant = $this->makeGlobalConstant($constantId, 0); // mismatch
 
-        $knownProblemsProvider = $this->createMock(KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::GLOBAL_CONSTANT,
@@ -239,7 +239,7 @@ class ConstantValueCheckTest extends CheckTestCase
         $reflConstant = $this->makeGlobalConstant($constantId, 42);
         $stubConstant = $this->makeGlobalConstant($constantId, 0); // mismatch
 
-        $knownProblemsProvider = $this->createMock(KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::GLOBAL_CONSTANT,

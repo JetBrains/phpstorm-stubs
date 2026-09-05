@@ -2,7 +2,7 @@
 
 namespace StubTests\Unit\Validator\Classes\Methods;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
+use StubTests\Framework\Model\PHPClass;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
@@ -180,9 +180,9 @@ class MethodDeprecationCheckTest extends CheckTestCase
         $this->assertStringContainsString('not marked as deprecated in stubs', $result->getFailures()[$failureKey]);
     }
 
-    public function testDeprecatedInStubsButNotInReflectionIsSuccess(): void
+    public function testDeprecatedInStubsButNotInReflectionIsFailure(): void
     {
-        // One-way check: stubs can be more conservative
+        // Both sides must agree, so a stub-only deprecation is reported too.
         $className = '\MyClass';
 
         $reflClass = $this->createMockClassWithProperties(
@@ -206,7 +206,70 @@ class MethodDeprecationCheckTest extends CheckTestCase
 
         $result = (new MethodDeprecationCheck($provider))->run($stubs, $className, '8.0');
 
+        $this->assertTrue($result->hasFailures());
+        $failureKey = $className . '::forwardDeprecated';
+        $this->assertStringContainsString(
+            'marked as deprecated in stubs but is not deprecated in PHP 8.0',
+            $result->getFailures()[$failureKey]
+        );
+    }
+
+    public function testStubDeprecationStartingLaterThanTheVersionUnderTestIsNotAMismatch(): void
+    {
+        // #[Deprecated(since: '8.4')] must read as "not deprecated" on 8.0, matching reflection.
+        $className = '\MyClass';
+
+        $reflClass = $this->createMockClassWithProperties(
+            $className,
+            null,
+            null,
+            null,
+            [$this->makeMethod('laterDeprecated')]
+        );
+        $stubClass = $this->createMockClassWithProperties(
+            $className,
+            null,
+            null,
+            null,
+            [$this->makeMethod('laterDeprecated', isDeprecated: true, deprecatedSinceVersion: '8.4')]
+        );
+
+        $provider = $this->createMockReflectionProvider([], [$reflClass]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        $result = (new MethodDeprecationCheck($provider))->run($stubs, $className, '8.0');
+
         $this->assertFalse($result->hasFailures());
+    }
+
+    public function testStubDeprecationIsEnforcedFromItsSinceVersionOnwards(): void
+    {
+        // Same stub, now validated at 8.4: the deprecation applies, so reflection must agree.
+        $className = '\MyClass';
+
+        $reflClass = $this->createMockClassWithProperties(
+            $className,
+            null,
+            null,
+            null,
+            [$this->makeMethod('laterDeprecated')]
+        );
+        $stubClass = $this->createMockClassWithProperties(
+            $className,
+            null,
+            null,
+            null,
+            [$this->makeMethod('laterDeprecated', isDeprecated: true, deprecatedSinceVersion: '8.4')]
+        );
+
+        $provider = $this->createMockReflectionProvider([], [$reflClass]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        $result = (new MethodDeprecationCheck($provider))->run($stubs, $className, '8.4');
+
+        $this->assertTrue($result->hasFailures());
     }
 
     public function testMethodMissingFromStubsIsNotReportedAsDeprecationMismatch(): void
@@ -285,7 +348,7 @@ class MethodDeprecationCheckTest extends CheckTestCase
             [$this->makeMethod('oldMethod')] // mismatch
         );
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,
@@ -340,7 +403,7 @@ class MethodDeprecationCheckTest extends CheckTestCase
             ]
         );
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::METHOD,

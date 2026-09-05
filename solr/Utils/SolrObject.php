@@ -85,7 +85,7 @@ final class SolrObject implements ArrayAccess
      * @param string $property_name <p>
      * The name of the property.
      * </p>
-     * @return bool
+     * @return bool Returns true on success or false on failure.
      */
     public function offsetUnset($property_name) {}
 }

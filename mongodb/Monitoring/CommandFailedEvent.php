@@ -93,7 +93,7 @@ class CommandFailedEvent
     /**
      * Returns the server hostname for the command
      * @link   https://www.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.gethost.php
-     * @return string
+     * @return string Returns the hostname of the server on which the command was executed.
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.20.0
      */
@@ -102,7 +102,7 @@ class CommandFailedEvent
     /**
      * Returns the Exception associated with the failed command
      * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.geterror.php
-     * @return \Exception
+     * @return \Exception Returns the Exception associated with the failed command.
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
@@ -122,7 +122,7 @@ class CommandFailedEvent
     /**
      * Returns the server port for the command
      * @link   https://www.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getport.php
-     * @return int
+     * @return int Returns the port of the server on which the command was executed.
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.20.0
      */

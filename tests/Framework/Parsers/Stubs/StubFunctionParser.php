@@ -4,12 +4,13 @@ namespace StubTests\Framework\Parsers\Stubs;
 
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
-use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
+use StubTests\Framework\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
-use StubTests\Framework\Parsers\Model\PHPFunction;
+use StubTests\Framework\Parsers\Stubs\Versions\DeprecationParser;
+use StubTests\Framework\Model\PHPFunction;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicNodeExtractor;
 use StubTests\Framework\Parsers\Stubs\Nodes\FunctionNode;
 
@@ -25,6 +26,7 @@ class StubFunctionParser implements MultiEntityStubParserInterface
     private PhpDocParserInterface $phpDocParser;
     private TypeParserInterface $typeParser;
     private AvailableVersionParserInterface $versionParser;
+    private DeprecationParser $deprecationParser;
     private StubParameterParser $parameterParser;
 
     public function __construct(
@@ -37,6 +39,7 @@ class StubFunctionParser implements MultiEntityStubParserInterface
         $this->phpDocParser = $phpDocParser ?? new PhpDocumentorParser();
         $this->typeParser = $typeParser ?? new DefaultTypeParser();
         $this->versionParser = $versionParser ?? new DefaultAvailableVersionParser();
+        $this->deprecationParser = new DeprecationParser();
         $this->parameterParser = new StubParameterParser($typeParser, $versionParser);
     }
 
@@ -91,7 +94,9 @@ class StubFunctionParser implements MultiEntityStubParserInterface
 
         // Apply parsed PhpDoc data to function
         $phpFunction->initStubsMetadata()->setPhpDoc($parsedPhpDoc->rawPhpDoc);
-        $phpFunction->setDeprecated($parsedPhpDoc->isDeprecated || $this->hasDeprecatedAttribute($node->getAttributes(), $imports));
+        $deprecation = $this->deprecationParser->parseDeprecation($node->getAttributes(), $imports, $parsedPhpDoc);
+        $phpFunction->setDeprecated($deprecation->isDeprecated);
+        $phpFunction->initStubsMetadata()->setDeprecatedSinceVersion($deprecation->sinceVersion);
         $phpFunction->setHasTentativeReturnType($this->hasTentativeTypeAttribute($node->getAttributes(), $imports));
 
         // Parse and apply available version (from PhpDoc + attributes)
@@ -108,8 +113,8 @@ class StubFunctionParser implements MultiEntityStubParserInterface
 
         // Parse parameters with @param types from PhpDoc, imports, namespace, and optional flags
         $parameters = [];
-        foreach ($node->getParameters() as $param) {
-            $parameters[] = $this->parameterParser->parseNode($param, $parsedPhpDoc->paramTypes, $imports, $phpFunction->getNamespace(), $parsedPhpDoc->optionalParams);
+        foreach ($node->getParameters() as $position => $param) {
+            $parameters[] = $this->parameterParser->parseNode($param, $parsedPhpDoc->paramTypes, $imports, $phpFunction->getNamespace(), $parsedPhpDoc->optionalParams, $position);
         }
         $phpFunction->setParameters($parameters);
 

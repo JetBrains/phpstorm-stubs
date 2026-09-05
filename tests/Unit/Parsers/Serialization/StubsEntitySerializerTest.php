@@ -2,19 +2,20 @@
 
 namespace StubTests\Unit\Parsers\Serialization;
 
-use StubTests\Framework\Parsers\Model\Access\AccessModifier;
-use StubTests\Framework\Parsers\Serializers\Stubs\StubsEntitySerializer;
+use PHPUnit\Framework\Attributes\DataProvider;
+use StubTests\Framework\Model\Access\AccessModifier;
+use StubTests\Framework\Serialization\Stubs\StubsEntitySerializer;
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPConstant;
-use StubTests\Framework\Parsers\Model\PHPEnum;
-use StubTests\Framework\Parsers\Model\PHPFunction;
-use StubTests\Framework\Parsers\Model\PHPInterface;
-use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Model\PHPParameter;
-use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Parsers\Model\Types\NoType;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPConstant;
+use StubTests\Framework\Model\PHPEnum;
+use StubTests\Framework\Model\PHPFunction;
+use StubTests\Framework\Model\PHPInterface;
+use StubTests\Framework\Model\PHPMethod;
+use StubTests\Framework\Model\PHPParameter;
+use StubTests\Framework\Model\PHPProperty;
+use StubTests\Framework\Model\Types\NoType;
+use StubTests\Framework\Model\Types\StandaloneType;
 
 class StubsEntitySerializerTest extends TestCase
 {
@@ -334,6 +335,49 @@ class StubsEntitySerializerTest extends TestCase
         self::assertEquals('/** @var int */', $result['phpDoc']);
         self::assertEquals('7.0', $result['sinceVersion']);
         self::assertEquals('8.0', $result['removedVersion']);
+    }
+
+    /**
+     * INF, -INF and NAN are not representable in JSON. They used to reach json_encode() unchanged,
+     * where JSON_PARTIAL_OUTPUT_ON_ERROR replaced them with the integer 0 — so the cached value of
+     * \INF was byte-identical to the cached value of a constant that really is 0, and \INF and \NAN
+     * were indistinguishable from each other.
+     */
+    #[DataProvider('nonFiniteConstantValues')]
+    public function testNonFiniteConstantValuesAreSerializedAsDistinguishableSentinels(float $value, string $expected): void
+    {
+        $constant = new PHPConstant();
+        $constant->setName('SOME_LIMIT');
+        $constant->setValue($value);
+
+        $result = $this->serializer->serialize($constant);
+
+        self::assertSame($expected, $result['value']);
+        // The whole point: the encoder must not have to fall back to a lossy mode.
+        self::assertJson(json_encode($result, JSON_THROW_ON_ERROR));
+    }
+
+    public static function nonFiniteConstantValues(): array
+    {
+        return [
+            'INF' => [INF, '[float:INF]'],
+            '-INF' => [-INF, '[float:-INF]'],
+            'NAN' => [NAN, '[float:NAN]'],
+        ];
+    }
+
+    public function testFiniteConstantValuesAreNotTurnedIntoSentinels(): void
+    {
+        // Guards the sentinel branch against over-reach: 0.0, -0.0 and PHP_FLOAT_MAX are all finite
+        // and must survive as floats, otherwise a real 0 would become indistinguishable from \INF
+        // again — in the opposite direction this time.
+        foreach ([0.0, -0.0, 1.5, PHP_FLOAT_MAX, -PHP_FLOAT_MAX] as $value) {
+            $constant = new PHPConstant();
+            $constant->setName('SOME_LIMIT');
+            $constant->setValue($value);
+
+            self::assertSame($value, $this->serializer->serialize($constant)['value']);
+        }
     }
 
     public function testDeserializeClassWithStubMetadata(): void
@@ -709,5 +753,65 @@ class StubsEntitySerializerTest extends TestCase
         $result = $this->serializer->serialize($interface);
 
         self::assertSame(['Countable'], $result['parentInterfaces']);
+    }
+
+    public function testFunctionDeprecatedSinceVersionSurvivesARoundtrip(): void
+    {
+        $function = new PHPFunction();
+        $function->setName('testFunction');
+        $function->setId('\\testFunction');
+        $function->setDeprecated(true);
+        $function->initStubsMetadata()->setDeprecatedSinceVersion('8.4');
+
+        $result = $this->serializer->serialize($function);
+        self::assertSame('8.4', $result['deprecatedSinceVersion']);
+
+        $restored = $this->serializer->deserialize($result);
+        self::assertTrue($restored->isDeprecated());
+        self::assertSame('8.4', $restored->getStubsMetadata()?->getDeprecatedSinceVersion());
+    }
+
+    public function testMethodAndParameterDeprecatedSinceVersionSurviveARoundtrip(): void
+    {
+        $parameter = new PHPParameter('deprecatedParam');
+        $parameter->setDeprecated(true);
+        $parameter->initStubsMetadata()->setDeprecatedSinceVersion('8.2');
+
+        $method = new PHPMethod();
+        $method->setName('testMethod');
+        $method->setAccess(AccessModifier::PUBLIC);
+        $method->setDeprecated(true);
+        $method->setParameters([$parameter]);
+        $method->initStubsMetadata()->setDeprecatedSinceVersion('8.4');
+
+        $class = new PHPClass();
+        $class->setName('TestClass');
+        $class->setId('\\TestClass');
+        $class->addMethod($method);
+
+        $result = $this->serializer->serialize($class);
+        self::assertSame('8.4', $result['methods'][0]['deprecatedSinceVersion']);
+        self::assertSame('8.2', $result['methods'][0]['parameters'][0]['deprecatedSinceVersion']);
+
+        $restoredMethod = $this->serializer->deserialize($result)->getMethods()[0];
+        self::assertSame('8.4', $restoredMethod->getStubsMetadata()?->getDeprecatedSinceVersion());
+        self::assertSame('8.2', $restoredMethod->getParameters()[0]->getStubsMetadata()?->getDeprecatedSinceVersion());
+    }
+
+    /**
+     * Caches written before the field existed simply have no key; deserialization must treat
+     * that as "no version recorded" rather than fail.
+     */
+    public function testMissingDeprecatedSinceVersionDeserializesToNull(): void
+    {
+        $restored = $this->serializer->deserialize([
+            '_type' => 'PHPFunction',
+            'name' => 'legacyFunction',
+            'id' => '\\legacyFunction',
+            'isDeprecated' => true,
+        ]);
+
+        self::assertTrue($restored->isDeprecated());
+        self::assertNull($restored->getStubsMetadata()?->getDeprecatedSinceVersion());
     }
 }

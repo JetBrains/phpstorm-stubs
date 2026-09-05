@@ -4,9 +4,9 @@ namespace StubTests\Unit\Validator\Services;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use StubTests\Framework\Parsers\Model\PHPParameter;
-use StubTests\Framework\Parsers\Model\PHPProperty;
-use StubTests\Framework\Parsers\Model\Types\StandaloneType;
+use StubTests\Framework\Model\PHPParameter;
+use StubTests\Framework\Model\PHPProperty;
+use StubTests\Framework\Model\Types\StandaloneType;
 use StubTests\Framework\Validator\Services\PhpDocConformanceService;
 
 class PhpDocConformanceServiceTest extends TestCase
@@ -286,6 +286,34 @@ DOC;
     public function testExtractTemplateNamesFromInvalidDoc(): void
     {
         $this->assertSame([], $this->service->extractTemplateNames('not a valid docblock'));
+    }
+
+    /**
+     * Variance forms declare template names just as `@template` does. This class once used a
+     * DocBlockFactory-based reader that returned [] for `@template-contravariant`, so a doc using
+     * that name in a `@param` was read as an unknown class and reported as a signature mismatch —
+     * see the second assertion, which is the failure that would come back.
+     */
+    public function testExtractTemplateNamesCoversVarianceForms(): void
+    {
+        $phpDoc = <<<'DOC'
+/**
+ * @template-covariant TOut
+ * @template-contravariant TIn
+ * @param TIn $in
+ * @return TOut
+ */
+DOC;
+        $templateNames = $this->service->extractTemplateNames($phpDoc);
+
+        $this->assertSame(['TOut', 'TIn'], $templateNames);
+        $this->assertTrue($this->service->isPhpDocCompatibleWithSignature('int', 'TIn', $templateNames));
+    }
+
+    /** A name may be declared once and used many times; callers index by name, so no duplicates. */
+    public function testExtractTemplateNamesDeduplicates(): void
+    {
+        $this->assertSame(['T'], $this->service->extractTemplateNames("/**\n * @template T\n * @template T\n */"));
     }
 
     // ── normalizeDocType ──────────────────────────────────────────

@@ -97,8 +97,8 @@ function session_regenerate_id(bool $delete_old_session = false): bool {}
 /**
  * PHP > 5.4.0 <br/>
  * Session shutdown function
- * @link https://secure.php.net/manual/en/function.session-register-shutdown.php
- * @return void
+ * @link https://php.net/manual/en/function.session-register-shutdown.php
+ * @return void No value is returned.
  */
 function session_register_shutdown(): void {}
 
@@ -114,7 +114,7 @@ function session_decode(string $data): bool {}
 
 /**
  * Register one or more global variables with the current session
- * @link https://php.net/manual/en/function.session-register.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.session-register
  * @param mixed $name <p>
  * A string holding the name of a variable or an array consisting of
  * variable names or other arrays.
@@ -128,7 +128,7 @@ function session_register(mixed $name, ...$_): bool {}
 
 /**
  * Unregister a global variable from the current session
- * @link https://php.net/manual/en/function.session-unregister.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.session-unregister
  * @param string $name <p>
  * The variable name.
  * </p>
@@ -140,7 +140,7 @@ function session_unregister(string $name): bool {}
 
 /**
  * Find out whether a global variable is registered in a session
- * @link https://php.net/manual/en/function.session-is-registered.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.session-is-registered
  * @param string $name <p>
  * The variable name.
  * </p>
@@ -185,6 +185,7 @@ function session_create_id(string $prefix = '') {}
 
 /**
  * Perform session data garbage collection
+ * @link https://php.net/manual/en/function.session-gc.php
  * @return int|false number of deleted session data for success, false for failure.
  * @since 7.1
  */

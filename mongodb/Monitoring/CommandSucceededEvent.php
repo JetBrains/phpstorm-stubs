@@ -88,7 +88,7 @@ class CommandSucceededEvent
     /**
      * Returns the server hostname for the command
      * @link   https://www.php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.gethost.php
-     * @return string
+     * @return string Returns the hostname of the server on which the command was executed.
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.20.0
      */
@@ -108,7 +108,7 @@ class CommandSucceededEvent
     /**
      * Returns the server port for the command
      * @link   https://www.php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getport.php
-     * @return int
+     * @return int Returns the port of the server on which the command was executed.
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.20.0
      */

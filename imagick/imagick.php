@@ -1856,7 +1856,7 @@ class Imagick implements Iterator, Countable
     /**
      * @link https://www.php.net/manual/en/imagick.blueshiftimage.php
      * @param float $factor [optional]
-     * @return bool
+     * @return bool Returns true on success.
      * @throws ImagickException on error.
      */
     public function blueShiftImage($factor = 1.5) {}
@@ -1930,7 +1930,7 @@ class Imagick implements Iterator, Countable
     /**
      * @param bool $stack
      * @param int $offset
-     * @return Imagick
+     * @return Imagick The new smushed image.
      * @throws ImagickException on error.
      */
     public function smushImages($stack, $offset) {}
@@ -1948,7 +1948,7 @@ class Imagick implements Iterator, Countable
     public function __construct($files = null) {}
 
     /**
-     * @return string
+     * @return string Returns the string content on success or an empty string on failure.
      */
     public function __toString() {}
 
@@ -2736,7 +2736,7 @@ class Imagick implements Iterator, Countable
     /**
      * @param string $key
      * @param string $value
-     * @return bool
+     * @return bool Returns true on success.
      * @throws ImagickException on error.
      */
     #[Deprecated]
@@ -3684,7 +3684,7 @@ class Imagick implements Iterator, Countable
      * bitwise operators. Refer to this
      * list of channel constants.
      * </p>
-     * @return int[]
+     * @return int[] Returns true on success.
      * @throws ImagickException on error.
      */
     #[ArrayShape(["minima" => "int", "maxima" => "int"])]
@@ -3702,7 +3702,7 @@ class Imagick implements Iterator, Countable
      * bitwise operators. Refer to this
      * list of channel constants.
      * </p>
-     * @return float[]
+     * @return float[] Returns an array with "mean" and "standardDeviation" members.
      * @throws ImagickException on error.
      */
     #[ArrayShape(["mean" => "float", "standardDeviation" => "float"])]
@@ -3713,7 +3713,7 @@ class Imagick implements Iterator, Countable
      * (PECL imagick 2.0.0)<br/>
      * Returns statistics for each channel in the image
      * @link https://php.net/manual/en/imagick.getimagechannelstatistics.php
-     * @return array
+     * @return array Returns true on success.
      * @throws ImagickException on error.
      */
     #[Pure]
@@ -4275,8 +4275,8 @@ class Imagick implements Iterator, Countable
      * (PECL imagick 2.0.0)<br/>
      * Adds or removes a profile from an image
      * @link https://php.net/manual/en/imagick.profileimage.php
-     * @param string $name
-     * @param string $profile
+     * @param string $name The profile name.
+     * @param string $profile The profile data. If null, the specified profile will be deleted.
      * @return bool <b>TRUE</b> on success.
      * @throws ImagickException on error.
      */
@@ -4335,7 +4335,9 @@ class Imagick implements Iterator, Countable
      * (PECL imagick 2.0.0)<br/>
      * Separates a channel from the image
      * @link https://php.net/manual/en/imagick.separateimagechannel.php
-     * @param int $channel
+     * @param int $channel Which 'channel' to return. For colorspaces other than RGB, you can still
+     * use the CHANNEL_RED, CHANNEL_GREEN, CHANNEL_BLUE constants to indicate the 1st, 2nd and 3rd
+     * channels.
      * @return bool <b>TRUE</b> on success.
      * @throws ImagickException on error.
      */
@@ -4516,9 +4518,11 @@ class Imagick implements Iterator, Countable
      * (PECL imagick 2.0.0)<br/>
      * Adjusts the contrast of an image
      * @link https://php.net/manual/en/imagick.sigmoidalcontrastimage.php
-     * @param bool $sharpen
-     * @param float $alpha
-     * @param float $beta
+     * @param bool $sharpen If true increase the contrast, if false decrease the contrast.
+     * @param float $alpha The amount of contrast to apply. 1 is very little, 5 is a significant
+     * amount, 20 is extreme.
+     * @param float $beta Where the midpoint of the gradient will be. This value should be in the
+     * range 0 to 1 - multiplied by the quantum value for ImageMagick.
      * @param int $channel [optional]
      * @return bool <b>TRUE</b> on success.
      * @throws ImagickException on error.
@@ -4539,7 +4543,7 @@ class Imagick implements Iterator, Countable
      * (PECL imagick 2.0.0)<br/>
      * Repeatedly tiles the texture image
      * @link https://php.net/manual/en/imagick.textureimage.php
-     * @param Imagick $texture_wand
+     * @param Imagick $texture_wand Imagick object to use as texture image
      * @return Imagick a new Imagick object that has the repeated texture applied.
      * @throws ImagickException on error.
      */
@@ -4836,7 +4840,7 @@ class Imagick implements Iterator, Countable
      * (PECL imagick 2.0.0)<br/>
      * Sets the object's default compression type
      * @link https://php.net/manual/en/imagick.setcompression.php
-     * @param int $compression
+     * @param int $compression The compression type. See the Imagick::COMPRESSION_* constants.
      * @return bool <b>TRUE</b> on success.
      * @throws ImagickException on error.
      */
@@ -4846,7 +4850,7 @@ class Imagick implements Iterator, Countable
      * (PECL imagick 0.9.10-0.9.9)<br/>
      * Sets the object's default compression quality
      * @link https://php.net/manual/en/imagick.setcompressionquality.php
-     * @param int $quality
+     * @param int $quality An integer between 1 and 100, 1 = high compression, 100 low compression.
      * @return bool <b>TRUE</b> on success.
      * @throws ImagickException on error.
      */
@@ -4996,7 +5000,7 @@ class Imagick implements Iterator, Countable
      * @param float $brightness
      * @param float $contrast
      * @param int $CHANNEL [optional]
-     * @return void
+     * @return void Returns true on success.
      * @throws ImagickException on error.
      * @since 3.3.0
      */
@@ -5009,7 +5013,7 @@ class Imagick implements Iterator, Countable
      * @param int $iterations The number of iteration to apply the morphology function. A value of -1 means loop until no change found. How this is applied may depend on the morphology method. Typically this is a value of 1.
      * @param ImagickKernel $ImagickKernel
      * @param int $CHANNEL [optional]
-     * @return void
+     * @return void Returns true on success.
      * @throws ImagickException on error.
      * @throws ImagickKernelException on error.
      * @since 3.3.0
@@ -5021,7 +5025,7 @@ class Imagick implements Iterator, Countable
      * @link https://php.net/manual/en/imagick.filter.php
      * @param ImagickKernel $ImagickKernel An instance of ImagickKernel that represents either a single kernel or a linked series of kernels.
      * @param int $CHANNEL [optional] Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to Imagick::CHANNEL_DEFAULT. Refer to this list of channel constants
-     * @return void
+     * @return void Returns true on success.
      * @throws ImagickException on error.
      * @since 3.3.0
      */
@@ -5032,7 +5036,7 @@ class Imagick implements Iterator, Countable
      * The matrix is similar to those used by Adobe Flash except offsets are in column 6 rather than 5 (in support of CMYKA images) and offsets are normalized (divide Flash offset by 255)
      * @link https://php.net/manual/en/imagick.colormatriximage.php
      * @param array $color_matrix
-     * @return void
+     * @return void Returns true on success.
      * @throws ImagickException on error.
      * @since 3.3.0
      */
@@ -5042,7 +5046,7 @@ class Imagick implements Iterator, Countable
      * Deletes an image property.
      * @link https://php.net/manual/en/imagick.deleteimageproperty.php
      * @param string $name The name of the property to delete.
-     * @return void
+     * @return void Returns true on success.
      * @throws ImagickException on error.
      * @since 3.3.0
      */
@@ -5061,7 +5065,7 @@ class Imagick implements Iterator, Countable
     /**
      * Gets the current image's compression type.
      * @link https://php.net/manual/en/imagick.getimagecompression.php
-     * @return int
+     * @return int Returns the compression constant
      * @since 3.3.0
      */
     #[Pure]
@@ -5070,7 +5074,7 @@ class Imagick implements Iterator, Countable
     /**
      * Get the StringRegistry entry for the named key or false if not set.
      * @link https://php.net/manual/en/imagick.getregistry.php
-     * @param string $key
+     * @param string $key The entry to get.
      * @return string|false
      * @throws ImagickException Since version >= 3.4.3. Throws an exception if the key does not exist, rather than terminating the program.
      * @since 3.3.0
@@ -5090,7 +5094,7 @@ class Imagick implements Iterator, Countable
      * @link https://php.net/manual/en/imagick.identifyformat.php
      * @see https://www.imagemagick.org/script/escape.php
      * @param string $embedText A string containing formatting sequences e.g. "Trim box: %@ number of unique colors: %k".
-     * @return bool
+     * @return bool Returns format or false on failure.
      * @throws ImagickException on error.
      * @since 3.3.0
      */
@@ -5118,9 +5122,9 @@ class Imagick implements Iterator, Countable
     /**
      * Rotational blurs an image.
      * @link https://php.net/manual/en/imagick.rotationalblurimage.php
-     * @param float $angle
+     * @param float $angle The angle to apply the blur over.
      * @param int $CHANNEL
-     * @return void
+     * @return void Returns true on success.
      * @throws ImagickException on error.
      * @since 3.3.0
      */
@@ -5133,7 +5137,7 @@ class Imagick implements Iterator, Countable
      * @param float $sigma
      * @param float $threshold
      * @param int $CHANNEL Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to Imagick::CHANNEL_DEFAULT. Refer to this list of channel constants
-     * @return void
+     * @return void Returns true on success.
      * @throws ImagickException on error.
      * @since 3.3.0
      */
@@ -5164,7 +5168,7 @@ class Imagick implements Iterator, Countable
      * <pre> bool callback ( mixed $offset , mixed $span ) </pre>
      * <b>Caution</b>
      * The values passed to the callback function are not consistent. In particular the span parameter can increase during image processing. Because of this calculating the percentage complete of an image operation is not trivial.
-     * @return void
+     * @return void Returns true on success.
      * @throws ImagickException on error.
      * @since 3.3.0
      */
@@ -5175,7 +5179,7 @@ class Imagick implements Iterator, Countable
      * @link https://php.net/manual/en/imagick.setregistry.php
      * @param string $key
      * @param string $value
-     * @return void
+     * @return void Returns true on success.
      * @since 3.3.0
      */
     public static function setRegistry($key, $value) {}
@@ -5187,7 +5191,7 @@ class Imagick implements Iterator, Countable
      * @param int $width
      * @param int $height
      * @param int $channel [optional]
-     * @return void
+     * @return void Returns true on success.
      * @throws ImagickException on error.
      * @since 3.3.0
      */
@@ -5395,7 +5399,7 @@ class ImagickDraw
      * Sets the image resolution
      * @param float $x_resolution <p>The horizontal resolution.</p>
      * @param float $y_resolution <p>The vertical resolution.</p>
-     * @return bool
+     * @return bool Returns true on success.
      * @throws ImagickDrawException on error.
      */
     public function setResolution($x_resolution, $y_resolution) {}
@@ -7375,7 +7379,7 @@ class ImagickKernel
      * @see https://www.imagemagick.org/Usage/morphology/#kernel
      * @param array $matrix A matrix (i.e. 2d array) of values that define the kernel. Each element should be either a float value, or FALSE if that element shouldn't be used by the kernel.
      * @param array $origin [optional] Which element of the kernel should be used as the origin pixel. e.g. For a 3x3 matrix specifying the origin as [2, 2] would specify that the bottom right element should be the origin pixel.
-     * @return ImagickKernel
+     * @return ImagickKernel The generated ImagickKernel.
      * @throws ImagickKernelException on error
      * @since 3.3.0
      */

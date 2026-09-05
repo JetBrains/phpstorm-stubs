@@ -45,7 +45,7 @@ final class ReadConcern implements Serializable
     /**
      * Returns the ReadConcern's "level" option
      * @link https://php.net/manual/en/mongodb-driver-readconcern.getlevel.php
-     * @return string|null
+     * @return string|null Returns the ReadConcern's "level" option.
      * @since 1.0.0
      */
     final public function getLevel(): ?string {}

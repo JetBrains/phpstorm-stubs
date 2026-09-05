@@ -1435,8 +1435,13 @@ class Memcached
      * (PECL memcached &gt;= 0.1.0)<br/>
      * Set a Memcached option
      * @link https://php.net/manual/en/memcached.setoption.php
-     * @param int $option
-     * @param mixed $value
+     * @param int $option One of the Memcached::OPT_* constant. See Memcached Constants for more
+     * information.
+     * @param mixed $value The value to be set. The options listed below require values specified
+     * via constants. Memcached::OPT_HASH requires Memcached::HASH_* values.
+     * Memcached::OPT_DISTRIBUTION requires Memcached::DISTRIBUTION_* values.
+     * Memcached::OPT_SERIALIZER requires Memcached::SERIALIZER_* values.
+     * Memcached::OPT_COMPRESSION_TYPE requires Memcached::COMPRESSION_* values.
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function setOption($option, $value) {}
@@ -1463,7 +1468,7 @@ class Memcached
      * @param string $password <p>
      * The password to use for authentication.
      * </p>
-     * @return void
+     * @return void Returns true on success or false on failure.
      */
     public function setSaslAuthData(string $username, string $password) {}
 
@@ -1501,8 +1506,8 @@ class Memcached
     /**
      * Sets AES encryption key (libmemcached 1.0.6 and higher)
      * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
-     * @param string $key
-     * @return bool
+     * @param string $key The AES key.
+     * @return bool Returns true on success or false on failure.
      */
     public function setEncodingKey($key) {}
 

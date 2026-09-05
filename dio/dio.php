@@ -23,7 +23,7 @@
  *
  * @link https://www.php.net/manual/en/function.dio-close.php
  * @param resource $fd The file descriptor returned by dio_open()
- * @return void
+ * @return void No value is returned.
  */
 function dio_close($fd): void {}
 
@@ -141,7 +141,7 @@ function dio_stat($fd) {}
  * <li>"stop" - stop bits - can be 1 or 2. Default value is 1.</li>
  * <li>"parity" - can be 0,1 or 2. Default value is 0.</li>
  * </ul>
- * @return void
+ * @return void No value is returned.
  * @link https://www.php.net/manual/en/function.dio-tcsetattr.php
  */
 function dio_tcsetattr($fd, array $options) {}

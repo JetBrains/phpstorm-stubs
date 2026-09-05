@@ -139,6 +139,49 @@ class FunctionParameterDeprecationCheckTest extends CheckTestCase
         $this->assertStringContainsString('deprecated in PHP 8.0', $result->getFailures()[$id]);
     }
 
+    // ── Version-aware stub deprecation ────────────────────────────────────────
+
+    public function testStubParameterDeprecationStartingLaterDoesNotSatisfyReflection(): void
+    {
+        // The stub deprecates $case_insensitive only from 8.4, so at 8.0 the reflection
+        // deprecation is still unmatched.
+        $id = '\\define';
+
+        $provider = $this->createMockReflectionProvider([
+            $this->makeFunction($id, [$this->makeParam('case_insensitive', deprecated: true)])
+        ]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getFunctions')->willReturn([
+            $this->makeFunction($id, [
+                $this->makeParam('case_insensitive', deprecated: true, deprecatedSinceVersion: '8.4'),
+            ])
+        ]);
+
+        $result = (new FunctionParameterDeprecationCheck($provider))->run($stubs, $id, '8.0');
+
+        $this->assertTrue($result->hasFailures());
+        $this->assertStringContainsString('$case_insensitive', $result->getFailures()[$id]);
+    }
+
+    public function testStubParameterDeprecationSatisfiesReflectionFromItsSinceVersionOnwards(): void
+    {
+        $id = '\\define';
+
+        $provider = $this->createMockReflectionProvider([
+            $this->makeFunction($id, [$this->makeParam('case_insensitive', deprecated: true)])
+        ]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getFunctions')->willReturn([
+            $this->makeFunction($id, [
+                $this->makeParam('case_insensitive', deprecated: true, deprecatedSinceVersion: '8.4'),
+            ])
+        ]);
+
+        $result = (new FunctionParameterDeprecationCheck($provider))->run($stubs, $id, '8.4');
+
+        $this->assertFalse($result->hasFailures());
+    }
+
     public function testDeprecatedInStubsButNotInReflectionIsSuccess(): void
     {
         // One-way check: stubs can be more conservative
@@ -214,7 +257,7 @@ class FunctionParameterDeprecationCheckTest extends CheckTestCase
     {
         $id = '\\special_func';
 
-        $knownProblemsProvider = $this->createMock(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
         $knownProblemsProvider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::FUNCTION,

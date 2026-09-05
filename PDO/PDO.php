@@ -421,7 +421,7 @@ namespace {
          * <p>
          * using <b>PDO::ATTR_DRIVER_NAME</b>
          * <code>
-         * if ($db->getAttribute(PDO::ATTR_DRIVER_NAME) == 'mysql') {
+         * if (\$db->getAttribute(PDO::ATTR_DRIVER_NAME) == 'mysql') {
          * echo "Running on mysql; doing something mysql specific here\n";
          * }
          * </code>
@@ -590,11 +590,11 @@ namespace {
          * <p>
          * Forcing queries to be buffered in mysql
          * <code>
-         * if ($db->getAttribute(PDO::ATTR_DRIVER_NAME) == 'mysql') {
-         * $stmt = $db->prepare('select * from foo',
+         * if (\$db->getAttribute(PDO::ATTR_DRIVER_NAME) == 'mysql') {
+         * \$stmt = \$db->prepare('select * from foo',
          * array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true));
          * } else {
-         * die("my application only works with mysql; I should use \$stmt->fetchAll() instead");
+         * die("my application only works with mysql; I should use \\$stmt->fetchAll() instead");
          * }
          * </code>
          * </p>
@@ -1045,7 +1045,16 @@ namespace {
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
          * Creates a PDO instance representing a connection to a database
          * @link https://php.net/manual/en/pdo.construct.php
-         * @param string $dsn
+         * @param string $dsn The Data Source Name, or DSN, contains the information required to
+         * connect to the database. In general, a DSN consists of the PDO driver name, followed by a
+         * colon, followed by the PDO driver-specific connection syntax. Further information is
+         * available from the PDO driver-specific documentation. The dsn parameter supports three
+         * different methods of specifying the arguments required to create a database connection:
+         * Driver invocation dsn contains the full DSN. URI invocation dsn consists of uri: followed
+         * by a URI that defines the location of a file containing the DSN string. The URI can
+         * specify a local file or a remote URL. uri:file:///path/to/dsnfile Aliasing dsn consists
+         * of a name name that maps to pdo.dsn.name in defining the DSN string. The alias must be
+         * defined in , and not or
          * @param string $username [optional]
          * @param string $password [optional]
          * @param array $options [optional]
@@ -1152,8 +1161,9 @@ namespace {
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
          * Set an attribute
          * @link https://php.net/manual/en/pdo.setattribute.php
-         * @param int $attribute
-         * @param mixed $value
+         * @param int $attribute The attribute to modify.
+         * @param mixed $value The value to set the attribute, might require a specific type
+         * depending on the attribute.
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
@@ -1188,7 +1198,7 @@ namespace {
          * <b>PDO::exec</b>, wherein a statement that affected 0 rows
          * results in a call to <b>die</b>:
          * <code>
-         * $db->exec() or die(print_r($db->errorInfo(), true));
+         * \$db->exec() or die(print_r(\$db->errorInfo(), true));
          * </code>
          * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
@@ -1630,6 +1640,12 @@ namespace {
         public function pgsqlGetPid() {}
 
         /**
+         * Connect to a database and return a PDO subclass for drivers that support it
+         *
+         * Creates an instance of a PDO subclass for the database being connected to, if it exists,
+         * otherwise returns a generic PDO instance.
+         *
+         * @link https://php.net/manual/en/pdo.connect.php
          * @throws PDOException if the attempt to connect to the requested database fails, regardless of which PDO::ATTR_ERRMODE is currently set.
          * @since 8.4
          */
@@ -1908,6 +1924,11 @@ namespace {
         ): array {}
 
         /**
+         * Fetches the next row and returns it as an object
+         *
+         * Fetches the next row and returns it as an object. This function is an alternative to
+         * PDOStatement::fetch with PDO::FETCH_CLASS or PDO::FETCH_OBJ style.
+         *
          * @template T
          *
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.4)<br/>
@@ -1919,7 +1940,7 @@ namespace {
          * @param array $constructorArgs [optional] <p>
          * Elements of this array are passed to the constructor.
          * </p>
-         * @return T|stdClass|null an instance of the required class with property names that
+         * @return T|stdClass|false an instance of the required class with property names that
          * correspond to the column names or <b>FALSE</b> on failure.
          * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
@@ -1973,8 +1994,9 @@ namespace {
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
          * Set a statement attribute
          * @link https://php.net/manual/en/pdostatement.setattribute.php
-         * @param int $attribute
-         * @param mixed $value
+         * @param int $attribute The attribute to modify.
+         * @param mixed $value The value to set the attribute, might require a specific type
+         * depending on the attribute.
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
@@ -1988,7 +2010,7 @@ namespace {
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
          * Retrieve a statement attribute
          * @link https://php.net/manual/en/pdostatement.getattribute.php
-         * @param int $name
+         * @param int $name The attribute to query.
          * @return mixed the attribute value.
          */
         #[TentativeType]
@@ -2128,6 +2150,8 @@ namespace {
         final public function __sleep() {}
 
         /**
+         * Gets result set iterator
+         * @link https://php.net/manual/en/pdostatement.getiterator.php
          * @return Iterator
          * @since 8.0
          */
@@ -2136,6 +2160,17 @@ namespace {
         public function connect() {}
     }
 
+    /**
+     * Represents a row from a result set returned by PDOStatement::fetch called with
+     * PDO::FETCH_LAZY fetch mode.
+     *
+     * Objects of this class cannot be instantiated and are not serializable. The PDORow object
+     * allows access to the returned data as if both PDO::FETCH_OBJ and PDO::FETCH_BOTH mode were
+     * used. This means that the returned data can be accessed as object properties, and as an array
+     * both indexed by the column name and a column offset number.
+     *
+     * @link https://php.net/manual/en/class.pdorow.php
+     */
     final class PDORow
     {
         #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -2160,6 +2195,13 @@ namespace Pdo {
     use PDO;
 
     /**
+     * A PDO subclass representing a connection using the SQLite PDO driver.
+     *
+     * This driver supports a dedicated SQL query parser for the SQLite dialect. It can handle the
+     * following: Single, double-quoted, and backtick literals, with doubling as escaping mechanism.
+     * Square brackets quoting for identifiers. Two-dashes and C-style comments (non-nested).
+     *
+     * @link https://php.net/manual/en/class.pdo-sqlite.php
      * @since 8.4
      */
     class Sqlite extends PDO
@@ -2216,6 +2258,40 @@ namespace Pdo {
          */
         public const TRANSACTION_MODE_EXCLUSIVE = 2;
 
+        /**
+         * Registers an aggregating user-defined function for use in SQL statements
+         *
+         * This method is similar to Pdo\Sqlite::createFunction except that it registers functions
+         * that can be used to calculate a result aggregated across all the rows of a query.
+         *
+         * @link https://php.net/manual/en/pdo-sqlite.createaggregate.php
+         * @param string $name The name of the function used in SQL statements.
+         * @param callable $step Callback function called for each row of the result set. The
+         * callback should accumulate the result and store it in the aggregation context. This
+         * function need to be defined as:
+         * <code>step ( mixed \$context , int \$rownumber , mixed \$value , mixed \$values ): mixed</code>
+         * <br/>\$context - null for the first row; on subsequent rows it will have the value that was
+         * previously returned from the step function; you should use this to maintain the aggregate
+         * state.
+         * <br/>\$rownumber - The current row number.
+         * <br/>\$value - The first argument passed to the aggregate.
+         * <br/>\$values - Further arguments passed to the aggregate.
+         * <br/>The return value of this function will be used as the context argument in the next
+         * call of the step or finalize functions.
+         * @param callable $finalize Callback function to aggregate the "stepped" data from each
+         * row. Once all the rows have been processed, this function will be called, and it should
+         * then take the data from the aggregation context and return the result. This callback
+         * function should return a type understood by SQLite (i.e. scalar type). This function need
+         * to be defined as:
+         * <code>fini ( mixed \$context , int \$rowcount ): mixed</code>
+         * <br/>\$context - Holds the return value from the very last call to the step function.
+         * <br/>\$rowcount - Holds the number of rows over which the aggregate was performed.
+         * <br/>The return value of this function will be used as the return value for the
+         * aggregate.
+         * @param int $numArgs Hint to the SQLite parser if the callback function accepts a
+         * predetermined number of arguments.
+         * @return bool Returns true on success or false on failure.
+         */
         public function createAggregate(
             string $name,
             callable $step,
@@ -2223,8 +2299,45 @@ namespace Pdo {
             int $numArgs = -1
         ): bool {}
 
+        /**
+         * Registers a user-defined function for use as a collating function in SQL statements
+         *
+         * This method is similar to Pdo\Sqlite::createFunction except that it registers functions
+         * that are used to collate strings.
+         *
+         * @link https://php.net/manual/en/pdo-sqlite.createcollation.php
+         * @param string $name Name of the SQL collating function to be created or redefined.
+         * @param callable $callback Callback function that defines the behaviour of a collation. It
+         * must accept two strings and return -1, 0, or 1 if the first string sorts before, sorts
+         * identically, or sorts after the second string respectively. An internal function that
+         * behaves like this is strcmp. This function need to be defined as: intcollation
+         * stringstring1 stringstring2
+         * @return bool Returns true on success or false on failure.
+         */
         public function createCollation(string $name, callable $callback): bool {}
 
+        /**
+         * Registers a user-defined function for use in SQL statements
+         *
+         * This method allows PHP function to be registered with SQLite as a user-defined function,
+         * so that it can be called within SQL queries. The defined function can be used in any SQL
+         * query that allows function calls, for example SELECT, UPDATE, or triggers.
+         *
+         * @link https://php.net/manual/en/pdo-sqlite.createfunction.php
+         * @param string $function_name The name of the function used in SQL statements.
+         * @param callable $callback Callback function to handle the defined SQL function. Callback
+         * functions should return a type understood by SQLite (i.e. scalar type). This function
+         * need to be defined as:
+         * <code>callback ( mixed \$value , mixed \$values ): mixed</code>
+         * <br/>\$value - The first argument passed to the SQL function.
+         * <br/>\$values - Further arguments passed to the SQL function.
+         * @param int $num_args The number of arguments that the SQL function takes. If this
+         * parameter is -1, then the SQL function may take any number of arguments.
+         * @param int $flags A bitmask of flags. Currently, only Pdo\Sqlite::DETERMINISTIC is
+         * supported, which specifies that the function always returns the same result given the
+         * same inputs within a single SQL statement.
+         * @return bool Returns true on success or false on failure.
+         */
         public function createFunction(
             string $function_name,
             callable $callback,
@@ -2232,9 +2345,23 @@ namespace Pdo {
             int $flags = 0
         ): bool {}
 
+        /**
+         * Description
+         * @link https://php.net/manual/en/pdo-sqlite.loadextension.php
+         * @param string $name Description.
+         * @return void No value is returned.
+         * @throws \Exception When does this function issue E_* level errors, and/or throw
+         * Exceptions.
+         */
         public function loadExtension(string $name): void {}
 
-        /** @return resource|false */
+        /**
+         * Description
+         * @link https://php.net/manual/en/pdo-sqlite.openblob.php
+         * @return resource|false
+         * @throws \Exception When does this function issue E_* level errors, and/or throw
+         * Exceptions.
+         */
         public function openBlob(
             string $table,
             string $column,
@@ -2250,6 +2377,14 @@ namespace Pdo {
     }
 
     /**
+     * A PDO subclass representing a connection using the MySQL PDO driver.
+     *
+     * This driver supports a dedicated SQL query parser for the MySQL dialect. It can handle the
+     * following: Single and double-quoted literals with both doubling and backslash as escaping
+     * mechanisms Backtick literals with doubling as escaping mechanism Two-dashes, C-style
+     * comments, and Hash-comments.
+     *
+     * @link https://php.net/manual/en/class.pdo-mysql.php
      * @since 8.4
      */
     class Mysql extends PDO
@@ -2282,10 +2417,24 @@ namespace Pdo {
         public const int ATTR_SSL_VERIFY_SERVER_CERT = 1013;
         public const int ATTR_LOCAL_INFILE_DIRECTORY = 1014;
 
+        /**
+         * Returns the number of warnings from the last executed query
+         * @link https://php.net/manual/en/pdo-mysql.getwarningcount.php
+         * @return int Returns an int representing the number of warnings generated by the last
+         * query.
+         */
         public function getWarningCount(): int {}
     }
 
     /**
+     * A PDO subclass representing a connection using the PostgreSQL PDO driver.
+     *
+     * This driver supports a dedicated SQL query parser for the PostgreSQL dialect. It can handle
+     * the following: Single and double-quoted literals, with doubling as escaping mechanism C-style
+     * “escape” string literals Dollar-quoted string literals Two-dashes and C-style comments
+     * (non-nested). Support for ?? as escape sequence for the ? operator.
+     *
+     * @link https://php.net/manual/en/class.pdo-pgsql.php
      * @since 8.4
      */
     class Pgsql extends PDO
@@ -2308,6 +2457,21 @@ namespace Pdo {
         #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_UNKNOWN = 4;
 
+        /**
+         * Copy data from a PHP array into a table
+         *
+         * Copies data from rows array to table tableName using separator as fields delimiter and
+         * fields list.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.copyfromarray.php
+         * @param string $tableName String containing table name.
+         * @param array $rows An indexed array (or Traversable) of strings with fields separated by
+         * separator.
+         * @param string $separator Delimiter used to separate fields in an entry of the rows array.
+         * @param string $nullAs How to interpret SQL NULL values.
+         * @param string|null $fields List of fields to insert.
+         * @return bool Returns true on success or false on failure.
+         */
         public function copyFromArray(
             string $tableName,
             array $rows,
@@ -2316,6 +2480,23 @@ namespace Pdo {
             ?string $fields = null
         ): bool {}
 
+        /**
+         * Copy data from file into table
+         *
+         * Copies data from file specified by filename into table tableName using separator as
+         * fields delimiter and fields list
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.copyfromfile.php
+         * @param string $tableName String containing table name.
+         * @param string $filename Filename containing the data to import.
+         * @param string $separator Delimiter used to separate fields in an entry of the rows array.
+         * @param string $nullAs How to interpret SQL NULL values.
+         * @param string|null $fields List of fields to insert.
+         * @return bool Returns true on success or false on failure.
+         * @throws \PDOException If filename cannot be opened for reading, the failure is reported
+         * through the connection's error handling (see PDO::ATTR_ERRMODE); with
+         * PDO::ERRMODE_EXCEPTION a PDOException is thrown.
+         */
         public function copyFromFile(
             string $tableName,
             string $filename,
@@ -2324,6 +2505,18 @@ namespace Pdo {
             ?string $fields = null
         ): bool {}
 
+        /**
+         * Copy data from database table into PHP array
+         *
+         * Copies data from tableName into array using separator as fields delimiter and fields list
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.copytoarray.php
+         * @param string $tableName String containing table name.
+         * @param string $separator Delimiter used to separate fields in an entry of the rows array.
+         * @param string $nullAs How to interpret SQL NULL values.
+         * @param string|null $fields List of fields to export.
+         * @return array|false Returns an array of rows, or false on failure.
+         */
         public function copyToArray(
             string $tableName,
             string $separator = "\t",
@@ -2331,6 +2524,23 @@ namespace Pdo {
             ?string $fields = null
         ): array|false {}
 
+        /**
+         * Copy data from table into file
+         *
+         * Copies data from table into file specified by filename using separator as fields
+         * delimiter and fields list.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.copytofile.php
+         * @param string $tableName String containing table name.
+         * @param string $filename Filename to export data.
+         * @param string $separator Delimiter used to separate fields in an entry of the rows array.
+         * @param string $nullAs How to interpret SQL NULL values.
+         * @param string|null $fields List of fields to export.
+         * @return bool Returns true on success or false on failure.
+         * @throws \PDOException If filename cannot be opened for writing, or cannot be written to,
+         * the failure is reported through the connection's error handling (see PDO::ATTR_ERRMODE);
+         * with PDO::ERRMODE_EXCEPTION a PDOException is thrown.
+         */
         public function copyToFile(
             string $tableName,
             string $filename,
@@ -2339,26 +2549,105 @@ namespace Pdo {
             ?string $fields = null
         ): bool {}
 
+        /**
+         * Escapes a string for use as an SQL identifier
+         *
+         * Escapes a string for use as an SQL identifier, such as a table, column, or function name.
+         * This is useful when a user-supplied identifier might contain special characters that
+         * would otherwise not be interpreted as part of the identifier by the SQL parser, or when
+         * the identifier might contain upper case characters whose case should be preserved.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.escapeidentifier.php
+         * @param string $input A string containing text to be escaped.
+         * @return string A string containing the escaped data.
+         */
         public function escapeIdentifier(string $input): string {}
 
+        /**
+         * Get asynchronous notification
+         *
+         * Returns a result set representing a pending asynchronous notification.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.getnotify.php
+         * @param int $fetchMode The format the result set should be returned as, one of the
+         * following constants: PDO::FETCH_DEFAULT PDO::FETCH_BOTH PDO::FETCH_ASSOC PDO::FETCH_NUM
+         * @param int $timeoutMilliseconds The length of time to wait for a response, in
+         * milliseconds.
+         * @return array|false If a notification is pending, returns a single row, otherwise returns
+         * false. The row has a message field (the channel name) and a pid field (the process ID of
+         * the notifying backend). If the notification carries a non-empty payload, the row also has
+         * a payload field. With PDO::FETCH_NUM, these fields are at indexes 0, 1, and 2.
+         * @throws \ValueError A ValueError is thrown if fetchMode is not one of the valid
+         * PDO::FETCH_* constants. A ValueError is thrown if timeoutMilliseconds is less than 0. A
+         * E_WARNING is raised when timeoutMilliseconds is greater than the value that can be
+         * contained in a signed 32-bit integer, in which case it will be the maximum value of a
+         * signed 32-bit integer.
+         */
         public function getNotify(int $fetchMode = \PDO::FETCH_DEFAULT, int $timeoutMilliseconds = 0): array|false {}
 
+        /**
+         * Get the PID of the backend process handling this connection
+         *
+         * Returns the PID of the backend process handling this connection. Note that the PID
+         * belongs to a process executing on the database server host, not the local host.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.getpid.php
+         * @return int Returns the PID as an int.
+         */
         public function getPid(): int {}
 
+        /**
+         * Creates a new large object
+         *
+         * Pdo\Pgsql::lobCreate creates a large object and returns the OID which refers to it. It
+         * can be opened to read or write data with Pdo\Pgsql::lobOpen.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.lobcreate.php
+         * @return string|false Returns the OID of the newly created large object on success, or
+         * false on failure.
+         */
         public function lobCreate(): string|false {}
 
         /**
          * Opens an existing large object stream. Must be called inside a transaction.
-         * @return resource|false
+         * @link https://php.net/manual/en/pdo-pgsql.lobopen.php
+         * @return resource|false Returns a stream resource on success, or false on failure.
          */
         public function lobOpen(string $oid, string $mode = "rb") {}
 
+        /**
+         * Deletes the large object
+         *
+         * Pdo\Pgsql::lobCreate creates a large object and returns the OID which refers to it. It
+         * can be opened to read or write data with Pdo\Pgsql::lobOpen. Deletes a large object from
+         * the database identified by OID.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.lobunlink.php
+         * @param string $oid A large object identifier.
+         * @return bool Returns true on success or false on failure.
+         */
         public function lobUnlink(string $oid): bool {}
 
+        /**
+         * Set a callback to handle notice and warning messages generated by the backend
+         *
+         * Set a callback to handle notice and warning messages generated by the backend. This
+         * includes messages emitted by PostgreSQL itself, as well as those raised by user-defined
+         * SQL functions using RAISE. Please note that the actual receipt of these messages depends
+         * on the backend setting client_min_messages.
+         *
+         * @link https://php.net/manual/en/pdo-pgsql.setnoticecallback.php
+         * @param callable|null $callback If null is passed, the handler is reset to its default
+         * state. Otherwise, the handler is a callback with the following signature: voidhandler
+         * stringmessage message A message generated by the backend.
+         * @return void No value is returned.
+         */
         public function setNoticeCallback(?callable $callback): void {}
     }
 
     /**
+     * A PDO subclass representing a connection using the Firebird PDO driver.
+     * @link https://php.net/manual/en/class.pdo-firebird.php
      * @since 8.4
      */
     class Firebird extends PDO
@@ -2372,10 +2661,20 @@ namespace Pdo {
         public const int SERIALIZABLE = 1006;
         public const int WRITABLE_TRANSACTION = 1007;
 
+        /**
+         * Get the API version
+         *
+         * Returns the Firebird API version as defined by the C constant FB_API_VER in ibase.h.
+         *
+         * @link https://php.net/manual/en/pdo-firebird.getapiversion.php
+         * @return int Returns the FireBird API as an int.
+         */
         public static function getApiVersion(): int {}
     }
 
     /**
+     * A PDO subclass representing a connection using the DBLib PDO driver.
+     * @link https://php.net/manual/en/class.pdo-dblib.php
      * @since 8.4
      */
     class Dblib extends PDO
@@ -2390,6 +2689,8 @@ namespace Pdo {
     }
 
     /**
+     * A PDO subclass representing a connection using the ODBC PDO driver.
+     * @link https://php.net/manual/en/class.pdo-odbc.php
      * @since 8.4
      */
     class Odbc extends PDO

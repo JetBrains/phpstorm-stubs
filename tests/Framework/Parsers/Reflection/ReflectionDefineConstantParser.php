@@ -2,7 +2,7 @@
 
 namespace StubTests\Framework\Parsers\Reflection;
 
-use StubTests\Framework\Parsers\Model\PHPConstant;
+use StubTests\Framework\Model\PHPConstant;
 use StubTests\Framework\Parsers\Parser;
 
 /**

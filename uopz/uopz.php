@@ -66,7 +66,7 @@ function uopz_add_function(...$arguments): bool {}
  * Allows control over disabled exit opcode
  * @link https://secure.php.net/manual/en/function.uopz-allow-exit.php
  * @param bool $arguments Whether to allow the execution of exit opcodes or not.
- * @return void
+ * @return void No value is returned.
  * @since 5.4
  */
 function uopz_allow_exit(...$arguments): void {}
@@ -143,7 +143,7 @@ function uopz_get_property(...$arguments) {}
  * @link https://secure.php.net/manual/en/function.uopz-get-return.php
  * @param string $class The name of the class containing the function
  * @param string $function The name of the function
- * @return mixed
+ * @return mixed The return value or Closure previously set.
  * @since 5.4
  */
 function uopz_get_return(...$arguments) {}
@@ -162,7 +162,7 @@ function uopz_get_static(...$arguments): ?array {}
  * @link https://secure.php.net/manual/en/function.uopz-implement.php
  * @param string $class The name of the class
  * @param string $interface The name of the interface
- * @return bool
+ * @return bool Returns true on success or false on failure.
  * @since 5.4
  */
 function uopz_implement(...$arguments): bool {}
@@ -173,7 +173,7 @@ function uopz_implement(...$arguments): bool {}
  * @param string $class The name of the class containing the constant
  * @param string $constant The name of the constant
  * @param mixed $value The new value for the constant, must be a valid type for a constant variable
- * @return bool
+ * @return bool Returns true on success or false on failure.
  * @since 5.4
  */
 function uopz_redefine(...$arguments): bool {}
@@ -193,7 +193,7 @@ function uopz_set_hook(...$arguments): bool {}
  * @link https://secure.php.net/manual/en/function.uopz-set-mock.php
  * @param string $class The name of the class to be mocked
  * @param string|object $mock The mock to use in the form of a string containing the name of the class to use or an object
- * @return void
+ * @return void No value is returned.
  * @since 7.0
  */
 function uopz_set_mock(...$arguments): void {}
@@ -204,7 +204,7 @@ function uopz_set_mock(...$arguments): void {}
  * @param string|object $class The name of the class or the object instance
  * @param string $property The name of the property
  * @param mixed $value The value to assign to the property
- * @return void
+ * @return void No value is returned.
  */
 function uopz_set_property(...$arguments): void {}
 
@@ -215,7 +215,7 @@ function uopz_set_property(...$arguments): void {}
  * @param string $function The name of an existing function
  * @param mixed $value The value the function should return. If a Closure is provided and the execute flag is set, the Closure will be executed in place of the original function
  * @param bool $execute If true, and a Closure was provided as the value, the Closure will be executed in place of the original function.
- * @return bool
+ * @return bool True if succeeded, false otherwise.
  * @since 7.0
  */
 function uopz_set_return(...$arguments): bool {}
@@ -226,7 +226,7 @@ function uopz_set_return(...$arguments): bool {}
  * @param string $class The name of the class
  * @param string $function The name of the method
  * @param array $static The associative array of variable names mapped to their values
- * @return void
+ * @return void No value is returned.
  */
 function uopz_set_static(...$arguments): void {}
 
@@ -235,7 +235,7 @@ function uopz_set_static(...$arguments): void {}
  * @link https://secure.php.net/manual/en/function.uopz-undefine.php
  * @param string $class The name of the class containing the constant
  * @param string $constant The name of the constant
- * @return bool
+ * @return bool Returns true on success or false on failure.
  * @since 5.4
  */
 function uopz_undefine(...$arguments): bool {}
@@ -253,7 +253,7 @@ function uopz_unset_hook(...$arguments): bool {}
  * Unset previously set mock
  * @link https://secure.php.net/manual/en/function.uopz-unset-mock.php
  * @param string $arguments The name of the mocked class
- * @return void
+ * @return void No value is returned.
  * @since 7.0
  */
 function uopz_unset_mock(...$arguments): void {}
@@ -263,7 +263,7 @@ function uopz_unset_mock(...$arguments): void {}
  * @link https://secure.php.net/manual/en/function.uopz-unset-return.php
  * @param string $class The name of the class containing the function
  * @param string $function The name of an existing function
- * @return bool
+ * @return bool True on success
  * @since 7.0
  */
 function uopz_unset_return(...$arguments): bool {}

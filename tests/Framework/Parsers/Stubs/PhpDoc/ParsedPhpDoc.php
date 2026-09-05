@@ -17,6 +17,12 @@ class ParsedPhpDoc
     public bool $isDeprecated = false;
 
     /**
+     * PHP version from the `@_deprecated <version>` tag, or null when the tag carries no
+     * recognisable PHP version (which means "deprecated in every version").
+     */
+    public ?string $deprecatedSinceVersion = null;
+
+    /**
      * Names of parameters marked as [optional] in param PhpDoc descriptions.
      * These parameters are optional even without a default value in the signature.
      *
@@ -36,7 +42,8 @@ class ParsedPhpDoc
         ?string $sinceVersion = null,
         ?string $removedVersion = null,
         bool $isDeprecated = false,
-        array $optionalParams = []
+        array $optionalParams = [],
+        ?string $deprecatedSinceVersion = null
     ) {
         $this->rawPhpDoc = $rawPhpDoc;
         $this->returnType = $returnType;
@@ -46,5 +53,6 @@ class ParsedPhpDoc
         $this->removedVersion = $removedVersion;
         $this->isDeprecated = $isDeprecated;
         $this->optionalParams = $optionalParams;
+        $this->deprecatedSinceVersion = $deprecatedSinceVersion;
     }
 }

@@ -694,6 +694,8 @@ function pg_fetch_array(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Result'], def
  * <p>
  * <b>FALSE</b> is returned if <i>row</i> exceeds the number
  * of rows in the set, there are no more rows, or on any other error.
+ * @throws \ValueError A ValueError is thrown when the constructor_args is non-empty with the class
+ * not having a constructor.
  */
 function pg_fetch_object(
     #[LanguageLevelTypeAware(['8.1' => '\PgSql\Result'], default: 'resource')] $result,
@@ -950,7 +952,8 @@ function pg_field_type_oid(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Result'], 
  * <b>pg_query_params</b> or <b>pg_execute</b>
  * (among others).
  * </p>
- * @param int $row
+ * @param int $row Row number in result. Rows are numbered from 0 upwards. If omitted, current row
+ * is fetched.
  * @param mixed $field [optional]
  * @return int|false The field printed length, or <b>FALSE</b> on error.
  */
@@ -1322,7 +1325,7 @@ function pg_lo_open(
 /**
  * Close a large object
  * @link https://php.net/manual/en/function.pg-lo-close.php
- * @param resource $lob
+ * @param resource $lob An PgSql\Lob instance, returned by pg_lo_open.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_lo_close(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Lob'], default: 'resource')] $lob): bool {}
@@ -1380,17 +1383,11 @@ function pg_lo_read_all(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Lob'], defaul
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @param string $pathname <p>
- * The full path and file name of the file on the client
- * filesystem from which to read the large object data.
- * </p>
- * @param mixed $object_id [optional] <p>
- * If an <i>object_id</i> is given the function
- * will try to create a large object with this id, else a free
- * object id is assigned by the server. The parameter
- * was added in PHP 5.3 and relies on functionality that first
- * appeared in PostgreSQL 8.1.
- * </p>
+ * @param string $filename The full path and file name of the file on the client filesystem from
+ * which to read the large object data.
+ * @param int|string $oid If an oid is given the function will try to create a large object with
+ * this id, else a free object id is assigned by the server. The parameter relies on functionality
+ * that first appeared in PostgreSQL 8.1.
  * @return string|int|false The OID of the newly created large object, or
  * <b>FALSE</b> on failure.
  */
@@ -1413,10 +1410,8 @@ function pg_lo_import(
  * @param int $oid <p>
  * The OID of the large object in the database.
  * </p>
- * @param string $pathname <p>
- * The full path and file name of the file in which to write the
- * large object on the client filesystem.
- * </p>
+ * @param string $filename The full path and file name of the file in which to write the large
+ * object on the client filesystem.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_lo_export(
@@ -1639,6 +1634,7 @@ function pg_set_client_encoding(
  * @param string $table_name <p>
  * The name of the table.
  * </p>
+ * @param bool $extended Flag for returning extended meta data. Default to false.
  * @return array|false An array of the table definition, or <b>FALSE</b> on error.
  */
 function pg_meta_data(
@@ -1665,6 +1661,10 @@ function pg_meta_data(
  * <b>PGSQL_CONV_IGNORE_NOT_NULL</b>, combined.
  * </p>
  * @return array|false An array of converted values, or <b>FALSE</b> on error.
+ * @throws \ValueError A ValueError or TypeError is thrown when the value or type of field does not
+ * match properly with a PostgreSQL's type.
+ * @throws \TypeError A ValueError or TypeError is thrown when the value or type of field does not
+ * match properly with a PostgreSQL's type.
  */
 function pg_convert(
     #[LanguageLevelTypeAware(['8.1' => '\PgSql\Connection'], default: 'resource')] $connection,
@@ -1697,6 +1697,11 @@ function pg_convert(
  * </p>
  * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
  * via <i>options</i>.
+ * @throws \ValueError A ValueError is thrown when the specified table is invalid. A ValueError or
+ * TypeError is thrown when the value or type of field does not match properly with a PostgreSQL's
+ * type.
+ * @throws \TypeError A ValueError or TypeError is thrown when the value or type of field does not
+ * match properly with a PostgreSQL's type.
  */
 #[LanguageLevelTypeAware(['8.1' => '\PgSql\Result|string|bool'], default: 'resource|string|bool')]
 function pg_insert(
@@ -2057,7 +2062,7 @@ function pg_setclientencoding(
 /**
  * Reads input on the connection
  * @link https://www.php.net/manual/en/function.pg-consume-input.php
- * @param PgSql\Connection|resource $connection
+ * @param PgSql\Connection|resource $connection An PgSql\Connection instance.
  * @return bool true if no error occurred, or false if there was an error.
  * Note that true does not necessarily indicate that input was waiting to be read.
  */
@@ -2066,13 +2071,16 @@ function pg_consume_input(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Connection'
 /**
  * Flush outbound query data on the connection
  * @link https://www.php.net/manual/en/function.pg-flush.php
- * @param PgSql\Connection|resource $connection
+ * @param PgSql\Connection|resource $connection An PgSql\Connection instance.
  * @return int|bool Returns true if the flush was successful or no data was waiting to be flushed, 0 if part of the pending
  * data was flushed but more remains or false on failure.
  */
 function pg_flush(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Connection'], default: 'resource')] $connection): int|bool {}
 
 /**
+ * Determines the visibility of the context's error messages returned by pg_last_error and
+ * pg_result_error
+ * @link https://php.net/manual/en/function.pg-set-error-context-visibility.php
  * @since 8.3
  */
 function pg_set_error_context_visibility(PgSql\Connection $connection, int $visibility): int {}
@@ -2098,29 +2106,73 @@ function pg_exit_pipeline_mode(PgSql\Connection $connection): bool {}
 function pg_enter_pipeline_mode(PgSql\Connection $connection): bool {}
 
 /**
+ * Returns the amount of memory allocated for a query result
+ *
+ * Returns the amount of memory, in bytes, allocated to the specified query result PgSql\Result
+ * instance. This value is the same amount that would be freed by pg_free_result.
+ *
+ * @link https://php.net/manual/en/function.pg-result-memory-size.php
  * @since 8.4
  */
 function pg_result_memory_size(PgSql\Result $result): int {}
 /**
+ * Change a PostgreSQL user's password
+ *
+ * pg_change_password changes the password of a PostgreSQL user. This function uses the
+ * PQchangePassword libpq function which handles password encryption automatically based on the
+ * server's settings.
+ *
+ * @link https://php.net/manual/en/function.pg-change-password.php
  * @since 8.4
  */
 function pg_change_password(PgSql\Connection $connection, string $user, #[\SensitiveParameter] string $password): bool {}
 /**
+ * Send data to the server during a COPY operation
+ *
+ * Sends data to the server during a COPY FROM STDIN operation. A COPY command must have been issued
+ * via pg_query before calling this function.
+ *
+ * @link https://php.net/manual/en/function.pg-put-copy-data.php
  * @since 8.4
  */
 function pg_put_copy_data(PgSql\Connection $connection, string $cmd): int {}
 
 /**
+ * Poll a PostgreSQL connection socket for read/write readiness
+ *
+ * Polls a PostgreSQL connection socket for read and/or write readiness. The socket can be obtained
+ * using pg_socket. This function is useful for implementing non-blocking, asynchronous query
+ * workflows.
+ *
+ * @link https://php.net/manual/en/function.pg-socket-poll.php
  * @since  8.4
- * @param resource $socket
+ * @param resource $socket A socket resource obtained from pg_socket.
+ * @param int $read Whether to check for read readiness. Pass 1 to check, 0 to skip.
+ * @param int $write Whether to check for write readiness. Pass 1 to check, 0 to skip.
+ * @param int $timeout The maximum number of milliseconds to wait. Pass -1 to wait indefinitely, or
+ * 0 to not wait at all.
  */
 function pg_socket_poll($socket, int $read, int $write, int $timeout = -1): int {}
 
 /**
+ * Set the query results to be retrieved in chunk mode
+ *
+ * Set the query results to be retrieved in chunk mode. The query results returned afterward will be
+ * divided into multiple chunks, each containing up to size rows. This function must be called
+ * before retrieving results with pg_get_result. This function is only available when libpq is
+ * version 17 or higher.
+ *
+ * @link https://php.net/manual/en/function.pg-set-chunked-rows-size.php
  * @since  8.4
+ * @throws \ValueError If size is less than 1, a ValueError will be thrown.
  */
 function pg_set_chunked_rows_size(PgSql\Connection $connection, int $size): bool {}
 /**
+ * Signal the completion of a COPY operation to the server
+ *
+ * Sends an end-of-data indication to the server during a COPY FROM STDIN operation.
+ *
+ * @link https://php.net/manual/en/function.pg-put-copy-end.php
  * @since 8.4
  */
 function pg_put_copy_end(PgSql\Connection $connection, ?string $error = null): int {}
@@ -2131,8 +2183,14 @@ function pg_put_copy_end(PgSql\Connection $connection, ?string $error = null): i
 function pg_close_stmt(Pgsql\Connection $connection, string $statement_name): PgSql\Result|false {}
 
 /**
+ * Returns the JIT information of the server
+ *
+ * pg_jit returns an array with the JIT (Just-In-Time compilation) information of the PostgreSQL
+ * server.
+ *
+ * @link https://php.net/manual/en/function.pg-jit.php
  * @since 8.4
- * @return array<string, string|null>
+ * @return array<string, string|null> Returns an array containing the JIT information of the server.
  */
 function pg_jit(?PgSql\Connection $connection = null): array {}
 

@@ -2,20 +2,34 @@ ARG PHP_PATCH=8.4
 FROM php:${PHP_PATCH}-alpine
 
 RUN echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
+# The odbc extension only builds as a shared module with this config.m4 patch; see the upstream
+# issue referenced inline. Copied verbatim from the 8.3 image — dropping it (and odbc, tidy and xsl
+# with it) made every entity those extensions declare invisible to the validators from 8.4 on,
+# which PhpVersionsSyncTest::testExtensionCoverageNeverRegressesBetweenVersions now catches.
 RUN set -eux; \
+    docker-php-source extract; \
+            { \
+                    echo '# https://github.com/docker-library/php/issues/103#issuecomment-271413933'; \
+                    echo 'AC_DEFUN([PHP_ALWAYS_SHARED],[])dnl'; \
+                    echo; \
+                    cat /usr/src/php/ext/odbc/config.m4; \
+            } > temp.m4; \
+            mv temp.m4 /usr/src/php/ext/odbc/config.m4; \
     apk add --repository http://dl-cdn.alpinelinux.org/alpine/edge/community --no-cache --virtual .build-deps \
     bash gcc g++ make autoconf pkgconfig git \
     libmcrypt-dev imap-dev php-imap enchant2-dev bzip2-dev gettext-dev libxml2-dev php83-dev php-gd icu-dev \
     php-zip php-tidy php-intl libffi-dev openssl-dev php83-pear rabbitmq-c rabbitmq-c-dev librrd \
     libzip-dev rrdtool-dev gmp-dev yaml yaml-dev fann fann-dev openldap-dev librdkafka librdkafka-dev libcurl curl-dev \
     libpng-dev gpgme gpgme-dev libpq-dev aspell-dev libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev freetds-dev \
-    unixodbc-dev
+    libxslt-dev tidyhtml-dev unixodbc-dev
 
 RUN docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype
+RUN docker-php-ext-configure odbc --with-unixODBC=shared,/usr
 RUN docker-php-ext-configure pdo_odbc --with-pdo-odbc=unixODBC,/usr
 
-RUN docker-php-ext-install ffi enchant zip gmp sockets intl gd ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
-    pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pgsql pdo_pgsql ftp pdo_dblib pdo_odbc
-    #imap pspell
+RUN docker-php-ext-install ffi enchant odbc tidy xsl zip gmp sockets intl gd ldap bz2 mysqli bcmath calendar dba exif \
+    gettext opcache pcntl pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pgsql pdo_pgsql ftp pdo_dblib pdo_odbc
+    # imap and pspell are absent on purpose: PHP 8.4 unbundled them to PECL.
+    # https://wiki.php.net/rfc/unbundle_imap_pspell_oci8
 
 WORKDIR /opt/project/phpstorm-stubs

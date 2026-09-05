@@ -52,7 +52,7 @@ class AdaptedReflectionParameter extends AbstractReflectionAdapter
         // Extract default value if available
         if (method_exists($reflectionObject, 'isDefaultValueAvailable') && $reflectionObject->isDefaultValueAvailable()) {
             try {
-                $this->setData('getDefaultValue', $reflectionObject->getDefaultValue());
+                $this->setData('getDefaultValue', ReflectionValueNormalizer::makeSerializable($reflectionObject->getDefaultValue()));
             } catch (\Exception $e) {
                 $this->setData('getDefaultValue', null);
             }

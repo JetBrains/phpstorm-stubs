@@ -43,7 +43,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
 
     private function runCheck(
         PhpDocLinksCheck $check,
-        \StubTests\Framework\Parsers\StubDataQueryInterface $stubs,
+        \StubTests\Framework\Storage\StubDataQueryInterface $stubs,
         string $entityId
     ): \StubTests\Framework\Validator\Contracts\CheckResultSet {
         return $check->run($stubs, $entityId, PhpVersions::LATEST->value);
@@ -294,7 +294,7 @@ class PhpDocLinksCheckTest extends PhpDocCheckTestCase
     public function testKnownProblemAtEntityLevelSkipsCheck(): void
     {
         KnownProblemsRegistry::reset();
-        $provider = $this->createMock(KnownProblemsProvider::class);
+        $provider = $this->createStub(KnownProblemsProvider::class);
         $provider->method('getProblems')->willReturn([
             new ProblemDefinition(
                 entityType: EntityType::CLASS_TYPE,

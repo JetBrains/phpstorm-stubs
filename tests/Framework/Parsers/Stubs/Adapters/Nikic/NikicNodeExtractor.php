@@ -148,7 +148,6 @@ class NikicNodeExtractor implements NodeExtractorInterface
     {
         $ast = $this->parseCached($stubCode);
         $classes = [];
-        $currentNamespace = '\\';
 
         foreach ($ast as $node) {
             if ($node instanceof Namespace_) {
@@ -178,8 +177,6 @@ class NikicNodeExtractor implements NodeExtractorInterface
     {
         $ast = $this->parseCached($stubCode);
         $classes = [];
-        $currentNamespace = '\\';
-        $currentImports = [];
 
         // First, extract imports from root level (for files without namespace)
         $rootImports = $this->extractImports($ast);
@@ -216,8 +213,6 @@ class NikicNodeExtractor implements NodeExtractorInterface
     {
         $ast = $this->parseCached($stubCode);
         $functions = [];
-        $currentNamespace = '\\';
-        $currentImports = [];
 
         // First, extract imports from root level (for files without namespace)
         $rootImports = $this->extractImports($ast);
@@ -249,7 +244,6 @@ class NikicNodeExtractor implements NodeExtractorInterface
     {
         $ast = $this->parseCached($stubCode);
         $interfaces = [];
-        $currentNamespace = '\\';
 
         foreach ($ast as $node) {
             if ($node instanceof Namespace_) {
@@ -279,8 +273,6 @@ class NikicNodeExtractor implements NodeExtractorInterface
     {
         $ast = $this->parseCached($stubCode);
         $interfaces = [];
-        $currentNamespace = '\\';
-        $currentImports = [];
 
         // First, extract imports from root level (for files without namespace)
         $rootImports = $this->extractImports($ast);
@@ -317,7 +309,6 @@ class NikicNodeExtractor implements NodeExtractorInterface
     {
         $ast = $this->parseCached($stubCode);
         $enums = [];
-        $currentNamespace = '\\';
 
         foreach ($ast as $node) {
             if ($node instanceof Namespace_) {
@@ -347,8 +338,6 @@ class NikicNodeExtractor implements NodeExtractorInterface
     {
         $ast = $this->parseCached($stubCode);
         $enums = [];
-        $currentNamespace = '\\';
-        $currentImports = [];
 
         // First, extract imports from root level (for files without namespace)
         $rootImports = $this->extractImports($ast);

@@ -5,7 +5,7 @@ use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Encrypt/decrypt data in ECB mode
- * @link https://php.net/manual/en/function.mcrypt-ecb.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mcrypt-ecb
  * @param string|int $cipher
  * @param string $key
  * @param string $data
@@ -18,7 +18,7 @@ function mcrypt_ecb($cipher, $key, $data, $mode) {}
 
 /**
  * Encrypt/decrypt data in CBC mode
- * @link https://php.net/manual/en/function.mcrypt-cbc.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mcrypt-cbc
  * @param int|string $cipher
  * @param string $key
  * @param string $data
@@ -32,7 +32,7 @@ function mcrypt_cbc($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
  * Encrypt/decrypt data in CFB mode
- * @link https://php.net/manual/en/function.mcrypt-cfb.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mcrypt-cfb
  * @param int|string $cipher
  * @param string $key
  * @param string $data
@@ -46,7 +46,7 @@ function mcrypt_cfb($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
  * Encrypt/decrypt data in OFB mode
- * @link https://php.net/manual/en/function.mcrypt-ofb.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mcrypt-ofb
  * @param int|string $cipher
  * @param string $key
  * @param string $data
@@ -61,9 +61,10 @@ function mcrypt_ofb($cipher, $key, $data, $mode, $iv = null) {}
 /**
  * Get the key size of the specified cipher
  * @link https://php.net/manual/en/function.mcrypt-get-key-size.php
- * @param int|string $cipher
+ * @param int|string $cipher One of the MCRYPT_ciphername constants, or the name of the algorithm as
+ * string.
  * @param string $module
- * @return int
+ * @return int Returns the maximum supported key size of the algorithm in bytes or false on failure.
  * @removed 7.2
  */
 #[Deprecated(since: '7.1')]
@@ -344,7 +345,7 @@ function mcrypt_generic($td, $data) {}
  * @param string $data <p>
  * Encrypted data.
  * </p>
- * @return string
+ * @return string Returns decrypted string.
  * @removed 7.2
  */
 #[Deprecated(since: '7.1')]
@@ -352,7 +353,7 @@ function mdecrypt_generic($td, $data) {}
 
 /**
  * This function terminates encryption
- * @link https://php.net/manual/en/function.mcrypt-generic-end.php
+ * @link https://php-legacy-docs.zend.com/manual/php5/en/function.mcrypt-generic-end
  * @param resource $td
  * @return bool
  * @removed 7.0

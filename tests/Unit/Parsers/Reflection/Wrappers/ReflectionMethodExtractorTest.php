@@ -4,12 +4,18 @@ namespace StubTests\Unit\Parsers\Reflection\Wrappers;
 
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Parsers\Reflection\Wrappers\ReflectionMethodExtractor;
-use StubTests\Framework\Parsers\Reflection\Wrappers\AdaptedReflectionClass;
 
+/**
+ * Covers extractData(): calling getter methods on a reflection object and collecting results.
+ *
+ * makeSerializable() used to live on this class too and its tests were here; both moved to
+ * ReflectionValueNormalizer, which is what they were always about — normalising arbitrary
+ * reflected values has nothing to do with extracting methods.
+ *
+ * @see ReflectionValueNormalizerTest
+ */
 class ReflectionMethodExtractorTest extends TestCase
 {
-    // extractData() tests
-
     public function testItExtractsMethodsWithCorrectPrefixes()
     {
         $mockObject = new class() {
@@ -76,6 +82,11 @@ class ReflectionMethodExtractorTest extends TestCase
         self::assertArrayNotHasKey('getStaticPropertyValue', $result);
     }
 
+    /**
+     * Not decisive on its own — see the test below. Kept because it states the end-to-end
+     * expectation against a real ReflectionClass, and so would catch a future widening of the
+     * default prefixes that let a magic method through.
+     */
     public function testItSkipsMagicMethods()
     {
         $reflection = new \ReflectionClass(\stdClass::class);
@@ -84,6 +95,30 @@ class ReflectionMethodExtractorTest extends TestCase
         // Should not extract __construct, __destruct, __toString, etc.
         self::assertArrayNotHasKey('__construct', $result);
         self::assertArrayNotHasKey('__toString', $result);
+    }
+
+    /**
+     * Puts the `strpos($methodName, '__') === 0` guard on the decisive path.
+     *
+     * With the default prefixes (`is`/`has`/`get`, or the production set
+     * `allows|can|get|has|in|is|returns`) no name can start with both `__` and a prefix, so the
+     * prefix filter rejects every magic method before the guard is consulted — deleting the guard
+     * left testItSkipsMagicMethods() above entirely green. Only a prefix that itself overlaps `__`
+     * reaches it, and the guard runs first because it sits above the prefix loop.
+     */
+    public function testItSkipsMagicMethodsEvenWhenTheyMatchAConfiguredPrefix()
+    {
+        $mockObject = new class() {
+            public function __getState(): string { return 'magic'; }
+
+            public function getState(): string { return 'plain'; }
+        };
+
+        $config = ['methodPrefixes' => ['__get', 'get']];
+        $result = ReflectionMethodExtractor::extractData($mockObject, $config);
+
+        self::assertArrayNotHasKey('__getState', $result, 'The __ guard must win over a matching prefix');
+        self::assertArrayHasKey('getState', $result, 'The non-magic sibling still matches the "get" prefix');
     }
 
     public function testItRespectsSkipMethodsConfiguration()
@@ -138,89 +173,5 @@ class ReflectionMethodExtractorTest extends TestCase
         self::assertArrayHasKey('getName', $result);
         // getError should be skipped due to exception
         self::assertArrayNotHasKey('getError', $result);
-    }
-
-    // makeSerializable() tests
-
-    public function testItHandlesNullAndFalseCorrectly()
-    {
-        self::assertNull(ReflectionMethodExtractor::makeSerializable(null));
-        self::assertFalse(ReflectionMethodExtractor::makeSerializable(false));
-    }
-
-    public function testItHandlesPrimitives()
-    {
-        self::assertEquals('test', ReflectionMethodExtractor::makeSerializable('test'));
-        self::assertEquals(42, ReflectionMethodExtractor::makeSerializable(42));
-        self::assertEquals(3.14, ReflectionMethodExtractor::makeSerializable(3.14));
-        self::assertTrue(ReflectionMethodExtractor::makeSerializable(true));
-    }
-
-    public function testItRecursivelyProcessesArrays()
-    {
-        $input = [
-            'name' => 'test',
-            'count' => 5,
-            'nested' => ['a' => 1, 'b' => 2]
-        ];
-        $result = ReflectionMethodExtractor::makeSerializable($input);
-
-        self::assertEquals($input, $result);
-        self::assertIsArray($result);
-        self::assertIsArray($result['nested']);
-    }
-
-    public function testItWrapsReflectionClassToAdaptedReflectionClass()
-    {
-        $reflectionClass = new \ReflectionClass(\stdClass::class);
-        $result = ReflectionMethodExtractor::makeSerializable($reflectionClass);
-
-        self::assertInstanceOf(AdaptedReflectionClass::class, $result);
-    }
-
-    public function testItPreventsInfiniteRecursion()
-    {
-        // Create deeply nested array
-        $deep = ['level' => 0];
-        $current = &$deep;
-        for ($i = 1; $i < 10; $i++) {
-            $current['nested'] = ['level' => $i];
-            $current = &$current['nested'];
-        }
-
-        // Should not throw due to max depth limit
-        $result = ReflectionMethodExtractor::makeSerializable($deep, 0, 3);
-        self::assertIsArray($result);
-    }
-
-    public function testItReturnsAdaptedReflectionObjectsAsIs()
-    {
-        $reflectionClass = new \ReflectionClass(\stdClass::class);
-        $adapted = new AdaptedReflectionClass($reflectionClass);
-
-        $result = ReflectionMethodExtractor::makeSerializable($adapted);
-
-        self::assertSame($adapted, $result);
-    }
-
-    public function testItConvertsObjectsWithToStringToString()
-    {
-        $obj = new class() {
-            public function __toString()
-            {
-                return 'StringRepresentation';
-            }
-        };
-
-        $result = ReflectionMethodExtractor::makeSerializable($obj);
-        self::assertEquals('StringRepresentation', $result);
-    }
-
-    public function testItReturnsClassNameForNonSerializableObjects()
-    {
-        $obj = new \stdClass();
-        $result = ReflectionMethodExtractor::makeSerializable($obj);
-
-        self::assertEquals('stdClass', $result);
     }
 }

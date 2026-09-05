@@ -26,7 +26,7 @@ interface UTCDateTimeInterface
     /**
      * Returns the string representation of this UTCDateTimeInterface
      * @link https://www.php.net/manual/en/mongodb-bson-utcdatetimeinterface.tostring.php
-     * @return string
+     * @return string Returns the string representation of this UTCDateTimeInterface.
      */
     public function __toString(): string;
 }

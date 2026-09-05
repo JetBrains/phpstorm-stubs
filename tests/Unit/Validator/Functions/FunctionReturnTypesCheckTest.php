@@ -786,8 +786,8 @@ class FunctionReturnTypesCheckTest extends CheckTestCase
         $signatureType = null,
         ?array $languageLevelTypes = null,
         ?string $defaultType = null
-    ): \StubTests\Framework\Parsers\Model\PHPFunction {
-        $function = new \StubTests\Framework\Parsers\Model\PHPFunction();
+    ): \StubTests\Framework\Model\PHPFunction {
+        $function = new \StubTests\Framework\Model\PHPFunction();
         $function->setId($name);
         $function->setName($name);
         $function->setParameters([]);

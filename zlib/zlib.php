@@ -150,7 +150,7 @@ function gzopen(string $filename, string $mode, #[LanguageLevelTypeAware(['8.5' 
  * successfully opened by <b>gzopen</b>.
  * </p>
  * @return int The number of uncompressed characters read from <i>gz</i>
- * and passed through to the input, or <b>FALSE</b> on error.
+ * and passed through to the input. Prior to PHP 8.0, <b>FALSE</b> was returned on error.
  */
 function gzpassthru($stream): int {}
 
@@ -507,6 +507,7 @@ function inflate_add(#[LanguageLevelTypeAware(["8.0" => "InflateContext"], defau
 
 /**
  * Get number of bytes read so far
+ * @link https://php.net/manual/en/function.inflate-get-read-len.php
  * @param InflateContext|resource $context
  * @return int
  * @since 7.2
@@ -516,14 +517,17 @@ function inflate_get_read_len(#[LanguageLevelTypeAware(["8.0" => "InflateContext
 
 /**
  * Get decompression status
+ * @link https://php.net/manual/en/function.inflate-get-status.php
  * @param InflateContext|resource $context
- * @return int
+ * @return int Returns decompression status.
  * @since 7.2
  */
 #[Pure]
 function inflate_get_status(#[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context): int {}
 
 /**
+ * A fully opaque class which replaces zlib.inflate resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.inflatecontext.php
  * @since 8.0
  */
 final class InflateContext
@@ -536,6 +540,8 @@ final class InflateContext
 }
 
 /**
+ * A fully opaque class which replaces zlib.deflate resources as of PHP 8.0.0.
+ * @link https://php.net/manual/en/class.deflatecontext.php
  * @since 8.0
  */
 final class DeflateContext

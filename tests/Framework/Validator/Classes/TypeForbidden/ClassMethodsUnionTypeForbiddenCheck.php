@@ -2,8 +2,8 @@
 
 namespace StubTests\Framework\Validator\Classes\TypeForbidden;
 
-use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\Model\Types\NullableType;
+use StubTests\Framework\Model\PHPMethod;
+use StubTests\Framework\Model\Types\NullableType;
 use StubTests\Framework\Validator\AbstractTypeForbiddenCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 

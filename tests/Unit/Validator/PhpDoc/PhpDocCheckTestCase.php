@@ -2,10 +2,10 @@
 
 namespace StubTests\Unit\Validator\PhpDoc;
 
-use StubTests\Framework\Parsers\Model\PHPClass;
-use StubTests\Framework\Parsers\Model\PHPFunction;
-use StubTests\Framework\Parsers\Model\PHPMethod;
-use StubTests\Framework\Parsers\StubDataQueryInterface;
+use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPFunction;
+use StubTests\Framework\Model\PHPMethod;
+use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Unit\Validator\CheckTestCase;
 
 /**
