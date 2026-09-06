@@ -1977,7 +1977,7 @@ function pg_lounlink(
  * @param $connection
  * @param $oid [optional]
  * @param $mode [optional]
- * @return resource
+ * @return resource|false
  * @deprecated 8.0
  */
 #[LanguageLevelTypeAware(['8.1' => '\PgSql\Lob|false'], default: 'resource|false')]
