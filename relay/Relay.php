@@ -1754,7 +1754,7 @@ class Relay
      * @param  int  $maxBurst
      * @param  int  $requestsPerPeriod
      * @param  int  $period
-     * @param  int  $tokens = 0
+     * @param  int  $tokens
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand]
@@ -2618,9 +2618,9 @@ class Relay
      * Manages session-local HIMPORT fieldsets and imports hash values.
      *
      * @param  string  $op
-     * @param  string|null  $hash = null
-     * @param  string|null  $fieldset = null
-     * @param  array  $fields = []
+     * @param  string|null  $hash
+     * @param  string|null  $fieldset
+     * @param  array  $fields
      * @return Relay|bool|int
      */
     public function himport(
@@ -2635,7 +2635,7 @@ class Relay
      *
      * @param  mixed  $hash
      * @param  array  $fields
-     * @param  mixed  $expiry = null
+     * @param  mixed  $expiry
      * @return Relay|array|false
      */
     public function hgetex(mixed $hash, array $fields, mixed $expiry = null): Relay|array|false {}
@@ -2863,7 +2863,7 @@ class Relay
      *
      * @param  mixed  $key
      * @param  array  $fields
-     * @param  null|int|float|array  $expiry = null
+     * @param  null|int|float|array  $expiry
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand]
@@ -4056,7 +4056,7 @@ class Relay
      * @param  mixed  $key
      * @param  string  $start
      * @param  string  $end
-     * @param  int  $count = -1
+     * @param  int  $count
      * @return Relay|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -4530,7 +4530,7 @@ class Relay
      *
      * @param  mixed  $dstkey
      * @param  array  $keys
-     * @param  array  $weights = []
+     * @param  array  $weights
      */
     public function cmsMerge(mixed $dstkey, array $keys, array $weights = []): Relay|bool {}
 
