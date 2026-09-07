@@ -1101,7 +1101,7 @@ class Cluster
      * @param  int  $maxBurst
      * @param  int  $requestsPerPeriod
      * @param  int  $period
-     * @param  int  $tokens = 0
+     * @param  int  $tokens
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand]
@@ -1368,8 +1368,8 @@ class Cluster
      *
      * @param  string  $op
      * @param  string  $hash
-     * @param  string|null  $fieldset = null
-     * @param  array  $fields = []
+     * @param  string|null  $fieldset
+     * @param  array  $fields
      * @return Cluster|bool|int
      */
     public function himport(
@@ -1508,7 +1508,7 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  array  $fields
-     * @param  null|int|float|array  $expiry = null
+     * @param  null|int|float|array  $expiry
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
@@ -1540,7 +1540,7 @@ class Cluster
      *
      * @param  mixed  $hash
      * @param  array  $fields
-     * @param  mixed  $expiry = null
+     * @param  mixed  $expiry
      * @return Cluster|array|false
      */
     public function hgetex(mixed $hash, array $fields, mixed $expiry = null): Cluster|array|false {}
@@ -2956,7 +2956,7 @@ class Cluster
      * @param  mixed  $key
      * @param  string  $start
      * @param  string  $end
-     * @param  int  $count = -1
+     * @param  int  $count
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
