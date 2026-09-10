@@ -192459,7 +192459,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.5.9",
+        "value": "8.5.10",
         "namespace": "\\"
     },
     {
@@ -192480,7 +192480,7 @@
         "_type": "PHPConstant",
         "name": "PHP_RELEASE_VERSION",
         "id": "\\PHP_RELEASE_VERSION",
-        "value": 9,
+        "value": 10,
         "namespace": "\\"
     },
     {
@@ -192494,14 +192494,14 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION_ID",
         "id": "\\PHP_VERSION_ID",
-        "value": 80509,
+        "value": 80510,
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "PHP_BUILD_DATE",
         "id": "\\PHP_BUILD_DATE",
-        "value": "Jul 30 2026 22:44:00",
+        "value": "Aug 31 2026 19:14:23",
         "namespace": "\\"
     },
     {
@@ -193033,14 +193033,14 @@
         "_type": "PHPConstant",
         "name": "OPENSSL_VERSION_TEXT",
         "id": "\\OPENSSL_VERSION_TEXT",
-        "value": "OpenSSL 3.5.7 9 Jun 2026",
+        "value": "OpenSSL 3.5.8 25 Aug 2026",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "OPENSSL_VERSION_NUMBER",
         "id": "\\OPENSSL_VERSION_NUMBER",
-        "value": 810549360,
+        "value": 810549376,
         "namespace": "\\"
     },
     {
@@ -209553,14 +209553,14 @@
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION",
         "id": "\\PGSQL_LIBPQ_VERSION",
-        "value": "18.4",
+        "value": "18.6",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION_STR",
         "id": "\\PGSQL_LIBPQ_VERSION_STR",
-        "value": "18.4",
+        "value": "18.6",
         "namespace": "\\"
     },
     {
