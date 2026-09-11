@@ -15907,7 +15907,7 @@
     "\\pg_locreate": "/**\n * @param $connection [optional]\n * @param $oid [optional]\n * @return string|int|false\n * @deprecated 8.0\n */",
     "\\pg_loexport": "/**\n * @param $connection\n * @param $oid [optional]\n * @param $filename [optional]\n * @return bool\n * @deprecated 8.0\n */",
     "\\pg_loimport": "/**\n * @param $connection\n * @param $filename [optional]\n * @param $oid [optional]\n * @return string|int|false\n * @deprecated 8.0\n */",
-    "\\pg_loopen": "/**\n * @param $connection\n * @param $oid [optional]\n * @param $mode [optional]\n * @return resource\n * @deprecated 8.0\n */",
+    "\\pg_loopen": "/**\n * @param $connection\n * @param $oid [optional]\n * @param $mode [optional]\n * @return resource|false\n * @deprecated 8.0\n */",
     "\\pg_loread": "/**\n * @param $lob\n * @param $length\n * @return string|false\n * @deprecated 8.0\n */",
     "\\pg_loreadall": "/**\n * @param $lob\n * @deprecated 8.0\n */",
     "\\pg_lounlink": "/**\n * @param $connection\n * @param $oid [optional]\n * @return bool\n * @deprecated 8.0\n */",
