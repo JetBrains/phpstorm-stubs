@@ -188393,7 +188393,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.4.24",
+        "value": "8.4.26",
         "namespace": "\\"
     },
     {
@@ -188414,7 +188414,7 @@
         "_type": "PHPConstant",
         "name": "PHP_RELEASE_VERSION",
         "id": "\\PHP_RELEASE_VERSION",
-        "value": 24,
+        "value": 26,
         "namespace": "\\"
     },
     {
@@ -188428,7 +188428,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION_ID",
         "id": "\\PHP_VERSION_ID",
-        "value": 80424,
+        "value": 80426,
         "namespace": "\\"
     },
     {
@@ -189156,14 +189156,14 @@
         "_type": "PHPConstant",
         "name": "OPENSSL_VERSION_TEXT",
         "id": "\\OPENSSL_VERSION_TEXT",
-        "value": "OpenSSL 3.5.7 9 Jun 2026",
+        "value": "OpenSSL 3.5.8 25 Aug 2026",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "OPENSSL_VERSION_NUMBER",
         "id": "\\OPENSSL_VERSION_NUMBER",
-        "value": 810549360,
+        "value": 810549376,
         "namespace": "\\"
     },
     {
@@ -191704,14 +191704,14 @@
         "_type": "PHPConstant",
         "name": "CURLAUTH_ANY",
         "id": "\\CURLAUTH_ANY",
-        "value": 4294967279,
+        "value": 4294967023,
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "CURLAUTH_ANYSAFE",
         "id": "\\CURLAUTH_ANYSAFE",
-        "value": 4294967278,
+        "value": 4294967022,
         "namespace": "\\"
     },
     {
