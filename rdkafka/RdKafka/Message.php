@@ -10,12 +10,12 @@ class Message
     public $err;
 
     /**
-     * @var string
+     * @var string|null
      */
     public $topic_name;
 
     /**
-     * @var int
+     * @var int|null
      */
     public $timestamp;
 
@@ -30,12 +30,12 @@ class Message
     public $payload;
 
     /**
-     * @var int
+     * @var int|null
      */
     public $len;
 
     /**
-     * @var string
+     * @var string|null
      */
     public $key;
 
@@ -45,13 +45,17 @@ class Message
     public $offset;
 
     /**
-     * @var array<string, string>
+     * @var array<array-key, string>
      */
     public $headers;
+
+    /**
+     * @var string|null
+     */
     public $opaque;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function errstr() {}
 }
