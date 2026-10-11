@@ -848,14 +848,14 @@ define('CURLAUTH_NTLM', 8);
  * @link https://www.php.net/manual/en/curl.constants.php
  * @link https://curl.haxx.se/libcurl/c/CURLOPT_HTTPAUTH.html
  */
-define('CURLAUTH_ANY', 4294967279);
+define('CURLAUTH_ANY', 4294967023);
 /**
  * Value for the <b>CURLOPT_HTTPAUTH</b> option.
  * Is an alias for <b>CURLAUTH_DIGEST</b> | <b>CURLAUTH_GSSNEGOTIATE</b> | <b>CURLAUTH_NTLM</b>.
  * @link https://www.php.net/manual/en/curl.constants.php
  * @link https://curl.haxx.se/libcurl/c/CURLOPT_HTTPAUTH.html
  */
-define('CURLAUTH_ANYSAFE', 4294967278);
+define('CURLAUTH_ANYSAFE', 4294967022);
 /**
  * The HTTP authentication method(s) to use for the proxy connection.
  * Use the same bitmasks as described in <b>CURLOPT_HTTPAUTH</b>.
@@ -3167,6 +3167,12 @@ define("CURLPAUSE_SEND_CONT", 0);
  * @link https://curl.haxx.se/libcurl/c/CURLOPT_READFUNCTION.html
  */
 define("CURL_READFUNC_PAUSE", 268435457);
+/**
+ * Read callback for data uploads: return to abort the transfer.
+ * @link https://curl.se/libcurl/c/CURLOPT_READFUNCTION.html
+ * @since 8.6
+ */
+define("CURL_READFUNC_ABORT", 268435456);
 /**
  * Set callback for writing received data.
  * @link https://curl.haxx.se/libcurl/c/CURLOPT_WRITEFUNCTION.html

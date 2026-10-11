@@ -37,4 +37,20 @@ class IntlDatePatternGenerator
      * success, or false on failure.
      */
     public function getBestPattern(string $skeleton): string|false {}
+
+    /**
+     * Gets the skeleton of the given pattern
+     * @param string $pattern The ICU date/time pattern.
+     * @return string|false Returns the skeleton on success, or false on failure.
+     * @since 8.6
+     */
+    public static function getSkeleton(string $pattern): string|false {}
+
+    /**
+     * Gets the base skeleton of the given pattern
+     * @param string $pattern The ICU date/time pattern.
+     * @return string|false Returns the base skeleton on success, or false on failure.
+     * @since 8.6
+     */
+    public static function getBaseSkeleton(string $pattern): string|false {}
 }

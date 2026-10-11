@@ -265,7 +265,7 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::add() does not modify the object itself")]
-    public function add(DateInterval $interval): DateTimeImmutable {}
+    public function add(DateInterval $interval): static {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -410,7 +410,7 @@ class DateTimeImmutable implements DateTimeInterface
     #[PhpStormStubsElementAvailable(from: '5.5', to: '8.2')]
     #[Pure]
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.4' => 'DateTimeImmutable'], default: 'static|false')]
+    #[LanguageLevelTypeAware(['8.4' => 'static'], default: 'static|false')]
     public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
     /**
@@ -426,7 +426,7 @@ class DateTimeImmutable implements DateTimeInterface
     #[PhpStormStubsElementAvailable(from: '8.3')]
     #[Pure]
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.4' => 'DateTimeImmutable'], default: 'DateTimeImmutable|false')]
+    #[LanguageLevelTypeAware(['8.4' => 'static'], default: 'DateTimeImmutable|false')]
     #[\NoDiscard(message: "as DateTimeImmutable::modify() does not modify the object itself")]
     public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
@@ -458,7 +458,7 @@ class DateTimeImmutable implements DateTimeInterface
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $month,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $day
-    ): DateTimeImmutable {}
+    ): static {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -477,7 +477,7 @@ class DateTimeImmutable implements DateTimeInterface
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $week,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $dayOfWeek = 1
-    ): DateTimeImmutable {}
+    ): static {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -499,7 +499,7 @@ class DateTimeImmutable implements DateTimeInterface
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $minute,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $second = 0,
         #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $microsecond = 0
-    ): DateTimeImmutable {}
+    ): static {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -512,7 +512,7 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setTimestamp() does not modify the object itself")]
-    public function setTimestamp(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestamp): DateTimeImmutable {}
+    public function setTimestamp(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestamp): static {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -528,7 +528,7 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setTimezone() does not modify the object itself")]
-    public function setTimezone(DateTimeZone $timezone): DateTimeImmutable {}
+    public function setTimezone(DateTimeZone $timezone): static {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -543,7 +543,7 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::sub() does not modify the object itself")]
-    public function sub(DateInterval $interval): DateTimeImmutable {}
+    public function sub(DateInterval $interval): static {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -627,7 +627,21 @@ class DateTimeImmutable implements DateTimeInterface
      * @return static Returns a new DateTimeImmutable instance.
      * @since 8.0
      */
+    #[PhpStormStubsElementAvailable(from: '8.0', to: '8.5')]
     public static function createFromInterface(DateTimeInterface $object): DateTimeImmutable {}
+
+    /**
+     * Returns new DateTimeImmutable object encapsulating the given DateTimeInterface object
+     * @link https://php.net/manual/en/datetimeimmutable.createfrominterface.php
+     * @param DateTimeInterface $object The DateTimeInterface object that needs to be converted to
+     * an immutable version. This object is not modified, but instead a new DateTimeImmutable object
+     * is created containing the same date, time, and timezone information.
+     * @return static Returns a new DateTimeImmutable instance.
+     * @since 8.6
+     */
+    #[PhpStormStubsElementAvailable(from: '8.6')]
+    #[TentativeType]
+    public static function createFromInterface(DateTimeInterface $object): static {}
 
     /**
      * Serialize a DateTime
@@ -1113,7 +1127,21 @@ class DateTime implements DateTimeInterface
      * @return static Returns a new DateTime instance.
      * @since 8.0
      */
+    #[PhpStormStubsElementAvailable(from: '8.0', to: '8.5')]
     public static function createFromInterface(DateTimeInterface $object): DateTime {}
+
+    /**
+     * Returns new DateTime object encapsulating the given DateTimeInterface object
+     * @link https://php.net/manual/en/datetime.createfrominterface.php
+     * @param DateTimeInterface $object The DateTimeInterface object that needs to be converted to a
+     * mutable version. This object is not modified, but instead a new DateTime object is created
+     * containing the same date, time, and timezone information.
+     * @return static Returns a new DateTime instance.
+     * @since 8.6
+     */
+    #[PhpStormStubsElementAvailable(from: '8.6')]
+    #[TentativeType]
+    public static function createFromInterface(DateTimeInterface $object): static {}
 
     /**
      * Serialize a DateTime
@@ -1591,7 +1619,7 @@ class DatePeriod implements IteratorAggregate
     public function getStartDate(): DateTimeInterface {}
 
     #[TentativeType]
-    public static function __set_state(#[PhpStormStubsElementAvailable(from: '7.3')] array $array): DatePeriod {}
+    public static function __set_state(#[PhpStormStubsElementAvailable(from: '7.3')] array $array): static {}
 
     #[TentativeType]
     #[Deprecated(since: '8.5')]

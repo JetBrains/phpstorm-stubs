@@ -417,9 +417,9 @@ namespace Uri\Rfc3986 {
      */
     enum UriHostType implements \UnitEnum
     {
-        case IPv4;
-        case IPv6;
-        case IPvFuture;
+        case IpV4;
+        case IpV6;
+        case IpVFuture;
         case RegisteredName;
     }
 
@@ -872,10 +872,70 @@ namespace Uri\WhatWg {
      */
     enum UrlHostType implements \UnitEnum
     {
-        case IPv4;
-        case IPv6;
+        case IpV4;
+        case IpV6;
         case Domain;
         case Opaque;
         case Empty;
     }
+
+    /**
+     * @since 8.6
+     */
+    final class UrlBuilder
+    {
+        private string $scheme = "";
+        private ?string $username = null;
+        private ?string $password = null;
+        private ?string $host = null;
+        private ?int $port = null;
+        private string $path = "";
+        private ?string $query = null;
+        private ?string $fragment = null;
+
+        public function reset(): static {}
+
+        public function setScheme(string $scheme): static {}
+
+        public function setUsername(?string $username): static {}
+
+        public function setPassword(?string $password): static {}
+
+        public function setHost(?string $host): static {}
+
+        public function setPort(?int $port): static {}
+
+        public function setPath(string $path): static {}
+
+        public function setQuery(?string $query): static {}
+
+        public function setFragment(?string $fragment): static {}
+
+        /**
+         * @param array $softErrors An array to pass a list of Uri\WhatWg\UrlValidationError
+         */
+        public function build(?Url $baseUrl = null, &$softErrors = null): Url {}
+    }
+
+    /**
+     * @since 8.6
+     */
+    enum UrlPercentEncodingMode implements \UnitEnum
+    {
+        case Username;
+        case Password;
+        case OpaqueHost;
+        case Path;
+        case OpaquePath;
+        case PathSegment;
+        case Query;
+        case SpecialQuery;
+        case FormQuery;
+        case Fragment;
+    }
+
+    /**
+     * @since 8.6
+     */
+    function url_percent_encode(string $input, UrlPercentEncodingMode $mode): string {}
 }

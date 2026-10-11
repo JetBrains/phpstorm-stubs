@@ -351,6 +351,17 @@ function gmp_pow(GMP|string|int $num, int $exponent): GMP {}
 function gmp_powm(GMP|string|int $num, GMP|string|int $exponent, GMP|string|int $modulus): GMP {}
 
 /**
+ * Raise number into power with modulo, in constant time
+ * @param GMP|string|int $num The base.
+ * @param GMP|string|int $exponent The positive power to raise the <i>num</i>.
+ * @param GMP|string|int $modulus The modulo, must be odd.
+ * @return GMP The new (raised) number, as a GMP number.
+ * @since 8.6
+ */
+#[Pure]
+function gmp_powm_sec(GMP|string|int $num, GMP|string|int $exponent, GMP|string|int $modulus): GMP {}
+
+/**
  * Perfect square check
  * @link https://php.net/manual/en/function.gmp-perfect-square.php
  * @param resource|string|GMP $num <p>
@@ -733,6 +744,15 @@ function gmp_rootrem(GMP|string|int $num, int $nth): array {}
  */
 #[Pure]
 function gmp_nextprime(GMP|string|int $num): GMP {}
+
+/**
+ * Find previous prime number
+ * @param GMP|string|int $num
+ * @param bool &$definitely_prime [optional] Set to true if the result is definitely prime, false if it is only probably prime.
+ * @return GMP The largest prime number less than <i>num</i>, as a GMP number.
+ * @since 8.6
+ */
+function gmp_prevprime(GMP|string|int $num, &$definitely_prime = null): GMP {}
 
 /**
  * Calculates binomial coefficient

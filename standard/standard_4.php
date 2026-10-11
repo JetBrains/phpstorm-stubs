@@ -330,7 +330,8 @@ function register_shutdown_function(callable $callback, mixed ...$args) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function register_tick_function(callable $callback, mixed ...$args): bool {}
+#[LanguageLevelTypeAware(['8.6' => 'true'], default: 'bool')]
+function register_tick_function(callable $callback, mixed ...$args) {}
 
 /**
  * De-register a function for execution on each tick

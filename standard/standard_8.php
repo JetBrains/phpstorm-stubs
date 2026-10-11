@@ -78,7 +78,8 @@ function closelog() {}
  * @param callable $callback Function called just before the headers are sent.
  * @return bool true on success or false on failure.
  */
-function header_register_callback(callable $callback): bool {}
+#[LanguageLevelTypeAware(['8.6' => 'true'], default: 'bool')]
+function header_register_callback(callable $callback) {}
 
 /**
  * Get the size of an image from a string.
@@ -140,6 +141,7 @@ function define_syslog_variables() {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
+#[Deprecated(since: '8.6')]
 function metaphone(string $string, int $max_phonemes = 0) {}
 
 /**

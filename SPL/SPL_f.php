@@ -1,6 +1,7 @@
 <?php
 
 // Start of SPL v.0.2
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
@@ -10,6 +11,7 @@ use JetBrains\PhpStorm\Pure;
  * @return array Returns an array containing the currently available SPL classes.
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function spl_classes(): array {}
 
 /**
@@ -136,6 +138,7 @@ function class_implements($object_or_class, bool $autoload = true): array|false 
  * the same object.
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function spl_object_hash(object $object): string {}
 
 /**

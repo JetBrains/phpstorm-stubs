@@ -154130,7 +154130,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.2.33",
+        "value": "8.2.34",
         "namespace": "\\"
     },
     {
@@ -154151,7 +154151,7 @@
         "_type": "PHPConstant",
         "name": "PHP_RELEASE_VERSION",
         "id": "\\PHP_RELEASE_VERSION",
-        "value": 33,
+        "value": 34,
         "namespace": "\\"
     },
     {
@@ -154165,7 +154165,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION_ID",
         "id": "\\PHP_VERSION_ID",
-        "value": 80233,
+        "value": 80234,
         "namespace": "\\"
     },
     {
@@ -154865,14 +154865,14 @@
         "_type": "PHPConstant",
         "name": "OPENSSL_VERSION_TEXT",
         "id": "\\OPENSSL_VERSION_TEXT",
-        "value": "OpenSSL 3.5.7 9 Jun 2026",
+        "value": "OpenSSL 3.5.8 25 Aug 2026",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "OPENSSL_VERSION_NUMBER",
         "id": "\\OPENSSL_VERSION_NUMBER",
-        "value": 810549360,
+        "value": 810549376,
         "namespace": "\\"
     },
     {
@@ -157287,14 +157287,14 @@
         "_type": "PHPConstant",
         "name": "CURLAUTH_ANY",
         "id": "\\CURLAUTH_ANY",
-        "value": 4294967279,
+        "value": 4294967023,
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "CURLAUTH_ANYSAFE",
         "id": "\\CURLAUTH_ANYSAFE",
-        "value": 4294967278,
+        "value": 4294967022,
         "namespace": "\\"
     },
     {
@@ -170531,14 +170531,14 @@
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION",
         "id": "\\PGSQL_LIBPQ_VERSION",
-        "value": "18.4",
+        "value": "18.6",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION_STR",
         "id": "\\PGSQL_LIBPQ_VERSION_STR",
-        "value": "18.4",
+        "value": "18.6",
         "namespace": "\\"
     },
     {
