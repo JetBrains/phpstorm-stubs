@@ -188393,7 +188393,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.4.25",
+        "value": "8.4.26",
         "namespace": "\\"
     },
     {
@@ -188414,7 +188414,7 @@
         "_type": "PHPConstant",
         "name": "PHP_RELEASE_VERSION",
         "id": "\\PHP_RELEASE_VERSION",
-        "value": 25,
+        "value": 26,
         "namespace": "\\"
     },
     {
@@ -188428,7 +188428,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION_ID",
         "id": "\\PHP_VERSION_ID",
-        "value": 80425,
+        "value": 80426,
         "namespace": "\\"
     },
     {
@@ -191704,14 +191704,14 @@
         "_type": "PHPConstant",
         "name": "CURLAUTH_ANY",
         "id": "\\CURLAUTH_ANY",
-        "value": 4294967279,
+        "value": 4294967023,
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "CURLAUTH_ANYSAFE",
         "id": "\\CURLAUTH_ANYSAFE",
-        "value": 4294967278,
+        "value": 4294967022,
         "namespace": "\\"
     },
     {

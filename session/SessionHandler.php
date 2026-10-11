@@ -288,4 +288,13 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
     ): bool {}
+
+    /**
+     * Validate session id
+     * @param string $id The session id
+     * @return bool Returns true if the session id is valid, false otherwise.
+     * @since 8.6
+     */
+    #[TentativeType]
+    public function validateId(string $id): bool {}
 }

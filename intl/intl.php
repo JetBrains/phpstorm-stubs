@@ -2804,6 +2804,16 @@ class Spoofchecker
     public const SIMPLE_CASE_INSENSITIVE = 6;
 
     /**
+     * @since 8.6
+     */
+    public const LTR = 0;
+
+    /**
+     * @since 8.6
+     */
+    public const RTL = 1;
+
+    /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Constructor
      * @link https://php.net/manual/en/spoofchecker.construct.php
@@ -2893,6 +2903,34 @@ class Spoofchecker
      * if patternOptions is not a valid combination of options.
      */
     public function setAllowedChars(string $pattern, int $patternOptions = 0): void {}
+
+    /**
+     * Gets the skeleton of the given string, used for confusability checks
+     * @param string $string
+     * @return string|false Returns the skeleton on success, or false on failure.
+     * @since 8.6
+     */
+    public function getSkeleton(string $string): string|false {}
+
+    /**
+     * Gets the bidi skeleton of the given string, used for confusability checks
+     * @param int $direction The paragraph direction, Spoofchecker::LTR or Spoofchecker::RTL.
+     * @param string $string
+     * @return string|false Returns the bidi skeleton on success, or false on failure.
+     * @since 8.6
+     */
+    public function getBidiSkeleton(int $direction, string $string): string|false {}
+
+    /**
+     * Checks if two strings are confusable when displayed in the given paragraph direction
+     * @param int $direction The paragraph direction, Spoofchecker::LTR or Spoofchecker::RTL.
+     * @param string $string1
+     * @param string $string2
+     * @param int &$errorCode [optional]
+     * @return bool Returns true if the two strings can be confused, false otherwise.
+     * @since 8.6
+     */
+    public function areBidiConfusable(int $direction, string $string1, string $string2, &$errorCode = null): bool {}
 }
 
 /**

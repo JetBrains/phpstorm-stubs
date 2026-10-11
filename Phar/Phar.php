@@ -1061,7 +1061,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * See the FilesystemIterator constants.
      */
     #[TentativeType]
-    public function current(): SplFileInfo|FilesystemIterator|string {}
+    #[LanguageLevelTypeAware(['8.6' => 'SplFileInfo|static|string'], default: 'SplFileInfo|FilesystemIterator|string')]
+    public function current() {}
 
     /**
      * Check whether current DirectoryIterator position is a valid file
@@ -1218,7 +1219,8 @@ class PharData extends RecursiveDirectoryIterator implements Countable, ArrayAcc
      * See the FilesystemIterator constants.
      */
     #[TentativeType]
-    public function current(): SplFileInfo|FilesystemIterator|string {}
+    #[LanguageLevelTypeAware(['8.6' => 'SplFileInfo|static|string'], default: 'SplFileInfo|FilesystemIterator|string')]
+    public function current() {}
 
     /**
      * Check whether current DirectoryIterator position is a valid file

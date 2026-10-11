@@ -833,6 +833,7 @@ function openssl_cipher_key_length(string $cipher_algo): int|false {}
  * For more information see the list of Signature Algorithms.
  * </p>
  * @param int $padding RSA PSS padding to use.
+ * @param int $salt_length [optional] RSA PSS salt length, one of the OPENSSL_RSA_PSS_SALTLEN_* constants or a positive number of bytes. Since 8.6.
  * @return bool true on success or false on failure.
  */
 function openssl_sign(
@@ -840,7 +841,8 @@ function openssl_sign(
     &$signature,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
     string|int $algorithm = OPENSSL_ALGO_SHA1,
-    #[PhpStormStubsElementAvailable(from: '8.5')] int $padding = 0
+    #[PhpStormStubsElementAvailable(from: '8.5')] int $padding = 0,
+    #[PhpStormStubsElementAvailable(from: '8.6')] int $salt_length = OPENSSL_RSA_PSS_SALTLEN_AUTO
 ): bool {}
 
 /**
@@ -855,6 +857,7 @@ function openssl_sign(
  * For more information see the list of Signature Algorithms.
  * </p>
  * @param int $padding RSA PSS padding to use.
+ * @param int $salt_length [optional] RSA PSS salt length, one of the OPENSSL_RSA_PSS_SALTLEN_* constants or a positive number of bytes. Since 8.6.
  * @return int|false 1 if the signature is correct, 0 if it is incorrect, and
  * -1 on error.
  */
@@ -863,7 +866,8 @@ function openssl_verify(
     string $signature,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $public_key,
     string|int $algorithm = OPENSSL_ALGO_SHA1,
-    #[PhpStormStubsElementAvailable(from: '8.5')] int $padding = 0
+    #[PhpStormStubsElementAvailable(from: '8.5')] int $padding = 0,
+    #[PhpStormStubsElementAvailable(from: '8.6')] int $salt_length = OPENSSL_RSA_PSS_SALTLEN_AUTO
 ): int|false {}
 
 /**
@@ -1502,6 +1506,21 @@ define('OPENSSL_PKCS1_PADDING', 1);
 define('OPENSSL_SSLV23_PADDING', 2);
 define('OPENSSL_NO_PADDING', 3);
 define('OPENSSL_PKCS1_OAEP_PADDING', 4);
+
+/**
+ * @since 8.6
+ */
+define('OPENSSL_RSA_PSS_SALTLEN_DIGEST', -1);
+
+/**
+ * @since 8.6
+ */
+define('OPENSSL_RSA_PSS_SALTLEN_AUTO', -2);
+
+/**
+ * @since 8.6
+ */
+define('OPENSSL_RSA_PSS_SALTLEN_MAX', -3);
 define('OPENSSL_CIPHER_RC2_40', 0);
 define('OPENSSL_CIPHER_RC2_128', 1);
 define('OPENSSL_CIPHER_RC2_64', 2);

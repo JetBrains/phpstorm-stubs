@@ -699,9 +699,9 @@
         "sinceVersion": "8.6",
         "removedVersion": null,
         "cases": [
-            "IPv4",
-            "IPv6",
-            "IPvFuture",
+            "IpV4",
+            "IpV6",
+            "IpVFuture",
             "RegisteredName"
         ],
         "constants": [],
@@ -788,11 +788,41 @@
         "sinceVersion": "8.6",
         "removedVersion": null,
         "cases": [
-            "IPv4",
-            "IPv6",
+            "IpV4",
+            "IpV6",
             "Domain",
             "Opaque",
             "Empty"
+        ],
+        "constants": [],
+        "methods": [],
+        "interfaces": [
+            "\\UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "UrlPercentEncodingMode",
+        "id": "\\Uri\\WhatWg\\UrlPercentEncodingMode",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "uri/uri.php",
+        "duplicates": [],
+        "namespace": "\\Uri\\WhatWg",
+        "phpDoc": null,
+        "sinceVersion": "8.6",
+        "removedVersion": null,
+        "cases": [
+            "Username",
+            "Password",
+            "OpaqueHost",
+            "Path",
+            "OpaquePath",
+            "PathSegment",
+            "Query",
+            "SpecialQuery",
+            "FormQuery",
+            "Fragment"
         ],
         "constants": [],
         "methods": [],

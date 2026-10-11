@@ -138,6 +138,30 @@ const SODIUM_CRYPTO_XOF_TURBOSHAKE128_STATEBYTES = 256;
 const SODIUM_CRYPTO_XOF_TURBOSHAKE256_BLOCKBYTES = 136;
 /** @since 8.6 */
 const SODIUM_CRYPTO_XOF_TURBOSHAKE256_STATEBYTES = 256;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_PUBLICKEYBYTES = 1216;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_SECRETKEYBYTES = 32;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_CIPHERTEXTBYTES = 1120;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_SHAREDSECRETBYTES = 32;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_SEEDBYTES = 32;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_KEYPAIRBYTES = 1248;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_MLKEM768_PUBLICKEYBYTES = 1184;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_MLKEM768_SECRETKEYBYTES = 2400;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_MLKEM768_CIPHERTEXTBYTES = 1088;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_MLKEM768_SHAREDSECRETBYTES = 32;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_MLKEM768_SEEDBYTES = 64;
+/** @since 8.6 */
+const SODIUM_CRYPTO_KEM_MLKEM768_KEYPAIRBYTES = 3584;
 
 /**
  * Adds an element
@@ -1873,6 +1897,114 @@ function sodium_crypto_xof_turboshake256_squeeze(string &$state, int $length): s
  * @since 8.6
  */
 function sodium_crypto_xof_turboshake256_update(string &$state, string $message): true {}
+
+/**
+ * Generate a random key pair for the default post-quantum hybrid KEM (X-Wing).
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_keypair(): string {}
+
+/**
+ * Deterministically derive a key pair for the default post-quantum hybrid KEM (X-Wing) from a seed.
+ * @param string $seed
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_seed_keypair(string $seed): string {}
+
+/**
+ * Extract the secret key from a the default post-quantum hybrid KEM (X-Wing) key pair.
+ * @param string $key_pair
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_secretkey(string $key_pair): string {}
+
+/**
+ * Extract the public key from a the default post-quantum hybrid KEM (X-Wing) key pair.
+ * @param string $key_pair
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_publickey(string $key_pair): string {}
+
+/**
+ * Encapsulate a shared secret for the given the default post-quantum hybrid KEM (X-Wing) public key.
+ * @param string $public_key
+ * @return string[] An array of the ciphertext and the shared secret.
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_enc(string $public_key): array {}
+
+/**
+ * Decapsulate the shared secret from a the default post-quantum hybrid KEM (X-Wing) ciphertext.
+ * @param string $ciphertext
+ * @param string $secret_key
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_dec(string $ciphertext, string $secret_key): string {}
+
+/**
+ * Generate a random key pair for ML-KEM-768.
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_mlkem768_keypair(): string {}
+
+/**
+ * Deterministically derive a key pair for ML-KEM-768 from a seed.
+ * @param string $seed
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_mlkem768_seed_keypair(string $seed): string {}
+
+/**
+ * Extract the secret key from a ML-KEM-768 key pair.
+ * @param string $key_pair
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_mlkem768_secretkey(string $key_pair): string {}
+
+/**
+ * Extract the public key from a ML-KEM-768 key pair.
+ * @param string $key_pair
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_mlkem768_publickey(string $key_pair): string {}
+
+/**
+ * Encapsulate a shared secret for the given ML-KEM-768 public key.
+ * @param string $public_key
+ * @return string[] An array of the ciphertext and the shared secret.
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_mlkem768_enc(string $public_key): array {}
+
+/**
+ * Decapsulate the shared secret from a ML-KEM-768 ciphertext.
+ * @param string $ciphertext
+ * @param string $secret_key
+ * @return string
+ * @throws SodiumException
+ * @since 8.6
+ */
+function sodium_crypto_kem_mlkem768_dec(string $ciphertext, string $secret_key): string {}
 
 /**
  * Exceptions thrown by the sodium functions.
