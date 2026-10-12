@@ -2180,7 +2180,10 @@ function pg_put_copy_end(PgSql\Connection $connection, ?string $error = null): i
 /**
  * @since 8.5
  */
-function pg_close_stmt(Pgsql\Connection $connection, string $statement_name): PgSql\Result|false {}
+function pg_close_stmt(
+    #[LanguageLevelTypeAware(['8.6' => 'PgSql\Connection'], default: 'Pgsql\Connection')] $connection,
+    string $statement_name
+): PgSql\Result|false {}
 
 /**
  * Returns the JIT information of the server

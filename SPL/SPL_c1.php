@@ -379,7 +379,8 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
      * @return string The key for the current <b>DirectoryIterator</b> item.
      */
     #[TentativeType]
-    public function key(): mixed {}
+    #[LanguageLevelTypeAware(['8.6' => 'string|int'], default: 'mixed')]
+    public function key() {}
 
     /**
      * Return the current DirectoryIterator item.
@@ -387,7 +388,8 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
      * @return DirectoryIterator The current <b>DirectoryIterator</b> item.
      */
     #[TentativeType]
-    public function current(): mixed {}
+    #[LanguageLevelTypeAware(['8.6' => 'SplFileInfo|static|string'], default: 'mixed')]
+    public function current() {}
 
     /**
      * Move forward to next DirectoryIterator item
@@ -472,7 +474,8 @@ class FilesystemIterator extends DirectoryIterator
      * See the FilesystemIterator constants.
      */
     #[TentativeType]
-    public function current(): SplFileInfo|FilesystemIterator|string {}
+    #[LanguageLevelTypeAware(['8.6' => 'SplFileInfo|static|string'], default: 'SplFileInfo|FilesystemIterator|string')]
+    public function current() {}
 
     /**
      * Get the handling flags
@@ -584,7 +587,8 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
      * See the FilesystemIterator constants.
      */
     #[TentativeType]
-    public function current(): SplFileInfo|FilesystemIterator|string {}
+    #[LanguageLevelTypeAware(['8.6' => 'SplFileInfo|static|string'], default: 'SplFileInfo|FilesystemIterator|string')]
+    public function current() {}
 }
 
 /**
@@ -733,6 +737,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.1' => 'array|false'], default: 'array|false|null')]
+    #[Deprecated(since: '8.6')]
     public function fgetcsv(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $separator = ",",
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $enclosure = "\"",
@@ -755,6 +760,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @since 5.4
      */
     #[TentativeType]
+    #[Deprecated(since: '8.6')]
     public function fputcsv(
         array $fields,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $separator = ',',
@@ -778,6 +784,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @return void No value is returned.
      */
     #[TentativeType]
+    #[Deprecated(since: '8.6')]
     public function setCsvControl(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $separator = ",",
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $enclosure = "\"",
@@ -790,6 +797,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @return array an indexed array containing the delimiter and enclosure character.
      */
     #[TentativeType]
+    #[Deprecated(since: '8.6')]
     public function getCsvControl(): array {}
 
     /**

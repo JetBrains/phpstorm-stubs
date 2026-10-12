@@ -1708,7 +1708,8 @@ function zip_entry_open($zip_dp, $zip_entry, string $mode = 'rb'): bool {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
-function zip_entry_close($zip_entry): bool {}
+#[LanguageLevelTypeAware(['8.6' => 'true'], default: 'bool')]
+function zip_entry_close($zip_entry) {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.0.0)<br/>

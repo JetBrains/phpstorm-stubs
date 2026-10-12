@@ -4325,8 +4325,8 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DateTime",
-                "hasTentativeReturnType": false
+                "returnType": "static",
+                "hasTentativeReturnType": true
             },
             {
                 "name": "createFromFormat",
@@ -4993,7 +4993,7 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DateTimeImmutable",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             },
             {
@@ -5196,7 +5196,7 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DateTimeImmutable",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             },
             {
@@ -5219,7 +5219,7 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DateTimeImmutable",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             },
             {
@@ -5242,7 +5242,7 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DateTimeImmutable",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             },
             {
@@ -5265,7 +5265,7 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DateTimeImmutable",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             },
             {
@@ -5321,7 +5321,7 @@
                         "defaultValue": 0
                     }
                 ],
-                "returnType": "DateTimeImmutable",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             },
             {
@@ -5366,7 +5366,7 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DateTimeImmutable",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             },
             {
@@ -5411,7 +5411,7 @@
                         "defaultValue": 1
                     }
                 ],
-                "returnType": "DateTimeImmutable",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             },
             {
@@ -5434,7 +5434,7 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DateTimeImmutable",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             },
             {
@@ -5503,8 +5503,8 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DateTimeImmutable",
-                "hasTentativeReturnType": false
+                "returnType": "static",
+                "hasTentativeReturnType": true
             }
         ],
         "properties": [],
@@ -5820,7 +5820,7 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DateTimeZone",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             }
         ],
@@ -6057,7 +6057,7 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DateInterval",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             }
         ],
@@ -6274,7 +6274,7 @@
                         "defaultValue": null
                     }
                 ],
-                "returnType": "DatePeriod",
+                "returnType": "static",
                 "hasTentativeReturnType": true
             },
             {
@@ -8164,6 +8164,602 @@
             "\\Stringable",
             "\\Throwable"
         ],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
+        "name": "TimeException",
+        "id": "\\Time\\TimeException",
+        "isFinal": false,
+        "isReadonly": false,
+        "namespace": "\\Time",
+        "methods": [
+            {
+                "name": "__construct",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "message",
+                        "position": 0,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "string",
+                        "defaultValue": ""
+                    },
+                    {
+                        "name": "code",
+                        "position": 1,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "int",
+                        "defaultValue": 0
+                    },
+                    {
+                        "name": "previous",
+                        "position": 2,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "Throwable|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "__wakeup",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "void",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "getMessage",
+                "isStatic": false,
+                "isFinal": true,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "string",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getCode",
+                "isStatic": false,
+                "isFinal": true,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getFile",
+                "isStatic": false,
+                "isFinal": true,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "string",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getLine",
+                "isStatic": false,
+                "isFinal": true,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "int",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getTrace",
+                "isStatic": false,
+                "isFinal": true,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getPrevious",
+                "isStatic": false,
+                "isFinal": true,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "Throwable|null",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getTraceAsString",
+                "isStatic": false,
+                "isFinal": true,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "string",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "__toString",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "string",
+                "hasTentativeReturnType": false
+            }
+        ],
+        "properties": [
+            {
+                "name": "message",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "protected",
+                "type": "",
+                "hasDefaultValue": true,
+                "defaultValue": ""
+            },
+            {
+                "name": "code",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "protected",
+                "type": "",
+                "hasDefaultValue": true,
+                "defaultValue": 0
+            },
+            {
+                "name": "file",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "protected",
+                "type": "string",
+                "hasDefaultValue": true,
+                "defaultValue": ""
+            },
+            {
+                "name": "line",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "protected",
+                "type": "int",
+                "hasDefaultValue": true,
+                "defaultValue": 0
+            }
+        ],
+        "constants": [],
+        "parentClass": "Exception",
+        "interfaces": [
+            "\\Throwable",
+            "\\Stringable"
+        ],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
+        "name": "Duration",
+        "id": "\\Time\\Duration",
+        "isFinal": true,
+        "isReadonly": true,
+        "namespace": "\\Time",
+        "methods": [
+            {
+                "name": "__construct",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "private",
+                "parameters": [],
+                "returnType": "",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "__unserialize",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "array",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "void",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "fromSeconds",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "seconds",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "nanoseconds",
+                        "position": 1,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "int",
+                        "defaultValue": 0
+                    }
+                ],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "fromNanoseconds",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "nanoseconds",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "fromMicroseconds",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "microseconds",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "fromMilliseconds",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "milliseconds",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "fromMinutes",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "minutes",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "fromHours",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "hours",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "fromIso8601DurationString",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "specification",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "negate",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "absolute",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "add",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "duration",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "Time\\Duration",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "sub",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "duration",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "Time\\Duration",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "multiplyBy",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "factor",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "divideBy",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "divisor",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "Time\\Duration",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "compare",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "a",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "Time\\Duration",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "b",
+                        "position": 1,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "Time\\Duration",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "int",
+                "hasTentativeReturnType": false
+            }
+        ],
+        "properties": [
+            {
+                "name": "seconds",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "int",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            },
+            {
+                "name": "nanoseconds",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "int",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            },
+            {
+                "name": "negative",
+                "isStatic": false,
+                "isReadonly": true,
+                "accessModifier": "public",
+                "type": "bool",
+                "hasDefaultValue": false,
+                "defaultValue": null
+            }
+        ],
+        "constants": [],
+        "parentClass": null,
+        "interfaces": [],
         "attributes": []
     },
     {
@@ -12719,6 +13315,323 @@
     },
     {
         "_type": "PHPClass",
+        "name": "UrlBuilder",
+        "id": "\\Uri\\WhatWg\\UrlBuilder",
+        "isFinal": true,
+        "isReadonly": false,
+        "namespace": "\\Uri\\WhatWg",
+        "methods": [
+            {
+                "name": "reset",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "static",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "setScheme",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "scheme",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "static",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "setUsername",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "static",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "setPassword",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "password",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "static",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "setHost",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "host",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "static",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "setPort",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "port",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "static",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "setPath",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "path",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "static",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "setQuery",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "static",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "setFragment",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "fragment",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string|null",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "static",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "build",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "baseUrl",
+                        "position": 0,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "Uri\\WhatWg\\Url|null",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "softErrors",
+                        "position": 1,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": true,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "Uri\\WhatWg\\Url",
+                "hasTentativeReturnType": false
+            }
+        ],
+        "properties": [
+            {
+                "name": "scheme",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "private",
+                "type": "string",
+                "hasDefaultValue": true,
+                "defaultValue": ""
+            },
+            {
+                "name": "username",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "private",
+                "type": "string|null",
+                "hasDefaultValue": true,
+                "defaultValue": null
+            },
+            {
+                "name": "password",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "private",
+                "type": "string|null",
+                "hasDefaultValue": true,
+                "defaultValue": null
+            },
+            {
+                "name": "host",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "private",
+                "type": "string|null",
+                "hasDefaultValue": true,
+                "defaultValue": null
+            },
+            {
+                "name": "port",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "private",
+                "type": "int|null",
+                "hasDefaultValue": true,
+                "defaultValue": null
+            },
+            {
+                "name": "path",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "private",
+                "type": "string",
+                "hasDefaultValue": true,
+                "defaultValue": ""
+            },
+            {
+                "name": "query",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "private",
+                "type": "string|null",
+                "hasDefaultValue": true,
+                "defaultValue": null
+            },
+            {
+                "name": "fragment",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "private",
+                "type": "string|null",
+                "hasDefaultValue": true,
+                "defaultValue": null
+            }
+        ],
+        "constants": [],
+        "parentClass": null,
+        "interfaces": [],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
         "name": "Url",
         "id": "\\Uri\\WhatWg\\Url",
         "isFinal": true,
@@ -15161,6 +16074,29 @@
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "string",
+                "hasTentativeReturnType": true
+            },
+            {
+                "name": "validateId",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "bool",
                 "hasTentativeReturnType": true
             }
         ],
@@ -22009,7 +22945,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "int",
@@ -22020,7 +22956,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22043,7 +22979,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22066,7 +23002,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22089,7 +23025,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22112,7 +23048,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22135,7 +23071,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "true",
@@ -22146,7 +23082,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "true",
@@ -22157,7 +23093,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22180,7 +23116,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "string",
@@ -22553,7 +23489,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "int",
@@ -22564,7 +23500,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22587,7 +23523,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22610,7 +23546,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22633,7 +23569,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22656,7 +23592,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22679,7 +23615,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "true",
@@ -22690,7 +23626,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "true",
@@ -22701,7 +23637,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -22724,7 +23660,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "string",
@@ -23468,7 +24404,7 @@
                 "isDeprecated": false,
                 "accessModifier": "public",
                 "parameters": [],
-                "returnType": "mixed",
+                "returnType": "string|int",
                 "hasTentativeReturnType": true
             },
             {
@@ -23479,7 +24415,7 @@
                 "isDeprecated": false,
                 "accessModifier": "public",
                 "parameters": [],
-                "returnType": "mixed",
+                "returnType": "SplFileInfo|static|string",
                 "hasTentativeReturnType": true
             },
             {
@@ -23979,7 +24915,7 @@
                 "isDeprecated": false,
                 "accessModifier": "public",
                 "parameters": [],
-                "returnType": "SplFileInfo|FilesystemIterator|string",
+                "returnType": "SplFileInfo|static|string",
                 "hasTentativeReturnType": true
             },
             {
@@ -24709,7 +25645,7 @@
                 "isDeprecated": false,
                 "accessModifier": "public",
                 "parameters": [],
-                "returnType": "SplFileInfo|FilesystemIterator|string",
+                "returnType": "SplFileInfo|static|string",
                 "hasTentativeReturnType": true
             },
             {
@@ -25395,7 +26331,7 @@
                 "isDeprecated": false,
                 "accessModifier": "public",
                 "parameters": [],
-                "returnType": "SplFileInfo|FilesystemIterator|string",
+                "returnType": "SplFileInfo|static|string",
                 "hasTentativeReturnType": true
             },
             {
@@ -26134,7 +27070,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -26179,7 +27115,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -26246,7 +27182,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -26291,7 +27227,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "array",
@@ -27233,7 +28169,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -27278,7 +28214,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -27345,7 +28281,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [
                     {
@@ -27390,7 +28326,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "array",
@@ -35757,30 +36693,19 @@
                 "accessModifier": "public",
                 "parameters": [
                     {
-                        "name": "timeoutSeconds",
+                        "name": "timeout",
                         "position": 0,
                         "isOptional": true,
                         "isVariadic": false,
                         "isPassedByReference": false,
                         "isDeprecated": false,
                         "hasDefaultValue": true,
-                        "type": "int|null",
+                        "type": "Time\\Duration|null",
                         "defaultValue": null
                     },
                     {
-                        "name": "timeoutMicroseconds",
-                        "position": 1,
-                        "isOptional": true,
-                        "isVariadic": false,
-                        "isPassedByReference": false,
-                        "isDeprecated": false,
-                        "hasDefaultValue": true,
-                        "type": "int",
-                        "defaultValue": 0
-                    },
-                    {
                         "name": "maxEvents",
-                        "position": 2,
+                        "position": 1,
                         "isOptional": true,
                         "isVariadic": false,
                         "isPassedByReference": false,
@@ -38483,15 +39408,6 @@
                 "isReadonly": true,
                 "accessModifier": "public",
                 "type": "bool",
-                "hasDefaultValue": false,
-                "defaultValue": null
-            },
-            {
-                "name": "param",
-                "isStatic": false,
-                "isReadonly": true,
-                "accessModifier": "public",
-                "type": "string|null",
                 "hasDefaultValue": false,
                 "defaultValue": null
             }
@@ -45223,6 +46139,39 @@
         "methods": [
             {
                 "name": "getName",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "string",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "inNamespace",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "bool",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getNamespaceName",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "string",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getShortName",
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
@@ -88898,7 +89847,7 @@
                 "isDeprecated": false,
                 "accessModifier": "public",
                 "parameters": [],
-                "returnType": "SplFileInfo|FilesystemIterator|string",
+                "returnType": "SplFileInfo|static|string",
                 "hasTentativeReturnType": true
             },
             {
@@ -91027,7 +91976,7 @@
                 "isDeprecated": false,
                 "accessModifier": "public",
                 "parameters": [],
-                "returnType": "SplFileInfo|FilesystemIterator|string",
+                "returnType": "SplFileInfo|static|string",
                 "hasTentativeReturnType": true
             },
             {
@@ -97532,6 +98481,12 @@
                 "value": 0,
                 "visibility": "public",
                 "isFinal": false
+            },
+            {
+                "name": "PROLEPTIC_GREGORIAN",
+                "value": -16,
+                "visibility": "public",
+                "isFinal": false
             }
         ],
         "parentClass": null,
@@ -97602,6 +98557,52 @@
                 "parameters": [
                     {
                         "name": "skeleton",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "string|false",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getSkeleton",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "pattern",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "string|false",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getBaseSkeleton",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "pattern",
                         "position": 0,
                         "isOptional": false,
                         "isVariadic": false,
@@ -101897,6 +102898,119 @@
                 ],
                 "returnType": "void",
                 "hasTentativeReturnType": false
+            },
+            {
+                "name": "getSkeleton",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "string",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "string|false",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "getBidiSkeleton",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "direction",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "string",
+                        "position": 1,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "string|false",
+                "hasTentativeReturnType": false
+            },
+            {
+                "name": "areBidiConfusable",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "direction",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "int",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "string1",
+                        "position": 1,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "string2",
+                        "position": 2,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "string",
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "errorCode",
+                        "position": 3,
+                        "isOptional": true,
+                        "isVariadic": false,
+                        "isPassedByReference": true,
+                        "isDeprecated": false,
+                        "hasDefaultValue": true,
+                        "type": "",
+                        "defaultValue": null
+                    }
+                ],
+                "returnType": "bool",
+                "hasTentativeReturnType": false
             }
         ],
         "properties": [],
@@ -102012,6 +103126,18 @@
             {
                 "name": "SIMPLE_CASE_INSENSITIVE",
                 "value": 6,
+                "visibility": "public",
+                "isFinal": false
+            },
+            {
+                "name": "LTR",
+                "value": 0,
+                "visibility": "public",
+                "isFinal": false
+            },
+            {
+                "name": "RTL",
+                "value": 1,
                 "visibility": "public",
                 "isFinal": false
             }
@@ -110926,7 +112052,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "object|null",
@@ -111693,7 +112819,7 @@
                 "isStatic": false,
                 "isFinal": false,
                 "isAbstract": false,
-                "isDeprecated": false,
+                "isDeprecated": true,
                 "accessModifier": "public",
                 "parameters": [],
                 "returnType": "mysqli_stmt|false",
@@ -117645,6 +118771,12 @@
             {
                 "name": "ATTR_RESULT_MEMORY_SIZE",
                 "value": 1001,
+                "visibility": "public",
+                "isFinal": false
+            },
+            {
+                "name": "ATTR_CHUNK_SIZE",
+                "value": 1002,
                 "visibility": "public",
                 "isFinal": false
             },
@@ -125322,10 +126454,47 @@
         "isReadonly": false,
         "namespace": "\\Uri\\Rfc3986",
         "cases": [
-            "IPv4",
-            "IPv6",
-            "IPvFuture",
+            "IpV4",
+            "IpV6",
+            "IpVFuture",
             "RegisteredName"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false
+            }
+        ],
+        "interfaces": [
+            "\\UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "UrlPercentEncodingMode",
+        "id": "\\Uri\\WhatWg\\UrlPercentEncodingMode",
+        "isFinal": false,
+        "isReadonly": false,
+        "namespace": "\\Uri\\WhatWg",
+        "cases": [
+            "Username",
+            "Password",
+            "OpaqueHost",
+            "Path",
+            "OpaquePath",
+            "PathSegment",
+            "Query",
+            "SpecialQuery",
+            "FormQuery",
+            "Fragment"
         ],
         "constants": [],
         "methods": [
@@ -125382,8 +126551,8 @@
         "isReadonly": false,
         "namespace": "\\Uri\\WhatWg",
         "cases": [
-            "IPv4",
-            "IPv6",
+            "IpV4",
+            "IpV6",
             "Domain",
             "Opaque",
             "Empty"
@@ -131435,6 +132604,17 @@
                 "hasDefaultValue": true,
                 "type": "int",
                 "defaultValue": 0
+            },
+            {
+                "name": "salt_length",
+                "position": 5,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "int",
+                "defaultValue": -2
             }
         ]
     },
@@ -131501,6 +132681,17 @@
                 "hasDefaultValue": true,
                 "type": "int",
                 "defaultValue": 0
+            },
+            {
+                "name": "salt_length",
+                "position": 5,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "int",
+                "defaultValue": -2
             }
         ]
     },
@@ -135385,7 +136576,7 @@
         "id": "\\filter_var_array",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "array|false|null",
+        "returnType": "array|false",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -137038,7 +138229,7 @@
         "id": "\\header_register_callback",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "bool",
+        "returnType": "true",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -141376,7 +142567,7 @@
         "id": "\\register_tick_function",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "bool",
+        "returnType": "true",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -142378,7 +143569,7 @@
         "name": "metaphone",
         "id": "\\metaphone",
         "namespace": "\\",
-        "isDeprecated": false,
+        "isDeprecated": true,
         "returnType": "string",
         "hasTentativeReturnType": false,
         "parameters": [
@@ -143191,7 +144382,7 @@
         "name": "strcoll",
         "id": "\\strcoll",
         "namespace": "\\",
-        "isDeprecated": false,
+        "isDeprecated": true,
         "returnType": "int",
         "hasTentativeReturnType": false,
         "parameters": [
@@ -145675,28 +146866,6 @@
         "_type": "PHPFunction",
         "name": "chdir",
         "id": "\\chdir",
-        "namespace": "\\",
-        "isDeprecated": false,
-        "returnType": "bool",
-        "hasTentativeReturnType": false,
-        "parameters": [
-            {
-                "name": "directory",
-                "position": 0,
-                "isOptional": false,
-                "isVariadic": false,
-                "isPassedByReference": false,
-                "isDeprecated": false,
-                "hasDefaultValue": false,
-                "type": "string",
-                "defaultValue": null
-            }
-        ]
-    },
-    {
-        "_type": "PHPFunction",
-        "name": "chroot",
-        "id": "\\chroot",
         "namespace": "\\",
         "isDeprecated": false,
         "returnType": "bool",
@@ -152491,7 +153660,7 @@
         "name": "doubleval",
         "id": "\\doubleval",
         "namespace": "\\",
-        "isDeprecated": false,
+        "isDeprecated": true,
         "returnType": "float",
         "hasTentativeReturnType": false,
         "parameters": [
@@ -152645,7 +153814,7 @@
         "name": "is_integer",
         "id": "\\is_integer",
         "namespace": "\\",
-        "isDeprecated": false,
+        "isDeprecated": true,
         "returnType": "bool",
         "hasTentativeReturnType": false,
         "parameters": [
@@ -152667,7 +153836,7 @@
         "name": "is_long",
         "id": "\\is_long",
         "namespace": "\\",
-        "isDeprecated": false,
+        "isDeprecated": true,
         "returnType": "bool",
         "hasTentativeReturnType": false,
         "parameters": [
@@ -152711,7 +153880,7 @@
         "name": "is_double",
         "id": "\\is_double",
         "namespace": "\\",
-        "isDeprecated": false,
+        "isDeprecated": true,
         "returnType": "bool",
         "hasTentativeReturnType": false,
         "parameters": [
@@ -153841,7 +155010,7 @@
         "name": "spl_classes",
         "id": "\\spl_classes",
         "namespace": "\\",
-        "isDeprecated": false,
+        "isDeprecated": true,
         "returnType": "array",
         "hasTentativeReturnType": false,
         "parameters": []
@@ -153851,7 +155020,7 @@
         "name": "spl_object_hash",
         "id": "\\spl_object_hash",
         "namespace": "\\",
-        "isDeprecated": false,
+        "isDeprecated": true,
         "returnType": "string",
         "hasTentativeReturnType": false,
         "parameters": [
@@ -155150,7 +156319,7 @@
         "id": "\\readline_completion_function",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "bool",
+        "returnType": "true",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -155961,6 +157130,39 @@
                 "isDeprecated": false,
                 "hasDefaultValue": false,
                 "type": "int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "url_percent_encode",
+        "id": "\\Uri\\WhatWg\\url_percent_encode",
+        "namespace": "\\Uri\\WhatWg",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "input",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "mode",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "Uri\\WhatWg\\UrlPercentEncodingMode",
                 "defaultValue": null
             }
         ]
@@ -167450,7 +168652,7 @@
                 "isPassedByReference": false,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
-                "type": "",
+                "type": "array|float",
                 "defaultValue": null
             }
         ]
@@ -168733,6 +169935,50 @@
     },
     {
         "_type": "PHPFunction",
+        "name": "gmp_powm_sec",
+        "id": "\\gmp_powm_sec",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "GMP",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "num",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "GMP|string|int",
+                "defaultValue": null
+            },
+            {
+                "name": "exponent",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "GMP|string|int",
+                "defaultValue": null
+            },
+            {
+                "name": "modulus",
+                "position": 2,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "GMP|string|int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
         "name": "gmp_perfect_square",
         "id": "\\gmp_perfect_square",
         "namespace": "\\",
@@ -169541,6 +170787,39 @@
                 "isDeprecated": false,
                 "hasDefaultValue": false,
                 "type": "GMP|string|int",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "gmp_prevprime",
+        "id": "\\gmp_prevprime",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "GMP",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "num",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "GMP|string|int",
+                "defaultValue": null
+            },
+            {
+                "name": "definitely_prime",
+                "position": 1,
+                "isOptional": true,
+                "isVariadic": false,
+                "isPassedByReference": true,
+                "isDeprecated": false,
+                "hasDefaultValue": true,
+                "type": "",
                 "defaultValue": null
             }
         ]
@@ -181843,7 +183122,7 @@
         "name": "mysqli_get_charset",
         "id": "\\mysqli_get_charset",
         "namespace": "\\",
-        "isDeprecated": false,
+        "isDeprecated": true,
         "returnType": "object|null",
         "hasTentativeReturnType": false,
         "parameters": [
@@ -183336,7 +184615,7 @@
         "name": "mysqli_stmt_init",
         "id": "\\mysqli_stmt_init",
         "namespace": "\\",
-        "isDeprecated": false,
+        "isDeprecated": true,
         "returnType": "mysqli_stmt|false",
         "hasTentativeReturnType": false,
         "parameters": [
@@ -185952,8 +187231,8 @@
                 "isPassedByReference": false,
                 "isDeprecated": false,
                 "hasDefaultValue": true,
-                "type": "bool",
-                "defaultValue": true
+                "type": "bool|null",
+                "defaultValue": null
             }
         ]
     },
@@ -190657,7 +191936,7 @@
                 "isPassedByReference": false,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
-                "type": "Pgsql\\Connection",
+                "type": "PgSql\\Connection",
                 "defaultValue": null
             },
             {
@@ -192230,7 +193509,7 @@
         "id": "\\socket_cmsg_space",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "int|null",
+        "returnType": "int",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -196690,6 +197969,268 @@
     },
     {
         "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_keypair",
+        "id": "\\sodium_crypto_kem_keypair",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": []
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_seed_keypair",
+        "id": "\\sodium_crypto_kem_seed_keypair",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "seed",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_secretkey",
+        "id": "\\sodium_crypto_kem_secretkey",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "key_pair",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_publickey",
+        "id": "\\sodium_crypto_kem_publickey",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "key_pair",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_enc",
+        "id": "\\sodium_crypto_kem_enc",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "array",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "public_key",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_dec",
+        "id": "\\sodium_crypto_kem_dec",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "ciphertext",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "secret_key",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_mlkem768_keypair",
+        "id": "\\sodium_crypto_kem_mlkem768_keypair",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": []
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_mlkem768_seed_keypair",
+        "id": "\\sodium_crypto_kem_mlkem768_seed_keypair",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "seed",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_mlkem768_secretkey",
+        "id": "\\sodium_crypto_kem_mlkem768_secretkey",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "key_pair",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_mlkem768_publickey",
+        "id": "\\sodium_crypto_kem_mlkem768_publickey",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "key_pair",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_mlkem768_enc",
+        "id": "\\sodium_crypto_kem_mlkem768_enc",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "array",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "public_key",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
+        "name": "sodium_crypto_kem_mlkem768_dec",
+        "id": "\\sodium_crypto_kem_mlkem768_dec",
+        "namespace": "\\",
+        "isDeprecated": false,
+        "returnType": "string",
+        "hasTentativeReturnType": false,
+        "parameters": [
+            {
+                "name": "ciphertext",
+                "position": 0,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            },
+            {
+                "name": "secret_key",
+                "position": 1,
+                "isOptional": false,
+                "isVariadic": false,
+                "isPassedByReference": false,
+                "isDeprecated": false,
+                "hasDefaultValue": false,
+                "type": "string",
+                "defaultValue": null
+            }
+        ]
+    },
+    {
+        "_type": "PHPFunction",
         "name": "msg_get_queue",
         "id": "\\msg_get_queue",
         "namespace": "\\",
@@ -198123,7 +199664,7 @@
         "id": "\\zip_entry_close",
         "namespace": "\\",
         "isDeprecated": true,
-        "returnType": "bool",
+        "returnType": "true",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -198444,7 +199985,7 @@
         "_type": "PHPConstant",
         "name": "ZEND_THREAD_SAFE",
         "id": "\\ZEND_THREAD_SAFE",
-        "value": false,
+        "value": true,
         "namespace": "\\"
     },
     {
@@ -198486,7 +200027,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.6.0alpha2",
+        "value": "8.6.0RC3",
         "namespace": "\\"
     },
     {
@@ -198514,7 +200055,7 @@
         "_type": "PHPConstant",
         "name": "PHP_EXTRA_VERSION",
         "id": "\\PHP_EXTRA_VERSION",
-        "value": "alpha2",
+        "value": "RC3",
         "namespace": "\\"
     },
     {
@@ -198528,7 +200069,7 @@
         "_type": "PHPConstant",
         "name": "PHP_BUILD_DATE",
         "id": "\\PHP_BUILD_DATE",
-        "value": "Jul 17 2026 22:06:03",
+        "value": "Oct  9 2026 00:14:23",
         "namespace": "\\"
     },
     {
@@ -198542,7 +200083,7 @@
         "_type": "PHPConstant",
         "name": "PHP_ZTS",
         "id": "\\PHP_ZTS",
-        "value": false,
+        "value": true,
         "namespace": "\\"
     },
     {
@@ -198584,14 +200125,14 @@
         "_type": "PHPConstant",
         "name": "PEAR_EXTENSION_DIR",
         "id": "\\PEAR_EXTENSION_DIR",
-        "value": "/usr/local/lib/php/extensions/no-debug-non-zts-20250926",
+        "value": "/usr/local/lib/php/extensions/no-debug-zts-20260924",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "PHP_EXTENSION_DIR",
         "id": "\\PHP_EXTENSION_DIR",
-        "value": "/usr/local/lib/php/extensions/no-debug-non-zts-20250926",
+        "value": "/usr/local/lib/php/extensions/no-debug-zts-20260924",
         "namespace": "\\"
     },
     {
@@ -199074,14 +200615,14 @@
         "_type": "PHPConstant",
         "name": "OPENSSL_VERSION_TEXT",
         "id": "\\OPENSSL_VERSION_TEXT",
-        "value": "OpenSSL 3.5.7 9 Jun 2026",
+        "value": "OpenSSL 3.5.9 29 Sep 2026",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "OPENSSL_VERSION_NUMBER",
         "id": "\\OPENSSL_VERSION_NUMBER",
-        "value": 810549360,
+        "value": 810549392,
         "namespace": "\\"
     },
     {
@@ -199390,6 +200931,27 @@
         "name": "OPENSSL_PKCS1_PSS_PADDING",
         "id": "\\OPENSSL_PKCS1_PSS_PADDING",
         "value": 6,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "OPENSSL_RSA_PSS_SALTLEN_DIGEST",
+        "id": "\\OPENSSL_RSA_PSS_SALTLEN_DIGEST",
+        "value": -1,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "OPENSSL_RSA_PSS_SALTLEN_AUTO",
+        "id": "\\OPENSSL_RSA_PSS_SALTLEN_AUTO",
+        "value": -2,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "OPENSSL_RSA_PSS_SALTLEN_MAX",
+        "id": "\\OPENSSL_RSA_PSS_SALTLEN_MAX",
+        "value": -3,
         "namespace": "\\"
     },
     {
@@ -201706,14 +203268,14 @@
         "_type": "PHPConstant",
         "name": "CURLAUTH_ANY",
         "id": "\\CURLAUTH_ANY",
-        "value": 4294967279,
+        "value": 4294967023,
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "CURLAUTH_ANYSAFE",
         "id": "\\CURLAUTH_ANYSAFE",
-        "value": 4294967278,
+        "value": 4294967022,
         "namespace": "\\"
     },
     {
@@ -202323,6 +203885,13 @@
         "name": "CURLPAUSE_SEND_CONT",
         "id": "\\CURLPAUSE_SEND_CONT",
         "value": 0,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "CURL_READFUNC_ABORT",
+        "id": "\\CURL_READFUNC_ABORT",
+        "value": 268435456,
         "namespace": "\\"
     },
     {
@@ -211583,7 +213152,7 @@
         "_type": "PHPConstant",
         "name": "GD_VERSION",
         "id": "\\GD_VERSION",
-        "value": "2.0.35",
+        "value": "2.4.0",
         "namespace": "\\"
     },
     {
@@ -211597,14 +213166,14 @@
         "_type": "PHPConstant",
         "name": "GD_MINOR_VERSION",
         "id": "\\GD_MINOR_VERSION",
-        "value": 0,
+        "value": 4,
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "GD_RELEASE_VERSION",
         "id": "\\GD_RELEASE_VERSION",
-        "value": 35,
+        "value": 0,
         "namespace": "\\"
     },
     {
@@ -215650,14 +217219,14 @@
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION",
         "id": "\\PGSQL_LIBPQ_VERSION",
-        "value": "18.4",
+        "value": "18.6",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION_STR",
         "id": "\\PGSQL_LIBPQ_VERSION_STR",
-        "value": "18.4",
+        "value": "18.6",
         "namespace": "\\"
     },
     {
@@ -218322,6 +219891,13 @@
     },
     {
         "_type": "PHPConstant",
+        "name": "SO_DETACH_REUSEPORT_BPF",
+        "id": "\\SO_DETACH_REUSEPORT_BPF",
+        "value": 68,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
         "name": "SO_DETACH_FILTER",
         "id": "\\SO_DETACH_FILTER",
         "value": 27,
@@ -219424,6 +221000,90 @@
         "name": "SODIUM_CRYPTO_XOF_TURBOSHAKE256_STATEBYTES",
         "id": "\\SODIUM_CRYPTO_XOF_TURBOSHAKE256_STATEBYTES",
         "value": 256,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_PUBLICKEYBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_PUBLICKEYBYTES",
+        "value": 1216,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_SECRETKEYBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_SECRETKEYBYTES",
+        "value": 32,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_CIPHERTEXTBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_CIPHERTEXTBYTES",
+        "value": 1120,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_SHAREDSECRETBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_SHAREDSECRETBYTES",
+        "value": 32,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_SEEDBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_SEEDBYTES",
+        "value": 32,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_KEYPAIRBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_KEYPAIRBYTES",
+        "value": 1248,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_MLKEM768_PUBLICKEYBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_MLKEM768_PUBLICKEYBYTES",
+        "value": 1184,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_MLKEM768_SECRETKEYBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_MLKEM768_SECRETKEYBYTES",
+        "value": 2400,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_MLKEM768_CIPHERTEXTBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_MLKEM768_CIPHERTEXTBYTES",
+        "value": 1088,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_MLKEM768_SHAREDSECRETBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_MLKEM768_SHAREDSECRETBYTES",
+        "value": 32,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_MLKEM768_SEEDBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_MLKEM768_SEEDBYTES",
+        "value": 64,
+        "namespace": "\\"
+    },
+    {
+        "_type": "PHPConstant",
+        "name": "SODIUM_CRYPTO_KEM_MLKEM768_KEYPAIRBYTES",
+        "id": "\\SODIUM_CRYPTO_KEM_MLKEM768_KEYPAIRBYTES",
+        "value": 3584,
         "namespace": "\\"
     },
     {

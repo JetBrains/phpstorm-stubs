@@ -107,7 +107,8 @@ function readline_write_history(?string $filename = null): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_completion_function(callable $callback): bool {}
+#[LanguageLevelTypeAware(['8.6' => 'true'], default: 'bool')]
+function readline_completion_function(callable $callback) {}
 
 /**
  * Initializes the readline callback interface and terminal, prints the prompt and returns immediately

@@ -181,7 +181,12 @@ function pcntl_wait(
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_signal(int $signal, $handler, bool $restart_syscalls = true): bool {}
+function pcntl_signal(
+    int $signal,
+    $handler,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.5')] bool $restart_syscalls = true,
+    #[PhpStormStubsElementAvailable(from: '8.6')] ?bool $restart_syscalls = null
+): bool {}
 
 /**
  * Calls signal handlers for pending signals

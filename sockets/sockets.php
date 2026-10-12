@@ -2,6 +2,7 @@
 
 // Start of sockets v.
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
@@ -1338,14 +1339,15 @@ function socket_import_stream($stream): Socket|false {}
  * @param int $level
  * @param int $type
  * @param int $num [optional]
- * @return int|null
+ * @return int|null Since 8.6 always returns int.
  * @since 5.5
  */
+#[LanguageLevelTypeAware(['8.6' => 'int'], default: 'int|null')]
 function socket_cmsg_space(
     int $level,
     int $type,
     #[PhpStormStubsElementAvailable(from: '8.0')] int $num = 0
-): ?int {}
+) {}
 
 /**
  * Alias of {@see socket_get_option}
@@ -1476,6 +1478,10 @@ define('SO_BINDTODEVICE', 25);
 define('SO_ATTACH_REUSEPORT_CBPF', 51);
 define('SO_DETACH_FILTER', 27);
 define('SO_DETACH_BPF', 27);
+/**
+ * @since 8.6
+ */
+define('SO_DETACH_REUSEPORT_BPF', 68);
 
 define('SOL_SOCKET', 1);
 define('SOL_UDPLITE', 136);

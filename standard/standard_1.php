@@ -488,6 +488,7 @@ function substr_compare(string $haystack, string $needle, int $offset, ?int $len
  * str2, and 0 if they are equal.
  */
 #[Pure]
+#[Deprecated(since: '8.6')]
 function strcoll(string $string1, string $string2): int {}
 
 /**

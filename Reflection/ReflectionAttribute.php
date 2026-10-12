@@ -51,6 +51,33 @@ class ReflectionAttribute implements Reflector
     public function getTarget(): int {}
 
     /**
+     * Gets the namespace name of the attribute
+     *
+     * @return string The namespace name.
+     * @since 8.6
+     */
+    #[Pure]
+    public function getNamespaceName(): string {}
+
+    /**
+     * Gets the short name of the attribute, without the namespace part
+     *
+     * @return string The short name.
+     * @since 8.6
+     */
+    #[Pure]
+    public function getShortName(): string {}
+
+    /**
+     * Checks if the attribute is defined in a namespace
+     *
+     * @return bool Returns true if the attribute name contains a namespace, false otherwise.
+     * @since 8.6
+     */
+    #[Pure]
+    public function inNamespace(): bool {}
+
+    /**
      * Returns {@see true} if the attribute is repeated.
      *
      * @link https://php.net/manual/en/reflectionattribute.isrepeated.php

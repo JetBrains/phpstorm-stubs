@@ -375,6 +375,7 @@ class mysqli
      * <p>Character set status (?)</p>
      */
     #[TentativeType]
+    #[Deprecated(since: '8.6')]
     public function get_charset(): ?object {}
 
     /**
@@ -929,6 +930,7 @@ class mysqli
      * @return mysqli_stmt an object.
      */
     #[TentativeType]
+    #[Deprecated(since: '8.6')]
     public function stmt_init(): mysqli_stmt|false {}
 
     /**
@@ -2239,6 +2241,7 @@ function mysqli_get_client_stats(): array {}
  * max_length Maximum character length in bytes number Internal character set number state As of PHP
  * 8.2.0, it is always 1
  */
+#[Deprecated(since: '8.6')]
 function mysqli_get_charset(mysqli $mysql): ?object {}
 
 /**
@@ -2741,6 +2744,7 @@ function mysqli_stmt_field_count(mysqli_stmt $statement): int {}
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return mysqli_stmt|false Returns a mysqli_stmt object.
  */
+#[Deprecated(since: '8.6')]
 function mysqli_stmt_init(mysqli $mysql): mysqli_stmt|false {}
 
 /**

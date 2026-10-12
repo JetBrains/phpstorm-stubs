@@ -2753,7 +2753,7 @@ define('IMG_FILTER_SCATTER', 12);
  * @since 5.2
  * @link https://php.net/manual/en/image.constants.php#constant.gd-version
  */
-define('GD_VERSION', "2.0.35");
+define('GD_VERSION', "2.4.0");
 
 /**
  * The GD major version PHP was compiled against.
@@ -2767,14 +2767,14 @@ define('GD_MAJOR_VERSION', 2);
  * @since 5.2
  * @link https://php.net/manual/en/image.constants.php#constant.gd-minor-version
  */
-define('GD_MINOR_VERSION', 0);
+define('GD_MINOR_VERSION', 4);
 
 /**
  * The GD release version PHP was compiled against.
  * @since 5.2
  * @link https://php.net/manual/en/image.constants.php#constant.gd-release-version
  */
-define('GD_RELEASE_VERSION', 35);
+define('GD_RELEASE_VERSION', 0);
 
 /**
  * The GD "extra" version (beta/rc..) PHP was compiled against.
@@ -3131,7 +3131,7 @@ function imageaffinematrixconcat(array $matrix1, array $matrix2): array|false {}
 function imageaffinematrixget(
     int $type,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $options = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] $options
+    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.6' => 'array|float'], default: '')] $options
 ): array|false {}
 
 /**
