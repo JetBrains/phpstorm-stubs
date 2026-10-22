@@ -3,6 +3,7 @@
 // Start of snmp v.0.1
 
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
  * Represents SNMP session.
@@ -314,7 +315,8 @@ class SNMP
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @since 8.6
      */
-    public function setOidOutputFormat(\Snmp\OidOutput $format) {}
+    #[TentativeType]
+    public function setOidOutputFormat(\Snmp\OidOutput $format): bool {}
 
     /**
      * Set the string output format for this SNMP session
@@ -323,7 +325,8 @@ class SNMP
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @since 8.6
      */
-    public function setStringOutputFormat(\Snmp\StringOutput $format) {}
+    #[TentativeType]
+    public function setStringOutputFormat(\Snmp\StringOutput $format): bool {}
 
     /**
      * Get last error code
@@ -1047,13 +1050,13 @@ function snmp_read_mib($filename) {}
  * Resets the MIB tree, optionally re-reading MIB directories from the environment
  * @link https://php.net/manual/en/function.snmp-init-mib.php
  * @param string|null $mibdirs <p>
- * The MIB directories to load. When <b>NULL</b>, the directories configured in the
- * <i>MIBDIRS</i> environment variable are used.
+ * The MIB directories to load. Pass <b>NULL</b> to use the directories configured
+ * in the <i>MIBDIRS</i> environment variable.
  * </p>
  * @return void No value is returned.
  * @since 8.6
  */
-function snmp_init_mib(?string $mibdirs = null): void {}
+function snmp_init_mib(?string $mibdirs): void {}
 
 /**
  * Set a MIB parsing option
