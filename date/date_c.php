@@ -265,7 +265,8 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::add() does not modify the object itself")]
-    public function add(DateInterval $interval): static {}
+    #[LanguageLevelTypeAware(['8.6' => 'static'], default: 'DateTimeImmutable')]
+    public function add(DateInterval $interval) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -426,7 +427,7 @@ class DateTimeImmutable implements DateTimeInterface
     #[PhpStormStubsElementAvailable(from: '8.3')]
     #[Pure]
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.4' => 'static'], default: 'DateTimeImmutable|false')]
+    #[LanguageLevelTypeAware(['8.6' => 'static', '8.4' => 'DateTimeImmutable'], default: 'DateTimeImmutable|false')]
     #[\NoDiscard(message: "as DateTimeImmutable::modify() does not modify the object itself")]
     public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
@@ -454,11 +455,12 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setDate() does not modify the object itself")]
+    #[LanguageLevelTypeAware(['8.6' => 'static'], default: 'DateTimeImmutable')]
     public function setDate(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $month,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $day
-    ): static {}
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -473,11 +475,12 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setISODate() does not modify the object itself")]
+    #[LanguageLevelTypeAware(['8.6' => 'static'], default: 'DateTimeImmutable')]
     public function setISODate(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $week,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $dayOfWeek = 1
-    ): static {}
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -494,12 +497,13 @@ class DateTimeImmutable implements DateTimeInterface
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setTime() does not modify the object itself")]
     #[Pure]
+    #[LanguageLevelTypeAware(['8.6' => 'static'], default: 'DateTimeImmutable')]
     public function setTime(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $hour,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $minute,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $second = 0,
         #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $microsecond = 0
-    ): static {}
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -512,7 +516,8 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setTimestamp() does not modify the object itself")]
-    public function setTimestamp(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestamp): static {}
+    #[LanguageLevelTypeAware(['8.6' => 'static'], default: 'DateTimeImmutable')]
+    public function setTimestamp(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestamp) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -528,7 +533,8 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setTimezone() does not modify the object itself")]
-    public function setTimezone(DateTimeZone $timezone): static {}
+    #[LanguageLevelTypeAware(['8.6' => 'static'], default: 'DateTimeImmutable')]
+    public function setTimezone(DateTimeZone $timezone) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -543,7 +549,8 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::sub() does not modify the object itself")]
-    public function sub(DateInterval $interval): static {}
+    #[LanguageLevelTypeAware(['8.6' => 'static'], default: 'DateTimeImmutable')]
+    public function sub(DateInterval $interval) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
