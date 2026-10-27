@@ -672,7 +672,10 @@ define('CURLOPT_CAINFO', 10065);
  */
 define('CURLOPT_CAPATH', 10097);
 /**
- * The name of a file to save all internal cookies to when the handle is closed, e.g. after a call to curl_close.
+ * A string with the name of a file to save all internal cookies to when the handle's destructor is called.
+ * As of PHP 8.0.0, curl_close() is a no-op and does not destroy the handle.
+ * If cookies need to be written prior to the handle being automatically destroyed,
+ * run curl_setopt($ch, CURLOPT_COOKIELIST, "FLUSH");.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
  */
 define('CURLOPT_COOKIEJAR', 10082);

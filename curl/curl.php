@@ -1142,8 +1142,10 @@ function curl_version(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $
  * <tr>
  * <td style="vertical-align: top;"><b>CURLOPT_COOKIEJAR</b></td>
  * <td style="vertical-align: top;">
- * The name of a file to save all internal cookies to when the handle is closed,
- * e.g. after a call to curl_close.
+ * A string with the name of a file to save all internal cookies to when the handle's destructor is called.
+ * As of PHP 8.0.0, <b>curl_close</b> is a no-op and does not destroy the handle.
+ * If cookies need to be written prior to the handle being automatically destroyed,
+ * run <code>curl_setopt($ch, CURLOPT_COOKIELIST, "FLUSH");</code>.
  * </td>
  * <td style="vertical-align: top;">
  * </td>
@@ -1564,8 +1566,10 @@ function curl_version(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $
  * <tr>
  * <td style="vertical-align: top;"><b>CURLOPT_COOKIEJAR</b></td>
  * <td style="vertical-align: top;">
- * The name of a file to save all internal cookies to when the handle is closed,
- * e.g. after a call to curl_close.
+ * A string with the name of a file to save all internal cookies to when the handle's destructor is called.
+ * As of PHP 8.0.0, <b>curl_close</b> is a no-op and does not destroy the handle.
+ * If cookies need to be written prior to the handle being automatically destroyed,
+ * run <code>curl_setopt($ch, CURLOPT_COOKIELIST, "FLUSH");</code>.
  * </td>
  * <td style="vertical-align: top;">
  * </td>
