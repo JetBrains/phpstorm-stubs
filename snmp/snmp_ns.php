@@ -2,7 +2,8 @@
 
 // Start of snmp namespaced enums (PHP 8.6)
 
-namespace Snmp {
+namespace Snmp;
+
     /**
      * MIB parsing options, accepted by snmp_set_mib_option().
      * @link https://php.net/manual/en/function.snmp-set-mib-option.php
@@ -60,4 +61,3 @@ namespace Snmp {
         case Ascii;
         case Hex;
     }
-}
