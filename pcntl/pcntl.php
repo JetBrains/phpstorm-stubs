@@ -567,6 +567,16 @@ function pcntl_setcpuaffinity(?int $process_id = null, array $cpu_ids = []): boo
  * @since 8.4
  */
 function pcntl_getcpu(): int {}
+/**
+ * Get the QoS class of the current thread (macOS only)
+ * @since 8.4
+ */
+function pcntl_getqos_class(): Pcntl\QosClass {}
+/**
+ * Set the QoS class of the current thread (macOS only)
+ * @since 8.4
+ */
+function pcntl_setqos_class(Pcntl\QosClass $qos_class = Pcntl\QosClass::Default): void {}
 
 define('WNOHANG', 1);
 define('WUNTRACED', 2);
