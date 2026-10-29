@@ -173,16 +173,25 @@ function ldap_bind_ext(
  * Bind to LDAP directory using SASL
  * @link https://php.net/manual/en/function.ldap-sasl-bind.php
  * @param resource $ldap
- * @param string $binddn [optional]
- * @param string $password [optional]
- * @param string $sasl_mech [optional]
- * @param string $sasl_realm [optional]
- * @param string $sasl_authc_id [optional]
- * @param string $sasl_authz_id [optional]
- * @param string $props [optional]
+ * @param string|null $dn [optional]
+ * @param string|null $password [optional]
+ * @param string|null $mech [optional]
+ * @param string|null $realm [optional]
+ * @param string|null $authc_id [optional]
+ * @param string|null $authz_id [optional]
+ * @param string|null $props [optional]
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ldap_sasl_bind(#[PhpVersionAware(['8.1' => '\LDAP\Connection'], default: 'resource')] $ldap, $binddn = null, $password = null, $sasl_mech = null, $sasl_realm = null, $sasl_authc_id = null, $sasl_authz_id = null, $props = null): bool {}
+function ldap_sasl_bind(
+    #[PhpVersionAware(['8.1' => '\LDAP\Connection'], default: 'resource')] $ldap,
+    ?string $dn = null,
+    ?string $password = null,
+    ?string $mech = null,
+    ?string $realm = null,
+    ?string $authc_id = null,
+    ?string $authz_id = null,
+    ?string $props = null
+): bool {}
 
 /**
  * Unbind from LDAP directory
@@ -1207,9 +1216,9 @@ function ldap_set_option(
  * @link https://php.net/manual/en/function.ldap-first-reference.php
  * @param resource $ldap
  * @param resource $result
- * @return resource
+ * @return resource|false
  */
-#[PhpVersionAware(['8.1' => '\LDAP\ResultEntry|false'], default: 'resource')]
+#[PhpVersionAware(['8.1' => '\LDAP\ResultEntry|false'], default: 'resource|false')]
 function ldap_first_reference(
     #[PhpVersionAware(['8.1' => '\LDAP\Connection'], default: 'resource')] $ldap,
     #[PhpVersionAware(['8.1' => '\LDAP\Result'], default: 'resource')] $result
@@ -1220,9 +1229,9 @@ function ldap_first_reference(
  * @link https://php.net/manual/en/function.ldap-next-reference.php
  * @param resource $ldap
  * @param resource $entry
- * @return resource
+ * @return resource|false
  */
-#[PhpVersionAware(['8.1' => '\LDAP\ResultEntry|false'], default: 'resource')]
+#[PhpVersionAware(['8.1' => '\LDAP\ResultEntry|false'], default: 'resource|false')]
 function ldap_next_reference(
     #[PhpVersionAware(['8.1' => '\LDAP\Connection'], default: 'resource')] $ldap,
     #[PhpVersionAware(['8.1' => '\LDAP\ResultEntry'], default: 'resource')] $entry
