@@ -40,7 +40,7 @@ final class ReflectionReference
      * Returns unique identifier for the reference. The return value format is unspecified
      *
      * @link https://php.net/manual/en/reflectionreference.getid.php
-     * @return int|string Returns an integer or string of unspecified format.
+     * @return string Returns a string of unspecified format.
      */
     #[Pure]
     public function getId(): string {}
