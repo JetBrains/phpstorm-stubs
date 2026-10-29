@@ -795,7 +795,7 @@ namespace {
         /**
          * @removed 7.0
          */
-        #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
+        #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead", since: '5.6')]
         public const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
 
         /**
