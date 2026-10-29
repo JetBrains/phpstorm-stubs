@@ -355,7 +355,7 @@ class tidy
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename = null,
         #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $config = null,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $encoding = null,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $useIncludePath = null
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $useIncludePath = false
     ) {}
 }
 
