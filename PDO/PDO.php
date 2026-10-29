@@ -793,7 +793,7 @@ namespace {
         public const MYSQL_ATTR_LOCAL_INFILE_DIRECTORY = 1014;
 
         /**
-         * @removed 7.1
+         * @removed 7.0
          */
         #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
         public const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
