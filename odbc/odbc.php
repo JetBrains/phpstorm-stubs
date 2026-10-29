@@ -10,7 +10,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * @link https://php.net/manual/en/function.odbc-autocommit.php
  * @param Odbc\Connection|resource $odbc <p>The ODBC connection identifier,
  * see <b>odbc_connect</b> for details.</p>
- * @param bool $enable [optional] <p>
+ * @param bool|null $enable [optional] <p>
  * If <i>OnOff</i> is <b>TRUE</b>, auto-commit is enabled, if
  * it is <b>FALSE</b> auto-commit is disabled.
  * </p>
@@ -23,7 +23,11 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * success and <b>FALSE</b> on failure.
  * </p>
  */
-function odbc_autocommit(#[LanguageLevelTypeAware(['8.4' => '\Odbc\Connection'], default: 'resource')] $odbc, ?bool $enable = false): int|bool {}
+function odbc_autocommit(
+    #[LanguageLevelTypeAware(['8.4' => '\Odbc\Connection'], default: 'resource')] $odbc,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.2')] bool $enable = false,
+    #[PhpStormStubsElementAvailable(from: '8.3')] ?bool $enable = null
+): int|bool {}
 
 /**
  * Handling of binary column data
@@ -255,13 +259,17 @@ function odbc_exec(#[LanguageLevelTypeAware(['8.4' => '\Odbc\Connection'], defau
  * @param Odbc\Result|resource $statement <p>
  * The result resource from <b>odbc_exec</b>.
  * </p>
- * @param int $row [optional] <p>
+ * @param int|null $row [optional] <p>
  * Optionally choose which row number to retrieve.
  * </p>
  * @return array|false an array that corresponds to the fetched row, or <b>FALSE</b> if there
  * are no more rows.
  */
-function odbc_fetch_array(#[LanguageLevelTypeAware(['8.4' => '\Odbc\Result'], default: 'resource')] $statement, #[LanguageLevelTypeAware(['8.4' => 'int|null'], default: 'int')] $row = -1): array|false {}
+function odbc_fetch_array(
+    #[LanguageLevelTypeAware(['8.4' => '\Odbc\Result'], default: 'resource')] $statement,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.3')] int $row = -1,
+    #[PhpStormStubsElementAvailable(from: '8.4')] ?int $row = null
+): array|false {}
 
 /**
  * Fetch a result row as an object
@@ -269,13 +277,17 @@ function odbc_fetch_array(#[LanguageLevelTypeAware(['8.4' => '\Odbc\Result'], de
  * @param Odbc\Result|resource $statement <p>
  * The result resource from <b>odbc_exec</b>.
  * </p>
- * @param int $row [optional] <p>
+ * @param int|null $row [optional] <p>
  * Optionally choose which row number to retrieve.
  * </p>
  * @return stdClass|false an object that corresponds to the fetched row, or <b>FALSE</b> if there
  * are no more rows.
  */
-function odbc_fetch_object(#[LanguageLevelTypeAware(['8.4' => '\Odbc\Result'], default: 'resource')] $statement, #[LanguageLevelTypeAware(['8.4' => 'int|null'], default: 'int')] $row = -1): stdClass|false {}
+function odbc_fetch_object(
+    #[LanguageLevelTypeAware(['8.4' => '\Odbc\Result'], default: 'resource')] $statement,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.3')] int $row = -1,
+    #[PhpStormStubsElementAvailable(from: '8.4')] ?int $row = null
+): stdClass|false {}
 
 /**
  * Fetch a row
@@ -314,13 +326,18 @@ function odbc_fetch_row(#[LanguageLevelTypeAware(['8.4' => '\Odbc\Result'], defa
  * array. The array will contain the column values starting at array
  * index 0.
  * </p>
- * @param int $row [optional] <p>
+ * @param int|null $row [optional] <p>
  * The row number.
  * </p>
  * @return int|false the number of columns in the result;
  * <b>FALSE</b> on error.
  */
-function odbc_fetch_into(#[LanguageLevelTypeAware(['8.4' => '\Odbc\Result'], default: 'resource')] $statement, array &$array, #[LanguageLevelTypeAware(['8.4' => 'int|null'], default: 'int')] $row = 0): int|false {}
+function odbc_fetch_into(
+    #[LanguageLevelTypeAware(['8.4' => '\Odbc\Result'], default: 'resource')] $statement,
+    array &$array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.3')] int $row = 0,
+    #[PhpStormStubsElementAvailable(from: '8.4')] ?int $row = null
+): int|false {}
 
 /**
  * Get the length (precision) of a field
