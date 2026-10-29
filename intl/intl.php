@@ -1048,7 +1048,7 @@ class NumberFormatter
      * @param string $pattern [optional] <p>
      * Pattern string if the chosen style requires a pattern.
      * </p>
-     * @return NumberFormatter|false <b>NumberFormatter</b> object or <b>FALSE</b> on error.
+     * @return NumberFormatter|null <b>NumberFormatter</b> object or <b>NULL</b> on error.
      */
     #[TentativeType]
     public static function create(
