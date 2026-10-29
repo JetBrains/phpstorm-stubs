@@ -15,14 +15,14 @@ class XSLTProcessor
      * @link https://php.net/manual/en/class.xsltprocessor.php#xsltprocessor.props.clonedocument
      */
     #[PhpStormStubsElementAvailable(from: '8.4')]
-    public bool $cloneDocument;
+    public bool $cloneDocument = false;
 
     /**
      * Controls whether XInclude substitution is performed
      * @link https://php.net/manual/en/class.xsltprocessor.php#xsltprocessor.props.doxinclude
      */
     #[PhpStormStubsElementAvailable(from: '8.4')]
-    public bool $doXInclude;
+    public bool $doXInclude = false;
 
     /**
      * The maximum template nesting depth
