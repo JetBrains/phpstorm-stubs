@@ -2086,26 +2086,6 @@ function pg_flush(#[LanguageLevelTypeAware(['8.1' => '\PgSql\Connection'], defau
 function pg_set_error_context_visibility(PgSql\Connection $connection, int $visibility): int {}
 
 /**
- * @since 8.3
- */
-function pg_pipeline_status(PgSql\Connection $connection): int {}
-
-/**
- * @since 8.3
- */
-function pg_pipeline_sync(PgSql\Connection $connection): bool {}
-
-/**
- * @since 8.3
- */
-function pg_exit_pipeline_mode(PgSql\Connection $connection): bool {}
-
-/**
- * @since 8.3
- */
-function pg_enter_pipeline_mode(PgSql\Connection $connection): bool {}
-
-/**
  * Returns the amount of memory allocated for a query result
  *
  * Returns the amount of memory, in bytes, allocated to the specified query result PgSql\Result
@@ -2563,15 +2543,17 @@ const PGSQL_DIAG_DATATYPE_NAME = 100;
 const PGSQL_DIAG_CONSTRAINT_NAME = 110;
 const PGSQL_DIAG_SEVERITY_NONLOCALIZED = 86;
 
+/** @since 8.3 */
 const PGSQL_ERRORS_SQLSTATE = 3;
+/** @since 8.3 */
 const PGSQL_TRACE_REGRESS_MODE = 2;
-const PGSQL_PIPELINE_SYNC = 10;
-const PGSQL_PIPELINE_ON = 1;
-const PGSQL_PIPELINE_OFF = 0;
-const PGSQL_PIPELINE_ABORTED = 2;
+/** @since 8.3 */
 const PGSQL_SHOW_CONTEXT_NEVER = 0;
+/** @since 8.3 */
 const PGSQL_SHOW_CONTEXT_ERRORS = 1;
+/** @since 8.3 */
 const PGSQL_SHOW_CONTEXT_ALWAYS = 2;
+/** @since 8.4 */
 const PGSQL_TUPLES_CHUNK = 12;
 // End of pgsql v.
 
