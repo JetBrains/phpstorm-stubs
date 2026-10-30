@@ -379,4 +379,39 @@ class ClassConstantsCheckTest extends CheckTestCase
         $this->assertTrue($result->hasFailures());
         $this->assertArrayHasKey($classId . '::SPURIOUS', $result->getFailures());
     }
+
+    public function testConstantLevelKnownProblemSkipsConstantMissingFromStubs(): void
+    {
+        // Constants only in reflection are skipped the same way: DRIVER_B is listed, MISSING is not
+        $classId = '\\SpecialClass';
+        $reflClass = $this->makeClass($classId, constants: [
+            $this->makeClassConstant('DRIVER_B', 1), // not in stubs, skipped via known problem
+            $this->makeClassConstant('MISSING', 2),  // not in stubs, NOT in known problem → fails
+        ]);
+        $stubClass = $this->makeClass($classId);
+
+        $knownProblemsProvider = $this->createStub(\StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider::class);
+        $knownProblemsProvider->method('getProblems')->willReturn([
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_CONSTANT,
+                entityId: $classId . '::DRIVER_B',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_CONSTANTS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'Driver constant',
+            ),
+        ]);
+
+        KnownProblemsRegistry::reset();
+        $registry = KnownProblemsRegistry::getInstance($knownProblemsProvider);
+
+        $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        $result = (new ClassConstantsCheck($provider, $registry))->run($stubs, $classId, '8.0');
+
+        $this->assertArrayNotHasKey($classId . '::DRIVER_B', $result->getFailures());
+        $this->assertArrayHasKey($classId . '::MISSING', $result->getFailures());
+    }
 }
