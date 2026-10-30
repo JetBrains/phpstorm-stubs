@@ -473,14 +473,14 @@ class Cluster
      * Return the position of the first bit set to 1 or 0 in a string.
      *
      * @param  mixed  $key
-     * @param  int  $bit
+     * @param  bool  $bit
      * @param  int|null  $start
      * @param  int|null  $end
      * @param  bool  $by_bit
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function bitpos(mixed $key, int $bit, ?int $start = null, ?int $end = null, bool $by_bit = false): Cluster|int|false {}
+    public function bitpos(mixed $key, bool $bit, ?int $start = null, ?int $end = null, bool $by_bit = false): Cluster|int|false {}
 
     /**
      * BLMOVE is the blocking variant of LMOVE. When source contains elements,
@@ -500,20 +500,20 @@ class Cluster
     /**
      * Blocking move of one or more elements from the source to destination list.
      *
-     * @param  mixed  $srckey
-     * @param  mixed  $dstkey
-     * @param  string  $srcpos
-     * @param  string  $dstpos
+     * @param  mixed  $src
+     * @param  mixed  $dst
+     * @param  string  $wherefrom
+     * @param  string  $whereto
      * @param  float  $timeout
      * @param  array|null  $options
      * @return Cluster|array|null|false
      */
     #[Attributes\RedisCommand]
     public function blmovem(
-        mixed $srckey,
-        mixed $dstkey,
-        string $srcpos,
-        string $dstpos,
+        mixed $src,
+        mixed $dst,
+        string $wherefrom,
+        string $whereto,
         float $timeout,
         ?array $options = null
     ): Cluster|array|null|false {}
@@ -885,10 +885,11 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  int  $timestamp
+     * @param  string|null  $mode
      * @return Cluster|bool
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function expireat(mixed $key, int $timestamp): Cluster|bool {}
+    public function expireat(mixed $key, int $timestamp, ?string $mode = null): Cluster|bool {}
 
     /**
      * Returns the absolute Unix timestamp in seconds at which the given key will expire.
@@ -1585,12 +1586,18 @@ class Cluster
     public function incrbyfloat(mixed $key, float $value): Cluster|float|false {}
 
     /**
-     * Increment a key by an int or float with a whole host of options
+     * Increment a key by an int or float with optional bounds, saturation, and expiry.
+     *
+     * An int `$value` sends BYINT, a float sends BYFLOAT, and null lets the server
+     * use its default increment of 1. Supported options:
+     *   'EX'|'PX'|'EXAT'|'PXAT' => int,
+     *   'PERSIST', 'SATURATE', 'ENX' (or as keys => bool),
+     *   'LBOUND'|'UBOUND' => int (or int|float when `$value` is a float).
      *
      * @param  mixed  $key
      * @param  null|int|float  $value
      * @param  array|null  $options
-     * @return Cluster|array|false
+     * @return Cluster|array|false  An array of [new_value, applied_increment].
      */
     public function increx(mixed $key, null|int|float $value = null, ?array $options = null): Cluster|array|false {}
 
@@ -1710,19 +1717,19 @@ class Cluster
     /**
      * Move one or more elements from the source to destination list.
      *
-     * @param  mixed  $srckey
-     * @param  mixed  $dstkey
-     * @param  string  $srcpos
-     * @param  string  $dstpos
+     * @param  mixed  $src
+     * @param  mixed  $dst
+     * @param  string  $wherefrom
+     * @param  string  $whereto
      * @param  array|null  $options
      * @return Cluster|array|null|false
      */
     #[Attributes\RedisCommand]
     public function lmovem(
-        mixed $srckey,
-        mixed $dstkey,
-        string $srcpos,
-        string $dstpos,
+        mixed $src,
+        mixed $dst,
+        string $wherefrom,
+        string $whereto,
         ?array $options = null
     ): Cluster|array|null|false {}
 
@@ -1745,7 +1752,7 @@ class Cluster
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function lpop(mixed $key, int $count = 1): mixed {}
+    public function lpop(mixed $key, int $count = 0): mixed {}
 
     /**
      * The command returns the index of matching elements inside a Redis list.
@@ -1937,20 +1944,22 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  int  $milliseconds
+     * @param  string|null  $mode
      * @return Cluster|bool
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function pexpire(mixed $key, int $milliseconds): Cluster|bool {}
+    public function pexpire(mixed $key, int $milliseconds, ?string $mode = null): Cluster|bool {}
 
     /**
      * Set the expiration for a key as a UNIX timestamp specified in milliseconds.
      *
      * @param  mixed  $key
      * @param  int  $timestamp_ms
+     * @param  string|null  $mode
      * @return Cluster|bool
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function pexpireat(mixed $key, int $timestamp_ms): Cluster|bool {}
+    public function pexpireat(mixed $key, int $timestamp_ms, ?string $mode = null): Cluster|bool {}
 
     /**
      * Semantically the same as EXPIRETIME, but returns the absolute Unix expiration
@@ -2131,7 +2140,7 @@ class Cluster
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function rpop(mixed $key, int $count = 1): mixed {}
+    public function rpop(mixed $key, int $count = 0): mixed {}
 
     /**
      * Atomically returns and removes the last element (tail) of the list stored at source,
@@ -2323,11 +2332,11 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  int  $pos
-     * @param  int  $value
+     * @param  bool  $value
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function setbit(mixed $key, int $pos, int $value): Cluster|int|false {}
+    public function setbit(mixed $key, int $pos, bool $value): Cluster|int|false {}
 
     /**
      * Set key to hold the string value and set key to timeout after a given number of seconds.
@@ -2450,21 +2459,21 @@ class Cluster
      * Sort the elements in a list, set or sorted set.
      *
      * @param  mixed  $key
-     * @param  array  $options
+     * @param  array|null  $options
      * @return Cluster|array|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function sort(mixed $key, array $options = []): Cluster|array|int|false {}
+    public function sort(mixed $key, ?array $options = null): Cluster|array|int|false {}
 
     /**
      * Sort the elements in a list, set or sorted set. Read-only variant of SORT.
      *
      * @param  mixed  $key
-     * @param  array  $options
+     * @param  array|null  $options
      * @return Cluster|array|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function sort_ro(mixed $key, array $options = []): Cluster|array|int|false {}
+    public function sort_ro(mixed $key, ?array $options = null): Cluster|array|int|false {}
 
     /**
      * Removes and returns one or more random members from the set value store at `$key`.
@@ -2474,7 +2483,7 @@ class Cluster
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function spop(mixed $key, int $count = 1): mixed {}
+    public function spop(mixed $key, int $count = 0): mixed {}
 
     /**
      * Returns one or multiple random members from a set.
@@ -2484,7 +2493,7 @@ class Cluster
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
-    public function srandmember(mixed $key, int $count = 1): mixed {}
+    public function srandmember(mixed $key, int $count = 0): mixed {}
 
     /**
      * Remove the specified members from the set stored at `$key`.
@@ -2735,7 +2744,7 @@ class Cluster
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand]
-    public function vlinks(mixed $key, mixed $element, bool $withscores): Cluster|array|false {}
+    public function vlinks(mixed $key, mixed $element, bool $withscores = false): Cluster|array|false {}
 
     /**
      * Get one or more random members from a vector set.
@@ -2774,11 +2783,11 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  mixed  $element
-     * @param  array|string  $attributes
+     * @param  mixed  $attributes
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand]
-    public function vsetattr(mixed $key, mixed $element, array|string $attributes): Cluster|int|false {}
+    public function vsetattr(mixed $key, mixed $element, mixed $attributes): Cluster|int|false {}
 
     /**
      * Do a similarity search on encodings or an element of a vector set.
@@ -2976,7 +2985,7 @@ class Cluster
     /**
      * Read messages from a stream using a consumer group.
      *
-     * @param  mixed  $key
+     * @param  mixed  $group
      * @param  string  $consumer
      * @param  array  $streams
      * @param  int  $count
@@ -2984,7 +2993,7 @@ class Cluster
      * @return Cluster|array|bool|null
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function xreadgroup(mixed $key, string $consumer, array $streams, int $count = 1, int $block = 1): Cluster|array|bool|null {}
+    public function xreadgroup(mixed $group, string $consumer, array $streams, int $count = 1, int $block = 1): Cluster|array|bool|null {}
 
     /**
      * Get a range of entries from a STREAM key in reverse chronological order.
@@ -3149,22 +3158,22 @@ class Cluster
      * scores in the sorted set stored at key.
      *
      * @param  mixed  $key
-     * @param  int  $count
+     * @param  int|null  $count
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function zpopmax(mixed $key, int $count = 1): Cluster|array|false {}
+    public function zpopmax(mixed $key, ?int $count = null): Cluster|array|false {}
 
     /**
      * Removes and returns up to count members with the lowest
      * scores in the sorted set stored at key.
      *
      * @param  mixed  $key
-     * @param  int  $count
+     * @param  int|null  $count
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function zpopmin(mixed $key, int $count = 1): Cluster|array|false {}
+    public function zpopmin(mixed $key, ?int $count = null): Cluster|array|false {}
 
     /**
      * When called with just the key argument, return a random element from the sorted set value stored at key.
@@ -3181,13 +3190,13 @@ class Cluster
      * Returns the specified range of elements in the sorted set stored at key.
      *
      * @param  mixed  $key
-     * @param  string  $start
-     * @param  string  $end
+     * @param  mixed  $start
+     * @param  mixed  $end
      * @param  mixed  $options
      * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
-    public function zrange(mixed $key, string $start, string $end, mixed $options = null): Cluster|array|false {}
+    public function zrange(mixed $key, mixed $start, mixed $end, mixed $options = null): Cluster|array|false {}
 
     /**
      * When all the elements in a sorted set are inserted with the same score,
