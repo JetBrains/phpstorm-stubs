@@ -17,13 +17,13 @@ use JetBrains\PhpStorm\Pure;
 class CURLFile
 {
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $name;
+    public $name = '';
 
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $mime;
+    public $mime = '';
 
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $postname;
+    public $postname = '';
 
     /**
      * Create a CURLFile object
