@@ -2099,6 +2099,12 @@ class IntlDateFormatter
      * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     public const TRADITIONAL = 0;
+
+    /**
+     * Proleptic Gregorian Calendar
+     * @since 8.6
+     */
+    public const PROLEPTIC_GREGORIAN = -16;
     public const RELATIVE_FULL = 128;
     public const RELATIVE_LONG = 129;
     public const RELATIVE_MEDIUM = 130;
