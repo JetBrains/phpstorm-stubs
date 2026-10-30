@@ -146,7 +146,7 @@ class ReflectionParameterParserTest extends TestCase
     {
         $parameterMock = $this->getMockBuilder(AdaptedReflectionParameter::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['getName', 'getPosition', 'isOptional', 'isVariadic', 'isPassedByReference', 'hasType', 'isDefaultValueAvailable', 'getDefaultValue'])
+            ->onlyMethods(['getName', 'getPosition', 'isOptional', 'isVariadic', 'isPassedByReference', 'hasType', 'isDefaultValueAvailable', 'getDefaultValue', 'isDefaultValueResolved'])
             ->getMock();
         $parameterMock->method('getName')->willReturn('param');
         $parameterMock->method('getPosition')->willReturn(0);
@@ -155,7 +155,9 @@ class ReflectionParameterParserTest extends TestCase
         $parameterMock->method('isPassedByReference')->willReturn(false);
         $parameterMock->method('hasType')->willReturn(false);
         $parameterMock->method('isDefaultValueAvailable')->willReturn(true);
-        $parameterMock->method('getDefaultValue')->willThrowException(new \ReflectionException('unavailable'));
+        // What the adapter stores when ReflectionParameter::getDefaultValue() throws
+        $parameterMock->method('getDefaultValue')->willReturn(null);
+        $parameterMock->method('isDefaultValueResolved')->willReturn(false);
 
         $parsedParameter = new ReflectionParameterParser()->parse($parameterMock);
         self::assertTrue($parsedParameter->hasDefaultValue());

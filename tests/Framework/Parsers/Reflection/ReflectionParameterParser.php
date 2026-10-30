@@ -49,16 +49,11 @@ class ReflectionParameterParser implements Parser
         $type = $this->typeParser->parse($object->hasType() ? $object->getType() : null);
         $parameter->setType($type);
 
-        // Parse default value
+        // Parse default value. The adapter evaluated it in Stage 1 and records whether that failed.
         if ($object->isDefaultValueAvailable()) {
             $parameter->setHasDefaultValue(true);
-            try {
-                $parameter->setDefaultValue($object->getDefaultValue());
-            } catch (\ReflectionException $e) {
-                // If we can't get the default value, leave it as null
-                $parameter->setDefaultValue(null);
-                $parameter->setDefaultValueResolved(false);
-            }
+            $parameter->setDefaultValue($object->getDefaultValue());
+            $parameter->setDefaultValueResolved($object->isDefaultValueResolved());
         } else {
             $parameter->setHasDefaultValue(false);
         }

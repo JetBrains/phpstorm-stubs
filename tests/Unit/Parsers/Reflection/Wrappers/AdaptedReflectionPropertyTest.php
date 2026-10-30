@@ -197,6 +197,47 @@ class AdaptedReflectionPropertyTest extends TestCase
         $adapted = new AdaptedReflectionProperty($propertyMock);
 
         self::assertEquals('defaultValue', $adapted->getDefaultValue());
+        self::assertTrue($adapted->isDefaultValueResolved());
+    }
+
+    public function testItHandlesExceptionWhenAccessingDefaultValue()
+    {
+        $propertyMock = $this->getMockBuilder(ReflectionProperty::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $propertyMock->method('hasDefaultValue')->willReturn(true);
+        $propertyMock->method('getDefaultValue')->willThrowException(new \Exception('Cannot access default value'));
+
+        $declaringClassMock = $this->getMockBuilder(\ReflectionClass::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $declaringClassMock->method('getName')->willReturn('TestClass');
+        $propertyMock->method('getDeclaringClass')->willReturn($declaringClassMock);
+
+        $adapted = new AdaptedReflectionProperty($propertyMock);
+
+        self::assertNull($adapted->getDefaultValue());
+        self::assertFalse($adapted->isDefaultValueResolved());
+    }
+
+    public function testItHandlesErrorWhenAccessingDefaultValue()
+    {
+        $propertyMock = $this->getMockBuilder(ReflectionProperty::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $propertyMock->method('hasDefaultValue')->willReturn(true);
+        $propertyMock->method('getDefaultValue')->willThrowException(new \Error('Undefined constant "UNDEFINED_CONSTANT"'));
+
+        $declaringClassMock = $this->getMockBuilder(\ReflectionClass::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $declaringClassMock->method('getName')->willReturn('TestClass');
+        $propertyMock->method('getDeclaringClass')->willReturn($declaringClassMock);
+
+        $adapted = new AdaptedReflectionProperty($propertyMock);
+
+        self::assertNull($adapted->getDefaultValue());
+        self::assertFalse($adapted->isDefaultValueResolved());
     }
 
     public function testItHandlesDefaultValueNotAvailable()

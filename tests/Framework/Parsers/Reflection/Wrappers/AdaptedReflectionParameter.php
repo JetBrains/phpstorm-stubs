@@ -54,7 +54,14 @@ class AdaptedReflectionParameter extends AbstractReflectionAdapter
             try {
                 $this->setData('getDefaultValue', ReflectionValueNormalizer::makeSerializable($reflectionObject->getDefaultValue()));
             } catch (\Exception $e) {
+                // Recorded so the null stored here is not taken for a null default
                 $this->setData('getDefaultValue', null);
+                $this->setData('defaultValueResolved', false);
+            } catch (\Throwable $e) {
+                // An undefined constant throws Error, not Exception. A separate catch, as PHP 5.6
+                // has no Throwable and simply never matches it.
+                $this->setData('getDefaultValue', null);
+                $this->setData('defaultValueResolved', false);
             }
         } else {
             $this->setData('getDefaultValue', null);
@@ -176,6 +183,15 @@ class AdaptedReflectionParameter extends AbstractReflectionAdapter
     public function getDefaultValue()
     {
         return $this->getData('getDefaultValue');
+    }
+
+    /**
+     * False when the parameter has a default that getDefaultValue() could not evaluate, so the
+     * null getDefaultValue() returns does not mean the default is null.
+     */
+    public function isDefaultValueResolved()
+    {
+        return $this->getData('defaultValueResolved', true);
     }
 
     public function isDefaultValueConstant()

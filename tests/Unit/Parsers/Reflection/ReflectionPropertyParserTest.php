@@ -108,6 +108,26 @@ class ReflectionPropertyParserTest extends TestCase
 
         self::assertTrue($property->hasDefaultValue());
         self::assertEquals('default_value', $property->getDefaultValue());
+        self::assertTrue($property->isDefaultValueResolved());
+    }
+
+    public function testItMarksAnUnavailableDefaultValueUnresolved()
+    {
+        $reflectionPropertyMock = $this->getMockBuilder(AdaptedReflectionProperty::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['getName', 'hasDefaultValue', 'getDefaultValue', 'isDefaultValueResolved'])
+            ->getMock();
+        $reflectionPropertyMock->method('getName')->willReturn('testProperty');
+        $reflectionPropertyMock->method('hasDefaultValue')->willReturn(true);
+        // What the adapter stores when ReflectionProperty::getDefaultValue() throws
+        $reflectionPropertyMock->method('getDefaultValue')->willReturn(null);
+        $reflectionPropertyMock->method('isDefaultValueResolved')->willReturn(false);
+
+        $property = new ReflectionPropertyParser()->parse($reflectionPropertyMock);
+
+        self::assertTrue($property->hasDefaultValue());
+        self::assertNull($property->getDefaultValue());
+        self::assertFalse($property->isDefaultValueResolved());
     }
 
     public function testItParsesUnionPropertyType()

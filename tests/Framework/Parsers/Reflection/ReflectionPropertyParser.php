@@ -48,6 +48,7 @@ class ReflectionPropertyParser implements Parser
         // Parse default value if available
         if (method_exists($object, 'hasDefaultValue') && $object->hasDefaultValue()) {
             $property->setDefaultValue($object->getDefaultValue());
+            $property->setDefaultValueResolved($object->isDefaultValueResolved());
         }
 
         return $property;

@@ -137,6 +137,7 @@ class AdaptedReflectionParameterTest extends TestCase
         $adapted = new AdaptedReflectionParameter($paramMock);
 
         self::assertEquals('defaultValue', $adapted->getDefaultValue());
+        self::assertTrue($adapted->isDefaultValueResolved());
     }
 
     public function testItHandlesDefaultValueNotAvailable()
@@ -162,6 +163,21 @@ class AdaptedReflectionParameterTest extends TestCase
         $adapted = new AdaptedReflectionParameter($paramMock);
 
         self::assertNull($adapted->getDefaultValue());
+        self::assertFalse($adapted->isDefaultValueResolved());
+    }
+
+    public function testItHandlesErrorWhenAccessingDefaultValue()
+    {
+        $paramMock = $this->getMockBuilder(ReflectionParameter::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $paramMock->method('isDefaultValueAvailable')->willReturn(true);
+        $paramMock->method('getDefaultValue')->willThrowException(new \Error('Undefined constant "UNDEFINED_CONSTANT"'));
+
+        $adapted = new AdaptedReflectionParameter($paramMock);
+
+        self::assertNull($adapted->getDefaultValue());
+        self::assertFalse($adapted->isDefaultValueResolved());
     }
 
     // CRITICAL: Default value constant handling tests
