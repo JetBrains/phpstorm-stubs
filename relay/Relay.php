@@ -504,7 +504,7 @@ class Relay
     /**
      * Establishes a new connection to Redis, or reuses already opened connection.
      *
-     * @var array{
+     * @example $context array{
      *   use-cache: bool,                       // Whether to use in-memory caching
      *   adaptive-cache: array{
      *     enabled: bool,                       // Whether to disable adaptive caching
@@ -3866,7 +3866,7 @@ class Relay
      *
      * @param  mixed  $key
      * @param  mixed  $element
-     * @param  array|string  $attributes
+     * @param  mixed  $attributes
      * @return Relay|int|false
      */
     #[Attributes\RedisCommand]

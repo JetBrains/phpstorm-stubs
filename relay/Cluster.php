@@ -2783,7 +2783,7 @@ class Cluster
      *
      * @param  mixed  $key
      * @param  mixed  $element
-     * @param  array|string  $attributes
+     * @param  mixed  $attributes
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand]
