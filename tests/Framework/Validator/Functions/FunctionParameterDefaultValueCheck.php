@@ -23,8 +23,8 @@ use StubTests\Framework\Validator\Services\ParameterFilterHelper;
  *    EntityExistsCheck's responsibility.
  * 3. For each reflection parameter with an accessible default, checks whether
  *    the matching stub parameter (by name) declares the same evaluated default.
- * 4. Comparison is skipped when either side's value is null (see class-level check
- *    docs for the rationale).
+ * 4. Comparison is skipped when either side's default could not be evaluated (see
+ *    class-level check docs for the rationale).
  *
  * Known problems are supported at function level:
  * - EntityType::FUNCTION + functionId + 'ParameterDefaultValueCheck'

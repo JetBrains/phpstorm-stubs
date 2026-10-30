@@ -20,10 +20,10 @@ use StubTests\Framework\Validator\Services\ParameterDefaultValueComparator;
  * 1. Iterates all methods reported by reflection.
  * 2. For each reflection parameter that has an accessible default value, checks
  *    whether the stub parameter declares a matching evaluated default.
- * 3. Comparison is skipped when either side's value is null — this avoids false
- *    positives from stub constants that cannot be evaluated at parse time
- *    (e.g. extension-specific constants) and from genuine null defaults whose
- *    ambiguity we cannot resolve without a richer model.
+ * 3. Comparison is skipped when either side's default could not be evaluated (an
+ *    unresolvable constant, say, recorded by isDefaultValueResolved()), whose null
+ *    value says nothing about the real default. A genuine null default is compared
+ *    like any other value.
  * 4. Parameter absent from stubs → silently skipped (ParametersCountCheck handles it).
  * 5. Stub has no default at all → silently skipped (OptionalParametersCheck handles it).
  *
