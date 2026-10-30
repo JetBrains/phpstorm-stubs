@@ -2,6 +2,7 @@
 
 namespace StubTests\Framework\Parsers\Stubs\Adapters\Nikic;
 
+use PhpParser\ErrorHandler\Collecting;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Name;
 use PhpParser\Node\Stmt\Class_;
@@ -10,6 +11,8 @@ use PhpParser\Node\Stmt\Function_;
 use PhpParser\Node\Stmt\Interface_;
 use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\Node\Stmt\Use_;
+use PhpParser\NodeTraverser;
+use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\ParserFactory;
 use StubTests\Framework\Parsers\Stubs\NodeExtractorInterface;
 use StubTests\Framework\Parsers\Stubs\Nodes\ClassNode;
@@ -34,9 +37,10 @@ class NikicNodeExtractor implements NodeExtractorInterface
      * parsers see file A, then all see file B. It also keeps memory bounded to one AST
      * rather than retaining the whole stub tree.
      *
-     * Safe to share: the extract* methods only read the AST and wrap nodes in adapters that
-     * carry their own state (Nikic*Node::setNamespace()); nothing mutates the parsed nodes,
-     * and no traverser or visitor runs over them.
+     * Safe to share: apart from the name resolution that annotates each AST once, right after
+     * it is parsed (resolveNames()), the extract* methods only read the AST and wrap nodes in
+     * adapters that carry their own state (Nikic*Node::setNamespace()); nothing else mutates
+     * the parsed nodes.
      *
      * @var array<int, \PhpParser\Node>|null
      */
@@ -75,11 +79,31 @@ class NikicNodeExtractor implements NodeExtractorInterface
         // Only a successful parse is memoised; a null result keeps the previous behaviour
         // of letting the caller deal with it, and must not poison the cache.
         if ($ast !== null) {
+            self::resolveNames($ast);
             self::$cachedAst = $ast;
             self::$cachedKey = $key;
         }
 
         return $ast;
+    }
+
+    /**
+     * Records what the names in the AST refer to, so default values can be evaluated (see
+     * NikicConstExprEvaluatorTrait): relative and imported names get a resolvedName attribute,
+     * unqualified constants in a namespace a namespacedName one, and `self` the enclosing class.
+     * Names are annotated rather than replaced, so code that reads them as written is unaffected.
+     *
+     * @param array<int, \PhpParser\Node> $ast
+     */
+    private static function resolveNames(array $ast): void
+    {
+        $traverser = new NodeTraverser(
+            // Collects rather than throws: stubs are never compiled, so one may break a rule
+            // NameResolver enforces (a duplicate import, say), and that must not stop the parse.
+            new NameResolver(new Collecting(), ['replaceNodes' => false]),
+            new NikicSelfNameResolver()
+        );
+        $traverser->traverse($ast);
     }
 
     public function extractFunction(string $stubCode): FunctionNode

@@ -19,6 +19,10 @@ use StubTests\Framework\Parsers\Stubs\StubConstantRegistry;
  * NikicExprValueResolverTrait — which only understands scalars and unary
  * operators — this handles arrays, constant fetches and class-constant
  * fetches via PhpParser's ConstExprEvaluator.
+ *
+ * Names are looked up as NikicNodeExtractor resolved them, so `self::X`, names
+ * relative to the file's namespace and imported names find the constant they
+ * refer to rather than one that happens to have the name as written.
  */
 trait NikicConstExprEvaluatorTrait
 {
@@ -57,19 +61,20 @@ trait NikicConstExprEvaluatorTrait
             $evaluator = new ConstExprEvaluator(
                 function (Expr $node): mixed {
                     if ($node instanceof ConstFetch) {
-                        $name = $node->name->toString();
-                        if (defined($name)) {
-                            return constant($name);
-                        }
-                        // Runtime miss (e.g. the defining extension is not loaded): fall back
-                        // to the value parsed from the stub sources so the result is the same
-                        // regardless of which extensions the host process happens to have.
-                        if (StubConstantRegistry::has($name)) {
-                            return StubConstantRegistry::get($name);
+                        foreach (self::constantCandidates($node->name) as $name) {
+                            if (defined($name)) {
+                                return constant($name);
+                            }
+                            // Runtime miss (e.g. the defining extension is not loaded): fall back
+                            // to the value parsed from the stub sources so the result is the same
+                            // regardless of which extensions the host process happens to have.
+                            if (StubConstantRegistry::has($name)) {
+                                return StubConstantRegistry::get($name);
+                            }
                         }
                     } elseif ($node instanceof ClassConstFetch) {
                         if ($node->class instanceof Name && $node->name instanceof Identifier) {
-                            $class = $node->class->toString();
+                            $class = self::resolvedName($node->class)->toString();
                             $const = $node->name->toString();
                             if ($const === 'class') {
                                 return $class;
@@ -90,5 +95,30 @@ trait NikicConstExprEvaluatorTrait
             );
         }
         return $evaluator;
+    }
+
+    /**
+     * The name NikicNodeExtractor resolved a name to, or the name as written when the AST was
+     * not parsed by it.
+     */
+    private static function resolvedName(Name $name): Name
+    {
+        $resolved = $name->getAttribute('resolvedName');
+        return $resolved instanceof Name ? $resolved : $name;
+    }
+
+    /**
+     * The constants a constant name may refer to, in the order PHP tries them: an unqualified
+     * name in a namespace means the namespaced constant if there is one and the global one
+     * otherwise, and NameResolver records the namespaced candidate when it cannot tell which.
+     *
+     * @return string[]
+     */
+    private static function constantCandidates(Name $name): array
+    {
+        $namespaced = $name->getAttribute('namespacedName');
+        $candidates = $namespaced instanceof Name ? [$namespaced->toString()] : [];
+        $candidates[] = self::resolvedName($name)->toString();
+        return $candidates;
     }
 }
