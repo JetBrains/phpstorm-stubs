@@ -18,6 +18,7 @@ class PHPParameter extends BasePHPElement
     private bool $isDeprecated;
     private mixed $defaultValue;
     private bool $hasDefaultValue;
+    private bool $defaultValueResolved = true;
     private ?\Closure $defaultValueEvaluator = null;
 
     public function __construct(?string $name)
@@ -116,7 +117,8 @@ class PHPParameter extends BasePHPElement
      *
      * A failure to evaluate yields null rather than propagating: the evaluator normalises
      * everything it cannot compute (including DivisionByZeroError, see
-     * NikicConstExprEvaluatorTrait) to \RuntimeException, which is absorbed here.
+     * NikicConstExprEvaluatorTrait) to \RuntimeException, which is absorbed here and
+     * recorded in isDefaultValueResolved().
      */
     public function getDefaultValue(): mixed
     {
@@ -125,6 +127,7 @@ class PHPParameter extends BasePHPElement
                 $this->defaultValue = ($this->defaultValueEvaluator)();
             } catch (\RuntimeException) {
                 $this->defaultValue = null;
+                $this->defaultValueResolved = false;
             }
             $this->defaultValueEvaluator = null;
         }
@@ -135,6 +138,21 @@ class PHPParameter extends BasePHPElement
     {
         $this->defaultValue = $defaultValue;
         $this->defaultValueEvaluator = null;
+    }
+
+    /**
+     * False when the parameter has a default that could not be evaluated, so the null
+     * getDefaultValue() returns does not mean the default is null.
+     */
+    public function isDefaultValueResolved(): bool
+    {
+        $this->getDefaultValue();
+        return $this->defaultValueResolved;
+    }
+
+    public function setDefaultValueResolved(bool $defaultValueResolved): void
+    {
+        $this->defaultValueResolved = $defaultValueResolved;
     }
 
     public function setDefaultValueEvaluator(\Closure $evaluator): void

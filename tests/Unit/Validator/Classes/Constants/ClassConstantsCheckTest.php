@@ -122,12 +122,30 @@ class ClassConstantsCheckTest extends CheckTestCase
         $this->assertStringContainsString('not found in reflection', $failures[$classId . '::GHOST']);
     }
 
-    public function testConstantInReflectionOnlyPasses(): void
+    public function testConstantInReflectionOnlyIsFailure(): void
     {
-        // Constant exists in reflection but not in stub → passes (might be inherited in stubs)
+        // Constant exists in reflection but nowhere in the stub hierarchy → failure
         $classId = '\\DateTime';
         $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('ATOM', 'Y-m-d\\TH:i:sP')]);
-        $stubClass = $this->makeClass($classId); // stub doesn't re-declare inherited constant
+        $stubClass = $this->makeClass($classId);
+
+        $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        $result = (new ClassConstantsCheck($provider))->run($stubs, $classId, '8.0');
+
+        $this->assertTrue($result->hasFailures());
+        $this->assertStringContainsString('not declared in stubs', $result->getFailures()[$classId . '::ATOM']);
+    }
+
+    public function testConstantInheritedInStubsPasses(): void
+    {
+        // Reflection lists inherited constants; the stub declares it on the parent class → passes
+        $classId = '\\Child';
+        $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('MODE', 1)]);
+        $stubParent = $this->makeClass('\\Base', constants: [$this->makeClassConstant('MODE', 1)]);
+        $stubClass = $this->makeClass($classId, parentClass: $stubParent);
 
         $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
         $stubs = $this->createMockStorageManager();
@@ -136,6 +154,39 @@ class ClassConstantsCheckTest extends CheckTestCase
         $result = (new ClassConstantsCheck($provider))->run($stubs, $classId, '8.0');
 
         $this->assertFalse($result->hasFailures());
+    }
+
+    public function testConstantFromImplementedInterfacePasses(): void
+    {
+        // The stub declares the constant on an interface the class implements → passes
+        $classId = '\\MyDate';
+        $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('ATOM', 'Y-m-d')]);
+        $stubInterface = $this->makeInterface('\\MyDateInterface', constants: [$this->makeClassConstant('ATOM', 'Y-m-d')]);
+        $stubClass = $this->makeClass($classId, interfaces: [$stubInterface]);
+
+        $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        $result = (new ClassConstantsCheck($provider))->run($stubs, $classId, '8.0');
+
+        $this->assertFalse($result->hasFailures());
+    }
+
+    public function testConstantAddedLaterInStubsIsFailure(): void
+    {
+        // The stub constant's @since is later than the version reflection has it in → failure
+        $classId = '\\MyClass';
+        $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('NEW_ONE', 1)]);
+        $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('NEW_ONE', 1, sinceVersion: '8.4')]);
+
+        $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        $result = (new ClassConstantsCheck($provider))->run($stubs, $classId, '8.3');
+
+        $this->assertTrue($result->hasFailures());
     }
 
     // ── Visibility is not checked here ───────────────────────────────────────

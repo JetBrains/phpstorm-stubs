@@ -20,6 +20,7 @@ use StubTests\Framework\Validator\Classes\Properties\ClassStaticPropertiesCheck;
 use StubTests\Framework\Validator\Classes\Properties\ClassPropertiesExistCheck;
 use StubTests\Framework\Validator\Classes\Properties\ClassPropertiesVisibilityCheck;
 use StubTests\Framework\Validator\Classes\Properties\ClassPropertiesTypeCheck;
+use StubTests\Framework\Validator\Classes\Properties\ClassPropertiesDefaultValueCheck;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsParametersCountCheck;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsReturnTypesCheck;
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsOptionalParametersCheck;
@@ -89,6 +90,7 @@ class ClassValidatorTest extends ValidatorTestBase
             'checkClassStaticProperties' => new CheckDescriptor(ClassStaticPropertiesCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} static properties check failed in PHP {phpVersion}'),
             'checkClassPropertiesVisibility' => new CheckDescriptor(ClassPropertiesVisibilityCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} properties visibility check failed in PHP {phpVersion}'),
             'checkClassPropertiesType' => new CheckDescriptor(ClassPropertiesTypeCheck::class, PhpVersions::PHP_7_4, PhpVersions::LATEST, 'Class {entityId} properties type check failed in PHP {phpVersion}'),
+            'checkClassPropertiesDefaultValue' => new CheckDescriptor(ClassPropertiesDefaultValueCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Class {entityId} properties default value check failed in PHP {phpVersion}'),
             'checkClassMethodsParametersCount' => new CheckDescriptor(ClassMethodsParametersCountCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} methods parameters count check failed in PHP {phpVersion}'),
             'checkClassMethodsReturnTypes' => new CheckDescriptor(ClassMethodsReturnTypesCheck::class, PhpVersions::PHP_7_0, PhpVersions::LATEST, 'Class {entityId} methods return type check failed in PHP {phpVersion}'),
             'checkMethodsDeprecation' => new CheckDescriptor(MethodDeprecationCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} methods deprecation check failed in PHP {phpVersion}'),

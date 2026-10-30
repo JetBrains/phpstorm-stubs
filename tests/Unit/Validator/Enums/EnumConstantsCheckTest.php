@@ -72,12 +72,27 @@ class EnumConstantsCheckTest extends CheckTestCase
         $this->assertStringNotContainsString('Class', $failures[$enumId . '::Ghost']);
     }
 
-    public function testConstantInReflectionOnlyPasses(): void
+    public function testConstantInReflectionOnlyIsFailure(): void
     {
-        // Constant only in reflection (not stub) is fine — might be inherited in stubs
         $enumId = '\\RoundingMode';
         $reflEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('DefaultValue', 0)]);
         $stubEnum = $this->makeEnum($enumId);
+
+        $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getEnums')->willReturn([$stubEnum]);
+
+        $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forEnum()))->run($stubs, $enumId, '8.1');
+
+        $this->assertTrue($result->hasFailures());
+    }
+
+    public function testEnumCaseCountsAsConstant(): void
+    {
+        // Reflection reports enum cases as constants; the stub declares them as cases → passes
+        $enumId = '\\RoundingMode';
+        $reflEnum = $this->makeEnum($enumId, constants: [$this->makeClassConstant('HalfEven')]);
+        $stubEnum = $this->makeEnum($enumId, cases: ['HalfEven']);
 
         $provider = $this->createMockReflectionProviderWithEnums([$reflEnum]);
         $stubs = $this->createMockStorageManager();

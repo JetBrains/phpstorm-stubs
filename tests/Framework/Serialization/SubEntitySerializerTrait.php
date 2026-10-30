@@ -66,6 +66,10 @@ trait SubEntitySerializerTrait
 
         if ($parameter->hasDefaultValue()) {
             $data['defaultValue'] = $this->toJsonSafe($parameter->getDefaultValue());
+            // Only written when false, so the caches grow just for the few unevaluable defaults.
+            if (!$parameter->isDefaultValueResolved()) {
+                $data['defaultValueResolved'] = false;
+            }
         } else {
             $data['defaultValue'] = null;
         }
@@ -92,6 +96,9 @@ trait SubEntitySerializerTrait
         $data['hasDefaultValue'] = $property->hasDefaultValue();
         if ($property->hasDefaultValue()) {
             $data['defaultValue'] = $this->toJsonSafe($property->getDefaultValue());
+            if (!$property->isDefaultValueResolved()) {
+                $data['defaultValueResolved'] = false;
+            }
         } else {
             $data['defaultValue'] = null;
         }
@@ -171,6 +178,7 @@ trait SubEntitySerializerTrait
         if (isset($data['defaultValue'])) {
             $parameter->setDefaultValue($data['defaultValue']);
         }
+        $parameter->setDefaultValueResolved($data['defaultValueResolved'] ?? true);
 
         $this->enrichDeserializedParameter($parameter, $data);
 
@@ -201,6 +209,7 @@ trait SubEntitySerializerTrait
         if (isset($data['defaultValue'])) {
             $property->setDefaultValue($data['defaultValue']);
         }
+        $property->setDefaultValueResolved($data['defaultValueResolved'] ?? true);
 
         $this->enrichDeserializedProperty($property, $data, $parentId, $phpDocStorage);
 

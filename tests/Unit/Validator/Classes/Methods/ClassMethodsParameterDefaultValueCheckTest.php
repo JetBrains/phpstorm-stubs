@@ -351,11 +351,10 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
         $this->assertStringContainsString('$b', $message);
     }
 
-    // ── Null-skip behaviour ───────────────────────────────────────────────────
+    // ── Null and unresolved defaults ──────────────────────────────────────────
 
-    public function testNullReflectionDefaultIsSkipped(): void
+    public function testNullReflectionDefaultIsCompared(): void
     {
-        // When reflection default is null (actual null OR unavailable), skip comparison
         $className = '\MyClass';
         $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: null, optional: true)]; // reflection: null
         $stubParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)];   // stub: 42
@@ -381,15 +380,14 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
 
         $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
 
-        $this->assertFalse($result->hasFailures());
+        $this->assertTrue($result->hasFailures());
     }
 
-    public function testNullStubDefaultIsSkipped(): void
+    public function testNullStubDefaultIsCompared(): void
     {
-        // Stub default is null: either actual null or failed constant evaluation — skip
         $className = '\MyClass';
         $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)];   // reflection: 42
-        $stubParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: null, optional: true)]; // stub: null (unevaluable or actual null)
+        $stubParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: null, optional: true)]; // stub: null
 
         $reflClass = $this->createMockClassWithProperties(
             $className,
@@ -404,6 +402,37 @@ class ClassMethodsParameterDefaultValueCheckTest extends CheckTestCase
             null,
             null,
             [$this->createMockMethod('doIt', $stubParams)]
+        );
+
+        $provider = $this->createMockReflectionProvider([], [$reflClass]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        $result = (new ClassMethodsParameterDefaultValueCheck($provider))->run($stubs, $className, PhpVersions::LATEST->value);
+
+        $this->assertTrue($result->hasFailures());
+    }
+
+    public function testUnresolvedStubDefaultIsSkipped(): void
+    {
+        $className = '\MyClass';
+        $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)]; // reflection: 42
+        $stubParam = $this->makeParam('x', hasDefaultValue: true, optional: true);
+        $stubParam->setDefaultValueResolved(false); // stub default could not be evaluated
+
+        $reflClass = $this->createMockClassWithProperties(
+            $className,
+            null,
+            null,
+            null,
+            [$this->createMockMethod('doIt', $reflParams)]
+        );
+        $stubClass = $this->createMockClassWithProperties(
+            $className,
+            null,
+            null,
+            null,
+            [$this->createMockMethod('doIt', [$stubParam])]
         );
 
         $provider = $this->createMockReflectionProvider([], [$reflClass]);

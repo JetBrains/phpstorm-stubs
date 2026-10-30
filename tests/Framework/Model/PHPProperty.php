@@ -17,6 +17,7 @@ class PHPProperty extends BasePHPElement
     private StandaloneType|UnionType|NullableType|NoType|IntersectionType|null $type = null;
     private mixed $defaultValue = null;
     private bool $hasDefaultValue = false;
+    private bool $defaultValueResolved = true;
 
     public function getAccess(): ?AccessModifier
     {
@@ -77,5 +78,19 @@ class PHPProperty extends BasePHPElement
     public function setHasDefaultValue(bool $hasDefaultValue): void
     {
         $this->hasDefaultValue = $hasDefaultValue;
+    }
+
+    /**
+     * False when the property has a default that could not be evaluated, so the null
+     * getDefaultValue() returns does not mean the default is null.
+     */
+    public function isDefaultValueResolved(): bool
+    {
+        return $this->defaultValueResolved;
+    }
+
+    public function setDefaultValueResolved(bool $defaultValueResolved): void
+    {
+        $this->defaultValueResolved = $defaultValueResolved;
     }
 }
