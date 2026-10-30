@@ -36,10 +36,10 @@ final class __PHP_Incomplete_Class
 class php_user_filter
 {
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $filtername;
+    public $filtername = '';
 
     #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
-    public $params;
+    public $params = '';
     public $stream;
 
     /**

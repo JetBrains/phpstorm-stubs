@@ -23,7 +23,7 @@ class StreamException extends \Exception
     /**
      * @var StreamError[]
      */
-    private array $errors;
+    private array $errors = [];
 
     public function getErrors(): array {}
 }
