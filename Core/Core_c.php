@@ -284,18 +284,18 @@ class Exception implements Throwable
      * The error message
      * @var string
      */
-    protected $message;
+    protected $message = '';
 
     /** The error code */
-    protected $code;
+    protected $code = 0;
 
     /** The filename where the error happened  */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    protected $file;
+    protected $file = '';
 
     /** The line where the error happened */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
-    protected $line;
+    protected $line = 0;
 
     /** Cached string representation of the exception (used by __toString) */
     private string $string = '';
@@ -418,14 +418,14 @@ class Exception implements Throwable
 class Error implements Throwable
 {
     /** The error message */
-    protected $message;
+    protected $message = '';
 
     /** The error code */
-    protected $code;
+    protected $code = 0;
 
     /** The filename where the error happened  */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    protected $file;
+    protected $file = '';
 
     /** The line where the error happened */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
@@ -622,7 +622,7 @@ class RequestParseBodyException extends Exception {}
 class ErrorException extends Exception
 {
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
-    protected $severity;
+    protected $severity = E_ERROR;
 
     /**
      * Constructs the exception
