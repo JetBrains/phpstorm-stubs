@@ -57,6 +57,7 @@ class ReflectionParameterParser implements Parser
             } catch (\ReflectionException $e) {
                 // If we can't get the default value, leave it as null
                 $parameter->setDefaultValue(null);
+                $parameter->setDefaultValueResolved(false);
             }
         } else {
             $parameter->setHasDefaultValue(false);

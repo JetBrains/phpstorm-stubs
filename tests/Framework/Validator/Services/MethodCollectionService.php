@@ -156,6 +156,21 @@ class MethodCollectionService
     }
 
     /**
+     * Collect the names of version-available stub constants declared on an entity or anywhere
+     * in its hierarchy (parent classes, implemented and parent interfaces). Enum case names are
+     * included because reflection reports enum cases as constants.
+     *
+     * @return array<string, true>
+     */
+    public function collectConstantNames(PHPClassLikeObject $entity, string $phpVersion): array
+    {
+        $names = [];
+        $visited = [];
+        $this->collectConstantNamesFromHierarchy($entity, $phpVersion, $names, $visited);
+        return $names;
+    }
+
+    /**
      * Filter parameters by version availability, then deduplicate consecutive same-named
      * parameters where the second is variadic (the stub workaround for non-optional variadics).
      *
@@ -191,6 +206,48 @@ class MethodCollectionService
 
         foreach ($interface->getParentInterfaces() as $parent) {
             $this->collectMethodsFromInterfaceHierarchy($parent, $phpVersion, $methodMap, $visited);
+        }
+    }
+
+    /**
+     * @param array<string, true> $names
+     * @param array<string>       $visited
+     */
+    private function collectConstantNamesFromHierarchy(
+        PHPClassLikeObject $entity,
+        string $phpVersion,
+        array &$names,
+        array &$visited
+    ): void {
+        $id = $entity->getId();
+        if ($id !== null && in_array($id, $visited, true)) {
+            return; // cycle guard
+        }
+        if ($id !== null) {
+            $visited[] = $id;
+        }
+
+        foreach ($entity->getConstants() as $constant) {
+            $name = $constant->getName();
+            if ($name !== null && ($constant->getStubsMetadata()?->isAvailableIn($phpVersion) ?? true)) {
+                $names[$name] = true;
+            }
+        }
+        if ($entity instanceof PHPEnum) {
+            foreach ($entity->getCaseNames() as $caseName) {
+                $names[$caseName] = true;
+            }
+        }
+
+        $ancestors = $entity->getImplementedInterfaces();
+        if ($entity instanceof PHPClass && $entity->getParentClass() !== null) {
+            $ancestors[] = $entity->getParentClass();
+        }
+        if ($entity instanceof PHPInterface) {
+            $ancestors = array_merge($ancestors, $entity->getParentInterfaces());
+        }
+        foreach ($ancestors as $ancestor) {
+            $this->collectConstantNamesFromHierarchy($ancestor, $phpVersion, $names, $visited);
         }
     }
 }

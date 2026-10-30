@@ -115,6 +115,12 @@ enum CheckType: string
     case CLASS_PROPERTIES_TYPE = 'ClassPropertiesTypeCheck';
 
     /**
+     * Validates that properties with a default value in reflection have the same default in stubs.
+     * Only checked against the latest PHP version, like PARAMETER_DEFAULT_VALUE.
+     */
+    case CLASS_PROPERTIES_DEFAULT_VALUE = 'ClassPropertiesDefaultValueCheck';
+
+    /**
      * Validates that the number of parameters in stub methods/functions matches reflection.
      * Accounts for PhpStormStubsElementAvailable version-filtered parameters.
      * Used by both ClassMethodsParametersCountCheck and FunctionParametersCountCheck.
@@ -165,7 +171,8 @@ enum CheckType: string
     case CLASS_FINAL = 'ClassFinalCheck';
 
     /**
-     * Validates that constants declared in stubs exist in reflection.
+     * Validates that constants declared in stubs exist in reflection, and that constants in
+     * reflection are declared somewhere in the stub hierarchy.
      * Reused for classes, interfaces and enums via EntityTypeConfig; the check
      * reports this name for all three, so the entity variant is distinguished by
      * the EntityType of the known problem, not by a separate check name.
@@ -214,8 +221,8 @@ enum CheckType: string
      * Validates that default parameter values in stubs match reflection.
      * Only checked against the latest PHP version since stubs do not support
      * version-aware default values (no LanguageLevelTypeAware equivalent for defaults).
-     * Comparison is skipped when either side's value is null to avoid false positives
-     * from unevaluable constant expressions.
+     * Comparison is skipped when either side's default could not be evaluated, to avoid
+     * false positives from unresolvable constant expressions.
      */
     case PARAMETER_DEFAULT_VALUE = 'ParameterDefaultValueCheck';
 

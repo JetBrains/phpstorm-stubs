@@ -160,9 +160,9 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
         $this->assertStringContainsString('$b', $message);
     }
 
-    // ── Null-skip behaviour ───────────────────────────────────────────────────
+    // ── Null and unresolved defaults ──────────────────────────────────────────
 
-    public function testNullReflectionDefaultIsSkipped(): void
+    public function testNullReflectionDefaultIsCompared(): void
     {
         $fnId = '\\func';
         $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: null, optional: true)]; // null reflection default
@@ -177,17 +177,37 @@ class FunctionParameterDefaultValueCheckTest extends CheckTestCase
 
         $result = (new FunctionParameterDefaultValueCheck($provider))->run($stubs, $fnId, PhpVersions::LATEST->value);
 
-        $this->assertFalse($result->hasFailures());
+        $this->assertTrue($result->hasFailures());
+        $this->assertStringContainsString("reflection 'null'", $result->getFailures()[$fnId]);
     }
 
-    public function testNullStubDefaultIsSkipped(): void
+    public function testNullStubDefaultIsCompared(): void
     {
         $fnId = '\\func';
         $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)];   // reflection: 42
-        $stubParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: null, optional: true)]; // stub: null (unevaluable or actual null)
+        $stubParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: null, optional: true)]; // stub: null
 
         $reflFunc = $this->createMockFunction($fnId, $reflParams);
         $stubFunc = $this->createMockFunction($fnId, $stubParams);
+
+        $provider = $this->createMockReflectionProvider([$reflFunc], []);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getFunctions')->willReturn([$stubFunc]);
+
+        $result = (new FunctionParameterDefaultValueCheck($provider))->run($stubs, $fnId, PhpVersions::LATEST->value);
+
+        $this->assertTrue($result->hasFailures());
+    }
+
+    public function testUnresolvedStubDefaultIsSkipped(): void
+    {
+        $fnId = '\\func';
+        $reflParams = [$this->makeParam('x', hasDefaultValue: true, defaultValue: 42, optional: true)]; // reflection: 42
+        $stubParam = $this->makeParam('x', hasDefaultValue: true, optional: true);
+        $stubParam->setDefaultValueResolved(false); // stub default could not be evaluated
+
+        $reflFunc = $this->createMockFunction($fnId, $reflParams);
+        $stubFunc = $this->createMockFunction($fnId, [$stubParam]);
 
         $provider = $this->createMockReflectionProvider([$reflFunc], []);
         $stubs = $this->createMockStorageManager();

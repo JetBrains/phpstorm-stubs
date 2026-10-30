@@ -71,7 +71,12 @@ class StubPropertyParser
             // An expression that cannot be statically evaluated (an unresolvable constant,
             // say) leaves the value null while hasDefaultValue stays true, rather than
             // failing the whole parse over one property.
-            $property->setDefaultValue($this->evaluateDefaultOrNull($node));
+            try {
+                $property->setDefaultValue($node->getDefaultValue());
+            } catch (\RuntimeException) {
+                $property->setDefaultValue(null);
+                $property->setDefaultValueResolved(false);
+            }
         }
 
         // Parse PhpDoc using injected parser
@@ -114,18 +119,5 @@ class StubPropertyParser
         }
 
         return $property;
-    }
-
-    /**
-     * Evaluates the node's default value, yielding null when the expression is not
-     * statically evaluable.
-     */
-    private function evaluateDefaultOrNull(PropertyNode $node): mixed
-    {
-        try {
-            return $node->getDefaultValue();
-        } catch (\RuntimeException) {
-            return null;
-        }
     }
 }

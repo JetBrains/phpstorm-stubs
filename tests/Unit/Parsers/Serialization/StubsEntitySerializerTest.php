@@ -771,6 +771,44 @@ class StubsEntitySerializerTest extends TestCase
         self::assertSame('8.4', $restored->getStubsMetadata()?->getDeprecatedSinceVersion());
     }
 
+    public function testUnresolvedDefaultValuesSurviveARoundtrip(): void
+    {
+        $unresolvedParameter = new PHPParameter('unresolved');
+        $unresolvedParameter->setHasDefaultValue(true);
+        $unresolvedParameter->setDefaultValueResolved(false);
+        $resolvedParameter = new PHPParameter('resolved');
+        $resolvedParameter->setHasDefaultValue(true);
+        $resolvedParameter->setDefaultValue(0);
+
+        $method = new PHPMethod();
+        $method->setName('testMethod');
+        $method->setAccess(AccessModifier::PUBLIC);
+        $method->setParameters([$unresolvedParameter, $resolvedParameter]);
+
+        $property = new PHPProperty();
+        $property->setName('unresolvedProperty');
+        $property->setAccess(AccessModifier::PUBLIC);
+        $property->setDefaultValue(null);
+        $property->setDefaultValueResolved(false);
+
+        $class = new PHPClass();
+        $class->setName('TestClass');
+        $class->setId('\\TestClass');
+        $class->addMethod($method);
+        $class->addProperty($property);
+
+        $result = $this->serializer->serialize($class);
+        self::assertFalse($result['methods'][0]['parameters'][0]['defaultValueResolved']);
+        self::assertArrayNotHasKey('defaultValueResolved', $result['methods'][0]['parameters'][1]);
+        self::assertFalse($result['properties'][0]['defaultValueResolved']);
+
+        $restored = $this->serializer->deserialize($result);
+        $restoredParameters = $restored->getMethods()[0]->getParameters();
+        self::assertFalse($restoredParameters[0]->isDefaultValueResolved());
+        self::assertTrue($restoredParameters[1]->isDefaultValueResolved());
+        self::assertFalse($restored->getProperties()[0]->isDefaultValueResolved());
+    }
+
     public function testMethodAndParameterDeprecatedSinceVersionSurviveARoundtrip(): void
     {
         $parameter = new PHPParameter('deprecatedParam');
