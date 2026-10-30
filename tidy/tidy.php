@@ -14,8 +14,8 @@ class tidy
     /**
      * @var string|null  The last warnings and errors from TidyLib
      */
-    public ?string $errorBuffer;
-    public ?string $value;
+    public ?string $errorBuffer = null;
+    public ?string $value = null;
 
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
