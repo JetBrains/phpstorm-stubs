@@ -56,6 +56,15 @@ class ClassPropertiesDefaultValueCheckTest extends CheckTestCase
         $this->assertStringContainsString('to null in stubs', $message);
     }
 
+    public function testDifferentArrayDefaultsShowBothValues(): void
+    {
+        $result = $this->runCheck($this->propertyWithDefault('errors', []), $this->propertyWithDefault('errors', ['code' => 1, 'list' => ['a']]));
+
+        $message = $result->getFailures()[self::CLASS_NAME . '::$errors'];
+        $this->assertStringContainsString('defaults to [] in PHP', $message);
+        $this->assertStringContainsString("to ['code' => 1, 'list' => ['a']] in stubs", $message);
+    }
+
     public function testMissingStubDefaultIsFailure(): void
     {
         $result = $this->runCheck($this->propertyWithDefault('value', null), $this->makeProperty('value'));

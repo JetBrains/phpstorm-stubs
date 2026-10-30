@@ -79,7 +79,12 @@ final class ParameterDefaultValueComparator
             return "'{$value}'";
         }
         if (is_array($value)) {
-            return '[]';
+            $isList = array_is_list($value);
+            $items = [];
+            foreach ($value as $key => $item) {
+                $items[] = $isList ? self::formatValue($item) : self::formatValue($key) . ' => ' . self::formatValue($item);
+            }
+            return '[' . implode(', ', $items) . ']';
         }
         return (string)$value;
     }
