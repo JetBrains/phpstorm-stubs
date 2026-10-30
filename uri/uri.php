@@ -439,13 +439,13 @@ namespace Uri\Rfc3986 {
      */
     final class UriBuilder
     {
-        private ?string $scheme;
-        private ?string $userinfo;
-        private ?string $host;
-        private ?int $port;
-        private string $path;
-        private ?string $query;
-        private ?string $fragment;
+        private ?string $scheme = null;
+        private ?string $userinfo = null;
+        private ?string $host = null;
+        private ?int $port = null;
+        private string $path = '';
+        private ?string $query = null;
+        private ?string $fragment = null;
 
         public function reset(): static {}
 
