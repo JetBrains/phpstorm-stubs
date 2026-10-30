@@ -35,22 +35,6 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
                 reason: 'dba_fetch has 2 overloaded signatures: dba_fetch($key, $handle) (2 params) and dba_fetch($key, $skip, $dba) (3 params, deprecated in 8.3). Reflection only returns one signature.'
             ),
-            new ProblemDefinition(
-                entityType: EntityType::FUNCTION,
-                entityId: '\\dba_open',
-                type: ProblemType::OVERLOADED_SIGNATURE,
-                affectedChecks: [CheckType::PARAMETER_NAMES, CheckType::PARAMETER_TYPES],
-                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
-                reason: 'dba_open has 2 overloaded signatures with different parameter counts'
-            ),
-            new ProblemDefinition(
-                entityType: EntityType::FUNCTION,
-                entityId: '\\dba_popen',
-                type: ProblemType::OVERLOADED_SIGNATURE,
-                affectedChecks: [CheckType::PARAMETER_NAMES, CheckType::PARAMETER_TYPES],
-                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
-                reason: 'dba_popen has 2 overloaded signatures with different parameter counts'
-            ),
 
             // String functions - overloaded signatures
             new ProblemDefinition(
@@ -98,16 +82,6 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 reason: 'setrawcookie has 2 overloaded signatures: multiple scalar params vs array options param'
             ),
 
-            // GD functions - overloaded signatures
-            new ProblemDefinition(
-                entityType: EntityType::FUNCTION,
-                entityId: '\\imagefilledpolygon',
-                type: ProblemType::OVERLOADED_SIGNATURE,
-                affectedChecks: [CheckType::PARAMETER_NAMES, CheckType::PARAMETER_TYPES],
-                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
-                reason: 'imagefilledpolygon has 2 overloaded signatures with different parameter structures'
-            ),
-
             // Stream functions - overloaded signatures
             new ProblemDefinition(
                 entityType: EntityType::FUNCTION,
@@ -116,36 +90,6 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 affectedChecks: [CheckType::PARAMETER_NAMES, CheckType::PARAMETER_TYPES],
                 versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
                 reason: 'stream_context_set_option has 2 overloaded signatures: array param vs individual scalar params'
-            ),
-
-            // Multibyte string functions - overloaded signatures
-            new ProblemDefinition(
-                entityType: EntityType::FUNCTION,
-                entityId: '\\mb_parse_str',
-                type: ProblemType::OVERLOADED_SIGNATURE,
-                affectedChecks: [CheckType::PARAMETER_NAMES, CheckType::PARAMETER_TYPES],
-                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
-                reason: 'mb_parse_str has 2 overloaded signatures with different parameter structures'
-            ),
-
-            // CUBRID database functions - overloaded signatures
-            new ProblemDefinition(
-                entityType: EntityType::FUNCTION,
-                entityId: '\\cubrid_execute',
-                type: ProblemType::OVERLOADED_SIGNATURE,
-                affectedChecks: [CheckType::PARAMETER_NAMES, CheckType::PARAMETER_TYPES],
-                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
-                reason: 'cubrid_execute has 2 overloaded signatures with different parameter structures'
-            ),
-
-            // Standard functions - overloaded signatures
-            new ProblemDefinition(
-                entityType: EntityType::FUNCTION,
-                entityId: '\\crypt',
-                type: ProblemType::OVERLOADED_SIGNATURE,
-                affectedChecks: [CheckType::PARAMETER_NAMES, CheckType::PARAMETER_TYPES],
-                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
-                reason: 'crypt has 2 overloaded signatures with different parameter structures'
             ),
 
             // SimpleXMLElement - ArrayAccess implemented at C level, not visible to reflection
@@ -186,16 +130,6 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 affectedChecks: [CheckType::CLASS_INTERFACES],
                 versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::PHP_5_6),
                 reason: 'Throwable was introduced in PHP 7.0. Stubs declare Exception implements Throwable for all versions, but PHP 5.6 reflection does not report it.'
-            ),
-
-            // GMP - Serializable implemented internally, never visible to reflection
-            new ProblemDefinition(
-                entityType: EntityType::CLASS_TYPE,
-                entityId: '\\GMP',
-                type: ProblemType::INTERNAL_IMPLEMENTATION,
-                affectedChecks: [CheckType::CLASS_INTERFACES],
-                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
-                reason: 'GMP implements Serializable at the C level. PHP reflection never reports Serializable for GMP across any version, but stubs declare it explicitly for serialization support in PhpStorm.'
             ),
 
             // ReflectionType - Stringable added in PHP 8.0; stubs declare it for all versions
@@ -755,16 +689,6 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 reason: 'session_set_save_handler has 2 overloaded signatures. Reflection reports most callable parameters as optional (since the 2-arg SessionHandlerInterface form omits them), but the 9-arg callable form requires them.'
             ),
 
-            // imagefilledpolygon - PHP 8.0 changed parameter order; reflection marks $color as optional
-            new ProblemDefinition(
-                entityType: EntityType::FUNCTION,
-                entityId: '\\imagefilledpolygon',
-                type: ProblemType::OVERLOADED_SIGNATURE,
-                affectedChecks: [CheckType::OPTIONAL_PARAMETERS],
-                versionRange: new PhpVersionRange(PhpVersions::PHP_8_0, PhpVersions::LATEST),
-                reason: 'imagefilledpolygon has 2 overloaded signatures in PHP 8.0+ (3-arg and 4-arg forms). Reflection marks $color as optional because the function can be called with 3 args. Stubs use separate version-specific definitions that cannot mark $color optional without breaking the 4-arg overload.'
-            ),
-
             // stream_context_set_option - overloaded signature; reflection marks $option_name/$value as optional
             new ProblemDefinition(
                 entityType: EntityType::FUNCTION,
@@ -773,26 +697,6 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 affectedChecks: [CheckType::OPTIONAL_PARAMETERS],
                 versionRange: new PhpVersionRange(PhpVersions::PHP_7_4, PhpVersions::LATEST),
                 reason: 'stream_context_set_option has 2 overloaded signatures: array-options form and individual scalar params form. Reflection marks $option_name and $value as optional since the function can be called with 2 args (context + options array). Stubs cannot express this without marking them optional in the 4-arg overload.'
-            ),
-
-            // implode - PHP 8.0+ $array is optional in the 1-arg BC form implode($array)
-            new ProblemDefinition(
-                entityType: EntityType::FUNCTION,
-                entityId: '\\implode',
-                type: ProblemType::OVERLOADED_SIGNATURE,
-                affectedChecks: [CheckType::OPTIONAL_PARAMETERS],
-                versionRange: new PhpVersionRange(PhpVersions::PHP_8_0, PhpVersions::LATEST),
-                reason: 'implode() accepts both implode($separator, $array) and the BC form implode($array). Reflection marks $array as optional. The stub uses array|string $separator to model both forms but cannot mark $array as truly optional without allowing a zero-argument call.'
-            ),
-
-            // join - alias of implode; same known problem
-            new ProblemDefinition(
-                entityType: EntityType::FUNCTION,
-                entityId: '\\join',
-                type: ProblemType::OVERLOADED_SIGNATURE,
-                affectedChecks: [CheckType::OPTIONAL_PARAMETERS],
-                versionRange: new PhpVersionRange(PhpVersions::PHP_8_0, PhpVersions::LATEST),
-                reason: 'join() is an alias of implode(). Same known problem: $array is optional in the 1-arg BC form, but the stub cannot express this without allowing a zero-argument call.'
             ),
 
             // hash_update_file - PHP 5.6-7.0 named the 3rd param "context" (same as 1st stub param); false-positive
@@ -993,16 +897,6 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 ],
             ),
 
-            // Normalizer::NONE - absent from PHP 8.0 reflection (ICU build gap)
-            new ProblemDefinition(
-                entityType: EntityType::CLASS_CONSTANT,
-                entityId: '\\Normalizer::NONE',
-                type: ProblemType::INTERNAL_IMPLEMENTATION,
-                affectedChecks: [CheckType::CLASS_CONSTANTS],
-                versionRange: new PhpVersionRange(PhpVersions::PHP_8_0, PhpVersions::PHP_8_0),
-                reason: 'Normalizer::NONE is absent from reflection in PHP 8.0 builds on this machine. This appears to be an ICU version gap specific to the PHP 8.0 build.',
-            ),
-
             // NumberFormatter - CURRENCY_ACCOUNTING requires ICU 53+ (not present in PHP 5.6-7.3 builds)
             new ProblemDefinition(
                 entityType: EntityType::CLASS_CONSTANT,
@@ -1050,20 +944,6 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 ],
             ),
 
-            // Spoofchecker - MIXED_NUMBERS and HIDDEN_OVERLAY have ICU-version-dependent values
-            new ProblemDefinition(
-                entityType: EntityType::CLASS_CONSTANT,
-                entityId: '\\Spoofchecker',
-                type: ProblemType::RUNTIME_VALUE,
-                affectedChecks: [CheckType::CLASS_CONSTANTS_VALUE],
-                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
-                reason: 'Spoofchecker::MIXED_NUMBERS and HIDDEN_OVERLAY map to ICU USpoofChecks flags whose values changed from 1/2 to 128/256 in ICU 75+, so they depend on the bundled ICU version and cannot be pinned in stubs.',
-                entityIds: [
-                    '\\Spoofchecker::MIXED_NUMBERS',
-                    '\\Spoofchecker::HIDDEN_OVERLAY',
-                ],
-            ),
-
             // ZipArchive - libzip-version-dependent constants absent from PHP 8.0-8.2 builds
             new ProblemDefinition(
                 entityType: EntityType::CLASS_CONSTANT,
@@ -1084,16 +964,6 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                     '\\ZipArchive::LENGTH_TO_END',
                     '\\ZipArchive::LENGTH_UNCHECKED',
                 ],
-            ),
-
-            // IntlCalendar - FIELD_FIELD_COUNT value is ICU-version-dependent
-            new ProblemDefinition(
-                entityType: EntityType::CLASS_CONSTANT,
-                entityId: '\\IntlCalendar::FIELD_FIELD_COUNT',
-                type: ProblemType::RUNTIME_VALUE,
-                affectedChecks: [CheckType::CLASS_CONSTANTS_VALUE],
-                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
-                reason: 'IntlCalendar::FIELD_FIELD_COUNT is the number of calendar fields, which grows as the bundled ICU library adds fields (e.g. 23 in older ICU, 24 in ICU 75+), so it depends on the ICU version and cannot be pinned in stubs.',
             ),
 
             // IntlChar - multiple constants have ICU-version-dependent values
@@ -1575,16 +1445,6 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 ],
             ),
 
-            // CHAR_MAX — system-dependent (signed vs unsigned char)
-            new ProblemDefinition(
-                entityType: EntityType::GLOBAL_CONSTANT,
-                entityId: '\\CHAR_MAX',
-                type: ProblemType::RUNTIME_VALUE,
-                affectedChecks: [CheckType::CONSTANT_VALUE],
-                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
-                reason: 'CHAR_MAX is 127 on systems with signed char and 255 on systems with unsigned char.',
-            ),
-
             // TRUE, FALSE, NULL - PHP language keywords reported as constants by runtime reflection
             new ProblemDefinition(
                 entityType: EntityType::GLOBAL_CONSTANT,
@@ -1725,20 +1585,6 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                     '\\SplFileObject::_bad_state_ex',
                     '\\SplTempFileObject::_bad_state_ex',
                 ],
-            ),
-
-            // ── FunctionParameterDefaultValueCheck known problems ─────────────────
-
-            // round() - PHP 8.4 changed $mode default from int PHP_ROUND_HALF_UP (0) to
-            // the pure enum RoundingMode::HalfAwayFromZero. Stubs cannot represent enum
-            // defaults in a version-aware way, so the stub keeps 0 for all versions.
-            new ProblemDefinition(
-                entityType: EntityType::FUNCTION,
-                entityId: '\\round',
-                type: ProblemType::RUNTIME_VALUE,
-                affectedChecks: [CheckType::PARAMETER_DEFAULT_VALUE],
-                versionRange: new PhpVersionRange(PhpVersions::LATEST, PhpVersions::LATEST),
-                reason: 'PHP 8.4 changed the $mode default from int 0 (PHP_ROUND_HALF_UP) to RoundingMode::HalfAwayFromZero (pure enum). Stubs have no version-aware default mechanism, so 0 is kept for all versions.'
             ),
 
             // ── PhpDocConformsSignatureCheck known problems ───────────────────────
