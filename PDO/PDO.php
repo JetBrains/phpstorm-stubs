@@ -23,7 +23,7 @@ namespace {
     {
         #[LanguageLevelTypeAware(['8.1' => 'array|null'], default: '')]
         public $errorInfo;
-        protected $code;
+        protected $code = 0;
     }
 
     /**
@@ -2386,6 +2386,11 @@ namespace Pdo {
     {
         public const int ATTR_DISABLE_PREPARES = 1000;
         public const int ATTR_RESULT_MEMORY_SIZE = 1001;
+
+        /**
+         * @since 8.6
+         */
+        public const int ATTR_CHUNK_SIZE = 1002;
 
         #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_IDLE = 0;
