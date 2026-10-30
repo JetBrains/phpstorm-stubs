@@ -22,14 +22,14 @@ final class mysqli_sql_exception extends RuntimeException
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    protected $sqlstate;
+    protected $sqlstate = '00000';
 
     /**
      * The error code
      *
      * @var int
      */
-    protected $code;
+    protected $code = 0;
 
     /**
      * Returns the SQLSTATE error code
@@ -83,7 +83,7 @@ final class mysqli_driver
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
-    public $report_mode;
+    public $report_mode = 0;
 }
 
 /**
