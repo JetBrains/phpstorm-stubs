@@ -8,6 +8,7 @@ use PhpParser\ParserFactory;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Model\PHPParameter;
+use StubTests\Framework\Model\PHPProperty;
 use StubTests\Framework\Parsers\Stubs\Adapters\Nikic\NikicParameterNode;
 use StubTests\Framework\Serialization\SerializerUtilsTrait;
 use StubTests\Framework\Parsers\Stubs\StubClassParser;
@@ -96,6 +97,44 @@ class StubConstantDefaultValueTest extends TestCase
 
         self::assertTrue(StubConstantRegistry::has('IntlPartsIterator::KEY_SEQUENTIAL'));
         self::assertSame(0, StubConstantRegistry::get('IntlPartsIterator::KEY_SEQUENTIAL'));
+    }
+
+    public function testPropertyDefaultResolvesFromConstantsRegisteredAfterTheProperty(): void
+    {
+        // A class's constants are registered after its properties are parsed, and a class declared
+        // later after that, so a property default only sees them if it is evaluated after parsing.
+        $classes = (new StubClassParser())->extractAndParseAll(<<<'PHP'
+            <?php
+            class NotLoadedConnection
+            {
+                public $isolation = \NotLoadedTransaction::READ_COMMITTED;
+                public $separator = \NotLoadedConnection::SEPARATOR;
+                public const SEPARATOR = ',';
+            }
+            class NotLoadedTransaction
+            {
+                public const READ_COMMITTED = 1;
+            }
+            PHP);
+
+        $properties = [];
+        foreach ($classes[0]->getProperties() as $property) {
+            $properties[$property->getName()] = $property;
+        }
+        // Asked before getDefaultValue(), so the flag has to trigger the deferred evaluation itself.
+        self::assertTrue($properties['isolation']->isDefaultValueResolved());
+        self::assertSame(1, $properties['isolation']->getDefaultValue());
+        self::assertSame(',', $properties['separator']->getDefaultValue());
+    }
+
+    public function testSetDefaultValueReplacesAPendingPropertyEvaluator(): void
+    {
+        $property = new PHPProperty();
+        $property->setDefaultValueEvaluator(fn () => throw new \RuntimeException('not evaluable'));
+        $property->setDefaultValue(5);
+
+        self::assertSame(5, $property->getDefaultValue());
+        self::assertTrue($property->isDefaultValueResolved());
     }
 
     public function testEnumCaseDefaultResolvesToReferenceWhenRuntimeCannot(): void

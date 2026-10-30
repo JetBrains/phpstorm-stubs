@@ -247,8 +247,9 @@ class StubPropertyParserTest extends BaseTestCase
     {
         $properties = $this->getDefaultValueProperties();
         self::assertTrue($properties['unresolvableDefault']->hasDefaultValue());
-        self::assertNull($properties['unresolvableDefault']->getDefaultValue());
+        // Asked before getDefaultValue(), so the flag has to trigger the deferred evaluation itself.
         self::assertFalse($properties['unresolvableDefault']->isDefaultValueResolved());
+        self::assertNull($properties['unresolvableDefault']->getDefaultValue());
         self::assertTrue($properties['explicitNullDefault']->isDefaultValueResolved());
     }
 

@@ -11,13 +11,12 @@ use StubTests\Framework\Model\Types\UnionType;
 
 class PHPProperty extends BasePHPElement
 {
+    use DeferredDefaultValueTrait;
     private ?AccessModifier $accessModifier = null;
     private bool $isStatic = false;
     private bool $isReadonly = false;
     private StandaloneType|UnionType|NullableType|NoType|IntersectionType|null $type = null;
-    private mixed $defaultValue = null;
     private bool $hasDefaultValue = false;
-    private bool $defaultValueResolved = true;
 
     public function getAccess(): ?AccessModifier
     {
@@ -59,15 +58,11 @@ class PHPProperty extends BasePHPElement
         return $this->type;
     }
 
-    public function getDefaultValue(): mixed
-    {
-        return $this->defaultValue;
-    }
-
     public function setDefaultValue(mixed $defaultValue): void
     {
         $this->defaultValue = $defaultValue;
         $this->hasDefaultValue = true;
+        $this->defaultValueEvaluator = null;
     }
 
     public function hasDefaultValue(): bool
@@ -78,19 +73,5 @@ class PHPProperty extends BasePHPElement
     public function setHasDefaultValue(bool $hasDefaultValue): void
     {
         $this->hasDefaultValue = $hasDefaultValue;
-    }
-
-    /**
-     * False when the property has a default that could not be evaluated, so the null
-     * getDefaultValue() returns does not mean the default is null.
-     */
-    public function isDefaultValueResolved(): bool
-    {
-        return $this->defaultValueResolved;
-    }
-
-    public function setDefaultValueResolved(bool $defaultValueResolved): void
-    {
-        $this->defaultValueResolved = $defaultValueResolved;
     }
 }
