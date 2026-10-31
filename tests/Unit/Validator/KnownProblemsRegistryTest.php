@@ -196,7 +196,6 @@ class KnownProblemsRegistryTest extends TestCase
         // Test a few known overloaded functions
         $knownFunctions = [
             '\\dba_fetch',
-            '\\dba_open',
             '\\strtr',
             '\\setcookie',
             '\\session_set_save_handler',

@@ -43,6 +43,7 @@
             <file>tests/StubsStructureValidatorTest.php</file>
             <file>tests/PhpVersionsSyncTest.php</file>
             <file>tests/KnownProblemsIntegrityTest.php</file>
+            <file>tests/KnownProblemsNecessityTest.php</file>
             <file>tests/StubsCacheIntegrityTest.php</file>
         </testsuite>
         <testsuite name="Unit">
