@@ -307,6 +307,7 @@ namespace {
      * @link https://php.net/manual/en/function.bcdivmod.php
      * @return string[] Returns an indexed array where the first element is the quotient as a string
      * and the second element is the remainder as a string.
+     * @since 8.4
      */
     function bcdivmod(string $num1, string $num2, ?int $scale = null): array {}
 }

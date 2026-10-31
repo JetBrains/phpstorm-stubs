@@ -42,6 +42,9 @@ function token_get_all(string $code, #[PhpStormStubsElementAvailable(from: '7.0'
 #[Pure]
 function token_name(int $id): string {}
 
+/**
+ * @since 7.0
+ */
 define('TOKEN_PARSE', 1);
 define('T_REQUIRE_ONCE', 276);
 define('T_REQUIRE', 275);
@@ -54,6 +57,9 @@ define('T_LOGICAL_AND', 279);
 define('T_PRINT', 280);
 define('T_YIELD', 281);
 define('T_DOUBLE_ARROW', 391);
+/**
+ * @since 7.0
+ */
 define('T_YIELD_FROM', 282);
 define('T_POW_EQUAL', 407);
 define('T_SR_EQUAL', 366);
@@ -71,9 +77,15 @@ define('T_PLUS_EQUAL', 356);
  * @since 7.4
  */
 define('T_COALESCE_EQUAL', 367);
+/**
+ * @since 7.0
+ */
 define('T_COALESCE', 405);
 define('T_BOOLEAN_OR', 368);
 define('T_BOOLEAN_AND', 369);
+/**
+ * @since 7.0
+ */
 define('T_SPACESHIP', 376);
 define('T_IS_NOT_IDENTICAL', 373);
 define('T_IS_IDENTICAL', 372);
@@ -131,6 +143,9 @@ define('T_SWITCH', 302);
 define('T_ENDSWITCH', 303);
 define('T_CASE', 304);
 define('T_DEFAULT', 305);
+/**
+ * @since 8.0
+ */
 define('T_MATCH', 306);
 define('T_BREAK', 307);
 define('T_CONTINUE', 308);
@@ -251,5 +266,11 @@ define('T_PROTECTED_SET', 328);
  * @since 8.4
  */
 define('T_PUBLIC_SET', 329);
+/**
+ * @since 8.5
+ */
 define('T_PIPE', 408);
+/**
+ * @since 8.5
+ */
 define('T_VOID_CAST', 388);

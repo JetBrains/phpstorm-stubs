@@ -394,6 +394,7 @@ function preg_replace_callback(
  * @param int $flags [optional]
  * @return string|string[]|null  <p>preg_replace_callback_array() returns an array if the subject parameter is an array, or a string otherwise. On errors the return value is NULL</p>
  * <p>If matches are found, the new subject will be returned, otherwise subject will be returned unchanged.</p>
+ * @since 7.0
  */
 function preg_replace_callback_array(
     array $pattern,
