@@ -289,6 +289,9 @@ define('PATHINFO_EXTENSION', 4);
  * @link https://php.net/manual/en/filesystem.constants.php
  */
 define('PATHINFO_FILENAME', 8);
+/**
+ * @since 8.0
+ */
 define('PATHINFO_ALL', 15);
 define('CHAR_MAX', 127);
 define('LC_CTYPE', 0);
@@ -847,6 +850,9 @@ define('ASSERT_WARNING', 4);
  * @removed 8.0
  */
 define('ASSERT_QUIET_EVAL', 5);
+/**
+ * @since 7.0
+ */
 define('ASSERT_EXCEPTION', 5);
 
 /**
@@ -855,6 +861,10 @@ define('ASSERT_EXCEPTION', 5);
  */
 define('STREAM_USE_PATH', 1);
 define('STREAM_IGNORE_URL', 2);
+
+/**
+ * @removed 5.4
+ */
 define('STREAM_ENFORCE_SAFE_MODE', 4);
 
 /**
@@ -1028,7 +1038,13 @@ define('IMAGETYPE_COUNT', 22);
  * @since 8.1
  */
 define('IMAGETYPE_AVIF', 19);
+/**
+ * @since 8.5
+ */
 define('IMAGETYPE_HEIF', 20);
+/**
+ * @since 8.5
+ */
 define('IMAGETYPE_SVG', 21);
 /**
  * IPv4 Address Resource
@@ -1036,6 +1052,9 @@ define('IMAGETYPE_SVG', 21);
  */
 define('DNS_A', 1);
 
+/**
+ * @since 7.0
+ */
 define('DNS_CAA', 8192);
 
 /**
@@ -1254,9 +1273,21 @@ define("STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT", 65);
  */
 define("STREAM_CRYPTO_METHOD_TLSv1_3_SERVER", 64);
 
+/**
+ * @since 7.3
+ */
 define("STREAM_CRYPTO_PROTO_SSLv3", 4);
+/**
+ * @since 7.3
+ */
 define("STREAM_CRYPTO_PROTO_TLSv1_0", 8);
+/**
+ * @since 7.3
+ */
 define("STREAM_CRYPTO_PROTO_TLSv1_1", 16);
+/**
+ * @since 7.3
+ */
 define("STREAM_CRYPTO_PROTO_TLSv1_2", 32);
 /**
  * @since 7.4

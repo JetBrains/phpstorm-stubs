@@ -266,6 +266,7 @@ function socket_create(int $domain, int $type, int $protocol): Socket|false {}
  * @link https://php.net/manual/en/function.socket-export-stream.php
  * @param resource|Socket $socket
  * @return resource|Socket|false
+ * @since 7.0
  */
 function socket_export_stream(Socket $socket) {}
 
@@ -1475,8 +1476,17 @@ define('SO_RCVTIMEO', 20);
 define('SO_TYPE', 3);
 define('SO_ERROR', 4);
 define('SO_BINDTODEVICE', 25);
+/**
+ * @since 8.3
+ */
 define('SO_ATTACH_REUSEPORT_CBPF', 51);
+/**
+ * @since 8.3
+ */
 define('SO_DETACH_FILTER', 27);
+/**
+ * @since 8.3
+ */
 define('SO_DETACH_BPF', 27);
 /**
  * @since 8.6
@@ -1484,6 +1494,9 @@ define('SO_DETACH_BPF', 27);
 define('SO_DETACH_REUSEPORT_BPF', 68);
 
 define('SOL_SOCKET', 1);
+/**
+ * @since 8.3
+ */
 define('SOL_UDPLITE', 136);
 define('SOMAXCONN', 128);
 /**
@@ -1581,14 +1594,41 @@ define('IPV6_MULTICAST_HOPS', 18);
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('IPV6_MULTICAST_LOOP', 19);
+/**
+ * @since 7.0
+ */
 define('IPV6_V6ONLY', 26);
+/**
+ * @since 8.3
+ */
 define('IP_BIND_ADDRESS_NO_PORT', 24);
+/**
+ * @since 8.3
+ */
 define('IP_MTU_DISCOVER', 10);
+/**
+ * @since 8.3
+ */
 define('IP_PMTUDISC_DO', 2);
+/**
+ * @since 8.3
+ */
 define('IP_PMTUDISC_DONT', 0);
+/**
+ * @since 8.3
+ */
 define('IP_PMTUDISC_WANT', 1);
+/**
+ * @since 8.3
+ */
 define('IP_PMTUDISC_PROBE', 3);
+/**
+ * @since 8.3
+ */
 define('IP_PMTUDISC_INTERFACE', 4);
+/**
+ * @since 8.3
+ */
 define('IP_PMTUDISC_OMIT', 5);
 
 /**
@@ -2213,12 +2253,33 @@ define('SOCKET_NO_RECOVERY', 11003);
 define('SOCKET_NO_DATA', 11004);
 define('SOCKET_NO_ADDRESS', 11004);
 
+/**
+ * @since 7.2
+ */
 define('AI_PASSIVE', 1);
+/**
+ * @since 7.2
+ */
 define('AI_CANONNAME', 2);
+/**
+ * @since 7.2
+ */
 define('AI_NUMERICHOST', 4);
+/**
+ * @since 7.2
+ */
 define('AI_ADDRCONFIG', 32);
+/**
+ * @since 7.2
+ */
 define('AI_NUMERICSERV', 1024);
+/**
+ * @since 7.2
+ */
 define('AI_V4MAPPED', 8);
+/**
+ * @since 7.2
+ */
 define('AI_ALL', 16);
 
 /**
@@ -2408,26 +2469,59 @@ define('SO_BINDTOIFINDEX', 62);
  */
 const AF_PACKET = 17;
 
+/**
+ * @since 8.5
+ */
 const SO_BUSY_POLL = 46;
 
+/**
+ * @since 8.5
+ */
 const IPPROTO_ICMP = 1;
 
+/**
+ * @since 8.5
+ */
 const IPPROTO_ICMPV6 = 58;
 
+/**
+ * @since 8.5
+ */
 const ETH_P_IP = 2048;
 
+/**
+ * @since 8.5
+ */
 const ETH_P_IPV6 = 34525;
 
+/**
+ * @since 8.5
+ */
 const ETH_P_LOOP = 96;
 
+/**
+ * @since 8.5
+ */
 const ETH_P_ALL = 3;
 
+/**
+ * @since 8.5
+ */
 const UDP_SEGMENT = 103;
 
+/**
+ * @since 8.5
+ */
 const SHUT_RD = 0;
 
+/**
+ * @since 8.5
+ */
 const SHUT_WR = 1;
 
+/**
+ * @since 8.5
+ */
 const SHUT_RDWR = 2;
 
 /**

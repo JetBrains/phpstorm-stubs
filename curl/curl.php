@@ -92,6 +92,7 @@ class CURLFile
      * Unserialization handler
      * @link https://php-legacy-docs.zend.com/manual/php5/en/curlfile.wakeup
      * @since 5.5
+     * @removed 7.4
      */
     public function __wakeup() {}
 }

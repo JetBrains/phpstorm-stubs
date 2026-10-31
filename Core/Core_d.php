@@ -214,6 +214,10 @@ define('SUHOSIN_PATCH', 1);
 define('SUHOSIN_PATCH_VERSION', "0.9.10");
 define('PHP_MAXPATHLEN', 4096);
 define('PHP_INT_MAX', 9223372036854775807);
+
+/**
+ * @since 7.0
+ */
 define('PHP_INT_MIN', -9223372036854775808);
 define('PHP_INT_SIZE', 8);
 /**
@@ -237,7 +241,12 @@ define('PHP_FLOAT_MAX', 1.7976931348623e+308);
  * @since 7.2
  */
 define('PHP_FLOAT_MIN', 2.2250738585072e-308);
+
+/**
+ * @removed 5.4
+ */
 define('ZEND_MULTIBYTE', 0);
+
 define('PHP_OUTPUT_HANDLER_START', 1);
 define('PHP_OUTPUT_HANDLER_CONT', 0);
 define('PHP_OUTPUT_HANDLER_END', 8);
@@ -253,6 +262,9 @@ define('STDIN', fopen('php://stdin', 'r'));
 define('STDOUT', fopen('php://stdout', 'w'));
 define('STDERR', fopen('php://stderr', 'w'));
 
+/**
+ * @since 7.1
+ */
 define('PHP_FD_SETSIZE', 1024);
 
 /** @link https://php.net/manual/en/outcontrol.constants.php */
@@ -288,5 +300,12 @@ const PHP_SBINDIR = '/usr/local/sbin', PHP_OUTPUT_HANDLER_PROCESSED = 16384;
  */
 define('PHP_MANDIR', '/usr/local/php/php/man');
 
+/**
+ * @since 8.5
+ */
 define('PHP_BUILD_DATE', 'Jun 10 2026 20:55:34');
+
+/**
+ * @since 8.5
+ */
 define('PHP_BUILD_PROVIDER', 'https://github.com/docker-library/php');

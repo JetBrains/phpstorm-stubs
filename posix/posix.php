@@ -843,11 +843,13 @@ define('POSIX_S_IFSOCK', 49152);
 /**
  * The maximum size of the process's address space in bytes. See also PHP's memory_limit configuration directive.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_AS', 5);
 /**
  * The maximum size of a core file. If the limit is set to 0, no core file will be generated.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_CORE', 4);
 
@@ -857,6 +859,7 @@ define('POSIX_RLIMIT_CORE', 4);
  * Depending on the operating system, additional SIGXCPU signals may be sent each second until the hard limit is hit,
  * at which point an uncatchable SIGKILL signal is sent. See also set_time_limit().
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_CPU', 0);
 
@@ -865,12 +868,14 @@ define('POSIX_RLIMIT_CPU', 0);
  * It is extremely unlikely that this will have any effect on
  * the execution of PHP unless an extension is in use that calls brk() or sbrk().
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_DATA', 2);
 
 /**
  * The maximum size of files that the process can create, in bytes.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_FSIZE', 1);
 
@@ -878,6 +883,7 @@ define('POSIX_RLIMIT_FSIZE', 1);
  * The maximum number of locks that the process can create.
  * This is only supported on extremely old Linux kernels.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_LOCKS', 10);
 
@@ -886,18 +892,21 @@ define('POSIX_RLIMIT_LOCKS', 10);
  * PHP does not ship with support for POSIX message queues,
  * so this limit will not have any effect unless you are using an extension that implements that support.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_MSGQUEUE', 12);
 
 /**
  * The maximum value to which the process can be <a href="https://php.net/manual/en/function.pcntl-setpriority.php"> reniced</a> to. The value that will be used will be 20 - limit, as resource limit values cannot be negative.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_NICE', 13);
 
 /**
  * The maximum real time priority that can be set via the sched_setscheduler() and sched_setparam() system calls.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_RTPRIO', 14);
 
@@ -905,24 +914,28 @@ define('POSIX_RLIMIT_RTPRIO', 14);
  * The maximum amount of CPU time, in microseconds,
  * that the process can consume without making a blocking system call if it is using real time scheduling.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_RTTIME', 15);
 
 /**
  * The maximum number of signals that can be queued for the real user ID of the process.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_SIGPENDING', 11);
 
 /**
  * The maximum number of bytes that can be locked into memory.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_MEMLOCK', 6);
 
 /**
  * A value one greater than the maximum file descriptor number that can be opened by this process.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_NOFILE', 8);
 
@@ -930,41 +943,90 @@ define('POSIX_RLIMIT_NOFILE', 8);
  * The maximum number of processes (and/or threads, on some operating systems)
  * that can be created for the real user ID of the process.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_NPROC', 7);
 
 /**
  * The maximum size of the process's resident set, in pages.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_RSS', 5);
 
 /**
  * The maximum size of the process stack, in bytes.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_STACK', 3);
 
 /**
  * Used to indicate an infinite value for a resource limit.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @since 7.0
  */
 define('POSIX_RLIMIT_INFINITY', 9223372036854775807);
 
+/**
+ * @since 8.3
+ */
 define('POSIX_SC_ARG_MAX', 0);
+/**
+ * @since 8.3
+ */
 define('POSIX_SC_PAGESIZE', 30);
+/**
+ * @since 8.3
+ */
 define('POSIX_SC_NPROCESSORS_CONF', 83);
+/**
+ * @since 8.3
+ */
 define('POSIX_SC_NPROCESSORS_ONLN', 84);
+/**
+ * @since 8.3
+ */
 define('POSIX_PC_LINK_MAX', 0);
+/**
+ * @since 8.3
+ */
 define('POSIX_PC_MAX_CANON', 1);
+/**
+ * @since 8.3
+ */
 define('POSIX_PC_MAX_INPUT', 2);
+/**
+ * @since 8.3
+ */
 define('POSIX_PC_NAME_MAX', 3);
+/**
+ * @since 8.3
+ */
 define('POSIX_PC_PATH_MAX', 4);
+/**
+ * @since 8.3
+ */
 define('POSIX_PC_PIPE_BUF', 5);
+/**
+ * @since 8.3
+ */
 define('POSIX_PC_CHOWN_RESTRICTED', 6);
+/**
+ * @since 8.3
+ */
 define('POSIX_PC_NO_TRUNC', 7);
+/**
+ * @since 8.3
+ */
 define('POSIX_PC_ALLOC_SIZE_MIN', 18);
+/**
+ * @since 8.3
+ */
 define('POSIX_PC_SYMLINK_MAX', 19);
+/**
+ * @since 8.5
+ */
 define('POSIX_SC_OPEN_MAX', 4);
 /**
  * @since 8.4

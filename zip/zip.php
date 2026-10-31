@@ -1363,6 +1363,7 @@ class ZipArchive implements Countable
      * If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged stream is returned.
      * </p>
      * @return resource|false a file pointer (resource) on success or <b>FALSE</b> on failure.
+     * @since 8.2
      */
     public function getStreamIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
@@ -1445,6 +1446,7 @@ class ZipArchive implements Countable
      * @link https://php.net/manual/en/ziparchive.isencryptionmethoddupported.php
      * @param int $method The encryption method, one of the ZipArchive::EM_* constants.
      * @param bool $enc If true check for encryption, else check for decryption.
+     * @since 8.0
      */
     #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public static function isEncryptionMethodSupported(
@@ -1457,6 +1459,7 @@ class ZipArchive implements Countable
      * @link https://php.net/manual/en/ziparchive.iscompressionmethoddupported.php
      * @param int $method The compression method, one of the ZipArchive::CM_* constants.
      * @param bool $enc If true check for compression, else check for decompression.
+     * @since 8.0
      */
     #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public static function isCompressionMethodSupported(
@@ -1473,6 +1476,7 @@ class ZipArchive implements Countable
      * @param callable $callback If this function return 0 operation will continue, other value it
      * will be cancelled.
      * @return bool Returns true on success or false on failure.
+     * @since 8.0
      */
     #[TentativeType]
     public function registerCancelCallback(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
@@ -1487,6 +1491,7 @@ class ZipArchive implements Countable
      * @param callable $callback This function will receive the current state as a float (from 0.0
      * to 1.0).
      * @return bool Returns true on success or false on failure.
+     * @since 8.0
      */
     #[TentativeType]
     public function registerProgressCallback(
@@ -1501,6 +1506,7 @@ class ZipArchive implements Countable
      * @param int $timestamp The modification time (unix timestamp) of the file.
      * @param int $flags Optional flags, unused for now.
      * @return bool Returns true on success or false on failure.
+     * @since 8.0
      */
     #[TentativeType]
     public function setMtimeName(
@@ -1516,6 +1522,7 @@ class ZipArchive implements Countable
      * @param int $timestamp The modification time (unix timestamp) of the file.
      * @param int $flags Optional flags, unused for now.
      * @return bool Returns true on success or false on failure.
+     * @since 8.0
      */
     #[TentativeType]
     public function setMtimeIndex(
@@ -1537,6 +1544,7 @@ class ZipArchive implements Countable
      * ZipArchive::FL_ENC_CP437, ZipArchive::FL_OPEN_FILE_NOW. The behaviour of these constants is
      * described on the ZIP constants page.
      * @return bool Returns true on success or false on failure.
+     * @since 8.0
      */
     #[TentativeType]
     public function replaceFile(
@@ -1550,6 +1558,7 @@ class ZipArchive implements Countable
     /**
      * Clear the status error message, system and/or zip messages
      * @link https://php.net/manual/en/ziparchive.clearerror.php
+     * @since 8.2
      */
     #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
     public function clearError() {}
@@ -1561,6 +1570,7 @@ class ZipArchive implements Countable
      * ZipArchive::AFL_WANT_TORRENTZIP ZipArchive::AFL_CREATE_OR_KEEP_FILE_FOR_EMPTY_ARCHIVE
      * @param int $value The new value of the flag.
      * @return bool Returns true on success or false on failure.
+     * @since 8.3
      */
     #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public function setArchiveFlag(
@@ -1580,6 +1590,7 @@ class ZipArchive implements Countable
      * @param int $flags If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged flag is
      * returned.
      * @return int Returns 1 if flag is set for archive, 0 if not, and -1 if an error occurred.
+     * @since 8.3
      */
     #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
     public function getArchiveFlag(
@@ -1598,6 +1609,7 @@ class ZipArchive implements Countable
      * @param int $flags If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged stream
      * is returned.
      * @return void Returns a file pointer (resource) on success or false on failure.
+     * @since 8.2
      */
     public function getStreamName(
         #[LanguageLevelTypeAware(['8.2' => 'string'], default: '')] $name,

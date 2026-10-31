@@ -1294,6 +1294,7 @@ function openssl_get_cert_locations(): array {}
  *
  * @link https://php.net/manual/en/function.openssl-get-curve-names.php
  * @return array|false An array of available curve names, or false on failure.
+ * @since 7.1
  */
 function openssl_get_curve_names(): array|false {}
 
@@ -1563,6 +1564,9 @@ define('OPENSSL_CIPHER_AES_192_CBC', 6);
 define('OPENSSL_CIPHER_AES_256_CBC', 7);
 define('OPENSSL_RAW_DATA', 1);
 define('OPENSSL_ZERO_PADDING', 2);
+/**
+ * @since 7.1
+ */
 define('OPENSSL_DONT_ZERO_PAD_KEY', 4);
 
 /**
@@ -1623,11 +1627,29 @@ define('OPENSSL_DEFAULT_STREAM_CIPHERS', "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDS
  */
 define('OPENSSL_CMS_OLDMIMETYPE', 1024);
 
+/**
+ * @since 8.5
+ */
 define('PKCS7_NOSMIMECAP', 512);
+/**
+ * @since 8.5
+ */
 define('PKCS7_CRLFEOL', 2048);
+/**
+ * @since 8.5
+ */
 define('PKCS7_NOCRL', 8192);
+/**
+ * @since 8.5
+ */
 define('PKCS7_NO_DUAL_CONTENT', 65536);
+/**
+ * @since 8.5
+ */
 define('OPENSSL_PKCS1_PSS_PADDING', 6);
+/**
+ * @since 8.5
+ */
 define('CURLOPT_INFILESIZE_LARGE', 30115);
 /**
  * A fully opaque class which replaces OpenSSL X.509 resources as of PHP 8.0.0.

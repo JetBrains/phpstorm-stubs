@@ -491,6 +491,7 @@ final class HashContext
      * Serializes the HashContext object
      * @link https://php.net/manual/en/hashcontext.serialize.php
      * @return array
+     * @since 8.0
      */
     public function __serialize(): array {}
 
@@ -498,6 +499,7 @@ final class HashContext
      * Deserializes the data parameter into a HashContext object
      * @link https://php.net/manual/en/hashcontext.unserialize.php
      * @param array $data The value being deserialized.
+     * @since 8.0
      */
     public function __unserialize(#[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $data): void {}
 
