@@ -190,7 +190,7 @@ define('PHP_SAPI', "cli");
 /**
  * @since 7.4
  */
-define('PHP_CLI_PROCESS_TITLE', 1);
+define('PHP_CLI_PROCESS_TITLE', true);
 define('DEFAULT_INCLUDE_PATH', ".:/usr/share/php:/usr/share/pear");
 define('PEAR_INSTALL_DIR', "/usr/share/php");
 define('PEAR_EXTENSION_DIR', "/usr/lib/php5/20090626");
