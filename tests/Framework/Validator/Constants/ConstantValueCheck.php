@@ -10,6 +10,7 @@ use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblemsRegistry;
+use StubTests\Framework\Validator\Services\ConstantValueComparator;
 use StubTests\Framework\Validator\Services\EntityLookupService;
 
 /**
@@ -25,7 +26,7 @@ use StubTests\Framework\Validator\Services\EntityLookupService;
  * 4. If not found in either, silently succeeds — ConstantExistsCheck handles existence.
  * 5. Skips if either value is null (complex/dynamic expressions cannot be compared).
  * 6. Skips resource values stored as 'PHPSTORM_RESOURCE' by the reflection parser.
- * 7. Reports a failure if the string representations of the values differ.
+ * 7. Reports a failure if the values or their types differ (see ConstantValueComparator).
  *
  * Known problems are supported via EntityType::GLOBAL_CONSTANT + constantId + 'ConstantValueCheck'.
  */
@@ -88,11 +89,9 @@ class ConstantValueCheck extends AbstractReflectionCheck
             return $results;
         }
 
-        if ((string)$reflConstant->getValue() !== (string)$stubConstant->getValue()) {
-            $results->addFailure(
-                $entityId,
-                "Constant {$entityId} value mismatch: reflection='{$reflConstant->getValue()}', stub='{$stubConstant->getValue()}'"
-            );
+        $mismatch = ConstantValueComparator::describeMismatch($reflConstant->getValue(), $stubConstant->getValue());
+        if ($mismatch !== null) {
+            $results->addFailure($entityId, "Constant {$entityId} value mismatch: {$mismatch}");
             return $results;
         }
 

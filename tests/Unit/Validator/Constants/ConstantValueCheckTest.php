@@ -120,6 +120,35 @@ class ConstantValueCheckTest extends CheckTestCase
 
     // ── Null values ───────────────────────────────────────────────────────────
 
+    /**
+     * The string forms match, but the types do not: `define('PKCS7_NOSMIMECAP', '512')` declared
+     * the int as a string, and PhpStorm infers the constant's type from the stub value.
+     */
+    public function testTypeMismatchFailsEvenWhenTheStringFormsMatch(): void
+    {
+        $constantId = '\\PKCS7_NOSMIMECAP';
+        $provider = $this->createMockReflectionProviderWithConstants([$this->makeGlobalConstant($constantId, 512)]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getConstants')->willReturn([$this->makeGlobalConstant($constantId, '512')]);
+
+        $result = (new ConstantValueCheck($provider))->run($stubs, $constantId, PhpVersions::LATEST->value);
+
+        $this->assertTrue($result->hasFailures());
+        $this->assertStringContainsString("reflection is int 512, stub is string '512'", $result->getFailures()[$constantId]);
+    }
+
+    public function testBoolDeclaredAsIntFails(): void
+    {
+        $constantId = '\\PCRE_JIT_SUPPORT';
+        $provider = $this->createMockReflectionProviderWithConstants([$this->makeGlobalConstant($constantId, true)]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getConstants')->willReturn([$this->makeGlobalConstant($constantId, 1)]);
+
+        $result = (new ConstantValueCheck($provider))->run($stubs, $constantId, PhpVersions::LATEST->value);
+
+        $this->assertTrue($result->hasFailures());
+    }
+
     public function testNullStubValueSkipsCheck(): void
     {
         $constantId = '\\SOME_CONSTANT';
