@@ -14,4 +14,5 @@ enum LookupKind: string
     case ENUM_TYPE = 'enum';
     case INTERFACE_TYPE = 'interface';
     case FUNCTION = 'function';
+    case CONSTANT = 'constant';
 }

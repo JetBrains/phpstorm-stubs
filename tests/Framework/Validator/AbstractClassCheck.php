@@ -25,8 +25,8 @@ use StubTests\Framework\Validator\Services\MethodCollectionService;
 abstract class AbstractClassCheck extends AbstractReflectionCheck
 {
     private const FUNCTION_LOOKUP_UNSUPPORTED = ' operates on class-like entities but was'
-        . ' configured with LookupKind::FUNCTION. Function checks must extend'
-        . ' AbstractReflectionCheck (see EntityExistsCheck), which handles all four kinds.';
+        . ' configured with LookupKind::FUNCTION or LookupKind::CONSTANT. Function and constant checks'
+        . ' must extend AbstractReflectionCheck (see EntityExistsCheck and StaleEntityCheck).';
     protected EntityLookupService $entityLookup;
     protected MethodCollectionService $methodCollection;
     protected ?EntityTypeConfig $entityTypeConfig;
@@ -56,7 +56,7 @@ abstract class AbstractClassCheck extends AbstractReflectionCheck
             LookupKind::ENUM_TYPE => $this->findEnumById($storage, $entityId),
             LookupKind::INTERFACE_TYPE => $this->findInterfaceById($storage, $entityId),
             LookupKind::CLASS_TYPE => $this->findClassById($storage, $entityId),
-            LookupKind::FUNCTION => $this->rejectFunctionLookupKind(),
+            LookupKind::FUNCTION, LookupKind::CONSTANT => $this->rejectFunctionLookupKind(),
         };
     }
 
@@ -72,7 +72,7 @@ abstract class AbstractClassCheck extends AbstractReflectionCheck
             LookupKind::ENUM_TYPE => $this->methodCollection->collectForEnum($entity, $phpVersion),
             LookupKind::INTERFACE_TYPE => $this->methodCollection->collectForInterface($entity, $phpVersion),
             LookupKind::CLASS_TYPE => $this->methodCollection->collectForClass($entity, $phpVersion),
-            LookupKind::FUNCTION => $this->rejectFunctionLookupKind(),
+            LookupKind::FUNCTION, LookupKind::CONSTANT => $this->rejectFunctionLookupKind(),
         };
     }
 
@@ -127,12 +127,12 @@ abstract class AbstractClassCheck extends AbstractReflectionCheck
     }
 
     /**
-     * Class-like checks cannot service LookupKind::FUNCTION: their lookups and method
-     * collection are typed against PHPClassLikeObject, which a function is not.
+     * Class-like checks cannot service LookupKind::FUNCTION or LookupKind::CONSTANT: their lookups
+     * and method collection are typed against PHPClassLikeObject, which neither is.
      *
-     * Reached only if a class-like check is registered with EntityTypeConfig::forFunction().
-     * Function checks belong on AbstractReflectionCheck (see EntityExistsCheck), which
-     * handles all four lookup kinds. Raised instead of letting the match fall through to a
+     * Reached only if a class-like check is registered with EntityTypeConfig::forFunction() or
+     * forConstant(). Function and constant checks belong on AbstractReflectionCheck (see
+     * EntityExistsCheck and StaleEntityCheck). Raised instead of letting the match fall through to a
      * bare UnhandledMatchError, which named neither the check nor the remedy.
      */
     private function rejectFunctionLookupKind(): never
