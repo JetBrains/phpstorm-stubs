@@ -635,5 +635,5 @@ define('PCRE_VERSION_MINOR', 42);
 /**
  * @since 7.3
  */
-define('PCRE_JIT_SUPPORT', 1);
+define('PCRE_JIT_SUPPORT', true);
 // End of pcre v.
