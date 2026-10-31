@@ -2131,8 +2131,6 @@ namespace {
      */
     #[Pure]
     function pdo_drivers(): array {}
-
-    function confirm_pdo_ibm_compiled() {}
 }
 
 namespace Pdo {

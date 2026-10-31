@@ -147,8 +147,12 @@ define('false', (bool)0, true);
 define('null', null, true);
 define('ZEND_THREAD_SAFE', false);
 define('ZEND_DEBUG_BUILD', false);
-define('ZEND_VM_KIND_HYBRID', 4);
-define('ZEND_VM_KIND', ZEND_VM_KIND_HYBRID);
+
+/**
+ * @since 8.5
+ */
+define('ZEND_VM_KIND', 'ZEND_VM_KIND_HYBRID');
+
 define('PHP_WINDOWS_VERSION_BUILD', 0);
 define('PHP_WINDOWS_VERSION_MAJOR', 0);
 define('PHP_WINDOWS_VERSION_MINOR', 0);
