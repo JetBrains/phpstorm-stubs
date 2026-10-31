@@ -1755,26 +1755,31 @@ define("LDAP_CONTROL_VLVRESPONSE", "2.16.840.1.113730.3.4.10");
 
 /**
  * Extended Operation constant - Modify password
+ * @since 7.2
  */
 define("LDAP_EXOP_MODIFY_PASSWD", "1.3.6.1.4.1.4203.1.11.1");
 
 /**
  * Extended Operation Constant - Refresh
+ * @since 7.2
  */
 define("LDAP_EXOP_REFRESH", "1.3.6.1.4.1.1466.101.119.1");
 
 /**
  * Extended Operation constant - Start TLS
+ * @since 7.2
  */
 define("LDAP_EXOP_START_TLS", "1.3.6.1.4.1.1466.20037");
 
 /**
  * Extended Operation Constant - Turn
+ * @since 7.2
  */
 define("LDAP_EXOP_TURN", "1.3.6.1.1.19");
 
 /**
  * Extended Operation Constant - WHOAMI
+ * @since 7.2
  */
 define("LDAP_EXOP_WHO_AM_I", "1.3.6.1.4.1.4203.1.11.3");
 

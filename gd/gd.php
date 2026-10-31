@@ -2459,6 +2459,7 @@ function imagebmp(GdImage $image, $file = null, bool $compressed = true): bool {
  * @link https://php.net/manual/en/function.imagecreatefromtga.php
  * @param string $filename Path to the Truevision TGA image.
  * @return resource|GdImage|false Returns an image object on success, false on errors.
+ * @since 7.4
  */
 function imagecreatefromtga(string $filename): GdImage|false {}
 
@@ -2493,6 +2494,7 @@ function imagegrabwindow($handle, $client_area = null) {}
  * @param GdImage $image A GdImage object, returned by one of the image creation functions, such as
  * imagecreatetruecolor.
  * @return int Returns the interpolation method.
+ * @since 8.0
  */
 #[Pure]
 function imagegetinterpolation(GdImage $image): int {}
@@ -3071,6 +3073,9 @@ define('IMG_WEIGHTED4', 21);
  */
 define('IMG_TRIANGLE', 20);
 
+/**
+ * @since 7.4
+ */
 define('IMG_TGA', 128);
 
 /**

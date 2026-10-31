@@ -498,7 +498,7 @@ class mysqli
      * @param int $port [optional]
      * @param string $socket [optional]
      *
-     * @removed 8.0
+     * @removed 7.0
      */
     public function mysqli($host = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
 
@@ -3348,16 +3348,19 @@ define('MYSQLI_CURSOR_TYPE_READ_ONLY', 1);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @removed 8.4
  */
 define('MYSQLI_CURSOR_TYPE_FOR_UPDATE', 2);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @removed 8.4
  */
 define('MYSQLI_CURSOR_TYPE_SCROLLABLE', 4);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @removed 8.4
  */
 define('MYSQLI_STMT_ATTR_PREFETCH_ROWS', 2);
 
@@ -3676,6 +3679,7 @@ define('MYSQLI_TYPE_CHAR', 1);
  * Field is defined as INTERVAL
  * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @removed 8.4
  */
 define('MYSQLI_TYPE_INTERVAL', 247);
 
@@ -3829,7 +3833,10 @@ define('MYSQLI_REFRESH_BACKUP_LOG', 2097152);
 
 /** @link https://php.net/manual/en/mysqli.constants.php */
 define('MYSQLI_OPT_SSL_VERIFY_SERVER_CERT', 21);
-/** @link https://php.net/manual/en/mysqli.constants.php */
+/**
+ * @link https://php.net/manual/en/mysqli.constants.php
+ * @removed 8.4
+ */
 define('MYSQLI_SET_CHARSET_DIR', 6);
 /** @link https://php.net/manual/en/mysqli.constants.php */
 define('MYSQLI_SERVER_PS_OUT_PARAMS', 4096);
@@ -3839,6 +3846,9 @@ define('MYSQLI_CLIENT_SSL_VERIFY_SERVER_CERT', 1073741824);
 define('MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT', 64);
 define('MYSQLI_CLIENT_CAN_HANDLE_EXPIRED_PASSWORDS', 4194304);
 define('MYSQLI_OPT_CAN_HANDLE_EXPIRED_PASSWORDS', 37);
+/**
+ * @since 7.2
+ */
 define('MYSQLI_OPT_READ_TIMEOUT', 11);
 /**
  * @deprecated 8.4
@@ -3849,7 +3859,13 @@ define('MYSQLI_TRANS_COR_AND_CHAIN', 1);
 define('MYSQLI_TRANS_COR_AND_NO_CHAIN', 2);
 define('MYSQLI_TRANS_COR_RELEASE', 4);
 define('MYSQLI_TRANS_COR_NO_RELEASE', 8);
+/**
+ * @since 8.1
+ */
 define('MYSQLI_OPT_LOAD_DATA_LOCAL_DIR', 43);
+/**
+ * @since 8.1
+ */
 define('MYSQLI_REFRESH_REPLICA', 64);
 /**
  * @since 8.1

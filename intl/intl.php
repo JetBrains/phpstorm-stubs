@@ -2892,6 +2892,7 @@ class Spoofchecker
      * Spoofchecker::HIGHLY_RESTRICTIVE, Spoofchecker::MODERATELY_RESTRICTIVE,
      * Spoofchecker::MINIMALLY_RESTRICTIVE, or Spoofchecker::UNRESTRICTIVE. Defaults to
      * Spoofchecker::HIGHLY_RESTRICTIVE.
+     * @since 7.3
      */
     #[TentativeType]
     public function setRestrictionLevel(#[LanguageAware(['8.0' => 'int'], default: '')] $level): void {}
@@ -7267,6 +7268,7 @@ function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, int $day
  * @link https://php.net/manual/en/intltimezone.getwindowsid.php
  * @param string $timezoneId
  * @return string|false Returns the Windows timezone or false on failure.
+ * @since 8.0
  */
 function intltz_get_windows_id(string $timezoneId): string|false {}
 
@@ -7280,6 +7282,7 @@ function intltz_get_windows_id(string $timezoneId): string|false {}
  * @param string $timezoneId
  * @param string|null $region
  * @return string|false Returns the system timezone or false on failure.
+ * @since 8.0
  */
 function intltz_get_id_for_windows_id(string $timezoneId, ?string $region = null): string|false {}
 
@@ -7541,6 +7544,7 @@ define('IDNA_NONTRANSITIONAL_TO_UNICODE', 32);
  * {@see idn_to_ascii}. This is the default.
  * @link https://php.net/manual/en/intl.constants.php
  * @deprecated 7.2 Use {@see INTL_IDNA_VARIANT_UTS46} instead.
+ * @removed 8.0
  */
 define('INTL_IDNA_VARIANT_2003', 0);
 
