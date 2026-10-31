@@ -41,7 +41,6 @@ const SODIUM_CRYPTO_BOX_KEYPAIRBYTES = 64;
 const SODIUM_CRYPTO_BOX_MACBYTES = 16;
 const SODIUM_CRYPTO_BOX_NONCEBYTES = 24;
 const SODIUM_CRYPTO_BOX_SEEDBYTES = 32;
-const SODIUM_CRYPTO_KX_BYTES = 32;
 const SODIUM_CRYPTO_KX_PUBLICKEYBYTES = 32;
 const SODIUM_CRYPTO_KX_SECRETKEYBYTES = 32;
 const SODIUM_CRYPTO_GENERICHASH_BYTES = 32;
@@ -808,23 +807,6 @@ function sodium_crypto_box_seal_open(string $ciphertext, string $key_pair): stri
 function sodium_crypto_box_secretkey(string $key_pair): string {}
 
 /**
- * Elliptic Curve Diffie Hellman Key Exchange
- * X25519
- * @param string $secret_key
- * @param string $public_key
- * @param string $client_publickey
- * @param string $server_publickey
- * @return string
- * @since 7.2
- */
-function sodium_crypto_kx(
-    string $secret_key,
-    string $public_key,
-    string $client_publickey,
-    string $server_publickey
-): string {}
-
-/**
  * Fast and secure cryptographic hash
  * @link https://www.php.net/manual/en/function.sodium-crypto-generichash.php
  * @param string $message The message being hashed.
@@ -1223,35 +1205,6 @@ function sodium_crypto_stream_xor(
 ): string {}
 
 /**
- * Generate a string of random bytes
- * /dev/urandom
- *
- * @param int $length
- * @return string|false
- * @since 7.2
- */
-function sodium_randombytes_buf(int $length): string {}
-
-/**
- * Generate a 16-bit integer
- * /dev/urandom
- *
- * @return int
- * @since 7.2
- */
-function sodium_randombytes_random16(): int {}
-
-/**
- * Generate an unbiased random integer between 0 and a specified value
- * /dev/urandom
- *
- * @param int $upperBoundNonInclusive
- * @return int
- * @since 7.2
- */
-function sodium_randombytes_uniform(int $upperBoundNonInclusive): int {}
-
-/**
  * Convert to hex without side-channels
  * @link https://www.php.net/manual/en/function.sodium-bin2hex.php
  * @param string $string Raw binary string.
@@ -1307,20 +1260,6 @@ function sodium_increment(string &$string): void {}
 function sodium_add(string &$string1, string $string2): void {}
 
 /**
- * Get the true major version of libsodium
- * @return int
- * @since 7.2
- */
-function sodium_library_version_major(): int {}
-
-/**
- * Get the true minor version of libsodium
- * @return int
- * @since 7.2
- */
-function sodium_library_version_minor(): int {}
-
-/**
  * Compare two strings in constant time
  * @link https://www.php.net/manual/en/function.sodium-memcmp.php
  * @param string $string1 String to compare
@@ -1339,14 +1278,6 @@ function sodium_memcmp(string $string1, string $string2): int {}
  * @since 7.2
  */
 function sodium_memzero(string &$string): void {}
-
-/**
- * Get the version string
- *
- * @return string
- * @since 7.2
- */
-function sodium_version_string(): string {}
 
 /**
  * Scalar multiplication of the base point and your key
