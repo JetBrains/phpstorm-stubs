@@ -258,6 +258,7 @@ function is_double(mixed $value): bool {}
  * </p>
  * @return bool true if var is a float,
  * false otherwise.
+ * @removed 8.0
  */
 #[Pure]
 #[Deprecated(since: '7.4')]

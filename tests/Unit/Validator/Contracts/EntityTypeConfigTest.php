@@ -38,6 +38,15 @@ class EntityTypeConfigTest extends TestCase
         $this->assertSame(EntityType::INTERFACE_CONSTANT, $config->constantEntityType);
     }
 
+    public function testForConstantMapsCorrectly(): void
+    {
+        $config = EntityTypeConfig::forConstant();
+        $this->assertSame(LookupKind::CONSTANT, $config->lookupKind);
+        $this->assertSame(EntityType::GLOBAL_CONSTANT, $config->entityType);
+        $this->assertSame('Constant', $config->label);
+        $this->assertNull($config->constantEntityType);
+    }
+
     public function testCustomConfigWithNullConstantEntityType(): void
     {
         $config = new EntityTypeConfig(
@@ -64,6 +73,16 @@ class EntityTypeConfigTest extends TestCase
         $this->expectException(\LogicException::class);
         $this->expectExceptionMessageMatches('/LookupKind::FUNCTION/');
         $lookup->invoke($check, $this->createStub(StubDataQueryInterface::class), '\\foo');
+    }
+
+    public function testClassLikeCheckRejectsConstantLookupKindWithADiagnostic(): void
+    {
+        $check = new ClassFinalCheck(entityTypeConfig: EntityTypeConfig::forConstant());
+        $lookup = new \ReflectionMethod($check, 'lookupEntityById');
+
+        $this->expectException(\LogicException::class);
+        $this->expectExceptionMessageMatches('/LookupKind::CONSTANT/');
+        $lookup->invoke($check, $this->createStub(StubDataQueryInterface::class), '\\FOO');
     }
 
     /**

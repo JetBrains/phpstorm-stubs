@@ -297,6 +297,9 @@ define('FILTER_VALIDATE_FLOAT', 259);
  */
 define('FILTER_VALIDATE_REGEXP', 272);
 
+/**
+ * @since 7.0
+ */
 define('FILTER_VALIDATE_DOMAIN', 277);
 
 /**
@@ -527,7 +530,13 @@ define('FILTER_FLAG_NO_RES_RANGE', 4194304);
  */
 define('FILTER_FLAG_NO_PRIV_RANGE', 8388608);
 
+/**
+ * @since 7.0
+ */
 define('FILTER_FLAG_HOSTNAME', 1048576);
+/**
+ * @since 7.1
+ */
 define('FILTER_FLAG_EMAIL_UNICODE', 1048576);
 
 /**
@@ -536,5 +545,8 @@ define('FILTER_FLAG_EMAIL_UNICODE', 1048576);
  */
 define('FILTER_FLAG_GLOBAL_RANGE', 536870912);
 
+/**
+ * @since 8.5
+ */
 define('FILTER_THROW_ON_FAILURE', 268435456);
 // End of filter v.0.11.0

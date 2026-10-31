@@ -38,6 +38,7 @@ function iconv(string $from_encoding, string $to_encoding, string $string): stri
  * @param int $status
  * @return string See <b>ob_start</b> for information about this handler
  * return values.
+ * @removed 5.4
  */
 #[Pure]
 function ob_iconv_handler(string $contents, int $status): string {}

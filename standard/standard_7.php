@@ -402,16 +402,6 @@ function readdir($dir_handle = null): string|false {}
 function dir(#[FileReference] string $directory, $context = null): Directory|false {}
 
 /**
- * Alias of dir()
- * @param string $directory
- * @param resource $context
- * @since 8.0
- * @return Directory|false
- * @see dir()
- */
-function getdir(string $directory, $context = null): Directory|false {}
-
-/**
  * List files and directories inside the specified path
  * @link https://php.net/manual/en/function.scandir.php
  * @param string $directory <p>

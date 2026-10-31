@@ -114,5 +114,8 @@ class ReflectionAttribute implements Reflector
      */
     private function __clone(): void {}
 
+    /**
+     * @since 8.1
+     */
     public function __toString(): string {}
 }

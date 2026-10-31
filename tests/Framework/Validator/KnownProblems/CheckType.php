@@ -47,6 +47,17 @@ enum CheckType: string
     case ENTITY_EXISTS = 'EntityExistsCheck';
 
     /**
+     * Validates the reverse of ENTITY_EXISTS: that a top-level entity (function, class, interface,
+     * enum or global constant) declared in stubs exists in reflection for every version its
+     * @since/@removed range claims. Catches stubs PHP never defined and missing or wrong
+     * version tags.
+     *
+     * Scoped to extensions that ship with PHP and are loaded in the version's reflection data —
+     * see StaleEntityCheck for why each restriction is required.
+     */
+    case STALE_ENTITY = 'StaleEntityCheck';
+
+    /**
      * Validates that parent class in stubs matches parent class in reflection.
      */
     case CLASS_PARENT = 'ClassParentClassCheck';
@@ -73,8 +84,9 @@ enum CheckType: string
      * DOMDocument::renameNode, DOMText::replaceWholeText and ReflectionZendExtension::export sat
      * unbounded past their removal in 8.0 while 412k tests passed.
      *
-     * Scoped to StubCategory::CORE and BUNDLED, and skips magic methods and
-     * PS_UNRESERVE_PREFIX_* — see ClassStaleMethodsCheck for why each exclusion is required.
+     * Scoped to StubCategory::CORE, BUNDLED and EXTERNAL, and skips PS_UNRESERVE_PREFIX_* and magic
+     * methods reflection never reports on the class — see ClassStaleMethodsCheck for why each
+     * exclusion is required.
      */
     case CLASS_STALE_METHODS = 'ClassStaleMethodsCheck';
 

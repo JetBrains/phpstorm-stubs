@@ -19,9 +19,13 @@ define('DATE_RFC1036', "D, d M y H:i:s O");
 define('DATE_RFC1123', "D, d M Y H:i:s O");
 define('DATE_RFC2822', "D, d M Y H:i:s O");
 define('DATE_RFC3339', "Y-m-d\TH:i:sP");
+/**
+ * @since 7.0
+ */
 define('DATE_RFC3339_EXTENDED', "Y-m-d\TH:i:s.vP");
 /**
  * @deprecated 8.5
+ * @since 7.0
  */
 define('DATE_RFC7231', "D, d M Y H:i:s \G\M\T");
 define('DATE_RSS', "D, d M Y H:i:s O");
