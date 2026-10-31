@@ -28,8 +28,8 @@ use StubTests\Framework\Validator\KnownProblems\ProblemDefinition;
  *
  * Scope, stated plainly: this asserts the entity **exists**. It does not assert the suppression
  * is still **needed** — an entry whose underlying divergence PHP has since fixed keeps passing
- * here. Detecting that means re-running each affected check with the suppression lifted, which
- * is a larger piece of work; see T-W4 in `.claude/reviews/REVIEW-2026-08-04-deprecated-since.md`.
+ * here. `KnownProblemsNecessityTest` covers that, by re-running each affected check with the
+ * suppression lifted.
  */
 class KnownProblemsIntegrityTest extends TestCase
 {
