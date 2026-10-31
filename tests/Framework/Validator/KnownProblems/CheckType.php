@@ -84,8 +84,9 @@ enum CheckType: string
      * DOMDocument::renameNode, DOMText::replaceWholeText and ReflectionZendExtension::export sat
      * unbounded past their removal in 8.0 while 412k tests passed.
      *
-     * Scoped to StubCategory::CORE and BUNDLED, and skips magic methods and
-     * PS_UNRESERVE_PREFIX_* — see ClassStaleMethodsCheck for why each exclusion is required.
+     * Scoped to StubCategory::CORE, BUNDLED and EXTERNAL, and skips PS_UNRESERVE_PREFIX_* and magic
+     * methods reflection never reports on the class — see ClassStaleMethodsCheck for why each
+     * exclusion is required.
      */
     case CLASS_STALE_METHODS = 'ClassStaleMethodsCheck';
 
