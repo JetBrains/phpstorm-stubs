@@ -6,6 +6,7 @@ use StubTests\Framework\Model\PHPClassConstant;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\AbstractConstantFlagCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
+use StubTests\Framework\Validator\Services\ConstantValueComparator;
 
 /**
  * Validates that the values of constants in class stubs match reflection.
@@ -20,7 +21,8 @@ use StubTests\Framework\Validator\KnownProblems\CheckType;
  * 3. If the constant is not found in reflection it is silently skipped — existence is
  *    ClassConstantsCheck's responsibility.
  * 4. When both sides are found and the PHP version is LATEST, their values are compared
- *    and any mismatch is reported as a failure. Either side having a null value skips
+ *    and any mismatch, of value or of type, is reported as a failure. Either side having a
+ *    null value skips
  *    the check (complex/dynamic expressions cannot be compared).
  *
  * Known problems are supported at two granularities:
@@ -56,11 +58,8 @@ class ClassConstantsValueCheck extends AbstractConstantFlagCheck
             return null;
         }
 
-        if ((string)$reflConstant->getValue() !== (string)$stubConstant->getValue()) {
-            return "Constant {$constantEntityId} value mismatch: "
-                . "reflection='{$reflConstant->getValue()}', stub='{$stubConstant->getValue()}'";
-        }
+        $mismatch = ConstantValueComparator::describeMismatch($reflConstant->getValue(), $stubConstant->getValue());
 
-        return null;
+        return $mismatch === null ? null : "Constant {$constantEntityId} value mismatch: {$mismatch}";
     }
 }
