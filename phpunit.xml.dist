@@ -34,6 +34,7 @@
             <file>tests/EnumValidatorTest.php</file>
             <file>tests/ConstantValidatorTest.php</file>
             <file>tests/FunctionValidatorTest.php</file>
+            <file>tests/StaleEntityValidatorTest.php</file>
             <file>tests/MetaFileValidatorTest.php</file>
         </testsuite>
         <testsuite name="PhpDoc">
