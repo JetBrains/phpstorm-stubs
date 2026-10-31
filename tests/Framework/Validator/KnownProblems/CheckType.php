@@ -47,6 +47,17 @@ enum CheckType: string
     case ENTITY_EXISTS = 'EntityExistsCheck';
 
     /**
+     * Validates the reverse of ENTITY_EXISTS: that a top-level entity (function, class, interface,
+     * enum or global constant) declared in stubs exists in reflection for every version its
+     * @since/@removed range claims. Catches stubs PHP never defined and missing or wrong
+     * version tags.
+     *
+     * Scoped to extensions that ship with PHP and are loaded in the version's reflection data —
+     * see StaleEntityCheck for why each restriction is required.
+     */
+    case STALE_ENTITY = 'StaleEntityCheck';
+
+    /**
      * Validates that parent class in stubs matches parent class in reflection.
      */
     case CLASS_PARENT = 'ClassParentClassCheck';
