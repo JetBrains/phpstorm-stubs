@@ -17,7 +17,9 @@ use StubTests\Framework\Validator\StaleEntityCheck;
  *
  * Unlike the other validator tests, this one iterates stubs entities rather than reflection data:
  * an entity that is only in the stubs is exactly what it looks for. Only entities from extensions
- * that ship with PHP are yielded, and only for the versions their declarations claim.
+ * that ship with PHP are yielded, only for the versions their declarations claim, and only when
+ * that version's reflection lacks them. A row for an entity reflection has could only pass, and
+ * yielding one for every entity and version would push the General suite past CI's memory limit.
  */
 class StaleEntityValidatorTest extends ValidatorTestBase
 {
@@ -36,9 +38,11 @@ class StaleEntityValidatorTest extends ValidatorTestBase
         $presence = new ExtensionPresenceService();
 
         foreach (static::getCheckDescriptors() as $checkName => $descriptor) {
+            $lookupKind = $descriptor->entityTypeConfig->lookupKind;
+
             // Group version-split declarations by id; the check judges them together.
             $declarationsById = [];
-            foreach ($presence->entitiesOfKind($stubs, $descriptor->entityTypeConfig->lookupKind) as $entity) {
+            foreach ($presence->entitiesOfKind($stubs, $lookupKind) as $entity) {
                 $entityId = $entity->getId();
                 if ($entityId !== null && $presence->shipsWithPhp($entity)) {
                     $declarationsById[$entityId][] = $entity;
@@ -51,8 +55,12 @@ class StaleEntityValidatorTest extends ValidatorTestBase
                 if (!$range->includes($version)) {
                     continue;
                 }
+                $reflection = RunnerScope::get()->getReflection($version);
 
                 foreach ($declarationsById as $entityId => $declarations) {
+                    if ($presence->existsIn($reflection, $lookupKind, $entityId)) {
+                        continue;
+                    }
                     foreach ($declarations as $declaration) {
                         if ($declaration->getStubsMetadata()?->isAvailableIn($version) ?? true) {
                             yield static::buildTestName($checkName, $entityId, $version) => [$checkName, $entityId, $version];
