@@ -9,6 +9,7 @@ use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Methods\ClassStaleMethodsCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 use StubTests\Framework\Validator\KnownProblems\EntityType;
 use StubTests\Framework\Validator\KnownProblems\KnownProblemsProvider;
@@ -21,8 +22,9 @@ use StubTests\Unit\Validator\CheckTestCase;
  * Covers ClassStaleMethodsCheck — the only stubs → reflection check in the suite.
  *
  * It shipped in ea9b45cd with no unit coverage, leaving it the single concrete check without any.
- * Its value comes entirely from three narrowing rules (core/bundled only, methods only, magic and
- * PS_UNRESERVE_PREFIX_ excluded), and each of those is a silent-pass path: if one over-matches,
+ * Its value comes entirely from three narrowing rules (PHP source tree only, methods only, magic
+ * methods reflection never reports and PS_UNRESERVE_PREFIX_ excluded), and each of those is a
+ * silent-pass path: if one over-matches,
  * the check reports success and the stale method it exists to catch goes unreported. These tests
  * pin each rule in both directions.
  */
@@ -126,6 +128,15 @@ class ClassStaleMethodsCheckTest extends CheckTestCase
         self::assertTrue($this->runCheck($stubClass, [$this->makeClass('\\CurlHandle')])->hasFailures());
     }
 
+    public function testExternalClassIsJudged(): void
+    {
+        // EXTERNAL extensions (zip, intl, gmp…) are built from the PHP source tree. One the container
+        // lacks is skipped anyway, because its classes are absent from reflection.
+        $stubClass = $this->makeStubClass('\\ZipArchive', [$this->makeMethod('onlyInStubs')], 'zip/zip.php');
+
+        self::assertTrue($this->runCheck($stubClass, [$this->makeClass('\\ZipArchive')])->hasFailures());
+    }
+
     public function testClassWithoutARecordedSourcePathIsNotJudged(): void
     {
         // No source path means the category cannot be established, so the class must not be judged
@@ -157,6 +168,27 @@ class ClassStaleMethodsCheckTest extends CheckTestCase
             $this->runCheck($stubClass, [$this->makeClass('\\DOMDocument')])->hasFailures(),
             "{$methodName} is declared in stubs on purpose and must never be reported"
         );
+    }
+
+    public function testMagicMethodReflectionReportsInAnotherVersionIsReported(): void
+    {
+        // CURLFile::__wakeup() existed until 7.3. Reflection reporting it there shows the method is real
+        // and version-bounded, so a stub that still claims it for 7.4 is wrong.
+        $stubClass = $this->makeStubClass('\\CURLFile', [$this->makeMethod('__wakeup')], 'curl/curl.php');
+        $provider = $this->createStub(ReflectionProviderInterface::class);
+        $provider->method('getReflection')->willReturnCallback(function (string $version) {
+            $methods = version_compare($version, '7.4', '<') ? [$this->createMockMethod('__wakeup')] : [];
+            $storage = $this->createMockStorageManager();
+            $storage->method('getClasses')->willReturn([$this->makeClass('\\CURLFile', methods: $methods)]);
+            return $storage;
+        });
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        $check = new ClassStaleMethodsCheck($provider);
+
+        self::assertTrue($check->run($stubs, '\\CURLFile', '7.4')->hasFailures());
+        self::assertFalse($check->run($stubs, '\\CURLFile', '7.3')->hasFailures());
     }
 
     // ── Version awareness ────────────────────────────────────────────────────

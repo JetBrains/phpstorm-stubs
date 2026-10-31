@@ -404,7 +404,7 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
             // ── ClassStaleMethodsCheck exceptions ──────────────────────────────────────────────
             // Legitimate stub-only method declarations, i.e. methods the stubs must declare even
             // though reflection does not report them. See ClassStaleMethodsCheck for the direction
-            // this check runs in and why its scope is limited to CORE and BUNDLED.
+            // this check runs in and why its scope is limited to the PHP source tree.
 
             // PDO driver-specific methods: present only when the corresponding PDO driver is
             // compiled into the running PHP. The reflecting containers build pdo_sqlite but not
@@ -2086,6 +2086,56 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
                 reason: 'These interfaces exist only for PhpStorm: iterable models the pseudo-type, and IntBackedEnum/StringBackedEnum type the backing value of enum cases.',
                 entityIds: ['\\iterable', '\\IntBackedEnum', '\\StringBackedEnum'],
+            ),
+
+            // ── ClassStaleMethodsCheck: magic methods and EXTERNAL extensions ──────
+
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: 'old-style-constructors',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::PHP_7_4),
+                reason: 'Before PHP 8.0 these classes registered their constructor under the class name (SoapClient::SoapClient(), finfo::finfo()), so reflection lists no __construct. parent::__construct() still reached the constructor, so the stub keeps __construct for every version.',
+                entityIds: [
+                    '\\SoapClient::__construct',
+                    '\\SoapHeader::__construct',
+                    '\\SoapParam::__construct',
+                    '\\SoapServer::__construct',
+                    '\\SoapVar::__construct',
+                    '\\finfo::__construct',
+                ],
+            ),
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\mysqli::__construct',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::PHP_5_6),
+                reason: 'In PHP 5.6 mysqli registered its constructor as mysqli::mysqli(), so reflection lists no __construct; parent::__construct() still reached it.',
+            ),
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\Closure::__invoke',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::PHP_7_1),
+                reason: 'Closure::__invoke() is resolved through the get_method handler; reflection only lists it from PHP 7.2, but it was callable before.',
+            ),
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: 'ffi-cdata-handlers',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_STALE_METHODS],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_7_4, PhpVersions::LATEST),
+                reason: 'FFI\\CData supports array access and count() through internal object handlers rather than declared methods. The stub declares them so PhpStorm can type element access.',
+                entityIds: [
+                    '\\FFI\\CData::count',
+                    '\\FFI\\CData::offsetExists',
+                    '\\FFI\\CData::offsetGet',
+                    '\\FFI\\CData::offsetSet',
+                    '\\FFI\\CData::offsetUnset',
+                ],
             ),
         ];
 
