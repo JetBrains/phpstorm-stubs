@@ -2613,7 +2613,7 @@ function curl_file_create(string $filename, ?string $mime_type = null, ?string $
  * @param CurlHandle|resource $handle A cURL handle returned by curl_init.
  * @return void No value is returned.
  */
-#[\JetBrains\PhpStorm\Deprecated('Deprecated: it has no effect', since: '8.5')]
+#[\JetBrains\PhpStorm\Deprecated('Deprecated: it has no effect', since: '8.0')]
 function curl_close(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle): void {}
 
 /**
