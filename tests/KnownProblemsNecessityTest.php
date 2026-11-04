@@ -21,7 +21,9 @@ use StubTests\Framework\Validator\KnownProblemsRegistry;
  * For each entry, the validator suite cases that run one of its affected checks on its entity
  * at the PHP versions it covers are run with every entry in place and again without that entry
  * (see KnownProblemNecessityAnalyzer). The entry is needed if some case passes only with it, and
- * stale if every case passes either way. An entry no case exercises, such as one for an extension
+ * stale if every case passes either way. Entries are judged one at a time, so of two entries that
+ * suppress the same failure, each is reported stale: removing either one is enough, not both.
+ * An entry no case exercises, such as one for an extension
  * no reflection cache was built with, or whose cases already fail, cannot be judged and is
  * reported as skipped rather than stale.
  */
@@ -68,7 +70,9 @@ class KnownProblemsNecessityTest extends TestCase
         self::assertTrue(
             $verdict->necessity === KnownProblemNecessity::NEEDED,
             "{$entry} suppresses nothing. {$verdict->explanation}\n"
-            . "The mismatch it was added for is gone, so the entry now only hides new ones. Remove it.\n"
+            . "Either the mismatch it was added for is gone, so the entry now only hides new ones, or another entry\n"
+            . "suppresses the same failure, in which case both are reported. Remove this entry alone and run the test\n"
+            . "again: an entry that overlapped it is then reported as needed.\n"
             . "Reason recorded on the entry: {$problem->reason}"
         );
     }

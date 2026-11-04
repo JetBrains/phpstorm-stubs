@@ -72,6 +72,14 @@ new ProblemDefinition(
 ),
 ```
 
+An entry must suppress a failure that happens today: some validator case for the entity, at a
+version in `versionRange`, running one of `affectedChecks`, must fail without the entry and pass
+with it. `KnownProblemsNecessityTest` (Structure suite) checks this for every entry and fails on
+one that suppresses nothing, so an entry that is too broad, has the wrong check type or version
+range, or outlives its fix is caught. Remove such an entry rather than widening it. An entry that
+no case can exercise (for example, for an extension that no reflection cache includes) is
+reported as skipped.
+
 **Benefits:**
 - IDE will autocomplete enum values
 - Compiler catches typos immediately
@@ -126,41 +134,25 @@ All validators that can skip validation:
 - `EntityType::CLASS_TYPE` - Classes
 - `EntityType::INTERFACE_TYPE` - Interfaces
 
-## Currently Registered Problems (13 functions)
+## Currently Registered Problems
 
-All with `OVERLOADED_SIGNATURE` type:
+`DefaultKnownProblemsProvider.php` is the list of record. Each entry's `reason` explains why it
+exists. Entries are grouped by the check they apply to, under `// ── <Check> known problems ──`
+section comments, and `KnownProblemsNecessityTest` removes the need to keep a copy of the list
+here: an entry that no longer suppresses a failure makes it fail.
 
-1. **DBA Extension:**
-   - `dba_fetch` - 2 vs 3 parameter versions
-   - `dba_open` - Multiple parameter counts
-   - `dba_popen` - Multiple parameter counts
+The entries fall into these kinds:
 
-2. **String Functions:**
-   - `strtr` - 3-param vs 2-param with array
-
-3. **Session Functions:**
-   - `session_set_save_handler` - 9 callables vs SessionHandlerInterface
-   - `session_set_cookie_params` - Multiple parameter structures
-
-4. **Cookie Functions:**
-   - `setcookie` - Scalar params vs array options
-   - `setrawcookie` - Scalar params vs array options
-
-5. **GD Functions:**
-   - `imagefilledpolygon` - Different parameter structures
-
-6. **Stream Functions:**
-   - `stream_context_set_option` - Array vs scalar params
-
-7. **Multibyte Functions:**
-   - `mb_parse_str` - Different parameter structures
-
-8. **Database Functions:**
-   - `cubrid_execute` - Different parameter structures
-
-9. **Standard Functions:**
-   - `crypt` - Different parameter structures
-   - `var_dump` - Variadic handling
+- **Overloaded signatures** (`OVERLOADED_SIGNATURE`): functions and methods that accept more than
+  one parameter list, such as `dba_fetch`, `strtr`, `setcookie`, `session_set_save_handler` and
+  `PDO::query`.
+- **Declarations reflection does not report** (`INTERNAL_IMPLEMENTATION`): interfaces implemented
+  at the C level (`SimpleXMLElement` and `ArrayAccess`), interfaces and modifiers that changed
+  across versions while the stub declares them for all versions (`DatePeriod` and
+  `IteratorAggregate`, `GMP` becoming final in 8.4), stub-only methods such as the PDO
+  driver-specific ones, and parameter counts older reflection gets wrong.
+- **Environment-dependent constant values** (`RUNTIME_VALUE`): library and Unicode versions,
+  build paths and other values the stubs cannot pin, such as the `IntlChar` limits.
 
 ## Testing
 
@@ -173,6 +165,16 @@ vendor/bin/phpunit tests/Unit/Validator/KnownProblemsRegistryTest.php
 ```bash
 vendor/bin/phpunit tests/FunctionValidatorTest.php --filter dba_fetch
 ```
+
+### Necessity Test
+Checks that each entry still suppresses a failure (see [Adding New Problems](#adding-new-problems)).
+It loads every reflection cache, so it needs more memory than the default `memory_limit`; the
+test runner image uses 2048M:
+```bash
+php -d memory_limit=2048M vendor/bin/phpunit tests/KnownProblemsNecessityTest.php
+```
+
+`KnownProblemsIntegrityTest` complements it by checking that each entry's entity exists.
 
 ## Migration from JSON
 
