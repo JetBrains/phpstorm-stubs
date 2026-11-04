@@ -2892,6 +2892,7 @@ class Spoofchecker
      * Spoofchecker::HIGHLY_RESTRICTIVE, Spoofchecker::MODERATELY_RESTRICTIVE,
      * Spoofchecker::MINIMALLY_RESTRICTIVE, or Spoofchecker::UNRESTRICTIVE. Defaults to
      * Spoofchecker::HIGHLY_RESTRICTIVE.
+     * @since 7.3
      */
     #[TentativeType]
     public function setRestrictionLevel(#[LanguageAware(['8.0' => 'int'], default: '')] $level): void {}
@@ -5910,24 +5911,6 @@ function intlcal_get_available_locales(): array {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * Get the value for a field
- * @link https://php.net/manual/en/intlcalendar.get.php
- * @param IntlCalendar $calendar <p>
- * The calendar object, on the procedural style interface.
- * </p>
- * @param int $field <p>
- * One of the {@link https://php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
- * values between <em>0</em> and
- * <b>IntlCalendar::FIELD_COUNT</b>.
- * </p>
- * @return int An integer with the value of the time field.
- * @since 5.5
- */
-#[Pure]
-function intl_get($calendar, $field) {}
-
-/**
- * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get time currently represented by the object
  * @param IntlCalendar $calendar <p>The calendar whose time will be checked against this object's time.</p>
  * @return float
@@ -6257,25 +6240,6 @@ function intlcal_get_day_of_week_type(IntlCalendar $calendar, int $dayOfWeek) {}
 function intlcal_get_first_day_of_week(IntlCalendar $calendar) {}
 
 /**
- * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * Get the largest local minimum value for a field
- * @link https://php.net/manual/en/intlcalendar.getgreatestminimum.php
- * @param IntlCalendar $calendar <p>
- * The calendar object, on the procedural style interface.
- * </p>
- * @param int $field <p>
- * One of the {@link https://php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
- * values between <em>0</em> and
- * <b>IntlCalendar::FIELD_COUNT</b>.</p>
- * @return int
- * An {@link https://php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
- * unit, or <b>FALSE</b> on failure.
- * @since 5.5
- */
-#[Pure]
-function intlcal_greates_minimum($calendar, $field) {}
-
-/**
  * (PHP &gt;= 5.5.0, PECL intl &gt;= 3.0.0a1)<br/>
  * Gets the value for a specific field.
  * @link https://www.php.net/manual/en/intlcalendar.get.php
@@ -6355,24 +6319,6 @@ function intlcal_get_greatest_minimum(IntlCalendar $calendar, int $field) {}
 #[Pure]
 #[LanguageAware(['8.0' => 'string|false'], default: 'string')]
 function intlcal_get_locale(IntlCalendar $calendar, int $type) {}
-
-/**
- * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * Get the global maximum value for a field
- * @link https://php.net/manual/en/intlcalendar.getmaximum.php
- * @param IntlCalendar $calendar <p>
- * The calendar object, on the procedural style interface.
- * </p>
- * @param int $field <p>
- * One of the {@link https://php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
- * values between <em>0</em> and
- * <b>IntlCalendar::FIELD_COUNT</b>.
- * </p>
- * @return int|false
- * @since 5.5
- */
-#[Pure]
-function intcal_get_maximum($calendar, $field) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6769,16 +6715,6 @@ function intltz_count_equivalent_ids(string $timezoneId): int|false {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * Create a new copy of the default timezone for this host
- * @link https://php.net/manual/en/intltimezone.createdefault.php
- * @return IntlTimeZone
- * @since 5.5
- */
-#[Pure]
-function intlz_create_default() {}
-
-/**
- * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * @link https://php.net/manual/en/intltimezone.createenumeration.php
  * @param IntlTimeZone|string|int|float|null $countryOrRawOffset [optional]
  * @return IntlIterator|false
@@ -6885,16 +6821,6 @@ function intltz_get_error_code(IntlTimeZone $timezone): int|false {}
  */
 #[Pure(true)]
 function intltz_get_error_message(IntlTimeZone $timezone): string|false {}
-
-/**
- * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * Create GMT (UTC) timezone
- * @link https://php.net/manual/en/intltimezone.getgmt.php
- * @return IntlTimeZone
- * @since 5.5
- */
-#[Pure]
-function intltz_getGMT(): IntlTimeZone {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -7342,6 +7268,7 @@ function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, int $day
  * @link https://php.net/manual/en/intltimezone.getwindowsid.php
  * @param string $timezoneId
  * @return string|false Returns the Windows timezone or false on failure.
+ * @since 8.0
  */
 function intltz_get_windows_id(string $timezoneId): string|false {}
 
@@ -7355,6 +7282,7 @@ function intltz_get_windows_id(string $timezoneId): string|false {}
  * @param string $timezoneId
  * @param string|null $region
  * @return string|false Returns the system timezone or false on failure.
+ * @since 8.0
  */
 function intltz_get_id_for_windows_id(string $timezoneId, ?string $region = null): string|false {}
 
@@ -7616,6 +7544,7 @@ define('IDNA_NONTRANSITIONAL_TO_UNICODE', 32);
  * {@see idn_to_ascii}. This is the default.
  * @link https://php.net/manual/en/intl.constants.php
  * @deprecated 7.2 Use {@see INTL_IDNA_VARIANT_UTS46} instead.
+ * @removed 8.0
  */
 define('INTL_IDNA_VARIANT_2003', 0);
 

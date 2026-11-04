@@ -562,27 +562,93 @@ define('ZLIB_ENCODING_GZIP', 31);
 /** @link https://php.net/manual/en/zlib.constants.php */
 define('ZLIB_ENCODING_DEFLATE', 15);
 
+/**
+ * @since 7.0
+ */
 define('ZLIB_NO_FLUSH', 0);
+/**
+ * @since 7.0
+ */
 define('ZLIB_PARTIAL_FLUSH', 1);
+/**
+ * @since 7.0
+ */
 define('ZLIB_SYNC_FLUSH', 2);
+/**
+ * @since 7.0
+ */
 define('ZLIB_FULL_FLUSH', 3);
+/**
+ * @since 7.0
+ */
 define('ZLIB_BLOCK', 5);
+/**
+ * @since 7.0
+ */
 define('ZLIB_FINISH', 4);
 
+/**
+ * @since 7.0
+ */
 define('ZLIB_FILTERED', 1);
+/**
+ * @since 7.0
+ */
 define('ZLIB_HUFFMAN_ONLY', 2);
+/**
+ * @since 7.0
+ */
 define('ZLIB_RLE', 3);
+/**
+ * @since 7.0
+ */
 define('ZLIB_FIXED', 4);
+/**
+ * @since 7.0
+ */
 define('ZLIB_DEFAULT_STRATEGY', 0);
+/**
+ * @since 7.2
+ */
 define('ZLIB_OK', 0);
+/**
+ * @since 7.2
+ */
 define('ZLIB_STREAM_END', 1);
+/**
+ * @since 7.2
+ */
 define('ZLIB_NEED_DICT', 2);
+/**
+ * @since 7.2
+ */
 define('ZLIB_ERRNO', -1);
+/**
+ * @since 7.2
+ */
 define('ZLIB_STREAM_ERROR', -2);
+/**
+ * @since 7.2
+ */
 define('ZLIB_DATA_ERROR', -3);
+/**
+ * @since 7.2
+ */
 define('ZLIB_MEM_ERROR', -4);
+/**
+ * @since 7.2
+ */
 define('ZLIB_BUF_ERROR', -5);
+/**
+ * @since 7.2
+ */
 define('ZLIB_VERSION_ERROR', -6);
 
+/**
+ * @since 7.0
+ */
 define('ZLIB_VERSION', 'zlib_version_string'); // This is set to the zlib version
+/**
+ * @since 7.0
+ */
 define('ZLIB_VERNUM', 'zlib_version_string'); // This is set to the zlib version

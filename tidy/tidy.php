@@ -905,6 +905,7 @@ function tidy_get_body(tidy $tidy): ?tidyNode {}
  * The buffer mode.
  * </p>
  * @return string the modified buffer.
+ * @removed 5.4
  */
 function ob_tidyhandler($input, $mode = null) {}
 

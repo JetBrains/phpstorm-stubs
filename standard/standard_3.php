@@ -1009,6 +1009,7 @@ function get_magic_quotes_gpc(): int {}
  * Gets the current active configuration setting of magic_quotes_runtime
  * @link https://php.net/manual/en/function.get-magic-quotes-runtime.php
  * @return int 0 if magic quotes runtime is off, 1 otherwise.
+ * @removed 8.0
  */
 #[Deprecated(since: '7.4')]
 function get_magic_quotes_runtime(): int {}

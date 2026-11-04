@@ -819,12 +819,6 @@ function imap_utf8(string $mime_encoded_text): string {}
 function imap_status(#[LanguageLevelTypeAware(['8.1' => '\IMAP\Connection'], default: 'resource')] $imap, string $mailbox, int $flags) {}
 
 /**
- * @param $stream_id
- * @param $options
- */
-function imap_status_current($stream_id, $options) {}
-
-/**
  * Get information about the current mailbox
  * @link https://php.net/manual/en/function.imap-mailboxmsginfo.php
  * @param resource $imap An IMAP\Connection instance.
@@ -1291,29 +1285,6 @@ function imap_setacl(#[LanguageLevelTypeAware(['8.1' => '\IMAP\Connection'], def
  * @return array|false an associative array of "folder" => "acl" pairs.
  */
 function imap_getacl(#[LanguageLevelTypeAware(['8.1' => '\IMAP\Connection'], default: 'resource')] $imap, string $mailbox): array|false {}
-
-/**
- * @param $stream_id
- * @param $mailbox
- */
-function imap_myrights($stream_id, $mailbox) {}
-
-/**
- * @param $stream_id
- * @param $mailbox
- * @param $entry
- * @param $attr
- * @param $value
- */
-function imap_setannotation($stream_id, $mailbox, $entry, $attr, $value) {}
-
-/**
- * @param $stream_id
- * @param $mailbox
- * @param $entry
- * @param $attr
- */
-function imap_getannotation($stream_id, $mailbox, $entry, $attr) {}
 
 /**
  * Send an email message

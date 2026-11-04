@@ -63,4 +63,13 @@ final class EntityTypeConfig
             label: 'Function',
         );
     }
+
+    public static function forConstant(): self
+    {
+        return new self(
+            lookupKind: LookupKind::CONSTANT,
+            entityType: EntityType::GLOBAL_CONSTANT,
+            label: 'Constant',
+        );
+    }
 }

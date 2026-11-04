@@ -3,6 +3,7 @@
 namespace StubTests\Framework\Validator\Classes\Methods;
 
 use StubTests\Framework\DataProvider\StubCategory;
+use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\AbstractClassCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
@@ -30,14 +31,17 @@ use StubTests\Framework\Validator\KnownProblems\EntityType;
  *
  * 1. **Methods only.** Constants and properties are dominated by driver-contributed and dynamic
  *    members respectively.
- * 2. **{@see StubCategory::CORE} and {@see StubCategory::BUNDLED} only** — the same definition
- *    PhpDocValidatorTest uses for "core stubs". EXTERNAL and PECL extensions are frequently absent
- *    from the reflecting container, so their stub-only members say nothing about the stub.
- * 3. **Skip magic methods and `PS_UNRESERVE_PREFIX_*`.** Both are intentional stub-only
- *    declarations: PHP does not report `__wakeup`/`__sleep`/`__construct` on many internal classes
- *    even where they work, and the prefix is this project's workaround for methods whose real name
- *    is a reserved keyword (`Generator::throw`). These two account for 25 of the 57 otherwise-stale
- *    members.
+ * 2. **{@see StubCategory::CORE}, {@see StubCategory::BUNDLED} and {@see StubCategory::EXTERNAL} only**
+ *    — the extensions built from the PHP source tree. PECL extensions are frequently absent from the
+ *    reflecting container, so their stub-only members say nothing about the stub. An EXTERNAL
+ *    extension the container lacks is harmless here: its classes are absent too, and absent classes
+ *    are skipped (below).
+ * 3. **Skip `PS_UNRESERVE_PREFIX_*`, and magic methods reflection never reports on the class.** The
+ *    prefix is this project's workaround for methods whose real name is a reserved keyword
+ *    (`Generator::throw`). PHP does not report `__wakeup`/`__sleep`/`__construct` on many internal
+ *    classes even where they work, so a magic method is judged only when reflection reports it on
+ *    the same class in some other version: then its absence in this one is a real version boundary
+ *    (`CURLFile::__wakeup()` was removed in 7.4).
  *
  * ## Own methods only, not the hierarchy
  *
@@ -59,8 +63,8 @@ use StubTests\Framework\Validator\KnownProblems\EntityType;
  */
 class ClassStaleMethodsCheck extends AbstractClassCheck
 {
-    /** The stub categories that ship with PHP itself, and so can be judged against reflection. */
-    private const JUDGEABLE_CATEGORIES = [StubCategory::CORE, StubCategory::BUNDLED];
+    /** The stub categories built from the PHP source tree, and so judgeable against reflection. */
+    private const JUDGEABLE_CATEGORIES = [StubCategory::CORE, StubCategory::BUNDLED, StubCategory::EXTERNAL];
 
     protected function getCheckName(): CheckType
     {
@@ -87,7 +91,7 @@ class ClassStaleMethodsCheck extends AbstractClassCheck
         }
 
         if (!$this->shipsWithPhp($stubEntity)) {
-            $results->addSuccess($entityId . ' (not a core or bundled extension)');
+            $results->addSuccess($entityId . ' (not an extension built from the PHP source tree)');
             return $results;
         }
 
@@ -108,10 +112,17 @@ class ClassStaleMethodsCheck extends AbstractClassCheck
         }
 
         $stale = [];
+        $magicMethodsSeen = null;
         foreach ($stubEntity->getMethods() as $stubMethod) {
             $methodName = $stubMethod->getName();
-            if ($methodName === null || $this->isIntentionallyStubOnly($methodName)) {
+            if ($methodName === null || str_starts_with($methodName, 'PS_UNRESERVE_PREFIX_')) {
                 continue;
+            }
+            if (str_starts_with($methodName, '__')) {
+                $magicMethodsSeen ??= $this->collectMagicMethodsInAnyVersion($entityId);
+                if (!isset($magicMethodsSeen[strtolower($methodName)])) {
+                    continue;
+                }
             }
             if (!($stubMethod->getStubsMetadata()?->isAvailableIn($phpVersion) ?? true)) {
                 continue;
@@ -144,7 +155,7 @@ class ClassStaleMethodsCheck extends AbstractClassCheck
     }
 
     /**
-     * Is this entity part of the PHP distribution, rather than an EXTERNAL/PECL extension?
+     * Is this entity part of the PHP source tree, rather than a PECL or third-party extension?
      */
     private function shipsWithPhp(object $stubEntity): bool
     {
@@ -166,18 +177,28 @@ class ClassStaleMethodsCheck extends AbstractClassCheck
     }
 
     /**
-     * Methods that stubs declare on purpose even though reflection does not report them.
+     * The magic methods reflection reports on this class in any version, lowercased.
      *
-     * - `__*`: PHP omits magic methods from many internal classes (hidden `__construct` on opaque
-     *   handles such as `CurlHandle`, `__wakeup`/`__serialize` on `GMP`), yet stubs must declare them
-     *   for completion and for serialization diagnostics.
-     * - `PS_UNRESERVE_PREFIX_*`: this project's workaround for a method whose real name is a reserved
-     *   keyword, e.g. `Generator::throw`. No such method can ever appear in reflection under the
-     *   prefixed name.
+     * PHP omits magic methods from many internal classes (hidden `__construct` on opaque handles such
+     * as `CurlHandle`), yet stubs must declare them for completion and for serialization
+     * diagnostics. Those are never reported in any version and stay unjudged. A magic method that
+     * some version does report has a real availability range, and the stub must bound it.
+     *
+     * @return array<string, true>
      */
-    private function isIntentionallyStubOnly(string $methodName): bool
+    private function collectMagicMethodsInAnyVersion(string $entityId): array
     {
-        return str_starts_with($methodName, '__')
-            || str_starts_with($methodName, 'PS_UNRESERVE_PREFIX_');
+        $seen = [];
+        foreach (PhpVersions::cases() as $version) {
+            $reflectionEntity = $this->lookupEntityById($this->reflectionProvider->getReflection($version->value), $entityId);
+            foreach ($reflectionEntity?->getMethods() ?? [] as $method) {
+                $name = $method->getName();
+                if ($name !== null && str_starts_with($name, '__')) {
+                    $seen[strtolower($name)] = true;
+                }
+            }
+        }
+
+        return $seen;
     }
 }

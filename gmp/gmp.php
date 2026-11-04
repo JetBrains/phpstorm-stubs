@@ -862,6 +862,7 @@ final class GMP
      * @return array <p>
      * The array representation of the GMP object.
      * </p>
+     * @since 8.1
      */
     public function __serialize(): array {}
 
@@ -872,6 +873,7 @@ final class GMP
      * The array representation of the GMP object.
      * </p>
      * @return void
+     * @since 8.1
      */
     public function __unserialize(array $data): void {}
 }

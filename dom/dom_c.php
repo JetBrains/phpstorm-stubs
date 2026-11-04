@@ -488,6 +488,9 @@ final class DOMException extends Exception
     public $code = 0;
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMStringList
 {
     /**
@@ -2633,6 +2636,9 @@ class DOMProcessingInstruction extends DOMNode
     ) {}
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMStringExtend
 {
     /**

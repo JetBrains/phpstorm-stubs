@@ -229,12 +229,14 @@ define('CURLOPT_CERTINFO', 172);
 /**
  * An alias of <b>CURLOPT_TRANSFERTEXT</b>. Use that instead.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @removed 7.3
  */
 define('CURLOPT_FTPASCII', -1);
 /**
  * <b>TRUE</b> to be completely silent with regards to the cURL functions.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
  * @deprecated use <b>CURLOPT_RETURNTRANSFER</b> instead since cURL 7.15.5
+ * @removed 7.3
  */
 define('CURLOPT_MUTE', -1);
 /**
@@ -282,6 +284,7 @@ define('CURLOPT_MAX_SEND_SPEED_LARGE', 30145);
  * The first is the cURL resource, the second is a string containing a password prompt, and the third is the maximum password length.
  * Return the string containing the password.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @removed 7.3
  */
 define('CURLOPT_PASSWDFUNCTION', -1);
 
@@ -2350,7 +2353,7 @@ define('CURL_PUSH_DENY', 1);
 /**
  * The default buffer size for <b>CURLOPT_BUFFERSIZE</b>
  * @link https://php.net/manual/en/curl.constants.php
- * @since 7.0
+ * @since 7.3
  */
 define('CURL_MAX_READ_SIZE', 10485760);
 
@@ -3048,6 +3051,7 @@ define("CURLE_OPERATION_TIMEDOUT", 28);
  * Failed to match the pinned key specified with <b>CURLOPT_PINNEDPUBLICKEY</b>.
  * @link https://php.net/manual/en/curl.constants.php
  * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ * @since 7.0
  */
 define("CURLE_SSL_PINNEDPUBKEYNOTMATCH", 90);
 /**
@@ -3079,6 +3083,7 @@ define("CURLAUTH_NONE", 0);
  * Problem with reading the SSL CA cert (path? access rights?)
  * @link https://php.net/manual/en/curl.constants.php
  * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ * @since 7.0
  */
 define("CURLE_SSL_CACERT_BADFILE", 77);
 /**
@@ -3654,7 +3659,7 @@ define('CURL_VERSION_NTLM', 16);
 /**
  * Supports the Mozilla's Public Suffix List.
  * @link https://www.php.net/manual/en/curl.constants.php
- * @since 7.0
+ * @since 7.3
  */
 define('CURL_VERSION_PSL', 1048576);
 
@@ -3870,7 +3875,7 @@ define('CURLINFO_SCHEME', 1048625);
 /**
  * Supports UNIX sockets.
  * @link https://www.php.net/manual/en/curl.constants.php
- * @since 7.0
+ * @since 7.3
  */
 define('CURL_VERSION_UNIX_SOCKETS', 524288);
 
@@ -4425,15 +4430,42 @@ define('CURLINFO_SSL_DATA_IN', 6);
  */
 define('CURLINFO_POSTTRANSFER_TIME_T', 6291523);
 
+/**
+ * @since 8.5
+ */
 define('CURLFOLLOW_ALL', 1);
 
+/**
+ * @since 8.5
+ */
 define('CURLFOLLOW_OBEYCODE', 2);
+/**
+ * @since 8.5
+ */
 define('CURLFOLLOW_FIRSTONLY', 3);
+/**
+ * @since 8.5
+ */
 define('CURLINFO_HTTPAUTH_USED', 2097221);
+/**
+ * @since 8.5
+ */
 define('CURLINFO_PROXYAUTH_USED', 2097222);
+/**
+ * @since 8.5
+ */
 define('CURLINFO_QUEUE_TIME_T', 6291521);
+/**
+ * @since 8.5
+ */
 define('CURLINFO_USED_PROXY', 2097218);
+/**
+ * @since 8.5
+ */
 define('CURLINFO_CONN_ID', 6291520);
+/**
+ * @since 8.5
+ */
 define('CURLOPT_SSL_SIGNATURE_ALGORITHMS', 10328);
 
 /**
