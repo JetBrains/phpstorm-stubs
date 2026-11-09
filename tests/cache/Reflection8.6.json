@@ -119565,6 +119565,15 @@
                 "type": "string|null",
                 "hasDefaultValue": true,
                 "defaultValue": null
+            },
+            {
+                "name": "_keep_headers",
+                "isStatic": false,
+                "isReadonly": false,
+                "accessModifier": "private",
+                "type": "int",
+                "hasDefaultValue": true,
+                "defaultValue": 0
             }
         ],
         "constants": [],
@@ -124545,7 +124554,7 @@
             },
             {
                 "name": "LIBZIP_VERSION",
-                "value": "1.11.4",
+                "value": "1.12.1",
                 "visibility": "public",
                 "isFinal": false
             },
@@ -200027,7 +200036,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.6.0RC3",
+        "value": "8.6.0RC4",
         "namespace": "\\"
     },
     {
@@ -200055,7 +200064,7 @@
         "_type": "PHPConstant",
         "name": "PHP_EXTRA_VERSION",
         "id": "\\PHP_EXTRA_VERSION",
-        "value": "RC3",
+        "value": "RC4",
         "namespace": "\\"
     },
     {
@@ -200069,7 +200078,7 @@
         "_type": "PHPConstant",
         "name": "PHP_BUILD_DATE",
         "id": "\\PHP_BUILD_DATE",
-        "value": "Oct  9 2026 00:14:23",
+        "value": "Nov  5 2026 18:58:33",
         "namespace": "\\"
     },
     {

@@ -54272,7 +54272,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -54836,7 +54836,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -54961,54 +54961,6 @@
     },
     {
         "_type": "PHPConstant",
-        "name": "PGSQL_PIPELINE_ABORTED",
-        "id": "\\PGSQL_PIPELINE_ABORTED",
-        "value": 2,
-        "sourcePath": "pgsql/pgsql.php",
-        "duplicates": [],
-        "namespace": "\\",
-        "phpDoc": null,
-        "sinceVersion": null,
-        "removedVersion": null
-    },
-    {
-        "_type": "PHPConstant",
-        "name": "PGSQL_PIPELINE_OFF",
-        "id": "\\PGSQL_PIPELINE_OFF",
-        "value": 0,
-        "sourcePath": "pgsql/pgsql.php",
-        "duplicates": [],
-        "namespace": "\\",
-        "phpDoc": null,
-        "sinceVersion": null,
-        "removedVersion": null
-    },
-    {
-        "_type": "PHPConstant",
-        "name": "PGSQL_PIPELINE_ON",
-        "id": "\\PGSQL_PIPELINE_ON",
-        "value": 1,
-        "sourcePath": "pgsql/pgsql.php",
-        "duplicates": [],
-        "namespace": "\\",
-        "phpDoc": null,
-        "sinceVersion": null,
-        "removedVersion": null
-    },
-    {
-        "_type": "PHPConstant",
-        "name": "PGSQL_PIPELINE_SYNC",
-        "id": "\\PGSQL_PIPELINE_SYNC",
-        "value": 10,
-        "sourcePath": "pgsql/pgsql.php",
-        "duplicates": [],
-        "namespace": "\\",
-        "phpDoc": null,
-        "sinceVersion": null,
-        "removedVersion": null
-    },
-    {
-        "_type": "PHPConstant",
         "name": "PGSQL_POLLING_ACTIVE",
         "id": "\\PGSQL_POLLING_ACTIVE",
         "value": 4,
@@ -55112,7 +55064,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -55124,7 +55076,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -55136,7 +55088,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -55172,7 +55124,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.3",
         "removedVersion": null
     },
     {
@@ -55256,7 +55208,7 @@
         "duplicates": [],
         "namespace": "\\",
         "phpDoc": null,
-        "sinceVersion": null,
+        "sinceVersion": "8.4",
         "removedVersion": null
     },
     {
