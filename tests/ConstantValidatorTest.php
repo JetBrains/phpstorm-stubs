@@ -8,6 +8,7 @@ use StubTests\Framework\Validator\Constants\ConstantExistsCheck;
 use StubTests\Framework\Validator\Constants\ConstantValueCheck;
 use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
+use StubTests\Framework\Validator\Constants\ConstantDeprecationCheck;
 
 /**
  * Validates that global constants from reflection exist in stubs.
@@ -33,6 +34,7 @@ class ConstantValidatorTest extends ValidatorTestBase
         return [
             'checkConstantExists' => new CheckDescriptor(ConstantExistsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Constant {entityId} exists in PHP {phpVersion} but not in stubs'),
             'checkConstantValue' => new CheckDescriptor(ConstantValueCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Constant {entityId} value mismatch in PHP {phpVersion}'),
+            'checkConstantDeprecation' => new CheckDescriptor(ConstantDeprecationCheck::class, PhpVersions::PHP_8_4, PhpVersions::LATEST, 'Constant {entityId} deprecation mismatch in PHP {phpVersion}'),
         ];
     }
 }

@@ -31,6 +31,7 @@ use StubTests\Framework\Validator\Classes\Constants\ClassConstantsVisibilityChec
 use StubTests\Framework\Validator\Classes\Methods\ClassMethodsPhpDocConformsSignatureCheck;
 use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
+use StubTests\Framework\Validator\Classes\Constants\ClassConstantsDeprecationCheck;
 
 /**
  * Validates that enums from reflection exist in stubs and their methods are correct.
@@ -84,6 +85,7 @@ class EnumValidatorTest extends ValidatorTestBase
             'checkEnumMethodsParameterVariadic' => new CheckDescriptor(ClassMethodsParameterVariadicCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} methods variadic parameter check failed in PHP {phpVersion}', $e),
             'checkEnumConstants' => new CheckDescriptor(ClassConstantsCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} constants check failed in PHP {phpVersion}', $e),
             'checkEnumConstantsVisibility' => new CheckDescriptor(ClassConstantsVisibilityCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Enum {entityId} constants visibility check failed in PHP {phpVersion}', $e),
+            'checkEnumConstantsDeprecation' => new CheckDescriptor(ClassConstantsDeprecationCheck::class, PhpVersions::PHP_8_4, PhpVersions::LATEST, 'Enum {entityId} constants deprecation check failed in PHP {phpVersion}', $e),
             // Constant values are compared against reflection at the latest version only, so the
             // range matches ClassConstantsValueCheck::supports() rather than advertising 8.1+.
             'checkEnumConstantsValue' => new CheckDescriptor(ClassConstantsValueCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Enum {entityId} constants value check failed in PHP {phpVersion}', $e),

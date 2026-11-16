@@ -820,6 +820,7 @@ define('SORT_STRING', 2);
  * strings, based on the current locale.
  * @since 5.0
  * @link https://php.net/manual/en/array.constants.php
+ * @deprecated 8.6 use one of the Collator::*sort*() methods instead
  */
 define('SORT_LOCALE_STRING', 5);
 
@@ -841,9 +842,21 @@ define('CASE_LOWER', 0);
 define('CASE_UPPER', 1);
 define('COUNT_NORMAL', 0);
 define('COUNT_RECURSIVE', 1);
+/**
+ * @deprecated 8.3
+ */
 define('ASSERT_ACTIVE', 1);
+/**
+ * @deprecated 8.3
+ */
 define('ASSERT_CALLBACK', 2);
+/**
+ * @deprecated 8.3
+ */
 define('ASSERT_BAIL', 3);
+/**
+ * @deprecated 8.3
+ */
 define('ASSERT_WARNING', 4);
 
 /**
@@ -852,6 +865,7 @@ define('ASSERT_WARNING', 4);
 define('ASSERT_QUIET_EVAL', 5);
 /**
  * @since 7.0
+ * @deprecated 8.3
  */
 define('ASSERT_EXCEPTION', 5);
 

@@ -31,6 +31,7 @@ use StubTests\Framework\Validator\Classes\TypeForbidden\ClassMethodsScalarTypeFo
 use StubTests\Framework\Validator\Classes\TypeForbidden\ClassMethodsUnionTypeForbiddenCheck;
 use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
+use StubTests\Framework\Validator\Classes\Constants\ClassConstantsDeprecationCheck;
 
 /**
  * Validates that interfaces from reflection exist in stubs and their methods are correct.
@@ -78,6 +79,7 @@ class InterfaceValidatorTest extends ValidatorTestBase
             'checkInterfaceMethodsParameterVariadic' => new CheckDescriptor(ClassMethodsParameterVariadicCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Interface {entityId} methods variadic parameter check failed in PHP {phpVersion}', $i),
             'checkInterfaceConstants' => new CheckDescriptor(ClassConstantsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Interface {entityId} constants check failed in PHP {phpVersion}', $i),
             'checkInterfaceConstantsVisibility' => new CheckDescriptor(ClassConstantsVisibilityCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Interface {entityId} constants visibility check failed in PHP {phpVersion}', $i),
+            'checkInterfaceConstantsDeprecation' => new CheckDescriptor(ClassConstantsDeprecationCheck::class, PhpVersions::PHP_8_4, PhpVersions::LATEST, 'Interface {entityId} constants deprecation check failed in PHP {phpVersion}', $i),
             // Constant values are compared against reflection at the latest version only, so the
             // range matches ClassConstantsValueCheck::supports() rather than advertising 13.
             'checkInterfaceConstantsValue' => new CheckDescriptor(ClassConstantsValueCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Interface {entityId} constants value check failed in PHP {phpVersion}', $i),

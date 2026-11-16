@@ -2,6 +2,8 @@
 
 namespace StubTests\Framework\Validator\Services;
 
+use StubTests\Framework\Model\PHPClassConstant;
+use StubTests\Framework\Model\PHPConstant;
 use StubTests\Framework\Model\PHPFunction;
 use StubTests\Framework\Model\PHPParameter;
 
@@ -38,6 +40,29 @@ final class DeprecationComparator
      * One-directional: reflection-deprecated -> stub must be deprecated. The reverse is not
      * enforced here.
      */
+    /**
+     * Compares a constant's deprecation in reflection with the stubs. Unlike callables, a stub
+     * deprecation that names a PHP version is a claim about the runtime, so it must match too.
+     */
+    public static function describeConstantMismatch(
+        PHPConstant|PHPClassConstant $reflConstant,
+        PHPConstant|PHPClassConstant $stubConstant,
+        string $constantId,
+        string $phpVersion
+    ): ?string {
+        $since = $stubConstant->getStubsMetadata()?->getDeprecatedSinceVersion();
+        $stubDeprecated = $stubConstant->isDeprecated() && ($since === null || version_compare($phpVersion, $since, '>='));
+
+        if ($reflConstant->isDeprecated() && !$stubDeprecated) {
+            return "Constant {$constantId} is deprecated in PHP {$phpVersion} but not marked as deprecated in stubs"
+                . ($stubConstant->isDeprecated() ? " (stubs say since {$since})" : '');
+        }
+        if (!$reflConstant->isDeprecated() && $stubDeprecated && $since !== null) {
+            return "Constant {$constantId} is marked as deprecated since PHP {$since} in stubs but PHP {$phpVersion} does not deprecate it";
+        }
+        return null;
+    }
+
     public static function isMismatch(PHPFunction $reflCallable, PHPFunction $stubCallable, string $phpVersion): bool
     {
         return self::isDeprecatedIn($reflCallable, $phpVersion)

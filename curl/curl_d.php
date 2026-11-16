@@ -1783,7 +1783,7 @@ define('CURLOPT_FTP_SKIP_PASV_IP', 137);
  * which means that values starting with @ can be safely passed as fields.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
  * @since 5.5
- * @deprecated 7.0 Use <b>CURLFile</b> for uploads instead.
+ * @deprecated Use <b>CURLFile</b> for uploads instead.
  */
 define('CURLOPT_SAFE_UPLOAD', -1);
 /**
@@ -2166,7 +2166,7 @@ define('CURLPIPE_NOTHING', 0);
  * If this bit is set, libcurl will try to pipeline HTTP/1.1 requests on connections that are already established and in use to hosts.
  * @link https://php.net/manual/en/curl.constants.php
  * @link https://curl.haxx.se/libcurl/c/CURLMOPT_PIPELINING.html
- * @deprecated 7.4
+ * @deprecated libcurl 7.62.0 removed HTTP/1.1 pipelining
  * @since 7.0
  */
 define('CURLPIPE_HTTP1', 1);
