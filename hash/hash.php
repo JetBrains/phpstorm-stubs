@@ -412,67 +412,168 @@ function mhash(int $algo, string $data, ?string $key = null): string|false {}
  * @link https://php.net/manual/en/hash.constants.php
  */
 define('HASH_HMAC', 1);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_CRC32', 0);
 /**
  * @since 7.4
+ * @deprecated 8.5
  */
 define('MHASH_CRC32C', 34);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_MD5', 1);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_SHA1', 2);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_HAVAL256', 3);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_RIPEMD160', 5);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_TIGER', 7);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_GOST', 8);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_CRC32B', 9);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_HAVAL224', 10);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_HAVAL192', 11);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_HAVAL160', 12);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_HAVAL128', 13);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_TIGER128', 14);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_TIGER160', 15);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_MD4', 16);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_SHA256', 17);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_ADLER32', 18);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_SHA224', 19);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_SHA512', 20);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_SHA384', 21);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_WHIRLPOOL', 22);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_RIPEMD128', 23);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_RIPEMD256', 24);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_RIPEMD320', 25);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_SNEFRU256', 27);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_MD2', 28);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_FNV132', 29);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_FNV1A32', 30);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_FNV164', 31);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_FNV1A64', 32);
+/**
+ * @deprecated 8.5
+ */
 define('MHASH_JOAAT', 33);
 /**
  * @since 8.1
+ * @deprecated 8.5
  */
 define('MHASH_MURMUR3A', 35);
 /**
  * @since 8.1
+ * @deprecated 8.5
  */
 define('MHASH_MURMUR3C', 36);
 /**
  * @since 8.1
+ * @deprecated 8.5
  */
 define('MHASH_MURMUR3F', 37);
 /**
  * @since 8.1
+ * @deprecated 8.5
  */
 define('MHASH_XXH32', 38);
 /**
  * @since 8.1
+ * @deprecated 8.5
  */
 define('MHASH_XXH64', 39);
 /**
  * @since 8.1
+ * @deprecated 8.5
  */
 define('MHASH_XXH3', 40);
 /**
  * @since 8.1
+ * @deprecated 8.5
  */
 define('MHASH_XXH128', 41);
 

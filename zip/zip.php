@@ -70,6 +70,7 @@ class ZipArchive implements Countable
 
     /**
      * @since 8.0
+     * @deprecated 8.3
      */
     public const FL_RECOMPRESS = 16;
 

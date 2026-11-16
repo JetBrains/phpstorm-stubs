@@ -3717,6 +3717,7 @@ define('MYSQLI_SET_CHARSET_NAME', 7);
  * No more data available for bind variable
  * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.1
  */
 define('MYSQLI_NO_DATA', 100);
 
@@ -3725,6 +3726,7 @@ define('MYSQLI_NO_DATA', 100);
  * Data truncation occurred. Available since PHP 5.1.0 and MySQL 5.0.5.
  * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.1
  */
 define('MYSQLI_DATA_TRUNCATED', 101);
 
@@ -3778,55 +3780,71 @@ define('MYSQLI_DEBUG_TRACE_ENABLED', 0);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.1
  */
 define('MYSQLI_SERVER_QUERY_NO_GOOD_INDEX_USED', 16);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.1
  */
 define('MYSQLI_SERVER_QUERY_NO_INDEX_USED', 32);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.4
  */
 define('MYSQLI_REFRESH_GRANT', 1);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.4
  */
 define('MYSQLI_REFRESH_LOG', 2);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.4
  */
 define('MYSQLI_REFRESH_TABLES', 4);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.4
  */
 define('MYSQLI_REFRESH_HOSTS', 8);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.4
  */
 define('MYSQLI_REFRESH_STATUS', 16);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.4
  */
 define('MYSQLI_REFRESH_THREADS', 32);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.4
  */
 define('MYSQLI_REFRESH_SLAVE', 64);
 
 /**
  * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.4
  */
 define('MYSQLI_REFRESH_MASTER', 128);
 
+/**
+ * @deprecated 8.1
+ */
 define('MYSQLI_SERVER_QUERY_WAS_SLOW', 2048);
+/**
+ * @deprecated 8.4
+ */
 define('MYSQLI_REFRESH_BACKUP_LOG', 2097152);
 
 // End of mysqli v.0.1
@@ -3838,7 +3856,10 @@ define('MYSQLI_OPT_SSL_VERIFY_SERVER_CERT', 21);
  * @removed 8.4
  */
 define('MYSQLI_SET_CHARSET_DIR', 6);
-/** @link https://php.net/manual/en/mysqli.constants.php */
+/**
+ * @link https://php.net/manual/en/mysqli.constants.php
+ * @deprecated 8.1
+ */
 define('MYSQLI_SERVER_PS_OUT_PARAMS', 4096);
 
 define('MYSQLI_CLIENT_SSL_VERIFY_SERVER_CERT', 1073741824);
@@ -3865,10 +3886,12 @@ define('MYSQLI_TRANS_COR_NO_RELEASE', 8);
 define('MYSQLI_OPT_LOAD_DATA_LOCAL_DIR', 43);
 /**
  * @since 8.1
+ * @deprecated 8.4
  */
 define('MYSQLI_REFRESH_REPLICA', 64);
 /**
  * @since 8.1
+ * @deprecated 8.2
  */
 define('MYSQLI_IS_MARIADB', 0);
 
