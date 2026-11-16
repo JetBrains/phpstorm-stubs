@@ -816,6 +816,16 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 reason: 'GMP was made final in PHP 8.4. Stubs declare it final to match the current PHP behaviour; PHP 5.6–8.3 reflection reports non-final.'
             ),
 
+            // ReflectionType - became abstract in PHP 8.0; stubs match PHP 8.0+
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\ReflectionType',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_ABSTRACT],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_7_0, PhpVersions::PHP_7_4),
+                reason: 'ReflectionType was made abstract in PHP 8.0. Stubs declare it abstract to match the current PHP behaviour; PHP 7.0–7.4 reflection reports non-abstract.'
+            ),
+
             // Directory - became final in PHP 8.5; the stub matches pre-8.5 behaviour here,
             // so the mismatch runs the other way from the entries above.
             new ProblemDefinition(
