@@ -520,7 +520,7 @@ class DocumentFragment extends Node implements ParentNode
  * @link https://php.net/manual/en/class.dom-document.php
  * @since 8.4
  */
-class Document extends Node implements ParentNode
+abstract class Document extends Node implements ParentNode
 {
     /** @readonly */
     public Implementation $implementation;

@@ -45,6 +45,7 @@ use StubTests\Framework\Validator\Classes\Methods\ClassMethodsPhpDocConformsSign
 use StubTests\Framework\Validator\Classes\Methods\ReflectionMethodSpecialTypeHintsCheck;
 use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
+use StubTests\Framework\Validator\Classes\ClassAbstractCheck;
 
 /**
  * Validates that classes from reflection exist in stubs.
@@ -71,6 +72,7 @@ class ClassValidatorTest extends ValidatorTestBase
             'checkClassExists' => new CheckDescriptor(EntityExistsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} exists in PHP {phpVersion} but not in stubs', EntityTypeConfig::forClass()),
             'checkClassNamespace' => new CheckDescriptor(EntityNamespaceCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} namespace validation failed in PHP {phpVersion}', EntityTypeConfig::forClass()),
             'checkClassReadonly' => new CheckDescriptor(ClassReadonlyCheck::class, PhpVersions::PHP_8_2, PhpVersions::LATEST, 'Class {entityId} readonly validation failed in PHP {phpVersion}'),
+            'checkClassAbstract' => new CheckDescriptor(ClassAbstractCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} abstract validation failed in PHP {phpVersion}'),
             'checkClassFinal' => new CheckDescriptor(ClassFinalCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} final validation failed in PHP {phpVersion}'),
             // Attribute target flags are declared without version awareness in stubs, so - like the
             // constant-value checks - the comparison against reflection only runs at the latest version.

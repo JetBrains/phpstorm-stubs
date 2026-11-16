@@ -219,6 +219,11 @@ enum CheckType: string
     case CLASS_READONLY = 'ClassReadonlyCheck';
 
     /**
+     * Validates that the `abstract` modifier on a class in stubs matches reflection.
+     */
+    case CLASS_ABSTRACT = 'ClassAbstractCheck';
+
+    /**
      * Validates that global constants from reflection exist in stubs.
      */
     case CONSTANT_EXISTS = 'ConstantExistsCheck';
