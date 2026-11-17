@@ -3,6 +3,7 @@
 // Start of xml v.
 use JetBrains\PhpStorm\Deprecated as Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -65,7 +66,11 @@ function xml_parser_create_ns(?string $encoding = null, string $separator = ':')
  */
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
 #[Deprecated("The function is deprecated", since: "8.4")]
-function xml_set_object(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, object $object) {}
+function xml_set_object(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] object & $object,
+    #[PhpStormStubsElementAvailable(from: '7.1')] object $object
+) {}
 
 /**
  * Set up start and end element handlers

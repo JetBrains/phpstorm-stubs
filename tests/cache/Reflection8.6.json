@@ -93826,6 +93826,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -93860,6 +93861,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     }
@@ -93906,6 +93908,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -93963,6 +93966,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -93986,6 +93990,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData|FFI\\CType",
                         "defaultValue": null
                     }
@@ -94009,6 +94014,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData|FFI\\CType",
                         "defaultValue": null
                     }
@@ -94032,6 +94038,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     },
@@ -94043,6 +94050,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -94077,6 +94085,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -94088,6 +94097,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -94122,6 +94132,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     },
@@ -94167,6 +94178,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     },
@@ -94201,6 +94213,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -120805,6 +120818,62 @@
     },
     {
         "_type": "PHPClass",
+        "name": "SodiumCryptoXofShake128State",
+        "id": "\\SodiumCryptoXofShake128State",
+        "isFinal": true,
+        "isReadonly": false,
+        "namespace": "\\",
+        "methods": [],
+        "properties": [],
+        "constants": [],
+        "parentClass": null,
+        "interfaces": [],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
+        "name": "SodiumCryptoXofShake256State",
+        "id": "\\SodiumCryptoXofShake256State",
+        "isFinal": true,
+        "isReadonly": false,
+        "namespace": "\\",
+        "methods": [],
+        "properties": [],
+        "constants": [],
+        "parentClass": null,
+        "interfaces": [],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
+        "name": "SodiumCryptoXofTurboshake128State",
+        "id": "\\SodiumCryptoXofTurboshake128State",
+        "isFinal": true,
+        "isReadonly": false,
+        "namespace": "\\",
+        "methods": [],
+        "properties": [],
+        "constants": [],
+        "parentClass": null,
+        "interfaces": [],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
+        "name": "SodiumCryptoXofTurboshake256State",
+        "id": "\\SodiumCryptoXofTurboshake256State",
+        "isFinal": true,
+        "isReadonly": false,
+        "namespace": "\\",
+        "methods": [],
+        "properties": [],
+        "constants": [],
+        "parentClass": null,
+        "interfaces": [],
+        "attributes": []
+    },
+    {
+        "_type": "PHPClass",
         "name": "SysvMessageQueue",
         "id": "\\SysvMessageQueue",
         "isFinal": true,
@@ -139514,6 +139583,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "array",
                 "defaultValue": null
             },
@@ -140944,6 +141014,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "",
                 "defaultValue": null
             },
@@ -140955,6 +141026,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "",
                 "defaultValue": null
             }
@@ -197531,7 +197603,7 @@
         "id": "\\sodium_crypto_xof_shake128_init",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "string",
+        "returnType": "SodiumCryptoXofShake128State",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -197553,7 +197625,7 @@
         "id": "\\sodium_crypto_xof_shake128_update",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "true",
+        "returnType": "void",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -197561,10 +197633,10 @@
                 "position": 0,
                 "isOptional": false,
                 "isVariadic": false,
-                "isPassedByReference": true,
+                "isPassedByReference": false,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
-                "type": "string",
+                "type": "SodiumCryptoXofShake128State",
                 "defaultValue": null
             },
             {
@@ -197594,10 +197666,10 @@
                 "position": 0,
                 "isOptional": false,
                 "isVariadic": false,
-                "isPassedByReference": true,
+                "isPassedByReference": false,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
-                "type": "string",
+                "type": "SodiumCryptoXofShake128State",
                 "defaultValue": null
             },
             {
@@ -197652,7 +197724,7 @@
         "id": "\\sodium_crypto_xof_shake256_init",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "string",
+        "returnType": "SodiumCryptoXofShake256State",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -197674,7 +197746,7 @@
         "id": "\\sodium_crypto_xof_shake256_update",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "true",
+        "returnType": "void",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -197682,10 +197754,10 @@
                 "position": 0,
                 "isOptional": false,
                 "isVariadic": false,
-                "isPassedByReference": true,
+                "isPassedByReference": false,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
-                "type": "string",
+                "type": "SodiumCryptoXofShake256State",
                 "defaultValue": null
             },
             {
@@ -197715,10 +197787,10 @@
                 "position": 0,
                 "isOptional": false,
                 "isVariadic": false,
-                "isPassedByReference": true,
+                "isPassedByReference": false,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
-                "type": "string",
+                "type": "SodiumCryptoXofShake256State",
                 "defaultValue": null
             },
             {
@@ -197773,7 +197845,7 @@
         "id": "\\sodium_crypto_xof_turboshake128_init",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "string",
+        "returnType": "SodiumCryptoXofTurboshake128State",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -197795,7 +197867,7 @@
         "id": "\\sodium_crypto_xof_turboshake128_update",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "true",
+        "returnType": "void",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -197803,10 +197875,10 @@
                 "position": 0,
                 "isOptional": false,
                 "isVariadic": false,
-                "isPassedByReference": true,
+                "isPassedByReference": false,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
-                "type": "string",
+                "type": "SodiumCryptoXofTurboshake128State",
                 "defaultValue": null
             },
             {
@@ -197836,10 +197908,10 @@
                 "position": 0,
                 "isOptional": false,
                 "isVariadic": false,
-                "isPassedByReference": true,
+                "isPassedByReference": false,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
-                "type": "string",
+                "type": "SodiumCryptoXofTurboshake128State",
                 "defaultValue": null
             },
             {
@@ -197894,7 +197966,7 @@
         "id": "\\sodium_crypto_xof_turboshake256_init",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "string",
+        "returnType": "SodiumCryptoXofTurboshake256State",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -197916,7 +197988,7 @@
         "id": "\\sodium_crypto_xof_turboshake256_update",
         "namespace": "\\",
         "isDeprecated": false,
-        "returnType": "true",
+        "returnType": "void",
         "hasTentativeReturnType": false,
         "parameters": [
             {
@@ -197924,10 +197996,10 @@
                 "position": 0,
                 "isOptional": false,
                 "isVariadic": false,
-                "isPassedByReference": true,
+                "isPassedByReference": false,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
-                "type": "string",
+                "type": "SodiumCryptoXofTurboshake256State",
                 "defaultValue": null
             },
             {
@@ -197957,10 +198029,10 @@
                 "position": 0,
                 "isOptional": false,
                 "isVariadic": false,
-                "isPassedByReference": true,
+                "isPassedByReference": false,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
-                "type": "string",
+                "type": "SodiumCryptoXofTurboshake256State",
                 "defaultValue": null
             },
             {
@@ -200036,7 +200108,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.6.0RC4",
+        "value": "8.6.0RC7",
         "namespace": "\\"
     },
     {
@@ -200064,7 +200136,7 @@
         "_type": "PHPConstant",
         "name": "PHP_EXTRA_VERSION",
         "id": "\\PHP_EXTRA_VERSION",
-        "value": "RC4",
+        "value": "RC7",
         "namespace": "\\"
     },
     {
@@ -200078,7 +200150,7 @@
         "_type": "PHPConstant",
         "name": "PHP_BUILD_DATE",
         "id": "\\PHP_BUILD_DATE",
-        "value": "Nov  5 2026 18:58:33",
+        "value": "Nov 13 2026 18:46:55",
         "namespace": "\\"
     },
     {
@@ -200134,14 +200206,14 @@
         "_type": "PHPConstant",
         "name": "PEAR_EXTENSION_DIR",
         "id": "\\PEAR_EXTENSION_DIR",
-        "value": "/usr/local/lib/php/extensions/no-debug-zts-20260924",
+        "value": "/usr/local/lib/php/extensions/no-debug-zts-20261112",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "PHP_EXTENSION_DIR",
         "id": "\\PHP_EXTENSION_DIR",
-        "value": "/usr/local/lib/php/extensions/no-debug-zts-20260924",
+        "value": "/usr/local/lib/php/extensions/no-debug-zts-20261112",
         "namespace": "\\"
     },
     {
@@ -201464,14 +201536,14 @@
         "_type": "PHPConstant",
         "name": "ZLIB_VERSION",
         "id": "\\ZLIB_VERSION",
-        "value": "1.3.2",
+        "value": "1.4",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "ZLIB_VERNUM",
         "id": "\\ZLIB_VERNUM",
-        "value": 4896,
+        "value": 5120,
         "namespace": "\\"
     },
     {
@@ -217228,14 +217300,14 @@
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION",
         "id": "\\PGSQL_LIBPQ_VERSION",
-        "value": "18.6",
+        "value": "18.7",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION_STR",
         "id": "\\PGSQL_LIBPQ_VERSION_STR",
-        "value": "18.6",
+        "value": "18.7",
         "namespace": "\\"
     },
     {
