@@ -1710,31 +1710,31 @@ function sodium_crypto_xof_shake128(int $length, string $message): string {}
 /**
  * Initialize a SHAKE128 extendable-output function state.
  * @param int|null $domain
- * @return string
+ * @return SodiumCryptoXofShake128State
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_shake128_init(?int $domain = null): string {}
+function sodium_crypto_xof_shake128_init(?int $domain = null): SodiumCryptoXofShake128State {}
 
 /**
  * Squeeze output bytes from a SHAKE128 extendable-output function state.
- * @param string &$state
+ * @param SodiumCryptoXofShake128State $state
  * @param int $length
  * @return string
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_shake128_squeeze(string &$state, int $length): string {}
+function sodium_crypto_xof_shake128_squeeze(SodiumCryptoXofShake128State $state, int $length): string {}
 
 /**
  * Absorb a message into a SHAKE128 extendable-output function state.
- * @param string &$state
+ * @param SodiumCryptoXofShake128State $state
  * @param string $message
- * @return true
+ * @return void
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_shake128_update(string &$state, string $message): true {}
+function sodium_crypto_xof_shake128_update(SodiumCryptoXofShake128State $state, string $message): void {}
 
 /**
  * Compute a SHAKE256 extendable-output function digest of the given length.
@@ -1749,31 +1749,31 @@ function sodium_crypto_xof_shake256(int $length, string $message): string {}
 /**
  * Initialize a SHAKE256 extendable-output function state.
  * @param int|null $domain
- * @return string
+ * @return SodiumCryptoXofShake256State
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_shake256_init(?int $domain = null): string {}
+function sodium_crypto_xof_shake256_init(?int $domain = null): SodiumCryptoXofShake256State {}
 
 /**
  * Squeeze output bytes from a SHAKE256 extendable-output function state.
- * @param string &$state
+ * @param SodiumCryptoXofShake256State $state
  * @param int $length
  * @return string
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_shake256_squeeze(string &$state, int $length): string {}
+function sodium_crypto_xof_shake256_squeeze(SodiumCryptoXofShake256State $state, int $length): string {}
 
 /**
  * Absorb a message into a SHAKE256 extendable-output function state.
- * @param string &$state
+ * @param SodiumCryptoXofShake256State $state
  * @param string $message
- * @return true
+ * @return void
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_shake256_update(string &$state, string $message): true {}
+function sodium_crypto_xof_shake256_update(SodiumCryptoXofShake256State $state, string $message): void {}
 
 /**
  * Compute a TurboSHAKE128 extendable-output function digest of the given length.
@@ -1788,31 +1788,31 @@ function sodium_crypto_xof_turboshake128(int $length, string $message): string {
 /**
  * Initialize a TurboSHAKE128 extendable-output function state.
  * @param int|null $domain
- * @return string
+ * @return SodiumCryptoXofTurboshake128State
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_turboshake128_init(?int $domain = null): string {}
+function sodium_crypto_xof_turboshake128_init(?int $domain = null): SodiumCryptoXofTurboshake128State {}
 
 /**
  * Squeeze output bytes from a TurboSHAKE128 extendable-output function state.
- * @param string &$state
+ * @param SodiumCryptoXofTurboshake128State $state
  * @param int $length
  * @return string
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_turboshake128_squeeze(string &$state, int $length): string {}
+function sodium_crypto_xof_turboshake128_squeeze(SodiumCryptoXofTurboshake128State $state, int $length): string {}
 
 /**
  * Absorb a message into a TurboSHAKE128 extendable-output function state.
- * @param string &$state
+ * @param SodiumCryptoXofTurboshake128State $state
  * @param string $message
- * @return true
+ * @return void
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_turboshake128_update(string &$state, string $message): true {}
+function sodium_crypto_xof_turboshake128_update(SodiumCryptoXofTurboshake128State $state, string $message): void {}
 
 /**
  * Compute a TurboSHAKE256 extendable-output function digest of the given length.
@@ -1827,31 +1827,31 @@ function sodium_crypto_xof_turboshake256(int $length, string $message): string {
 /**
  * Initialize a TurboSHAKE256 extendable-output function state.
  * @param int|null $domain
- * @return string
+ * @return SodiumCryptoXofTurboshake256State
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_turboshake256_init(?int $domain = null): string {}
+function sodium_crypto_xof_turboshake256_init(?int $domain = null): SodiumCryptoXofTurboshake256State {}
 
 /**
  * Squeeze output bytes from a TurboSHAKE256 extendable-output function state.
- * @param string &$state
+ * @param SodiumCryptoXofTurboshake256State $state
  * @param int $length
  * @return string
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_turboshake256_squeeze(string &$state, int $length): string {}
+function sodium_crypto_xof_turboshake256_squeeze(SodiumCryptoXofTurboshake256State $state, int $length): string {}
 
 /**
  * Absorb a message into a TurboSHAKE256 extendable-output function state.
- * @param string &$state
+ * @param SodiumCryptoXofTurboshake256State $state
  * @param string $message
- * @return true
+ * @return void
  * @throws SodiumException
  * @since 8.6
  */
-function sodium_crypto_xof_turboshake256_update(string &$state, string $message): true {}
+function sodium_crypto_xof_turboshake256_update(SodiumCryptoXofTurboshake256State $state, string $message): void {}
 
 /**
  * Generate a random key pair for the default post-quantum hybrid KEM (X-Wing).
@@ -1966,3 +1966,27 @@ function sodium_crypto_kem_mlkem768_dec(string $ciphertext, string $secret_key):
  * @link https://php.net/manual/en/class.sodiumexception.php
  */
 class SodiumException extends Exception {}
+
+/**
+ * A fully opaque class holding the state of a SHAKE128 extendable-output function.
+ * @since 8.6
+ */
+final class SodiumCryptoXofShake128State {}
+
+/**
+ * A fully opaque class holding the state of a SHAKE256 extendable-output function.
+ * @since 8.6
+ */
+final class SodiumCryptoXofShake256State {}
+
+/**
+ * A fully opaque class holding the state of a TurboSHAKE128 extendable-output function.
+ * @since 8.6
+ */
+final class SodiumCryptoXofTurboshake128State {}
+
+/**
+ * A fully opaque class holding the state of a TurboSHAKE256 extendable-output function.
+ * @since 8.6
+ */
+final class SodiumCryptoXofTurboshake256State {}

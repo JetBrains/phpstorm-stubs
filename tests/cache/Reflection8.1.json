@@ -55657,6 +55657,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -55691,6 +55692,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     }
@@ -55737,6 +55739,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -55794,6 +55797,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -55817,6 +55821,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData|FFI\\CType",
                         "defaultValue": null
                     }
@@ -55840,6 +55845,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData|FFI\\CType",
                         "defaultValue": null
                     }
@@ -55863,6 +55869,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     },
@@ -55874,6 +55881,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -55908,6 +55916,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -55919,6 +55928,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -55953,6 +55963,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     },
@@ -55998,6 +56009,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     },
@@ -56032,6 +56044,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -96790,6 +96803,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "array",
                 "defaultValue": null
             },
@@ -98176,6 +98190,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "",
                 "defaultValue": null
             },
@@ -98187,6 +98202,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "",
                 "defaultValue": null
             }

@@ -1846,6 +1846,10 @@ namespace {
          * column, bitwise-OR <b>PDO::FETCH_COLUMN</b> with
          * <b>PDO::FETCH_GROUP</b>.
          * </p>
+         * @param array $ctor_args [optional] <p>
+         * Arguments of custom class constructor when the <i>fetch_style</i>
+         * parameter is <b>PDO::FETCH_CLASS</b> (before PHP 8.0, passed as one array).
+         * </p>
          * @param mixed ...$args <p>
          * Arguments of custom class constructor when the <i>fetch_style</i>
          * parameter is <b>PDO::FETCH_CLASS</b>.
@@ -1865,7 +1869,8 @@ namespace {
         public function fetchAll(
             #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_DEFAULT,
             #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $fetch_argument = null,
-            #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args
+            #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $ctor_args = [],
+            #[PhpStormStubsElementAvailable(from: '8.0')] mixed ...$args
         ): array {}
 
         /**

@@ -50396,6 +50396,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     }
@@ -50430,6 +50431,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     }
@@ -50476,6 +50478,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     }
@@ -50533,6 +50536,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     }
@@ -50556,6 +50560,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     }
@@ -50579,6 +50584,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     }
@@ -50602,6 +50608,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -50613,6 +50620,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -50647,6 +50655,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -50658,6 +50667,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -50692,6 +50702,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -50737,6 +50748,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -50771,6 +50783,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     }
@@ -103468,6 +103481,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "",
                 "defaultValue": null
             },
@@ -103655,6 +103669,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "",
                 "defaultValue": null
             },
@@ -103666,6 +103681,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "",
                 "defaultValue": null
             },
@@ -103677,6 +103693,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "",
                 "defaultValue": null
             },
@@ -103688,6 +103705,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "",
                 "defaultValue": null
             }
