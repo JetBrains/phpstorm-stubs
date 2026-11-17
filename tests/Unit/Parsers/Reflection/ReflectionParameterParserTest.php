@@ -207,4 +207,36 @@ class ReflectionParameterParserTest extends TestCase
         self::assertFalse($parser->canParse('string'));
         self::assertFalse($parser->canParse(null));
     }
+
+    /**
+     * @return array<string, array{bool, bool, bool}> isPassedByReference, canBePassedByValue, expected isPreferRef
+     */
+    public static function preferRefProvider(): array
+    {
+        return [
+            'strict reference' => [true, false, false],
+            'prefer-ref' => [true, true, true],
+            'by value' => [false, true, false],
+        ];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('preferRefProvider')]
+    public function testItParsesPreferRef(bool $byRef, bool $byValue, bool $expected): void
+    {
+        $parameterMock = $this->createStub(AdaptedReflectionParameter::class);
+        $parameterMock->method('getAttributes')->willReturn([]);
+        $parameterMock->method('getName')->willReturn('param');
+        $parameterMock->method('getPosition')->willReturn(0);
+        $parameterMock->method('isOptional')->willReturn(false);
+        $parameterMock->method('isVariadic')->willReturn(false);
+        $parameterMock->method('isPassedByReference')->willReturn($byRef);
+        $parameterMock->method('canBePassedByValue')->willReturn($byValue);
+        $parameterMock->method('hasType')->willReturn(false);
+        $parameterMock->method('isDefaultValueAvailable')->willReturn(false);
+
+        $parsedParameter = new ReflectionParameterParser()->parse($parameterMock);
+
+        self::assertSame($byRef, $parsedParameter->isPassedByReference());
+        self::assertSame($expected, $parsedParameter->isPreferRef());
+    }
 }

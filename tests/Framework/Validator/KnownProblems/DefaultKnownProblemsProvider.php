@@ -420,9 +420,9 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 entityType: EntityType::METHOD,
                 entityId: '\\Closure::__invoke',
                 type: ProblemType::OVERLOADED_SIGNATURE,
-                affectedChecks: [CheckType::PARAMETERS_COUNT],
+                affectedChecks: [CheckType::PARAMETERS_COUNT, CheckType::PARAMETER_VARIADIC],
                 versionRange: new PhpVersionRange(PhpVersions::PHP_7_2, PhpVersions::LATEST),
-                reason: 'Closure::__invoke reflects the actual closure signature. PHP reflection returns 0 parameters for a generic Closure, but the stub declares 1 placeholder parameter for IDE support.'
+                reason: 'Closure::__invoke reflects the actual closure signature. PHP reflection returns 0 parameters for a generic Closure, but the stub declares 1 placeholder variadic parameter (...$_) for IDE support, so calls with arguments are not flagged.'
             ),
 
             // DateTime::__set_state - reflection reports 0 params in PHP 5.6–7.2; PHP 7.3+ fixed
@@ -603,6 +603,55 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 affectedChecks: [CheckType::PARAMETERS_COUNT],
                 versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
                 reason: 'mysqli_stmt::bind_result is variadic. Reflection reports 1 parameter (variadic &$var), but the stub declares 2 ($var1, &...$vars) to document the required first variable explicitly for IDE support.'
+            ),
+
+            // Variadic methods whose PHP < 8.0 arginfo declares a single plain parameter. The C
+            // implementation reads any number of arguments (ZEND_NUM_ARGS / zpp "*"), so the stubs'
+            // variadic is the real signature; PHP 8.0 stub-generated arginfo reports it as variadic.
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\ReflectionFunction::invoke',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::PARAMETER_VARIADIC],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::PHP_7_4),
+                reason: 'ReflectionFunction::invoke() passes all its arguments to the function, but PHP 5.6–7.4 arginfo declares a single non-variadic $args. The stub declares ...$args, which PHP 8.0+ reflection reports.'
+            ),
+
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\ReflectionMethod::invoke',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::PARAMETER_VARIADIC],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::PHP_7_4),
+                reason: 'ReflectionMethod::invoke() passes all arguments after $object to the method, but PHP 5.6–7.4 arginfo declares a single non-variadic $args. The stub declares ...$args, which PHP 8.0+ reflection reports.'
+            ),
+
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::PARAMETER_VARIADIC],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::PHP_7_4),
+                reason: 'ReflectionClass::newInstance() (inherited by ReflectionObject) passes all its arguments to the constructor, but PHP 5.6–7.4 arginfo declares a single non-variadic $args. The stub declares ...$args, which PHP 8.0+ reflection reports.',
+                entityIds: ['\\ReflectionClass::newInstance', '\\ReflectionObject::newInstance']
+            ),
+
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\SoapServer::setClass',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::PARAMETER_VARIADIC],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::PHP_7_2),
+                reason: 'SoapServer::setClass() passes all arguments after the class name to its constructor, but PHP 5.6–7.2 arginfo declares a single non-variadic $args. The stub declares ...$args, which PHP 7.3+ reflection reports.'
+            ),
+
+            new ProblemDefinition(
+                entityType: EntityType::METHOD,
+                entityId: '\\PDOStatement::setFetchMode',
+                type: ProblemType::OVERLOADED_SIGNATURE,
+                affectedChecks: [CheckType::PARAMETER_VARIADIC],
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::PHP_7_4),
+                reason: 'PDOStatement::setFetchMode() has several signatures depending on $mode (none, a column number, a class name and constructor arguments, an object); PHP 5.6–7.4 arginfo lists one non-variadic $params. The stub declares them as ...$args, which PHP 8.0+ reflection reports.'
             ),
 
             // SoapFault::__construct - reflection reports fewer params in PHP 5.6–7.4

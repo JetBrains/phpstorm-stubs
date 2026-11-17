@@ -343,6 +343,20 @@ enum CheckType: string
     case PARAMETER_DEPRECATION = 'ParameterDeprecationCheck';
 
     /**
+     * Validates that parameters are passed by reference in stubs exactly where reflection passes
+     * them by reference, matched by position (prefer-ref parameters accept either form).
+     * Used by FunctionParameterByReferenceCheck and ClassMethodsParameterByReferenceCheck.
+     */
+    case PARAMETER_BY_REFERENCE = 'ParameterByReferenceCheck';
+
+    /**
+     * Validates that a function/method takes a variadic parameter in stubs exactly when it does
+     * in reflection.
+     * Used by FunctionParameterVariadicCheck and ClassMethodsParameterVariadicCheck.
+     */
+    case PARAMETER_VARIADIC = 'ParameterVariadicCheck';
+
+    /**
      * Validates that the target flags of an attribute class declared via `#[Attribute(...)]`
      * in stubs match reflection (e.g. that TARGET_CLASS_CONSTANT is present when the attribute
      * may be applied to class constants). Attributes are declared without version awareness,

@@ -120,5 +120,8 @@ dc run --rm test_runner vendor/bin/phpunit --testsuite Structure
 echo "Running PHPDoc tests..."
 dc run --rm test_runner vendor/bin/phpunit --testsuite PhpDoc ${VERSION_FILTER_ARGS[@]+"${VERSION_FILTER_ARGS[@]}"}
 
-echo "Running validator tests..."
-dc run --rm test_runner vendor/bin/phpunit --testsuite General ${VERSION_FILTER_ARGS[@]+"${VERSION_FILTER_ARGS[@]}"}
+# One validator suite per process: a single run of all of them exceeds the 2 GB memory limit.
+for suite in Classes Interfaces Enums Constants Functions Meta Stale; do
+  echo "Running $suite validator tests..."
+  dc run --rm test_runner vendor/bin/phpunit --testsuite "$suite" ${VERSION_FILTER_ARGS[@]+"${VERSION_FILTER_ARGS[@]}"}
+done

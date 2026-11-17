@@ -28,14 +28,28 @@
          failOnPhpunitWarning="true"
          failOnEmptyTestSuite="true">
     <testsuites>
-        <testsuite name="General">
+        <!-- One suite per validator test, each run in its own process: a single run of all of them
+             exceeds the 2 GB memory limit (PHPUnit keeps every data-provider row in memory). -->
+        <testsuite name="Classes">
             <file>tests/ClassValidatorTest.php</file>
+        </testsuite>
+        <testsuite name="Interfaces">
             <file>tests/InterfaceValidatorTest.php</file>
+        </testsuite>
+        <testsuite name="Enums">
             <file>tests/EnumValidatorTest.php</file>
+        </testsuite>
+        <testsuite name="Constants">
             <file>tests/ConstantValidatorTest.php</file>
+        </testsuite>
+        <testsuite name="Functions">
             <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/StaleEntityValidatorTest.php</file>
+        </testsuite>
+        <testsuite name="Meta">
             <file>tests/MetaFileValidatorTest.php</file>
+        </testsuite>
+        <testsuite name="Stale">
+            <file>tests/StaleEntityValidatorTest.php</file>
         </testsuite>
         <testsuite name="PhpDoc">
             <file>tests/PhpDocValidatorTest.php</file>

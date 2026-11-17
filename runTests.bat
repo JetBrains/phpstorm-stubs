@@ -122,8 +122,33 @@ echo Running PHPDoc tests...
 call :dc run --rm test_runner vendor/bin/phpunit --testsuite PhpDoc !VERSION_FILTER_ARGS!
 if errorlevel 1 goto :fail
 
-echo Running validator tests...
-call :dc run --rm test_runner vendor/bin/phpunit --testsuite General !VERSION_FILTER_ARGS!
+rem One validator suite per process: a single run of all of them exceeds the 2 GB memory limit.
+echo Running Classes validator tests...
+call :dc run --rm test_runner vendor/bin/phpunit --testsuite Classes !VERSION_FILTER_ARGS!
+if errorlevel 1 goto :fail
+
+echo Running Interfaces validator tests...
+call :dc run --rm test_runner vendor/bin/phpunit --testsuite Interfaces !VERSION_FILTER_ARGS!
+if errorlevel 1 goto :fail
+
+echo Running Enums validator tests...
+call :dc run --rm test_runner vendor/bin/phpunit --testsuite Enums !VERSION_FILTER_ARGS!
+if errorlevel 1 goto :fail
+
+echo Running Constants validator tests...
+call :dc run --rm test_runner vendor/bin/phpunit --testsuite Constants !VERSION_FILTER_ARGS!
+if errorlevel 1 goto :fail
+
+echo Running Functions validator tests...
+call :dc run --rm test_runner vendor/bin/phpunit --testsuite Functions !VERSION_FILTER_ARGS!
+if errorlevel 1 goto :fail
+
+echo Running Meta validator tests...
+call :dc run --rm test_runner vendor/bin/phpunit --testsuite Meta !VERSION_FILTER_ARGS!
+if errorlevel 1 goto :fail
+
+echo Running Stale validator tests...
+call :dc run --rm test_runner vendor/bin/phpunit --testsuite Stale !VERSION_FILTER_ARGS!
 if errorlevel 1 goto :fail
 
 endlocal
