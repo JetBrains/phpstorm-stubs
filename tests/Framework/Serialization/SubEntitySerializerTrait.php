@@ -62,6 +62,12 @@ trait SubEntitySerializerTrait
             'hasDefaultValue' => $parameter->hasDefaultValue(),
         ];
 
+        // Only written when true (the few prefer-ref parameters), like defaultValueResolved below:
+        // a missing key deserializes as a strict reference.
+        if ($parameter->isPreferRef()) {
+            $data['isPreferRef'] = true;
+        }
+
         $data['type'] = $parameter->getDeclaredType()->toString();
 
         if ($parameter->hasDefaultValue()) {
@@ -168,6 +174,7 @@ trait SubEntitySerializerTrait
         $parameter->setIsOptional($data['isOptional'] ?? false);
         $parameter->setIsVariadic($data['isVariadic'] ?? false);
         $parameter->setIsPassedByReference($data['isPassedByReference'] ?? false);
+        $parameter->setIsPreferRef($data['isPreferRef'] ?? false);
         $parameter->setDeprecated($data['isDeprecated'] ?? false);
         $parameter->setHasDefaultValue($data['hasDefaultValue'] ?? false);
 

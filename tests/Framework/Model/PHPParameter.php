@@ -15,6 +15,7 @@ class PHPParameter extends BasePHPElement
     private bool $isOptional;
     private bool $isVariadic;
     private bool $isPassedByReference;
+    private bool $isPreferRef = false;
     private bool $isDeprecated;
     private mixed $defaultValue;
     private bool $hasDefaultValue;
@@ -87,6 +88,26 @@ class PHPParameter extends BasePHPElement
     public function setIsPassedByReference(bool $isPassedByReference): void
     {
         $this->isPassedByReference = $isPassedByReference;
+    }
+
+    /**
+     * Whether this is a "prefer-ref" parameter: passed by reference when the argument is a
+     * variable, but also accepting a plain value (php-src `@prefer-ref`, ZEND_SEND_PREFER_REF;
+     * e.g. `array_multisort()`'s `$array`, `FFI::addr()`'s `$ptr`). Reflection reports such a
+     * parameter as `isPassedByReference() && canBePassedByValue()`.
+     *
+     * Only reflection knows this; stub parameters never set it. The getter is false for a
+     * by-value parameter whatever was set, and the default is false, so a parameter whose
+     * source did not record the flag counts as a strict reference.
+     */
+    public function isPreferRef(): bool
+    {
+        return $this->isPassedByReference && $this->isPreferRef;
+    }
+
+    public function setIsPreferRef(bool $isPreferRef): void
+    {
+        $this->isPreferRef = $isPreferRef;
     }
 
     public function isDeprecated(): bool

@@ -83,16 +83,36 @@ class AdaptedReflectionParameterTest extends TestCase
         self::assertFalse($adapted->allowsNull());
     }
 
+    /**
+     * The parameter is by reference here, so the fallback for unrecorded data would be false:
+     * only a real extraction yields true (a prefer-ref parameter such as array_multisort()'s
+     * $array). Before, the fallback was true, so this test passed without any extraction.
+     */
     public function testItExtractsCanBePassedByValue()
     {
-        $paramMock = $this->getMockBuilder(ReflectionParameter::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $paramMock = $this->createStub(ReflectionParameter::class);
+        $paramMock->method('isPassedByReference')->willReturn(true);
         $paramMock->method('canBePassedByValue')->willReturn(true);
 
         $adapted = new AdaptedReflectionParameter($paramMock);
 
+        self::assertTrue($adapted->isPassedByReference());
         self::assertTrue($adapted->canBePassedByValue());
+    }
+
+    /**
+     * A strict reference (sort()'s $array) is recorded as not passable by value — the old
+     * fallback of true made every strict reference look like a prefer-ref one.
+     */
+    public function testItExtractsStrictReferenceAsNotPassableByValue()
+    {
+        $paramMock = $this->createStub(ReflectionParameter::class);
+        $paramMock->method('isPassedByReference')->willReturn(true);
+        $paramMock->method('canBePassedByValue')->willReturn(false);
+
+        $adapted = new AdaptedReflectionParameter($paramMock);
+
+        self::assertFalse($adapted->canBePassedByValue());
     }
 
     // Complex extraction tests (postExtract)
@@ -253,5 +273,19 @@ class AdaptedReflectionParameterTest extends TestCase
         $adapted = new AdaptedReflectionParameter($paramMock);
 
         self::assertFalse($adapted->hasType());
+    }
+
+    /**
+     * Data without canBePassedByValue must not make a strict reference look like a prefer-ref one.
+     */
+    public function testCanBePassedByValueFallsBackToStrictWhenNotRecorded()
+    {
+        $adapted = (new \ReflectionClass(AdaptedReflectionParameter::class))->newInstanceWithoutConstructor();
+        $data = new \ReflectionProperty($adapted, 'data');
+        $data->setValue($adapted, ['isPassedByReference' => true]);
+        self::assertFalse($adapted->canBePassedByValue());
+
+        $data->setValue($adapted, ['isPassedByReference' => false]);
+        self::assertTrue($adapted->canBePassedByValue());
     }
 }

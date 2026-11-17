@@ -44,6 +44,7 @@ class ReflectionParameterParser implements Parser
 
         // Set passed by reference
         $parameter->setIsPassedByReference($object->isPassedByReference());
+        $parameter->setIsPreferRef($object->isPassedByReference() && $object->canBePassedByValue());
 
         // Parse type information using ReflectionTypeParser
         $type = $this->typeParser->parse($object->hasType() ? $object->getType() : null);
