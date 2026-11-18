@@ -55,6 +55,58 @@ class ReflectionPipelineFlagsTest extends TestCase
     }
 
     #[RequiresPhp('>= 8.4.0')]
+    public function testRuntimeSkipsConstantNamesReflectionCannotResolve(): void
+    {
+        $provider = new class() extends CurrentRuntimeReflectionRawDataProvider {
+            public function getReflectionConstants()
+            {
+                return ['NOT_A_DEFINED_CONSTANT' => 1, 'E_STRICT' => E_STRICT];
+            }
+        };
+
+        self::assertSame(['E_STRICT'], $provider->getDeprecatedConstantNames());
+    }
+
+    #[RequiresPhp('>= 8.4.0')]
+    public function testProcessorMarksTheConstantsStageOneReportsDeprecated(): void
+    {
+        $dir = sys_get_temp_dir() . '/phpstorm-stubs-processor-' . bin2hex(random_bytes(6));
+        mkdir($dir);
+        $input = $dir . '/input.dat';
+        $output = $dir . '/Reflection' . PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION . '.json';
+        file_put_contents($input, serialize([
+            'phpVersion' => PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION,
+            'runtimeVersion' => PHP_VERSION,
+            'classes' => [],
+            'interfaces' => [],
+            'enums' => [],
+            'functions' => [],
+            'constants' => ['E_ALL' => E_ALL, 'E_STRICT' => E_STRICT],
+            'deprecatedConstants' => ['E_STRICT'],
+        ]));
+
+        try {
+            exec(sprintf(
+                '%s %s %s %s 2>&1',
+                escapeshellarg(PHP_BINARY),
+                escapeshellarg(__DIR__ . '/../../../run-reflection-processor.php'),
+                escapeshellarg($input),
+                escapeshellarg($output)
+            ), $lines, $exitCode);
+            self::assertSame(0, $exitCode, implode("\n", $lines));
+
+            $deprecation = [];
+            foreach (json_decode(file_get_contents($output), true) as $entity) {
+                $deprecation[$entity['name']] = $entity['isDeprecated'] ?? false;
+            }
+            self::assertSame(['E_ALL' => false, 'E_STRICT' => true], $deprecation);
+        } finally {
+            array_map('unlink', glob($dir . '/*'));
+            rmdir($dir);
+        }
+    }
+
+    #[RequiresPhp('>= 8.4.0')]
     public function testModernConstantParserReadsDeprecation(): void
     {
         $parser = new ReflectionModernConstantParser();

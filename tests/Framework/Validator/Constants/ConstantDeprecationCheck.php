@@ -45,7 +45,7 @@ class ConstantDeprecationCheck extends AbstractReflectionCheck
         $reflConstant = $this->entityLookup->findConstantById($this->reflectionProvider->getReflection($phpVersion), $entityId);
         $stubConstant = $this->entityLookup->findConstantById($stubs, $entityId);
         // A constant missing on either side is ConstantExistsCheck's or StaleEntityCheck's responsibility
-        if ($reflConstant === null || $stubConstant === null) {
+        if ($reflConstant === null || $stubConstant === null || !($stubConstant->getStubsMetadata()?->isAvailableIn($phpVersion) ?? true)) {
             $results->addSuccess($entityId);
             return $results;
         }

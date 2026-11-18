@@ -98,7 +98,14 @@ class CurrentRuntimeReflectionRawDataProvider implements ReflectionDataProvider
 
         $result = [];
         foreach (array_keys($this->getReflectionConstants()) as $name) {
-            $constant = new \ReflectionConstant($name);
+            if (!defined($name)) {
+                continue;
+            }
+            try {
+                $constant = new \ReflectionConstant($name);
+            } catch (\ReflectionException $e) {
+                continue;
+            }
             if ($constant->isDeprecated()) {
                 $result[] = $name;
             }

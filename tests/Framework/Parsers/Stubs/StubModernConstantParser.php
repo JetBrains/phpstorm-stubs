@@ -21,6 +21,7 @@ class StubModernConstantParser implements MultiEntityStubParserInterface
     private ConstantNodeExtractorInterface $nodeExtractor;
     private PhpDocParserInterface $phpDocParser;
     private AvailableVersionParserInterface $versionParser;
+    private DeprecationParser $deprecationParser;
 
     public function __construct(
         ?ConstantNodeExtractorInterface $nodeExtractor = null,
@@ -30,6 +31,7 @@ class StubModernConstantParser implements MultiEntityStubParserInterface
         $this->nodeExtractor = $nodeExtractor ?? new NikicNodeExtractor();
         $this->phpDocParser = $phpDocParser ?? new PhpDocumentorParser();
         $this->versionParser = $versionParser ?? new DefaultAvailableVersionParser();
+        $this->deprecationParser = new DeprecationParser();
     }
 
     /**
@@ -85,7 +87,7 @@ class StubModernConstantParser implements MultiEntityStubParserInterface
         $phpConstant->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
         $phpConstant->initStubsMetadata()->setRemovedVersion($versions['removedVersion']);
 
-        $deprecation = (new DeprecationParser())->parseDeprecation([], [], $parsedPhpDoc);
+        $deprecation = $this->deprecationParser->parseDeprecation([], [], $parsedPhpDoc);
         $phpConstant->setDeprecated($deprecation->isDeprecated);
         $phpConstant->initStubsMetadata()->setDeprecatedSinceVersion($deprecation->sinceVersion);
 

@@ -20,12 +20,24 @@ use StubTests\Framework\Model\Types\StandaloneType;
 use StubTests\Framework\Model\Types\UnionType;
 use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
+use StubTests\Framework\Validator\KnownProblems\InMemoryKnownProblemsProvider;
+use StubTests\Framework\Validator\KnownProblemsRegistry;
 
 /**
  * Base test case providing helper methods for creating mock entities.
  */
 abstract class CheckTestCase extends TestCase
 {
+    /**
+     * Installs a registry with no known problems, so a check never skips an entity id the tests use
+     * because DefaultKnownProblemsProvider lists it. Undo it with KnownProblemsRegistry::reset().
+     */
+    protected function useNoKnownProblems(): void
+    {
+        KnownProblemsRegistry::reset();
+        KnownProblemsRegistry::getInstance(new InMemoryKnownProblemsProvider([]));
+    }
+
     /**
      * Create a stubbed StubDataQueryInterface.
      *

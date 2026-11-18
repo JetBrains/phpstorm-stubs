@@ -2,15 +2,14 @@
 
 namespace StubTests\Framework\Validator\Classes;
 
-use StubTests\Framework\Storage\StubDataQueryInterface;
-use StubTests\Framework\Validator\AbstractClassCheck;
-use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Model\PHPClassLikeObject;
+use StubTests\Framework\Validator\AbstractClassModifierCheck;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
  * Validates that the `readonly` modifier on a class in stubs matches reflection.
  */
-class ClassReadonlyCheck extends AbstractClassCheck
+class ClassReadonlyCheck extends AbstractClassModifierCheck
 {
     public function supports(string $phpVersion): bool
     {
@@ -18,43 +17,18 @@ class ClassReadonlyCheck extends AbstractClassCheck
         return version_compare($phpVersion, '8.2', '>=');
     }
 
-    public function run(StubDataQueryInterface $stubs, string $entityId, string $phpVersion): CheckResultSet
+    protected function getCheckName(): CheckType
     {
-        $results = new CheckResultSet();
+        return CheckType::CLASS_READONLY;
+    }
 
-        if ($this->skipWithKnownProblem($results, $this->getEntityType(), $entityId, CheckType::CLASS_READONLY, $phpVersion)) {
-            return $results;
-        }
+    protected function modifier(): string
+    {
+        return 'readonly';
+    }
 
-        $reflection = $this->reflectionProvider->getReflection($phpVersion);
-        $label = $this->getEntityLabel();
-
-        $reflClass = $this->lookupEntityById($reflection, $entityId);
-        if ($reflClass === null) {
-            $results->addFailure($entityId, "{$label} {$entityId} not found in reflection data");
-            return $results;
-        }
-
-        $stubClass = $this->lookupEntityById($stubs, $entityId);
-        if ($stubClass === null) {
-            $results->addFailure($entityId, "{$label} {$entityId} not found in stubs");
-            return $results;
-        }
-
-        $reflIsReadonly = $reflClass->isReadonly();
-        $stubIsReadonly = $stubClass->isReadonly();
-
-        if ($reflIsReadonly === $stubIsReadonly) {
-            $results->addSuccess($entityId);
-        } else {
-            $expected = $reflIsReadonly ? 'readonly' : 'non-readonly';
-            $actual = $stubIsReadonly ? 'readonly' : 'non-readonly';
-            $results->addFailure(
-                $entityId,
-                "{$label} {$entityId} is {$expected} in PHP {$phpVersion} but {$actual} in stubs"
-            );
-        }
-
-        return $results;
+    protected function hasModifier(PHPClassLikeObject $entity): bool
+    {
+        return $entity->isReadonly();
     }
 }

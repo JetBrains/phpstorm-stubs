@@ -2166,7 +2166,7 @@ define('CURLPIPE_NOTHING', 0);
  * If this bit is set, libcurl will try to pipeline HTTP/1.1 requests on connections that are already established and in use to hosts.
  * @link https://php.net/manual/en/curl.constants.php
  * @link https://curl.haxx.se/libcurl/c/CURLMOPT_PIPELINING.html
- * @deprecated libcurl 7.62.0 removed HTTP/1.1 pipelining
+ * @deprecated libcurl ignores it since 7.62.0
  * @since 7.0
  */
 define('CURLPIPE_HTTP1', 1);

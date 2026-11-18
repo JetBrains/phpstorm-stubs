@@ -6,10 +6,23 @@ use StubTests\Framework\Model\PHPClassConstant;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\Constants\ClassConstantsDeprecationCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
+use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Unit\Validator\CheckTestCase;
 
 class ClassConstantsDeprecationCheckTest extends CheckTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->useNoKnownProblems();
+    }
+
+    protected function tearDown(): void
+    {
+        KnownProblemsRegistry::reset();
+        parent::tearDown();
+    }
+
     public function testSupportsPhp84AndAbove(): void
     {
         $check = new ClassConstantsDeprecationCheck();

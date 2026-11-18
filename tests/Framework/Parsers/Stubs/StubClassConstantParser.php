@@ -20,6 +20,7 @@ class StubClassConstantParser
 {
     private PhpDocParserInterface $phpDocParser;
     private AvailableVersionParserInterface $versionParser;
+    private DeprecationParser $deprecationParser;
 
     public function __construct(
         ?PhpDocParserInterface $phpDocParser = null,
@@ -27,6 +28,7 @@ class StubClassConstantParser
     ) {
         $this->phpDocParser = $phpDocParser ?? new PhpDocumentorParser();
         $this->versionParser = $versionParser ?? new DefaultAvailableVersionParser();
+        $this->deprecationParser = new DeprecationParser();
     }
 
     /**
@@ -59,7 +61,7 @@ class StubClassConstantParser
         $constant->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
         $constant->initStubsMetadata()->setRemovedVersion($versions['removedVersion']);
 
-        $deprecation = (new DeprecationParser())->parseDeprecation($node->getAttributes(), $imports, $parsedPhpDoc);
+        $deprecation = $this->deprecationParser->parseDeprecation($node->getAttributes(), $imports, $parsedPhpDoc);
         $constant->setDeprecated($deprecation->isDeprecated);
         $constant->initStubsMetadata()->setDeprecatedSinceVersion($deprecation->sinceVersion);
 
