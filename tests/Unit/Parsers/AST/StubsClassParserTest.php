@@ -291,4 +291,16 @@ class StubsClassParserTest extends BaseTestCase
 
         self::assertEmpty($classWithoutConstants->getConstants());
     }
+
+    public function testItCanParseAbstractClass()
+    {
+        $class = $this->parser->parse("<?php\nnamespace Dom;\nabstract class Document {}");
+        self::assertTrue($class->isAbstract());
+    }
+
+    public function testItParsesNonAbstractClassByDefault()
+    {
+        $class = $this->parser->parse("<?php\nclass Document {}");
+        self::assertFalse($class->isAbstract());
+    }
 }

@@ -31,6 +31,7 @@ class PHPClassSerializer implements EntityTypeSerializerInterface
             'id' => $this->toJsonSafe($entity->getId()),
             'isFinal' => $this->toJsonSafe($entity->isFinal()),
             'isReadonly' => $this->toJsonSafe($entity->isReadonly()),
+            'isAbstract' => $this->toJsonSafe($entity->isAbstract()),
             'sourcePath' => $this->toJsonSafe($entity->getStubsMetadata()?->getSourcePath()),
             'duplicates' => $this->toJsonSafe($entity->getStubsMetadata()?->getDuplicates() ?? []),
         ];
@@ -91,6 +92,7 @@ class PHPClassSerializer implements EntityTypeSerializerInterface
         $class->setId($data['id'] ?? null);
         $class->setIsFinal((bool)($data['isFinal'] ?? false));
         $class->setIsReadonly((bool)($data['isReadonly'] ?? false));
+        $class->setIsAbstract((bool)($data['isAbstract'] ?? false));
         $class->initStubsMetadata()->setSourcePath($data['sourcePath'] ?? null);
         $class->initStubsMetadata()->setDuplicates($data['duplicates'] ?? []);
 

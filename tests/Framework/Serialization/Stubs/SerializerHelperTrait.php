@@ -82,6 +82,7 @@ trait SerializerHelperTrait
     {
         $data['sinceVersion'] = $this->toJsonSafe($constant->getStubsMetadata()?->getSinceVersion());
         $data['removedVersion'] = $this->toJsonSafe($constant->getStubsMetadata()?->getRemovedVersion());
+        $data['deprecatedSinceVersion'] = $this->toJsonSafe($constant->getStubsMetadata()?->getDeprecatedSinceVersion());
     }
 
     // ── Deserialize hooks ──────────────────────────────────────────
@@ -123,5 +124,6 @@ trait SerializerHelperTrait
     {
         $constant->initStubsMetadata()->setSinceVersion($data['sinceVersion'] ?? null);
         $constant->initStubsMetadata()->setRemovedVersion($data['removedVersion'] ?? null);
+        $constant->initStubsMetadata()->setDeprecatedSinceVersion($data['deprecatedSinceVersion'] ?? null);
     }
 }

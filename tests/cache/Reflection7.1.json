@@ -5,6 +5,7 @@
         "id": "\\stdClass",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [],
         "properties": [],
@@ -19,6 +20,7 @@
         "id": "\\Exception",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -255,6 +257,7 @@
         "id": "\\ErrorException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -517,6 +520,7 @@
         "id": "\\Error",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -753,6 +757,7 @@
         "id": "\\ParseError",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -962,6 +967,7 @@
         "id": "\\TypeError",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -1171,6 +1177,7 @@
         "id": "\\ArgumentCountError",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -1380,6 +1387,7 @@
         "id": "\\ArithmeticError",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -1589,6 +1597,7 @@
         "id": "\\DivisionByZeroError",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -1798,6 +1807,7 @@
         "id": "\\Closure",
         "isFinal": true,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -1960,6 +1970,7 @@
         "id": "\\Generator",
         "isFinal": true,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -2101,6 +2112,7 @@
         "id": "\\ClosedGeneratorException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -2310,6 +2322,7 @@
         "id": "\\DateTime",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -2869,6 +2882,7 @@
         "id": "\\DateTimeImmutable",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -3372,6 +3386,7 @@
         "id": "\\DateTimeZone",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -3641,6 +3656,7 @@
         "id": "\\DateInterval",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -3747,6 +3763,7 @@
         "id": "\\DatePeriod",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -3871,6 +3888,7 @@
         "id": "\\LibXMLError",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [],
         "properties": [],
@@ -3885,6 +3903,7 @@
         "id": "\\SQLite3",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -4453,6 +4472,7 @@
         "id": "\\SQLite3Stmt",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -4647,6 +4667,7 @@
         "id": "\\SQLite3Result",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -4775,6 +4796,7 @@
         "id": "\\CURLFile",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -4953,6 +4975,7 @@
         "id": "\\DOMException",
         "isFinal": true,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -5162,6 +5185,7 @@
         "id": "\\DOMStringList",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -5200,6 +5224,7 @@
         "id": "\\DOMNameList",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -5261,6 +5286,7 @@
         "id": "\\DOMImplementationList",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -5299,6 +5325,7 @@
         "id": "\\DOMImplementationSource",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -5360,6 +5387,7 @@
         "id": "\\DOMImplementation",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -5510,6 +5538,7 @@
         "id": "\\DOMNode",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -6114,6 +6143,7 @@
         "id": "\\DOMNameSpaceNode",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [],
         "properties": [],
@@ -6128,6 +6158,7 @@
         "id": "\\DOMDocumentFragment",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -6766,6 +6797,7 @@
         "id": "\\DOMDocument",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -8257,6 +8289,7 @@
         "id": "\\DOMNodeList",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -8297,6 +8330,7 @@
         "id": "\\DOMNamedNodeMap",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -8497,6 +8531,7 @@
         "id": "\\DOMCharacterData",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -9271,6 +9306,7 @@
         "id": "\\DOMAttr",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -9920,6 +9956,7 @@
         "id": "\\DOMElement",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -11115,6 +11152,7 @@
         "id": "\\DOMText",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -11980,6 +12018,7 @@
         "id": "\\DOMComment",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -12777,6 +12816,7 @@
         "id": "\\DOMTypeinfo",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [],
         "properties": [],
@@ -12791,6 +12831,7 @@
         "id": "\\DOMUserDataHandler",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -12817,6 +12858,7 @@
         "id": "\\DOMDomError",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [],
         "properties": [],
@@ -12831,6 +12873,7 @@
         "id": "\\DOMErrorHandler",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -12869,6 +12912,7 @@
         "id": "\\DOMLocator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [],
         "properties": [],
@@ -12883,6 +12927,7 @@
         "id": "\\DOMConfiguration",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -12989,6 +13034,7 @@
         "id": "\\DOMCdataSection",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -13854,6 +13900,7 @@
         "id": "\\DOMDocumentType",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -14458,6 +14505,7 @@
         "id": "\\DOMNotation",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -15062,6 +15110,7 @@
         "id": "\\DOMEntity",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -15666,6 +15715,7 @@
         "id": "\\DOMEntityReference",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -16293,6 +16343,7 @@
         "id": "\\DOMProcessingInstruction",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -16931,6 +16982,7 @@
         "id": "\\DOMStringExtend",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -16992,6 +17044,7 @@
         "id": "\\DOMXPath",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -17165,6 +17218,7 @@
         "id": "\\finfo",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -17327,6 +17381,7 @@
         "id": "\\LogicException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -17536,6 +17591,7 @@
         "id": "\\BadFunctionCallException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -17745,6 +17801,7 @@
         "id": "\\BadMethodCallException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -17954,6 +18011,7 @@
         "id": "\\DomainException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -18163,6 +18221,7 @@
         "id": "\\InvalidArgumentException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -18372,6 +18431,7 @@
         "id": "\\LengthException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -18581,6 +18641,7 @@
         "id": "\\OutOfRangeException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -18790,6 +18851,7 @@
         "id": "\\RuntimeException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -18999,6 +19061,7 @@
         "id": "\\OutOfBoundsException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -19208,6 +19271,7 @@
         "id": "\\OverflowException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -19417,6 +19481,7 @@
         "id": "\\RangeException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -19626,6 +19691,7 @@
         "id": "\\UnderflowException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -19835,6 +19901,7 @@
         "id": "\\UnexpectedValueException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -20044,6 +20111,7 @@
         "id": "\\RecursiveIteratorIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -20344,6 +20412,7 @@
         "id": "\\IteratorIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -20452,6 +20521,7 @@
         "id": "\\FilterIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": true,
         "namespace": "\\",
         "methods": [
             {
@@ -20571,6 +20641,7 @@
         "id": "\\RecursiveFilterIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": true,
         "namespace": "\\",
         "methods": [
             {
@@ -20713,6 +20784,7 @@
         "id": "\\CallbackFilterIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -20843,6 +20915,7 @@
         "id": "\\RecursiveCallbackFilterIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -20996,6 +21069,7 @@
         "id": "\\ParentIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -21138,6 +21212,7 @@
         "id": "\\LimitIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -21302,6 +21377,7 @@
         "id": "\\CachingIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -21641,6 +21717,7 @@
         "id": "\\RecursiveCachingIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -22003,6 +22080,7 @@
         "id": "\\NoRewindIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -22111,6 +22189,7 @@
         "id": "\\AppendIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -22252,6 +22331,7 @@
         "id": "\\InfiniteIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -22360,6 +22440,7 @@
         "id": "\\RegexIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -22689,6 +22770,7 @@
         "id": "\\RecursiveRegexIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -23041,6 +23123,7 @@
         "id": "\\EmptyIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -23114,6 +23197,7 @@
         "id": "\\RecursiveTreeIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -23551,6 +23635,7 @@
         "id": "\\ArrayObject",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -24004,6 +24089,7 @@
         "id": "\\ArrayIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -24468,6 +24554,7 @@
         "id": "\\RecursiveArrayIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -24961,6 +25048,7 @@
         "id": "\\SplFileInfo",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -25412,6 +25500,7 @@
         "id": "\\DirectoryIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -25956,6 +26045,7 @@
         "id": "\\FilesystemIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -26618,6 +26708,7 @@
         "id": "\\RecursiveDirectoryIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -27337,6 +27428,7 @@
         "id": "\\GlobIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -28011,6 +28103,7 @@
         "id": "\\SplFileObject",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -29143,6 +29236,7 @@
         "id": "\\SplTempFileObject",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -30242,6 +30336,7 @@
         "id": "\\SplDoublyLinkedList",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -30671,6 +30766,7 @@
         "id": "\\SplQueue",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -31134,6 +31230,7 @@
         "id": "\\SplStack",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -31563,6 +31660,7 @@
         "id": "\\SplHeap",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": true,
         "namespace": "\\",
         "methods": [
             {
@@ -31737,6 +31835,7 @@
         "id": "\\SplMinHeap",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -31934,6 +32033,7 @@
         "id": "\\SplMaxHeap",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -32131,6 +32231,7 @@
         "id": "\\SplPriorityQueue",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -32392,6 +32493,7 @@
         "id": "\\SplFixedArray",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -32694,6 +32796,7 @@
         "id": "\\SplObjectStorage",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -33124,6 +33227,7 @@
         "id": "\\MultipleIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -33370,6 +33474,7 @@
         "id": "\\PDOException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -33588,6 +33693,7 @@
         "id": "\\PDO",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -34505,6 +34611,7 @@
         "id": "\\PDOStatement",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -35094,6 +35201,7 @@
         "id": "\\PDORow",
         "isFinal": true,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [],
         "properties": [],
@@ -35108,6 +35216,7 @@
         "id": "\\ReflectionException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -35317,6 +35426,7 @@
         "id": "\\Reflection",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -35389,6 +35499,7 @@
         "id": "\\ReflectionFunctionAbstract",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": true,
         "namespace": "\\",
         "methods": [
             {
@@ -35724,6 +35835,7 @@
         "id": "\\ReflectionFunction",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -36180,6 +36292,7 @@
         "id": "\\ReflectionGenerator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -36296,6 +36409,7 @@
         "id": "\\ReflectionParameter",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -36622,6 +36736,7 @@
         "id": "\\ReflectionType",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -36681,6 +36796,7 @@
         "id": "\\ReflectionNamedType",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -36751,6 +36867,7 @@
         "id": "\\ReflectionMethod",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -37435,6 +37552,7 @@
         "id": "\\ReflectionClass",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -38313,6 +38431,7 @@
         "id": "\\ReflectionObject",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -39191,6 +39310,7 @@
         "id": "\\ReflectionProperty",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -39532,6 +39652,7 @@
         "id": "\\ReflectionClassConstant",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -39757,6 +39878,7 @@
         "id": "\\ReflectionExtension",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -39984,6 +40106,7 @@
         "id": "\\ReflectionZendExtension",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -40145,6 +40268,7 @@
         "id": "\\SessionHandler",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -40322,6 +40446,7 @@
         "id": "\\SimpleXMLElement",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -40757,6 +40882,7 @@
         "id": "\\SimpleXMLIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -41272,6 +41398,7 @@
         "id": "\\__PHP_Incomplete_Class",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [],
         "properties": [],
@@ -41286,6 +41413,7 @@
         "id": "\\php_user_filter",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -41398,6 +41526,7 @@
         "id": "\\Directory",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -41482,6 +41611,7 @@
         "id": "\\AssertionError",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -41691,6 +41821,7 @@
         "id": "\\XMLReader",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -42383,6 +42514,7 @@
         "id": "\\XMLWriter",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -43460,6 +43592,7 @@
         "id": "\\PharException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -43669,6 +43802,7 @@
         "id": "\\Phar",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -45739,6 +45873,7 @@
         "id": "\\PharData",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -47736,6 +47871,7 @@
         "id": "\\PharFileInfo",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -48389,6 +48525,7 @@
         "id": "\\GMP",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [],
         "properties": [],
@@ -48403,6 +48540,7 @@
         "id": "\\Collator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -48893,6 +49031,7 @@
         "id": "\\NumberFormatter",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -49845,6 +49984,7 @@
         "id": "\\Normalizer",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -49983,6 +50123,7 @@
         "id": "\\Locale",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -50571,6 +50712,7 @@
         "id": "\\MessageFormatter",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -50857,6 +50999,7 @@
         "id": "\\IntlDateFormatter",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -51431,6 +51574,7 @@
         "id": "\\ResourceBundle",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -51628,6 +51772,7 @@
         "id": "\\Transliterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -51834,6 +51979,7 @@
         "id": "\\IntlTimeZone",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -52457,6 +52603,7 @@
         "id": "\\IntlCalendar",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -53706,6 +53853,7 @@
         "id": "\\IntlGregorianCalendar",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -55079,6 +55227,7 @@
         "id": "\\Spoofchecker",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -55273,6 +55422,7 @@
         "id": "\\IntlException",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -55482,6 +55632,7 @@
         "id": "\\IntlIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -55555,6 +55706,7 @@
         "id": "\\IntlBreakIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -56062,6 +56214,7 @@
         "id": "\\IntlRuleBasedBreakIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -56636,6 +56789,7 @@
         "id": "\\IntlCodePointBreakIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -57154,6 +57308,7 @@
         "id": "\\IntlPartsIterator",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -57257,6 +57412,7 @@
         "id": "\\UConverter",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -57969,6 +58125,7 @@
         "id": "\\IntlChar",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -63462,6 +63619,7 @@
         "id": "\\mysqli_sql_exception",
         "isFinal": true,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -63680,6 +63838,7 @@
         "id": "\\mysqli_driver",
         "isFinal": true,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [],
         "properties": [
@@ -63749,6 +63908,7 @@
         "id": "\\mysqli",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -65073,6 +65233,7 @@
         "id": "\\mysqli_warning",
         "isFinal": true,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -65138,6 +65299,7 @@
         "id": "\\mysqli_result",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -65438,6 +65600,7 @@
         "id": "\\mysqli_stmt",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -65881,6 +66044,7 @@
         "id": "\\SoapClient",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -66255,6 +66419,7 @@
         "id": "\\SoapVar",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -66348,6 +66513,7 @@
         "id": "\\SoapServer",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -66624,6 +66790,7 @@
         "id": "\\SoapFault",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -66911,6 +67078,7 @@
         "id": "\\SoapParam",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {
@@ -66960,6 +67128,7 @@
         "id": "\\SoapHeader",
         "isFinal": false,
         "isReadonly": false,
+        "isAbstract": false,
         "namespace": "\\",
         "methods": [
             {

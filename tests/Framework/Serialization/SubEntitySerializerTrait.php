@@ -122,6 +122,10 @@ trait SubEntitySerializerTrait
             'visibility' => $constant->getAccess()->value,
             'isFinal' => $constant->isFinal(),
         ];
+        // Only written when true, so caches grow just for the few deprecated constants.
+        if ($constant->isDeprecated()) {
+            $data['isDeprecated'] = true;
+        }
 
         $this->enrichSerializedClassConstant($data, $constant);
 
@@ -235,6 +239,7 @@ trait SubEntitySerializerTrait
             default => AccessModifier::PUBLIC,
         });
         $constant->setIsFinal($data['isFinal'] ?? false);
+        $constant->setDeprecated($data['isDeprecated'] ?? false);
 
         $this->enrichDeserializedClassConstant($constant, $data);
 

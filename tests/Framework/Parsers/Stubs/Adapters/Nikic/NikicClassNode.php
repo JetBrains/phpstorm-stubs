@@ -37,6 +37,11 @@ class NikicClassNode implements ClassNode
         return $this->class->isReadonly();
     }
 
+    public function isAbstract(): bool
+    {
+        return $this->class->isAbstract();
+    }
+
     public function getParentClassName(): ?string
     {
         if ($this->class->extends === null) {
