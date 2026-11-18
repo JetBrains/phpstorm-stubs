@@ -7,10 +7,23 @@ use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Constants\ConstantDeprecationCheck;
 use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
+use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Unit\Validator\CheckTestCase;
 
 class ConstantDeprecationCheckTest extends CheckTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->useNoKnownProblems();
+    }
+
+    protected function tearDown(): void
+    {
+        KnownProblemsRegistry::reset();
+        parent::tearDown();
+    }
+
     public function testSupportsPhp84AndAbove(): void
     {
         $check = new ConstantDeprecationCheck();
@@ -104,6 +117,27 @@ class ConstantDeprecationCheckTest extends CheckTestCase
     public function testConstantMissingFromStubsIsLeftToTheExistsCheck(): void
     {
         $result = $this->runCheck($this->makeGlobalConstant('\\ASSERT_ACTIVE', deprecated: true), null, '8.4');
+
+        $this->assertFalse($result->hasFailures());
+    }
+
+    public function testDeprecationSinceAnExtensionVersionIsNotAPhpClaim(): void
+    {
+        $result = $this->runCheck(
+            $this->makeGlobalConstant('\\EXT_CONSTANT'),
+            $this->makeGlobalConstant('\\EXT_CONSTANT', deprecated: true, deprecatedSinceVersion: '1.20.0'),
+            '8.4'
+        );
+
+        $this->assertFalse($result->hasFailures());
+    }
+
+    public function testStubConstantNotAvailableInTheVersionIsLeftToTheExistsChecks(): void
+    {
+        $stubConstant = $this->makeGlobalConstant('\\OLD_CONSTANT', deprecated: true, deprecatedSinceVersion: '8.0');
+        $stubConstant->initStubsMetadata()->setRemovedVersion('8.4');
+
+        $result = $this->runCheck($this->makeGlobalConstant('\\OLD_CONSTANT'), $stubConstant, '8.4');
 
         $this->assertFalse($result->hasFailures());
     }

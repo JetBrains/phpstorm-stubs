@@ -5,10 +5,23 @@ namespace StubTests\Unit\Validator\Classes;
 use PHPUnit\Framework\Attributes\DataProvider;
 use StubTests\Framework\Runner\PhpVersions;
 use StubTests\Framework\Validator\Classes\ClassAbstractCheck;
+use StubTests\Framework\Validator\KnownProblemsRegistry;
 use StubTests\Unit\Validator\CheckTestCase;
 
 class ClassAbstractCheckTest extends CheckTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->useNoKnownProblems();
+    }
+
+    protected function tearDown(): void
+    {
+        KnownProblemsRegistry::reset();
+        parent::tearDown();
+    }
+
     public function testSupportsAllVersions(): void
     {
         $check = new ClassAbstractCheck();
