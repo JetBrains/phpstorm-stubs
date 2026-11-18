@@ -55,6 +55,7 @@ class ReflectionClassParser implements Parser
         }
         $class->setIsFinal((bool)$object->isFinal());
         $class->setIsReadonly((bool)$object->isReadOnly());
+        $class->setIsAbstract((bool)$object->isAbstract());
         foreach ($object->getMethods() ?? [] as $method) {
             $class->addMethod($this->methodParser->parse($method));
         }

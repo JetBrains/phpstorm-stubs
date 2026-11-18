@@ -396,4 +396,35 @@ PHP;
             self::assertInstanceOf(PHPConstant::class, $const);
         }
     }
+
+    public function testDefineConstantWithVersionedDeprecationIsDeprecatedSinceThatVersion()
+    {
+        [$constant] = $this->defineParser->parse("<?php\n/**\n * @deprecated 8.5 use FILTER_UNSAFE_RAW instead\n */\ndefine('FILTER_DEFAULT', 516);");
+
+        self::assertTrue($constant->isDeprecated());
+        self::assertSame('8.5', $constant->getStubsMetadata()->getDeprecatedSinceVersion());
+    }
+
+    public function testDefineConstantWithUnversionedDeprecationIsDeprecatedWithoutVersion()
+    {
+        [$constant] = $this->defineParser->parse("<?php\n/**\n * @deprecated\n */\ndefine('DATE_ISO8601', 'Y-m-d\\TH:i:sO');");
+
+        self::assertTrue($constant->isDeprecated());
+        self::assertNull($constant->getStubsMetadata()->getDeprecatedSinceVersion());
+    }
+
+    public function testDefineConstantWithoutDeprecationIsNotDeprecated()
+    {
+        [$constant] = $this->defineParser->parse("<?php\ndefine('E_ALL', 32767);");
+
+        self::assertFalse($constant->isDeprecated());
+    }
+
+    public function testConstStatementWithDeprecationIsDeprecated()
+    {
+        [$constant] = $this->modernParser->parse("<?php\nnamespace Foo;\n/**\n * @deprecated 8.4\n */\nconst BAR = 1;");
+
+        self::assertTrue($constant->isDeprecated());
+        self::assertSame('8.4', $constant->getStubsMetadata()->getDeprecatedSinceVersion());
+    }
 }

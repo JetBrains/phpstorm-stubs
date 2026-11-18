@@ -194,10 +194,12 @@ try {
 
     // Parse constants
     echo "      - Parsing constants...\n";
+    $deprecatedConstants = array_flip($extractedData['deprecatedConstants'] ?? []);
     foreach ($extractedData['constants'] ?? [] as $constantName => $constantValue) {
         try {
             // Pass indexed array [name, value] for ReflectionDefineConstantParser compatibility
             $phpConstant = $constantParser->parse([$constantName, $constantValue]);
+            $phpConstant->setDeprecated(isset($deprecatedConstants[$constantName]));
             $storageManager->addEntity($phpConstant);
         } catch (\Throwable $e) {
             $recordFailure('constants', $constantName, $e);

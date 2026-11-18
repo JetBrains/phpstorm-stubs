@@ -547,8 +547,10 @@ abstract class CheckTestCase extends TestCase
         bool $isFinal = false,
         bool $isReadonly = false,
         ?string $phpDoc = null,
+        bool $isAbstract = false,
     ): PHPClass {
         $class = new PHPClass();
+        $class->setIsAbstract($isAbstract);
         $class->setId($id);
         $class->setName(ltrim($id, '\\'));
         $class->setMethods($methods);
@@ -579,9 +581,15 @@ abstract class CheckTestCase extends TestCase
         bool $isFinal = false,
         ?string $sinceVersion = null,
         ?string $removedVersion = null,
+        bool $deprecated = false,
+        ?string $deprecatedSinceVersion = null,
     ): PHPClassConstant {
         $constant = new PHPClassConstant();
         $constant->setName($name);
+        $constant->setDeprecated($deprecated);
+        if ($deprecatedSinceVersion !== null) {
+            $constant->initStubsMetadata()->setDeprecatedSinceVersion($deprecatedSinceVersion);
+        }
         $constant->setValue($value);
         $constant->setAccess($visibility);
         $constant->setIsFinal($isFinal);
@@ -598,10 +606,16 @@ abstract class CheckTestCase extends TestCase
     protected function makeGlobalConstant(
         string $id,
         mixed $value = null,
+        bool $deprecated = false,
+        ?string $deprecatedSinceVersion = null,
     ): PHPConstant {
         $constant = new PHPConstant();
         $constant->setId($id);
         $constant->setValue($value);
+        $constant->setDeprecated($deprecated);
+        if ($deprecatedSinceVersion !== null) {
+            $constant->initStubsMetadata()->setDeprecatedSinceVersion($deprecatedSinceVersion);
+        }
         return $constant;
     }
 }

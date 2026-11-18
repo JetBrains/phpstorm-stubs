@@ -84,6 +84,7 @@ class StubClassParser implements MultiEntityStubParserInterface
 
         $phpClass->setIsFinal($node->isFinal());
         $phpClass->setIsReadonly($node->isReadonly());
+        $phpClass->setIsAbstract($node->isAbstract());
 
         // Parse PhpDoc using injected parser
         $parsedPhpDoc = $this->phpDocParser->parseElementPhpDoc($node->getDocComment());

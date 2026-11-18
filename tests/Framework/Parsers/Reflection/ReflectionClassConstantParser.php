@@ -48,6 +48,10 @@ class ReflectionClassConstantParser implements Parser
             // reads as false everywhere — but the wrapper has always exposed isFinal() and
             // dropping it meant a final internal constant would silently cache as non-final.
             $constant->setIsFinal((bool)$object->isFinal());
+            // ReflectionClassConstant::isDeprecated() was added in PHP 8.4, so older adapters lack it.
+            $hasIsDeprecated = method_exists($object, 'isDeprecated')
+                || (method_exists($object, 'hasMethod') && $object->hasMethod('isDeprecated'));
+            $constant->setDeprecated($hasIsDeprecated && (bool)$object->isDeprecated());
         } else {
             if (!is_array($object) || empty($object)) {
                 throw new \InvalidArgumentException('ReflectionClassConstantParser::parse() expects a non-empty array or an adapted reflection object');

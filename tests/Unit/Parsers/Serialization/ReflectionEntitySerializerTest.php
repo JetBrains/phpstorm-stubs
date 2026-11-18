@@ -757,4 +757,65 @@ class ReflectionEntitySerializerTest extends TestCase
         self::assertTrue($restored[1]->isPassedByReference());
         self::assertTrue($restored[1]->isPreferRef());
     }
+
+    // ── Abstract classes and deprecated constants ──
+
+    public function testClassAbstractFlagSurvivesARoundtrip(): void
+    {
+        $class = new PHPClass();
+        $class->setName('Document');
+        $class->setNamespace('\\Dom');
+        $class->setId('\\Dom\\Document');
+        $class->setIsAbstract(true);
+
+        $data = $this->serializer->serialize($class);
+
+        self::assertTrue($data['isAbstract']);
+        self::assertTrue($this->serializer->deserialize($data)->isAbstract());
+    }
+
+    public function testGlobalConstantDeprecationSurvivesARoundtrip(): void
+    {
+        $constant = new PHPConstant();
+        $constant->setName('ASSERT_ACTIVE');
+        $constant->setNamespace('\\');
+        $constant->setId('\\ASSERT_ACTIVE');
+        $constant->setValue(1);
+        $constant->setDeprecated(true);
+
+        self::assertTrue($this->serializer->deserialize($this->serializer->serialize($constant))->isDeprecated());
+    }
+
+    public function testClassConstantDeprecationSurvivesARoundtrip(): void
+    {
+        $constant = new PHPClassConstant();
+        $constant->setName('FL_RECOMPRESS');
+        $constant->setValue(16);
+        $constant->setDeprecated(true);
+        $class = new PHPClass();
+        $class->setName('ZipArchive');
+        $class->setNamespace('\\');
+        $class->setId('\\ZipArchive');
+        $class->addConstant($constant);
+
+        $restored = $this->serializer->deserialize($this->serializer->serialize($class));
+
+        self::assertTrue($restored->getConstants()[0]->isDeprecated());
+    }
+
+    public function testUnsetDeprecationIsNotWrittenForClassConstants(): void
+    {
+        $constant = new PHPClassConstant();
+        $constant->setName('CREATE');
+        $constant->setValue(1);
+        $class = new PHPClass();
+        $class->setName('ZipArchive');
+        $class->setNamespace('\\');
+        $class->setId('\\ZipArchive');
+        $class->addConstant($constant);
+
+        $data = $this->serializer->serialize($class);
+
+        self::assertArrayNotHasKey('isDeprecated', $data['constants'][0]);
+    }
 }

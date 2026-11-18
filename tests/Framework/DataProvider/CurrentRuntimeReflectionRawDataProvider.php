@@ -83,4 +83,26 @@ class CurrentRuntimeReflectionRawDataProvider implements ReflectionDataProvider
         }
         return $result;
     }
+
+    /**
+     * Names of the internal constants this runtime reports as deprecated. Empty before PHP 8.4,
+     * which added ReflectionConstant.
+     *
+     * @return string[]
+     */
+    public function getDeprecatedConstantNames()
+    {
+        if (!class_exists('ReflectionConstant')) {
+            return [];
+        }
+
+        $result = [];
+        foreach (array_keys($this->getReflectionConstants()) as $name) {
+            $constant = new \ReflectionConstant($name);
+            if ($constant->isDeprecated()) {
+                $result[] = $name;
+            }
+        }
+        return $result;
+    }
 }
