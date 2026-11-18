@@ -219,6 +219,24 @@ enum CheckType: string
     case CLASS_READONLY = 'ClassReadonlyCheck';
 
     /**
+     * Validates that the `abstract` modifier on a class in stubs matches reflection.
+     */
+    case CLASS_ABSTRACT = 'ClassAbstractCheck';
+
+    /**
+     * Validates global constant deprecation against reflection, PHP 8.4+ (ReflectionConstant).
+     * Fails when PHP deprecates a constant the stubs don't, or when the stubs name a PHP
+     * version it was deprecated in and PHP doesn't deprecate it. A deprecation without a
+     * version is documentation-only and accepted.
+     */
+    case CONSTANT_DEPRECATION = 'ConstantDeprecationCheck';
+
+    /**
+     * Same as CONSTANT_DEPRECATION for class constants, PHP 8.4+ (ReflectionClassConstant::isDeprecated()).
+     */
+    case CLASS_CONSTANTS_DEPRECATION = 'ClassConstantsDeprecationCheck';
+
+    /**
      * Validates that global constants from reflection exist in stubs.
      */
     case CONSTANT_EXISTS = 'ConstantExistsCheck';

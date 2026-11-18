@@ -470,7 +470,6 @@ namespace {
          * @see https://php.net/manual/en/pdo.error-handling.php  Errors and Error Handling
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.errmode-warning
          */
-        #[Deprecated('use PDO::ERRMODE_SILENT or PDO::ERRMODE_EXCEPTION instead', since: '8.5')]
         public const ERRMODE_WARNING = 1;
 
         /**

@@ -25,6 +25,7 @@ class ReflectionModernConstantParser implements Parser
         if (is_object($object) && method_exists($object, 'getShortName')) {
             $parsedConstant->setName($object->getShortName());
             $parsedConstant->setValue($object->getValue());
+            $parsedConstant->setDeprecated($object->isDeprecated());
             if ($object->getNamespaceName()) {
                 $namespace .= $object->getNamespaceName() . '\\';
             }

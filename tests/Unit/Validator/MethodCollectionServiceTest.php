@@ -170,6 +170,21 @@ class MethodCollectionServiceTest extends CheckTestCase
         $this->assertNotSame($ifaceMethod, $result['count']);
     }
 
+    public function testInheritedClassMethodWinsOverOwnInterfaceMethod(): void
+    {
+        // e.g. MongoDB\Driver\Exception\RuntimeException extends \RuntimeException and implements
+        // an interface extending \Throwable: \Exception::getMessage() is what PHP resolves.
+        $parentMethod = $this->makeMethod('getMessage');
+        $ifaceMethod = $this->makeMethod('getMessage');
+        $parent = $this->makeClass('\\Exception', [$parentMethod]);
+        $iface = $this->makeInterface('\\Throwable', [$ifaceMethod]);
+        $class = $this->makeClass('\\DriverException', [], parentClass: $parent, interfaces: [$iface]);
+
+        $result = $this->service->collectForClass($class, PhpVersions::LATEST->value);
+
+        $this->assertSame($parentMethod, $result['getMessage']);
+    }
+
     // ── collectForEnum ───────────────────────────────────────────────────────
 
     public function testCollectForEnumIncludesOwnMethods(): void

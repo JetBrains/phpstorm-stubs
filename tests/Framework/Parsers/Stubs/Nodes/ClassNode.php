@@ -24,6 +24,11 @@ interface ClassNode
     public function isReadonly(): bool;
 
     /**
+     * Check if the class is declared abstract.
+     */
+    public function isAbstract(): bool;
+
+    /**
      * Get the parent class name, or null if no parent.
      */
     public function getParentClassName(): ?string;

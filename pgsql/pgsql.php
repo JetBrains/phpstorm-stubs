@@ -2178,6 +2178,9 @@ function pg_close_stmt(
 function pg_jit(?PgSql\Connection $connection = null): array {}
 
 define('PGSQL_LIBPQ_VERSION', "16.2");
+/**
+ * @deprecated 8.0 use PGSQL_LIBPQ_VERSION instead
+ */
 define('PGSQL_LIBPQ_VERSION_STR', "16.2");
 
 /**

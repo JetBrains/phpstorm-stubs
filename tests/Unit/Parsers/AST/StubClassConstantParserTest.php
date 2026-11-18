@@ -181,4 +181,29 @@ class StubClassConstantParserTest extends BaseTestCase
         self::assertEquals('EXPLICIT_POSITIVE', $constants[5]->getName());
         self::assertEquals(123, $constants[5]->getValue());
     }
+
+    public function testItParsesDeprecatedAttributeOnClassConstant()
+    {
+        $class = $this->classParser->parse("<?php\nuse JetBrains\\PhpStorm\\Deprecated;\nclass ZipArchive {\n    #[Deprecated(since: '8.3')]\n    public const FL_RECOMPRESS = 16;\n}");
+        $constant = $class->getConstants()[0];
+
+        self::assertTrue($constant->isDeprecated());
+        self::assertSame('8.3', $constant->getStubsMetadata()->getDeprecatedSinceVersion());
+    }
+
+    public function testItParsesDeprecatedPhpDocOnClassConstant()
+    {
+        $class = $this->classParser->parse("<?php\nclass DateTime {\n    /** @deprecated */\n    public const ISO8601 = 'Y-m-d\\TH:i:sO';\n}");
+        $constant = $class->getConstants()[0];
+
+        self::assertTrue($constant->isDeprecated());
+        self::assertNull($constant->getStubsMetadata()->getDeprecatedSinceVersion());
+    }
+
+    public function testClassConstantIsNotDeprecatedByDefault()
+    {
+        $class = $this->classParser->parse("<?php\nclass ZipArchive {\n    public const CREATE = 1;\n}");
+
+        self::assertFalse($class->getConstants()[0]->isDeprecated());
+    }
 }

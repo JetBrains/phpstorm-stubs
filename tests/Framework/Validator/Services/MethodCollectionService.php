@@ -61,7 +61,8 @@ class MethodCollectionService
      *
      * Traversal includes:
      * - The class itself and its full parentClass chain
-     * - All implemented interfaces (and their parent interface chains) for each class in the hierarchy
+     * - Then all implemented interfaces (and their parent interface chains) for each class in the
+     *   hierarchy, so an inherited class method wins over an interface's declaration as in PHP
      *
      * @return array<string, PHPMethod>
      */
@@ -69,6 +70,7 @@ class MethodCollectionService
     {
         $methodMap = [];
         $visited = [];
+        $hierarchy = [];
 
         $current = $class;
         while ($current !== null) {
@@ -81,12 +83,15 @@ class MethodCollectionService
             }
 
             $this->collectMethodsFromClassLike($current, $phpVersion, $methodMap);
-
-            foreach ($current->getImplementedInterfaces() as $interface) {
-                $this->collectMethodsFromInterfaceHierarchy($interface, $phpVersion, $methodMap, $visited);
-            }
+            $hierarchy[] = $current;
 
             $current = $current->getParentClass();
+        }
+
+        foreach ($hierarchy as $classInHierarchy) {
+            foreach ($classInHierarchy->getImplementedInterfaces() as $interface) {
+                $this->collectMethodsFromInterfaceHierarchy($interface, $phpVersion, $methodMap, $visited);
+            }
         }
 
         return $methodMap;

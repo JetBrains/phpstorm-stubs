@@ -20,12 +20,24 @@ use StubTests\Framework\Model\Types\StandaloneType;
 use StubTests\Framework\Model\Types\UnionType;
 use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
+use StubTests\Framework\Validator\KnownProblems\InMemoryKnownProblemsProvider;
+use StubTests\Framework\Validator\KnownProblemsRegistry;
 
 /**
  * Base test case providing helper methods for creating mock entities.
  */
 abstract class CheckTestCase extends TestCase
 {
+    /**
+     * Installs a registry with no known problems, so a check never skips an entity id the tests use
+     * because DefaultKnownProblemsProvider lists it. Undo it with KnownProblemsRegistry::reset().
+     */
+    protected function useNoKnownProblems(): void
+    {
+        KnownProblemsRegistry::reset();
+        KnownProblemsRegistry::getInstance(new InMemoryKnownProblemsProvider([]));
+    }
+
     /**
      * Create a stubbed StubDataQueryInterface.
      *
@@ -547,8 +559,10 @@ abstract class CheckTestCase extends TestCase
         bool $isFinal = false,
         bool $isReadonly = false,
         ?string $phpDoc = null,
+        bool $isAbstract = false,
     ): PHPClass {
         $class = new PHPClass();
+        $class->setIsAbstract($isAbstract);
         $class->setId($id);
         $class->setName(ltrim($id, '\\'));
         $class->setMethods($methods);
@@ -579,9 +593,15 @@ abstract class CheckTestCase extends TestCase
         bool $isFinal = false,
         ?string $sinceVersion = null,
         ?string $removedVersion = null,
+        bool $deprecated = false,
+        ?string $deprecatedSinceVersion = null,
     ): PHPClassConstant {
         $constant = new PHPClassConstant();
         $constant->setName($name);
+        $constant->setDeprecated($deprecated);
+        if ($deprecatedSinceVersion !== null) {
+            $constant->initStubsMetadata()->setDeprecatedSinceVersion($deprecatedSinceVersion);
+        }
         $constant->setValue($value);
         $constant->setAccess($visibility);
         $constant->setIsFinal($isFinal);
@@ -598,10 +618,16 @@ abstract class CheckTestCase extends TestCase
     protected function makeGlobalConstant(
         string $id,
         mixed $value = null,
+        bool $deprecated = false,
+        ?string $deprecatedSinceVersion = null,
     ): PHPConstant {
         $constant = new PHPConstant();
         $constant->setId($id);
         $constant->setValue($value);
+        $constant->setDeprecated($deprecated);
+        if ($deprecatedSinceVersion !== null) {
+            $constant->initStubsMetadata()->setDeprecatedSinceVersion($deprecatedSinceVersion);
+        }
         return $constant;
     }
 }

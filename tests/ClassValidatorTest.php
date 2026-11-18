@@ -45,6 +45,8 @@ use StubTests\Framework\Validator\Classes\Methods\ClassMethodsPhpDocConformsSign
 use StubTests\Framework\Validator\Classes\Methods\ReflectionMethodSpecialTypeHintsCheck;
 use StubTests\Framework\Storage\StubDataQueryInterface;
 use StubTests\Framework\Validator\Contracts\CheckDescriptor;
+use StubTests\Framework\Validator\Classes\ClassAbstractCheck;
+use StubTests\Framework\Validator\Classes\Constants\ClassConstantsDeprecationCheck;
 
 /**
  * Validates that classes from reflection exist in stubs.
@@ -71,6 +73,7 @@ class ClassValidatorTest extends ValidatorTestBase
             'checkClassExists' => new CheckDescriptor(EntityExistsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} exists in PHP {phpVersion} but not in stubs', EntityTypeConfig::forClass()),
             'checkClassNamespace' => new CheckDescriptor(EntityNamespaceCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} namespace validation failed in PHP {phpVersion}', EntityTypeConfig::forClass()),
             'checkClassReadonly' => new CheckDescriptor(ClassReadonlyCheck::class, PhpVersions::PHP_8_2, PhpVersions::LATEST, 'Class {entityId} readonly validation failed in PHP {phpVersion}'),
+            'checkClassAbstract' => new CheckDescriptor(ClassAbstractCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} abstract validation failed in PHP {phpVersion}'),
             'checkClassFinal' => new CheckDescriptor(ClassFinalCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} final validation failed in PHP {phpVersion}'),
             // Attribute target flags are declared without version awareness in stubs, so - like the
             // constant-value checks - the comparison against reflection only runs at the latest version.
@@ -103,6 +106,7 @@ class ClassValidatorTest extends ValidatorTestBase
             'checkClassMethodsParameterVariadic' => new CheckDescriptor(ClassMethodsParameterVariadicCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} methods variadic parameter check failed in PHP {phpVersion}'),
             'checkClassConstants' => new CheckDescriptor(ClassConstantsCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} constants check failed in PHP {phpVersion}'),
             'checkClassConstantsVisibility' => new CheckDescriptor(ClassConstantsVisibilityCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Class {entityId} constants visibility check failed in PHP {phpVersion}'),
+            'checkClassConstantsDeprecation' => new CheckDescriptor(ClassConstantsDeprecationCheck::class, PhpVersions::PHP_8_4, PhpVersions::LATEST, 'Class {entityId} constants deprecation check failed in PHP {phpVersion}'),
             // Constant values are compared against reflection at the latest version only, so the
             // range matches ClassConstantsValueCheck::supports() rather than advertising 13.
             'checkClassConstantsValue' => new CheckDescriptor(ClassConstantsValueCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Class {entityId} constants value check failed in PHP {phpVersion}'),

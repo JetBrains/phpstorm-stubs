@@ -29,6 +29,7 @@ class ReflectionClassSerializer implements EntityTypeSerializerInterface
             'id' => $this->toJsonSafe($entity->getId()),
             'isFinal' => $this->toJsonSafe($entity->isFinal()),
             'isReadonly' => $this->toJsonSafe($entity->isReadonly()),
+            'isAbstract' => $this->toJsonSafe($entity->isAbstract()),
         ];
 
         $data['namespace'] = $this->toJsonSafe($entity->getNamespace());
@@ -75,6 +76,7 @@ class ReflectionClassSerializer implements EntityTypeSerializerInterface
         $class->setId($data['id'] ?? null);
         $class->setIsFinal((bool)($data['isFinal'] ?? false));
         $class->setIsReadonly((bool)($data['isReadonly'] ?? false));
+        $class->setIsAbstract((bool)($data['isAbstract'] ?? false));
 
         if (isset($data['methods']) && is_array($data['methods'])) {
             foreach ($data['methods'] as $methodData) {

@@ -7,6 +7,7 @@ use StubTests\Framework\Model\Access\AccessModifier;
 class PHPClassConstant extends BasePHPElement
 {
     private mixed $value = null;
+    private bool $isDeprecated = false;
     private ?string $parentId = null;
     private AccessModifier $accessModifier = AccessModifier::PUBLIC;
     private bool $isFinal = false;
@@ -19,6 +20,16 @@ class PHPClassConstant extends BasePHPElement
     public function setValue(mixed $value): void
     {
         $this->value = $value;
+    }
+
+    public function isDeprecated(): bool
+    {
+        return $this->isDeprecated;
+    }
+
+    public function setDeprecated(bool $isDeprecated): void
+    {
+        $this->isDeprecated = $isDeprecated;
     }
 
     public function getParentId(): ?string

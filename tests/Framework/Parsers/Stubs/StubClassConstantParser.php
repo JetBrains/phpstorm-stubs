@@ -7,6 +7,7 @@ use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
+use StubTests\Framework\Parsers\Stubs\Versions\DeprecationParser;
 use StubTests\Framework\Model\PHPClassConstant;
 use StubTests\Framework\Parsers\Stubs\Nodes\ConstantNode;
 
@@ -19,6 +20,7 @@ class StubClassConstantParser
 {
     private PhpDocParserInterface $phpDocParser;
     private AvailableVersionParserInterface $versionParser;
+    private DeprecationParser $deprecationParser;
 
     public function __construct(
         ?PhpDocParserInterface $phpDocParser = null,
@@ -26,6 +28,7 @@ class StubClassConstantParser
     ) {
         $this->phpDocParser = $phpDocParser ?? new PhpDocumentorParser();
         $this->versionParser = $versionParser ?? new DefaultAvailableVersionParser();
+        $this->deprecationParser = new DeprecationParser();
     }
 
     /**
@@ -57,6 +60,10 @@ class StubClassConstantParser
         $versions = $this->versionParser->parseAvailableVersion($parsedPhpDoc, $node->getAttributes(), $imports);
         $constant->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
         $constant->initStubsMetadata()->setRemovedVersion($versions['removedVersion']);
+
+        $deprecation = $this->deprecationParser->parseDeprecation($node->getAttributes(), $imports, $parsedPhpDoc);
+        $constant->setDeprecated($deprecation->isDeprecated);
+        $constant->initStubsMetadata()->setDeprecatedSinceVersion($deprecation->sinceVersion);
 
         return $constant;
     }

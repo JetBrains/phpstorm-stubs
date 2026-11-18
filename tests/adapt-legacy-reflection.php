@@ -165,7 +165,8 @@ try {
     // Extract constants (keep as simple array since they don't have Reflection objects)
     echo "[6/7] Extracting constants...\n";
     $constants = $dataProvider->getReflectionConstants();
-    echo "      ✓ Extracted " . count($constants) . " constants\n\n";
+    $deprecatedConstants = $dataProvider->getDeprecatedConstantNames();
+    echo "      ✓ Extracted " . count($constants) . " constants (" . count($deprecatedConstants) . " deprecated)\n\n";
 
     $totalSkipped = countSkipped($skipped);
     if ($totalSkipped > 0) {
@@ -191,7 +192,8 @@ try {
         'interfaces' => $wrappedInterfaces,
         'enums' => $wrappedEnums,
         'functions' => $wrappedFunctions,
-        'constants' => $constants
+        'constants' => $constants,
+        'deprecatedConstants' => $deprecatedConstants
     ];
 
     // Save extracted data

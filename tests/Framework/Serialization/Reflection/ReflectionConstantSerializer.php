@@ -30,6 +30,10 @@ class ReflectionConstantSerializer implements EntityTypeSerializerInterface
         ];
 
         $data['namespace'] = $this->toJsonSafe($entity->getNamespace());
+        // Only written when true, so caches grow just for the few deprecated constants.
+        if ($entity->isDeprecated()) {
+            $data['isDeprecated'] = true;
+        }
 
         return $data;
     }
@@ -41,6 +45,7 @@ class ReflectionConstantSerializer implements EntityTypeSerializerInterface
         $constant->setNamespace($data['namespace'] ?? null);
         $constant->setId($data['id'] ?? null);
         $constant->setValue($data['value'] ?? null);
+        $constant->setDeprecated($data['isDeprecated'] ?? false);
 
         return $constant;
     }

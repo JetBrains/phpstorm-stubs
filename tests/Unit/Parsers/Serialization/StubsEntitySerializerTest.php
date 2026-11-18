@@ -7,6 +7,7 @@ use StubTests\Framework\Model\Access\AccessModifier;
 use StubTests\Framework\Serialization\Stubs\StubsEntitySerializer;
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Model\PHPClass;
+use StubTests\Framework\Model\PHPClassConstant;
 use StubTests\Framework\Model\PHPConstant;
 use StubTests\Framework\Model\PHPEnum;
 use StubTests\Framework\Model\PHPFunction;
@@ -851,5 +852,53 @@ class StubsEntitySerializerTest extends TestCase
 
         self::assertTrue($restored->isDeprecated());
         self::assertNull($restored->getStubsMetadata()?->getDeprecatedSinceVersion());
+    }
+
+    // ── Abstract classes and deprecated constants ──
+
+    public function testClassAbstractFlagSurvivesARoundtrip(): void
+    {
+        $class = new PHPClass();
+        $class->setName('Document');
+        $class->setNamespace('\\Dom');
+        $class->setId('\\Dom\\Document');
+        $class->setIsAbstract(true);
+
+        self::assertTrue($this->serializer->deserialize($this->serializer->serialize($class))->isAbstract());
+    }
+
+    public function testGlobalConstantDeprecationSurvivesARoundtrip(): void
+    {
+        $constant = new PHPConstant();
+        $constant->setName('FILTER_DEFAULT');
+        $constant->setNamespace('\\');
+        $constant->setId('\\FILTER_DEFAULT');
+        $constant->setValue(516);
+        $constant->setDeprecated(true);
+        $constant->initStubsMetadata()->setDeprecatedSinceVersion('8.5');
+
+        $restored = $this->serializer->deserialize($this->serializer->serialize($constant));
+
+        self::assertTrue($restored->isDeprecated());
+        self::assertSame('8.5', $restored->getStubsMetadata()->getDeprecatedSinceVersion());
+    }
+
+    public function testClassConstantDeprecationSurvivesARoundtrip(): void
+    {
+        $constant = new PHPClassConstant();
+        $constant->setName('FL_RECOMPRESS');
+        $constant->setValue(16);
+        $constant->setDeprecated(true);
+        $constant->initStubsMetadata()->setDeprecatedSinceVersion('8.3');
+        $class = new PHPClass();
+        $class->setName('ZipArchive');
+        $class->setNamespace('\\');
+        $class->setId('\\ZipArchive');
+        $class->addConstant($constant);
+
+        $restored = $this->serializer->deserialize($this->serializer->serialize($class));
+
+        self::assertTrue($restored->getConstants()[0]->isDeprecated());
+        self::assertSame('8.3', $restored->getConstants()[0]->getStubsMetadata()->getDeprecatedSinceVersion());
     }
 }

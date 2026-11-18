@@ -39,6 +39,8 @@ class PHPConstantSerializer implements EntityTypeSerializerInterface
         $data['phpDoc'] = $this->serializePhpDoc($entity->getId(), $entity->getStubsMetadata()?->getPhpDoc(), $phpDocStorage);
         $data['sinceVersion'] = $this->toJsonSafe($entity->getStubsMetadata()?->getSinceVersion());
         $data['removedVersion'] = $this->toJsonSafe($entity->getStubsMetadata()?->getRemovedVersion());
+        $data['isDeprecated'] = $entity->isDeprecated();
+        $data['deprecatedSinceVersion'] = $this->toJsonSafe($entity->getStubsMetadata()?->getDeprecatedSinceVersion());
 
         return $data;
     }
@@ -58,6 +60,8 @@ class PHPConstantSerializer implements EntityTypeSerializerInterface
         $constant->initStubsMetadata()->setPhpDoc($this->deserializePhpDoc($constantId, $data['phpDoc'] ?? null, $phpDocStorage));
         $constant->initStubsMetadata()->setSinceVersion($data['sinceVersion'] ?? null);
         $constant->initStubsMetadata()->setRemovedVersion($data['removedVersion'] ?? null);
+        $constant->setDeprecated($data['isDeprecated'] ?? false);
+        $constant->initStubsMetadata()->setDeprecatedSinceVersion($data['deprecatedSinceVersion'] ?? null);
 
         return $constant;
     }

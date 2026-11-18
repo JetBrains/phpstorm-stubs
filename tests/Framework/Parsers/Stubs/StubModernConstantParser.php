@@ -9,6 +9,7 @@ use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\DefaultAvailableVersionParser;
+use StubTests\Framework\Parsers\Stubs\Versions\DeprecationParser;
 
 /**
  * Parses modern global const declarations from AST into PHPConstant domain objects.
@@ -20,6 +21,7 @@ class StubModernConstantParser implements MultiEntityStubParserInterface
     private ConstantNodeExtractorInterface $nodeExtractor;
     private PhpDocParserInterface $phpDocParser;
     private AvailableVersionParserInterface $versionParser;
+    private DeprecationParser $deprecationParser;
 
     public function __construct(
         ?ConstantNodeExtractorInterface $nodeExtractor = null,
@@ -29,6 +31,7 @@ class StubModernConstantParser implements MultiEntityStubParserInterface
         $this->nodeExtractor = $nodeExtractor ?? new NikicNodeExtractor();
         $this->phpDocParser = $phpDocParser ?? new PhpDocumentorParser();
         $this->versionParser = $versionParser ?? new DefaultAvailableVersionParser();
+        $this->deprecationParser = new DeprecationParser();
     }
 
     /**
@@ -83,6 +86,10 @@ class StubModernConstantParser implements MultiEntityStubParserInterface
         $versions = $this->versionParser->parseAvailableVersion($parsedPhpDoc, [], []);
         $phpConstant->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
         $phpConstant->initStubsMetadata()->setRemovedVersion($versions['removedVersion']);
+
+        $deprecation = $this->deprecationParser->parseDeprecation([], [], $parsedPhpDoc);
+        $phpConstant->setDeprecated($deprecation->isDeprecated);
+        $phpConstant->initStubsMetadata()->setDeprecatedSinceVersion($deprecation->sinceVersion);
 
         return $phpConstant;
     }

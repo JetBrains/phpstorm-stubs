@@ -23,7 +23,7 @@ namespace Io\Poll {
     /**
      * @since 8.6
      */
-    class FailedPollOperationException extends PollException
+    abstract class FailedPollOperationException extends PollException
     {
         public const int ERROR_NONE = 0;
         public const int ERROR_SYSTEM = 1;

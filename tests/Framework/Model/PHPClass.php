@@ -7,6 +7,7 @@ class PHPClass extends PHPClassLikeObject
     /** @var PHPProperty[] */
     private array $properties = [];
     private ?PHPClass $parentClass = null;
+    private bool $isAbstract = false;
 
     /** @return PHPProperty[] */
     public function getProperties(): array
@@ -32,5 +33,15 @@ class PHPClass extends PHPClassLikeObject
     public function setParentClass(?PHPClass $parentClass): void
     {
         $this->parentClass = $parentClass;
+    }
+
+    public function isAbstract(): bool
+    {
+        return $this->isAbstract;
+    }
+
+    public function setIsAbstract(bool $isAbstract): void
+    {
+        $this->isAbstract = $isAbstract;
     }
 }
