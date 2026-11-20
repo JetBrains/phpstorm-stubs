@@ -61,6 +61,23 @@ class StubConstantDefaultValueTest extends TestCase
         self::assertNull($value);
     }
 
+    public function testUnresolvableDefaultIsMarkedUnresolved(): void
+    {
+        $parameter = $this->parameterWithDefault('function f($type = NotLoadedExtClass::KEY_SEQUENTIAL) {}');
+
+        // Asked before getDefaultValue(), so the flag has to trigger the deferred evaluation itself.
+        self::assertFalse($parameter->isDefaultValueResolved());
+        self::assertNull($parameter->getDefaultValue());
+    }
+
+    public function testNullDefaultIsResolved(): void
+    {
+        $parameter = $this->parameterWithDefault('function f($x = null) {}');
+
+        self::assertNull($parameter->getDefaultValue());
+        self::assertTrue($parameter->isDefaultValueResolved());
+    }
+
     public function testRuntimeResolutionStillWins(): void
     {
         // PHP_INT_MAX is always defined at runtime; no registry entry needed.
@@ -169,6 +186,11 @@ class StubConstantDefaultValueTest extends TestCase
 
     private function evaluateDefault(string $functionCode): mixed
     {
+        return $this->parameterWithDefault($functionCode)->getDefaultValue();
+    }
+
+    private function parameterWithDefault(string $functionCode): PHPParameter
+    {
         $parser = (new ParserFactory())->createForNewestSupportedVersion();
         $stmts = $parser->parse('<?php ' . $functionCode);
         /** @var Function_ $fn */
@@ -180,6 +202,6 @@ class StubConstantDefaultValueTest extends TestCase
         $parameter->setHasDefaultValue(true);
         $parameter->setDefaultValueEvaluator(fn () => $node->getDefaultValue());
 
-        return $parameter->getDefaultValue();
+        return $parameter;
     }
 }

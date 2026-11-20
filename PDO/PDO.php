@@ -1,6 +1,9 @@
 <?php
 
 namespace {
+    /**
+     * @since 8.3
+     */
     const PDO_ODBC_TYPE = 'unixODBC';
 
     use JetBrains\PhpStorm\ArrayShape;
@@ -20,7 +23,7 @@ namespace {
     {
         #[LanguageLevelTypeAware(['8.1' => 'array|null'], default: '')]
         public $errorInfo;
-        protected $code;
+        protected $code = 0;
     }
 
     /**
@@ -789,12 +792,10 @@ namespace {
         #[Deprecated('use Pdo\Mysql::ATTR_LOCAL_INFILE_DIRECTORY instead', since: '8.5')]
         public const MYSQL_ATTR_LOCAL_INFILE_DIRECTORY = 1014;
 
-        #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
-        public const PGSQL_ASSOC = 1;
-
         /**
-         * @removed 7.1
+         * @removed 7.0
          */
+        #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead", since: '5.6')]
         public const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
 
         /**
@@ -802,8 +803,6 @@ namespace {
          */
         #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_ATTR_DISABLE_PREPARES = 1000;
-        public const PGSQL_BAD_RESPONSE = 5;
-        public const PGSQL_BOTH = 3;
 
         #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_IDLE = 0;
@@ -819,60 +818,6 @@ namespace {
 
         #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_UNKNOWN = 4;
-        public const PGSQL_CONNECT_ASYNC = 4;
-        public const PGSQL_CONNECT_FORCE_NEW = 2;
-        public const PGSQL_CONNECTION_AUTH_OK = 5;
-        public const PGSQL_CONNECTION_AWAITING_RESPONSE = 4;
-        public const PGSQL_CONNECTION_BAD = 1;
-        public const PGSQL_CONNECTION_OK = 0;
-        public const PGSQL_CONNECTION_MADE = 3;
-        public const PGSQL_CONNECTION_SETENV = 6;
-        public const PGSQL_CONNECTION_SSL_STARTUP = 7;
-        public const PGSQL_CONNECTION_STARTED = 2;
-        public const PGSQL_COMMAND_OK = 1;
-        public const PGSQL_CONV_FORCE_NULL = 4;
-        public const PGSQL_CONV_IGNORE_DEFAULT = 2;
-        public const PGSQL_CONV_IGNORE_NOT_NULL = 8;
-        public const PGSQL_COPY_IN = 4;
-        public const PGSQL_COPY_OUT = 3;
-        public const PGSQL_DIAG_CONTEXT = 87;
-        public const PGSQL_DIAG_INTERNAL_POSITION = 112;
-        public const PGSQL_DIAG_INTERNAL_QUERY = 113;
-        public const PGSQL_DIAG_MESSAGE_DETAIL = 68;
-        public const PGSQL_DIAG_MESSAGE_HINT = 72;
-        public const PGSQL_DIAG_MESSAGE_PRIMARY = 77;
-        public const PGSQL_DIAG_SEVERITY = 83;
-        public const PGSQL_DIAG_SOURCE_FILE = 70;
-        public const PGSQL_DIAG_SOURCE_FUNCTION = 82;
-        public const PGSQL_DIAG_SOURCE_LINE = 76;
-        public const PGSQL_DIAG_SQLSTATE = 67;
-        public const PGSQL_DIAG_STATEMENT_POSITION = 80;
-        public const PGSQL_DML_ASYNC = 1024;
-        public const PGSQL_DML_EXEC = 512;
-        public const PGSQL_DML_NO_CONV = 256;
-        public const PGSQL_DML_STRING = 2048;
-        public const PGSQL_DML_ESCAPE = 4096;
-        public const PGSQL_EMPTY_QUERY = 0;
-        public const PGSQL_ERRORS_DEFAULT = 1;
-        public const PGSQL_ERRORS_TERSE = 0;
-        public const PGSQL_ERRORS_VERBOSE = 2;
-        public const PGSQL_FATAL_ERROR = 7;
-        public const PGSQL_NONFATAL_ERROR = 6;
-        public const PGSQL_NOTICE_ALL = 2;
-        public const PGSQL_NOTICE_CLEAR = 3;
-        public const PGSQL_NOTICE_LAST = 1;
-        public const PGSQL_NUM = 2;
-        public const PGSQL_POLLING_ACTIVE = 4;
-        public const PGSQL_POLLING_FAILED = 0;
-        public const PGSQL_POLLING_OK = 3;
-        public const PGSQL_POLLING_READING = 1;
-        public const PGSQL_POLLING_WRITING = 2;
-        public const PGSQL_SEEK_CUR = 1;
-        public const PGSQL_SEEK_END = 2;
-        public const PGSQL_SEEK_SET = 0;
-        public const PGSQL_STATUS_LONG = 1;
-        public const PGSQL_STATUS_STRING = 2;
-        public const PGSQL_TUPLES_OK = 2;
         public const SQLSRV_TXN_READ_UNCOMMITTED = "READ_UNCOMMITTED";
         public const SQLSRV_TXN_READ_COMMITTED = "READ_COMMITTED";
         public const SQLSRV_TXN_REPEATABLE_READ = "REPEATABLE_READ";
@@ -1901,6 +1846,10 @@ namespace {
          * column, bitwise-OR <b>PDO::FETCH_COLUMN</b> with
          * <b>PDO::FETCH_GROUP</b>.
          * </p>
+         * @param array $ctor_args [optional] <p>
+         * Arguments of custom class constructor when the <i>fetch_style</i>
+         * parameter is <b>PDO::FETCH_CLASS</b> (before PHP 8.0, passed as one array).
+         * </p>
          * @param mixed ...$args <p>
          * Arguments of custom class constructor when the <i>fetch_style</i>
          * parameter is <b>PDO::FETCH_CLASS</b>.
@@ -1920,7 +1869,8 @@ namespace {
         public function fetchAll(
             #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_DEFAULT,
             #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $fetch_argument = null,
-            #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args
+            #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $ctor_args = [],
+            #[PhpStormStubsElementAvailable(from: '8.0')] mixed ...$args
         ): array {}
 
         /**
@@ -2186,8 +2136,6 @@ namespace {
      */
     #[Pure]
     function pdo_drivers(): array {}
-
-    function confirm_pdo_ibm_compiled() {}
 }
 
 namespace Pdo {
@@ -2441,6 +2389,11 @@ namespace Pdo {
     {
         public const int ATTR_DISABLE_PREPARES = 1000;
         public const int ATTR_RESULT_MEMORY_SIZE = 1001;
+
+        /**
+         * @since 8.6
+         */
+        public const int ATTR_CHUNK_SIZE = 1002;
 
         #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_IDLE = 0;

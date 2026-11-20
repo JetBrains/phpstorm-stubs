@@ -17,13 +17,13 @@ use JetBrains\PhpStorm\Pure;
 class CURLFile
 {
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $name;
+    public $name = '';
 
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $mime;
+    public $mime = '';
 
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $postname;
+    public $postname = '';
 
     /**
      * Create a CURLFile object
@@ -92,6 +92,7 @@ class CURLFile
      * Unserialization handler
      * @link https://php-legacy-docs.zend.com/manual/php5/en/curlfile.wakeup
      * @since 5.5
+     * @removed 7.4
      */
     public function __wakeup() {}
 }
@@ -1142,8 +1143,10 @@ function curl_version(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $
  * <tr>
  * <td style="vertical-align: top;"><b>CURLOPT_COOKIEJAR</b></td>
  * <td style="vertical-align: top;">
- * The name of a file to save all internal cookies to when the handle is closed,
- * e.g. after a call to curl_close.
+ * A string with the name of a file to save all internal cookies to when the handle's destructor is called.
+ * As of PHP 8.0.0, <b>curl_close</b> is a no-op and does not destroy the handle.
+ * If cookies need to be written prior to the handle being automatically destroyed,
+ * run <code>curl_setopt($ch, CURLOPT_COOKIELIST, "FLUSH");</code>.
  * </td>
  * <td style="vertical-align: top;">
  * </td>
@@ -1564,8 +1567,10 @@ function curl_version(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $
  * <tr>
  * <td style="vertical-align: top;"><b>CURLOPT_COOKIEJAR</b></td>
  * <td style="vertical-align: top;">
- * The name of a file to save all internal cookies to when the handle is closed,
- * e.g. after a call to curl_close.
+ * A string with the name of a file to save all internal cookies to when the handle's destructor is called.
+ * As of PHP 8.0.0, <b>curl_close</b> is a no-op and does not destroy the handle.
+ * If cookies need to be written prior to the handle being automatically destroyed,
+ * run <code>curl_setopt($ch, CURLOPT_COOKIELIST, "FLUSH");</code>.
  * </td>
  * <td style="vertical-align: top;">
  * </td>

@@ -624,6 +624,12 @@ class ZipArchive implements Countable
     public const ER_NOT_ALLOWED = 34;
 
     /**
+     * Possibly truncated or corrupted zip archive
+     * @since 8.4
+     */
+    public const ER_TRUNCATED_ZIP = 35;
+
+    /**
      * @since 8.0
      */
     public const AFL_RDONLY = 2;
@@ -775,7 +781,7 @@ class ZipArchive implements Countable
     #[TentativeType]
     public function open(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): int|bool {}
 
     /**
@@ -865,7 +871,7 @@ class ZipArchive implements Countable
     #[TentativeType]
     public function addFile(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filepath,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $entryname = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $entryname = '',
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $start = 0,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = 0,
         #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 8192
@@ -983,7 +989,7 @@ class ZipArchive implements Countable
      * @return string|false the Zip archive comment or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function getArchiveComment(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null): string|false {}
+    public function getArchiveComment(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.4.0)<br/>
@@ -1095,7 +1101,7 @@ class ZipArchive implements Countable
     #[TentativeType]
     public function getCommentIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): string|false {}
 
     /**
@@ -1114,7 +1120,7 @@ class ZipArchive implements Countable
     #[TentativeType]
     public function getCommentName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): string|false {}
 
     /**
@@ -1160,7 +1166,7 @@ class ZipArchive implements Countable
     #[TentativeType]
     public function statName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): array|false {}
 
     /**
@@ -1180,7 +1186,7 @@ class ZipArchive implements Countable
     #[TentativeType]
     public function statIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): array|false {}
 
     /**
@@ -1200,7 +1206,7 @@ class ZipArchive implements Countable
     #[TentativeType]
     public function locateName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): int|false {}
 
     /**
@@ -1219,7 +1225,7 @@ class ZipArchive implements Countable
     #[TentativeType]
     public function getNameIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): string|false {}
 
     /**
@@ -1305,7 +1311,7 @@ class ZipArchive implements Countable
     public function getFromName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $len = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): string|false {}
 
     /**
@@ -1332,7 +1338,7 @@ class ZipArchive implements Countable
     public function getFromIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $len = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): string|false {}
 
     /**
@@ -1357,6 +1363,7 @@ class ZipArchive implements Countable
      * If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged stream is returned.
      * </p>
      * @return resource|false a file pointer (resource) on success or <b>FALSE</b> on failure.
+     * @since 8.2
      */
     public function getStreamIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
@@ -1377,7 +1384,7 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $opsys,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attr,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): bool {}
 
     /**
@@ -1394,7 +1401,7 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$opsys,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$attr,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): bool {}
 
     /**
@@ -1411,7 +1418,7 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $opsys,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attr,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): bool {}
 
     /**
@@ -1428,7 +1435,7 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$opsys,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$attr,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): bool {}
 
     /**
@@ -1439,6 +1446,7 @@ class ZipArchive implements Countable
      * @link https://php.net/manual/en/ziparchive.isencryptionmethoddupported.php
      * @param int $method The encryption method, one of the ZipArchive::EM_* constants.
      * @param bool $enc If true check for encryption, else check for decryption.
+     * @since 8.0
      */
     #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public static function isEncryptionMethodSupported(
@@ -1451,6 +1459,7 @@ class ZipArchive implements Countable
      * @link https://php.net/manual/en/ziparchive.iscompressionmethoddupported.php
      * @param int $method The compression method, one of the ZipArchive::CM_* constants.
      * @param bool $enc If true check for compression, else check for decompression.
+     * @since 8.0
      */
     #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public static function isCompressionMethodSupported(
@@ -1467,6 +1476,7 @@ class ZipArchive implements Countable
      * @param callable $callback If this function return 0 operation will continue, other value it
      * will be cancelled.
      * @return bool Returns true on success or false on failure.
+     * @since 8.0
      */
     #[TentativeType]
     public function registerCancelCallback(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
@@ -1481,6 +1491,7 @@ class ZipArchive implements Countable
      * @param callable $callback This function will receive the current state as a float (from 0.0
      * to 1.0).
      * @return bool Returns true on success or false on failure.
+     * @since 8.0
      */
     #[TentativeType]
     public function registerProgressCallback(
@@ -1495,12 +1506,13 @@ class ZipArchive implements Countable
      * @param int $timestamp The modification time (unix timestamp) of the file.
      * @param int $flags Optional flags, unused for now.
      * @return bool Returns true on success or false on failure.
+     * @since 8.0
      */
     #[TentativeType]
     public function setMtimeName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestamp,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): bool {}
 
     /**
@@ -1510,12 +1522,13 @@ class ZipArchive implements Countable
      * @param int $timestamp The modification time (unix timestamp) of the file.
      * @param int $flags Optional flags, unused for now.
      * @return bool Returns true on success or false on failure.
+     * @since 8.0
      */
     #[TentativeType]
     public function setMtimeIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestamp,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): bool {}
 
     /**
@@ -1531,19 +1544,21 @@ class ZipArchive implements Countable
      * ZipArchive::FL_ENC_CP437, ZipArchive::FL_OPEN_FILE_NOW. The behaviour of these constants is
      * described on the ZIP constants page.
      * @return bool Returns true on success or false on failure.
+     * @since 8.0
      */
     #[TentativeType]
     public function replaceFile(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filepath,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $start = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $start = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): bool {}
 
     /**
      * Clear the status error message, system and/or zip messages
      * @link https://php.net/manual/en/ziparchive.clearerror.php
+     * @since 8.2
      */
     #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
     public function clearError() {}
@@ -1555,6 +1570,7 @@ class ZipArchive implements Countable
      * ZipArchive::AFL_WANT_TORRENTZIP ZipArchive::AFL_CREATE_OR_KEEP_FILE_FOR_EMPTY_ARCHIVE
      * @param int $value The new value of the flag.
      * @return bool Returns true on success or false on failure.
+     * @since 8.3
      */
     #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public function setArchiveFlag(
@@ -1574,6 +1590,7 @@ class ZipArchive implements Countable
      * @param int $flags If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged flag is
      * returned.
      * @return int Returns 1 if flag is set for archive, 0 if not, and -1 if an error occurred.
+     * @since 8.3
      */
     #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
     public function getArchiveFlag(
@@ -1592,6 +1609,7 @@ class ZipArchive implements Countable
      * @param int $flags If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged stream
      * is returned.
      * @return void Returns a file pointer (resource) on success or false on failure.
+     * @since 8.2
      */
     public function getStreamName(
         #[LanguageLevelTypeAware(['8.2' => 'string'], default: '')] $name,

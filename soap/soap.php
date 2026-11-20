@@ -514,31 +514,31 @@ class SoapVar
      * @var mixed
      * @since 8.1
      */
-    public mixed $enc_value;
+    public mixed $enc_value = null;
 
     /**
      * @var string|null
      * @since 8.1
      */
-    public string|null $enc_stype;
+    public string|null $enc_stype = null;
 
     /**
      * @var string|null
      * @since 8.1
      */
-    public string|null $enc_ns;
+    public string|null $enc_ns = null;
 
     /**
      * @var string|null
      * @since 8.1
      */
-    public string|null $enc_name;
+    public string|null $enc_name = null;
 
     /**
      * @var string|null
      * @since 8.1
      */
-    public string|null $enc_namens;
+    public string|null $enc_namens = null;
 
     /**
      * SoapVar constructor
@@ -891,13 +891,13 @@ class SoapFault extends Exception
      * @var string|null
      * @since 8.1
      */
-    public string|null $faultcodens;
+    public string|null $faultcodens = null;
 
     /**
      * @var string|null
      * @since 8.1
      */
-    public string|null $_name;
+    public string|null $_name = null;
 
     /**
      * @since 8.5
@@ -1053,7 +1053,7 @@ class SoapHeader
      * @var mixed
      * @since 8.1
      */
-    public mixed $data;
+    public mixed $data = null;
 
     /**
      * @var bool

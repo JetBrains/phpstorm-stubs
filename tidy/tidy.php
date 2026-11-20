@@ -14,8 +14,8 @@ class tidy
     /**
      * @var string|null  The last warnings and errors from TidyLib
      */
-    public ?string $errorBuffer;
-    public ?string $value;
+    public ?string $errorBuffer = null;
+    public ?string $value = null;
 
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -355,7 +355,7 @@ class tidy
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename = null,
         #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $config = null,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $encoding = null,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $useIncludePath = null
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $useIncludePath = false
     ) {}
 }
 
@@ -905,6 +905,7 @@ function tidy_get_body(tidy $tidy): ?tidyNode {}
  * The buffer mode.
  * </p>
  * @return string the modified buffer.
+ * @removed 5.4
  */
 function ob_tidyhandler($input, $mode = null) {}
 

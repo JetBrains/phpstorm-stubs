@@ -44,6 +44,7 @@ class ReflectionParameterParser implements Parser
 
         // Set passed by reference
         $parameter->setIsPassedByReference($object->isPassedByReference());
+        $parameter->setIsPreferRef($object->isPassedByReference() && $object->canBePassedByValue());
 
         // Parse type information using ReflectionTypeParser
         $type = $this->typeParser->parse($object->hasType() ? $object->getType() : null);
@@ -57,6 +58,7 @@ class ReflectionParameterParser implements Parser
             } catch (\ReflectionException $e) {
                 // If we can't get the default value, leave it as null
                 $parameter->setDefaultValue(null);
+                $parameter->setDefaultValueResolved(false);
             }
         } else {
             $parameter->setHasDefaultValue(false);

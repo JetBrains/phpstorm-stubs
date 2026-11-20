@@ -25,8 +25,27 @@ jobs:
       - name: Regenerate stubs cache from current stub files
         run: docker compose -f docker-compose.yml run --rm test_runner php tests/run-stubs-parser.php
 
-      - name: Run tests (General)
-        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite General
+      # One validator suite per process: a single run of all of them exceeds the 2 GB memory limit.
+      - name: Run tests (Classes)
+        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite Classes
+
+      - name: Run tests (Interfaces)
+        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite Interfaces
+
+      - name: Run tests (Enums)
+        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite Enums
+
+      - name: Run tests (Constants)
+        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite Constants
+
+      - name: Run tests (Functions)
+        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite Functions
+
+      - name: Run tests (Meta files)
+        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite Meta
+
+      - name: Run tests (Stale entities)
+        run: docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --no-progress --testsuite Stale
 
   additional:
     runs-on: ubuntu-latest

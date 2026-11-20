@@ -125,6 +125,23 @@ class ClassConstantsValueCheckTest extends CheckTestCase
         $this->assertStringContainsString("stub='0'", $failures[$classId . '::VERSION']);
     }
 
+    public function testTypeMismatchFailsEvenWhenTheStringFormsMatch(): void
+    {
+        // An int constant declared as a string prints the same, but PhpStorm would infer a string.
+        $classId = '\\DateTime';
+        $reflClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', 2)]);
+        $stubClass = $this->makeClass($classId, constants: [$this->makeClassConstant('VERSION', '2')]);
+
+        $provider = $this->createMockReflectionProviderWithClasses([$reflClass]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getClasses')->willReturn([$stubClass]);
+
+        $result = (new ClassConstantsValueCheck($provider))->run($stubs, $classId, PhpVersions::LATEST->value);
+
+        $this->assertTrue($result->hasFailures());
+        $this->assertStringContainsString("reflection is int 2, stub is string '2'", $result->getFailures()[$classId . '::VERSION']);
+    }
+
     public function testValueMismatchSkippedOnNonLatestPhp(): void
     {
         // A genuine value mismatch (42 vs 0) must still be skipped below LATEST. The skip now

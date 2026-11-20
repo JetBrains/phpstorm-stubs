@@ -139,6 +139,28 @@ class ReflectionParameterParserTest extends TestCase
         $parsedParameter = new ReflectionParameterParser()->parse($parameterMock);
         self::assertTrue($parsedParameter->hasDefaultValue());
         self::assertEquals('default_value', $parsedParameter->getDefaultValue());
+        self::assertTrue($parsedParameter->isDefaultValueResolved());
+    }
+
+    public function testItMarksAnUnavailableDefaultValueUnresolved()
+    {
+        $parameterMock = $this->getMockBuilder(AdaptedReflectionParameter::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['getName', 'getPosition', 'isOptional', 'isVariadic', 'isPassedByReference', 'hasType', 'isDefaultValueAvailable', 'getDefaultValue'])
+            ->getMock();
+        $parameterMock->method('getName')->willReturn('param');
+        $parameterMock->method('getPosition')->willReturn(0);
+        $parameterMock->method('isOptional')->willReturn(true);
+        $parameterMock->method('isVariadic')->willReturn(false);
+        $parameterMock->method('isPassedByReference')->willReturn(false);
+        $parameterMock->method('hasType')->willReturn(false);
+        $parameterMock->method('isDefaultValueAvailable')->willReturn(true);
+        $parameterMock->method('getDefaultValue')->willThrowException(new \ReflectionException('unavailable'));
+
+        $parsedParameter = new ReflectionParameterParser()->parse($parameterMock);
+        self::assertTrue($parsedParameter->hasDefaultValue());
+        self::assertNull($parsedParameter->getDefaultValue());
+        self::assertFalse($parsedParameter->isDefaultValueResolved());
     }
 
     public function testItCanParseType()
@@ -184,5 +206,37 @@ class ReflectionParameterParserTest extends TestCase
         self::assertFalse($parser->canParse(new \stdClass()));
         self::assertFalse($parser->canParse('string'));
         self::assertFalse($parser->canParse(null));
+    }
+
+    /**
+     * @return array<string, array{bool, bool, bool}> isPassedByReference, canBePassedByValue, expected isPreferRef
+     */
+    public static function preferRefProvider(): array
+    {
+        return [
+            'strict reference' => [true, false, false],
+            'prefer-ref' => [true, true, true],
+            'by value' => [false, true, false],
+        ];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('preferRefProvider')]
+    public function testItParsesPreferRef(bool $byRef, bool $byValue, bool $expected): void
+    {
+        $parameterMock = $this->createStub(AdaptedReflectionParameter::class);
+        $parameterMock->method('getAttributes')->willReturn([]);
+        $parameterMock->method('getName')->willReturn('param');
+        $parameterMock->method('getPosition')->willReturn(0);
+        $parameterMock->method('isOptional')->willReturn(false);
+        $parameterMock->method('isVariadic')->willReturn(false);
+        $parameterMock->method('isPassedByReference')->willReturn($byRef);
+        $parameterMock->method('canBePassedByValue')->willReturn($byValue);
+        $parameterMock->method('hasType')->willReturn(false);
+        $parameterMock->method('isDefaultValueAvailable')->willReturn(false);
+
+        $parsedParameter = new ReflectionParameterParser()->parse($parameterMock);
+
+        self::assertSame($byRef, $parsedParameter->isPassedByReference());
+        self::assertSame($expected, $parsedParameter->isPreferRef());
     }
 }

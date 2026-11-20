@@ -56,12 +56,28 @@ class InterfaceConstantsCheckTest extends CheckTestCase
         $this->assertStringNotContainsString('Class', $failures[$ifaceId . '::GHOST']);
     }
 
-    public function testConstantInReflectionOnlyPasses(): void
+    public function testConstantInReflectionOnlyIsFailure(): void
     {
-        // Constant only in reflection (not stub) is fine — might be inherited in stubs
         $ifaceId = '\\Countable';
         $reflIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('MODE', 1)]);
         $stubIface = $this->makeInterface($ifaceId);
+
+        $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
+        $stubs = $this->createMockStorageManager();
+        $stubs->method('getInterfaces')->willReturn([$stubIface]);
+
+        $result = (new ClassConstantsCheck(reflectionProvider: $provider, entityTypeConfig: EntityTypeConfig::forInterface()))->run($stubs, $ifaceId, '8.0');
+
+        $this->assertTrue($result->hasFailures());
+    }
+
+    public function testConstantFromParentInterfacePasses(): void
+    {
+        // Reflection lists inherited constants; the stub declares it on the parent interface → passes
+        $ifaceId = '\\ChildInterface';
+        $reflIface = $this->makeInterface($ifaceId, constants: [$this->makeClassConstant('MODE', 1)]);
+        $stubParent = $this->makeInterface('\\ParentInterface', constants: [$this->makeClassConstant('MODE', 1)]);
+        $stubIface = $this->makeInterface($ifaceId, parentInterfaces: [$stubParent]);
 
         $provider = $this->createMockReflectionProviderWithInterfaces([$reflIface]);
         $stubs = $this->createMockStorageManager();

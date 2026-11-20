@@ -15,6 +15,8 @@ use StubTests\Framework\Validator\Functions\ParameterNamesCheck;
 use StubTests\Framework\Validator\Functions\ParameterTypesCheck;
 use StubTests\Framework\Validator\Functions\FunctionReturnTypesCheck;
 use StubTests\Framework\Validator\Functions\FunctionParameterDeprecationCheck;
+use StubTests\Framework\Validator\Functions\FunctionParameterByReferenceCheck;
+use StubTests\Framework\Validator\Functions\FunctionParameterVariadicCheck;
 use StubTests\Framework\Validator\Functions\FunctionPhpDocConformsSignatureCheck;
 use StubTests\Framework\Validator\Functions\FunctionSpecialTypeHintsCheck;
 use StubTests\Framework\Storage\StubDataQueryInterface;
@@ -50,6 +52,8 @@ class FunctionValidatorTest extends ValidatorTestBase
             'checkFunctionParameterDeprecation' => new CheckDescriptor(FunctionParameterDeprecationCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Function {entityId} parameter deprecation mismatch in PHP {phpVersion}'),
             'checkFunctionParametersCount' => new CheckDescriptor(FunctionParametersCountCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Function {entityId} has parameter count mismatch in PHP {phpVersion}'),
             'checkFunctionOptionalParameters' => new CheckDescriptor(FunctionOptionalParametersCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Function {entityId} optional parameters check failed in PHP {phpVersion}'),
+            'checkFunctionParameterByReference' => new CheckDescriptor(FunctionParameterByReferenceCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Function {entityId} by-reference parameters check failed in PHP {phpVersion}'),
+            'checkFunctionParameterVariadic' => new CheckDescriptor(FunctionParameterVariadicCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Function {entityId} variadic parameter check failed in PHP {phpVersion}'),
             // Tentative return types exist from PHP 8.1, and the check's own supports() gates on
             // that. Narrowed to LATEST..LATEST in 06eb7e14 as collateral of an unrelated commit;
             // restored so 8.1-8.5 are validated too.

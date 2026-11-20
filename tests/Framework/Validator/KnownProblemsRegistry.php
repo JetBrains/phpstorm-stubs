@@ -35,13 +35,17 @@ class KnownProblemsRegistry
     /**
      * Get singleton instance of the registry.
      *
+     * The instance is created as the class this is called on, so calling it on a subclass
+     * (after reset()) installs that subclass as the registry every check uses — see
+     * RecordingKnownProblemsRegistry.
+     *
      * @param KnownProblemsProvider|null $provider Optional custom provider (mainly for testing)
      * @return self
      */
     public static function getInstance(?KnownProblemsProvider $provider = null): self
     {
         if (self::$instance === null) {
-            self::$instance = new self($provider ?? new DefaultKnownProblemsProvider());
+            self::$instance = new static($provider ?? new DefaultKnownProblemsProvider());
         } elseif ($provider !== null && $provider !== self::$instance->provider) {
             throw new \LogicException('KnownProblemsRegistry singleton already initialised with a different provider. ' . 'Call reset() first if you need to replace the provider.');
         }

@@ -16,7 +16,8 @@ final class ParameterDefaultValueComparator
      * - have no default in reflection
      * - are absent from the stub param map (ParametersCountCheck's responsibility)
      * - have no default in the stub (OptionalParametersCheck's responsibility)
-     * - have null on either side (unevaluable constant expression or genuine null default)
+     * - have a default on either side that could not be evaluated (an unresolvable constant,
+     *   say), whose null value says nothing about the real default
      *
      * @param  iterable                     $reflParams       reflection parameters
      * @param  array<string, PHPParameter>  $stubParamsByName stub parameters indexed by name
@@ -43,12 +44,12 @@ final class ParameterDefaultValueComparator
                 continue;
             }
 
-            $reflValue = $reflParam->getDefaultValue();
-            $stubValue = $stubParam->getDefaultValue();
-
-            if ($reflValue === null || $stubValue === null) {
+            if (!$reflParam->isDefaultValueResolved() || !$stubParam->isDefaultValueResolved()) {
                 continue;
             }
+
+            $reflValue = $reflParam->getDefaultValue();
+            $stubValue = $stubParam->getDefaultValue();
 
             if ($reflValue !== $stubValue) {
                 $mismatches[] = sprintf(
@@ -65,6 +66,9 @@ final class ParameterDefaultValueComparator
 
     public static function formatValue(mixed $value): string
     {
+        if ($value === null) {
+            return 'null';
+        }
         if ($value === true) {
             return 'true';
         }

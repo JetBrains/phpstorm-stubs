@@ -254,6 +254,7 @@ function pcntl_wexitstatus(int $status): int|false {}
  * pcntl_waitpid.
  * @return bool Returns true if the child process which caused the return of pcntl_waitpid has
  * continued from a job control stop, false otherwise.
+ * @since 7.0
  */
 #[Pure]
 function pcntl_wifcontinued(int $status): bool {}
@@ -567,9 +568,22 @@ function pcntl_setcpuaffinity(?int $process_id = null, array $cpu_ids = []): boo
  * @since 8.4
  */
 function pcntl_getcpu(): int {}
+/**
+ * Get the QoS class of the current thread (macOS only)
+ * @since 8.4
+ */
+function pcntl_getqos_class(): Pcntl\QosClass {}
+/**
+ * Set the QoS class of the current thread (macOS only)
+ * @since 8.4
+ */
+function pcntl_setqos_class(Pcntl\QosClass $qos_class = Pcntl\QosClass::Default): void {}
 
 define('WNOHANG', 1);
 define('WUNTRACED', 2);
+/**
+ * @since 7.0
+ */
 define('WCONTINUED', 8);
 define('SIG_IGN', 1);
 define('SIG_DFL', 0);
@@ -630,11 +644,13 @@ define('SIG_SETMASK', 2);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
+ * @since 7.2
  */
 define('SIGRTMIN', 35);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
+ * @since 7.2
  */
 define('SIGRTMAX', 64);
 

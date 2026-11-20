@@ -721,4 +721,40 @@ class ReflectionEntitySerializerTest extends TestCase
         self::assertCount(1, $deserialized->getParameters());
         self::assertEquals('arg1', $deserialized->getParameters()[0]->getName());
     }
+
+    /**
+     * isPreferRef is written only when true, so the reflection caches gain a key just for the
+     * prefer-ref parameters, and it survives a round trip.
+     */
+    public function testPreferRefParameterRoundTrips(): void
+    {
+        $strict = new PHPParameter('array');
+        $strict->setIsPassedByReference(true);
+        $preferRef = new PHPParameter('ptr');
+        $preferRef->setPosition(1);
+        $preferRef->setIsPassedByReference(true);
+        $preferRef->setIsPreferRef(true);
+
+        $method = new PHPMethod();
+        $method->setName('addr');
+        $method->setAccess(AccessModifier::PUBLIC);
+        $method->setReturnTypeFromSignature(new NoType());
+        $method->setParameters([$strict, $preferRef]);
+
+        $class = new PHPClass();
+        $class->setName('FFI');
+        $class->setId('\\FFI');
+        $class->addMethod($method);
+
+        $serialized = $this->serializer->serialize($class);
+        $parameters = $serialized['methods'][0]['parameters'];
+        self::assertArrayNotHasKey('isPreferRef', $parameters[0]);
+        self::assertTrue($parameters[1]['isPreferRef']);
+
+        $restored = $this->serializer->deserialize($serialized)->getMethods()[0]->getParameters();
+        self::assertTrue($restored[0]->isPassedByReference());
+        self::assertFalse($restored[0]->isPreferRef());
+        self::assertTrue($restored[1]->isPassedByReference());
+        self::assertTrue($restored[1]->isPreferRef());
+    }
 }

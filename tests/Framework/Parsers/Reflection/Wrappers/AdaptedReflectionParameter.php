@@ -148,9 +148,14 @@ class AdaptedReflectionParameter extends AbstractReflectionAdapter
         return $this->getData('isPassedByReference', false);
     }
 
+    /**
+     * Extracted by the generic extraction (the 'can' prefix). If the value is missing, a
+     * by-reference parameter counts as not passable by value, so missing data never makes a
+     * strict reference look like a prefer-ref one.
+     */
     public function canBePassedByValue()
     {
-        return $this->getData('canBePassedByValue', true);
+        return $this->getData('canBePassedByValue', !$this->isPassedByReference());
     }
 
     public function allowsNull()

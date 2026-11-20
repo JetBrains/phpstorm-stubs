@@ -47,6 +47,17 @@ enum CheckType: string
     case ENTITY_EXISTS = 'EntityExistsCheck';
 
     /**
+     * Validates the reverse of ENTITY_EXISTS: that a top-level entity (function, class, interface,
+     * enum or global constant) declared in stubs exists in reflection for every version its
+     * @since/@removed range claims. Catches stubs PHP never defined and missing or wrong
+     * version tags.
+     *
+     * Scoped to extensions that ship with PHP and are loaded in the version's reflection data —
+     * see StaleEntityCheck for why each restriction is required.
+     */
+    case STALE_ENTITY = 'StaleEntityCheck';
+
+    /**
      * Validates that parent class in stubs matches parent class in reflection.
      */
     case CLASS_PARENT = 'ClassParentClassCheck';
@@ -73,8 +84,9 @@ enum CheckType: string
      * DOMDocument::renameNode, DOMText::replaceWholeText and ReflectionZendExtension::export sat
      * unbounded past their removal in 8.0 while 412k tests passed.
      *
-     * Scoped to StubCategory::CORE and BUNDLED, and skips magic methods and
-     * PS_UNRESERVE_PREFIX_* — see ClassStaleMethodsCheck for why each exclusion is required.
+     * Scoped to StubCategory::CORE, BUNDLED and EXTERNAL, and skips PS_UNRESERVE_PREFIX_* and magic
+     * methods reflection never reports on the class — see ClassStaleMethodsCheck for why each
+     * exclusion is required.
      */
     case CLASS_STALE_METHODS = 'ClassStaleMethodsCheck';
 
@@ -113,6 +125,12 @@ enum CheckType: string
      * Supports LanguageLevelTypeAware version-specific types.
      */
     case CLASS_PROPERTIES_TYPE = 'ClassPropertiesTypeCheck';
+
+    /**
+     * Validates that properties with a default value in reflection have the same default in stubs.
+     * Only checked against the latest PHP version, like PARAMETER_DEFAULT_VALUE.
+     */
+    case CLASS_PROPERTIES_DEFAULT_VALUE = 'ClassPropertiesDefaultValueCheck';
 
     /**
      * Validates that the number of parameters in stub methods/functions matches reflection.
@@ -165,7 +183,8 @@ enum CheckType: string
     case CLASS_FINAL = 'ClassFinalCheck';
 
     /**
-     * Validates that constants declared in stubs exist in reflection.
+     * Validates that constants declared in stubs exist in reflection, and that constants in
+     * reflection are declared somewhere in the stub hierarchy.
      * Reused for classes, interfaces and enums via EntityTypeConfig; the check
      * reports this name for all three, so the entity variant is distinguished by
      * the EntityType of the known problem, not by a separate check name.
@@ -214,8 +233,8 @@ enum CheckType: string
      * Validates that default parameter values in stubs match reflection.
      * Only checked against the latest PHP version since stubs do not support
      * version-aware default values (no LanguageLevelTypeAware equivalent for defaults).
-     * Comparison is skipped when either side's value is null to avoid false positives
-     * from unevaluable constant expressions.
+     * Comparison is skipped when either side's default could not be evaluated, to avoid
+     * false positives from unresolvable constant expressions.
      */
     case PARAMETER_DEFAULT_VALUE = 'ParameterDefaultValueCheck';
 
@@ -322,6 +341,20 @@ enum CheckType: string
      * Used by FunctionParameterDeprecationCheck and ClassMethodsParameterDeprecationCheck.
      */
     case PARAMETER_DEPRECATION = 'ParameterDeprecationCheck';
+
+    /**
+     * Validates that parameters are passed by reference in stubs exactly where reflection passes
+     * them by reference, matched by position (prefer-ref parameters accept either form).
+     * Used by FunctionParameterByReferenceCheck and ClassMethodsParameterByReferenceCheck.
+     */
+    case PARAMETER_BY_REFERENCE = 'ParameterByReferenceCheck';
+
+    /**
+     * Validates that a function/method takes a variadic parameter in stubs exactly when it does
+     * in reflection.
+     * Used by FunctionParameterVariadicCheck and ClassMethodsParameterVariadicCheck.
+     */
+    case PARAMETER_VARIADIC = 'ParameterVariadicCheck';
 
     /**
      * Validates that the target flags of an attribute class declared via `#[Attribute(...)]`

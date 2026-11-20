@@ -228,6 +228,7 @@ namespace {
          * Throws an exception as generators can't be serialized.
          * @link https://php.net/manual/en/generator.wakeup.php
          * @return void No value is returned.
+         * @removed 7.4
          */
         public function __wakeup() {}
 
@@ -240,6 +241,7 @@ namespace {
     /**
      * A ClosedGeneratorException is thrown when trying to retrieve a value from a closed Generator.
      * @link https://php.net/manual/en/class.closedgeneratorexception.php
+     * @since 7.0
      */
     class ClosedGeneratorException extends Exception {}
 }

@@ -451,6 +451,8 @@ abstract class CheckTestCase extends TestCase
         ?array $languageLevelTypes = null,
         ?string $defaultType = null,
         ?string $deprecatedSinceVersion = null,
+        bool $byRef = false,
+        bool $preferRef = false,
     ): PHPParameter {
         $param = new PHPParameter($name);
         if ($type !== null) {
@@ -458,6 +460,8 @@ abstract class CheckTestCase extends TestCase
         }
         $param->setIsOptional($optional);
         $param->setIsVariadic($variadic);
+        $param->setIsPassedByReference($byRef || $preferRef);
+        $param->setIsPreferRef($preferRef);
         $param->setDeprecated($deprecated);
         $param->setHasDefaultValue($hasDefaultValue);
         if ($defaultValue !== null) {

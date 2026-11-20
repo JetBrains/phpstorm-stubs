@@ -243,6 +243,15 @@ class StubPropertyParserTest extends BaseTestCase
         self::assertSame([], $properties['arrayDefault']->getDefaultValue());
     }
 
+    public function testItMarksAnUnresolvableDefaultUnresolved()
+    {
+        $properties = $this->getDefaultValueProperties();
+        self::assertTrue($properties['unresolvableDefault']->hasDefaultValue());
+        self::assertNull($properties['unresolvableDefault']->getDefaultValue());
+        self::assertFalse($properties['unresolvableDefault']->isDefaultValueResolved());
+        self::assertTrue($properties['explicitNullDefault']->isDefaultValueResolved());
+    }
+
     public function testTypedUninitializedPropertyHasNullValueAndNoDefault()
     {
         $properties = $this->getDefaultValueProperties();

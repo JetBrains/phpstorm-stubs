@@ -147,8 +147,12 @@ define('false', (bool)0, true);
 define('null', null, true);
 define('ZEND_THREAD_SAFE', false);
 define('ZEND_DEBUG_BUILD', false);
-define('ZEND_VM_KIND_HYBRID', 4);
-define('ZEND_VM_KIND', ZEND_VM_KIND_HYBRID);
+
+/**
+ * @since 8.5
+ */
+define('ZEND_VM_KIND', 'ZEND_VM_KIND_HYBRID');
+
 define('PHP_WINDOWS_VERSION_BUILD', 0);
 define('PHP_WINDOWS_VERSION_MAJOR', 0);
 define('PHP_WINDOWS_VERSION_MINOR', 0);
@@ -186,7 +190,7 @@ define('PHP_SAPI', "cli");
 /**
  * @since 7.4
  */
-define('PHP_CLI_PROCESS_TITLE', 1);
+define('PHP_CLI_PROCESS_TITLE', true);
 define('DEFAULT_INCLUDE_PATH', ".:/usr/share/php:/usr/share/pear");
 define('PEAR_INSTALL_DIR', "/usr/share/php");
 define('PEAR_EXTENSION_DIR', "/usr/lib/php5/20090626");
@@ -210,6 +214,10 @@ define('SUHOSIN_PATCH', 1);
 define('SUHOSIN_PATCH_VERSION', "0.9.10");
 define('PHP_MAXPATHLEN', 4096);
 define('PHP_INT_MAX', 9223372036854775807);
+
+/**
+ * @since 7.0
+ */
 define('PHP_INT_MIN', -9223372036854775808);
 define('PHP_INT_SIZE', 8);
 /**
@@ -233,7 +241,12 @@ define('PHP_FLOAT_MAX', 1.7976931348623e+308);
  * @since 7.2
  */
 define('PHP_FLOAT_MIN', 2.2250738585072e-308);
+
+/**
+ * @removed 5.4
+ */
 define('ZEND_MULTIBYTE', 0);
+
 define('PHP_OUTPUT_HANDLER_START', 1);
 define('PHP_OUTPUT_HANDLER_CONT', 0);
 define('PHP_OUTPUT_HANDLER_END', 8);
@@ -249,6 +262,9 @@ define('STDIN', fopen('php://stdin', 'r'));
 define('STDOUT', fopen('php://stdout', 'w'));
 define('STDERR', fopen('php://stderr', 'w'));
 
+/**
+ * @since 7.1
+ */
 define('PHP_FD_SETSIZE', 1024);
 
 /** @link https://php.net/manual/en/outcontrol.constants.php */
@@ -284,5 +300,12 @@ const PHP_SBINDIR = '/usr/local/sbin', PHP_OUTPUT_HANDLER_PROCESSED = 16384;
  */
 define('PHP_MANDIR', '/usr/local/php/php/man');
 
+/**
+ * @since 8.5
+ */
 define('PHP_BUILD_DATE', 'Jun 10 2026 20:55:34');
+
+/**
+ * @since 8.5
+ */
 define('PHP_BUILD_PROVIDER', 'https://github.com/docker-library/php');

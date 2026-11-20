@@ -35,7 +35,7 @@ version using the committed per-version reflection caches in `tests/cache/Reflec
 #### The easy way
 
 Run the bundled script — it installs dependencies, regenerates the stubs cache from your stub edits,
-and runs every test suite (`Unit`, `Structure`, `PhpDoc`, `General`) in order:
+and runs every test suite (`Unit`, `Structure`, `PhpDoc`, then the validator suites `Classes`, `Interfaces`, `Enums`, `Constants`, `Functions`, `Meta`, `Stale`) in order:
 
 * macOS / Linux: `./runTests.sh`
 * Windows: `runTests.bat`
@@ -64,7 +64,7 @@ If you prefer to run individual steps:
 
 1. Install dependencies: `docker compose -f docker-compose.yml run --rm test_runner composer install --no-progress`
 2. If you changed stub files, regenerate the stubs cache so the tests validate your changes: `docker compose -f docker-compose.yml run --rm test_runner php tests/run-stubs-parser.php`
-3. Run a test suite — one of `General`, `PhpDoc`, `Structure` or `Unit`: `docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --testsuite General`
+3. Run a test suite — one of the validator suites (`Classes`, `Interfaces`, `Enums`, `Constants`, `Functions`, `Meta`, `Stale`), `PhpDoc`, `Structure` or `Unit`. Run them one at a time: combining the validator suites in one run exceeds the memory limit. For example: `docker compose -f docker-compose.yml run --rm test_runner vendor/bin/phpunit --testsuite Classes`
 
 The reflection caches are generated offline from the per-version Docker images; see
 [tests/REFLECTION_PARSER_README.md](tests/REFLECTION_PARSER_README.md) for the regeneration pipeline.

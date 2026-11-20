@@ -520,6 +520,182 @@
     },
     {
         "_type": "PHPEnum",
+        "name": "Mib",
+        "id": "\\Snmp\\Mib",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "snmp/snmp_ns.php",
+        "duplicates": [],
+        "namespace": "\\Snmp",
+        "phpDoc": null,
+        "sinceVersion": "8.6",
+        "removedVersion": null,
+        "cases": [
+            "AllowUnderscores",
+            "CommentTerm",
+            "Replace"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "deprecatedSinceVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "\\UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "OidOutput",
+        "id": "\\Snmp\\OidOutput",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "snmp/snmp_ns.php",
+        "duplicates": [],
+        "namespace": "\\Snmp",
+        "phpDoc": null,
+        "sinceVersion": "8.6",
+        "removedVersion": null,
+        "cases": [
+            "Suffix",
+            "Module",
+            "Full",
+            "Numeric",
+            "Ucd",
+            "None"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "deprecatedSinceVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "\\UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "Output",
+        "id": "\\Snmp\\Output",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "snmp/snmp_ns.php",
+        "duplicates": [],
+        "namespace": "\\Snmp",
+        "phpDoc": null,
+        "sinceVersion": "8.6",
+        "removedVersion": null,
+        "cases": [
+            "NumericIndex",
+            "EnumPrint",
+            "EscapeQuotes",
+            "QuickPrint",
+            "NumericTimeticks",
+            "HexText",
+            "DontPrintUnits",
+            "ExtendedIndex"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "deprecatedSinceVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "\\UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
+        "name": "StringOutput",
+        "id": "\\Snmp\\StringOutput",
+        "isFinal": false,
+        "isReadonly": false,
+        "sourcePath": "snmp/snmp_ns.php",
+        "duplicates": [],
+        "namespace": "\\Snmp",
+        "phpDoc": null,
+        "sinceVersion": "8.6",
+        "removedVersion": null,
+        "cases": [
+            "Guess",
+            "Ascii",
+            "Hex"
+        ],
+        "constants": [],
+        "methods": [
+            {
+                "name": "cases",
+                "isStatic": true,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "array",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "deprecatedSinceVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "interfaces": [
+            "\\UnitEnum"
+        ]
+    },
+    {
+        "_type": "PHPEnum",
         "name": "SortDirection",
         "id": "\\SortDirection",
         "isFinal": false,

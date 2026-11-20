@@ -8,17 +8,17 @@ use StubTests\Framework\Validator\Contracts\CheckResultSet;
 use StubTests\Framework\Validator\KnownProblems\CheckType;
 
 /**
- * Validates that constants declared in class stubs exist in reflection.
+ * Validates that the constants of a class in stubs match reflection, in both directions.
  *
  * PHP reflection reports ALL constants of a class including those inherited via the
  * parent-class chain and implemented interfaces.  Stubs only declare constants that are
- * directly introduced (not inherited), so we cannot simply require every reflection
- * constant to appear in the stub.
+ * directly introduced (not inherited), so the two sides are compared as follows:
  *
- * For each constant declared directly in the stub, this check verifies it appears in
- * reflection's full constant list (which includes all inherited ones).
- *
- * This catches spurious constants declared in stubs that don't exist anywhere in reflection.
+ * - Each constant declared directly in the stub must appear in reflection's full constant
+ *   list (which includes all inherited ones). This catches spurious stub constants.
+ * - Each constant in reflection's list must be declared somewhere in the stub hierarchy
+ *   (the class, its parents and its interfaces; enum cases count as constants). This
+ *   catches constants missing from the stubs, or whose @since is too late.
  *
  * Visibility is validated separately by ClassConstantsVisibilityCheck.
  * Values are validated separately by ClassConstantsValueCheck.
@@ -86,6 +86,26 @@ class ClassConstantsCheck extends AbstractClassCheck
                 );
                 $hasFailures = true;
             }
+        }
+
+        // Validate that each reflection constant is declared somewhere in the stub hierarchy
+        $stubNames = $this->methodCollection->collectConstantNames($stubEntity, $phpVersion);
+        foreach ($reflMap as $name => $reflConstant) {
+            if (isset($stubNames[$name])) {
+                continue;
+            }
+
+            $constantId = "{$entityId}::{$name}";
+
+            if ($this->skipWithKnownProblem($results, $this->getConstantEntityType(), $constantId, $this->getCheckName(), $phpVersion)) {
+                continue;
+            }
+
+            $results->addFailure(
+                $constantId,
+                "Constant '{$name}' exists in reflection for {$this->getEntityLabel()} {$entityId} but is not declared in stubs"
+            );
+            $hasFailures = true;
         }
 
         if (!$hasFailures) {

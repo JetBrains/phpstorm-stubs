@@ -485,9 +485,12 @@ final class DOMException extends Exception
      * @link https://php.net/manual/en/class.domexception.php#domexception.props.code
      * @var int An integer indicating the type of error generated
      */
-    public $code;
+    public $code = 0;
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMStringList
 {
     /**
@@ -1221,7 +1224,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[TentativeType]
     public function save(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
     ): int|false {}
 
     /**
@@ -1372,7 +1375,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[TentativeType]
     public function schemaValidate(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): bool {}
 
     /**
@@ -2633,6 +2636,9 @@ class DOMProcessingInstruction extends DOMNode
     ) {}
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMStringExtend
 {
     /**

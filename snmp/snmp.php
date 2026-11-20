@@ -2,6 +2,10 @@
 
 // Start of snmp v.0.1
 
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
+
 /**
  * Represents SNMP session.
  * @link https://php.net/manual/en/class.snmp.php
@@ -53,6 +57,44 @@ class SNMP
      * @link https://php.net/manual/en/class.snmp.php#snmp.props.oid-output-format
      */
     public $oid_output_format;
+
+    /**
+     * @var bool Controls whether index values are printed numerically
+     * When enabled, table index values are printed as plain integers instead of being
+     * interpreted through the MIB.
+     * @since 8.6
+     */
+    public $numeric_index;
+
+    /**
+     * @var bool Controls whether Timeticks values are printed numerically
+     * @since 8.6
+     */
+    public $numeric_timeticks;
+
+    /**
+     * @var bool Controls whether indexes are returned in the extended form
+     * @since 8.6
+     */
+    public $extended_index;
+
+    /**
+     * @var bool Controls whether units are omitted from printed values
+     * @since 8.6
+     */
+    public $dont_print_units;
+
+    /**
+     * @var bool Controls whether quotes are escaped in printed string values
+     * @since 8.6
+     */
+    public $escape_quotes;
+
+    /**
+     * @var bool Controls whether non-printable string values are printed as hex
+     * @since 8.6
+     */
+    public $print_hex_text;
 
     /**
      * @var bool Controls disabling check for increasing OID while walking OID tree
@@ -260,6 +302,24 @@ class SNMP
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function set($object_id, $type, $value) {}
+
+    /**
+     * Set the OID output format for this SNMP session
+     * @param \Snmp\OidOutput $format The OID output format.
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @since 8.6
+     */
+    #[TentativeType]
+    public function setOidOutputFormat(\Snmp\OidOutput $format): bool {}
+
+    /**
+     * Set the string output format for this SNMP session
+     * @param \Snmp\StringOutput $format The string output format.
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @since 8.6
+     */
+    #[TentativeType]
+    public function setStringOutputFormat(\Snmp\StringOutput $format): bool {}
 
     /**
      * Get last error code
@@ -496,8 +556,8 @@ function snmp_set_enum_print($enum_print) {}
 /**
  * Set the OID output format
  * @link https://php.net/manual/en/function.snmp-set-oid-output-format.php
- * @param int $oid_format [optional] <table>
- * OID .1.3.6.1.2.1.1.3.0 representation for various <i>oid_format</i> values
+ * @param \Snmp\OidOutput|int $format <table>
+ * OID .1.3.6.1.2.1.1.3.0 representation for various <i>format</i> values
  * <tr valign="top"><td><b>SNMP_OID_OUTPUT_FULL</b></td><td>.iso.org.dod.internet.mgmt.mib-2.system.sysUpTime.sysUpTimeInstance</td></tr>
  * <tr valign="top"><td><b>SNMP_OID_OUTPUT_NUMERIC</b></td><td>.1.3.6.1.2.1.1.3.0</td> </tr>
  * </table>
@@ -509,17 +569,25 @@ function snmp_set_enum_print($enum_print) {}
  * <tr valign="top"><td><b>SNMP_OID_OUTPUT_NONE</b></td><td>Undefined</td></tr>
  * </table>
  * </p>
- * @return bool No value is returned.
+ * @return true Always returns true.
  */
-function snmp_set_oid_output_format($oid_format = SNMP_OID_OUTPUT_MODULE) {}
+#[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+function snmp_set_oid_output_format(
+    #[PhpStormStubsElementAvailable(to: '8.5')] int $format,
+    #[PhpStormStubsElementAvailable(from: '8.6')] \Snmp\OidOutput|int $format
+) {}
 
 /**
  * Set the oid output format
  * @link https://php.net/manual/en/function.snmp-set-oid-numeric-print.php
- * @param int $oid_format
- * @return void
+ * @param \Snmp\OidOutput|int $format
+ * @return true Always returns true.
  */
-function snmp_set_oid_numeric_print($oid_format) {}
+#[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+function snmp_set_oid_numeric_print(
+    #[PhpStormStubsElementAvailable(to: '8.5')] int $format,
+    #[PhpStormStubsElementAvailable(from: '8.6')] \Snmp\OidOutput|int $format
+) {}
 
 /**
  * Fetch an SNMP object
@@ -972,6 +1040,43 @@ function snmp_get_valueretrieval() {}
  * @return bool Returns true on success or false on failure.
  */
 function snmp_read_mib($filename) {}
+
+/**
+ * Resets the MIB tree, optionally re-reading MIB directories from the environment
+ * @param string|null $mibdirs <p>
+ * The MIB directories to load. Pass <b>NULL</b> to use the directories configured
+ * in the <i>MIBDIRS</i> environment variable.
+ * </p>
+ * @return void No value is returned.
+ * @since 8.6
+ */
+function snmp_init_mib(?string $mibdirs): void {}
+
+/**
+ * Set a MIB parsing option
+ * @param \Snmp\Mib $option The MIB parsing option to change.
+ * @param bool $enable <b>TRUE</b> to enable the option, <b>FALSE</b> to disable it.
+ * @return void No value is returned.
+ * @since 8.6
+ */
+function snmp_set_mib_option(\Snmp\Mib $option, bool $enable): void {}
+
+/**
+ * Set a value output option
+ * @param \Snmp\Output $option The output option to change.
+ * @param bool $enable <b>TRUE</b> to enable the option, <b>FALSE</b> to disable it.
+ * @return void No value is returned.
+ * @since 8.6
+ */
+function snmp_set_output_option(\Snmp\Output $option, bool $enable): void {}
+
+/**
+ * Set the format used to print string values
+ * @param \Snmp\StringOutput $format The string output format.
+ * @return void No value is returned.
+ * @since 8.6
+ */
+function snmp_set_string_output_format(\Snmp\StringOutput $format): void {}
 
 /**
  * As of 5.4

@@ -61042,6 +61042,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -61076,6 +61077,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     }
@@ -61122,6 +61124,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -61179,6 +61182,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -61202,6 +61206,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData|FFI\\CType",
                         "defaultValue": null
                     }
@@ -61225,6 +61230,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData|FFI\\CType",
                         "defaultValue": null
                     }
@@ -61248,6 +61254,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     },
@@ -61259,6 +61266,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -61293,6 +61301,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -61304,6 +61313,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "",
                         "defaultValue": null
                     },
@@ -61338,6 +61348,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     },
@@ -61383,6 +61394,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     },
@@ -61417,6 +61429,7 @@
                         "isPassedByReference": true,
                         "isDeprecated": false,
                         "hasDefaultValue": false,
+                        "isPreferRef": true,
                         "type": "FFI\\CData",
                         "defaultValue": null
                     }
@@ -85821,7 +85834,7 @@
             },
             {
                 "name": "LIBZIP_VERSION",
-                "value": "1.11.4",
+                "value": "1.12.1",
                 "visibility": "public",
                 "isFinal": false
             },
@@ -101728,6 +101741,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "array",
                 "defaultValue": null
             },
@@ -103114,6 +103128,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "",
                 "defaultValue": null
             },
@@ -103125,6 +103140,7 @@
                 "isPassedByReference": true,
                 "isDeprecated": false,
                 "hasDefaultValue": false,
+                "isPreferRef": true,
                 "type": "",
                 "defaultValue": null
             }
@@ -160625,7 +160641,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.3.35",
+        "value": "8.3.36",
         "namespace": "\\"
     },
     {
@@ -160646,7 +160662,7 @@
         "_type": "PHPConstant",
         "name": "PHP_RELEASE_VERSION",
         "id": "\\PHP_RELEASE_VERSION",
-        "value": 35,
+        "value": 36,
         "namespace": "\\"
     },
     {
@@ -160660,7 +160676,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION_ID",
         "id": "\\PHP_VERSION_ID",
-        "value": 80335,
+        "value": 80336,
         "namespace": "\\"
     },
     {
@@ -161360,14 +161376,14 @@
         "_type": "PHPConstant",
         "name": "OPENSSL_VERSION_TEXT",
         "id": "\\OPENSSL_VERSION_TEXT",
-        "value": "OpenSSL 3.5.8 25 Aug 2026",
+        "value": "OpenSSL 3.5.9 29 Sep 2026",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "OPENSSL_VERSION_NUMBER",
         "id": "\\OPENSSL_VERSION_NUMBER",
-        "value": 810549376,
+        "value": 810549392,
         "namespace": "\\"
     },
     {
@@ -177649,14 +177665,14 @@
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION",
         "id": "\\PGSQL_LIBPQ_VERSION",
-        "value": "18.6",
+        "value": "18.7",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "PGSQL_LIBPQ_VERSION_STR",
         "id": "\\PGSQL_LIBPQ_VERSION_STR",
-        "value": "18.6",
+        "value": "18.7",
         "namespace": "\\"
     },
     {

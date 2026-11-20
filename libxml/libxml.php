@@ -265,6 +265,7 @@ define('LIBXML_COMPACT', 65536);
  * Only available in Libxml &gt;= 2.9.0
  * </p>
  * @link https://php.net/manual/en/libxml.constants.php
+ * @since 7.0
  */
 define('LIBXML_BIGLINES', 65535);
 
@@ -357,5 +358,8 @@ define('LIBXML_ERR_FATAL', 3);
  */
 define('LIBXML_RECOVER', 1);
 
+/**
+ * @since 8.4
+ */
 const LIBXML_NO_XXE = 8388608;
 // End of libxml v.

@@ -25,40 +25,6 @@ interface JsonSerializable
     public function jsonSerialize(): mixed;
 }
 
-class JsonIncrementalParser
-{
-    public const JSON_PARSER_SUCCESS = 0;
-    public const JSON_PARSER_CONTINUE = 1;
-
-    /**
-     * @param int $depth [optional]
-     * @param int $options [optional]
-     */
-    #[Pure]
-    public function __construct($depth, $options) {}
-
-    #[Pure]
-    public function getError() {}
-
-    public function reset() {}
-
-    /**
-     * @param string $json
-     */
-    public function parse($json) {}
-
-    /**
-     * @param string $filename
-     */
-    public function parseFile($filename) {}
-
-    /**
-     * @param int $options [optional]
-     */
-    #[Pure]
-    public function get($options) {}
-}
-
 /**
  * (PHP 5 &gt;= 5.2.0, PECL json &gt;= 1.2.0)<br/>
  * Returns the JSON representation of a value
@@ -394,7 +360,6 @@ define('JSON_ERROR_SYNTAX', 4);
  * @link https://php.net/manual/en/json.constants.php
  */
 define('JSON_OBJECT_AS_ARRAY', 1);
-define('JSON_PARSER_NOTSTRICT', 4);
 
 /**
  * Decodes large integers as their original string value.

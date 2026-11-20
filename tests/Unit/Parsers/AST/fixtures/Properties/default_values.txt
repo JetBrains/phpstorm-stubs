@@ -25,4 +25,6 @@ class TestClass
     public static int $staticTypedNoDefault;
 
     public bool $falseDefault = false;
+
+    public int $unresolvableDefault = PropertyFixtureMissingClass::FLAG;
 }

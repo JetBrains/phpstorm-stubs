@@ -15,9 +15,11 @@ class PHPParameter extends BasePHPElement
     private bool $isOptional;
     private bool $isVariadic;
     private bool $isPassedByReference;
+    private bool $isPreferRef = false;
     private bool $isDeprecated;
     private mixed $defaultValue;
     private bool $hasDefaultValue;
+    private bool $defaultValueResolved = true;
     private ?\Closure $defaultValueEvaluator = null;
 
     public function __construct(?string $name)
@@ -88,6 +90,26 @@ class PHPParameter extends BasePHPElement
         $this->isPassedByReference = $isPassedByReference;
     }
 
+    /**
+     * Whether this is a "prefer-ref" parameter: passed by reference when the argument is a
+     * variable, but also accepting a plain value (php-src `@prefer-ref`, ZEND_SEND_PREFER_REF;
+     * e.g. `array_multisort()`'s `$array`, `FFI::addr()`'s `$ptr`). Reflection reports such a
+     * parameter as `isPassedByReference() && canBePassedByValue()`.
+     *
+     * Only reflection knows this; stub parameters never set it. The getter is false for a
+     * by-value parameter whatever was set, and the default is false, so a parameter whose
+     * source did not record the flag counts as a strict reference.
+     */
+    public function isPreferRef(): bool
+    {
+        return $this->isPassedByReference && $this->isPreferRef;
+    }
+
+    public function setIsPreferRef(bool $isPreferRef): void
+    {
+        $this->isPreferRef = $isPreferRef;
+    }
+
     public function isDeprecated(): bool
     {
         return $this->isDeprecated;
@@ -116,7 +138,8 @@ class PHPParameter extends BasePHPElement
      *
      * A failure to evaluate yields null rather than propagating: the evaluator normalises
      * everything it cannot compute (including DivisionByZeroError, see
-     * NikicConstExprEvaluatorTrait) to \RuntimeException, which is absorbed here.
+     * NikicConstExprEvaluatorTrait) to \RuntimeException, which is absorbed here and
+     * recorded in isDefaultValueResolved().
      */
     public function getDefaultValue(): mixed
     {
@@ -125,6 +148,7 @@ class PHPParameter extends BasePHPElement
                 $this->defaultValue = ($this->defaultValueEvaluator)();
             } catch (\RuntimeException) {
                 $this->defaultValue = null;
+                $this->defaultValueResolved = false;
             }
             $this->defaultValueEvaluator = null;
         }
@@ -135,6 +159,21 @@ class PHPParameter extends BasePHPElement
     {
         $this->defaultValue = $defaultValue;
         $this->defaultValueEvaluator = null;
+    }
+
+    /**
+     * False when the parameter has a default that could not be evaluated, so the null
+     * getDefaultValue() returns does not mean the default is null.
+     */
+    public function isDefaultValueResolved(): bool
+    {
+        $this->getDefaultValue();
+        return $this->defaultValueResolved;
+    }
+
+    public function setDefaultValueResolved(bool $defaultValueResolved): void
+    {
+        $this->defaultValueResolved = $defaultValueResolved;
     }
 
     public function setDefaultValueEvaluator(\Closure $evaluator): void

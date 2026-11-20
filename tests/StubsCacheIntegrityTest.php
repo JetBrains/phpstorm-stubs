@@ -17,7 +17,7 @@ use StubTests\Framework\Runner\RunnerScope;
  * ever loads *successfully* but comes back empty or absurdly small.
  *
  * That distinction matters because an empty cache does not make the suite red. Every check
- * iterates the entities it is given; given none, it reports success. A green `General` run is
+ * iterates the entities it is given; given none, it reports success. A green validator-suite run is
  * therefore consistent with validating nothing at all, and only an explicit assertion on the
  * size of the loaded data can tell the two apart.
  *

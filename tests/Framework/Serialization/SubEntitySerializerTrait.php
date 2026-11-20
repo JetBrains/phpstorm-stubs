@@ -62,10 +62,20 @@ trait SubEntitySerializerTrait
             'hasDefaultValue' => $parameter->hasDefaultValue(),
         ];
 
+        // Only written when true (the few prefer-ref parameters), like defaultValueResolved below:
+        // a missing key deserializes as a strict reference.
+        if ($parameter->isPreferRef()) {
+            $data['isPreferRef'] = true;
+        }
+
         $data['type'] = $parameter->getDeclaredType()->toString();
 
         if ($parameter->hasDefaultValue()) {
             $data['defaultValue'] = $this->toJsonSafe($parameter->getDefaultValue());
+            // Only written when false, so the caches grow just for the few unevaluable defaults.
+            if (!$parameter->isDefaultValueResolved()) {
+                $data['defaultValueResolved'] = false;
+            }
         } else {
             $data['defaultValue'] = null;
         }
@@ -92,6 +102,9 @@ trait SubEntitySerializerTrait
         $data['hasDefaultValue'] = $property->hasDefaultValue();
         if ($property->hasDefaultValue()) {
             $data['defaultValue'] = $this->toJsonSafe($property->getDefaultValue());
+            if (!$property->isDefaultValueResolved()) {
+                $data['defaultValueResolved'] = false;
+            }
         } else {
             $data['defaultValue'] = null;
         }
@@ -161,6 +174,7 @@ trait SubEntitySerializerTrait
         $parameter->setIsOptional($data['isOptional'] ?? false);
         $parameter->setIsVariadic($data['isVariadic'] ?? false);
         $parameter->setIsPassedByReference($data['isPassedByReference'] ?? false);
+        $parameter->setIsPreferRef($data['isPreferRef'] ?? false);
         $parameter->setDeprecated($data['isDeprecated'] ?? false);
         $parameter->setHasDefaultValue($data['hasDefaultValue'] ?? false);
 
@@ -171,6 +185,7 @@ trait SubEntitySerializerTrait
         if (isset($data['defaultValue'])) {
             $parameter->setDefaultValue($data['defaultValue']);
         }
+        $parameter->setDefaultValueResolved($data['defaultValueResolved'] ?? true);
 
         $this->enrichDeserializedParameter($parameter, $data);
 
@@ -201,6 +216,7 @@ trait SubEntitySerializerTrait
         if (isset($data['defaultValue'])) {
             $property->setDefaultValue($data['defaultValue']);
         }
+        $property->setDefaultValueResolved($data['defaultValueResolved'] ?? true);
 
         $this->enrichDeserializedProperty($property, $data, $parentId, $phpDocStorage);
 
