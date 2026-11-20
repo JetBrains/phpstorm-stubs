@@ -222,7 +222,18 @@ define('SQLSRV_PHPTYPE_FLOAT', 3);
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-define('SQLSRV_PHPTYPE_DATETIME', 4);
+define('SQLSRV_PHPTYPE_DATETIME', 5);
+
+/**
+ * Table
+ *
+ * <br />Used with {@link sqlsrv_prepare() sqlsrv_prepare} and {@link sqlsrv_query() sqlsrv_query},
+ * along with {@link SQLSRV_SQLTYPE_TABLE}, to pass an array as a table-valued parameter.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ */
+define('SQLSRV_PHPTYPE_TABLE', 7);
 
 /**
  * Binary Encoding
@@ -263,6 +274,22 @@ define('SQLSRV_ENC_BINARY', 'binary');
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_ENC_CHAR', 'char');
+
+/**
+ * UTF-8 VARCHAR Encoding
+ *
+ * <br />Data is sent and received as UTF-8, like the "UTF-8" encoding, but string parameters are bound as varchar
+ * instead of nvarchar. Characters outside the code page of the parameter's collation (normally the database's default
+ * collation) are lost unless it's a UTF-8 collation.<br />
+ *
+ * Used as the CharacterSet connection option, and with {@link SQLSRV_PHPTYPE_STREAM() SQLSRV_PHPTYPE_STREAM} and
+ * {@link SQLSRV_PHPTYPE_STRING() SQLSRV_PHPTYPE_STRING} to specify the encoding of those PHP types.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ *
+ * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ */
+define('SQLSRV_ENC_UTF8_VARCHAR', 'utf-8-varchar');
 
 /**
  * The column is not nullable.
@@ -310,6 +337,16 @@ define('SQLSRV_NULLABLE_UNKNOWN', 2);
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_BIGINT', -5);
+/**
+ * binary.
+ *
+ * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
+ *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ */
+define('SQLSRV_SQLTYPE_BINARY', -2);
 /**
  * bit.
  *
@@ -481,6 +518,16 @@ define('SQLSRV_SQLTYPE_SMALLINT', 5);
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_SMALLMONEY', 33559555);
+/**
+ * table-valued parameter.
+ *
+ * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
+ *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ */
+define('SQLSRV_SQLTYPE_TABLE', -153);
 /**
  * timestamp.
  *
@@ -1654,8 +1701,8 @@ function sqlsrv_send_stream_data($stmt) {}
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  *
- * @param string $encoding The encoding to use for the stream. The valid options are SQLSRV_ENC_BINARY, SQLSRV_ENC_CHAR
- * or "UTF-8".
+ * @param string $encoding The encoding to use for the stream. The valid options are SQLSRV_ENC_BINARY, SQLSRV_ENC_CHAR,
+ * "UTF-8", or SQLSRV_ENC_UTF8_VARCHAR.
  *
  * @return int Value to use in any place that accepts a SQLSRV_PHPTYPE_* constant to represent a PHP stream with the
  * given encoding.
@@ -1683,8 +1730,8 @@ function SQLSRV_PHPTYPE_STREAM($encoding) {}
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  *
- * @param string $encoding The encoding to use for the stream. The valid options are SQLSRV_ENC_BINARY, SQLSRV_ENC_CHAR
- * or "UTF-8".
+ * @param string $encoding The encoding to use for the stream. The valid options are SQLSRV_ENC_BINARY, SQLSRV_ENC_CHAR,
+ * "UTF-8", or SQLSRV_ENC_UTF8_VARCHAR.
  *
  * @return int Value to use in any place that accepts a SQLSRV_PHPTYPE_* constant to represent a PHP string with the
  * given encoding.
