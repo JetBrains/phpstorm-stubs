@@ -2168,7 +2168,7 @@ function curl_setopt_array(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], def
  * @return void No value is returned.
  * @since 5.5
  */
-#[\JetBrains\PhpStorm\Deprecated('Deprecated: it has no effect', since: '8.5')]
+#[\JetBrains\PhpStorm\Deprecated('as it has no effect since PHP 8.0', since: '8.5')]
 function curl_share_close(#[LanguageLevelTypeAware(['8.0' => 'CurlShareHandle'], default: 'resource')] $share_handle): void {}
 
 /**
@@ -2614,7 +2614,7 @@ function curl_file_create(string $filename, ?string $mime_type = null, ?string $
  * @param CurlHandle|resource $handle A cURL handle returned by curl_init.
  * @return void No value is returned.
  */
-#[\JetBrains\PhpStorm\Deprecated('Deprecated: it has no effect', since: '8.5')]
+#[\JetBrains\PhpStorm\Deprecated('as it has no effect since PHP 8.0', since: '8.5')]
 function curl_close(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle): void {}
 
 /**

@@ -128,7 +128,7 @@ function finfo_open(int $flags = 0, ?string $magic_database = null) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
-#[\JetBrains\PhpStorm\Deprecated('Deprecated: it has no effect', since: '8.5')]
+#[\JetBrains\PhpStorm\Deprecated('as finfo objects are freed automatically', since: '8.5')]
 function finfo_close(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo) {}
 
 /**

@@ -65,7 +65,7 @@ function xml_parser_create_ns(?string $encoding = null, string $separator = ':')
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-#[Deprecated("The function is deprecated", since: "8.4")]
+#[Deprecated("provide a proper method callable to xml_set_*_handler() functions", since: "8.4")]
 function xml_set_object(
     #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] object & $object,
@@ -486,7 +486,7 @@ function xml_get_current_byte_index(#[LanguageLevelTypeAware(["8.0" => "XMLParse
  * @return bool This function returns <b>FALSE</b> if <i>parser</i> does not
  * refer to a valid parser, or else it frees the parser and returns <b>TRUE</b>.
  */
-#[Deprecated('Deprecated: it has no effect', since: '8.5')]
+#[Deprecated('as it has no effect since PHP 8.0', since: '8.5')]
 function xml_parser_free(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser): bool {}
 
 /**
