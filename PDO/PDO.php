@@ -826,6 +826,7 @@ namespace {
         public const SQLSRV_ENCODING_BINARY = 2;
         public const SQLSRV_ENCODING_SYSTEM = 3;
         public const SQLSRV_ENCODING_UTF8 = 65001;
+        public const SQLSRV_ENCODING_UTF8_VARCHAR = 65002;
         public const SQLSRV_ENCODING_DEFAULT = 1;
         public const SQLSRV_ATTR_ENCODING = 1000;
         public const SQLSRV_ATTR_QUERY_TIMEOUT = 1001;
@@ -837,11 +838,19 @@ namespace {
         public const SQLSRV_ATTR_FORMAT_DECIMALS = 1007;
         public const SQLSRV_ATTR_DECIMAL_PLACES = 1008;
         public const SQLSRV_ATTR_DATA_CLASSIFICATION = 1009;
+        public const SQLSRV_ATTR_BATCH_ERROR_CONTINUE = 1010;
+        public const SQLSRV_ATTR_PARAM_METADATA = 1011;
+        public const SQLSRV_ATTR_DEFAULT_STR_LENGTH = 1012;
+        public const SQLSRV_PARAM_DECLARED_STR_TYPE = 1013;
+        public const SQLSRV_PARAM_DECLARED_STR_LENGTH = 1014;
+        public const SQLSRV_PARAM_DECLARED_STR_TYPE_VARCHAR = 12;
+        public const SQLSRV_PARAM_DECLARED_STR_TYPE_NVARCHAR = -9;
+        public const SQLSRV_PARAM_DECLARED_STR_LENGTH_MAX = -1;
         public const SQLSRV_PARAM_OUT_DEFAULT_SIZE = -1;
         public const SQLSRV_CURSOR_KEYSET = 1;
         public const SQLSRV_CURSOR_DYNAMIC = 2;
         public const SQLSRV_CURSOR_STATIC = 3;
-        public const SQLSRV_CURSOR_BUFFERED = 42;
+        public const SQLSRV_CURSOR_BUFFERED = -2;
 
         /**
          * @since 7.4
