@@ -1190,7 +1190,7 @@ function imagegd2(GdImage $image, ?string $file = null, int $chunk_size = 128, i
  * such as imagecreatetruecolor.
  * @return bool true on success or false on failure.
  */
-#[Deprecated('Deprecated: it has no effect', since: '8.5')]
+#[Deprecated('as it has no effect since PHP 8.0', since: '8.5')]
 #[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
 function imagedestroy(GdImage $image) {}
 
