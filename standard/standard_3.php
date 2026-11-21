@@ -1126,4 +1126,5 @@ function error_log(string $message, int $message_type = 0, ?string $destination 
  * @return mixed
  * @since 8.6
  */
+#[Pure]
 function clamp(mixed $value, mixed $min, mixed $max): mixed {}
