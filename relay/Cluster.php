@@ -10,6 +10,11 @@ namespace Relay;
 class Cluster
 {
     /**
+     * @var int
+     */
+    public const PIPELINE = 0x02;
+
+    /**
      * Controls how readonly commands are distributed across cluster nodes.
      *
      * @var int
@@ -483,6 +488,43 @@ class Cluster
     public function bitpos(mixed $key, bool $bit, ?int $start = null, ?int $end = null, bool $by_bit = false): Cluster|int|false {}
 
     /**
+     * Return absolute bit offsets in an inclusive range, using BYTE units by default.
+     * Options accept 'BYTE', 'BIT', 'ZEROS', and 'LIMIT' => count (zero returns []).
+     * The last unit wins. BYTE limits finish the last byte, returning up to seven extra offsets.
+     *
+     * @param  mixed  $key
+     * @param  int  $start
+     * @param  int  $end
+     * @param  array|null  $options
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand, Attributes\Cached]
+    public function bitrangeintarray(mixed $key, int $start, int $end, ?array $options = null): Cluster|array|false {}
+
+    /**
+     * Manage Redis 8.12 key eviction protection.
+     *
+     * SET and CLEAR require NO-EVICT and return 1 when changed or 0 otherwise.
+     * GET takes no directive and returns active flags. Missing keys are server errors.
+     * SCAN requires NO-EVICT, a null key and key_or_address. It returns a lazy
+     * BlessScanIterator of key names, starting at cursor zero and staying on the selected node.
+     * Returned keys retain prefixes and, as with SCAN, may be returned more than once.
+     * Options accepts ['COUNT' => positive integer].
+     * SCAN requires atomic mode when creating the iterator and fetching pages.
+     * Iteration errors throw, even when OPT_THROW_ON_ERROR is disabled.
+     * SET, CLEAR and GET route by key; key_or_address is only accepted for SCAN.
+     *
+     * @param  string  $command
+     * @param  string|int|null  $key Required for SET, CLEAR and GET; omit for SCAN.
+     * @param  string|null  $directive
+     * @param  array|null  $options
+     * @param  array|string|null  $key_or_address
+     * @return Cluster|int|array|BlessScanIterator|false
+     */
+    #[Attributes\RedisCommand]
+    public function bless(string $command, string|int|null $key = null, ?string $directive = null, ?array $options = null, array|string|null $key_or_address = null): mixed {}
+
+    /**
      * BLMOVE is the blocking variant of LMOVE. When source contains elements,
      * this command behaves exactly like LMOVE. When used inside a
      * MULTI/EXEC block, this command behaves exactly like LMOVE.
@@ -568,6 +610,21 @@ class Cluster
     public function brpoplpush(mixed $srckey, mixed $dstkey, float $timeout): mixed {}
 
     /**
+     * Blocking variant of zmove. Timeout is in seconds; zero waits indefinitely.
+     *
+     * Options: ['MIN'] (default) or ['MAX'], plus ['COUNT' => n].
+     * Returns [member => score], or null on timeout (false in compatibility mode).
+     *
+     * @param  mixed  $source
+     * @param  mixed  $destination
+     * @param  mixed  $timeout
+     * @param  array|null  $options
+     * @return Cluster|array|null|false
+     */
+    #[Attributes\RedisCommand]
+    public function bzmove(mixed $source, mixed $destination, mixed $timeout, ?array $options = null): Cluster|array|null|false {}
+
+    /**
      * Remove and return members with scores in a sorted set or block until one is available.
      *
      * @param  float  $timeout
@@ -636,6 +693,18 @@ class Cluster
      */
     #[Attributes\Local]
     public function close(): bool {}
+
+    /**
+     * Closes all node connections, then reopens all known master nodes and
+     * previously connected replicas, restoring authentication and the selected
+     * database without refreshing topology. Event listeners are preserved on success.
+     * Pending transactions are discarded.
+     *
+     * @throws Exception if there are no nodes to reconnect or reconnection fails.
+     * @return bool
+     */
+    #[Attributes\Local]
+    public function reconnect(): bool {}
 
     /**
      * Executes `CLUSTER` command operations.
@@ -853,12 +922,14 @@ class Cluster
     public function evalsha_ro(string $sha, array $args = [], int $num_keys = 0): mixed {}
 
     /**
-     * Executes all previously queued commands in a transaction and restores the connection state to normal.
+     * Executes queued transaction or pipeline commands. Inside a pipeline,
+     * closes the current MULTI block and returns this client; the final exec()
+     * returns all pipeline results, with each transaction as a nested array.
      *
-     * @return array|false
+     * @return Cluster|array|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function exec(): array|false {}
+    public function exec(): Cluster|array|false {}
 
     /**
      * Returns if key(s) exists.
@@ -1597,7 +1668,7 @@ class Cluster
      * @param  mixed  $key
      * @param  null|int|float  $value
      * @param  array|null  $options
-     * @return Cluster|array|false  An array of [new_value, applied_increment].
+     * @return Cluster|array|false
      */
     public function increx(mixed $key, null|int|float $value = null, ?array $options = null): Cluster|array|false {}
 
@@ -1883,7 +1954,9 @@ class Cluster
     /**
      * Marks the start of a transaction block. Subsequent commands will be queued for atomic execution using EXEC.
      *
-     * Accepts only `Relay::MULTI` mode.
+     * Accepts `Relay::MULTI` or `Cluster::PIPELINE`. Within a pipeline, the first
+     * exec() closes the transaction; the final exec() returns pipeline results.
+     * Transactions are independent per node and are not atomic across nodes.
      *
      * @param  int  $mode
      * @return Cluster|bool
@@ -2009,6 +2082,20 @@ class Cluster
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function ping(array|string $key_or_address, string|null $message = null): Cluster|bool|string {}
+
+    /**
+     * Queue commands across cluster nodes, returning results in call order.
+     * Cached reads are deferred values; reads inside MULTI always reach Redis.
+     * Key routing uses primaries regardless of replica distribution settings;
+     * an explicit node argument is honored. The normal read timeout applies.
+     * Execution is ordered per node, with no ordering or atomicity across nodes.
+     * Redirects are returned as errors and are not retried. Transport failures
+     * can leave commands partially executed; retrying may duplicate writes.
+     *
+     * @return Cluster|bool
+     */
+    #[Attributes\Local]
+    public function pipeline(): Cluster|bool {}
 
     /**
      * Set key to hold the string value and set key to timeout after a given number of milliseconds.
@@ -2177,6 +2264,104 @@ class Cluster
     public function rpushx(mixed $key, mixed $member, mixed ...$members): Cluster|int|false {}
 
     /**
+     * Set an expiration in seconds for one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  int  $expiry
+     * @param  array  $members
+     * @param  string|array|null  $exptype  NX, XX, GT, or LT; a token list; or null for no condition.
+     * @return Cluster|array|false Per-member results: -2 missing, 0 condition unmet, 1 updated, 2 deleted.
+     */
+    #[Attributes\RedisCommand]
+    public function sexpire(mixed $key, int $expiry, array $members, string|array|null $exptype = null): Cluster|array|false {}
+
+    /**
+     * Set an expiration in milliseconds for one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  int  $expiry
+     * @param  array  $members
+     * @param  string|array|null  $exptype  NX, XX, GT, or LT; a token list; or null for no condition.
+     * @return Cluster|array|false Per-member results: -2 missing, 0 condition unmet, 1 updated, 2 deleted.
+     */
+    #[Attributes\RedisCommand]
+    public function spexpire(mixed $key, int $expiry, array $members, string|array|null $exptype = null): Cluster|array|false {}
+
+    /**
+     * Set a Unix timestamp expiration in seconds for one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  int  $expiry
+     * @param  array  $members
+     * @param  string|array|null  $exptype  NX, XX, GT, or LT; a token list; or null for no condition.
+     * @return Cluster|array|false Per-member results: -2 missing, 0 condition unmet, 1 updated, 2 deleted.
+     */
+    #[Attributes\RedisCommand]
+    public function sexpireat(mixed $key, int $expiry, array $members, string|array|null $exptype = null): Cluster|array|false {}
+
+    /**
+     * Set a Unix timestamp expiration in milliseconds for one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  int  $expiry
+     * @param  array  $members
+     * @param  string|array|null  $exptype  NX, XX, GT, or LT; a token list; or null for no condition.
+     * @return Cluster|array|false Per-member results: -2 missing, 0 condition unmet, 1 updated, 2 deleted.
+     */
+    #[Attributes\RedisCommand]
+    public function spexpireat(mixed $key, int $expiry, array $members, string|array|null $exptype = null): Cluster|array|false {}
+
+    /**
+     * Remove expiration from one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @return Cluster|array|false Per-member results: -2 missing, -1 no expiry, 1 expiry removed.
+     */
+    #[Attributes\RedisCommand]
+    public function spersist(mixed $key, array $members): Cluster|array|false {}
+
+    /**
+     * Get the remaining lifetime in seconds of one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @return Cluster|array|false Per-member values, -1 for no expiry, or -2 for a missing member.
+     */
+    #[Attributes\RedisCommand]
+    public function sttl(mixed $key, array $members): Cluster|array|false {}
+
+    /**
+     * Get the remaining lifetime in milliseconds of one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @return Cluster|array|false Per-member values, -1 for no expiry, or -2 for a missing member.
+     */
+    #[Attributes\RedisCommand]
+    public function spttl(mixed $key, array $members): Cluster|array|false {}
+
+    /**
+     * Get the Unix expiration timestamps in seconds of one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @return Cluster|array|false Per-member values, -1 for no expiry, or -2 for a missing member.
+     */
+    #[Attributes\RedisCommand]
+    public function sexpiretime(mixed $key, array $members): Cluster|array|false {}
+
+    /**
+     * Get the Unix expiration timestamps in milliseconds of one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @return Cluster|array|false Per-member values, -1 for no expiry, or -2 for a missing member.
+     */
+    #[Attributes\RedisCommand]
+    public function spexpiretime(mixed $key, array $members): Cluster|array|false {}
+
+    /**
      * Add the specified members to the set stored at `$key`.
      *
      * @param  mixed  $key
@@ -2186,6 +2371,19 @@ class Cluster
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sadd(mixed $key, mixed $member, mixed ...$members): Cluster|int|false {}
+
+    /**
+     * Add set members and optionally set their expiration.
+     * Existing member expirations are removed unless KEEPTTL is specified.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @param  array|null  $options  MNX/MXX require all members to be absent/present.
+     *                             Use ['MNX', 'EX' => 60], or ['KEEPTTL']; expiry keys also accept PX, EXAT, PXAT.
+     * @return Cluster|int|false 1 if anything changed, otherwise 0.
+     */
+    #[Attributes\RedisCommand]
+    public function saddex(mixed $key, array $members, ?array $options = null): Cluster|int|false {}
 
     /**
      * Synchronously save the dataset to disk.
@@ -3130,6 +3328,36 @@ class Cluster
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zlexcount(mixed $key, mixed $min, mixed $max): Cluster|int|false {}
+
+    /**
+     * Move sorted-set members, preserving their scores. Defaults to one MIN member.
+     *
+     * Options: ['MIN'] or ['MAX'], or ['BYSCORE' => [min, max]], plus ['COUNT' => n].
+     * BYSCORE moves the whole matching range unless COUNT is supplied.
+     * Returns [member => score], or null when nothing moves (false in compatibility mode).
+     *
+     * @param  mixed  $source
+     * @param  mixed  $destination
+     * @param  array|null  $options
+     * @return Cluster|array|null|false
+     */
+    #[Attributes\RedisCommand]
+    public function zmove(mixed $source, mixed $destination, ?array $options = null): Cluster|array|null|false {}
+
+    /**
+     * Move specified sorted-set members, preserving scores and input order.
+     *
+     * Options: ['NX'] or ['XX'], referring to membership in the destination.
+     * Returns [member => score], or null when nothing moves (false in compatibility mode).
+     *
+     * @param  mixed  $source
+     * @param  mixed  $destination
+     * @param  array  $members
+     * @param  array|null  $options
+     * @return Cluster|array|null|false
+     */
+    #[Attributes\RedisCommand]
+    public function zmovemember(mixed $source, mixed $destination, array $members, ?array $options = null): Cluster|array|null|false {}
 
     /**
      * Pops one or more elements, that are member-score pairs, from the

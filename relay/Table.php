@@ -8,7 +8,7 @@ namespace Relay;
 class Table
 {
     /**
-     * Returns a key's value, or `null` if key doesn't exist.
+     * Returns a key's value, or `false` if key doesn't exist.
      *
      * @param  string  $key
      * @param  string|null  $namespace

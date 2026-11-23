@@ -953,6 +953,7 @@ const CLASSES = array (
   'Reflector' => 'Reflection/Reflector.php',
   'RegexIterator' => 'SPL/SPL.php',
   'Relay\\AdaptiveCache' => 'relay/AdaptiveCache.php',
+  'Relay\\BlessScanIterator' => 'relay/BlessScanIterator.php',
   'Relay\\Cluster' => 'relay/Cluster.php',
   'Relay\\Event' => 'relay/Event.php',
   'Relay\\Event\\Flushed' => 'relay/Events.php',

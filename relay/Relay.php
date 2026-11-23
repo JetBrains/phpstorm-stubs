@@ -12,14 +12,14 @@ class Relay
      *
      * @var string
      */
-    public const VERSION = "0.60.0";
+    public const VERSION = "0.62.0";
 
     /**
      * Relay's version.
      *
      * @var string
      */
-    public const Version = "0.60.0";
+    public const Version = "0.62.0";
 
     /**
      * Integer representing no compression algorithm.
@@ -83,6 +83,13 @@ class Relay
      * @var int
      */
     public const SERIALIZER_JSON = 4;
+
+    /**
+     * Integer representing the phpser serializer (requires a compatible loaded extension).
+     *
+     * @var int
+     */
+    public const SERIALIZER_PHPSER = 5;
 
     /**
      * Integer representing the atomic mode.
@@ -505,31 +512,31 @@ class Relay
      * Establishes a new connection to Redis, or reuses already opened connection.
      *
      * @example $context array{
-     *   use-cache: bool,                       // Whether to use in-memory caching
-     *   adaptive-cache: array{
-     *     enabled: bool,                       // Whether to disable adaptive caching
-     *     width: int,                          // Number of horizontal cells in the adaptive cache (Supported values: 512 - (2^31)
-     *     depth: int,                          // Number of vertical cells (Supported values: 1 - 8)
-     *     min_ratio: float,                    // Minimum read-write ratio before a key is cached
-     *     min_events: int,                     // Minimum number of reads + writes before a key should be cached
-     *     formula: string,                     // The formula used to calculate the read/write ratio for each key
+     *   'use-cache'?: bool,                    // Whether to use in-memory caching
+     *   'adaptive-cache'?: array{
+     *     enabled?: bool,                      // Whether to disable adaptive caching
+     *     width?: int,                         // Number of horizontal cells in the adaptive cache (Supported values: 512 - (2^31)
+     *     depth?: int,                         // Number of vertical cells (Supported values: 1 - 8)
+     *     minRatio?: float,                    // Minimum read-write ratio before a key is cached
+     *     minEvents?: int,                     // Minimum number of reads + writes before a key should be cached
+     *     formula?: string,                    // The formula used to calculate the read/write ratio for each key
      *   },
-     *   client-tracking: bool,                 // Whether to disable Redis' client tracking (write to in-memory cache only)
-     *   client-invalidations: bool,            // Whether to invalidate cached keys without waiting for client tracking
-     *   throw-on-error: bool,                  // Whether to throw exceptions when read errors occur
-     *   phpredis-compatibility: bool,          // Whether to use PhpRedis compatibility mode (https://relay.so/docs/compatibility)
-     *   persistent: bool,                      // Whether to use a persistent connection
-     *   prefix: string,                        // Prefix used for all keys
-     *   database: int,                         // Database index to switch to
-     *   auth: string|array<string>,            // Password or ACL credentials
-     *   max-retries: int,                      // Number of reconnection attempts when a command or connection fails
-     *   serializer: int,                       // The serializer to use (see `OPT_SERIALIZER_*` constants)
-     *   compression: int,                      // The compression algorithm to use (see `OPT_COMPRESSION_*` constants)
-     *   compression-level: int,                // The compression level to use
-     *   stream: array<string, mixed>,          // TLS options (see https://www.php.net/manual/en/context.ssl.php)
-     *   reply-literal: bool,                   // Whether to return reply literals like `OK` instead of `true`
-     *   null-mbulk-as-null: bool,              // Whether to return multibulk as empty array or `null`
-     *   capa-redirect: bool,                   // Whether to use CAPA redirects (https://valkey.io/commands/client-capa/)
+     *   'client-tracking'?: bool,              // Whether to disable Redis' client tracking (write to in-memory cache only)
+     *   'client-invalidations'?: bool,         // Whether to invalidate cached keys without waiting for client tracking
+     *   'throw-on-error'?: bool,               // Whether to throw exceptions when read errors occur
+     *   'phpredis-compatibility'?: bool,       // Whether to use PhpRedis compatibility mode (https://relay.so/docs/compatibility)
+     *   persistent?: bool,                     // Whether to use a persistent connection
+     *   prefix?: string,                       // Prefix used for all keys
+     *   database?: int,                        // Database index to switch to
+     *   auth?: string|array<string>,           // Password or ACL credentials
+     *   'max-retries'?: int,                   // Number of reconnection attempts when a command or connection fails
+     *   serializer?: int,                      // The serializer to use (see `OPT_SERIALIZER_*` constants)
+     *   compression?: int,                     // The compression algorithm to use (see `OPT_COMPRESSION_*` constants)
+     *   'compression-level'?: int,             // The compression level to use
+     *   stream?: array<string, mixed>,         // TLS options (see https://www.php.net/manual/en/context.ssl.php)
+     *   'reply-literal'?: bool,                // Whether to return reply literals like `OK` instead of `true`
+     *   'null-mbulk-as-null'?: bool,           // Whether to return multibulk as empty array or `null`
+     *   'capa-redirect'?: bool,                // Whether to use CAPA redirects (https://valkey.io/commands/client-capa/)
      * }|null $context
      *
      * @param  string|array|null  $host
@@ -613,6 +620,16 @@ class Relay
      */
     #[Attributes\Local]
     public function close(): bool {}
+
+    /**
+     * Closes and reopens the connection, restoring authentication and the selected database.
+     * Event listeners are preserved on success. Pending transactions and pipelines are discarded.
+     *
+     * @throws Exception if not connected or reconnection fails.
+     * @return bool
+     */
+    #[Attributes\Local]
+    public function reconnect(): bool {}
 
     /**
      * Closes the current connection.
@@ -1909,6 +1926,40 @@ class Relay
     public function bitpos(mixed $key, bool $bit, ?int $start = null, ?int $end = null, bool $bybit = false): Relay|int|false {}
 
     /**
+     * Return absolute bit offsets in an inclusive range, using BYTE units by default.
+     * Options accept 'BYTE', 'BIT', 'ZEROS', and 'LIMIT' => count (zero returns []).
+     * The last unit wins. BYTE limits finish the last byte, returning up to seven extra offsets.
+     *
+     * @param  mixed  $key
+     * @param  int  $start
+     * @param  int  $end
+     * @param  array|null  $options
+     * @return Relay|array|false
+     */
+    #[Attributes\RedisCommand, Attributes\Cached]
+    public function bitrangeintarray(mixed $key, int $start, int $end, ?array $options = null): Relay|array|false {}
+
+    /**
+     * Manage Redis 8.12 key eviction protection.
+     *
+     * SET and CLEAR require a directive (NO-EVICT) and return 1 when changed or 0 otherwise.
+     * GET takes no directive and returns the active flags. Missing keys are server errors.
+     * SCAN requires a directive and a null key. It returns a lazy BlessScanIterator of key
+     * names, starting at cursor zero. Keys retain their prefixes and, as with SCAN, may be
+     * returned more than once. Iteration errors throw.
+     * SCAN requires atomic mode both when creating the iterator and fetching pages.
+     * Options accepts ['COUNT' => positive integer] for SCAN only.
+     *
+     * @param  string  $command
+     * @param  string|int|null  $key Required for SET, CLEAR and GET; omit for SCAN.
+     * @param  string|null  $directive
+     * @param  array|null  $options
+     * @return Relay|int|array|BlessScanIterator|false
+     */
+    #[Attributes\RedisCommand]
+    public function bless(string $command, string|int|null $key = null, ?string $directive = null, ?array $options = null): mixed {}
+
+    /**
      * Sets or clears the bit at offset in the string value stored at key.
      *
      * @param  mixed  $key
@@ -2483,6 +2534,21 @@ class Relay
     public function blmpop(float $timeout, array $keys, string $from, int $count = 1): Relay|array|null|false {}
 
     /**
+     * Blocking variant of zmove. Timeout is in seconds; zero waits indefinitely.
+     *
+     * Options: ['MIN'] (default) or ['MAX'], plus ['COUNT' => n].
+     * Returns [member => score], or null on timeout (false in compatibility mode).
+     *
+     * @param  mixed  $source
+     * @param  mixed  $destination
+     * @param  mixed  $timeout
+     * @param  array|null  $options
+     * @return Relay|array|null|false
+     */
+    #[Attributes\RedisCommand]
+    public function bzmove(mixed $source, mixed $destination, mixed $timeout, ?array $options = null): Relay|array|null|false {}
+
+    /**
      * Remove and return members with scores in a sorted set or block until one is available.
      *
      * @param  float  $timeout
@@ -2504,6 +2570,36 @@ class Relay
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function lmpop(array $keys, string $from, int $count = 1): Relay|array|null|false {}
+
+    /**
+     * Move sorted-set members, preserving their scores. Defaults to one MIN member.
+     *
+     * Options: ['MIN'] or ['MAX'], or ['BYSCORE' => [min, max]], plus ['COUNT' => n].
+     * BYSCORE moves the whole matching range unless COUNT is supplied.
+     * Returns [member => score], or null when nothing moves (false in compatibility mode).
+     *
+     * @param  mixed  $source
+     * @param  mixed  $destination
+     * @param  array|null  $options
+     * @return Relay|array|null|false
+     */
+    #[Attributes\RedisCommand]
+    public function zmove(mixed $source, mixed $destination, ?array $options = null): Relay|array|null|false {}
+
+    /**
+     * Move specified sorted-set members, preserving scores and input order.
+     *
+     * Options: ['NX'] or ['XX'], referring to membership in the destination.
+     * Returns [member => score], or null when nothing moves (false in compatibility mode).
+     *
+     * @param  mixed  $source
+     * @param  mixed  $destination
+     * @param  array  $members
+     * @param  array|null  $options
+     * @return Relay|array|null|false
+     */
+    #[Attributes\RedisCommand]
+    public function zmovemember(mixed $source, mixed $destination, array $members, ?array $options = null): Relay|array|null|false {}
 
     /**
      * Pops one or more elements, that are member-score pairs, from the
@@ -2977,7 +3073,7 @@ class Relay
      * @param  mixed  $key
      * @param  null|int|float  $value
      * @param  array|null  $options
-     * @return Relay|array|false  An array of [new_value, applied_increment].
+     * @return Relay|array|false
      */
     public function increx(mixed $key, null|int|float $value = null, ?array $options = null): Relay|array|false {}
 
@@ -3628,6 +3724,104 @@ class Relay
     public function srem(mixed $set, mixed $member, mixed ...$members): Relay|int|false {}
 
     /**
+     * Set an expiration in seconds for one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  int  $expiry
+     * @param  array  $members
+     * @param  string|array|null  $exptype  NX, XX, GT, or LT; a token list; or null for no condition.
+     * @return Relay|array|false Per-member results: -2 missing, 0 condition unmet, 1 updated, 2 deleted.
+     */
+    #[Attributes\RedisCommand]
+    public function sexpire(mixed $key, int $expiry, array $members, string|array|null $exptype = null): Relay|array|false {}
+
+    /**
+     * Set an expiration in milliseconds for one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  int  $expiry
+     * @param  array  $members
+     * @param  string|array|null  $exptype  NX, XX, GT, or LT; a token list; or null for no condition.
+     * @return Relay|array|false Per-member results: -2 missing, 0 condition unmet, 1 updated, 2 deleted.
+     */
+    #[Attributes\RedisCommand]
+    public function spexpire(mixed $key, int $expiry, array $members, string|array|null $exptype = null): Relay|array|false {}
+
+    /**
+     * Set a Unix timestamp expiration in seconds for one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  int  $expiry
+     * @param  array  $members
+     * @param  string|array|null  $exptype  NX, XX, GT, or LT; a token list; or null for no condition.
+     * @return Relay|array|false Per-member results: -2 missing, 0 condition unmet, 1 updated, 2 deleted.
+     */
+    #[Attributes\RedisCommand]
+    public function sexpireat(mixed $key, int $expiry, array $members, string|array|null $exptype = null): Relay|array|false {}
+
+    /**
+     * Set a Unix timestamp expiration in milliseconds for one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  int  $expiry
+     * @param  array  $members
+     * @param  string|array|null  $exptype  NX, XX, GT, or LT; a token list; or null for no condition.
+     * @return Relay|array|false Per-member results: -2 missing, 0 condition unmet, 1 updated, 2 deleted.
+     */
+    #[Attributes\RedisCommand]
+    public function spexpireat(mixed $key, int $expiry, array $members, string|array|null $exptype = null): Relay|array|false {}
+
+    /**
+     * Remove expiration from one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @return Relay|array|false Per-member results: -2 missing, -1 no expiry, 1 expiry removed.
+     */
+    #[Attributes\RedisCommand]
+    public function spersist(mixed $key, array $members): Relay|array|false {}
+
+    /**
+     * Get the remaining lifetime in seconds of one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @return Relay|array|false Per-member values, -1 for no expiry, or -2 for a missing member.
+     */
+    #[Attributes\RedisCommand]
+    public function sttl(mixed $key, array $members): Relay|array|false {}
+
+    /**
+     * Get the remaining lifetime in milliseconds of one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @return Relay|array|false Per-member values, -1 for no expiry, or -2 for a missing member.
+     */
+    #[Attributes\RedisCommand]
+    public function spttl(mixed $key, array $members): Relay|array|false {}
+
+    /**
+     * Get the Unix expiration timestamps in seconds of one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @return Relay|array|false Per-member values, -1 for no expiry, or -2 for a missing member.
+     */
+    #[Attributes\RedisCommand]
+    public function sexpiretime(mixed $key, array $members): Relay|array|false {}
+
+    /**
+     * Get the Unix expiration timestamps in milliseconds of one or more set members.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @return Relay|array|false Per-member values, -1 for no expiry, or -2 for a missing member.
+     */
+    #[Attributes\RedisCommand]
+    public function spexpiretime(mixed $key, array $members): Relay|array|false {}
+
+    /**
      * Add the specified members to the set stored at `$key`.
      *
      * @param  mixed  $set
@@ -3637,6 +3831,19 @@ class Relay
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sadd(mixed $set, mixed $member, mixed ...$members): Relay|int|false {}
+
+    /**
+     * Add set members and optionally set their expiration.
+     * Existing member expirations are removed unless KEEPTTL is specified.
+     *
+     * @param  mixed  $key
+     * @param  array  $members
+     * @param  array|null  $options  MNX/MXX require all members to be absent/present.
+     *                             Use ['MNX', 'EX' => 60], or ['KEEPTTL']; expiry keys also accept PX, EXAT, PXAT.
+     * @return Relay|int|false 1 if anything changed, otherwise 0.
+     */
+    #[Attributes\RedisCommand]
+    public function saddex(mixed $key, array $members, ?array $options = null): Relay|int|false {}
 
     /**
      * Sort the elements in a list, set or sorted set.
