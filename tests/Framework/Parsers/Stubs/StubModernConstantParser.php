@@ -80,14 +80,16 @@ class StubModernConstantParser implements MultiEntityStubParserInterface
         // otherwise depend on the constant being defined in the host runtime.
         StubConstantRegistry::register($phpConstant->getId(), $phpConstant->getValue());
 
-        // Parse PhpDoc and version availability (@since/@removed)
+        // Parse version availability from PhpDoc (@since/@removed) + attributes
         $parsedPhpDoc = $this->phpDocParser->parseElementPhpDoc($node->getDocComment());
         $phpConstant->initStubsMetadata()->setPhpDoc($parsedPhpDoc->rawPhpDoc);
-        $versions = $this->versionParser->parseAvailableVersion($parsedPhpDoc, [], []);
+        $attributes = $node->getAttributes();
+        $imports = $node->getImports();
+        $versions = $this->versionParser->parseAvailableVersion($parsedPhpDoc, $attributes, $imports);
         $phpConstant->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
         $phpConstant->initStubsMetadata()->setRemovedVersion($versions['removedVersion']);
 
-        $deprecation = $this->deprecationParser->parseDeprecation([], [], $parsedPhpDoc);
+        $deprecation = $this->deprecationParser->parseDeprecation($attributes, $imports, $parsedPhpDoc);
         $phpConstant->setDeprecated($deprecation->isDeprecated);
         $phpConstant->initStubsMetadata()->setDeprecatedSinceVersion($deprecation->sinceVersion);
 

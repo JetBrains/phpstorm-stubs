@@ -3,6 +3,7 @@
 namespace StubTests\Framework\Parsers\Stubs\Adapters\Nikic;
 
 use PhpParser\Comment\Doc;
+use PhpParser\Node\AttributeGroup;
 use PhpParser\Node\Const_;
 use StubTests\Framework\Parsers\Stubs\Nodes\ConstantDefinitionNode;
 use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
@@ -17,6 +18,8 @@ class NikicGlobalConstantNode implements ConstantDefinitionNode
     use NikicExprValueResolverTrait;
     private Const_ $const;
     private ?Doc $docComment;
+    private array $attrGroups;
+    private array $imports;
     private string $namespace = '\\';
 
     /**
@@ -25,11 +28,16 @@ class NikicGlobalConstantNode implements ConstantDefinitionNode
      *                             Const_ statement rather than to the individual constant.
      *                             A single doc comment is shared by all constants declared
      *                             together (e.g. const A = 1, B = 2).
+     * @param AttributeGroup[] $attrGroups The attribute groups, which nikic attaches to the
+     *                                     wrapping Const_ statement as well.
+     * @param array $imports Map of import aliases to fully qualified names
      */
-    public function __construct(Const_ $const, ?Doc $docComment = null)
+    public function __construct(Const_ $const, ?Doc $docComment = null, array $attrGroups = [], array $imports = [])
     {
         $this->const = $const;
         $this->docComment = $docComment;
+        $this->attrGroups = $attrGroups;
+        $this->imports = $imports;
     }
 
     public function getName(): string
@@ -59,5 +67,21 @@ class NikicGlobalConstantNode implements ConstantDefinitionNode
     public function setNamespace(string $namespace): void
     {
         $this->namespace = $namespace;
+    }
+
+    public function getAttributes(): array
+    {
+        $attributes = [];
+        foreach ($this->attrGroups as $attrGroup) {
+            foreach ($attrGroup->attrs as $attr) {
+                $attributes[] = new NikicAttributeNode($attr);
+            }
+        }
+        return $attributes;
+    }
+
+    public function getImports(): array
+    {
+        return $this->imports;
     }
 }

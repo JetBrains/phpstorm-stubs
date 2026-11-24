@@ -19,7 +19,7 @@ use phpDocumentor\Reflection\Types\Array_;
 use phpDocumentor\Reflection\Types\Context;
 use phpDocumentor\Reflection\Types\Nullable;
 use StubTests\Framework\Parsers\Stubs\Nodes\DocCommentNode;
-use StubTests\Framework\Parsers\Stubs\Versions\DeprecationParser;
+use StubTests\Framework\Runner\PhpVersions;
 
 /**
  * PhpDoc parser implementation using phpDocumentor library.
@@ -518,7 +518,7 @@ class PhpDocumentorParser implements PhpDocParserInterface
      * The leading version vector is a PHP language level on most entries (`@_deprecated 7.1`) but a
      * library version on others (`@_deprecated 2.3.0 use ... instead`, for PECL extensions versioned
      * independently of PHP), so only recognised PHP versions are accepted —
-     * see {@see DeprecationParser::normalizePhpVersion()}. Anything else yields null, meaning
+     * see {@see PhpVersions::normalizePhpVersion()}. Anything else yields null, meaning
      * "deprecated regardless of version", which is how a bare `@_deprecated` already behaves.
      */
     private function extractDeprecatedSinceVersion(DocBlock $docBlock): ?string
@@ -535,6 +535,6 @@ class PhpDocumentorParser implements PhpDocParserInterface
 
         $version = $deprecatedTag->getVersion();
 
-        return $version === null ? null : DeprecationParser::normalizePhpVersion($version);
+        return $version === null ? null : PhpVersions::normalizePhpVersion($version);
     }
 }

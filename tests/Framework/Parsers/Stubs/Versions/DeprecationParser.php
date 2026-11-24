@@ -4,7 +4,6 @@ namespace StubTests\Framework\Parsers\Stubs\Versions;
 
 use StubTests\Framework\Parsers\Stubs\Nodes\AttributeNode;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\ParsedPhpDoc;
-use StubTests\Framework\Runner\PhpVersions;
 
 /**
  * Extracts deprecation state — the flag and the PHP version it starts at — from a stub element.
@@ -98,23 +97,5 @@ class DeprecationParser
         $since = trim((string)$since);
 
         return $since === '' ? null : $since;
-    }
-
-    /**
-     * Is `$version` one of the PHP versions this suite validates?
-     *
-     * Used to filter the `@_deprecated` PhpDoc tag, whose leading token is a PHP version on some
-     * entries (`@_deprecated 7.1`) but a library version on others (`@_deprecated 2.3.0 use ...`,
-     * for PECL extensions that version independently of PHP). Only recognised PHP versions are
-     * accepted, so a library version is never read as a language level. A patch component is
-     * tolerated — `@_deprecated 7.0.7` narrows to 7.0 — because deprecation is tracked per minor.
-     */
-    public static function normalizePhpVersion(string $version): ?string
-    {
-        if (!preg_match('/^(\d+\.\d+)(?:\.\d+)?$/', $version, $matches)) {
-            return null;
-        }
-
-        return PhpVersions::tryFrom($matches[1])?->value;
     }
 }

@@ -33,4 +33,18 @@ interface ConstantDefinitionNode
      * Set the namespace for this constant.
      */
     public function setNamespace(string $namespace): void;
+
+    /**
+     * Get the attributes on the declaration (PHP 8.5+). A define() call has none.
+     *
+     * @return AttributeNode[]
+     */
+    public function getAttributes(): array;
+
+    /**
+     * Get the imports (use statements) the attribute names resolve against.
+     *
+     * @return array Map of ['Alias' => 'Fully\\Qualified\\Name']
+     */
+    public function getImports(): array;
 }
