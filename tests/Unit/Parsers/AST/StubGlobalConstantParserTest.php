@@ -2,6 +2,7 @@
 
 namespace StubTests\Unit\Parsers\AST;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use StubTests\Framework\Model\PHPConstant;
 use StubTests\Framework\Parsers\Stubs\StubDefineConstantParser;
@@ -426,5 +427,41 @@ PHP;
 
         self::assertTrue($constant->isDeprecated());
         self::assertSame('8.4', $constant->getStubsMetadata()->getDeprecatedSinceVersion());
+    }
+
+    public function testConstStatementWithDeprecatedAttributeIsDeprecatedSinceThatVersion()
+    {
+        [$constant] = $this->modernParser->parse("<?php\n#[\\Deprecated(since: '8.5')]\nconst FOO = 1;");
+
+        self::assertTrue($constant->isDeprecated());
+        self::assertSame('8.5', $constant->getStubsMetadata()->getDeprecatedSinceVersion());
+    }
+
+    public static function importedDeprecatedAttributeProvider(): array
+    {
+        return [
+            'file without namespace' => ["<?php\nuse JetBrains\\PhpStorm\\Deprecated;\n#[Deprecated('reason', 'replacement', '8.4')]\nconst FOO = 1;"],
+            'namespace' => ["<?php\nnamespace Foo;\nuse JetBrains\\PhpStorm\\Deprecated;\n#[Deprecated('reason', 'replacement', '8.4')]\nconst BAR = 1;"],
+        ];
+    }
+
+    /**
+     * The JetBrains attribute takes `since` third and the built-in one second, so the version is
+     * only right when the name resolves through the file's imports.
+     */
+    #[DataProvider('importedDeprecatedAttributeProvider')]
+    public function testConstStatementResolvesDeprecatedAttributeThroughImports(string $stubCode)
+    {
+        [$constant] = $this->modernParser->parse($stubCode);
+
+        self::assertTrue($constant->isDeprecated());
+        self::assertSame('8.4', $constant->getStubsMetadata()->getDeprecatedSinceVersion());
+    }
+
+    public function testConstStatementWithElementAvailableAttributeIsAvailableSinceThatVersion()
+    {
+        [$constant] = $this->modernParser->parse("<?php\nuse JetBrains\\PhpStorm\\Internal\\PhpStormStubsElementAvailable;\n#[PhpStormStubsElementAvailable(from: '8.5')]\nconst FOO = 1;");
+
+        self::assertSame('8.5', $constant->getStubsMetadata()->getSinceVersion());
     }
 }

@@ -85,4 +85,14 @@ class NikicConstantDefinitionNode implements ConstantDefinitionNode
     {
         $this->namespace = $namespace;
     }
+
+    public function getAttributes(): array
+    {
+        return [];
+    }
+
+    public function getImports(): array
+    {
+        return [];
+    }
 }

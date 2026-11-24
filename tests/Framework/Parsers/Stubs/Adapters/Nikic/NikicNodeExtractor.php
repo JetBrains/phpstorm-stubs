@@ -392,13 +392,15 @@ class NikicNodeExtractor implements NodeExtractorInterface
         $ast = $this->parseCached($stubCode);
         $constants = [];
         $currentNamespace = '\\';
+        $rootImports = $this->extractImports($ast);
 
         foreach ($ast as $node) {
             if ($node instanceof Namespace_) {
                 $currentNamespace = $node->name ? '\\' . $node->name->toString() : '\\';
-                $this->extractConstFromStatements($node->stmts, $currentNamespace, $constants);
+                $currentImports = $this->extractImports($node->stmts);
+                $this->extractConstFromStatements($node->stmts, $currentNamespace, $currentImports, $constants);
             } else {
-                $this->extractConstFromStatements([$node], $currentNamespace, $constants);
+                $this->extractConstFromStatements([$node], $currentNamespace, $rootImports, $constants);
             }
         }
 
@@ -420,7 +422,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
         }
     }
 
-    private function extractConstFromStatements(array $stmts, string $namespace, array &$constants): void
+    private function extractConstFromStatements(array $stmts, string $namespace, array $imports, array &$constants): void
     {
         foreach ($stmts as $stmt) {
             if ($stmt instanceof \PhpParser\Node\Stmt\Const_) {
@@ -428,7 +430,7 @@ class NikicNodeExtractor implements NodeExtractorInterface
                 // The doc comment is attached to the Const_ statement and shared by all of them.
                 $docComment = $stmt->getDocComment();
                 foreach ($stmt->consts as $const) {
-                    $constantNode = new NikicGlobalConstantNode($const, $docComment);
+                    $constantNode = new NikicGlobalConstantNode($const, $docComment, $stmt->attrGroups, $imports);
                     $constantNode->setNamespace($namespace);
                     $constants[] = $constantNode;
                 }

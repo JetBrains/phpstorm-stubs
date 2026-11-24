@@ -20,4 +20,17 @@ enum PhpVersions: string
     case PHP_8_6 = '8.6';
     const EARLIEST = self::PHP_5_6;
     const LATEST = self::PHP_8_6;
+
+    /**
+     * Narrows a version string to the PHP version it names, or null when this suite validates
+     * no such version. A patch component is tolerated: `7.0.7` narrows to `7.0`.
+     */
+    public static function normalizePhpVersion(string $version): ?string
+    {
+        if (!preg_match('/^(\d+\.\d+)(?:\.\d+)?$/', $version, $matches)) {
+            return null;
+        }
+
+        return self::tryFrom($matches[1])?->value;
+    }
 }
