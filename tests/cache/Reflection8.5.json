@@ -192946,7 +192946,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.5.12",
+        "value": "8.5.13",
         "namespace": "\\"
     },
     {
@@ -192967,7 +192967,7 @@
         "_type": "PHPConstant",
         "name": "PHP_RELEASE_VERSION",
         "id": "\\PHP_RELEASE_VERSION",
-        "value": 12,
+        "value": 13,
         "namespace": "\\"
     },
     {
@@ -192981,14 +192981,14 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION_ID",
         "id": "\\PHP_VERSION_ID",
-        "value": 80512,
+        "value": 80513,
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "PHP_BUILD_DATE",
         "id": "\\PHP_BUILD_DATE",
-        "value": "Nov  5 2026 18:58:32",
+        "value": "Nov 19 2026 14:29:50",
         "namespace": "\\"
     },
     {
@@ -194343,14 +194343,14 @@
         "_type": "PHPConstant",
         "name": "ZLIB_VERSION",
         "id": "\\ZLIB_VERSION",
-        "value": "1.3.2",
+        "value": "1.4",
         "namespace": "\\"
     },
     {
         "_type": "PHPConstant",
         "name": "ZLIB_VERNUM",
         "id": "\\ZLIB_VERNUM",
-        "value": 4896,
+        "value": 5120,
         "namespace": "\\"
     },
     {
