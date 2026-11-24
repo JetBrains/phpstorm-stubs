@@ -200607,7 +200607,7 @@
         "_type": "PHPConstant",
         "name": "PHP_VERSION",
         "id": "\\PHP_VERSION",
-        "value": "8.6.0RC7",
+        "value": "8.6.0",
         "namespace": "\\"
     },
     {
@@ -200635,7 +200635,7 @@
         "_type": "PHPConstant",
         "name": "PHP_EXTRA_VERSION",
         "id": "\\PHP_EXTRA_VERSION",
-        "value": "RC7",
+        "value": "",
         "namespace": "\\"
     },
     {
@@ -200649,7 +200649,7 @@
         "_type": "PHPConstant",
         "name": "PHP_BUILD_DATE",
         "id": "\\PHP_BUILD_DATE",
-        "value": "Nov 13 2026 18:46:55",
+        "value": "Nov 19 2026 15:18:16",
         "namespace": "\\"
     },
     {
