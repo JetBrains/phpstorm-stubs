@@ -12,7 +12,7 @@
  * @param string   $pathname         <p>File or directory to watch</p>
  * @param int      $mask             <p>Events to watch for. See {@link https://php.net/manual/en/inotify.constants.php Predefined Constants}.</p>
  *
- * @return int a unique (<i>inotify</i> instance-wide) watch descriptor.
+ * @return int|false a unique (<i>inotify</i> instance-wide) watch descriptor, or false on failure.
  */
 function inotify_add_watch($inotify_instance, $pathname, $mask) {}
 
